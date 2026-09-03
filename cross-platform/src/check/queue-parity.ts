@@ -201,7 +201,10 @@ for (const c of fx.calibrationCases) {
   const n = Cal.narrationFor("scratch-voice", scratch, renderedDir);
   check(n !== undefined, "constructed calibration: a take is found");
   if (n !== undefined) {
-    const rel = n.url.startsWith(renderedDir + "/") ? n.url.slice(renderedDir.length + 1) : n.url;
+    // Relative to the scratch render directory here, not the library root --
+    // but the same Windows trap: hand-stripping `renderedDir + "/"` no-ops
+    // where "\" is the separator and leaks the absolute temp path.
+    const rel = toPortableRelative(n.url, renderedDir) ?? n.url;
     eq([n.kind, rel, Cal.narrationDetail(n)],
        [fx.takesFixtureCase.narration!.kind, fx.takesFixtureCase.narration!.url,
         fx.takesFixtureCase.narration!.detail],
