@@ -9,6 +9,7 @@ import * as SB from "../core/stationBook.js";
 import * as SP from "../core/stationPromotion.js";
 import * as CG from "../core/contentGraph.js";
 import { scan, type Library } from "../core/library.js";
+import { toPortableRelative } from "../core/path.js";
 import { parse, type ScriptDoc } from "../core/scriptDoc.js";
 import type { JournalEntry } from "../core/journal.js";
 import type { Level } from "../core/level.js";
@@ -141,7 +142,12 @@ for (const c of fx.promotedCases) {
 // ---------------------------------------------------------------- content graph
 
 const lib = scan(root);
-const rel = (p: string) => (p.startsWith(root + "/") ? p.slice(root.length + 1) : p);
+// The fixture records consumer paths the way Swift writes them: relative to
+// the library root and "/"-separated. Stripping `root + "/"` by hand only
+// works where "/" is the host separator -- on Windows the prefix never
+// matches and the whole absolute path passes through instead.
+// `toPortableRelative` is the same conversion the other suites already use.
+const rel = (p: string) => toPortableRelative(p, root) ?? p;
 const load = (f: string): ScriptDoc | undefined => {
   try { return parse(readFileSync(f, "utf8")); } catch { return undefined; }
 };

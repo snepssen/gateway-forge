@@ -15,6 +15,7 @@ import * as AQ from "../core/assemblyQueueStore.js";
 import * as OP from "../core/opportunisticRenderPolicy.js";
 import * as SM from "../core/sessionMedia.js";
 import { scan } from "../core/library.js";
+import { toPortableRelative } from "../core/path.js";
 import type { Level } from "../core/level.js";
 
 interface Fixture {
@@ -172,7 +173,10 @@ for (const c of fx.calibrationCases) {
   const n = Cal.narrationFor(c.voice, root, renderedDir);
   check((n !== undefined) === (c.narration !== undefined), `calibration ${c.name} found`);
   if (n === undefined || c.narration === undefined) continue;
-  const rel = n.url.startsWith(root + "/") ? n.url.slice(root.length + 1) : n.url;
+  // Slash-separated portable relative, the way Swift wrote the fixture --
+  // a naive `startsWith(root + "/")` no-ops on Windows and leaks the
+  // absolute host path into the comparison.
+  const rel = toPortableRelative(n.url, root) ?? n.url;
   eq([n.kind, rel, Cal.narrationDetail(n)], [c.narration.kind, c.narration.url, c.narration.detail],
      `calibration ${c.name} narration`);
   const plan = Cal.makeCalibrationPlan(n);
