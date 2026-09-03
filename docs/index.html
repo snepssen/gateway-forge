@@ -153,6 +153,8 @@ td.mono{font-variant-numeric:tabular-nums;font-family:"JetBrains Mono",monospace
 .card{background:var(--surface);padding:24px 22px;display:flex;flex-direction:column;gap:9px}
 .card h3{margin:0}
 .card p{font-size:15px;margin:0;color:var(--muted)}
+.card .meta{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--muted)}
+.card .get{margin-top:auto;padding-top:14px;font-weight:600;font-size:14px}
 .note{
   border-left:2px solid var(--signal);padding:2px 0 2px 18px;margin:26px 0 0;
   font-size:16px;color:var(--muted);max-width:var(--measure);
@@ -174,6 +176,10 @@ pre{
 }
 
 /* -------------------------------------------------------------- installer */
+h3.handoff{
+  margin:40px 0 14px;font-size:13px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted);
+}
 .install{display:grid;grid-template-columns:minmax(0,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:26px 0 0}
 .cmd{background:var(--surface);padding:16px 18px 18px;min-width:0}
 .cmdhead{display:flex;align-items:center;justify-content:space-between;gap:14px}
@@ -262,13 +268,20 @@ footer{padding:44px 0 70px;color:var(--muted);font-size:14px}
 </section>
 
 <section id="screenshots">
-  <p class="eyebrow">Structure, not scenery</p>
+  <p class="eyebrow">The app</p>
   <h2>Every level is reachable, and the floor is F1</h2>
-  <p>This is the app's own ladder rather than a screenshot of it — the library a public checkout ships with is deliberately bare (the Institute's transcripts aren't the author's to redistribute), so a screenshot of a full one would show more than this release actually contains. What's real and shown here: forty-nine levels, one trunk, and the spurs branching off it.</p>
+  <p>Shots below are a genuinely fresh install — this public checkout's own bundled library, zero visits, zero journal entries. Not staged: the Institute's transcripts aren't the author's to redistribute, so a public build never has more to show than this.</p>
+  <div class="shot"><img src="img/home.png" alt="Gateway Forge's Home screen: Continue, Build a session, Practice stats all at zero on a fresh install, Recent sessions empty"></div>
+  <p class="cap">Home. The climb rail on the left lists every Focus level whether or not anything has been written for it yet — an empty one is a place awaiting content, never an error state.</p>
+  <div class="pair">
+    <div class="shot"><img src="img/focus-f10.png" alt="The Focus 10 level page: published description, measured signal, visits, and getting-here guidance"></div>
+    <div class="shot"><img src="img/studio.png" alt="The Studio destinations: Production, Session Plans, Listening, Voice, Library, Recently Deleted, System"></div>
+  </div>
+  <p class="cap">A level page — published description kept separate from what a listener finds, the measured binaural signal, and how to get there — beside Studio, where building and maintenance live so Home never has to.</p>
   <div class="ladder-wrap">
     <div class="ladder" id="ladderSvg"></div>
   </div>
-  <p class="cap"><span style="color:var(--signal)">■</span> the trunk — the F27 tape's own seven climbs, F1 through F27 — with spurs branching where the tapes detour: F11 off F10, F18 off F15, F22 off F21, F24 off F23, then F27 continuing to F34, F35, F42, F49. Every level is an album whether or not anything has been written yet; an empty one is a place awaiting content, never an error state.</p>
+  <p class="cap"><span style="color:var(--signal)">■</span> the trunk — the F27 tape's own seven climbs, F1 through F27 — with spurs branching where the tapes detour: F11 off F10, F18 off F15, F22 off F21, F24 off F23, then F27 continuing to F34, F35, F42, F49.</p>
   <div class="note">The relationship is enforced, not just drawn: a check derives the return path by reversing the climb, so adding a level and forgetting its way back fails the build rather than shipping quietly broken.</div>
 </section>
 
@@ -310,9 +323,20 @@ footer{padding:44px 0 70px;color:var(--muted);font-size:14px}
 
 <section id="downloads">
   <p class="eyebrow">Downloads</p>
-  <h2>Build it yourself</h2>
-  <p class="lede">There's no packaged release yet — this is source-available, not a shipped binary. Clone it, run the build script, and it produces a signed (ad-hoc) <code>Gateway Forge.app</code> from a clean checkout.</p>
+  <h2>Get it</h2>
+  <p class="lede">A signed (ad-hoc) build, straight from this repository's own release tag — the same <code>./build.sh</code> anyone can run themselves, just already run.</p>
 
+  <div class="grid">
+    <div class="card">
+      <h3>macOS</h3>
+      <div class="meta">Apple Silicon · 145 MiB · v5.0.0</div>
+      <p>Gatekeeper will refuse an unsigned download by default — right-click the <code>.app</code> and choose Open once, or clear the quarantine flag from Terminal, either of which says you mean to run it.</p>
+      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/Gateway-Forge-macOS.zip">Download .app →</a></div>
+    </div>
+  </div>
+  <div class="note"><code>xattr -cr "Gateway Forge.app"</code> is the Terminal route, run once after unzipping. SHA-256 of the archive is published on the <a href="https://github.com/snepssen/gateway-forge/releases/latest">release page</a> — check it against what you downloaded before you clear anything.</div>
+
+  <h3 class="handoff">Or build it yourself</h3>
   <div class="install">
     <div class="cmd">
       <div class="cmdhead">

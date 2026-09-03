@@ -1073,60 +1073,44 @@
       ]
     },
     {
-      "exists" : true,
+      "exists" : false,
       "key" : "F3",
       "notePath" : "focus/F3/notes.md",
       "renders" : [
-        "focus/F3/renders/2026-08-26-121910-continuous-f3-7cf5d029",
-        "focus/F3/renders/2026-08-26-122142-continuous-f3-f2a2da9c",
-        "focus/F3/renders/2026-08-26-123157-continuous-f3-73b8a6ff",
-        "focus/F3/renders/2026-08-26-123632-continuous-f3-00f0a1ae",
-        "focus/F3/renders/2026-08-26-132012-continuous-f3-44d74987",
-        "focus/F3/renders/2026-08-26-f3-visit"
+
       ],
       "scripts" : [
 
       ]
     },
     {
-      "exists" : true,
+      "exists" : false,
       "key" : "F10",
       "notePath" : "focus/F10/notes.md",
       "renders" : [
-        "focus/F10/renders/2026-09-01-203010-advanced-focus-10-9fff7165",
-        "focus/F10/renders/2026-09-02-040522-release-and-recharge-d2384752",
-        "focus/F10/renders/2026-09-02-103820-exploration-sleep-04faf809",
-        "focus/F10/renders/2026-09-02-103839-free-flow-10-3f6bbeef",
-        "focus/F10/renders/2026-09-02-104100-color-breathing-cae3960f",
-        "focus/F10/renders/2026-09-02-104116-energy-bar-tool-9c66383f",
-        "focus/F10/renders/2026-09-02-104135-living-body-map-1b772a2e"
+
       ],
       "scripts" : [
 
       ]
     },
     {
-      "exists" : true,
+      "exists" : false,
       "key" : "F11",
       "notePath" : "focus/F11/notes.md",
       "renders" : [
-        "focus/F11/renders/2026-08-26-f11-visit",
-        "focus/F11/renders/2026-09-01-020304-continuous-f11-fe4c50ca"
+
       ],
       "scripts" : [
 
       ]
     },
     {
-      "exists" : true,
+      "exists" : false,
       "key" : "F12",
       "notePath" : "focus/F12/notes.md",
       "renders" : [
-        "focus/F12/renders/2026-08-31-104549-continuous-f12-1bacb584",
-        "focus/F12/renders/2026-09-01-021555-continuous-f12-661f0753",
-        "focus/F12/renders/2026-09-02-103917-f12-visit-54134d29",
-        "focus/F12/renders/2026-09-02-104004-problem-solving-2634536f",
-        "focus/F12/renders/2026-09-02-104019-one-month-patterning-d59b6a0d"
+
       ],
       "scripts" : [
 
@@ -1137,77 +1121,73 @@
       "key" : "F15",
       "notePath" : "focus/F15/notes.md",
       "renders" : [
-        "focus/F15/renders/2026-08-26-f15-visit"
+
       ],
       "scripts" : [
         "focus/F15/scripts/void.gws"
       ]
     },
     {
-      "exists" : true,
+      "exists" : false,
       "key" : "F18",
       "notePath" : "focus/F18/notes.md",
       "renders" : [
-        "focus/F18/renders/2026-08-26-f18-visit",
-        "focus/F18/renders/2026-09-02-103454-continuous-f18-22f1d696",
-        "focus/F18/renders/2026-09-02-103650-continuous-f18-9fc5618f",
-        "focus/F18/renders/2026-09-02-103650-f18-visit-37a5aa13",
-        "focus/F18/renders/2026-09-02-103650-f18-visit-ab83c432"
+
       ],
       "scripts" : [
 
       ]
     },
     {
-      "exists" : true,
+      "exists" : false,
       "key" : "F21",
       "notePath" : "focus/F21/notes.md",
       "renders" : [
-        "focus/F21/renders/2026-08-26-f21-visit"
+
       ],
       "scripts" : [
 
       ]
     },
     {
-      "exists" : true,
+      "exists" : false,
       "key" : "F22",
       "notePath" : "focus/F22/notes.md",
       "renders" : [
-        "focus/F22/renders/2026-08-26-f22-visit"
+
       ],
       "scripts" : [
 
       ]
     },
     {
-      "exists" : true,
+      "exists" : false,
       "key" : "F23",
       "notePath" : "focus/F23/notes.md",
       "renders" : [
-        "focus/F23/renders/2026-08-26-f23-visit"
+
       ],
       "scripts" : [
 
       ]
     },
     {
-      "exists" : true,
+      "exists" : false,
       "key" : "F24",
       "notePath" : "focus/F24/notes.md",
       "renders" : [
-        "focus/F24/renders/2026-08-26-f24-visit"
+
       ],
       "scripts" : [
 
       ]
     },
     {
-      "exists" : true,
+      "exists" : false,
       "key" : "F25",
       "notePath" : "focus/F25/notes.md",
       "renders" : [
-        "focus/F25/renders/2026-08-26-f25-visit"
+
       ],
       "scripts" : [
 
@@ -1218,7 +1198,7 @@
       "key" : "F26",
       "notePath" : "focus/F26/notes.md",
       "renders" : [
-        "focus/F26/renders/2026-08-26-f26-visit"
+
       ],
       "scripts" : [
 
@@ -1229,68 +1209,51 @@
       "key" : "F27",
       "notePath" : "focus/F27/notes.md",
       "renders" : [
-        "focus/F27/renders/2026-08-26-104002-castle-bc28388d",
-        "focus/F27/renders/2026-08-26-f27-visit",
-        "focus/F27/renders/2026-08-30-054710-continuous-f27-cf70ec3d",
-        "focus/F27/renders/2026-08-30-054900-continuous-f27-0a1b2926"
+
       ],
       "scripts" : [
         "focus/F27/scripts/castle.gws"
       ]
     },
     {
-      "exists" : true,
+      "exists" : false,
       "key" : "F34",
       "notePath" : "focus/F34/notes.md",
       "renders" : [
-        "focus/F34/renders/2026-08-26-f34-visit",
-        "focus/F34/renders/2026-09-01-212643-f34-visit-42f62888"
+
       ],
       "scripts" : [
 
       ]
     },
     {
-      "exists" : true,
+      "exists" : false,
       "key" : "F35",
       "notePath" : "focus/F35/notes.md",
       "renders" : [
-        "focus/F35/renders/2026-08-26-f35-visit"
+
       ],
       "scripts" : [
 
       ]
     },
     {
-      "exists" : true,
+      "exists" : false,
       "key" : "F42",
       "notePath" : "focus/F42/notes.md",
       "renders" : [
-        "focus/F42/renders/2026-08-26-f42-visit"
+
       ],
       "scripts" : [
 
       ]
     },
     {
-      "exists" : true,
+      "exists" : false,
       "key" : "F49",
       "notePath" : "focus/F49/notes.md",
       "renders" : [
-        "focus/F49/renders/2026-08-26-f49-visit"
-      ],
-      "scripts" : [
 
-      ]
-    },
-    {
-      "exists" : true,
-      "key" : "F13",
-      "notePath" : "focus/F13/notes.md",
-      "renders" : [
-        "focus/F13/renders/2026-08-30-215020-continuous-f13-87e3c130",
-        "focus/F13/renders/2026-08-31-033037-continuous-f13-dc43a6cf",
-        "focus/F13/renders/2026-09-02-031803-continuous-f13-ba802011"
       ],
       "scripts" : [
 
@@ -1361,64 +1324,6 @@
       "levels" : [
         "F10",
         "F12",
-        "F21",
-        "F22"
-      ],
-      "mentions" : [
-
-      ],
-      "path" : "library/reference/contenteo-phasing-model.md",
-      "source" : "Contenteo, 15 May 2011 (diagram)",
-      "title" : "Contenteo's Model — Basic Astral Projection Zone"
-    },
-    {
-      "kind" : "model",
-      "levels" : [
-        "F1",
-        "F10",
-        "F11",
-        "F12",
-        "F15",
-        "F18",
-        "F21",
-        "F22",
-        "F23",
-        "F24",
-        "F25",
-        "F26",
-        "F27",
-        "F34",
-        "F35",
-        "F42",
-        "F49"
-      ],
-      "mentions" : [
-        "F1",
-        "F10",
-        "F11",
-        "F12",
-        "F15",
-        "F18",
-        "F21",
-        "F22",
-        "F23",
-        "F24",
-        "F25",
-        "F26",
-        "F27",
-        "F34",
-        "F42",
-        "F49"
-      ],
-      "path" : "library/reference/focus-levels-overview.md",
-      "source" : "PDF overview of the Monroe Institute focus levels, OCR'd from screenshots",
-      "title" : "Focus Levels — Institute overview"
-    },
-    {
-      "kind" : "model",
-      "levels" : [
-        "F10",
-        "F12",
         "F15",
         "F21",
         "F23",
@@ -1435,22 +1340,6 @@
       "path" : "library/reference/measured-beats.md",
       "source" : "FFT analysis of all 50 Gateway Experience tapes, completed 2026-08; the app now generates the bed live and no further measurement is needed",
       "title" : "Measured Hemi-Sync signals — what the tapes actually play"
-    },
-    {
-      "kind" : "model",
-      "levels" : [
-        "F23",
-        "F24",
-        "F25",
-        "F26",
-        "F27"
-      ],
-      "mentions" : [
-
-      ],
-      "path" : "library/reference/monroe-rings.md",
-      "source" : "Robert Monroe, Far Journeys (table)",
-      "title" : "The Rings — inward and outward flow"
     }
   ],
   "segments" : [
@@ -3617,768 +3506,7 @@
     "cd4-8-the-absolute"
   ],
   "sources" : [
-    {
-      "kind" : "transcript",
-      "levels" : [
 
-      ],
-      "mentions" : [
-        "F3"
-      ],
-      "path" : "library/sources/gateway-experience/wave-i-discovery/cd1-1-orientation.md",
-      "source" : "The Gateway Experience — Wave I - Discovery (Monroe Institute)",
-      "title" : "CD1 - 1 - Orientation"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F10"
-      ],
-      "mentions" : [
-        "F10"
-      ],
-      "path" : "library/sources/gateway-experience/wave-i-discovery/cd1-2-introduction-to-focus-10.md",
-      "source" : "The Gateway Experience — Wave I - Discovery (Monroe Institute)",
-      "title" : "CD1 - 2 - Introduction to Focus 10"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F10"
-      ],
-      "mentions" : [
-        "F10"
-      ],
-      "path" : "library/sources/gateway-experience/wave-i-discovery/cd2-3-advanced-focus-10.md",
-      "source" : "The Gateway Experience — Wave I - Discovery (Monroe Institute)",
-      "title" : "CD2 - 3 - Advanced Focus 10"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F10"
-      ],
-      "mentions" : [
-        "F10"
-      ],
-      "path" : "library/sources/gateway-experience/wave-i-discovery/cd2-4-release-and-recharge.md",
-      "source" : "The Gateway Experience — Wave I - Discovery (Monroe Institute)",
-      "title" : "CD2 - 4 - Release and Recharge"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F10"
-      ],
-      "mentions" : [
-        "F10"
-      ],
-      "path" : "library/sources/gateway-experience/wave-i-discovery/cd3-5-exploration-sleep.md",
-      "source" : "The Gateway Experience — Wave I - Discovery (Monroe Institute)",
-      "title" : "CD3 - 5 - Exploration, Sleep"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-
-      ],
-      "mentions" : [
-        "F10"
-      ],
-      "path" : "library/sources/gateway-experience/wave-i-discovery/cd3-6-free-flow-10.md",
-      "source" : "The Gateway Experience — Wave I - Discovery (Monroe Institute)",
-      "title" : "CD3 - 6 - Free Flow 10"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F12"
-      ],
-      "mentions" : [
-        "F10",
-        "F12"
-      ],
-      "path" : "library/sources/gateway-experience/wave-ii-threshold/cd1-1-introduction-to-focus-12.md",
-      "source" : "The Gateway Experience — Wave II - Threshold (Monroe Institute)",
-      "title" : "CD1 - 1 - Introduction to Focus 12"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F12"
-      ],
-      "mentions" : [
-        "F10",
-        "F12"
-      ],
-      "path" : "library/sources/gateway-experience/wave-ii-threshold/cd1-2-problem-solving.md",
-      "source" : "The Gateway Experience — Wave II - Threshold (Monroe Institute)",
-      "title" : "CD1 - 2 - Problem Solving"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F10"
-      ],
-      "mentions" : [
-        "F10",
-        "F12"
-      ],
-      "path" : "library/sources/gateway-experience/wave-ii-threshold/cd2-3-one-month-patterning.md",
-      "source" : "The Gateway Experience — Wave II - Threshold (Monroe Institute)",
-      "title" : "CD2 - 3 - One-Month Patterning"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-
-      ],
-      "mentions" : [
-        "F10"
-      ],
-      "path" : "library/sources/gateway-experience/wave-ii-threshold/cd2-4-color-breathing.md",
-      "source" : "The Gateway Experience — Wave II - Threshold (Monroe Institute)",
-      "title" : "CD2 - 4 - Color Breathing"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-
-      ],
-      "mentions" : [
-        "F10"
-      ],
-      "path" : "library/sources/gateway-experience/wave-ii-threshold/cd3-5-energy-bar-tool.md",
-      "source" : "The Gateway Experience — Wave II - Threshold (Monroe Institute)",
-      "title" : "CD3 - 5 - Energy Bar Tool"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-
-      ],
-      "mentions" : [
-        "F10"
-      ],
-      "path" : "library/sources/gateway-experience/wave-ii-threshold/cd3-6-living-body-map.md",
-      "source" : "The Gateway Experience — Wave II - Threshold (Monroe Institute)",
-      "title" : "CD3 - 6 - Living Body Map"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-
-      ],
-      "mentions" : [
-        "F10"
-      ],
-      "path" : "library/sources/gateway-experience/wave-iii-freedom/cd1-1-lift-off.md",
-      "source" : "The Gateway Experience — Wave III - Freedom (Monroe Institute)",
-      "title" : "CD1 - 1 - Lift Off"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-
-      ],
-      "mentions" : [
-
-      ],
-      "path" : "library/sources/gateway-experience/wave-iii-freedom/cd1-2-remote-viewing.md",
-      "source" : "The Gateway Experience — Wave III - Freedom (Monroe Institute)",
-      "title" : "CD1 - 2 - Remote Viewing"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F12"
-      ],
-      "mentions" : [
-        "F10",
-        "F12"
-      ],
-      "path" : "library/sources/gateway-experience/wave-iii-freedom/cd2-3-vectors.md",
-      "source" : "The Gateway Experience — Wave III - Freedom (Monroe Institute)",
-      "title" : "CD2 - 3 - Vectors"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F12"
-      ],
-      "mentions" : [
-        "F10",
-        "F12"
-      ],
-      "path" : "library/sources/gateway-experience/wave-iii-freedom/cd2-4-five-questions.md",
-      "source" : "The Gateway Experience — Wave III - Freedom (Monroe Institute)",
-      "title" : "CD2 - 4 - Five Questions"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F12"
-      ],
-      "mentions" : [
-        "F10",
-        "F12"
-      ],
-      "path" : "library/sources/gateway-experience/wave-iii-freedom/cd3-5-energy-food.md",
-      "source" : "The Gateway Experience — Wave III - Freedom (Monroe Institute)",
-      "title" : "CD3 - 5 - Energy Food"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F12"
-      ],
-      "mentions" : [
-        "F10",
-        "F12"
-      ],
-      "path" : "library/sources/gateway-experience/wave-iii-freedom/cd3-6-first-stage-separation.md",
-      "source" : "The Gateway Experience — Wave III - Freedom (Monroe Institute)",
-      "title" : "CD3 - 6 - First Stage Separation"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F12"
-      ],
-      "mentions" : [
-        "F10",
-        "F12"
-      ],
-      "path" : "library/sources/gateway-experience/wave-iv-adventure/cd1-1-one-year-patterning.md",
-      "source" : "The Gateway Experience — Wave IV - Adventure (Monroe Institute)",
-      "title" : "CD1 - 1 - One Year Patterning"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F12"
-      ],
-      "mentions" : [
-        "F10",
-        "F12"
-      ],
-      "path" : "library/sources/gateway-experience/wave-iv-adventure/cd1-2-five-messages.md",
-      "source" : "The Gateway Experience — Wave IV - Adventure (Monroe Institute)",
-      "title" : "CD1 - 2 - Five Messages"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F12"
-      ],
-      "mentions" : [
-        "F10",
-        "F12"
-      ],
-      "path" : "library/sources/gateway-experience/wave-iv-adventure/cd2-3-free-flow-12.md",
-      "source" : "The Gateway Experience — Wave IV - Adventure (Monroe Institute)",
-      "title" : "CD2 - 3 - Free Flow 12"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F12"
-      ],
-      "mentions" : [
-        "F10",
-        "F12"
-      ],
-      "path" : "library/sources/gateway-experience/wave-iv-adventure/cd2-4-nvc-i.md",
-      "source" : "The Gateway Experience — Wave IV - Adventure (Monroe Institute)",
-      "title" : "CD2 - 4 - NVC I"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F12"
-      ],
-      "mentions" : [
-        "F10",
-        "F12"
-      ],
-      "path" : "library/sources/gateway-experience/wave-iv-adventure/cd3-5-nvc-ii.md",
-      "source" : "The Gateway Experience — Wave IV - Adventure (Monroe Institute)",
-      "title" : "CD3 - 5 - NVC II"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-
-      ],
-      "mentions" : [
-        "F12"
-      ],
-      "path" : "library/sources/gateway-experience/wave-iv-adventure/cd3-6-compoint.md",
-      "source" : "The Gateway Experience — Wave IV - Adventure (Monroe Institute)",
-      "title" : "CD3 - 6 - Compoint"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F12"
-      ],
-      "mentions" : [
-        "F12"
-      ],
-      "path" : "library/sources/gateway-experience/wave-v-exploring-focus-15/cd1-1-advanced-focus-12.md",
-      "source" : "The Gateway Experience — Wave V - Exploring Focus 15 (Monroe Institute)",
-      "title" : "CD1 - 1 - Advanced Focus 12"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F12"
-      ],
-      "mentions" : [
-        "F12"
-      ],
-      "path" : "library/sources/gateway-experience/wave-v-exploring-focus-15/cd1-2-discovering-intuition.md",
-      "source" : "The Gateway Experience — Wave V - Exploring Focus 15 (Monroe Institute)",
-      "title" : "CD1 - 2 - Discovering Intuition"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-
-      ],
-      "mentions" : [
-        "F12"
-      ],
-      "path" : "library/sources/gateway-experience/wave-v-exploring-focus-15/cd2-3-exploring-intuition.md",
-      "source" : "The Gateway Experience — Wave V - Exploring Focus 15 (Monroe Institute)",
-      "title" : "CD2 - 3 - Exploring Intuition"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F15"
-      ],
-      "mentions" : [
-        "F10",
-        "F12",
-        "F15"
-      ],
-      "path" : "library/sources/gateway-experience/wave-v-exploring-focus-15/cd2-4-intro-to-focus-15.md",
-      "source" : "The Gateway Experience — Wave V - Exploring Focus 15 (Monroe Institute)",
-      "title" : "CD2 - 4 - Intro to Focus 15"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F15"
-      ],
-      "mentions" : [
-        "F10",
-        "F12",
-        "F15"
-      ],
-      "path" : "library/sources/gateway-experience/wave-v-exploring-focus-15/cd3-5-mission-15-creation-and-manifestation.md",
-      "source" : "The Gateway Experience — Wave V - Exploring Focus 15 (Monroe Institute)",
-      "title" : "CD3 - 5 - Mission 15 Creation and Manifestation"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F15"
-      ],
-      "mentions" : [
-        "F10",
-        "F12",
-        "F15"
-      ],
-      "path" : "library/sources/gateway-experience/wave-v-exploring-focus-15/cd3-6-exploring-focus-15.md",
-      "source" : "The Gateway Experience — Wave V - Exploring Focus 15 (Monroe Institute)",
-      "title" : "CD3 - 6 - Exploring Focus 15"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-
-      ],
-      "mentions" : [
-        "F10",
-        "F12"
-      ],
-      "path" : "library/sources/gateway-experience/wave-vi-odyssey/cd1-1-sensing-locale-1.md",
-      "source" : "The Gateway Experience — Wave VI - Odyssey (Monroe Institute)",
-      "title" : "CD1 - 1 - Sensing Locale 1"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-
-      ],
-      "mentions" : [
-        "F10"
-      ],
-      "path" : "library/sources/gateway-experience/wave-vi-odyssey/cd1-2-expansion-in-locale-1.md",
-      "source" : "The Gateway Experience — Wave VI - Odyssey (Monroe Institute)",
-      "title" : "CD1 - 2 - Expansion in Locale 1"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-
-      ],
-      "mentions" : [
-        "F12"
-      ],
-      "path" : "library/sources/gateway-experience/wave-vi-odyssey/cd2-3-point-of-departure.md",
-      "source" : "The Gateway Experience — Wave VI - Odyssey (Monroe Institute)",
-      "title" : "CD2 - 3 - Point of Departure"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-
-      ],
-      "mentions" : [
-        "F12"
-      ],
-      "path" : "library/sources/gateway-experience/wave-vi-odyssey/cd2-4-nonphysical-friends.md",
-      "source" : "The Gateway Experience — Wave VI - Odyssey (Monroe Institute)",
-      "title" : "CD2 - 4 - Nonphysical friends"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F21"
-      ],
-      "mentions" : [
-        "F12",
-        "F21"
-      ],
-      "path" : "library/sources/gateway-experience/wave-vi-odyssey/cd3-5-movement-to-locale-2-intro-focus-21.md",
-      "source" : "The Gateway Experience — Wave VI - Odyssey (Monroe Institute)",
-      "title" : "CD3 - 5 - Movement to Locale 2 - Intro Focus 21"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F21"
-      ],
-      "mentions" : [
-        "F12",
-        "F21"
-      ],
-      "path" : "library/sources/gateway-experience/wave-vi-odyssey/cd3-6-free-flow-journey-in-focus-21.md",
-      "source" : "The Gateway Experience — Wave VI - Odyssey (Monroe Institute)",
-      "title" : "CD3 - 6 - Free Flow Journey in Focus 21"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F21"
-      ],
-      "mentions" : [
-        "F10",
-        "F12",
-        "F15",
-        "F21"
-      ],
-      "path" : "library/sources/gateway-experience/wave-vii-voyager/cd1-1-explore-total-self.md",
-      "source" : "The Gateway Experience — Wave VII - Voyager (Monroe Institute)",
-      "title" : "CD1 - 1 - Explore Total Self"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F23"
-      ],
-      "mentions" : [
-        "F12",
-        "F15",
-        "F21",
-        "F23"
-      ],
-      "path" : "library/sources/gateway-experience/wave-vii-voyager/cd1-2-intro-focus-23.md",
-      "source" : "The Gateway Experience — Wave VII - Voyager (Monroe Institute)",
-      "title" : "CD1 - 2 - Intro Focus 23"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F25"
-      ],
-      "mentions" : [
-        "F10",
-        "F12",
-        "F15",
-        "F21",
-        "F23",
-        "F25"
-      ],
-      "path" : "library/sources/gateway-experience/wave-vii-voyager/cd2-3-intro-focus-25.md",
-      "source" : "The Gateway Experience — Wave VII - Voyager (Monroe Institute)",
-      "title" : "CD2 - 3 - Intro Focus 25"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F27"
-      ],
-      "mentions" : [
-        "F10",
-        "F12",
-        "F15",
-        "F21",
-        "F23",
-        "F25",
-        "F27"
-      ],
-      "path" : "library/sources/gateway-experience/wave-vii-voyager/cd2-4-intro-focus-27.md",
-      "source" : "The Gateway Experience — Wave VII - Voyager (Monroe Institute)",
-      "title" : "CD2 - 4 - Intro Focus 27"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F27"
-      ],
-      "mentions" : [
-        "F10",
-        "F12",
-        "F15",
-        "F21",
-        "F23",
-        "F25",
-        "F27"
-      ],
-      "path" : "library/sources/gateway-experience/wave-vii-voyager/cd3-5-first-retrieval.md",
-      "source" : "The Gateway Experience — Wave VII - Voyager (Monroe Institute)",
-      "title" : "CD3 - 5 - First Retrieval"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-
-      ],
-      "mentions" : [
-
-      ],
-      "path" : "library/sources/gateway-experience/wave-vii-voyager/cd3-6-messages-from-beyond.md",
-      "source" : "The Gateway Experience — Wave VII - Voyager (Monroe Institute)",
-      "title" : "CD3 - 6 - Messages From Beyond"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F27"
-      ],
-      "mentions" : [
-        "F10",
-        "F12",
-        "F15",
-        "F21",
-        "F23",
-        "F25",
-        "F27"
-      ],
-      "path" : "library/sources/gateway-experience/wave-viii-union/cd1-1-special-tour.md",
-      "source" : "The Gateway Experience — Wave VIII - Union (Monroe Institute)",
-      "title" : "CD1 - 1 - Special Tour"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F27"
-      ],
-      "mentions" : [
-        "F27"
-      ],
-      "path" : "library/sources/gateway-experience/wave-viii-union/cd1-2-meeting-with-the-entry-director.md",
-      "source" : "The Gateway Experience — Wave VIII - Union (Monroe Institute)",
-      "title" : "CD1 - 2 - Meeting with the Entry Director"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F27"
-      ],
-      "mentions" : [
-        "F27"
-      ],
-      "path" : "library/sources/gateway-experience/wave-viii-union/cd2-3-educational-opportunities.md",
-      "source" : "The Gateway Experience — Wave VIII - Union (Monroe Institute)",
-      "title" : "CD2 - 3 - Educational Opportunities"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F27"
-      ],
-      "mentions" : [
-        "F27"
-      ],
-      "path" : "library/sources/gateway-experience/wave-viii-union/cd2-4-healing-and-regeneration-center.md",
-      "source" : "The Gateway Experience — Wave VIII - Union (Monroe Institute)",
-      "title" : "CD2 - 4 - Healing and Regeneration Center"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F27"
-      ],
-      "mentions" : [
-        "F27"
-      ],
-      "path" : "library/sources/gateway-experience/wave-viii-union/cd3-5-planning-center.md",
-      "source" : "The Gateway Experience — Wave VIII - Union (Monroe Institute)",
-      "title" : "CD3 - 5 - Planning Center"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F27"
-      ],
-      "mentions" : [
-        "F27"
-      ],
-      "path" : "library/sources/gateway-experience/wave-viii-union/cd3-6-coordination-area.md",
-      "source" : "The Gateway Experience — Wave VIII - Union (Monroe Institute)",
-      "title" : "CD3 - 6 - Coordination Area"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-        "F27"
-      ],
-      "mentions" : [
-        "F12",
-        "F15",
-        "F21",
-        "F27"
-      ],
-      "path" : "library/sources/gateway-experience/wave-viii-union/cd4-7-inner-earth.md",
-      "source" : "The Gateway Experience — Wave VIII - Union (Monroe Institute)",
-      "title" : "CD4 - 7 - Inner Earth"
-    },
-    {
-      "kind" : "transcript",
-      "levels" : [
-
-      ],
-      "mentions" : [
-        "F27"
-      ],
-      "path" : "library/sources/gateway-experience/wave-viii-union/cd4-8-the-absolute.md",
-      "source" : "The Gateway Experience — Wave VIII - Union (Monroe Institute)",
-      "title" : "CD4 - 8 - The Absolute"
-    },
-    {
-      "kind" : "manual",
-      "levels" : [
-        "F1",
-        "F3",
-        "F10"
-      ],
-      "mentions" : [
-        "F10",
-        "F12"
-      ],
-      "path" : "library/sources/manuals/00-general-guidance.md",
-      "source" : "The Gateway Experience Guidance Manual (Monroe Institute, 1989)",
-      "title" : "Gateway Experience Manual — General guidance"
-    },
-    {
-      "kind" : "manual",
-      "levels" : [
-        "F12"
-      ],
-      "mentions" : [
-        "F10",
-        "F12",
-        "F15"
-      ],
-      "path" : "library/sources/manuals/gateway-intermediate-workbook-1977.md",
-      "source" : "Monroe Institute of Applied Sciences, 1977 — CIA FOIA release CIA-RDP96-00788R001700210023-7",
-      "title" : "Gateway Intermediate Workbook (1977)"
-    },
-    {
-      "kind" : "manual",
-      "levels" : [
-        "F10"
-      ],
-      "mentions" : [
-        "F3",
-        "F10"
-      ],
-      "path" : "library/sources/manuals/wave-i-discovery.md",
-      "source" : "The Gateway Experience Guidance Manual (Monroe Institute, 1989)",
-      "title" : "Gateway Experience Manual — WAVE I: DISCOVERY"
-    },
-    {
-      "kind" : "manual",
-      "levels" : [
-        "F12"
-      ],
-      "mentions" : [
-        "F10",
-        "F12"
-      ],
-      "path" : "library/sources/manuals/wave-ii-threshold.md",
-      "source" : "The Gateway Experience Guidance Manual (Monroe Institute, 1989)",
-      "title" : "Gateway Experience Manual — WAVE II: THRESHOLD"
-    },
-    {
-      "kind" : "manual",
-      "levels" : [
-        "F10"
-      ],
-      "mentions" : [
-        "F10",
-        "F12"
-      ],
-      "path" : "library/sources/manuals/wave-iii-freedom.md",
-      "source" : "The Gateway Experience Guidance Manual (Monroe Institute, 1989)",
-      "title" : "Gateway Experience Manual — WAVE III: FREEDOM"
-    },
-    {
-      "kind" : "manual",
-      "levels" : [
-
-      ],
-      "mentions" : [
-        "F10",
-        "F12"
-      ],
-      "path" : "library/sources/manuals/wave-iv-adventure.md",
-      "source" : "The Gateway Experience Guidance Manual (Monroe Institute, 1989)",
-      "title" : "Gateway Experience Manual — WAVE IV: ADVENTURE"
-    },
-    {
-      "kind" : "manual",
-      "levels" : [
-        "F12"
-      ],
-      "mentions" : [
-        "F10",
-        "F12"
-      ],
-      "path" : "library/sources/manuals/wave-v-exploring.md",
-      "source" : "The Gateway Experience Guidance Manual (Monroe Institute, 1989)",
-      "title" : "Gateway Experience Manual — WAVE V: EXPLORING"
-    },
-    {
-      "kind" : "manual",
-      "levels" : [
-        "F21"
-      ],
-      "mentions" : [
-        "F10",
-        "F12",
-        "F15",
-        "F21"
-      ],
-      "path" : "library/sources/manuals/wave-vi-prospecting.md",
-      "source" : "The Gateway Experience Guidance Manual (Monroe Institute, 1989)",
-      "title" : "Gateway Experience Manual — WAVE VI: PROSPECTING"
-    }
   ],
   "synthetic" : {
     "continuousSegments" : [

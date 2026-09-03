@@ -217,7 +217,16 @@ check(fx.segments.length > 50, `the fixture describes a real library (${fx.segme
 check(lib.segments.length > 50, `and the scan actually found one (${lib.segments.length})`);
 check(fx.segments.some(s => s.verbosities.length > 1), "some segment is authored at more than one density");
 check(fx.segments.some(s => s.origin != null), "and some declares an origin level");
-check(fx.sources.some(s => s.kind === "manual"), "and the manuals are distinguished from the tapes");
+// The Institute's transcripts and manuals are third-party and a build made
+// for distribution has them removed, same as the Swift side's `tapesPresent`
+// guard -- an empty `sources` here is that expected state, not a fixture
+// that stopped measuring anything.
+if (fx.sources.length > 0) {
+  check(fx.sources.some(s => s.kind === "manual"), "and the manuals are distinguished from the tapes");
+} else {
+  console.log("  note: no sources in this tree — manual/tape distinction check stands down "
+    + "(the expected state of a build made for distribution)");
+}
 
 console.log(`${pass} passed, ${fail} failed`);
 process.exit(fail === 0 ? 0 : 1);
