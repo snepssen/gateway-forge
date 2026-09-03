@@ -9,6 +9,18 @@ import { join } from "path";
 import { tmpdir } from "os";
 import { appendEntry, journalDirectory, removeEntry, visitCount } from "../core/journal.js";
 
+// `appendEntry`'s id is deliberately local-zone, matching Swift's
+// DateFormatter -- a listener's journal entry should stamp in *their* wall
+// clock, not UTC. The fixture's `id` values are exactly that: local-time
+// strings baked in by the Swift generator running on a machine in British
+// Summer Time. Checking them from a process in any other zone (a UTC CI
+// runner, most obviously) recomputes a genuinely different local time for
+// the same instant and fails on the clock, not on the logic. Pinning TZ
+// here reproduces the zone the fixture was captured in rather than either
+// weakening the local-time behavior under test or re-deriving the fixture's
+// offset by hand.
+process.env.TZ = "Europe/London";
+
 interface Fixture {
   appendCases: {
     level: string; session?: string; body: string; now: number; existingFiles: string[];
