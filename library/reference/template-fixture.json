@@ -1049,7 +1049,7 @@
           "file" : "library/segments/remote-viewing-intent.gws",
           "index" : 0,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "upright",
           "needs" : [
             "paper",
@@ -1081,7 +1081,7 @@
           "file" : "library/segments/orientation.gws",
           "index" : 2,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1096,7 +1096,7 @@
           "file" : "library/segments/conversion-box.gws",
           "index" : 3,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1111,7 +1111,7 @@
           "file" : "library/segments/resonant-tuning.gws",
           "index" : 4,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1126,7 +1126,7 @@
           "file" : "library/segments/balloon.gws",
           "index" : 5,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1141,7 +1141,7 @@
           "file" : "library/segments/affirmation.gws",
           "index" : 6,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1156,7 +1156,7 @@
           "file" : "library/segments/relax-10.gws",
           "index" : 7,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1172,7 +1172,7 @@
           "file" : "library/segments/remote-viewing.gws",
           "index" : 8,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1187,7 +1187,7 @@
           "file" : "library/segments/return-one.gws",
           "index" : 9,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1200,7 +1200,16 @@
         }
       ],
       "missingRenders" : [
-        "announcement.announcement.1"
+        "upright.remote-viewing-intent.0",
+        "announcement.announcement.1",
+        "segment.orientation.2",
+        "segment.conversion-box.3",
+        "segment.resonant-tuning.4",
+        "segment.balloon.5",
+        "segment.affirmation.6",
+        "segment.relax-10.7",
+        "segment.remote-viewing.8",
+        "segment.return-one.9"
       ],
       "name" : "real template, v3, real destination",
       "needsComposing" : [
@@ -1225,7 +1234,7 @@
           "file" : "library/segments/remote-viewing-intent.gws",
           "index" : 0,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "upright",
           "needs" : [
             "paper",
@@ -1257,7 +1266,7 @@
           "file" : "library/segments/orientation.gws",
           "index" : 2,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1272,7 +1281,7 @@
           "file" : "library/segments/conversion-box.gws",
           "index" : 3,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1287,7 +1296,7 @@
           "file" : "library/segments/resonant-tuning.gws",
           "index" : 4,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1302,7 +1311,7 @@
           "file" : "library/segments/balloon.gws",
           "index" : 5,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1317,7 +1326,7 @@
           "file" : "library/segments/affirmation.gws",
           "index" : 6,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1332,7 +1341,7 @@
           "file" : "library/segments/relax-10.count-only.gws",
           "index" : 7,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1348,7 +1357,7 @@
           "file" : "library/segments/remote-viewing.gws",
           "index" : 8,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1363,7 +1372,7 @@
           "file" : "library/segments/return-one.gws",
           "index" : 9,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1376,7 +1385,16 @@
         }
       ],
       "missingRenders" : [
-        "announcement.announcement.1"
+        "upright.remote-viewing-intent.0",
+        "announcement.announcement.1",
+        "segment.orientation.2",
+        "segment.conversion-box.3",
+        "segment.resonant-tuning.4",
+        "segment.balloon.5",
+        "segment.affirmation.6",
+        "segment.relax-10.7",
+        "segment.remote-viewing.8",
+        "segment.return-one.9"
       ],
       "name" : "real template, v1",
       "needsComposing" : [
@@ -1401,7 +1419,7 @@
           "file" : "library/segments/remote-viewing-intent.gws",
           "index" : 0,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "upright",
           "needs" : [
             "paper",
@@ -1433,7 +1451,7 @@
           "file" : "library/segments/orientation.gws",
           "index" : 2,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1448,7 +1466,7 @@
           "file" : "library/segments/conversion-box.gws",
           "index" : 3,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1463,7 +1481,7 @@
           "file" : "library/segments/resonant-tuning.gws",
           "index" : 4,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1478,7 +1496,7 @@
           "file" : "library/segments/balloon.gws",
           "index" : 5,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1493,7 +1511,7 @@
           "file" : "library/segments/affirmation.gws",
           "index" : 6,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1508,7 +1526,7 @@
           "file" : "library/segments/relax-10.count-only.gws",
           "index" : 7,
           "isFallback" : true,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1524,7 +1542,7 @@
           "file" : "library/segments/remote-viewing.gws",
           "index" : 8,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1539,7 +1557,7 @@
           "file" : "library/segments/return-one.gws",
           "index" : 9,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1552,7 +1570,16 @@
         }
       ],
       "missingRenders" : [
-        "announcement.announcement.1"
+        "upright.remote-viewing-intent.0",
+        "announcement.announcement.1",
+        "segment.orientation.2",
+        "segment.conversion-box.3",
+        "segment.resonant-tuning.4",
+        "segment.balloon.5",
+        "segment.affirmation.6",
+        "segment.relax-10.7",
+        "segment.remote-viewing.8",
+        "segment.return-one.9"
       ],
       "name" : "real template, v2, pause scale 0.5",
       "needsComposing" : [
@@ -1577,7 +1604,7 @@
           "file" : "library/segments/remote-viewing-intent.gws",
           "index" : 0,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "upright",
           "needs" : [
             "paper",
@@ -1609,7 +1636,7 @@
           "file" : "library/segments/orientation.gws",
           "index" : 2,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1624,7 +1651,7 @@
           "file" : "library/segments/conversion-box.gws",
           "index" : 3,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1639,7 +1666,7 @@
           "file" : "library/segments/resonant-tuning.gws",
           "index" : 4,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1654,7 +1681,7 @@
           "file" : "library/segments/balloon.gws",
           "index" : 5,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1669,7 +1696,7 @@
           "file" : "library/segments/affirmation.gws",
           "index" : 6,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1684,7 +1711,7 @@
           "file" : "library/segments/relax-10.gws",
           "index" : 7,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1700,7 +1727,7 @@
           "file" : "library/segments/remote-viewing.gws",
           "index" : 8,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1715,7 +1742,7 @@
           "file" : "library/segments/return-one.gws",
           "index" : 9,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1728,7 +1755,16 @@
         }
       ],
       "missingRenders" : [
-        "announcement.announcement.1"
+        "upright.remote-viewing-intent.0",
+        "announcement.announcement.1",
+        "segment.orientation.2",
+        "segment.conversion-box.3",
+        "segment.resonant-tuning.4",
+        "segment.balloon.5",
+        "segment.affirmation.6",
+        "segment.relax-10.7",
+        "segment.remote-viewing.8",
+        "segment.return-one.9"
       ],
       "name" : "real template, pause scale 2.0",
       "needsComposing" : [
@@ -1746,13 +1782,13 @@
     {
       "destination" : "F10",
       "estimatedSeconds" : 1312.1477516059958,
-      "isReady" : true,
+      "isReady" : false,
       "items" : [
         {
           "file" : "library/segments/remote-viewing-intent.gws",
           "index" : 0,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "upright",
           "needs" : [
             "paper",
@@ -1768,7 +1804,7 @@
           "file" : "library/segments/orientation.gws",
           "index" : 1,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1783,7 +1819,7 @@
           "file" : "library/segments/conversion-box.gws",
           "index" : 2,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1798,7 +1834,7 @@
           "file" : "library/segments/resonant-tuning.gws",
           "index" : 3,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1813,7 +1849,7 @@
           "file" : "library/segments/balloon.gws",
           "index" : 4,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1828,7 +1864,7 @@
           "file" : "library/segments/affirmation.gws",
           "index" : 5,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1843,7 +1879,7 @@
           "file" : "library/segments/relax-10.gws",
           "index" : 6,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1859,7 +1895,7 @@
           "file" : "library/segments/remote-viewing.gws",
           "index" : 7,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1874,7 +1910,7 @@
           "file" : "library/segments/return-one.gws",
           "index" : 8,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1887,7 +1923,15 @@
         }
       ],
       "missingRenders" : [
-
+        "upright.remote-viewing-intent.0",
+        "segment.orientation.1",
+        "segment.conversion-box.2",
+        "segment.resonant-tuning.3",
+        "segment.balloon.4",
+        "segment.affirmation.5",
+        "segment.relax-10.6",
+        "segment.remote-viewing.7",
+        "segment.return-one.8"
       ],
       "name" : "no destination at all",
       "needsComposing" : [
@@ -1906,13 +1950,13 @@
       "destination" : "F10",
       "destinationKey" : "NOWHERE",
       "estimatedSeconds" : 1312.1477516059958,
-      "isReady" : true,
+      "isReady" : false,
       "items" : [
         {
           "file" : "library/segments/remote-viewing-intent.gws",
           "index" : 0,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "upright",
           "needs" : [
             "paper",
@@ -1928,7 +1972,7 @@
           "file" : "library/segments/orientation.gws",
           "index" : 1,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1943,7 +1987,7 @@
           "file" : "library/segments/conversion-box.gws",
           "index" : 2,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1958,7 +2002,7 @@
           "file" : "library/segments/resonant-tuning.gws",
           "index" : 3,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1973,7 +2017,7 @@
           "file" : "library/segments/balloon.gws",
           "index" : 4,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1988,7 +2032,7 @@
           "file" : "library/segments/affirmation.gws",
           "index" : 5,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -2003,7 +2047,7 @@
           "file" : "library/segments/relax-10.gws",
           "index" : 6,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -2019,7 +2063,7 @@
           "file" : "library/segments/remote-viewing.gws",
           "index" : 7,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -2034,7 +2078,7 @@
           "file" : "library/segments/return-one.gws",
           "index" : 8,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -2047,7 +2091,15 @@
         }
       ],
       "missingRenders" : [
-
+        "upright.remote-viewing-intent.0",
+        "segment.orientation.1",
+        "segment.conversion-box.2",
+        "segment.resonant-tuning.3",
+        "segment.balloon.4",
+        "segment.affirmation.5",
+        "segment.relax-10.6",
+        "segment.remote-viewing.7",
+        "segment.return-one.8"
       ],
       "name" : "destination nothing describes",
       "needsComposing" : [

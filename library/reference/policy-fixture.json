@@ -33,49 +33,6 @@
   ],
   "cartCases" : [
     {
-      "entryCount" : 1,
-      "level" : "F27",
-      "prompt" : "Focus level: F27\n\nThe listener's journal entries for this level, oldest first. Each was\nwritten immediately after a visit. These are your only source.\n--- entry 1, written 2026-09-01 ---\nResearch institute - The Castle - negative entities removals - belief system adjustments - forgiveness - letting go - energy work - reiki - energy bar tool - REBAL - parallel selves assisting - gathering/class\n\nWrite a description of F27 drawn only from those entries.\nKeep the listener's own words for anything they named.\nWhere entries disagree, say so rather than choosing between them.\nAdd nothing they did not observe.\nIf the entries cannot support an honest description, set enough to false and say briefly what is missing.",
-      "retained" : [
-        "adjustments forgiveness letting",
-        "assisting gathering class",
-        "bar tool rebal",
-        "belief system adjustments",
-        "castle negative entities",
-        "energy bar tool",
-        "energy work reiki",
-        "entities removals belief",
-        "forgiveness letting go",
-        "go energy work",
-        "institute the castle",
-        "letting go energy",
-        "negative entities removals",
-        "parallel selves assisting",
-        "rebal parallel selves",
-        "reiki energy bar",
-        "removals belief system",
-        "research institute the",
-        "selves assisting gathering",
-        "system adjustments forgiveness",
-        "the castle negative",
-        "tool rebal parallel",
-        "work reiki energy"
-      ]
-    },
-    {
-      "entryCount" : 1,
-      "level" : "F34",
-      "prompt" : "Focus level: F34\n\nThe listener's journal entries for this level, oldest first. Each was\nwritten immediately after a visit. These are your only source.\n--- entry 1, written 2026-09-02 ---\nUnconscious after arrival, woke up at 3:20\n\nWrite a description of F34 drawn only from those entries.\nKeep the listener's own words for anything they named.\nWhere entries disagree, say so rather than choosing between them.\nAdd nothing they did not observe.\nIf the entries cannot support an honest description, set enough to false and say briefly what is missing.",
-      "retained" : [
-        "after arrival woke",
-        "arrival woke up",
-        "at 3 20",
-        "unconscious after arrival",
-        "up at 3",
-        "woke up at"
-      ]
-    },
-    {
       "entryCount" : 3,
       "level" : "F10-gap",
       "prompt" : "Focus level: F10\n\nThe listener's journal entries for this level, oldest first. Each was\nwritten immediately after a visit. These are your only source.\n--- entry 1, written 2027-01-15 ---\nfirst thing seen\n\n--- entry 3, written 2027-01-17 ---\nthird thing seen\n\nWrite a description of F10 drawn only from those entries.\nKeep the listener's own words for anything they named.\nWhere entries disagree, say so rather than choosing between them.\nAdd nothing they did not observe.\nIf the entries cannot support an honest description, set enough to false and say briefly what is missing.",

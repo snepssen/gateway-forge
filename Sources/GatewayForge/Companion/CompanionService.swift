@@ -29,17 +29,17 @@ final class CompanionService: ObservableObject {
         return nil
     }
 
-    func startIfEnabled() {
+    func startIfEnabled() async {
         guard enabled else { return }
-        prepare()
+        await prepare()
         startServer()
     }
 
-    func setEnabled(_ value: Bool) {
+    func setEnabled(_ value: Bool) async {
         enabled = value
         UserDefaults.standard.set(value, forKey: defaultsKey)
         if value {
-            prepare()
+            await prepare()
             startServer()
         } else {
             pairingExpiry?.cancel()
@@ -53,9 +53,9 @@ final class CompanionService: ObservableObject {
         }
     }
 
-    func beginPairing() {
-        if !enabled { setEnabled(true) }
-        prepare()
+    func beginPairing() async {
+        if !enabled { await setEnabled(true) }
+        await prepare()
         do {
             if var created = try router?.beginPairing() {
                 created.serviceName = serviceName(serverID: created.serverID)
@@ -157,10 +157,19 @@ final class CompanionService: ObservableObject {
         }
     }
 
-    private func prepare() {
+    /// The Keychain read this does can block on an authorization prompt --
+    /// a different code signature than whatever last wrote the item is
+    /// enough to trigger one. Called synchronously from `.task` at launch,
+    /// before the first window finishes presenting, that blocked the main
+    /// actor with nothing yet on screen to anchor the prompt: a genuine
+    /// deadlock, not a slow load. `vault.load()` therefore runs detached,
+    /// off the main actor, so the window can appear regardless of how long
+    /// the Keychain takes.
+    private func prepare() async {
         guard router == nil else { return }
         do {
-            let identity = try vault.load()
+            let vault = self.vault
+            let identity = try await Task.detached { try vault.load() }.value
             let router = DesktopSyncRouter(
                 root: AppPaths.root,
                 displayName: Host.current().localizedName ?? "Gateway Forge",
@@ -242,7 +251,7 @@ struct CompanionAccessPanel: View {
                 Spacer()
                 Toggle("", isOn: Binding(
                     get: { companion.enabled },
-                    set: { companion.setEnabled($0) }))
+                    set: { value in Task { await companion.setEnabled(value) } }))
                     .labelsHidden()
             }
 
@@ -251,7 +260,7 @@ struct CompanionAccessPanel: View {
                     Circle().fill(stateColor).frame(width: 8, height: 8)
                     Text(stateText).font(.caption).foregroundStyle(Monokai.comment)
                     Spacer()
-                    Button("Pair a device") { companion.beginPairing() }
+                    Button("Pair a device") { Task { await companion.beginPairing() } }
                         .controlSize(.small)
                 }
 

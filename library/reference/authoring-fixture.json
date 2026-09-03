@@ -107,33 +107,23 @@
   "coverageCases" : [
     {
       "coverage" : {
-        "count" : 1,
-        "hasAnything" : true,
-        "kind" : "secondary",
-        "label" : "1 overview"
+        "count" : 0,
+        "hasAnything" : false,
+        "kind" : "none",
+        "label" : "nothing written"
       },
       "level" : "F1",
       "sourceCoverage" : 0
     },
     {
       "coverage" : {
-        "count" : 2,
-        "hasAnything" : true,
-        "kind" : "primary",
-        "label" : "2 tapes"
+        "count" : 0,
+        "hasAnything" : false,
+        "kind" : "none",
+        "label" : "nothing written"
       },
       "level" : "F3",
-      "sourceCoverage" : 2
-    },
-    {
-      "coverage" : {
-        "count" : 39,
-        "hasAnything" : true,
-        "kind" : "primary",
-        "label" : "39 tapes"
-      },
-      "level" : "F10",
-      "sourceCoverage" : 39
+      "sourceCoverage" : 0
     },
     {
       "coverage" : {
@@ -141,29 +131,29 @@
         "hasAnything" : true,
         "kind" : "secondary",
         "label" : "1 overview"
+      },
+      "level" : "F10",
+      "sourceCoverage" : 0
+    },
+    {
+      "coverage" : {
+        "count" : 0,
+        "hasAnything" : false,
+        "kind" : "none",
+        "label" : "nothing written"
       },
       "level" : "F11",
       "sourceCoverage" : 0
     },
     {
       "coverage" : {
-        "count" : 38,
+        "count" : 1,
         "hasAnything" : true,
-        "kind" : "primary",
-        "label" : "38 tapes"
+        "kind" : "secondary",
+        "label" : "1 overview"
       },
       "level" : "F12",
-      "sourceCoverage" : 38
-    },
-    {
-      "coverage" : {
-        "count" : 12,
-        "hasAnything" : true,
-        "kind" : "primary",
-        "label" : "12 tapes"
-      },
-      "level" : "F15",
-      "sourceCoverage" : 12
+      "sourceCoverage" : 0
     },
     {
       "coverage" : {
@@ -171,126 +161,136 @@
         "hasAnything" : true,
         "kind" : "secondary",
         "label" : "1 overview"
+      },
+      "level" : "F15",
+      "sourceCoverage" : 0
+    },
+    {
+      "coverage" : {
+        "count" : 0,
+        "hasAnything" : false,
+        "kind" : "none",
+        "label" : "nothing written"
       },
       "level" : "F18",
       "sourceCoverage" : 0
     },
     {
       "coverage" : {
-        "count" : 10,
+        "count" : 1,
         "hasAnything" : true,
-        "kind" : "primary",
-        "label" : "10 tapes"
+        "kind" : "secondary",
+        "label" : "1 overview"
       },
       "level" : "F21",
-      "sourceCoverage" : 10
+      "sourceCoverage" : 0
     },
     {
       "coverage" : {
-        "count" : 2,
-        "hasAnything" : true,
-        "kind" : "secondary",
-        "label" : "2 overviews"
+        "count" : 0,
+        "hasAnything" : false,
+        "kind" : "none",
+        "label" : "nothing written"
       },
       "level" : "F22",
       "sourceCoverage" : 0
     },
     {
       "coverage" : {
-        "count" : 5,
+        "count" : 1,
         "hasAnything" : true,
-        "kind" : "primary",
-        "label" : "5 tapes"
+        "kind" : "secondary",
+        "label" : "1 overview"
       },
       "level" : "F23",
-      "sourceCoverage" : 5
+      "sourceCoverage" : 0
     },
     {
       "coverage" : {
-        "count" : 2,
-        "hasAnything" : true,
-        "kind" : "secondary",
-        "label" : "2 overviews"
+        "count" : 0,
+        "hasAnything" : false,
+        "kind" : "none",
+        "label" : "nothing written"
       },
       "level" : "F24",
       "sourceCoverage" : 0
     },
     {
       "coverage" : {
-        "count" : 4,
+        "count" : 1,
         "hasAnything" : true,
-        "kind" : "primary",
-        "label" : "4 tapes"
+        "kind" : "secondary",
+        "label" : "1 overview"
       },
       "level" : "F25",
-      "sourceCoverage" : 4
+      "sourceCoverage" : 0
     },
     {
       "coverage" : {
-        "count" : 2,
-        "hasAnything" : true,
-        "kind" : "secondary",
-        "label" : "2 overviews"
+        "count" : 0,
+        "hasAnything" : false,
+        "kind" : "none",
+        "label" : "nothing written"
       },
       "level" : "F26",
       "sourceCoverage" : 0
     },
     {
       "coverage" : {
-        "count" : 10,
-        "hasAnything" : true,
-        "kind" : "primary",
-        "label" : "10 tapes"
-      },
-      "level" : "F27",
-      "sourceCoverage" : 10
-    },
-    {
-      "coverage" : {
         "count" : 1,
         "hasAnything" : true,
         "kind" : "secondary",
         "label" : "1 overview"
+      },
+      "level" : "F27",
+      "sourceCoverage" : 0
+    },
+    {
+      "coverage" : {
+        "count" : 0,
+        "hasAnything" : false,
+        "kind" : "none",
+        "label" : "nothing written"
       },
       "level" : "F34",
       "sourceCoverage" : 0
     },
     {
       "coverage" : {
-        "count" : 1,
-        "hasAnything" : true,
-        "kind" : "secondary",
-        "label" : "1 overview"
+        "count" : 0,
+        "hasAnything" : false,
+        "kind" : "none",
+        "label" : "nothing written"
       },
       "level" : "F35",
       "sourceCoverage" : 0
     },
     {
       "coverage" : {
-        "count" : 1,
-        "hasAnything" : true,
-        "kind" : "secondary",
-        "label" : "1 overview"
+        "count" : 0,
+        "hasAnything" : false,
+        "kind" : "none",
+        "label" : "nothing written"
       },
       "level" : "F42",
       "sourceCoverage" : 0
     },
     {
       "coverage" : {
-        "count" : 1,
-        "hasAnything" : true,
-        "kind" : "secondary",
-        "label" : "1 overview"
+        "count" : 0,
+        "hasAnything" : false,
+        "kind" : "none",
+        "label" : "nothing written"
       },
       "level" : "F49",
       "sourceCoverage" : 0
     },
     {
       "coverage" : {
-        "count" : 1,
-        "hasAnything" : true,
-        "kind" : "secondary",
-        "label" : "1 overview"
+        "count" : 0,
+        "hasAnything" : false,
+        "kind" : "none",
+        "label" : "nothing written"
       },
       "entries" : 0,
       "level" : "F11",
@@ -298,10 +298,10 @@
     },
     {
       "coverage" : {
-        "count" : 1,
+        "count" : 3,
         "hasAnything" : true,
-        "kind" : "secondary",
-        "label" : "1 overview"
+        "kind" : "selfMapped",
+        "label" : "3 visits of your own"
       },
       "entries" : 3,
       "level" : "F11",
@@ -309,14 +309,14 @@
     },
     {
       "coverage" : {
-        "count" : 39,
+        "count" : 1,
         "hasAnything" : true,
-        "kind" : "primary",
-        "label" : "39 tapes"
+        "kind" : "secondary",
+        "label" : "1 overview"
       },
       "entries" : 5,
       "level" : "F10",
-      "sourceCoverage" : 39
+      "sourceCoverage" : 0
     },
     {
       "coverage" : {

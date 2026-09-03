@@ -74,7 +74,14 @@ for (const c of fx.coverageCases) {
   eq(coverageOf(got), c.coverage, `coverage ${c.level}/${c.entries ?? "published"}`);
   check(sourceCoverage(lib, c.level) === c.sourceCoverage, `sourceCoverage ${c.level}`);
 }
-check(fx.coverageCases.some(c => c.coverage.kind === "primary"), "at least one primary coverage in the real map");
+// Primary coverage comes only from a tape or manual, both third-party and
+// removed from a build made for distribution.
+if (lib.sources.length > 0) {
+  check(fx.coverageCases.some(c => c.coverage.kind === "primary"), "at least one primary coverage in the real map");
+} else {
+  console.log("  note: no sources in this tree — primary-coverage check stands down "
+    + "(the expected state of a build made for distribution)");
+}
 check(fx.coverageCases.some(c => c.coverage.kind === "secondary"), "at least one secondary coverage");
 check(fx.coverageCases.some(c => c.coverage.kind === "selfMapped"), "at least one selfMapped constructed case");
 
