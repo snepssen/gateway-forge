@@ -1,0 +1,33 @@
+# The first session in library/initial-journey.json. Its structure follows the
+# original Wave I Orientation: establish the listening setup and core tools,
+# perform Resonant Tuning, move from waking awareness to Focus 3, remain there
+# briefly, then return. It deliberately does not use relax-10 — and it returns
+# on the tape's own three-count, not the ten-count out of Focus 10.
+
+@title    Focus 3 — Light Relaxation
+@level    F3
+@ending   return
+@pan      right
+@seed     1003
+@verbosity 3
+
+surf 0.55
+use opening
+use comfort
+use orientation
+use ocean
+
+surf 0.30
+use conversion-box
+use affirmation
+
+surf 0.18
+use resonant-tuning
+
+surf 0.0
+use climb-f1-f3
+use briefing-f3
+
+hold 300
+
+use return-three

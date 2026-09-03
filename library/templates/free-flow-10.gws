@@ -1,0 +1,32 @@
+# Source-grounded exercise recipe: Wave I, Free Flow 10. The transcript asks
+# the listener to arrive with a purpose already chosen, checks right-ear
+# orientation, then names the preparatory order explicitly: Energy Conversion
+# Box, Resonant Tuning, Resonant Energy Balloon, Affirmation and Focus 10.
+#
+# The tape is for a listener already comfortable with Discovery 1–5. It ends
+# with the learned one-count waking return, represented by return-one rather
+# than replacing it with the unrelated ten-to-one safety count. No generic
+# briefing, Clear Skies or second open-exploration hold is inserted.
+
+@title    Free Flow 10 — Your Own Purpose
+@level    F10
+@ending   return
+@pan      right
+@seed     10106
+@verbosity 3
+
+surf 0.55
+use orientation
+
+surf 0.30
+use conversion-box
+
+surf 0.18
+use resonant-tuning
+use balloon
+use affirmation
+
+surf 0.0
+use relax-10
+use free-flow-10
+use return-one

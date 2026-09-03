@@ -1,0 +1,16 @@
+# From "Free Flow 10" (Wave I - Discovery, CD3-6): a bare frame for
+# whatever purpose the listener set for themselves before beginning, rather
+# than content of its own. Distinct from free.gws (a generic hold used at
+# F12/F15/F21/F27) -- this one is F10-specific and names the purpose.
+
+@segment  free-flow-10
+@title    Free Flow — Your Own Purpose
+@levels   F10
+@duration ~5m
+
+say This is your own exercise, for whatever you came here to do.
+pause 5
+say Remember the purpose you set before you began. Now, in Focus 10, carry it out.
+pause 8
+say Take the time you need.
+hold 300

@@ -1,0 +1,16 @@
+@segment  climb-f10-f12
+@title    Climb — Focus 10 to Focus 12
+@levels   F12
+@fixed
+@verbosity 1
+@duration ~30s
+
+say Focus 12.
+pause 4
+level F12
+say Ten.
+pause 5
+say Eleven.
+pause 5
+say Twelve.
+pause 8

@@ -1,0 +1,33 @@
+# From "Advanced Focus 10" (Wave I - Discovery, CD2-3): the shortcut version
+# of relax-10, once the full ten-point count is already familiar. Also teaches
+# a return trigger with a physical component (moving the right hand's
+# fingers) that return-anchor.gws doesn't carry -- kept here rather than
+# merged into it, since return-anchor is taught before this tool exists yet.
+
+@segment   advanced-focus-10
+@title     Advanced Focus 10 — Instant Access
+@levels    F10
+@duration  ~1m
+
+# The tape pairs the number with a gesture -- "touch the fingers of your right
+# hand to the back of your neck and repeat the number one". The gesture is
+# dropped here, as it already is in `return-anchor`, because it is not what
+# does the work: the owner reports returning on intent alone, sometimes
+# without the number. Asking a still body to move its fingers adds a physical
+# instruction to the one moment that needs none.
+#
+# The invitation to stretch and open the eyes belongs at the *end* of a
+# session, in the return segments, where it is correctly placed.
+
+say Once Focus 10 is familiar to you, you don't need the full count to return to it.
+pause 5
+say Inhale deeply. As you hold your breath, think the number ten, inside a bright, moving circle.
+pause 6
+say Exhale, and you'll be in Focus 10, just as you are right now.
+pause 8
+say Returning is just as quick. Think the number one, and intend to be awake.
+pause 6
+say Do this, and you'll be completely awake, both physically and mentally, refreshed, in every way.
+pause 8
+say The more you use these, the faster and more natural they'll become.
+pause 6

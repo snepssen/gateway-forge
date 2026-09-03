@@ -1,0 +1,19 @@
+@segment   void
+@title     The Void
+@levels    F15
+@duration  ~21m
+
+say You are in Focus 15. There is no time here. Nothing familiar to arrive at, and nothing to hold onto.
+pause 8
+say This is not the void proper — that lies further ahead, at Focus 26 — but it shares its emptiness. No features. No orientation.
+pause 10
+say There is nothing you need to find here. Nothing you need to do.
+pause 8
+say Let yourself rest in the absence of anything. If it feels like there is nothing to lean on, that is correct. That is the state.
+pause 10
+say If something arrives — a shape, a thought, a shift in the quality of the emptiness — notice it. You don't need to reach for it, or explain it. Let it be there, or let it pass.
+pause 10
+say This may be the first time you have lingered here this way. There is no correct way to do it. There is only staying, and noticing what staying is like.
+pause 12
+say Stay as long as feels right.
+hold 1200

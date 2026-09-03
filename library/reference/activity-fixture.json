@@ -1,0 +1,516 @@
+{
+  "decodeCases" : [
+    {
+      "json" : "{\"schemaVersion\":1,\"appSeconds\":1,\"renderSeconds\":2,\"listeningSeconds\":3,\"completions\":[]}",
+      "name" : "complete"
+    },
+    {
+      "error" : "the practice ledger is version 2; this build reads 1. It has been left untouched.",
+      "json" : "{\"schemaVersion\":2,\"appSeconds\":1,\"renderSeconds\":2,\"listeningSeconds\":3,\"completions\":[]}",
+      "name" : "future-schema"
+    },
+    {
+      "error" : "the practice ledger is version 0; this build reads 1. It has been left untouched.",
+      "json" : "{\"schemaVersion\":0,\"appSeconds\":1,\"renderSeconds\":2,\"listeningSeconds\":3,\"completions\":[]}",
+      "name" : "older-schema"
+    },
+    {
+      "error" : "DecodingError.keyNotFound: Key 'schemaVersion' not found in keyed decoding container. Debug description: No value associated with key CodingKeys(stringValue: \"schemaVersion\", intValue: nil) (\"schemaVersion\").",
+      "json" : "{\"appSeconds\":1,\"renderSeconds\":2,\"listeningSeconds\":3,\"completions\":[]}",
+      "name" : "missing-schema"
+    },
+    {
+      "error" : "DecodingError.keyNotFound: Key 'appSeconds' not found in keyed decoding container. Debug description: No value associated with key CodingKeys(stringValue: \"appSeconds\", intValue: nil) (\"appSeconds\").",
+      "json" : "{\"schemaVersion\":1,\"renderSeconds\":2,\"listeningSeconds\":3,\"completions\":[]}",
+      "name" : "missing-appSeconds"
+    },
+    {
+      "error" : "DecodingError.keyNotFound: Key 'completions' not found in keyed decoding container. Debug description: No value associated with key CodingKeys(stringValue: \"completions\", intValue: nil) (\"completions\").",
+      "json" : "{\"schemaVersion\":1,\"appSeconds\":1,\"renderSeconds\":2,\"listeningSeconds\":3}",
+      "name" : "missing-completions"
+    },
+    {
+      "error" : "DecodingError.typeMismatch: Expected value of type String. Path: firstOpened. Debug description: Expected to decode String but found number instead.",
+      "json" : "{\"schemaVersion\":1,\"firstOpened\":12345,\"appSeconds\":1,\"renderSeconds\":2,\"listeningSeconds\":3,\"completions\":[]}",
+      "name" : "date-as-number"
+    },
+    {
+      "json" : "{\"schemaVersion\":1,\"firstOpened\":\"2026-08-23T17:58:18Z\",\"appSeconds\":1,\"renderSeconds\":2,\"listeningSeconds\":3,\"completions\":[]}",
+      "name" : "date-as-iso"
+    },
+    {
+      "error" : "DecodingError.keyNotFound: Key 'finished' not found in keyed decoding container. Path: completions[0]. Debug description: No value associated with key CodingKeys(stringValue: \"finished\", intValue: nil) (\"finished\").",
+      "json" : "{\"schemaVersion\":1,\"appSeconds\":1,\"renderSeconds\":2,\"listeningSeconds\":3,\"completions\":[{\"track\":\"t\",\"seconds\":1}]}",
+      "name" : "completion-without-finished"
+    },
+    {
+      "error" : "DecodingError.dataCorrupted: Data was corrupted. Debug description: The given data was not valid JSON.. Underlying error: Error Domain=NSCocoaErrorDomain Code=3840 \"Unexpected character 'o' in expected null value around line 1, column 2.\" UserInfo={NSDebugDescription=Unexpected character 'o' in expected null value around line 1, column 2., NSJSONSerializationErrorIndex=1}",
+      "json" : "nonsense",
+      "name" : "not-json"
+    }
+  ],
+  "deepestCases" : [
+    {
+      "byStringSort" : "F3",
+      "deepest" : "F10",
+      "name" : "string-order-disagrees",
+      "order" : [
+        "F1",
+        "F3",
+        "F10"
+      ],
+      "reached" : [
+        "F3",
+        "F10"
+      ]
+    },
+    {
+      "byStringSort" : "F3",
+      "deepest" : "F12",
+      "name" : "string-order-disagrees-more",
+      "order" : [
+        "F1",
+        "F3",
+        "F10",
+        "F12"
+      ],
+      "reached" : [
+        "F3",
+        "F10",
+        "F12"
+      ]
+    },
+    {
+      "byStringSort" : "F13",
+      "name" : "reached-level-not-on-the-map",
+      "order" : [
+        "F1",
+        "F3",
+        "F10"
+      ],
+      "reached" : [
+        "F13"
+      ]
+    },
+    {
+      "name" : "none-reached",
+      "order" : [
+        "F1",
+        "F3",
+        "F10"
+      ],
+      "reached" : [
+
+      ]
+    },
+    {
+      "byStringSort" : "F10",
+      "name" : "empty-order",
+      "order" : [
+
+      ],
+      "reached" : [
+        "F10"
+      ]
+    },
+    {
+      "byStringSort" : "F3",
+      "deepest" : "F3",
+      "name" : "empty-level-strings",
+      "order" : [
+        "F1",
+        "F3"
+      ],
+      "reached" : [
+        "",
+        "F3"
+      ]
+    }
+  ],
+  "foldCases" : [
+    {
+      "adding" : "5.0",
+      "result" : 105,
+      "total" : 100
+    },
+    {
+      "adding" : "0.0",
+      "result" : 100,
+      "total" : 100
+    },
+    {
+      "adding" : "-5.0",
+      "result" : 100,
+      "total" : 100
+    },
+    {
+      "adding" : "inf",
+      "result" : 100,
+      "total" : 100
+    },
+    {
+      "adding" : "-inf",
+      "result" : 100,
+      "total" : 100
+    },
+    {
+      "adding" : "nan",
+      "result" : 100,
+      "total" : 100
+    },
+    {
+      "adding" : "0.5",
+      "result" : 0.5,
+      "total" : 0
+    },
+    {
+      "adding" : "1e-12",
+      "result" : 1e-12,
+      "total" : 0
+    },
+    {
+      "adding" : "1e+300",
+      "result" : 2e+300,
+      "total" : 1e+300
+    }
+  ],
+  "freshLedgerIsEmpty" : true,
+  "journals" : [
+    {
+      "count" : 0,
+      "ids" : [
+
+      ],
+      "level" : "F1",
+      "substantive" : 0,
+      "words" : [
+
+      ]
+    },
+    {
+      "count" : 0,
+      "ids" : [
+
+      ],
+      "level" : "F3",
+      "substantive" : 0,
+      "words" : [
+
+      ]
+    },
+    {
+      "count" : 0,
+      "ids" : [
+
+      ],
+      "level" : "F10",
+      "substantive" : 0,
+      "words" : [
+
+      ]
+    },
+    {
+      "count" : 0,
+      "ids" : [
+
+      ],
+      "level" : "F11",
+      "substantive" : 0,
+      "words" : [
+
+      ]
+    },
+    {
+      "count" : 0,
+      "ids" : [
+
+      ],
+      "level" : "F12",
+      "substantive" : 0,
+      "words" : [
+
+      ]
+    },
+    {
+      "count" : 0,
+      "ids" : [
+
+      ],
+      "level" : "F15",
+      "substantive" : 0,
+      "words" : [
+
+      ]
+    },
+    {
+      "count" : 0,
+      "ids" : [
+
+      ],
+      "level" : "F18",
+      "substantive" : 0,
+      "words" : [
+
+      ]
+    },
+    {
+      "count" : 0,
+      "ids" : [
+
+      ],
+      "level" : "F21",
+      "substantive" : 0,
+      "words" : [
+
+      ]
+    },
+    {
+      "count" : 0,
+      "ids" : [
+
+      ],
+      "level" : "F22",
+      "substantive" : 0,
+      "words" : [
+
+      ]
+    },
+    {
+      "count" : 0,
+      "ids" : [
+
+      ],
+      "level" : "F23",
+      "substantive" : 0,
+      "words" : [
+
+      ]
+    },
+    {
+      "count" : 0,
+      "ids" : [
+
+      ],
+      "level" : "F24",
+      "substantive" : 0,
+      "words" : [
+
+      ]
+    },
+    {
+      "count" : 0,
+      "ids" : [
+
+      ],
+      "level" : "F25",
+      "substantive" : 0,
+      "words" : [
+
+      ]
+    },
+    {
+      "count" : 0,
+      "ids" : [
+
+      ],
+      "level" : "F26",
+      "substantive" : 0,
+      "words" : [
+
+      ]
+    },
+    {
+      "count" : 1,
+      "ids" : [
+        "sync-6fb66843-2907-4775-a6f3-11a3bdfba1b1"
+      ],
+      "level" : "F27",
+      "substantive" : 1,
+      "words" : [
+        35
+      ]
+    },
+    {
+      "count" : 1,
+      "ids" : [
+        "sync-52d97e5d-9273-4c1e-bf7c-8f1ff5505c75"
+      ],
+      "level" : "F34",
+      "substantive" : 1,
+      "words" : [
+        7
+      ]
+    },
+    {
+      "count" : 0,
+      "ids" : [
+
+      ],
+      "level" : "F35",
+      "substantive" : 0,
+      "words" : [
+
+      ]
+    },
+    {
+      "count" : 0,
+      "ids" : [
+
+      ],
+      "level" : "F42",
+      "substantive" : 0,
+      "words" : [
+
+      ]
+    },
+    {
+      "count" : 0,
+      "ids" : [
+
+      ],
+      "level" : "F49",
+      "substantive" : 0,
+      "words" : [
+
+      ]
+    },
+    {
+      "count" : 0,
+      "ids" : [
+
+      ],
+      "level" : "F13",
+      "substantive" : 0,
+      "words" : [
+
+      ]
+    }
+  ],
+  "ledger" : {
+    "appSeconds" : 251638.0257203579,
+    "completedTracks" : [
+      "2026-08-23-130926-continuous-f3-f3aaebf8",
+      "2026-08-26-104002-castle-bc28388d",
+      "2026-08-26-121910-continuous-f3-7cf5d029",
+      "2026-08-26-122142-continuous-f3-f2a2da9c",
+      "2026-08-26-123157-continuous-f3-73b8a6ff",
+      "2026-08-26-123632-continuous-f3-00f0a1ae",
+      "2026-08-26-132012-continuous-f3-44d74987",
+      "2026-08-26-f10-visit",
+      "2026-08-26-f3-visit",
+      "2026-08-30-054710-continuous-f27-cf70ec3d",
+      "2026-08-30-054900-continuous-f27-0a1b2926",
+      "2026-08-31-033037-continuous-f13-dc43a6cf",
+      "2026-09-01-020304-continuous-f11-fe4c50ca",
+      "2026-09-01-021555-continuous-f12-661f0753",
+      "2026-09-01-203010-advanced-focus-10-9fff7165",
+      "2026-09-01-212643-f34-visit-42f62888",
+      "2026-09-02-031803-continuous-f13-ba802011",
+      "2026-09-02-103454-continuous-f18-22f1d696"
+    ],
+    "completionCount" : 26,
+    "completionIDs" : [
+      "2026-08-23-130926-continuous-f3-f3aaebf8@1787507974.0",
+      "2026-08-23-130926-continuous-f3-f3aaebf8@1787511909.0",
+      "2026-08-26-f3-visit@1787742055.0",
+      "2026-08-26-f10-visit@1787745368.0",
+      "2026-08-26-121910-continuous-f3-7cf5d029@1787746846.0",
+      "2026-08-26-122142-continuous-f3-f2a2da9c@1787746919.0",
+      "2026-08-26-123157-continuous-f3-73b8a6ff@1787747549.0",
+      "2026-08-26-123632-continuous-f3-00f0a1ae@1787747824.0",
+      "2026-08-26-132012-continuous-f3-44d74987@1787750420.0",
+      "2026-08-26-104002-castle-bc28388d@1788042230.0",
+      "2026-08-26-132012-continuous-f3-44d74987@1788059055.0",
+      "2026-08-30-054710-continuous-f27-cf70ec3d@1788068921.0",
+      "2026-08-30-054900-continuous-f27-0a1b2926@1788069025.0",
+      "2026-08-31-033037-continuous-f13-dc43a6cf@1788147236.0",
+      "2026-08-31-033037-continuous-f13-dc43a6cf@1788148057.0",
+      "2026-09-01-020304-continuous-f11-fe4c50ca@1788228806.0",
+      "2026-09-01-021555-continuous-f12-661f0753@1788229143.0",
+      "2026-09-01-203010-advanced-focus-10-9fff7165@1788295972.0",
+      "2026-09-01-212643-f34-visit-42f62888@1788301479.0",
+      "2026-09-02-031803-continuous-f13-ba802011@1788319280.0",
+      "6b6b80a9-88b6-4c82-a39a-e09372b4e431",
+      "f820dc17-473f-45f0-a7d6-b7d8f191b506",
+      "f3b15bf0-af54-45d4-97e2-b66ddcb609e5",
+      "2155ae0b-8a5f-4632-bbea-8e53ac4a867d",
+      "b5e31510-bacd-4067-9e9f-81668cc7b85b",
+      "7a3b8f49-4095-49a9-9568-46f4b428aa75"
+    ],
+    "deepestLevel" : "F34",
+    "firstOpened" : "2026-08-23T17:58:18Z",
+    "listeningSeconds" : 32627.08561053308,
+    "reachedLevels" : [
+      "F10",
+      "F11",
+      "F12",
+      "F13",
+      "F18",
+      "F27",
+      "F3",
+      "F34"
+    ],
+    "renderSeconds" : 4073.179773211479,
+    "schemaVersion" : 1
+  },
+  "note" : "The ledger on disk, the stats measured from the tree, and what the store refuses.",
+  "noteURLs" : {
+    "count" : 242,
+    "sample" : [
+      "focus/F1/notes.md",
+      "focus/F10/notes.md",
+      "focus/F10/renders/2026-09-01-203010-advanced-focus-10-9fff7165/notes.md",
+      "focus/F10/renders/2026-09-02-040522-release-and-recharge-d2384752/notes.md",
+      "focus/F10/renders/2026-09-02-103820-exploration-sleep-04faf809/notes.md",
+      "focus/F10/renders/2026-09-02-103839-free-flow-10-3f6bbeef/notes.md",
+      "focus/F10/renders/2026-09-02-104100-color-breathing-cae3960f/notes.md",
+      "focus/F10/renders/2026-09-02-104116-energy-bar-tool-9c66383f/notes.md"
+    ]
+  },
+  "stats" : {
+    "deepestLevel" : "F34",
+    "levelsReached" : 8,
+    "levelsWithMaterial" : 18,
+    "listensCompleted" : 26,
+    "noteWords" : 2165,
+    "notesLogged" : 11,
+    "progression" : 0.4444444444444444,
+    "sessionsAssembled" : 44,
+    "sessionsCompleted" : 16,
+    "sessionsOutstanding" : 28
+  },
+  "wordCases" : [
+    {
+      "count" : 3,
+      "text" : "one two three"
+    },
+    {
+      "count" : 3,
+      "text" : "  leading and trailing  "
+    },
+    {
+      "count" : 0,
+      "text" : ""
+    },
+    {
+      "count" : 3,
+      "text" : "line\nbreaks\ncount"
+    },
+    {
+      "count" : 3,
+      "text" : "tabs\tand\tspaces"
+    },
+    {
+      "count" : 2,
+      "text" : "non breaking"
+    },
+    {
+      "count" : 1,
+      "text" : "zero﻿width"
+    },
+    {
+      "count" : 1,
+      "text" : "single"
+    }
+  ]
+}

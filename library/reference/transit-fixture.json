@@ -1,0 +1,1925 @@
+{
+  "descentCases" : [
+    {
+      "from" : "F1",
+      "to" : "F1"
+    },
+    {
+      "from" : "F1",
+      "to" : "F10"
+    },
+    {
+      "from" : "F1",
+      "to" : "F11"
+    },
+    {
+      "from" : "F1",
+      "to" : "F12"
+    },
+    {
+      "from" : "F1",
+      "to" : "F15"
+    },
+    {
+      "from" : "F1",
+      "to" : "F18"
+    },
+    {
+      "from" : "F1",
+      "to" : "F21"
+    },
+    {
+      "from" : "F1",
+      "to" : "F22"
+    },
+    {
+      "from" : "F1",
+      "to" : "F23"
+    },
+    {
+      "from" : "F1",
+      "to" : "F24"
+    },
+    {
+      "from" : "F1",
+      "to" : "F25"
+    },
+    {
+      "from" : "F1",
+      "to" : "F26"
+    },
+    {
+      "from" : "F1",
+      "to" : "F27"
+    },
+    {
+      "from" : "F1",
+      "to" : "F3"
+    },
+    {
+      "from" : "F1",
+      "to" : "F34"
+    },
+    {
+      "from" : "F1",
+      "to" : "F35"
+    },
+    {
+      "from" : "F1",
+      "to" : "F42"
+    },
+    {
+      "from" : "F1",
+      "to" : "F49"
+    },
+    {
+      "from" : "F10",
+      "to" : "F1"
+    },
+    {
+      "from" : "F10",
+      "to" : "F10"
+    },
+    {
+      "from" : "F10",
+      "to" : "F11"
+    },
+    {
+      "from" : "F10",
+      "to" : "F12"
+    },
+    {
+      "from" : "F10",
+      "to" : "F15"
+    },
+    {
+      "from" : "F10",
+      "to" : "F18"
+    },
+    {
+      "from" : "F10",
+      "to" : "F21"
+    },
+    {
+      "from" : "F10",
+      "to" : "F22"
+    },
+    {
+      "from" : "F10",
+      "to" : "F23"
+    },
+    {
+      "from" : "F10",
+      "to" : "F24"
+    },
+    {
+      "from" : "F10",
+      "to" : "F25"
+    },
+    {
+      "from" : "F10",
+      "to" : "F26"
+    },
+    {
+      "from" : "F10",
+      "to" : "F27"
+    },
+    {
+      "from" : "F10",
+      "to" : "F3"
+    },
+    {
+      "from" : "F10",
+      "to" : "F34"
+    },
+    {
+      "from" : "F10",
+      "to" : "F35"
+    },
+    {
+      "from" : "F10",
+      "to" : "F42"
+    },
+    {
+      "from" : "F10",
+      "to" : "F49"
+    },
+    {
+      "from" : "F11",
+      "to" : "F1"
+    },
+    {
+      "from" : "F11",
+      "to" : "F10"
+    },
+    {
+      "from" : "F11",
+      "to" : "F11"
+    },
+    {
+      "from" : "F11",
+      "to" : "F12"
+    },
+    {
+      "from" : "F11",
+      "to" : "F15"
+    },
+    {
+      "from" : "F11",
+      "to" : "F18"
+    },
+    {
+      "from" : "F11",
+      "to" : "F21"
+    },
+    {
+      "from" : "F11",
+      "to" : "F22"
+    },
+    {
+      "from" : "F11",
+      "to" : "F23"
+    },
+    {
+      "from" : "F11",
+      "to" : "F24"
+    },
+    {
+      "from" : "F11",
+      "to" : "F25"
+    },
+    {
+      "from" : "F11",
+      "to" : "F26"
+    },
+    {
+      "from" : "F11",
+      "to" : "F27"
+    },
+    {
+      "from" : "F11",
+      "to" : "F3"
+    },
+    {
+      "from" : "F11",
+      "to" : "F34"
+    },
+    {
+      "from" : "F11",
+      "to" : "F35"
+    },
+    {
+      "from" : "F11",
+      "to" : "F42"
+    },
+    {
+      "from" : "F11",
+      "to" : "F49"
+    },
+    {
+      "from" : "F12",
+      "to" : "F1"
+    },
+    {
+      "from" : "F12",
+      "picked" : "descend-f15-f10",
+      "to" : "F10"
+    },
+    {
+      "from" : "F12",
+      "to" : "F11"
+    },
+    {
+      "from" : "F12",
+      "to" : "F12"
+    },
+    {
+      "from" : "F12",
+      "to" : "F15"
+    },
+    {
+      "from" : "F12",
+      "to" : "F18"
+    },
+    {
+      "from" : "F12",
+      "to" : "F21"
+    },
+    {
+      "from" : "F12",
+      "to" : "F22"
+    },
+    {
+      "from" : "F12",
+      "to" : "F23"
+    },
+    {
+      "from" : "F12",
+      "to" : "F24"
+    },
+    {
+      "from" : "F12",
+      "to" : "F25"
+    },
+    {
+      "from" : "F12",
+      "to" : "F26"
+    },
+    {
+      "from" : "F12",
+      "to" : "F27"
+    },
+    {
+      "from" : "F12",
+      "to" : "F3"
+    },
+    {
+      "from" : "F12",
+      "to" : "F34"
+    },
+    {
+      "from" : "F12",
+      "to" : "F35"
+    },
+    {
+      "from" : "F12",
+      "to" : "F42"
+    },
+    {
+      "from" : "F12",
+      "to" : "F49"
+    },
+    {
+      "from" : "F15",
+      "to" : "F1"
+    },
+    {
+      "from" : "F15",
+      "picked" : "descend-f15-f10",
+      "to" : "F10"
+    },
+    {
+      "from" : "F15",
+      "to" : "F11"
+    },
+    {
+      "from" : "F15",
+      "picked" : "descend-f15-f10",
+      "to" : "F12"
+    },
+    {
+      "from" : "F15",
+      "to" : "F15"
+    },
+    {
+      "from" : "F15",
+      "to" : "F18"
+    },
+    {
+      "from" : "F15",
+      "to" : "F21"
+    },
+    {
+      "from" : "F15",
+      "to" : "F22"
+    },
+    {
+      "from" : "F15",
+      "to" : "F23"
+    },
+    {
+      "from" : "F15",
+      "to" : "F24"
+    },
+    {
+      "from" : "F15",
+      "to" : "F25"
+    },
+    {
+      "from" : "F15",
+      "to" : "F26"
+    },
+    {
+      "from" : "F15",
+      "to" : "F27"
+    },
+    {
+      "from" : "F15",
+      "to" : "F3"
+    },
+    {
+      "from" : "F15",
+      "to" : "F34"
+    },
+    {
+      "from" : "F15",
+      "to" : "F35"
+    },
+    {
+      "from" : "F15",
+      "to" : "F42"
+    },
+    {
+      "from" : "F15",
+      "to" : "F49"
+    },
+    {
+      "from" : "F18",
+      "to" : "F1"
+    },
+    {
+      "from" : "F18",
+      "to" : "F10"
+    },
+    {
+      "from" : "F18",
+      "to" : "F11"
+    },
+    {
+      "from" : "F18",
+      "to" : "F12"
+    },
+    {
+      "from" : "F18",
+      "to" : "F15"
+    },
+    {
+      "from" : "F18",
+      "to" : "F18"
+    },
+    {
+      "from" : "F18",
+      "to" : "F21"
+    },
+    {
+      "from" : "F18",
+      "to" : "F22"
+    },
+    {
+      "from" : "F18",
+      "to" : "F23"
+    },
+    {
+      "from" : "F18",
+      "to" : "F24"
+    },
+    {
+      "from" : "F18",
+      "to" : "F25"
+    },
+    {
+      "from" : "F18",
+      "to" : "F26"
+    },
+    {
+      "from" : "F18",
+      "to" : "F27"
+    },
+    {
+      "from" : "F18",
+      "to" : "F3"
+    },
+    {
+      "from" : "F18",
+      "to" : "F34"
+    },
+    {
+      "from" : "F18",
+      "to" : "F35"
+    },
+    {
+      "from" : "F18",
+      "to" : "F42"
+    },
+    {
+      "from" : "F18",
+      "to" : "F49"
+    },
+    {
+      "from" : "F21",
+      "to" : "F1"
+    },
+    {
+      "from" : "F21",
+      "picked" : "descend-f27-f10",
+      "to" : "F10"
+    },
+    {
+      "from" : "F21",
+      "to" : "F11"
+    },
+    {
+      "from" : "F21",
+      "picked" : "descend-f27-f10",
+      "to" : "F12"
+    },
+    {
+      "from" : "F21",
+      "picked" : "descend-f27-f10",
+      "to" : "F15"
+    },
+    {
+      "from" : "F21",
+      "to" : "F18"
+    },
+    {
+      "from" : "F21",
+      "to" : "F21"
+    },
+    {
+      "from" : "F21",
+      "to" : "F22"
+    },
+    {
+      "from" : "F21",
+      "to" : "F23"
+    },
+    {
+      "from" : "F21",
+      "to" : "F24"
+    },
+    {
+      "from" : "F21",
+      "to" : "F25"
+    },
+    {
+      "from" : "F21",
+      "to" : "F26"
+    },
+    {
+      "from" : "F21",
+      "to" : "F27"
+    },
+    {
+      "from" : "F21",
+      "to" : "F3"
+    },
+    {
+      "from" : "F21",
+      "to" : "F34"
+    },
+    {
+      "from" : "F21",
+      "to" : "F35"
+    },
+    {
+      "from" : "F21",
+      "to" : "F42"
+    },
+    {
+      "from" : "F21",
+      "to" : "F49"
+    },
+    {
+      "from" : "F22",
+      "to" : "F1"
+    },
+    {
+      "from" : "F22",
+      "to" : "F10"
+    },
+    {
+      "from" : "F22",
+      "to" : "F11"
+    },
+    {
+      "from" : "F22",
+      "to" : "F12"
+    },
+    {
+      "from" : "F22",
+      "to" : "F15"
+    },
+    {
+      "from" : "F22",
+      "to" : "F18"
+    },
+    {
+      "from" : "F22",
+      "to" : "F21"
+    },
+    {
+      "from" : "F22",
+      "to" : "F22"
+    },
+    {
+      "from" : "F22",
+      "to" : "F23"
+    },
+    {
+      "from" : "F22",
+      "to" : "F24"
+    },
+    {
+      "from" : "F22",
+      "to" : "F25"
+    },
+    {
+      "from" : "F22",
+      "to" : "F26"
+    },
+    {
+      "from" : "F22",
+      "to" : "F27"
+    },
+    {
+      "from" : "F22",
+      "to" : "F3"
+    },
+    {
+      "from" : "F22",
+      "to" : "F34"
+    },
+    {
+      "from" : "F22",
+      "to" : "F35"
+    },
+    {
+      "from" : "F22",
+      "to" : "F42"
+    },
+    {
+      "from" : "F22",
+      "to" : "F49"
+    },
+    {
+      "from" : "F23",
+      "to" : "F1"
+    },
+    {
+      "from" : "F23",
+      "picked" : "descend-f27-f10",
+      "to" : "F10"
+    },
+    {
+      "from" : "F23",
+      "to" : "F11"
+    },
+    {
+      "from" : "F23",
+      "picked" : "descend-f27-f10",
+      "to" : "F12"
+    },
+    {
+      "from" : "F23",
+      "picked" : "descend-f27-f10",
+      "to" : "F15"
+    },
+    {
+      "from" : "F23",
+      "to" : "F18"
+    },
+    {
+      "from" : "F23",
+      "picked" : "descend-f27-f10",
+      "to" : "F21"
+    },
+    {
+      "from" : "F23",
+      "to" : "F22"
+    },
+    {
+      "from" : "F23",
+      "to" : "F23"
+    },
+    {
+      "from" : "F23",
+      "to" : "F24"
+    },
+    {
+      "from" : "F23",
+      "to" : "F25"
+    },
+    {
+      "from" : "F23",
+      "to" : "F26"
+    },
+    {
+      "from" : "F23",
+      "to" : "F27"
+    },
+    {
+      "from" : "F23",
+      "to" : "F3"
+    },
+    {
+      "from" : "F23",
+      "to" : "F34"
+    },
+    {
+      "from" : "F23",
+      "to" : "F35"
+    },
+    {
+      "from" : "F23",
+      "to" : "F42"
+    },
+    {
+      "from" : "F23",
+      "to" : "F49"
+    },
+    {
+      "from" : "F24",
+      "to" : "F1"
+    },
+    {
+      "from" : "F24",
+      "to" : "F10"
+    },
+    {
+      "from" : "F24",
+      "to" : "F11"
+    },
+    {
+      "from" : "F24",
+      "to" : "F12"
+    },
+    {
+      "from" : "F24",
+      "to" : "F15"
+    },
+    {
+      "from" : "F24",
+      "to" : "F18"
+    },
+    {
+      "from" : "F24",
+      "to" : "F21"
+    },
+    {
+      "from" : "F24",
+      "to" : "F22"
+    },
+    {
+      "from" : "F24",
+      "to" : "F23"
+    },
+    {
+      "from" : "F24",
+      "to" : "F24"
+    },
+    {
+      "from" : "F24",
+      "to" : "F25"
+    },
+    {
+      "from" : "F24",
+      "to" : "F26"
+    },
+    {
+      "from" : "F24",
+      "to" : "F27"
+    },
+    {
+      "from" : "F24",
+      "to" : "F3"
+    },
+    {
+      "from" : "F24",
+      "to" : "F34"
+    },
+    {
+      "from" : "F24",
+      "to" : "F35"
+    },
+    {
+      "from" : "F24",
+      "to" : "F42"
+    },
+    {
+      "from" : "F24",
+      "to" : "F49"
+    },
+    {
+      "from" : "F25",
+      "to" : "F1"
+    },
+    {
+      "from" : "F25",
+      "picked" : "descend-f27-f10",
+      "to" : "F10"
+    },
+    {
+      "from" : "F25",
+      "to" : "F11"
+    },
+    {
+      "from" : "F25",
+      "picked" : "descend-f27-f10",
+      "to" : "F12"
+    },
+    {
+      "from" : "F25",
+      "picked" : "descend-f27-f10",
+      "to" : "F15"
+    },
+    {
+      "from" : "F25",
+      "to" : "F18"
+    },
+    {
+      "from" : "F25",
+      "picked" : "descend-f27-f10",
+      "to" : "F21"
+    },
+    {
+      "from" : "F25",
+      "to" : "F22"
+    },
+    {
+      "from" : "F25",
+      "picked" : "descend-f27-f10",
+      "to" : "F23"
+    },
+    {
+      "from" : "F25",
+      "to" : "F24"
+    },
+    {
+      "from" : "F25",
+      "to" : "F25"
+    },
+    {
+      "from" : "F25",
+      "to" : "F26"
+    },
+    {
+      "from" : "F25",
+      "to" : "F27"
+    },
+    {
+      "from" : "F25",
+      "to" : "F3"
+    },
+    {
+      "from" : "F25",
+      "to" : "F34"
+    },
+    {
+      "from" : "F25",
+      "to" : "F35"
+    },
+    {
+      "from" : "F25",
+      "to" : "F42"
+    },
+    {
+      "from" : "F25",
+      "to" : "F49"
+    },
+    {
+      "from" : "F26",
+      "to" : "F1"
+    },
+    {
+      "from" : "F26",
+      "picked" : "descend-f27-f10",
+      "to" : "F10"
+    },
+    {
+      "from" : "F26",
+      "to" : "F11"
+    },
+    {
+      "from" : "F26",
+      "picked" : "descend-f27-f10",
+      "to" : "F12"
+    },
+    {
+      "from" : "F26",
+      "picked" : "descend-f27-f10",
+      "to" : "F15"
+    },
+    {
+      "from" : "F26",
+      "to" : "F18"
+    },
+    {
+      "from" : "F26",
+      "picked" : "descend-f27-f10",
+      "to" : "F21"
+    },
+    {
+      "from" : "F26",
+      "to" : "F22"
+    },
+    {
+      "from" : "F26",
+      "picked" : "descend-f27-f10",
+      "to" : "F23"
+    },
+    {
+      "from" : "F26",
+      "to" : "F24"
+    },
+    {
+      "from" : "F26",
+      "picked" : "descend-f27-f10",
+      "to" : "F25"
+    },
+    {
+      "from" : "F26",
+      "to" : "F26"
+    },
+    {
+      "from" : "F26",
+      "to" : "F27"
+    },
+    {
+      "from" : "F26",
+      "to" : "F3"
+    },
+    {
+      "from" : "F26",
+      "to" : "F34"
+    },
+    {
+      "from" : "F26",
+      "to" : "F35"
+    },
+    {
+      "from" : "F26",
+      "to" : "F42"
+    },
+    {
+      "from" : "F26",
+      "to" : "F49"
+    },
+    {
+      "from" : "F27",
+      "to" : "F1"
+    },
+    {
+      "from" : "F27",
+      "picked" : "descend-f27-f10",
+      "to" : "F10"
+    },
+    {
+      "from" : "F27",
+      "to" : "F11"
+    },
+    {
+      "from" : "F27",
+      "picked" : "descend-f27-f10",
+      "to" : "F12"
+    },
+    {
+      "from" : "F27",
+      "picked" : "descend-f27-f10",
+      "to" : "F15"
+    },
+    {
+      "from" : "F27",
+      "to" : "F18"
+    },
+    {
+      "from" : "F27",
+      "picked" : "descend-f27-f10",
+      "to" : "F21"
+    },
+    {
+      "from" : "F27",
+      "to" : "F22"
+    },
+    {
+      "from" : "F27",
+      "picked" : "descend-f27-f10",
+      "to" : "F23"
+    },
+    {
+      "from" : "F27",
+      "to" : "F24"
+    },
+    {
+      "from" : "F27",
+      "picked" : "descend-f27-f10",
+      "to" : "F25"
+    },
+    {
+      "from" : "F27",
+      "picked" : "descend-f27-f10",
+      "to" : "F26"
+    },
+    {
+      "from" : "F27",
+      "to" : "F27"
+    },
+    {
+      "from" : "F27",
+      "to" : "F3"
+    },
+    {
+      "from" : "F27",
+      "to" : "F34"
+    },
+    {
+      "from" : "F27",
+      "to" : "F35"
+    },
+    {
+      "from" : "F27",
+      "to" : "F42"
+    },
+    {
+      "from" : "F27",
+      "to" : "F49"
+    },
+    {
+      "from" : "F3",
+      "to" : "F1"
+    },
+    {
+      "from" : "F3",
+      "to" : "F10"
+    },
+    {
+      "from" : "F3",
+      "to" : "F11"
+    },
+    {
+      "from" : "F3",
+      "to" : "F12"
+    },
+    {
+      "from" : "F3",
+      "to" : "F15"
+    },
+    {
+      "from" : "F3",
+      "to" : "F18"
+    },
+    {
+      "from" : "F3",
+      "to" : "F21"
+    },
+    {
+      "from" : "F3",
+      "to" : "F22"
+    },
+    {
+      "from" : "F3",
+      "to" : "F23"
+    },
+    {
+      "from" : "F3",
+      "to" : "F24"
+    },
+    {
+      "from" : "F3",
+      "to" : "F25"
+    },
+    {
+      "from" : "F3",
+      "to" : "F26"
+    },
+    {
+      "from" : "F3",
+      "to" : "F27"
+    },
+    {
+      "from" : "F3",
+      "to" : "F3"
+    },
+    {
+      "from" : "F3",
+      "to" : "F34"
+    },
+    {
+      "from" : "F3",
+      "to" : "F35"
+    },
+    {
+      "from" : "F3",
+      "to" : "F42"
+    },
+    {
+      "from" : "F3",
+      "to" : "F49"
+    },
+    {
+      "from" : "F34",
+      "to" : "F1"
+    },
+    {
+      "from" : "F34",
+      "to" : "F10"
+    },
+    {
+      "from" : "F34",
+      "to" : "F11"
+    },
+    {
+      "from" : "F34",
+      "to" : "F12"
+    },
+    {
+      "from" : "F34",
+      "to" : "F15"
+    },
+    {
+      "from" : "F34",
+      "to" : "F18"
+    },
+    {
+      "from" : "F34",
+      "to" : "F21"
+    },
+    {
+      "from" : "F34",
+      "to" : "F22"
+    },
+    {
+      "from" : "F34",
+      "to" : "F23"
+    },
+    {
+      "from" : "F34",
+      "to" : "F24"
+    },
+    {
+      "from" : "F34",
+      "to" : "F25"
+    },
+    {
+      "from" : "F34",
+      "to" : "F26"
+    },
+    {
+      "from" : "F34",
+      "to" : "F27"
+    },
+    {
+      "from" : "F34",
+      "to" : "F3"
+    },
+    {
+      "from" : "F34",
+      "to" : "F34"
+    },
+    {
+      "from" : "F34",
+      "to" : "F35"
+    },
+    {
+      "from" : "F34",
+      "to" : "F42"
+    },
+    {
+      "from" : "F34",
+      "to" : "F49"
+    },
+    {
+      "from" : "F35",
+      "to" : "F1"
+    },
+    {
+      "from" : "F35",
+      "to" : "F10"
+    },
+    {
+      "from" : "F35",
+      "to" : "F11"
+    },
+    {
+      "from" : "F35",
+      "to" : "F12"
+    },
+    {
+      "from" : "F35",
+      "to" : "F15"
+    },
+    {
+      "from" : "F35",
+      "to" : "F18"
+    },
+    {
+      "from" : "F35",
+      "to" : "F21"
+    },
+    {
+      "from" : "F35",
+      "to" : "F22"
+    },
+    {
+      "from" : "F35",
+      "to" : "F23"
+    },
+    {
+      "from" : "F35",
+      "to" : "F24"
+    },
+    {
+      "from" : "F35",
+      "to" : "F25"
+    },
+    {
+      "from" : "F35",
+      "to" : "F26"
+    },
+    {
+      "from" : "F35",
+      "to" : "F27"
+    },
+    {
+      "from" : "F35",
+      "to" : "F3"
+    },
+    {
+      "from" : "F35",
+      "to" : "F34"
+    },
+    {
+      "from" : "F35",
+      "to" : "F35"
+    },
+    {
+      "from" : "F35",
+      "to" : "F42"
+    },
+    {
+      "from" : "F35",
+      "to" : "F49"
+    },
+    {
+      "from" : "F42",
+      "to" : "F1"
+    },
+    {
+      "from" : "F42",
+      "to" : "F10"
+    },
+    {
+      "from" : "F42",
+      "to" : "F11"
+    },
+    {
+      "from" : "F42",
+      "to" : "F12"
+    },
+    {
+      "from" : "F42",
+      "to" : "F15"
+    },
+    {
+      "from" : "F42",
+      "to" : "F18"
+    },
+    {
+      "from" : "F42",
+      "to" : "F21"
+    },
+    {
+      "from" : "F42",
+      "to" : "F22"
+    },
+    {
+      "from" : "F42",
+      "to" : "F23"
+    },
+    {
+      "from" : "F42",
+      "to" : "F24"
+    },
+    {
+      "from" : "F42",
+      "to" : "F25"
+    },
+    {
+      "from" : "F42",
+      "to" : "F26"
+    },
+    {
+      "from" : "F42",
+      "to" : "F27"
+    },
+    {
+      "from" : "F42",
+      "to" : "F3"
+    },
+    {
+      "from" : "F42",
+      "to" : "F34"
+    },
+    {
+      "from" : "F42",
+      "to" : "F35"
+    },
+    {
+      "from" : "F42",
+      "to" : "F42"
+    },
+    {
+      "from" : "F42",
+      "to" : "F49"
+    },
+    {
+      "from" : "F49",
+      "to" : "F1"
+    },
+    {
+      "from" : "F49",
+      "to" : "F10"
+    },
+    {
+      "from" : "F49",
+      "to" : "F11"
+    },
+    {
+      "from" : "F49",
+      "to" : "F12"
+    },
+    {
+      "from" : "F49",
+      "to" : "F15"
+    },
+    {
+      "from" : "F49",
+      "to" : "F18"
+    },
+    {
+      "from" : "F49",
+      "to" : "F21"
+    },
+    {
+      "from" : "F49",
+      "to" : "F22"
+    },
+    {
+      "from" : "F49",
+      "to" : "F23"
+    },
+    {
+      "from" : "F49",
+      "to" : "F24"
+    },
+    {
+      "from" : "F49",
+      "to" : "F25"
+    },
+    {
+      "from" : "F49",
+      "to" : "F26"
+    },
+    {
+      "from" : "F49",
+      "to" : "F27"
+    },
+    {
+      "from" : "F49",
+      "to" : "F3"
+    },
+    {
+      "from" : "F49",
+      "to" : "F34"
+    },
+    {
+      "from" : "F49",
+      "to" : "F35"
+    },
+    {
+      "from" : "F49",
+      "to" : "F42"
+    },
+    {
+      "from" : "F49",
+      "to" : "F49"
+    },
+    {
+      "from" : "f27",
+      "picked" : "descend-f27-f10",
+      "to" : "f23"
+    },
+    {
+      "from" : "F27",
+      "picked" : "descend-f27-f10",
+      "to" : "f23"
+    },
+    {
+      "from" : "F27",
+      "to" : "F27"
+    },
+    {
+      "from" : "f27",
+      "to" : "F27"
+    },
+    {
+      "from" : "",
+      "to" : ""
+    },
+    {
+      "from" : "F27",
+      "to" : ""
+    },
+    {
+      "from" : "",
+      "to" : "F10"
+    }
+  ],
+  "descents" : [
+    {
+      "crops" : [
+        {
+          "frames" : 1136913,
+          "seconds" : 47.371375,
+          "station" : "F12"
+        },
+        {
+          "frames" : 2194754,
+          "seconds" : 91.44808333333333,
+          "station" : "F10"
+        },
+        {
+          "station" : "F1"
+        },
+        {
+          "station" : "F99"
+        },
+        {
+          "station" : "not-a-level"
+        },
+        {
+          "station" : ""
+        },
+        {
+          "frames" : 1136913,
+          "seconds" : 47.371375,
+          "station" : "f12"
+        },
+        {
+          "frames" : 2194754,
+          "seconds" : 91.44808333333333,
+          "station" : "f10"
+        }
+      ],
+      "file" : "library/segments/descend-f15-f10.gws",
+      "segmentID" : "descend-f15-f10",
+      "stations" : [
+        "F12",
+        "F10"
+      ],
+      "timeline" : "segments-rendered/snepssen-suno/descend-f15-f10.take1.timeline.json",
+      "timelineEntries" : 26,
+      "totalFrames" : 2194754
+    },
+    {
+      "crops" : [
+        {
+          "frames" : 590336,
+          "seconds" : 24.597333333333335,
+          "station" : "F26"
+        },
+        {
+          "frames" : 710507,
+          "seconds" : 29.604458333333334,
+          "station" : "F25"
+        },
+        {
+          "frames" : 944768,
+          "seconds" : 39.36533333333333,
+          "station" : "F23"
+        },
+        {
+          "frames" : 1172278,
+          "seconds" : 48.84491666666667,
+          "station" : "F21"
+        },
+        {
+          "frames" : 1875700,
+          "seconds" : 78.15416666666667,
+          "station" : "F15"
+        },
+        {
+          "frames" : 2584351,
+          "seconds" : 107.68129166666667,
+          "station" : "F12"
+        },
+        {
+          "frames" : 3168161,
+          "seconds" : 132.00670833333334,
+          "station" : "F10"
+        },
+        {
+          "station" : "F1"
+        },
+        {
+          "station" : "F99"
+        },
+        {
+          "station" : "not-a-level"
+        },
+        {
+          "station" : ""
+        },
+        {
+          "frames" : 590336,
+          "seconds" : 24.597333333333335,
+          "station" : "f26"
+        },
+        {
+          "frames" : 710507,
+          "seconds" : 29.604458333333334,
+          "station" : "f25"
+        },
+        {
+          "frames" : 944768,
+          "seconds" : 39.36533333333333,
+          "station" : "f23"
+        },
+        {
+          "frames" : 1172278,
+          "seconds" : 48.84491666666667,
+          "station" : "f21"
+        },
+        {
+          "frames" : 1875700,
+          "seconds" : 78.15416666666667,
+          "station" : "f15"
+        },
+        {
+          "frames" : 2584351,
+          "seconds" : 107.68129166666667,
+          "station" : "f12"
+        },
+        {
+          "frames" : 3168161,
+          "seconds" : 132.00670833333334,
+          "station" : "f10"
+        }
+      ],
+      "file" : "library/segments/descend-f27-f10.gws",
+      "segmentID" : "descend-f27-f10",
+      "stations" : [
+        "F26",
+        "F25",
+        "F23",
+        "F21",
+        "F15",
+        "F12",
+        "F10"
+      ],
+      "timeline" : "segments-rendered/snepssen-suno/descend-f27-f10.take1.timeline.json",
+      "timelineEntries" : 44,
+      "totalFrames" : 3168161
+    }
+  ],
+  "madeCases" : [
+    {
+      "crops" : [
+        {
+          "frames" : 30,
+          "seconds" : 0.00125,
+          "station" : "F26"
+        },
+        {
+          "frames" : 150,
+          "seconds" : 0.00625,
+          "station" : "F23"
+        },
+        {
+          "frames" : 210,
+          "seconds" : 0.00875,
+          "station" : "F10"
+        },
+        {
+          "station" : "F27"
+        }
+      ],
+      "frameCounts" : [
+        10,
+        20,
+        30,
+        40,
+        50,
+        60,
+        70
+      ],
+      "from" : "F27",
+      "name" : "every kind of step",
+      "picked" : "descend-f27-f10",
+      "segmentIDs" : [
+        "descend-f27-f10"
+      ],
+      "source" : "@title Down, the long way\n@level F27\n@fixed\nlevel F26\nsay twenty six\nbed 0.3 12\npause 2\nbeat 4\nlevel F23\nmedia ocean 30\nsay twenty three\nsurf 0.4\nhold 3\npan left\nlevel F10\nsay ten",
+      "stations" : [
+        "F26",
+        "F23",
+        "F10"
+      ],
+      "to" : "F23"
+    },
+    {
+      "crops" : [
+        {
+          "frames" : 300,
+          "seconds" : 0.0125,
+          "station" : "F26"
+        },
+        {
+          "frames" : 600,
+          "seconds" : 0.025,
+          "station" : "F23"
+        },
+        {
+          "frames" : 1000,
+          "seconds" : 0.041666666666666664,
+          "station" : "F10"
+        },
+        {
+          "station" : "F27"
+        }
+      ],
+      "frameCounts" : [
+        100,
+        200,
+        300,
+        400
+      ],
+      "from" : "F27",
+      "name" : "ordinary",
+      "picked" : "descend-f27-f10",
+      "segmentIDs" : [
+        "descend-f27-f10"
+      ],
+      "source" : "@title Down\n@level F27\n@fixed\nlevel F26\nsay twenty six\npause 2\nlevel F23\nsay twenty three\nlevel F10\nsay ten",
+      "stations" : [
+        "F26",
+        "F23",
+        "F10"
+      ],
+      "to" : "F23"
+    },
+    {
+      "crops" : [
+        {
+          "frames" : 600,
+          "seconds" : 0.025,
+          "station" : "F23"
+        }
+      ],
+      "frameCounts" : [
+        100,
+        200,
+        300,
+        400
+      ],
+      "from" : "F27",
+      "name" : "doubled hyphen",
+      "picked" : "descend--f27-f10",
+      "segmentIDs" : [
+        "descend--f27-f10"
+      ],
+      "source" : "@title Down\n@level F27\n@fixed\nlevel F26\nsay twenty six\npause 2\nlevel F23\nsay twenty three\nlevel F10\nsay ten",
+      "stations" : [
+        "F26",
+        "F23",
+        "F10"
+      ],
+      "to" : "F23"
+    },
+    {
+      "crops" : [
+        {
+          "frames" : 600,
+          "seconds" : 0.025,
+          "station" : "F23"
+        }
+      ],
+      "frameCounts" : [
+        100,
+        200,
+        300,
+        400
+      ],
+      "from" : "F27",
+      "name" : "nothing after the prefix",
+      "segmentIDs" : [
+        "descend-"
+      ],
+      "source" : "@title Down\n@level F27\n@fixed\nlevel F26\nsay twenty six\npause 2\nlevel F23\nsay twenty three\nlevel F10\nsay ten",
+      "stations" : [
+        "F26",
+        "F23",
+        "F10"
+      ],
+      "to" : "F23"
+    },
+    {
+      "crops" : [
+        {
+          "frames" : 600,
+          "seconds" : 0.025,
+          "station" : "F23"
+        }
+      ],
+      "frameCounts" : [
+        100,
+        200,
+        300,
+        400
+      ],
+      "from" : "F",
+      "name" : "one character",
+      "picked" : "descend-x",
+      "segmentIDs" : [
+        "descend-x"
+      ],
+      "source" : "@title Down\n@level F27\n@fixed\nlevel F26\nsay twenty six\npause 2\nlevel F23\nsay twenty three\nlevel F10\nsay ten",
+      "stations" : [
+        "F26",
+        "F23",
+        "F10"
+      ],
+      "to" : "F23"
+    },
+    {
+      "crops" : [
+        {
+          "frames" : 600,
+          "seconds" : 0.025,
+          "station" : "F23"
+        }
+      ],
+      "frameCounts" : [
+        100,
+        200,
+        300,
+        400
+      ],
+      "from" : "F7",
+      "name" : "digits only",
+      "picked" : "descend-27-f10",
+      "segmentIDs" : [
+        "descend-27-f10"
+      ],
+      "source" : "@title Down\n@level F27\n@fixed\nlevel F26\nsay twenty six\npause 2\nlevel F23\nsay twenty three\nlevel F10\nsay ten",
+      "stations" : [
+        "F26",
+        "F23",
+        "F10"
+      ],
+      "to" : "F23"
+    },
+    {
+      "crops" : [
+        {
+          "frames" : 300,
+          "seconds" : 0.0125,
+          "station" : "F26"
+        }
+      ],
+      "frameCounts" : [
+        100,
+        200,
+        300,
+        400
+      ],
+      "from" : "F26",
+      "name" : "starts-at is not a cue",
+      "segmentIDs" : [
+        "descend-f27-f10"
+      ],
+      "source" : "@title Down\n@level F27\n@fixed\nlevel F26\nsay twenty six\npause 2\nlevel F23\nsay twenty three\nlevel F10\nsay ten",
+      "stations" : [
+        "F26",
+        "F23",
+        "F10"
+      ],
+      "to" : "F27"
+    },
+    {
+      "crops" : [
+        {
+          "frames" : 1000,
+          "seconds" : 0.041666666666666664,
+          "station" : "F10"
+        }
+      ],
+      "frameCounts" : [
+        100,
+        200,
+        300,
+        400
+      ],
+      "from" : "F10",
+      "name" : "backwards",
+      "segmentIDs" : [
+        "descend-f27-f10"
+      ],
+      "source" : "@title Down\n@level F27\n@fixed\nlevel F26\nsay twenty six\npause 2\nlevel F23\nsay twenty three\nlevel F10\nsay ten",
+      "stations" : [
+        "F26",
+        "F23",
+        "F10"
+      ],
+      "to" : "F23"
+    },
+    {
+      "crops" : [
+        {
+          "frames" : 600,
+          "seconds" : 0.025,
+          "station" : "F23"
+        }
+      ],
+      "frameCounts" : [
+        100,
+        200,
+        300,
+        400
+      ],
+      "from" : "F27",
+      "name" : "two that both pass",
+      "picked" : "descend-f27-f10",
+      "segmentIDs" : [
+        "descend-f27-f10",
+        "descend-f27-f23"
+      ],
+      "source" : "@title Down\n@level F27\n@fixed\nlevel F26\nsay twenty six\npause 2\nlevel F23\nsay twenty three\nlevel F10\nsay ten",
+      "stations" : [
+        "F26",
+        "F23",
+        "F10"
+      ],
+      "to" : "F23"
+    },
+    {
+      "crops" : [
+        {
+          "frames" : 600,
+          "seconds" : 0.025,
+          "station" : "F23"
+        }
+      ],
+      "frameCounts" : [
+        100,
+        200,
+        300,
+        400
+      ],
+      "from" : "F27",
+      "name" : "not a descent at all",
+      "segmentIDs" : [
+        "climb-f10-f12"
+      ],
+      "source" : "@title Down\n@level F27\n@fixed\nlevel F26\nsay twenty six\npause 2\nlevel F23\nsay twenty three\nlevel F10\nsay ten",
+      "stations" : [
+        "F26",
+        "F23",
+        "F10"
+      ],
+      "to" : "F23"
+    },
+    {
+      "crops" : [
+        {
+          "frames" : 100,
+          "seconds" : 0.004166666666666667,
+          "station" : "F26"
+        },
+        {
+          "frames" : 100,
+          "seconds" : 0.004166666666666667,
+          "station" : "F23"
+        },
+        {
+          "frames" : 100,
+          "seconds" : 0.004166666666666667,
+          "station" : "F10"
+        }
+      ],
+      "frameCounts" : [
+        100
+      ],
+      "from" : "F27",
+      "name" : "timeline shorter than the body",
+      "picked" : "descend-f27-f10",
+      "segmentIDs" : [
+        "descend-f27-f10"
+      ],
+      "source" : "@title Down\n@level F27\n@fixed\nlevel F26\nsay twenty six\npause 2\nlevel F23\nsay twenty three\nlevel F10\nsay ten",
+      "stations" : [
+        "F26",
+        "F23",
+        "F10"
+      ],
+      "to" : "F23"
+    },
+    {
+      "crops" : [
+        {
+          "frames" : 0,
+          "seconds" : 0,
+          "station" : "F26"
+        },
+        {
+          "frames" : 0,
+          "seconds" : 0,
+          "station" : "F23"
+        },
+        {
+          "frames" : 0,
+          "seconds" : 0,
+          "station" : "F10"
+        }
+      ],
+      "frameCounts" : [
+
+      ],
+      "from" : "F27",
+      "name" : "no timeline at all",
+      "picked" : "descend-f27-f10",
+      "segmentIDs" : [
+        "descend-f27-f10"
+      ],
+      "source" : "@title Down\n@level F27\n@fixed\nlevel F26\nsay twenty six\npause 2\nlevel F23\nsay twenty three\nlevel F10\nsay ten",
+      "stations" : [
+        "F26",
+        "F23",
+        "F10"
+      ],
+      "to" : "F23"
+    },
+    {
+      "crops" : [
+        {
+          "frames" : 3,
+          "seconds" : 0.000125,
+          "station" : "F26"
+        },
+        {
+          "frames" : 6,
+          "seconds" : 0.00025,
+          "station" : "F23"
+        },
+        {
+          "frames" : 10,
+          "seconds" : 0.0004166666666666667,
+          "station" : "F10"
+        }
+      ],
+      "frameCounts" : [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "from" : "F27",
+      "name" : "more timeline than body",
+      "picked" : "descend-f27-f10",
+      "segmentIDs" : [
+        "descend-f27-f10"
+      ],
+      "source" : "@title Down\n@level F27\n@fixed\nlevel F26\nsay twenty six\npause 2\nlevel F23\nsay twenty three\nlevel F10\nsay ten",
+      "stations" : [
+        "F26",
+        "F23",
+        "F10"
+      ],
+      "to" : "F23"
+    }
+  ],
+  "note" : "The authored descent, and where it is allowed to stop."
+}

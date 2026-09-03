@@ -1,0 +1,9 @@
+@segment  briefing-f26
+@title    Focus 26 — The Void
+@levels   F26
+@duration ~25s
+
+say You are now in Focus 26.
+pause 4
+say The void. There is nothing here, and nothing is required of you here. Pass through.
+pause 10

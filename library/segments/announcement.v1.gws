@@ -1,0 +1,20 @@
+# not from a tape — written for the app, so there is no v1 line to match.
+@segment  announcement
+@title    What This Session Is
+@levels   F1
+@verbosity 1
+@duration ~25s
+@from     F1
+
+# Spoken before anything else, so the listener knows what they agreed to.
+#
+# [[tokens]] are filled at assembly from the session's own settings -- see
+# SessionAnnouncement. The frame lives here, in a file, because the engine may
+# not hardcode anything spoken; only the values come from data.
+#
+# Verbosity 1: says what was chosen and where you are going. Nothing else.
+
+say This session is set to verbosity one. Anchors and counts, with room between them.
+pause 4
+say We are going to [[destination]].
+pause 5

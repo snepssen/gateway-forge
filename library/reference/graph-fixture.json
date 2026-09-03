@@ -1,0 +1,5829 @@
+{
+  "alternativeCount" : 1,
+  "bookCases" : [
+    {
+      "afterSetCount" : 1,
+      "found" : true,
+      "json" : "{}",
+      "lookupKey" : "F10",
+      "recordKeys" : [
+        "F10"
+      ],
+      "restrictedKeys" : [
+
+      ],
+      "schemaVersion" : 1,
+      "setKey" : "F10",
+      "setReplaces" : false
+    },
+    {
+      "afterSetCount" : 2,
+      "found" : true,
+      "json" : "{\"schemaVersion\":1,\"records\":[{\"key\":\"F22\",\"channelRestriction\":true},{\"key\":\"F29\"}]}",
+      "lookupKey" : "f22",
+      "recordKeys" : [
+        "F22",
+        "F29"
+      ],
+      "restrictedKeys" : [
+        "F22"
+      ],
+      "schemaVersion" : 1,
+      "setKey" : "F29",
+      "setReplaces" : true
+    },
+    {
+      "afterSetCount" : 1,
+      "found" : true,
+      "json" : "{\"records\":[{\"key\":\"F13\"}]}",
+      "lookupKey" : "f13",
+      "recordKeys" : [
+        "F13"
+      ],
+      "restrictedKeys" : [
+
+      ],
+      "schemaVersion" : 1,
+      "setKey" : "f13",
+      "setReplaces" : true
+    },
+    {
+      "afterSetCount" : 1,
+      "found" : true,
+      "json" : "nope",
+      "lookupKey" : "F10",
+      "recordKeys" : [
+        "F10"
+      ],
+      "restrictedKeys" : [
+
+      ],
+      "schemaVersion" : 1,
+      "setKey" : "F10",
+      "setReplaces" : false
+    }
+  ],
+  "insertCases" : [
+    {
+      "existingKeys" : [
+        "F10",
+        "F27",
+        "F34"
+      ],
+      "newKey" : "F29",
+      "resultKeys" : [
+        "F10",
+        "F27",
+        "F29",
+        "F34"
+      ]
+    },
+    {
+      "existingKeys" : [
+        "F10",
+        "F27",
+        "F34"
+      ],
+      "newKey" : "F13",
+      "resultKeys" : [
+        "F10",
+        "F13",
+        "F27",
+        "F34"
+      ]
+    },
+    {
+      "existingKeys" : [
+        "F10",
+        "F27",
+        "F34"
+      ],
+      "newKey" : "F60",
+      "resultKeys" : [
+        "F10",
+        "F27",
+        "F34",
+        "F60"
+      ]
+    },
+    {
+      "existingKeys" : [
+        "F10",
+        "F27",
+        "F34"
+      ],
+      "newKey" : "F5",
+      "resultKeys" : [
+        "F5",
+        "F10",
+        "F27",
+        "F34"
+      ]
+    },
+    {
+      "existingKeys" : [
+        "F10",
+        "F27",
+        "F34"
+      ],
+      "newKey" : "F27"
+    },
+    {
+      "existingKeys" : [
+        "F10",
+        "F27",
+        "F34"
+      ],
+      "newKey" : "NOWHERE"
+    },
+    {
+      "existingKeys" : [
+
+      ],
+      "newKey" : "F29",
+      "resultKeys" : [
+        "F29"
+      ]
+    }
+  ],
+  "nameCases" : [
+    {
+      "key" : "F16",
+      "name" : "Focus 16"
+    },
+    {
+      "key" : "F16",
+      "name" : "Focus 16",
+      "title" : "  "
+    },
+    {
+      "key" : "F16",
+      "levelName" : "Focus Sixteen",
+      "name" : "My Place",
+      "title" : "My Place"
+    },
+    {
+      "key" : "F16",
+      "levelName" : "Focus Sixteen",
+      "name" : "Focus Sixteen"
+    },
+    {
+      "key" : "F16",
+      "levelName" : "   ",
+      "name" : "Focus 16"
+    },
+    {
+      "key" : "NOWHERE",
+      "name" : "NOWHERE"
+    },
+    {
+      "key" : "f16x2",
+      "name" : "Focus 16X2"
+    }
+  ],
+  "nodes" : [
+    {
+      "consumers" : [
+        {
+          "id" : "advanced-focus-10",
+          "kind" : "template",
+          "path" : "library/templates/advanced-focus-10.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "advanced-focus-10"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "advanced-focus-12",
+          "kind" : "template",
+          "path" : "library/templates/advanced-focus-12.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "advanced-focus-12"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "f22-visit",
+          "kind" : "template",
+          "path" : "library/templates/f22-visit.gws"
+        },
+        {
+          "id" : "f23-visit",
+          "kind" : "template",
+          "path" : "library/templates/f23-visit.gws"
+        },
+        {
+          "id" : "f24-visit",
+          "kind" : "template",
+          "path" : "library/templates/f24-visit.gws"
+        },
+        {
+          "id" : "f25-visit",
+          "kind" : "template",
+          "path" : "library/templates/f25-visit.gws"
+        },
+        {
+          "id" : "f26-visit",
+          "kind" : "template",
+          "path" : "library/templates/f26-visit.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        },
+        {
+          "id" : "f27-visit",
+          "kind" : "template",
+          "path" : "library/templates/f27-visit.gws"
+        },
+        {
+          "id" : "f34-visit",
+          "kind" : "template",
+          "path" : "library/templates/f34-visit.gws"
+        },
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        },
+        {
+          "id" : "first-retrieval",
+          "kind" : "template",
+          "path" : "library/templates/first-retrieval.gws"
+        },
+        {
+          "id" : "i-there-cluster",
+          "kind" : "template",
+          "path" : "library/templates/i-there-cluster.gws"
+        },
+        {
+          "id" : "intro-focus-23",
+          "kind" : "template",
+          "path" : "library/templates/intro-focus-23.gws"
+        },
+        {
+          "id" : "intro-focus-25",
+          "kind" : "template",
+          "path" : "library/templates/intro-focus-25.gws"
+        },
+        {
+          "id" : "messages-from-beyond",
+          "kind" : "template",
+          "path" : "library/templates/messages-from-beyond.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "affirmation-1977"
+    },
+    {
+      "family" : "affirmation",
+      "kind" : "alternative",
+      "segmentID" : "affirmation-direct",
+      "selected" : [
+        "affirmation",
+        "affirmation-1977"
+      ]
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        },
+        {
+          "id" : "coordination-area",
+          "kind" : "template",
+          "path" : "library/templates/coordination-area.gws"
+        },
+        {
+          "id" : "educational-opportunities",
+          "kind" : "template",
+          "path" : "library/templates/educational-opportunities.gws"
+        },
+        {
+          "id" : "healing-and-regeneration-center",
+          "kind" : "template",
+          "path" : "library/templates/healing-and-regeneration-center.gws"
+        },
+        {
+          "id" : "inner-earth",
+          "kind" : "template",
+          "path" : "library/templates/inner-earth.gws"
+        },
+        {
+          "id" : "meeting-with-the-entry-director",
+          "kind" : "template",
+          "path" : "library/templates/meeting-with-the-entry-director.gws"
+        },
+        {
+          "id" : "planning-center",
+          "kind" : "template",
+          "path" : "library/templates/planning-center.gws"
+        },
+        {
+          "id" : "special-tour",
+          "kind" : "template",
+          "path" : "library/templates/special-tour.gws"
+        },
+        {
+          "id" : "the-absolute",
+          "kind" : "template",
+          "path" : "library/templates/the-absolute.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "affirmation-service"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F15/void",
+          "kind" : "focusScript",
+          "path" : "focus/F15/scripts/void.gws"
+        },
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        },
+        {
+          "id" : "advanced-focus-12",
+          "kind" : "template",
+          "path" : "library/templates/advanced-focus-12.gws"
+        },
+        {
+          "id" : "color-breathing",
+          "kind" : "template",
+          "path" : "library/templates/color-breathing.gws"
+        },
+        {
+          "id" : "compoint",
+          "kind" : "template",
+          "path" : "library/templates/compoint.gws"
+        },
+        {
+          "id" : "discovering-intuition",
+          "kind" : "template",
+          "path" : "library/templates/discovering-intuition.gws"
+        },
+        {
+          "id" : "energy-bar-tool",
+          "kind" : "template",
+          "path" : "library/templates/energy-bar-tool.gws"
+        },
+        {
+          "id" : "energy-food",
+          "kind" : "template",
+          "path" : "library/templates/energy-food.gws"
+        },
+        {
+          "id" : "expansion-in-locale-1",
+          "kind" : "template",
+          "path" : "library/templates/expansion-in-locale-1.gws"
+        },
+        {
+          "id" : "exploration-sleep",
+          "kind" : "template",
+          "path" : "library/templates/exploration-sleep.gws"
+        },
+        {
+          "id" : "explore-total-self",
+          "kind" : "template",
+          "path" : "library/templates/explore-total-self.gws"
+        },
+        {
+          "id" : "exploring-focus-15",
+          "kind" : "template",
+          "path" : "library/templates/exploring-focus-15.gws"
+        },
+        {
+          "id" : "exploring-intuition",
+          "kind" : "template",
+          "path" : "library/templates/exploring-intuition.gws"
+        },
+        {
+          "id" : "f10-visit",
+          "kind" : "template",
+          "path" : "library/templates/f10-visit.gws"
+        },
+        {
+          "id" : "f11-visit",
+          "kind" : "template",
+          "path" : "library/templates/f11-visit.gws"
+        },
+        {
+          "id" : "f12-visit",
+          "kind" : "template",
+          "path" : "library/templates/f12-visit.gws"
+        },
+        {
+          "id" : "f15-visit",
+          "kind" : "template",
+          "path" : "library/templates/f15-visit.gws"
+        },
+        {
+          "id" : "f18-visit",
+          "kind" : "template",
+          "path" : "library/templates/f18-visit.gws"
+        },
+        {
+          "id" : "f21-visit",
+          "kind" : "template",
+          "path" : "library/templates/f21-visit.gws"
+        },
+        {
+          "id" : "f3-visit",
+          "kind" : "template",
+          "path" : "library/templates/f3-visit.gws"
+        },
+        {
+          "id" : "first-stage-separation",
+          "kind" : "template",
+          "path" : "library/templates/first-stage-separation.gws"
+        },
+        {
+          "id" : "five-messages",
+          "kind" : "template",
+          "path" : "library/templates/five-messages.gws"
+        },
+        {
+          "id" : "five-questions",
+          "kind" : "template",
+          "path" : "library/templates/five-questions.gws"
+        },
+        {
+          "id" : "free-flow-10",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-10.gws"
+        },
+        {
+          "id" : "free-flow-12",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-12.gws"
+        },
+        {
+          "id" : "free-flow-journey-focus-21",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-journey-focus-21.gws"
+        },
+        {
+          "id" : "lift-off",
+          "kind" : "template",
+          "path" : "library/templates/lift-off.gws"
+        },
+        {
+          "id" : "living-body-map",
+          "kind" : "template",
+          "path" : "library/templates/living-body-map.gws"
+        },
+        {
+          "id" : "mission-15-creation-and-manifestation",
+          "kind" : "template",
+          "path" : "library/templates/mission-15-creation-and-manifestation.gws"
+        },
+        {
+          "id" : "movement-to-locale-2",
+          "kind" : "template",
+          "path" : "library/templates/movement-to-locale-2.gws"
+        },
+        {
+          "id" : "nonphysical-friends",
+          "kind" : "template",
+          "path" : "library/templates/nonphysical-friends.gws"
+        },
+        {
+          "id" : "nvc-i",
+          "kind" : "template",
+          "path" : "library/templates/nvc-i.gws"
+        },
+        {
+          "id" : "nvc-ii",
+          "kind" : "template",
+          "path" : "library/templates/nvc-ii.gws"
+        },
+        {
+          "id" : "one-month-patterning",
+          "kind" : "template",
+          "path" : "library/templates/one-month-patterning.gws"
+        },
+        {
+          "id" : "one-year-patterning",
+          "kind" : "template",
+          "path" : "library/templates/one-year-patterning.gws"
+        },
+        {
+          "id" : "point-of-departure",
+          "kind" : "template",
+          "path" : "library/templates/point-of-departure.gws"
+        },
+        {
+          "id" : "problem-solving",
+          "kind" : "template",
+          "path" : "library/templates/problem-solving.gws"
+        },
+        {
+          "id" : "release-and-recharge",
+          "kind" : "template",
+          "path" : "library/templates/release-and-recharge.gws"
+        },
+        {
+          "id" : "remote-viewing",
+          "kind" : "template",
+          "path" : "library/templates/remote-viewing.gws"
+        },
+        {
+          "id" : "sensing-locale-1",
+          "kind" : "template",
+          "path" : "library/templates/sensing-locale-1.gws"
+        },
+        {
+          "id" : "vectors",
+          "kind" : "template",
+          "path" : "library/templates/vectors.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "affirmation"
+    },
+    {
+      "kind" : "runtime",
+      "roles" : [
+        "sessionAnnouncement"
+      ],
+      "segmentID" : "announcement"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F15/void",
+          "kind" : "focusScript",
+          "path" : "focus/F15/scripts/void.gws"
+        },
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        },
+        {
+          "id" : "advanced-focus-10",
+          "kind" : "template",
+          "path" : "library/templates/advanced-focus-10.gws"
+        },
+        {
+          "id" : "advanced-focus-12",
+          "kind" : "template",
+          "path" : "library/templates/advanced-focus-12.gws"
+        },
+        {
+          "id" : "color-breathing",
+          "kind" : "template",
+          "path" : "library/templates/color-breathing.gws"
+        },
+        {
+          "id" : "compoint",
+          "kind" : "template",
+          "path" : "library/templates/compoint.gws"
+        },
+        {
+          "id" : "coordination-area",
+          "kind" : "template",
+          "path" : "library/templates/coordination-area.gws"
+        },
+        {
+          "id" : "discovering-intuition",
+          "kind" : "template",
+          "path" : "library/templates/discovering-intuition.gws"
+        },
+        {
+          "id" : "educational-opportunities",
+          "kind" : "template",
+          "path" : "library/templates/educational-opportunities.gws"
+        },
+        {
+          "id" : "energy-bar-tool",
+          "kind" : "template",
+          "path" : "library/templates/energy-bar-tool.gws"
+        },
+        {
+          "id" : "energy-food",
+          "kind" : "template",
+          "path" : "library/templates/energy-food.gws"
+        },
+        {
+          "id" : "expansion-in-locale-1",
+          "kind" : "template",
+          "path" : "library/templates/expansion-in-locale-1.gws"
+        },
+        {
+          "id" : "exploration-sleep",
+          "kind" : "template",
+          "path" : "library/templates/exploration-sleep.gws"
+        },
+        {
+          "id" : "explore-total-self",
+          "kind" : "template",
+          "path" : "library/templates/explore-total-self.gws"
+        },
+        {
+          "id" : "exploring-focus-15",
+          "kind" : "template",
+          "path" : "library/templates/exploring-focus-15.gws"
+        },
+        {
+          "id" : "exploring-intuition",
+          "kind" : "template",
+          "path" : "library/templates/exploring-intuition.gws"
+        },
+        {
+          "id" : "f10-visit",
+          "kind" : "template",
+          "path" : "library/templates/f10-visit.gws"
+        },
+        {
+          "id" : "f11-visit",
+          "kind" : "template",
+          "path" : "library/templates/f11-visit.gws"
+        },
+        {
+          "id" : "f12-visit",
+          "kind" : "template",
+          "path" : "library/templates/f12-visit.gws"
+        },
+        {
+          "id" : "f15-visit",
+          "kind" : "template",
+          "path" : "library/templates/f15-visit.gws"
+        },
+        {
+          "id" : "f18-visit",
+          "kind" : "template",
+          "path" : "library/templates/f18-visit.gws"
+        },
+        {
+          "id" : "f21-visit",
+          "kind" : "template",
+          "path" : "library/templates/f21-visit.gws"
+        },
+        {
+          "id" : "f22-visit",
+          "kind" : "template",
+          "path" : "library/templates/f22-visit.gws"
+        },
+        {
+          "id" : "f23-visit",
+          "kind" : "template",
+          "path" : "library/templates/f23-visit.gws"
+        },
+        {
+          "id" : "f24-visit",
+          "kind" : "template",
+          "path" : "library/templates/f24-visit.gws"
+        },
+        {
+          "id" : "f25-visit",
+          "kind" : "template",
+          "path" : "library/templates/f25-visit.gws"
+        },
+        {
+          "id" : "f26-visit",
+          "kind" : "template",
+          "path" : "library/templates/f26-visit.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        },
+        {
+          "id" : "f27-visit",
+          "kind" : "template",
+          "path" : "library/templates/f27-visit.gws"
+        },
+        {
+          "id" : "f34-visit",
+          "kind" : "template",
+          "path" : "library/templates/f34-visit.gws"
+        },
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        },
+        {
+          "id" : "first-retrieval",
+          "kind" : "template",
+          "path" : "library/templates/first-retrieval.gws"
+        },
+        {
+          "id" : "first-stage-separation",
+          "kind" : "template",
+          "path" : "library/templates/first-stage-separation.gws"
+        },
+        {
+          "id" : "five-messages",
+          "kind" : "template",
+          "path" : "library/templates/five-messages.gws"
+        },
+        {
+          "id" : "five-questions",
+          "kind" : "template",
+          "path" : "library/templates/five-questions.gws"
+        },
+        {
+          "id" : "free-flow-10",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-10.gws"
+        },
+        {
+          "id" : "free-flow-12",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-12.gws"
+        },
+        {
+          "id" : "free-flow-journey-focus-21",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-journey-focus-21.gws"
+        },
+        {
+          "id" : "healing-and-regeneration-center",
+          "kind" : "template",
+          "path" : "library/templates/healing-and-regeneration-center.gws"
+        },
+        {
+          "id" : "i-there-cluster",
+          "kind" : "template",
+          "path" : "library/templates/i-there-cluster.gws"
+        },
+        {
+          "id" : "inner-earth",
+          "kind" : "template",
+          "path" : "library/templates/inner-earth.gws"
+        },
+        {
+          "id" : "intro-focus-23",
+          "kind" : "template",
+          "path" : "library/templates/intro-focus-23.gws"
+        },
+        {
+          "id" : "intro-focus-25",
+          "kind" : "template",
+          "path" : "library/templates/intro-focus-25.gws"
+        },
+        {
+          "id" : "lift-off",
+          "kind" : "template",
+          "path" : "library/templates/lift-off.gws"
+        },
+        {
+          "id" : "living-body-map",
+          "kind" : "template",
+          "path" : "library/templates/living-body-map.gws"
+        },
+        {
+          "id" : "meeting-with-the-entry-director",
+          "kind" : "template",
+          "path" : "library/templates/meeting-with-the-entry-director.gws"
+        },
+        {
+          "id" : "messages-from-beyond",
+          "kind" : "template",
+          "path" : "library/templates/messages-from-beyond.gws"
+        },
+        {
+          "id" : "mission-15-creation-and-manifestation",
+          "kind" : "template",
+          "path" : "library/templates/mission-15-creation-and-manifestation.gws"
+        },
+        {
+          "id" : "movement-to-locale-2",
+          "kind" : "template",
+          "path" : "library/templates/movement-to-locale-2.gws"
+        },
+        {
+          "id" : "nonphysical-friends",
+          "kind" : "template",
+          "path" : "library/templates/nonphysical-friends.gws"
+        },
+        {
+          "id" : "nvc-i",
+          "kind" : "template",
+          "path" : "library/templates/nvc-i.gws"
+        },
+        {
+          "id" : "nvc-ii",
+          "kind" : "template",
+          "path" : "library/templates/nvc-ii.gws"
+        },
+        {
+          "id" : "one-month-patterning",
+          "kind" : "template",
+          "path" : "library/templates/one-month-patterning.gws"
+        },
+        {
+          "id" : "one-year-patterning",
+          "kind" : "template",
+          "path" : "library/templates/one-year-patterning.gws"
+        },
+        {
+          "id" : "planning-center",
+          "kind" : "template",
+          "path" : "library/templates/planning-center.gws"
+        },
+        {
+          "id" : "point-of-departure",
+          "kind" : "template",
+          "path" : "library/templates/point-of-departure.gws"
+        },
+        {
+          "id" : "problem-solving",
+          "kind" : "template",
+          "path" : "library/templates/problem-solving.gws"
+        },
+        {
+          "id" : "release-and-recharge",
+          "kind" : "template",
+          "path" : "library/templates/release-and-recharge.gws"
+        },
+        {
+          "id" : "remote-viewing",
+          "kind" : "template",
+          "path" : "library/templates/remote-viewing.gws"
+        },
+        {
+          "id" : "sensing-locale-1",
+          "kind" : "template",
+          "path" : "library/templates/sensing-locale-1.gws"
+        },
+        {
+          "id" : "special-tour",
+          "kind" : "template",
+          "path" : "library/templates/special-tour.gws"
+        },
+        {
+          "id" : "the-absolute",
+          "kind" : "template",
+          "path" : "library/templates/the-absolute.gws"
+        },
+        {
+          "id" : "vectors",
+          "kind" : "template",
+          "path" : "library/templates/vectors.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "balloon"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "f11-visit",
+          "kind" : "template",
+          "path" : "library/templates/f11-visit.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "briefing-f11"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F15/void",
+          "kind" : "focusScript",
+          "path" : "focus/F15/scripts/void.gws"
+        },
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        },
+        {
+          "id" : "f12-visit",
+          "kind" : "template",
+          "path" : "library/templates/f12-visit.gws"
+        },
+        {
+          "id" : "f15-visit",
+          "kind" : "template",
+          "path" : "library/templates/f15-visit.gws"
+        },
+        {
+          "id" : "f18-visit",
+          "kind" : "template",
+          "path" : "library/templates/f18-visit.gws"
+        },
+        {
+          "id" : "f21-visit",
+          "kind" : "template",
+          "path" : "library/templates/f21-visit.gws"
+        },
+        {
+          "id" : "f22-visit",
+          "kind" : "template",
+          "path" : "library/templates/f22-visit.gws"
+        },
+        {
+          "id" : "f23-visit",
+          "kind" : "template",
+          "path" : "library/templates/f23-visit.gws"
+        },
+        {
+          "id" : "f24-visit",
+          "kind" : "template",
+          "path" : "library/templates/f24-visit.gws"
+        },
+        {
+          "id" : "f25-visit",
+          "kind" : "template",
+          "path" : "library/templates/f25-visit.gws"
+        },
+        {
+          "id" : "f26-visit",
+          "kind" : "template",
+          "path" : "library/templates/f26-visit.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        },
+        {
+          "id" : "f27-visit",
+          "kind" : "template",
+          "path" : "library/templates/f27-visit.gws"
+        },
+        {
+          "id" : "f34-visit",
+          "kind" : "template",
+          "path" : "library/templates/f34-visit.gws"
+        },
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "briefing-f12"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        },
+        {
+          "id" : "f15-visit",
+          "kind" : "template",
+          "path" : "library/templates/f15-visit.gws"
+        },
+        {
+          "id" : "f18-visit",
+          "kind" : "template",
+          "path" : "library/templates/f18-visit.gws"
+        },
+        {
+          "id" : "f21-visit",
+          "kind" : "template",
+          "path" : "library/templates/f21-visit.gws"
+        },
+        {
+          "id" : "f22-visit",
+          "kind" : "template",
+          "path" : "library/templates/f22-visit.gws"
+        },
+        {
+          "id" : "f23-visit",
+          "kind" : "template",
+          "path" : "library/templates/f23-visit.gws"
+        },
+        {
+          "id" : "f24-visit",
+          "kind" : "template",
+          "path" : "library/templates/f24-visit.gws"
+        },
+        {
+          "id" : "f25-visit",
+          "kind" : "template",
+          "path" : "library/templates/f25-visit.gws"
+        },
+        {
+          "id" : "f26-visit",
+          "kind" : "template",
+          "path" : "library/templates/f26-visit.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        },
+        {
+          "id" : "f27-visit",
+          "kind" : "template",
+          "path" : "library/templates/f27-visit.gws"
+        },
+        {
+          "id" : "f34-visit",
+          "kind" : "template",
+          "path" : "library/templates/f34-visit.gws"
+        },
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "briefing-f15"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "f18-visit",
+          "kind" : "template",
+          "path" : "library/templates/f18-visit.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "briefing-f18"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        },
+        {
+          "id" : "f21-visit",
+          "kind" : "template",
+          "path" : "library/templates/f21-visit.gws"
+        },
+        {
+          "id" : "f22-visit",
+          "kind" : "template",
+          "path" : "library/templates/f22-visit.gws"
+        },
+        {
+          "id" : "f23-visit",
+          "kind" : "template",
+          "path" : "library/templates/f23-visit.gws"
+        },
+        {
+          "id" : "f24-visit",
+          "kind" : "template",
+          "path" : "library/templates/f24-visit.gws"
+        },
+        {
+          "id" : "f25-visit",
+          "kind" : "template",
+          "path" : "library/templates/f25-visit.gws"
+        },
+        {
+          "id" : "f26-visit",
+          "kind" : "template",
+          "path" : "library/templates/f26-visit.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        },
+        {
+          "id" : "f27-visit",
+          "kind" : "template",
+          "path" : "library/templates/f27-visit.gws"
+        },
+        {
+          "id" : "f34-visit",
+          "kind" : "template",
+          "path" : "library/templates/f34-visit.gws"
+        },
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "briefing-f21"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "f22-visit",
+          "kind" : "template",
+          "path" : "library/templates/f22-visit.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "briefing-f22"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        },
+        {
+          "id" : "f23-visit",
+          "kind" : "template",
+          "path" : "library/templates/f23-visit.gws"
+        },
+        {
+          "id" : "f24-visit",
+          "kind" : "template",
+          "path" : "library/templates/f24-visit.gws"
+        },
+        {
+          "id" : "f25-visit",
+          "kind" : "template",
+          "path" : "library/templates/f25-visit.gws"
+        },
+        {
+          "id" : "f26-visit",
+          "kind" : "template",
+          "path" : "library/templates/f26-visit.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        },
+        {
+          "id" : "f27-visit",
+          "kind" : "template",
+          "path" : "library/templates/f27-visit.gws"
+        },
+        {
+          "id" : "f34-visit",
+          "kind" : "template",
+          "path" : "library/templates/f34-visit.gws"
+        },
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "briefing-f23"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "f24-visit",
+          "kind" : "template",
+          "path" : "library/templates/f24-visit.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "briefing-f24"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        },
+        {
+          "id" : "f25-visit",
+          "kind" : "template",
+          "path" : "library/templates/f25-visit.gws"
+        },
+        {
+          "id" : "f26-visit",
+          "kind" : "template",
+          "path" : "library/templates/f26-visit.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        },
+        {
+          "id" : "f27-visit",
+          "kind" : "template",
+          "path" : "library/templates/f27-visit.gws"
+        },
+        {
+          "id" : "f34-visit",
+          "kind" : "template",
+          "path" : "library/templates/f34-visit.gws"
+        },
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "briefing-f25"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        },
+        {
+          "id" : "f26-visit",
+          "kind" : "template",
+          "path" : "library/templates/f26-visit.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        },
+        {
+          "id" : "f27-visit",
+          "kind" : "template",
+          "path" : "library/templates/f27-visit.gws"
+        },
+        {
+          "id" : "f34-visit",
+          "kind" : "template",
+          "path" : "library/templates/f34-visit.gws"
+        },
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "briefing-f26"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        },
+        {
+          "id" : "f27-visit",
+          "kind" : "template",
+          "path" : "library/templates/f27-visit.gws"
+        },
+        {
+          "id" : "f34-visit",
+          "kind" : "template",
+          "path" : "library/templates/f34-visit.gws"
+        },
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "briefing-f27"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "f3-visit",
+          "kind" : "template",
+          "path" : "library/templates/f3-visit.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "briefing-f3"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "f34-visit",
+          "kind" : "template",
+          "path" : "library/templates/f34-visit.gws"
+        },
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "briefing-f34"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "briefing-f35"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        },
+        {
+          "id" : "i-there-cluster",
+          "kind" : "template",
+          "path" : "library/templates/i-there-cluster.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "briefing-f42"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "briefing-f49"
+    },
+    {
+      "kind" : "shelved",
+      "reason" : "source session removed by user on 2026-08-22",
+      "segmentID" : "campfire-calling"
+    },
+    {
+      "kind" : "shelved",
+      "reason" : "source session removed by user on 2026-08-22",
+      "segmentID" : "campfire-closure"
+    },
+    {
+      "kind" : "shelved",
+      "reason" : "source session removed by user on 2026-08-22",
+      "segmentID" : "campfire-presence"
+    },
+    {
+      "kind" : "shelved",
+      "reason" : "source session removed by user on 2026-08-22",
+      "segmentID" : "campfire"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "castle"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "five-questions",
+          "kind" : "template",
+          "path" : "library/templates/five-questions.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "channel-restriction"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F15/void",
+          "kind" : "focusScript",
+          "path" : "focus/F15/scripts/void.gws"
+        },
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        },
+        {
+          "id" : "f10-visit",
+          "kind" : "template",
+          "path" : "library/templates/f10-visit.gws"
+        },
+        {
+          "id" : "f11-visit",
+          "kind" : "template",
+          "path" : "library/templates/f11-visit.gws"
+        },
+        {
+          "id" : "f12-visit",
+          "kind" : "template",
+          "path" : "library/templates/f12-visit.gws"
+        },
+        {
+          "id" : "f15-visit",
+          "kind" : "template",
+          "path" : "library/templates/f15-visit.gws"
+        },
+        {
+          "id" : "f18-visit",
+          "kind" : "template",
+          "path" : "library/templates/f18-visit.gws"
+        },
+        {
+          "id" : "f21-visit",
+          "kind" : "template",
+          "path" : "library/templates/f21-visit.gws"
+        },
+        {
+          "id" : "f22-visit",
+          "kind" : "template",
+          "path" : "library/templates/f22-visit.gws"
+        },
+        {
+          "id" : "f23-visit",
+          "kind" : "template",
+          "path" : "library/templates/f23-visit.gws"
+        },
+        {
+          "id" : "f24-visit",
+          "kind" : "template",
+          "path" : "library/templates/f24-visit.gws"
+        },
+        {
+          "id" : "f25-visit",
+          "kind" : "template",
+          "path" : "library/templates/f25-visit.gws"
+        },
+        {
+          "id" : "f26-visit",
+          "kind" : "template",
+          "path" : "library/templates/f26-visit.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        },
+        {
+          "id" : "f27-visit",
+          "kind" : "template",
+          "path" : "library/templates/f27-visit.gws"
+        },
+        {
+          "id" : "f34-visit",
+          "kind" : "template",
+          "path" : "library/templates/f34-visit.gws"
+        },
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "clear-skies"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "f3-visit",
+          "kind" : "template",
+          "path" : "library/templates/f3-visit.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "climb-f1-f3"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "f11-visit",
+          "kind" : "template",
+          "path" : "library/templates/f11-visit.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "climb-f10-f11"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F15/void",
+          "kind" : "focusScript",
+          "path" : "focus/F15/scripts/void.gws"
+        },
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        },
+        {
+          "id" : "advanced-focus-12",
+          "kind" : "template",
+          "path" : "library/templates/advanced-focus-12.gws"
+        },
+        {
+          "id" : "compoint",
+          "kind" : "template",
+          "path" : "library/templates/compoint.gws"
+        },
+        {
+          "id" : "coordination-area",
+          "kind" : "template",
+          "path" : "library/templates/coordination-area.gws"
+        },
+        {
+          "id" : "discovering-intuition",
+          "kind" : "template",
+          "path" : "library/templates/discovering-intuition.gws"
+        },
+        {
+          "id" : "educational-opportunities",
+          "kind" : "template",
+          "path" : "library/templates/educational-opportunities.gws"
+        },
+        {
+          "id" : "energy-food",
+          "kind" : "template",
+          "path" : "library/templates/energy-food.gws"
+        },
+        {
+          "id" : "expansion-in-locale-1",
+          "kind" : "template",
+          "path" : "library/templates/expansion-in-locale-1.gws"
+        },
+        {
+          "id" : "explore-total-self",
+          "kind" : "template",
+          "path" : "library/templates/explore-total-self.gws"
+        },
+        {
+          "id" : "exploring-focus-15",
+          "kind" : "template",
+          "path" : "library/templates/exploring-focus-15.gws"
+        },
+        {
+          "id" : "exploring-intuition",
+          "kind" : "template",
+          "path" : "library/templates/exploring-intuition.gws"
+        },
+        {
+          "id" : "f12-visit",
+          "kind" : "template",
+          "path" : "library/templates/f12-visit.gws"
+        },
+        {
+          "id" : "f15-visit",
+          "kind" : "template",
+          "path" : "library/templates/f15-visit.gws"
+        },
+        {
+          "id" : "f18-visit",
+          "kind" : "template",
+          "path" : "library/templates/f18-visit.gws"
+        },
+        {
+          "id" : "f21-visit",
+          "kind" : "template",
+          "path" : "library/templates/f21-visit.gws"
+        },
+        {
+          "id" : "f22-visit",
+          "kind" : "template",
+          "path" : "library/templates/f22-visit.gws"
+        },
+        {
+          "id" : "f23-visit",
+          "kind" : "template",
+          "path" : "library/templates/f23-visit.gws"
+        },
+        {
+          "id" : "f24-visit",
+          "kind" : "template",
+          "path" : "library/templates/f24-visit.gws"
+        },
+        {
+          "id" : "f25-visit",
+          "kind" : "template",
+          "path" : "library/templates/f25-visit.gws"
+        },
+        {
+          "id" : "f26-visit",
+          "kind" : "template",
+          "path" : "library/templates/f26-visit.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        },
+        {
+          "id" : "f27-visit",
+          "kind" : "template",
+          "path" : "library/templates/f27-visit.gws"
+        },
+        {
+          "id" : "f34-visit",
+          "kind" : "template",
+          "path" : "library/templates/f34-visit.gws"
+        },
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        },
+        {
+          "id" : "first-retrieval",
+          "kind" : "template",
+          "path" : "library/templates/first-retrieval.gws"
+        },
+        {
+          "id" : "first-stage-separation",
+          "kind" : "template",
+          "path" : "library/templates/first-stage-separation.gws"
+        },
+        {
+          "id" : "five-messages",
+          "kind" : "template",
+          "path" : "library/templates/five-messages.gws"
+        },
+        {
+          "id" : "five-questions",
+          "kind" : "template",
+          "path" : "library/templates/five-questions.gws"
+        },
+        {
+          "id" : "free-flow-12",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-12.gws"
+        },
+        {
+          "id" : "free-flow-journey-focus-21",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-journey-focus-21.gws"
+        },
+        {
+          "id" : "healing-and-regeneration-center",
+          "kind" : "template",
+          "path" : "library/templates/healing-and-regeneration-center.gws"
+        },
+        {
+          "id" : "i-there-cluster",
+          "kind" : "template",
+          "path" : "library/templates/i-there-cluster.gws"
+        },
+        {
+          "id" : "inner-earth",
+          "kind" : "template",
+          "path" : "library/templates/inner-earth.gws"
+        },
+        {
+          "id" : "intro-focus-23",
+          "kind" : "template",
+          "path" : "library/templates/intro-focus-23.gws"
+        },
+        {
+          "id" : "intro-focus-25",
+          "kind" : "template",
+          "path" : "library/templates/intro-focus-25.gws"
+        },
+        {
+          "id" : "meeting-with-the-entry-director",
+          "kind" : "template",
+          "path" : "library/templates/meeting-with-the-entry-director.gws"
+        },
+        {
+          "id" : "messages-from-beyond",
+          "kind" : "template",
+          "path" : "library/templates/messages-from-beyond.gws"
+        },
+        {
+          "id" : "mission-15-creation-and-manifestation",
+          "kind" : "template",
+          "path" : "library/templates/mission-15-creation-and-manifestation.gws"
+        },
+        {
+          "id" : "movement-to-locale-2",
+          "kind" : "template",
+          "path" : "library/templates/movement-to-locale-2.gws"
+        },
+        {
+          "id" : "nonphysical-friends",
+          "kind" : "template",
+          "path" : "library/templates/nonphysical-friends.gws"
+        },
+        {
+          "id" : "nvc-i",
+          "kind" : "template",
+          "path" : "library/templates/nvc-i.gws"
+        },
+        {
+          "id" : "nvc-ii",
+          "kind" : "template",
+          "path" : "library/templates/nvc-ii.gws"
+        },
+        {
+          "id" : "one-month-patterning",
+          "kind" : "template",
+          "path" : "library/templates/one-month-patterning.gws"
+        },
+        {
+          "id" : "one-year-patterning",
+          "kind" : "template",
+          "path" : "library/templates/one-year-patterning.gws"
+        },
+        {
+          "id" : "planning-center",
+          "kind" : "template",
+          "path" : "library/templates/planning-center.gws"
+        },
+        {
+          "id" : "point-of-departure",
+          "kind" : "template",
+          "path" : "library/templates/point-of-departure.gws"
+        },
+        {
+          "id" : "problem-solving",
+          "kind" : "template",
+          "path" : "library/templates/problem-solving.gws"
+        },
+        {
+          "id" : "sensing-locale-1",
+          "kind" : "template",
+          "path" : "library/templates/sensing-locale-1.gws"
+        },
+        {
+          "id" : "special-tour",
+          "kind" : "template",
+          "path" : "library/templates/special-tour.gws"
+        },
+        {
+          "id" : "the-absolute",
+          "kind" : "template",
+          "path" : "library/templates/the-absolute.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "climb-f10-f12"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F15/void",
+          "kind" : "focusScript",
+          "path" : "focus/F15/scripts/void.gws"
+        },
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        },
+        {
+          "id" : "coordination-area",
+          "kind" : "template",
+          "path" : "library/templates/coordination-area.gws"
+        },
+        {
+          "id" : "educational-opportunities",
+          "kind" : "template",
+          "path" : "library/templates/educational-opportunities.gws"
+        },
+        {
+          "id" : "explore-total-self",
+          "kind" : "template",
+          "path" : "library/templates/explore-total-self.gws"
+        },
+        {
+          "id" : "exploring-focus-15",
+          "kind" : "template",
+          "path" : "library/templates/exploring-focus-15.gws"
+        },
+        {
+          "id" : "f15-visit",
+          "kind" : "template",
+          "path" : "library/templates/f15-visit.gws"
+        },
+        {
+          "id" : "f18-visit",
+          "kind" : "template",
+          "path" : "library/templates/f18-visit.gws"
+        },
+        {
+          "id" : "f21-visit",
+          "kind" : "template",
+          "path" : "library/templates/f21-visit.gws"
+        },
+        {
+          "id" : "f22-visit",
+          "kind" : "template",
+          "path" : "library/templates/f22-visit.gws"
+        },
+        {
+          "id" : "f23-visit",
+          "kind" : "template",
+          "path" : "library/templates/f23-visit.gws"
+        },
+        {
+          "id" : "f24-visit",
+          "kind" : "template",
+          "path" : "library/templates/f24-visit.gws"
+        },
+        {
+          "id" : "f25-visit",
+          "kind" : "template",
+          "path" : "library/templates/f25-visit.gws"
+        },
+        {
+          "id" : "f26-visit",
+          "kind" : "template",
+          "path" : "library/templates/f26-visit.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        },
+        {
+          "id" : "f27-visit",
+          "kind" : "template",
+          "path" : "library/templates/f27-visit.gws"
+        },
+        {
+          "id" : "f34-visit",
+          "kind" : "template",
+          "path" : "library/templates/f34-visit.gws"
+        },
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        },
+        {
+          "id" : "first-retrieval",
+          "kind" : "template",
+          "path" : "library/templates/first-retrieval.gws"
+        },
+        {
+          "id" : "free-flow-journey-focus-21",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-journey-focus-21.gws"
+        },
+        {
+          "id" : "healing-and-regeneration-center",
+          "kind" : "template",
+          "path" : "library/templates/healing-and-regeneration-center.gws"
+        },
+        {
+          "id" : "i-there-cluster",
+          "kind" : "template",
+          "path" : "library/templates/i-there-cluster.gws"
+        },
+        {
+          "id" : "intro-focus-23",
+          "kind" : "template",
+          "path" : "library/templates/intro-focus-23.gws"
+        },
+        {
+          "id" : "intro-focus-25",
+          "kind" : "template",
+          "path" : "library/templates/intro-focus-25.gws"
+        },
+        {
+          "id" : "meeting-with-the-entry-director",
+          "kind" : "template",
+          "path" : "library/templates/meeting-with-the-entry-director.gws"
+        },
+        {
+          "id" : "messages-from-beyond",
+          "kind" : "template",
+          "path" : "library/templates/messages-from-beyond.gws"
+        },
+        {
+          "id" : "mission-15-creation-and-manifestation",
+          "kind" : "template",
+          "path" : "library/templates/mission-15-creation-and-manifestation.gws"
+        },
+        {
+          "id" : "movement-to-locale-2",
+          "kind" : "template",
+          "path" : "library/templates/movement-to-locale-2.gws"
+        },
+        {
+          "id" : "planning-center",
+          "kind" : "template",
+          "path" : "library/templates/planning-center.gws"
+        },
+        {
+          "id" : "special-tour",
+          "kind" : "template",
+          "path" : "library/templates/special-tour.gws"
+        },
+        {
+          "id" : "the-absolute",
+          "kind" : "template",
+          "path" : "library/templates/the-absolute.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "climb-f12-f15"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "f18-visit",
+          "kind" : "template",
+          "path" : "library/templates/f18-visit.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "climb-f15-f18"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        },
+        {
+          "id" : "coordination-area",
+          "kind" : "template",
+          "path" : "library/templates/coordination-area.gws"
+        },
+        {
+          "id" : "educational-opportunities",
+          "kind" : "template",
+          "path" : "library/templates/educational-opportunities.gws"
+        },
+        {
+          "id" : "explore-total-self",
+          "kind" : "template",
+          "path" : "library/templates/explore-total-self.gws"
+        },
+        {
+          "id" : "f21-visit",
+          "kind" : "template",
+          "path" : "library/templates/f21-visit.gws"
+        },
+        {
+          "id" : "f22-visit",
+          "kind" : "template",
+          "path" : "library/templates/f22-visit.gws"
+        },
+        {
+          "id" : "f23-visit",
+          "kind" : "template",
+          "path" : "library/templates/f23-visit.gws"
+        },
+        {
+          "id" : "f24-visit",
+          "kind" : "template",
+          "path" : "library/templates/f24-visit.gws"
+        },
+        {
+          "id" : "f25-visit",
+          "kind" : "template",
+          "path" : "library/templates/f25-visit.gws"
+        },
+        {
+          "id" : "f26-visit",
+          "kind" : "template",
+          "path" : "library/templates/f26-visit.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        },
+        {
+          "id" : "f27-visit",
+          "kind" : "template",
+          "path" : "library/templates/f27-visit.gws"
+        },
+        {
+          "id" : "f34-visit",
+          "kind" : "template",
+          "path" : "library/templates/f34-visit.gws"
+        },
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        },
+        {
+          "id" : "first-retrieval",
+          "kind" : "template",
+          "path" : "library/templates/first-retrieval.gws"
+        },
+        {
+          "id" : "free-flow-journey-focus-21",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-journey-focus-21.gws"
+        },
+        {
+          "id" : "healing-and-regeneration-center",
+          "kind" : "template",
+          "path" : "library/templates/healing-and-regeneration-center.gws"
+        },
+        {
+          "id" : "i-there-cluster",
+          "kind" : "template",
+          "path" : "library/templates/i-there-cluster.gws"
+        },
+        {
+          "id" : "intro-focus-23",
+          "kind" : "template",
+          "path" : "library/templates/intro-focus-23.gws"
+        },
+        {
+          "id" : "intro-focus-25",
+          "kind" : "template",
+          "path" : "library/templates/intro-focus-25.gws"
+        },
+        {
+          "id" : "meeting-with-the-entry-director",
+          "kind" : "template",
+          "path" : "library/templates/meeting-with-the-entry-director.gws"
+        },
+        {
+          "id" : "messages-from-beyond",
+          "kind" : "template",
+          "path" : "library/templates/messages-from-beyond.gws"
+        },
+        {
+          "id" : "movement-to-locale-2",
+          "kind" : "template",
+          "path" : "library/templates/movement-to-locale-2.gws"
+        },
+        {
+          "id" : "planning-center",
+          "kind" : "template",
+          "path" : "library/templates/planning-center.gws"
+        },
+        {
+          "id" : "special-tour",
+          "kind" : "template",
+          "path" : "library/templates/special-tour.gws"
+        },
+        {
+          "id" : "the-absolute",
+          "kind" : "template",
+          "path" : "library/templates/the-absolute.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "climb-f15-f21"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "f22-visit",
+          "kind" : "template",
+          "path" : "library/templates/f22-visit.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "climb-f21-f22"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        },
+        {
+          "id" : "coordination-area",
+          "kind" : "template",
+          "path" : "library/templates/coordination-area.gws"
+        },
+        {
+          "id" : "educational-opportunities",
+          "kind" : "template",
+          "path" : "library/templates/educational-opportunities.gws"
+        },
+        {
+          "id" : "f23-visit",
+          "kind" : "template",
+          "path" : "library/templates/f23-visit.gws"
+        },
+        {
+          "id" : "f24-visit",
+          "kind" : "template",
+          "path" : "library/templates/f24-visit.gws"
+        },
+        {
+          "id" : "f25-visit",
+          "kind" : "template",
+          "path" : "library/templates/f25-visit.gws"
+        },
+        {
+          "id" : "f26-visit",
+          "kind" : "template",
+          "path" : "library/templates/f26-visit.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        },
+        {
+          "id" : "f27-visit",
+          "kind" : "template",
+          "path" : "library/templates/f27-visit.gws"
+        },
+        {
+          "id" : "f34-visit",
+          "kind" : "template",
+          "path" : "library/templates/f34-visit.gws"
+        },
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        },
+        {
+          "id" : "first-retrieval",
+          "kind" : "template",
+          "path" : "library/templates/first-retrieval.gws"
+        },
+        {
+          "id" : "healing-and-regeneration-center",
+          "kind" : "template",
+          "path" : "library/templates/healing-and-regeneration-center.gws"
+        },
+        {
+          "id" : "i-there-cluster",
+          "kind" : "template",
+          "path" : "library/templates/i-there-cluster.gws"
+        },
+        {
+          "id" : "intro-focus-23",
+          "kind" : "template",
+          "path" : "library/templates/intro-focus-23.gws"
+        },
+        {
+          "id" : "intro-focus-25",
+          "kind" : "template",
+          "path" : "library/templates/intro-focus-25.gws"
+        },
+        {
+          "id" : "meeting-with-the-entry-director",
+          "kind" : "template",
+          "path" : "library/templates/meeting-with-the-entry-director.gws"
+        },
+        {
+          "id" : "messages-from-beyond",
+          "kind" : "template",
+          "path" : "library/templates/messages-from-beyond.gws"
+        },
+        {
+          "id" : "planning-center",
+          "kind" : "template",
+          "path" : "library/templates/planning-center.gws"
+        },
+        {
+          "id" : "special-tour",
+          "kind" : "template",
+          "path" : "library/templates/special-tour.gws"
+        },
+        {
+          "id" : "the-absolute",
+          "kind" : "template",
+          "path" : "library/templates/the-absolute.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "climb-f21-f23"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "f24-visit",
+          "kind" : "template",
+          "path" : "library/templates/f24-visit.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "climb-f23-f24"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        },
+        {
+          "id" : "coordination-area",
+          "kind" : "template",
+          "path" : "library/templates/coordination-area.gws"
+        },
+        {
+          "id" : "educational-opportunities",
+          "kind" : "template",
+          "path" : "library/templates/educational-opportunities.gws"
+        },
+        {
+          "id" : "f25-visit",
+          "kind" : "template",
+          "path" : "library/templates/f25-visit.gws"
+        },
+        {
+          "id" : "f26-visit",
+          "kind" : "template",
+          "path" : "library/templates/f26-visit.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        },
+        {
+          "id" : "f27-visit",
+          "kind" : "template",
+          "path" : "library/templates/f27-visit.gws"
+        },
+        {
+          "id" : "f34-visit",
+          "kind" : "template",
+          "path" : "library/templates/f34-visit.gws"
+        },
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        },
+        {
+          "id" : "first-retrieval",
+          "kind" : "template",
+          "path" : "library/templates/first-retrieval.gws"
+        },
+        {
+          "id" : "healing-and-regeneration-center",
+          "kind" : "template",
+          "path" : "library/templates/healing-and-regeneration-center.gws"
+        },
+        {
+          "id" : "i-there-cluster",
+          "kind" : "template",
+          "path" : "library/templates/i-there-cluster.gws"
+        },
+        {
+          "id" : "intro-focus-25",
+          "kind" : "template",
+          "path" : "library/templates/intro-focus-25.gws"
+        },
+        {
+          "id" : "meeting-with-the-entry-director",
+          "kind" : "template",
+          "path" : "library/templates/meeting-with-the-entry-director.gws"
+        },
+        {
+          "id" : "messages-from-beyond",
+          "kind" : "template",
+          "path" : "library/templates/messages-from-beyond.gws"
+        },
+        {
+          "id" : "planning-center",
+          "kind" : "template",
+          "path" : "library/templates/planning-center.gws"
+        },
+        {
+          "id" : "special-tour",
+          "kind" : "template",
+          "path" : "library/templates/special-tour.gws"
+        },
+        {
+          "id" : "the-absolute",
+          "kind" : "template",
+          "path" : "library/templates/the-absolute.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "climb-f23-f25"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        },
+        {
+          "id" : "coordination-area",
+          "kind" : "template",
+          "path" : "library/templates/coordination-area.gws"
+        },
+        {
+          "id" : "educational-opportunities",
+          "kind" : "template",
+          "path" : "library/templates/educational-opportunities.gws"
+        },
+        {
+          "id" : "f26-visit",
+          "kind" : "template",
+          "path" : "library/templates/f26-visit.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        },
+        {
+          "id" : "f27-visit",
+          "kind" : "template",
+          "path" : "library/templates/f27-visit.gws"
+        },
+        {
+          "id" : "f34-visit",
+          "kind" : "template",
+          "path" : "library/templates/f34-visit.gws"
+        },
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        },
+        {
+          "id" : "first-retrieval",
+          "kind" : "template",
+          "path" : "library/templates/first-retrieval.gws"
+        },
+        {
+          "id" : "healing-and-regeneration-center",
+          "kind" : "template",
+          "path" : "library/templates/healing-and-regeneration-center.gws"
+        },
+        {
+          "id" : "i-there-cluster",
+          "kind" : "template",
+          "path" : "library/templates/i-there-cluster.gws"
+        },
+        {
+          "id" : "meeting-with-the-entry-director",
+          "kind" : "template",
+          "path" : "library/templates/meeting-with-the-entry-director.gws"
+        },
+        {
+          "id" : "messages-from-beyond",
+          "kind" : "template",
+          "path" : "library/templates/messages-from-beyond.gws"
+        },
+        {
+          "id" : "planning-center",
+          "kind" : "template",
+          "path" : "library/templates/planning-center.gws"
+        },
+        {
+          "id" : "special-tour",
+          "kind" : "template",
+          "path" : "library/templates/special-tour.gws"
+        },
+        {
+          "id" : "the-absolute",
+          "kind" : "template",
+          "path" : "library/templates/the-absolute.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "climb-f25-f26"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        },
+        {
+          "id" : "coordination-area",
+          "kind" : "template",
+          "path" : "library/templates/coordination-area.gws"
+        },
+        {
+          "id" : "educational-opportunities",
+          "kind" : "template",
+          "path" : "library/templates/educational-opportunities.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        },
+        {
+          "id" : "f27-visit",
+          "kind" : "template",
+          "path" : "library/templates/f27-visit.gws"
+        },
+        {
+          "id" : "f34-visit",
+          "kind" : "template",
+          "path" : "library/templates/f34-visit.gws"
+        },
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        },
+        {
+          "id" : "first-retrieval",
+          "kind" : "template",
+          "path" : "library/templates/first-retrieval.gws"
+        },
+        {
+          "id" : "healing-and-regeneration-center",
+          "kind" : "template",
+          "path" : "library/templates/healing-and-regeneration-center.gws"
+        },
+        {
+          "id" : "i-there-cluster",
+          "kind" : "template",
+          "path" : "library/templates/i-there-cluster.gws"
+        },
+        {
+          "id" : "meeting-with-the-entry-director",
+          "kind" : "template",
+          "path" : "library/templates/meeting-with-the-entry-director.gws"
+        },
+        {
+          "id" : "messages-from-beyond",
+          "kind" : "template",
+          "path" : "library/templates/messages-from-beyond.gws"
+        },
+        {
+          "id" : "planning-center",
+          "kind" : "template",
+          "path" : "library/templates/planning-center.gws"
+        },
+        {
+          "id" : "special-tour",
+          "kind" : "template",
+          "path" : "library/templates/special-tour.gws"
+        },
+        {
+          "id" : "the-absolute",
+          "kind" : "template",
+          "path" : "library/templates/the-absolute.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "climb-f26-f27"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "f34-visit",
+          "kind" : "template",
+          "path" : "library/templates/f34-visit.gws"
+        },
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        },
+        {
+          "id" : "i-there-cluster",
+          "kind" : "template",
+          "path" : "library/templates/i-there-cluster.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "climb-f27-f34"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        },
+        {
+          "id" : "i-there-cluster",
+          "kind" : "template",
+          "path" : "library/templates/i-there-cluster.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "climb-f34-f35"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        },
+        {
+          "id" : "i-there-cluster",
+          "kind" : "template",
+          "path" : "library/templates/i-there-cluster.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "climb-f35-f42"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "climb-f42-f49"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "color-breathing",
+          "kind" : "template",
+          "path" : "library/templates/color-breathing.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "color-breathing"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F15/void",
+          "kind" : "focusScript",
+          "path" : "focus/F15/scripts/void.gws"
+        },
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        },
+        {
+          "id" : "f10-visit",
+          "kind" : "template",
+          "path" : "library/templates/f10-visit.gws"
+        },
+        {
+          "id" : "f11-visit",
+          "kind" : "template",
+          "path" : "library/templates/f11-visit.gws"
+        },
+        {
+          "id" : "f12-visit",
+          "kind" : "template",
+          "path" : "library/templates/f12-visit.gws"
+        },
+        {
+          "id" : "f15-visit",
+          "kind" : "template",
+          "path" : "library/templates/f15-visit.gws"
+        },
+        {
+          "id" : "f18-visit",
+          "kind" : "template",
+          "path" : "library/templates/f18-visit.gws"
+        },
+        {
+          "id" : "f21-visit",
+          "kind" : "template",
+          "path" : "library/templates/f21-visit.gws"
+        },
+        {
+          "id" : "f22-visit",
+          "kind" : "template",
+          "path" : "library/templates/f22-visit.gws"
+        },
+        {
+          "id" : "f23-visit",
+          "kind" : "template",
+          "path" : "library/templates/f23-visit.gws"
+        },
+        {
+          "id" : "f24-visit",
+          "kind" : "template",
+          "path" : "library/templates/f24-visit.gws"
+        },
+        {
+          "id" : "f25-visit",
+          "kind" : "template",
+          "path" : "library/templates/f25-visit.gws"
+        },
+        {
+          "id" : "f26-visit",
+          "kind" : "template",
+          "path" : "library/templates/f26-visit.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        },
+        {
+          "id" : "f27-visit",
+          "kind" : "template",
+          "path" : "library/templates/f27-visit.gws"
+        },
+        {
+          "id" : "f3-visit",
+          "kind" : "template",
+          "path" : "library/templates/f3-visit.gws"
+        },
+        {
+          "id" : "f34-visit",
+          "kind" : "template",
+          "path" : "library/templates/f34-visit.gws"
+        },
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        },
+        {
+          "id" : "i-there-cluster",
+          "kind" : "template",
+          "path" : "library/templates/i-there-cluster.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "comfort"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "compoint",
+          "kind" : "template",
+          "path" : "library/templates/compoint.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "compoint"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F15/void",
+          "kind" : "focusScript",
+          "path" : "focus/F15/scripts/void.gws"
+        },
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        },
+        {
+          "id" : "advanced-focus-10",
+          "kind" : "template",
+          "path" : "library/templates/advanced-focus-10.gws"
+        },
+        {
+          "id" : "advanced-focus-12",
+          "kind" : "template",
+          "path" : "library/templates/advanced-focus-12.gws"
+        },
+        {
+          "id" : "color-breathing",
+          "kind" : "template",
+          "path" : "library/templates/color-breathing.gws"
+        },
+        {
+          "id" : "compoint",
+          "kind" : "template",
+          "path" : "library/templates/compoint.gws"
+        },
+        {
+          "id" : "coordination-area",
+          "kind" : "template",
+          "path" : "library/templates/coordination-area.gws"
+        },
+        {
+          "id" : "discovering-intuition",
+          "kind" : "template",
+          "path" : "library/templates/discovering-intuition.gws"
+        },
+        {
+          "id" : "educational-opportunities",
+          "kind" : "template",
+          "path" : "library/templates/educational-opportunities.gws"
+        },
+        {
+          "id" : "energy-bar-tool",
+          "kind" : "template",
+          "path" : "library/templates/energy-bar-tool.gws"
+        },
+        {
+          "id" : "energy-food",
+          "kind" : "template",
+          "path" : "library/templates/energy-food.gws"
+        },
+        {
+          "id" : "expansion-in-locale-1",
+          "kind" : "template",
+          "path" : "library/templates/expansion-in-locale-1.gws"
+        },
+        {
+          "id" : "exploration-sleep",
+          "kind" : "template",
+          "path" : "library/templates/exploration-sleep.gws"
+        },
+        {
+          "id" : "explore-total-self",
+          "kind" : "template",
+          "path" : "library/templates/explore-total-self.gws"
+        },
+        {
+          "id" : "exploring-focus-15",
+          "kind" : "template",
+          "path" : "library/templates/exploring-focus-15.gws"
+        },
+        {
+          "id" : "exploring-intuition",
+          "kind" : "template",
+          "path" : "library/templates/exploring-intuition.gws"
+        },
+        {
+          "id" : "f10-visit",
+          "kind" : "template",
+          "path" : "library/templates/f10-visit.gws"
+        },
+        {
+          "id" : "f11-visit",
+          "kind" : "template",
+          "path" : "library/templates/f11-visit.gws"
+        },
+        {
+          "id" : "f12-visit",
+          "kind" : "template",
+          "path" : "library/templates/f12-visit.gws"
+        },
+        {
+          "id" : "f15-visit",
+          "kind" : "template",
+          "path" : "library/templates/f15-visit.gws"
+        },
+        {
+          "id" : "f18-visit",
+          "kind" : "template",
+          "path" : "library/templates/f18-visit.gws"
+        },
+        {
+          "id" : "f21-visit",
+          "kind" : "template",
+          "path" : "library/templates/f21-visit.gws"
+        },
+        {
+          "id" : "f22-visit",
+          "kind" : "template",
+          "path" : "library/templates/f22-visit.gws"
+        },
+        {
+          "id" : "f23-visit",
+          "kind" : "template",
+          "path" : "library/templates/f23-visit.gws"
+        },
+        {
+          "id" : "f24-visit",
+          "kind" : "template",
+          "path" : "library/templates/f24-visit.gws"
+        },
+        {
+          "id" : "f25-visit",
+          "kind" : "template",
+          "path" : "library/templates/f25-visit.gws"
+        },
+        {
+          "id" : "f26-visit",
+          "kind" : "template",
+          "path" : "library/templates/f26-visit.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        },
+        {
+          "id" : "f27-visit",
+          "kind" : "template",
+          "path" : "library/templates/f27-visit.gws"
+        },
+        {
+          "id" : "f3-visit",
+          "kind" : "template",
+          "path" : "library/templates/f3-visit.gws"
+        },
+        {
+          "id" : "f34-visit",
+          "kind" : "template",
+          "path" : "library/templates/f34-visit.gws"
+        },
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        },
+        {
+          "id" : "first-retrieval",
+          "kind" : "template",
+          "path" : "library/templates/first-retrieval.gws"
+        },
+        {
+          "id" : "first-stage-separation",
+          "kind" : "template",
+          "path" : "library/templates/first-stage-separation.gws"
+        },
+        {
+          "id" : "five-messages",
+          "kind" : "template",
+          "path" : "library/templates/five-messages.gws"
+        },
+        {
+          "id" : "five-questions",
+          "kind" : "template",
+          "path" : "library/templates/five-questions.gws"
+        },
+        {
+          "id" : "free-flow-10",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-10.gws"
+        },
+        {
+          "id" : "free-flow-12",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-12.gws"
+        },
+        {
+          "id" : "free-flow-journey-focus-21",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-journey-focus-21.gws"
+        },
+        {
+          "id" : "healing-and-regeneration-center",
+          "kind" : "template",
+          "path" : "library/templates/healing-and-regeneration-center.gws"
+        },
+        {
+          "id" : "i-there-cluster",
+          "kind" : "template",
+          "path" : "library/templates/i-there-cluster.gws"
+        },
+        {
+          "id" : "inner-earth",
+          "kind" : "template",
+          "path" : "library/templates/inner-earth.gws"
+        },
+        {
+          "id" : "intro-focus-23",
+          "kind" : "template",
+          "path" : "library/templates/intro-focus-23.gws"
+        },
+        {
+          "id" : "intro-focus-25",
+          "kind" : "template",
+          "path" : "library/templates/intro-focus-25.gws"
+        },
+        {
+          "id" : "lift-off",
+          "kind" : "template",
+          "path" : "library/templates/lift-off.gws"
+        },
+        {
+          "id" : "living-body-map",
+          "kind" : "template",
+          "path" : "library/templates/living-body-map.gws"
+        },
+        {
+          "id" : "meeting-with-the-entry-director",
+          "kind" : "template",
+          "path" : "library/templates/meeting-with-the-entry-director.gws"
+        },
+        {
+          "id" : "messages-from-beyond",
+          "kind" : "template",
+          "path" : "library/templates/messages-from-beyond.gws"
+        },
+        {
+          "id" : "mission-15-creation-and-manifestation",
+          "kind" : "template",
+          "path" : "library/templates/mission-15-creation-and-manifestation.gws"
+        },
+        {
+          "id" : "movement-to-locale-2",
+          "kind" : "template",
+          "path" : "library/templates/movement-to-locale-2.gws"
+        },
+        {
+          "id" : "nonphysical-friends",
+          "kind" : "template",
+          "path" : "library/templates/nonphysical-friends.gws"
+        },
+        {
+          "id" : "nvc-i",
+          "kind" : "template",
+          "path" : "library/templates/nvc-i.gws"
+        },
+        {
+          "id" : "nvc-ii",
+          "kind" : "template",
+          "path" : "library/templates/nvc-ii.gws"
+        },
+        {
+          "id" : "one-month-patterning",
+          "kind" : "template",
+          "path" : "library/templates/one-month-patterning.gws"
+        },
+        {
+          "id" : "one-year-patterning",
+          "kind" : "template",
+          "path" : "library/templates/one-year-patterning.gws"
+        },
+        {
+          "id" : "planning-center",
+          "kind" : "template",
+          "path" : "library/templates/planning-center.gws"
+        },
+        {
+          "id" : "point-of-departure",
+          "kind" : "template",
+          "path" : "library/templates/point-of-departure.gws"
+        },
+        {
+          "id" : "problem-solving",
+          "kind" : "template",
+          "path" : "library/templates/problem-solving.gws"
+        },
+        {
+          "id" : "release-and-recharge",
+          "kind" : "template",
+          "path" : "library/templates/release-and-recharge.gws"
+        },
+        {
+          "id" : "remote-viewing",
+          "kind" : "template",
+          "path" : "library/templates/remote-viewing.gws"
+        },
+        {
+          "id" : "sensing-locale-1",
+          "kind" : "template",
+          "path" : "library/templates/sensing-locale-1.gws"
+        },
+        {
+          "id" : "special-tour",
+          "kind" : "template",
+          "path" : "library/templates/special-tour.gws"
+        },
+        {
+          "id" : "the-absolute",
+          "kind" : "template",
+          "path" : "library/templates/the-absolute.gws"
+        },
+        {
+          "id" : "vectors",
+          "kind" : "template",
+          "path" : "library/templates/vectors.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "conversion-box"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "coordination-area",
+          "kind" : "template",
+          "path" : "library/templates/coordination-area.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "coordination-area"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F15/void",
+          "kind" : "focusScript",
+          "path" : "focus/F15/scripts/void.gws"
+        },
+        {
+          "id" : "f15-visit",
+          "kind" : "template",
+          "path" : "library/templates/f15-visit.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "descend-f15-f10"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        },
+        {
+          "id" : "f27-visit",
+          "kind" : "template",
+          "path" : "library/templates/f27-visit.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "descend-f27-f10"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "discovering-intuition",
+          "kind" : "template",
+          "path" : "library/templates/discovering-intuition.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "discovering-intuition"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "educational-opportunities",
+          "kind" : "template",
+          "path" : "library/templates/educational-opportunities.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "educational-center"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "energy-bar-tool",
+          "kind" : "template",
+          "path" : "library/templates/energy-bar-tool.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "energy-bar-tool"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "energy-food",
+          "kind" : "template",
+          "path" : "library/templates/energy-food.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "energy-food"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "expansion-in-locale-1",
+          "kind" : "template",
+          "path" : "library/templates/expansion-in-locale-1.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "expansion-in-locale-1"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "exploration-sleep",
+          "kind" : "template",
+          "path" : "library/templates/exploration-sleep.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "exploration-sleep"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "explore-total-self",
+          "kind" : "template",
+          "path" : "library/templates/explore-total-self.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "explore-total-self"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "exploring-focus-15",
+          "kind" : "template",
+          "path" : "library/templates/exploring-focus-15.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "exploring-focus-15"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "exploring-intuition",
+          "kind" : "template",
+          "path" : "library/templates/exploring-intuition.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "exploring-intuition"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "first-retrieval",
+          "kind" : "template",
+          "path" : "library/templates/first-retrieval.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "first-retrieval"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "first-stage-separation",
+          "kind" : "template",
+          "path" : "library/templates/first-stage-separation.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "first-stage-separation"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "five-messages",
+          "kind" : "template",
+          "path" : "library/templates/five-messages.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "five-messages"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "five-questions",
+          "kind" : "template",
+          "path" : "library/templates/five-questions.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "five-questions"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "intro-focus-23",
+          "kind" : "template",
+          "path" : "library/templates/intro-focus-23.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "focus-23-observation"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "intro-focus-25",
+          "kind" : "template",
+          "path" : "library/templates/intro-focus-25.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "focus-25-observation"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "free-flow-10",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-10.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "free-flow-10"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "free-flow-12",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-12.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "free-flow-12"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "free-flow-journey-focus-21",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-journey-focus-21.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "free-flow-journey-focus-21"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "free"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "f15-visit",
+          "kind" : "template",
+          "path" : "library/templates/f15-visit.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        },
+        {
+          "id" : "f27-visit",
+          "kind" : "template",
+          "path" : "library/templates/f27-visit.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "gratitude"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "healing-and-regeneration-center",
+          "kind" : "template",
+          "path" : "library/templates/healing-and-regeneration-center.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "healing-and-regeneration-center"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "release-and-recharge",
+          "kind" : "template",
+          "path" : "library/templates/release-and-recharge.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "health-affirmation"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "inner-earth",
+          "kind" : "template",
+          "path" : "library/templates/inner-earth.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "inner-earth"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "lift-off",
+          "kind" : "template",
+          "path" : "library/templates/lift-off.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "lift-off"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "living-body-map",
+          "kind" : "template",
+          "path" : "library/templates/living-body-map.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "living-body-map"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "meeting-with-the-entry-director",
+          "kind" : "template",
+          "path" : "library/templates/meeting-with-the-entry-director.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "meeting-with-the-entry-director"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "messages-from-beyond",
+          "kind" : "template",
+          "path" : "library/templates/messages-from-beyond.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "messages-from-beyond"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "mission-15-creation-and-manifestation",
+          "kind" : "template",
+          "path" : "library/templates/mission-15-creation-and-manifestation.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "mission-15-creation-and-manifestation"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "movement-to-locale-2",
+          "kind" : "template",
+          "path" : "library/templates/movement-to-locale-2.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "movement-to-locale-2"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "nonphysical-friends",
+          "kind" : "template",
+          "path" : "library/templates/nonphysical-friends.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "nonphysical-friends"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "nvc-i",
+          "kind" : "template",
+          "path" : "library/templates/nvc-i.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "nvc-i"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "nvc-ii",
+          "kind" : "template",
+          "path" : "library/templates/nvc-ii.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "nvc-ii"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F15/void",
+          "kind" : "focusScript",
+          "path" : "focus/F15/scripts/void.gws"
+        },
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        },
+        {
+          "id" : "f10-visit",
+          "kind" : "template",
+          "path" : "library/templates/f10-visit.gws"
+        },
+        {
+          "id" : "f11-visit",
+          "kind" : "template",
+          "path" : "library/templates/f11-visit.gws"
+        },
+        {
+          "id" : "f12-visit",
+          "kind" : "template",
+          "path" : "library/templates/f12-visit.gws"
+        },
+        {
+          "id" : "f15-visit",
+          "kind" : "template",
+          "path" : "library/templates/f15-visit.gws"
+        },
+        {
+          "id" : "f18-visit",
+          "kind" : "template",
+          "path" : "library/templates/f18-visit.gws"
+        },
+        {
+          "id" : "f21-visit",
+          "kind" : "template",
+          "path" : "library/templates/f21-visit.gws"
+        },
+        {
+          "id" : "f22-visit",
+          "kind" : "template",
+          "path" : "library/templates/f22-visit.gws"
+        },
+        {
+          "id" : "f23-visit",
+          "kind" : "template",
+          "path" : "library/templates/f23-visit.gws"
+        },
+        {
+          "id" : "f24-visit",
+          "kind" : "template",
+          "path" : "library/templates/f24-visit.gws"
+        },
+        {
+          "id" : "f25-visit",
+          "kind" : "template",
+          "path" : "library/templates/f25-visit.gws"
+        },
+        {
+          "id" : "f26-visit",
+          "kind" : "template",
+          "path" : "library/templates/f26-visit.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        },
+        {
+          "id" : "f27-visit",
+          "kind" : "template",
+          "path" : "library/templates/f27-visit.gws"
+        },
+        {
+          "id" : "f3-visit",
+          "kind" : "template",
+          "path" : "library/templates/f3-visit.gws"
+        },
+        {
+          "id" : "f34-visit",
+          "kind" : "template",
+          "path" : "library/templates/f34-visit.gws"
+        },
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        },
+        {
+          "id" : "i-there-cluster",
+          "kind" : "template",
+          "path" : "library/templates/i-there-cluster.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "ocean"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "one-year-patterning",
+          "kind" : "template",
+          "path" : "library/templates/one-year-patterning.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "one-year-patterning"
+    },
+    {
+      "kind" : "shelved",
+      "reason" : "source session removed by user on 2026-08-22",
+      "segmentID" : "opening-gathering"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F15/void",
+          "kind" : "focusScript",
+          "path" : "focus/F15/scripts/void.gws"
+        },
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        },
+        {
+          "id" : "f10-visit",
+          "kind" : "template",
+          "path" : "library/templates/f10-visit.gws"
+        },
+        {
+          "id" : "f11-visit",
+          "kind" : "template",
+          "path" : "library/templates/f11-visit.gws"
+        },
+        {
+          "id" : "f12-visit",
+          "kind" : "template",
+          "path" : "library/templates/f12-visit.gws"
+        },
+        {
+          "id" : "f15-visit",
+          "kind" : "template",
+          "path" : "library/templates/f15-visit.gws"
+        },
+        {
+          "id" : "f18-visit",
+          "kind" : "template",
+          "path" : "library/templates/f18-visit.gws"
+        },
+        {
+          "id" : "f21-visit",
+          "kind" : "template",
+          "path" : "library/templates/f21-visit.gws"
+        },
+        {
+          "id" : "f22-visit",
+          "kind" : "template",
+          "path" : "library/templates/f22-visit.gws"
+        },
+        {
+          "id" : "f23-visit",
+          "kind" : "template",
+          "path" : "library/templates/f23-visit.gws"
+        },
+        {
+          "id" : "f24-visit",
+          "kind" : "template",
+          "path" : "library/templates/f24-visit.gws"
+        },
+        {
+          "id" : "f25-visit",
+          "kind" : "template",
+          "path" : "library/templates/f25-visit.gws"
+        },
+        {
+          "id" : "f26-visit",
+          "kind" : "template",
+          "path" : "library/templates/f26-visit.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        },
+        {
+          "id" : "f27-visit",
+          "kind" : "template",
+          "path" : "library/templates/f27-visit.gws"
+        },
+        {
+          "id" : "f3-visit",
+          "kind" : "template",
+          "path" : "library/templates/f3-visit.gws"
+        },
+        {
+          "id" : "f34-visit",
+          "kind" : "template",
+          "path" : "library/templates/f34-visit.gws"
+        },
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        },
+        {
+          "id" : "i-there-cluster",
+          "kind" : "template",
+          "path" : "library/templates/i-there-cluster.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "opening"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F15/void",
+          "kind" : "focusScript",
+          "path" : "focus/F15/scripts/void.gws"
+        },
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        },
+        {
+          "id" : "advanced-focus-10",
+          "kind" : "template",
+          "path" : "library/templates/advanced-focus-10.gws"
+        },
+        {
+          "id" : "advanced-focus-12",
+          "kind" : "template",
+          "path" : "library/templates/advanced-focus-12.gws"
+        },
+        {
+          "id" : "color-breathing",
+          "kind" : "template",
+          "path" : "library/templates/color-breathing.gws"
+        },
+        {
+          "id" : "compoint",
+          "kind" : "template",
+          "path" : "library/templates/compoint.gws"
+        },
+        {
+          "id" : "coordination-area",
+          "kind" : "template",
+          "path" : "library/templates/coordination-area.gws"
+        },
+        {
+          "id" : "discovering-intuition",
+          "kind" : "template",
+          "path" : "library/templates/discovering-intuition.gws"
+        },
+        {
+          "id" : "educational-opportunities",
+          "kind" : "template",
+          "path" : "library/templates/educational-opportunities.gws"
+        },
+        {
+          "id" : "energy-bar-tool",
+          "kind" : "template",
+          "path" : "library/templates/energy-bar-tool.gws"
+        },
+        {
+          "id" : "energy-food",
+          "kind" : "template",
+          "path" : "library/templates/energy-food.gws"
+        },
+        {
+          "id" : "expansion-in-locale-1",
+          "kind" : "template",
+          "path" : "library/templates/expansion-in-locale-1.gws"
+        },
+        {
+          "id" : "exploration-sleep",
+          "kind" : "template",
+          "path" : "library/templates/exploration-sleep.gws"
+        },
+        {
+          "id" : "explore-total-self",
+          "kind" : "template",
+          "path" : "library/templates/explore-total-self.gws"
+        },
+        {
+          "id" : "exploring-focus-15",
+          "kind" : "template",
+          "path" : "library/templates/exploring-focus-15.gws"
+        },
+        {
+          "id" : "exploring-intuition",
+          "kind" : "template",
+          "path" : "library/templates/exploring-intuition.gws"
+        },
+        {
+          "id" : "f10-visit",
+          "kind" : "template",
+          "path" : "library/templates/f10-visit.gws"
+        },
+        {
+          "id" : "f11-visit",
+          "kind" : "template",
+          "path" : "library/templates/f11-visit.gws"
+        },
+        {
+          "id" : "f12-visit",
+          "kind" : "template",
+          "path" : "library/templates/f12-visit.gws"
+        },
+        {
+          "id" : "f15-visit",
+          "kind" : "template",
+          "path" : "library/templates/f15-visit.gws"
+        },
+        {
+          "id" : "f18-visit",
+          "kind" : "template",
+          "path" : "library/templates/f18-visit.gws"
+        },
+        {
+          "id" : "f21-visit",
+          "kind" : "template",
+          "path" : "library/templates/f21-visit.gws"
+        },
+        {
+          "id" : "f22-visit",
+          "kind" : "template",
+          "path" : "library/templates/f22-visit.gws"
+        },
+        {
+          "id" : "f23-visit",
+          "kind" : "template",
+          "path" : "library/templates/f23-visit.gws"
+        },
+        {
+          "id" : "f24-visit",
+          "kind" : "template",
+          "path" : "library/templates/f24-visit.gws"
+        },
+        {
+          "id" : "f25-visit",
+          "kind" : "template",
+          "path" : "library/templates/f25-visit.gws"
+        },
+        {
+          "id" : "f26-visit",
+          "kind" : "template",
+          "path" : "library/templates/f26-visit.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        },
+        {
+          "id" : "f27-visit",
+          "kind" : "template",
+          "path" : "library/templates/f27-visit.gws"
+        },
+        {
+          "id" : "f3-visit",
+          "kind" : "template",
+          "path" : "library/templates/f3-visit.gws"
+        },
+        {
+          "id" : "f34-visit",
+          "kind" : "template",
+          "path" : "library/templates/f34-visit.gws"
+        },
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        },
+        {
+          "id" : "first-retrieval",
+          "kind" : "template",
+          "path" : "library/templates/first-retrieval.gws"
+        },
+        {
+          "id" : "first-stage-separation",
+          "kind" : "template",
+          "path" : "library/templates/first-stage-separation.gws"
+        },
+        {
+          "id" : "five-messages",
+          "kind" : "template",
+          "path" : "library/templates/five-messages.gws"
+        },
+        {
+          "id" : "five-questions",
+          "kind" : "template",
+          "path" : "library/templates/five-questions.gws"
+        },
+        {
+          "id" : "free-flow-10",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-10.gws"
+        },
+        {
+          "id" : "free-flow-12",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-12.gws"
+        },
+        {
+          "id" : "free-flow-journey-focus-21",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-journey-focus-21.gws"
+        },
+        {
+          "id" : "healing-and-regeneration-center",
+          "kind" : "template",
+          "path" : "library/templates/healing-and-regeneration-center.gws"
+        },
+        {
+          "id" : "i-there-cluster",
+          "kind" : "template",
+          "path" : "library/templates/i-there-cluster.gws"
+        },
+        {
+          "id" : "inner-earth",
+          "kind" : "template",
+          "path" : "library/templates/inner-earth.gws"
+        },
+        {
+          "id" : "intro-focus-23",
+          "kind" : "template",
+          "path" : "library/templates/intro-focus-23.gws"
+        },
+        {
+          "id" : "intro-focus-25",
+          "kind" : "template",
+          "path" : "library/templates/intro-focus-25.gws"
+        },
+        {
+          "id" : "lift-off",
+          "kind" : "template",
+          "path" : "library/templates/lift-off.gws"
+        },
+        {
+          "id" : "living-body-map",
+          "kind" : "template",
+          "path" : "library/templates/living-body-map.gws"
+        },
+        {
+          "id" : "meeting-with-the-entry-director",
+          "kind" : "template",
+          "path" : "library/templates/meeting-with-the-entry-director.gws"
+        },
+        {
+          "id" : "messages-from-beyond",
+          "kind" : "template",
+          "path" : "library/templates/messages-from-beyond.gws"
+        },
+        {
+          "id" : "mission-15-creation-and-manifestation",
+          "kind" : "template",
+          "path" : "library/templates/mission-15-creation-and-manifestation.gws"
+        },
+        {
+          "id" : "movement-to-locale-2",
+          "kind" : "template",
+          "path" : "library/templates/movement-to-locale-2.gws"
+        },
+        {
+          "id" : "nonphysical-friends",
+          "kind" : "template",
+          "path" : "library/templates/nonphysical-friends.gws"
+        },
+        {
+          "id" : "nvc-i",
+          "kind" : "template",
+          "path" : "library/templates/nvc-i.gws"
+        },
+        {
+          "id" : "nvc-ii",
+          "kind" : "template",
+          "path" : "library/templates/nvc-ii.gws"
+        },
+        {
+          "id" : "one-month-patterning",
+          "kind" : "template",
+          "path" : "library/templates/one-month-patterning.gws"
+        },
+        {
+          "id" : "one-year-patterning",
+          "kind" : "template",
+          "path" : "library/templates/one-year-patterning.gws"
+        },
+        {
+          "id" : "planning-center",
+          "kind" : "template",
+          "path" : "library/templates/planning-center.gws"
+        },
+        {
+          "id" : "point-of-departure",
+          "kind" : "template",
+          "path" : "library/templates/point-of-departure.gws"
+        },
+        {
+          "id" : "problem-solving",
+          "kind" : "template",
+          "path" : "library/templates/problem-solving.gws"
+        },
+        {
+          "id" : "release-and-recharge",
+          "kind" : "template",
+          "path" : "library/templates/release-and-recharge.gws"
+        },
+        {
+          "id" : "remote-viewing",
+          "kind" : "template",
+          "path" : "library/templates/remote-viewing.gws"
+        },
+        {
+          "id" : "sensing-locale-1",
+          "kind" : "template",
+          "path" : "library/templates/sensing-locale-1.gws"
+        },
+        {
+          "id" : "special-tour",
+          "kind" : "template",
+          "path" : "library/templates/special-tour.gws"
+        },
+        {
+          "id" : "the-absolute",
+          "kind" : "template",
+          "path" : "library/templates/the-absolute.gws"
+        },
+        {
+          "id" : "vectors",
+          "kind" : "template",
+          "path" : "library/templates/vectors.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "orientation"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "one-month-patterning",
+          "kind" : "template",
+          "path" : "library/templates/one-month-patterning.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "patterning"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "place-of-your-own"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "planning-center",
+          "kind" : "template",
+          "path" : "library/templates/planning-center.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "planning-center"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "point-of-departure",
+          "kind" : "template",
+          "path" : "library/templates/point-of-departure.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "point-of-departure"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "problem-solving",
+          "kind" : "template",
+          "path" : "library/templates/problem-solving.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "problem-solving"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F15/void",
+          "kind" : "focusScript",
+          "path" : "focus/F15/scripts/void.gws"
+        },
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        },
+        {
+          "id" : "advanced-focus-10",
+          "kind" : "template",
+          "path" : "library/templates/advanced-focus-10.gws"
+        },
+        {
+          "id" : "advanced-focus-12",
+          "kind" : "template",
+          "path" : "library/templates/advanced-focus-12.gws"
+        },
+        {
+          "id" : "color-breathing",
+          "kind" : "template",
+          "path" : "library/templates/color-breathing.gws"
+        },
+        {
+          "id" : "compoint",
+          "kind" : "template",
+          "path" : "library/templates/compoint.gws"
+        },
+        {
+          "id" : "coordination-area",
+          "kind" : "template",
+          "path" : "library/templates/coordination-area.gws"
+        },
+        {
+          "id" : "discovering-intuition",
+          "kind" : "template",
+          "path" : "library/templates/discovering-intuition.gws"
+        },
+        {
+          "id" : "educational-opportunities",
+          "kind" : "template",
+          "path" : "library/templates/educational-opportunities.gws"
+        },
+        {
+          "id" : "energy-bar-tool",
+          "kind" : "template",
+          "path" : "library/templates/energy-bar-tool.gws"
+        },
+        {
+          "id" : "energy-food",
+          "kind" : "template",
+          "path" : "library/templates/energy-food.gws"
+        },
+        {
+          "id" : "expansion-in-locale-1",
+          "kind" : "template",
+          "path" : "library/templates/expansion-in-locale-1.gws"
+        },
+        {
+          "id" : "exploration-sleep",
+          "kind" : "template",
+          "path" : "library/templates/exploration-sleep.gws"
+        },
+        {
+          "id" : "explore-total-self",
+          "kind" : "template",
+          "path" : "library/templates/explore-total-self.gws"
+        },
+        {
+          "id" : "exploring-focus-15",
+          "kind" : "template",
+          "path" : "library/templates/exploring-focus-15.gws"
+        },
+        {
+          "id" : "exploring-intuition",
+          "kind" : "template",
+          "path" : "library/templates/exploring-intuition.gws"
+        },
+        {
+          "id" : "f10-visit",
+          "kind" : "template",
+          "path" : "library/templates/f10-visit.gws"
+        },
+        {
+          "id" : "f11-visit",
+          "kind" : "template",
+          "path" : "library/templates/f11-visit.gws"
+        },
+        {
+          "id" : "f12-visit",
+          "kind" : "template",
+          "path" : "library/templates/f12-visit.gws"
+        },
+        {
+          "id" : "f15-visit",
+          "kind" : "template",
+          "path" : "library/templates/f15-visit.gws"
+        },
+        {
+          "id" : "f18-visit",
+          "kind" : "template",
+          "path" : "library/templates/f18-visit.gws"
+        },
+        {
+          "id" : "f21-visit",
+          "kind" : "template",
+          "path" : "library/templates/f21-visit.gws"
+        },
+        {
+          "id" : "f22-visit",
+          "kind" : "template",
+          "path" : "library/templates/f22-visit.gws"
+        },
+        {
+          "id" : "f23-visit",
+          "kind" : "template",
+          "path" : "library/templates/f23-visit.gws"
+        },
+        {
+          "id" : "f24-visit",
+          "kind" : "template",
+          "path" : "library/templates/f24-visit.gws"
+        },
+        {
+          "id" : "f25-visit",
+          "kind" : "template",
+          "path" : "library/templates/f25-visit.gws"
+        },
+        {
+          "id" : "f26-visit",
+          "kind" : "template",
+          "path" : "library/templates/f26-visit.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        },
+        {
+          "id" : "f27-visit",
+          "kind" : "template",
+          "path" : "library/templates/f27-visit.gws"
+        },
+        {
+          "id" : "f34-visit",
+          "kind" : "template",
+          "path" : "library/templates/f34-visit.gws"
+        },
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        },
+        {
+          "id" : "first-retrieval",
+          "kind" : "template",
+          "path" : "library/templates/first-retrieval.gws"
+        },
+        {
+          "id" : "first-stage-separation",
+          "kind" : "template",
+          "path" : "library/templates/first-stage-separation.gws"
+        },
+        {
+          "id" : "five-messages",
+          "kind" : "template",
+          "path" : "library/templates/five-messages.gws"
+        },
+        {
+          "id" : "five-questions",
+          "kind" : "template",
+          "path" : "library/templates/five-questions.gws"
+        },
+        {
+          "id" : "free-flow-10",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-10.gws"
+        },
+        {
+          "id" : "free-flow-12",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-12.gws"
+        },
+        {
+          "id" : "free-flow-journey-focus-21",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-journey-focus-21.gws"
+        },
+        {
+          "id" : "healing-and-regeneration-center",
+          "kind" : "template",
+          "path" : "library/templates/healing-and-regeneration-center.gws"
+        },
+        {
+          "id" : "i-there-cluster",
+          "kind" : "template",
+          "path" : "library/templates/i-there-cluster.gws"
+        },
+        {
+          "id" : "inner-earth",
+          "kind" : "template",
+          "path" : "library/templates/inner-earth.gws"
+        },
+        {
+          "id" : "intro-focus-23",
+          "kind" : "template",
+          "path" : "library/templates/intro-focus-23.gws"
+        },
+        {
+          "id" : "intro-focus-25",
+          "kind" : "template",
+          "path" : "library/templates/intro-focus-25.gws"
+        },
+        {
+          "id" : "lift-off",
+          "kind" : "template",
+          "path" : "library/templates/lift-off.gws"
+        },
+        {
+          "id" : "living-body-map",
+          "kind" : "template",
+          "path" : "library/templates/living-body-map.gws"
+        },
+        {
+          "id" : "meeting-with-the-entry-director",
+          "kind" : "template",
+          "path" : "library/templates/meeting-with-the-entry-director.gws"
+        },
+        {
+          "id" : "messages-from-beyond",
+          "kind" : "template",
+          "path" : "library/templates/messages-from-beyond.gws"
+        },
+        {
+          "id" : "mission-15-creation-and-manifestation",
+          "kind" : "template",
+          "path" : "library/templates/mission-15-creation-and-manifestation.gws"
+        },
+        {
+          "id" : "movement-to-locale-2",
+          "kind" : "template",
+          "path" : "library/templates/movement-to-locale-2.gws"
+        },
+        {
+          "id" : "nonphysical-friends",
+          "kind" : "template",
+          "path" : "library/templates/nonphysical-friends.gws"
+        },
+        {
+          "id" : "nvc-i",
+          "kind" : "template",
+          "path" : "library/templates/nvc-i.gws"
+        },
+        {
+          "id" : "nvc-ii",
+          "kind" : "template",
+          "path" : "library/templates/nvc-ii.gws"
+        },
+        {
+          "id" : "one-month-patterning",
+          "kind" : "template",
+          "path" : "library/templates/one-month-patterning.gws"
+        },
+        {
+          "id" : "one-year-patterning",
+          "kind" : "template",
+          "path" : "library/templates/one-year-patterning.gws"
+        },
+        {
+          "id" : "planning-center",
+          "kind" : "template",
+          "path" : "library/templates/planning-center.gws"
+        },
+        {
+          "id" : "point-of-departure",
+          "kind" : "template",
+          "path" : "library/templates/point-of-departure.gws"
+        },
+        {
+          "id" : "problem-solving",
+          "kind" : "template",
+          "path" : "library/templates/problem-solving.gws"
+        },
+        {
+          "id" : "release-and-recharge",
+          "kind" : "template",
+          "path" : "library/templates/release-and-recharge.gws"
+        },
+        {
+          "id" : "remote-viewing",
+          "kind" : "template",
+          "path" : "library/templates/remote-viewing.gws"
+        },
+        {
+          "id" : "sensing-locale-1",
+          "kind" : "template",
+          "path" : "library/templates/sensing-locale-1.gws"
+        },
+        {
+          "id" : "special-tour",
+          "kind" : "template",
+          "path" : "library/templates/special-tour.gws"
+        },
+        {
+          "id" : "the-absolute",
+          "kind" : "template",
+          "path" : "library/templates/the-absolute.gws"
+        },
+        {
+          "id" : "vectors",
+          "kind" : "template",
+          "path" : "library/templates/vectors.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "relax-10"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "release-and-recharge",
+          "kind" : "template",
+          "path" : "library/templates/release-and-recharge.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "release-and-recharge"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "remote-viewing",
+          "kind" : "template",
+          "path" : "library/templates/remote-viewing.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "remote-viewing-intent"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "remote-viewing",
+          "kind" : "template",
+          "path" : "library/templates/remote-viewing.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "remote-viewing"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F15/void",
+          "kind" : "focusScript",
+          "path" : "focus/F15/scripts/void.gws"
+        },
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        },
+        {
+          "id" : "advanced-focus-10",
+          "kind" : "template",
+          "path" : "library/templates/advanced-focus-10.gws"
+        },
+        {
+          "id" : "advanced-focus-12",
+          "kind" : "template",
+          "path" : "library/templates/advanced-focus-12.gws"
+        },
+        {
+          "id" : "color-breathing",
+          "kind" : "template",
+          "path" : "library/templates/color-breathing.gws"
+        },
+        {
+          "id" : "compoint",
+          "kind" : "template",
+          "path" : "library/templates/compoint.gws"
+        },
+        {
+          "id" : "coordination-area",
+          "kind" : "template",
+          "path" : "library/templates/coordination-area.gws"
+        },
+        {
+          "id" : "discovering-intuition",
+          "kind" : "template",
+          "path" : "library/templates/discovering-intuition.gws"
+        },
+        {
+          "id" : "educational-opportunities",
+          "kind" : "template",
+          "path" : "library/templates/educational-opportunities.gws"
+        },
+        {
+          "id" : "energy-bar-tool",
+          "kind" : "template",
+          "path" : "library/templates/energy-bar-tool.gws"
+        },
+        {
+          "id" : "energy-food",
+          "kind" : "template",
+          "path" : "library/templates/energy-food.gws"
+        },
+        {
+          "id" : "expansion-in-locale-1",
+          "kind" : "template",
+          "path" : "library/templates/expansion-in-locale-1.gws"
+        },
+        {
+          "id" : "exploration-sleep",
+          "kind" : "template",
+          "path" : "library/templates/exploration-sleep.gws"
+        },
+        {
+          "id" : "explore-total-self",
+          "kind" : "template",
+          "path" : "library/templates/explore-total-self.gws"
+        },
+        {
+          "id" : "exploring-focus-15",
+          "kind" : "template",
+          "path" : "library/templates/exploring-focus-15.gws"
+        },
+        {
+          "id" : "exploring-intuition",
+          "kind" : "template",
+          "path" : "library/templates/exploring-intuition.gws"
+        },
+        {
+          "id" : "f10-visit",
+          "kind" : "template",
+          "path" : "library/templates/f10-visit.gws"
+        },
+        {
+          "id" : "f11-visit",
+          "kind" : "template",
+          "path" : "library/templates/f11-visit.gws"
+        },
+        {
+          "id" : "f12-visit",
+          "kind" : "template",
+          "path" : "library/templates/f12-visit.gws"
+        },
+        {
+          "id" : "f15-visit",
+          "kind" : "template",
+          "path" : "library/templates/f15-visit.gws"
+        },
+        {
+          "id" : "f18-visit",
+          "kind" : "template",
+          "path" : "library/templates/f18-visit.gws"
+        },
+        {
+          "id" : "f21-visit",
+          "kind" : "template",
+          "path" : "library/templates/f21-visit.gws"
+        },
+        {
+          "id" : "f22-visit",
+          "kind" : "template",
+          "path" : "library/templates/f22-visit.gws"
+        },
+        {
+          "id" : "f23-visit",
+          "kind" : "template",
+          "path" : "library/templates/f23-visit.gws"
+        },
+        {
+          "id" : "f24-visit",
+          "kind" : "template",
+          "path" : "library/templates/f24-visit.gws"
+        },
+        {
+          "id" : "f25-visit",
+          "kind" : "template",
+          "path" : "library/templates/f25-visit.gws"
+        },
+        {
+          "id" : "f26-visit",
+          "kind" : "template",
+          "path" : "library/templates/f26-visit.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        },
+        {
+          "id" : "f27-visit",
+          "kind" : "template",
+          "path" : "library/templates/f27-visit.gws"
+        },
+        {
+          "id" : "f3-visit",
+          "kind" : "template",
+          "path" : "library/templates/f3-visit.gws"
+        },
+        {
+          "id" : "f34-visit",
+          "kind" : "template",
+          "path" : "library/templates/f34-visit.gws"
+        },
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        },
+        {
+          "id" : "first-retrieval",
+          "kind" : "template",
+          "path" : "library/templates/first-retrieval.gws"
+        },
+        {
+          "id" : "first-stage-separation",
+          "kind" : "template",
+          "path" : "library/templates/first-stage-separation.gws"
+        },
+        {
+          "id" : "five-messages",
+          "kind" : "template",
+          "path" : "library/templates/five-messages.gws"
+        },
+        {
+          "id" : "five-questions",
+          "kind" : "template",
+          "path" : "library/templates/five-questions.gws"
+        },
+        {
+          "id" : "free-flow-10",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-10.gws"
+        },
+        {
+          "id" : "free-flow-12",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-12.gws"
+        },
+        {
+          "id" : "free-flow-journey-focus-21",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-journey-focus-21.gws"
+        },
+        {
+          "id" : "healing-and-regeneration-center",
+          "kind" : "template",
+          "path" : "library/templates/healing-and-regeneration-center.gws"
+        },
+        {
+          "id" : "i-there-cluster",
+          "kind" : "template",
+          "path" : "library/templates/i-there-cluster.gws"
+        },
+        {
+          "id" : "inner-earth",
+          "kind" : "template",
+          "path" : "library/templates/inner-earth.gws"
+        },
+        {
+          "id" : "intro-focus-23",
+          "kind" : "template",
+          "path" : "library/templates/intro-focus-23.gws"
+        },
+        {
+          "id" : "intro-focus-25",
+          "kind" : "template",
+          "path" : "library/templates/intro-focus-25.gws"
+        },
+        {
+          "id" : "lift-off",
+          "kind" : "template",
+          "path" : "library/templates/lift-off.gws"
+        },
+        {
+          "id" : "living-body-map",
+          "kind" : "template",
+          "path" : "library/templates/living-body-map.gws"
+        },
+        {
+          "id" : "meeting-with-the-entry-director",
+          "kind" : "template",
+          "path" : "library/templates/meeting-with-the-entry-director.gws"
+        },
+        {
+          "id" : "messages-from-beyond",
+          "kind" : "template",
+          "path" : "library/templates/messages-from-beyond.gws"
+        },
+        {
+          "id" : "mission-15-creation-and-manifestation",
+          "kind" : "template",
+          "path" : "library/templates/mission-15-creation-and-manifestation.gws"
+        },
+        {
+          "id" : "movement-to-locale-2",
+          "kind" : "template",
+          "path" : "library/templates/movement-to-locale-2.gws"
+        },
+        {
+          "id" : "nonphysical-friends",
+          "kind" : "template",
+          "path" : "library/templates/nonphysical-friends.gws"
+        },
+        {
+          "id" : "nvc-i",
+          "kind" : "template",
+          "path" : "library/templates/nvc-i.gws"
+        },
+        {
+          "id" : "nvc-ii",
+          "kind" : "template",
+          "path" : "library/templates/nvc-ii.gws"
+        },
+        {
+          "id" : "one-month-patterning",
+          "kind" : "template",
+          "path" : "library/templates/one-month-patterning.gws"
+        },
+        {
+          "id" : "one-year-patterning",
+          "kind" : "template",
+          "path" : "library/templates/one-year-patterning.gws"
+        },
+        {
+          "id" : "planning-center",
+          "kind" : "template",
+          "path" : "library/templates/planning-center.gws"
+        },
+        {
+          "id" : "point-of-departure",
+          "kind" : "template",
+          "path" : "library/templates/point-of-departure.gws"
+        },
+        {
+          "id" : "problem-solving",
+          "kind" : "template",
+          "path" : "library/templates/problem-solving.gws"
+        },
+        {
+          "id" : "release-and-recharge",
+          "kind" : "template",
+          "path" : "library/templates/release-and-recharge.gws"
+        },
+        {
+          "id" : "remote-viewing",
+          "kind" : "template",
+          "path" : "library/templates/remote-viewing.gws"
+        },
+        {
+          "id" : "sensing-locale-1",
+          "kind" : "template",
+          "path" : "library/templates/sensing-locale-1.gws"
+        },
+        {
+          "id" : "special-tour",
+          "kind" : "template",
+          "path" : "library/templates/special-tour.gws"
+        },
+        {
+          "id" : "the-absolute",
+          "kind" : "template",
+          "path" : "library/templates/the-absolute.gws"
+        },
+        {
+          "id" : "vectors",
+          "kind" : "template",
+          "path" : "library/templates/vectors.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "resonant-tuning"
+    },
+    {
+      "kind" : "runtime",
+      "roles" : [
+        "resumeCeremony"
+      ],
+      "segmentID" : "resume"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F15/void",
+          "kind" : "focusScript",
+          "path" : "focus/F15/scripts/void.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "return-anchor"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        },
+        {
+          "id" : "f10-visit",
+          "kind" : "template",
+          "path" : "library/templates/f10-visit.gws"
+        },
+        {
+          "id" : "f11-visit",
+          "kind" : "template",
+          "path" : "library/templates/f11-visit.gws"
+        },
+        {
+          "id" : "f12-visit",
+          "kind" : "template",
+          "path" : "library/templates/f12-visit.gws"
+        },
+        {
+          "id" : "f15-visit",
+          "kind" : "template",
+          "path" : "library/templates/f15-visit.gws"
+        },
+        {
+          "id" : "f18-visit",
+          "kind" : "template",
+          "path" : "library/templates/f18-visit.gws"
+        },
+        {
+          "id" : "f21-visit",
+          "kind" : "template",
+          "path" : "library/templates/f21-visit.gws"
+        },
+        {
+          "id" : "f22-visit",
+          "kind" : "template",
+          "path" : "library/templates/f22-visit.gws"
+        },
+        {
+          "id" : "f23-visit",
+          "kind" : "template",
+          "path" : "library/templates/f23-visit.gws"
+        },
+        {
+          "id" : "f24-visit",
+          "kind" : "template",
+          "path" : "library/templates/f24-visit.gws"
+        },
+        {
+          "id" : "f25-visit",
+          "kind" : "template",
+          "path" : "library/templates/f25-visit.gws"
+        },
+        {
+          "id" : "f26-visit",
+          "kind" : "template",
+          "path" : "library/templates/f26-visit.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        },
+        {
+          "id" : "f27-visit",
+          "kind" : "template",
+          "path" : "library/templates/f27-visit.gws"
+        },
+        {
+          "id" : "f34-visit",
+          "kind" : "template",
+          "path" : "library/templates/f34-visit.gws"
+        },
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "return-methods"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "advanced-focus-12",
+          "kind" : "template",
+          "path" : "library/templates/advanced-focus-12.gws"
+        },
+        {
+          "id" : "compoint",
+          "kind" : "template",
+          "path" : "library/templates/compoint.gws"
+        },
+        {
+          "id" : "coordination-area",
+          "kind" : "template",
+          "path" : "library/templates/coordination-area.gws"
+        },
+        {
+          "id" : "discovering-intuition",
+          "kind" : "template",
+          "path" : "library/templates/discovering-intuition.gws"
+        },
+        {
+          "id" : "educational-opportunities",
+          "kind" : "template",
+          "path" : "library/templates/educational-opportunities.gws"
+        },
+        {
+          "id" : "energy-bar-tool",
+          "kind" : "template",
+          "path" : "library/templates/energy-bar-tool.gws"
+        },
+        {
+          "id" : "energy-food",
+          "kind" : "template",
+          "path" : "library/templates/energy-food.gws"
+        },
+        {
+          "id" : "exploring-focus-15",
+          "kind" : "template",
+          "path" : "library/templates/exploring-focus-15.gws"
+        },
+        {
+          "id" : "exploring-intuition",
+          "kind" : "template",
+          "path" : "library/templates/exploring-intuition.gws"
+        },
+        {
+          "id" : "first-stage-separation",
+          "kind" : "template",
+          "path" : "library/templates/first-stage-separation.gws"
+        },
+        {
+          "id" : "five-messages",
+          "kind" : "template",
+          "path" : "library/templates/five-messages.gws"
+        },
+        {
+          "id" : "five-questions",
+          "kind" : "template",
+          "path" : "library/templates/five-questions.gws"
+        },
+        {
+          "id" : "free-flow-10",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-10.gws"
+        },
+        {
+          "id" : "free-flow-12",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-12.gws"
+        },
+        {
+          "id" : "healing-and-regeneration-center",
+          "kind" : "template",
+          "path" : "library/templates/healing-and-regeneration-center.gws"
+        },
+        {
+          "id" : "inner-earth",
+          "kind" : "template",
+          "path" : "library/templates/inner-earth.gws"
+        },
+        {
+          "id" : "lift-off",
+          "kind" : "template",
+          "path" : "library/templates/lift-off.gws"
+        },
+        {
+          "id" : "living-body-map",
+          "kind" : "template",
+          "path" : "library/templates/living-body-map.gws"
+        },
+        {
+          "id" : "meeting-with-the-entry-director",
+          "kind" : "template",
+          "path" : "library/templates/meeting-with-the-entry-director.gws"
+        },
+        {
+          "id" : "mission-15-creation-and-manifestation",
+          "kind" : "template",
+          "path" : "library/templates/mission-15-creation-and-manifestation.gws"
+        },
+        {
+          "id" : "nvc-i",
+          "kind" : "template",
+          "path" : "library/templates/nvc-i.gws"
+        },
+        {
+          "id" : "nvc-ii",
+          "kind" : "template",
+          "path" : "library/templates/nvc-ii.gws"
+        },
+        {
+          "id" : "one-month-patterning",
+          "kind" : "template",
+          "path" : "library/templates/one-month-patterning.gws"
+        },
+        {
+          "id" : "one-year-patterning",
+          "kind" : "template",
+          "path" : "library/templates/one-year-patterning.gws"
+        },
+        {
+          "id" : "planning-center",
+          "kind" : "template",
+          "path" : "library/templates/planning-center.gws"
+        },
+        {
+          "id" : "problem-solving",
+          "kind" : "template",
+          "path" : "library/templates/problem-solving.gws"
+        },
+        {
+          "id" : "remote-viewing",
+          "kind" : "template",
+          "path" : "library/templates/remote-viewing.gws"
+        },
+        {
+          "id" : "special-tour",
+          "kind" : "template",
+          "path" : "library/templates/special-tour.gws"
+        },
+        {
+          "id" : "the-absolute",
+          "kind" : "template",
+          "path" : "library/templates/the-absolute.gws"
+        },
+        {
+          "id" : "vectors",
+          "kind" : "template",
+          "path" : "library/templates/vectors.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "return-one"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "f3-visit",
+          "kind" : "template",
+          "path" : "library/templates/f3-visit.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "return-three"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "expansion-in-locale-1",
+          "kind" : "template",
+          "path" : "library/templates/expansion-in-locale-1.gws"
+        },
+        {
+          "id" : "free-flow-journey-focus-21",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-journey-focus-21.gws"
+        },
+        {
+          "id" : "movement-to-locale-2",
+          "kind" : "template",
+          "path" : "library/templates/movement-to-locale-2.gws"
+        },
+        {
+          "id" : "nonphysical-friends",
+          "kind" : "template",
+          "path" : "library/templates/nonphysical-friends.gws"
+        },
+        {
+          "id" : "point-of-departure",
+          "kind" : "template",
+          "path" : "library/templates/point-of-departure.gws"
+        },
+        {
+          "id" : "sensing-locale-1",
+          "kind" : "template",
+          "path" : "library/templates/sensing-locale-1.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "return-twelve"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F15/void",
+          "kind" : "focusScript",
+          "path" : "focus/F15/scripts/void.gws"
+        },
+        {
+          "id" : "advanced-focus-10",
+          "kind" : "template",
+          "path" : "library/templates/advanced-focus-10.gws"
+        },
+        {
+          "id" : "color-breathing",
+          "kind" : "template",
+          "path" : "library/templates/color-breathing.gws"
+        },
+        {
+          "id" : "explore-total-self",
+          "kind" : "template",
+          "path" : "library/templates/explore-total-self.gws"
+        },
+        {
+          "id" : "f10-visit",
+          "kind" : "template",
+          "path" : "library/templates/f10-visit.gws"
+        },
+        {
+          "id" : "f11-visit",
+          "kind" : "template",
+          "path" : "library/templates/f11-visit.gws"
+        },
+        {
+          "id" : "f12-visit",
+          "kind" : "template",
+          "path" : "library/templates/f12-visit.gws"
+        },
+        {
+          "id" : "f15-visit",
+          "kind" : "template",
+          "path" : "library/templates/f15-visit.gws"
+        },
+        {
+          "id" : "f18-visit",
+          "kind" : "template",
+          "path" : "library/templates/f18-visit.gws"
+        },
+        {
+          "id" : "f21-visit",
+          "kind" : "template",
+          "path" : "library/templates/f21-visit.gws"
+        },
+        {
+          "id" : "f22-visit",
+          "kind" : "template",
+          "path" : "library/templates/f22-visit.gws"
+        },
+        {
+          "id" : "f23-visit",
+          "kind" : "template",
+          "path" : "library/templates/f23-visit.gws"
+        },
+        {
+          "id" : "f24-visit",
+          "kind" : "template",
+          "path" : "library/templates/f24-visit.gws"
+        },
+        {
+          "id" : "f25-visit",
+          "kind" : "template",
+          "path" : "library/templates/f25-visit.gws"
+        },
+        {
+          "id" : "f26-visit",
+          "kind" : "template",
+          "path" : "library/templates/f26-visit.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        },
+        {
+          "id" : "f27-visit",
+          "kind" : "template",
+          "path" : "library/templates/f27-visit.gws"
+        },
+        {
+          "id" : "f34-visit",
+          "kind" : "template",
+          "path" : "library/templates/f34-visit.gws"
+        },
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        },
+        {
+          "id" : "first-retrieval",
+          "kind" : "template",
+          "path" : "library/templates/first-retrieval.gws"
+        },
+        {
+          "id" : "intro-focus-23",
+          "kind" : "template",
+          "path" : "library/templates/intro-focus-23.gws"
+        },
+        {
+          "id" : "intro-focus-25",
+          "kind" : "template",
+          "path" : "library/templates/intro-focus-25.gws"
+        },
+        {
+          "id" : "release-and-recharge",
+          "kind" : "template",
+          "path" : "library/templates/release-and-recharge.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "return"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "sensing-locale-1",
+          "kind" : "template",
+          "path" : "library/templates/sensing-locale-1.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "sensing-locale-1"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "special-tour",
+          "kind" : "template",
+          "path" : "library/templates/special-tour.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "special-tour"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own.gws"
+        },
+        {
+          "id" : "i-there-cluster",
+          "kind" : "template",
+          "path" : "library/templates/i-there-cluster.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "stay"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "the-absolute",
+          "kind" : "template",
+          "path" : "library/templates/the-absolute.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "the-absolute"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "vectors",
+          "kind" : "template",
+          "path" : "library/templates/vectors.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "vectors"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F15/void",
+          "kind" : "focusScript",
+          "path" : "focus/F15/scripts/void.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "void"
+    }
+  ],
+  "note" : "Station bookkeeping, promotion, and the measured content graph.",
+  "promotedCases" : [
+    {
+      "key" : "f29",
+      "level" : {
+        "beatHz" : 12.3,
+        "beatVerified" : false,
+        "carrier" : 215.5,
+        "key" : "F29",
+        "name" : "Focus 29",
+        "notes" : "found it three times",
+        "published" : ""
+      }
+    },
+    {
+      "key" : "F29",
+      "level" : {
+        "beatHz" : 12.3,
+        "beatVerified" : false,
+        "carrier" : 215.5,
+        "key" : "F29",
+        "name" : "The Grove",
+        "notes" : "found it three times",
+        "published" : ""
+      },
+      "name" : "The Grove"
+    }
+  ],
+  "recordCases" : [
+    {
+      "channelRestriction" : false,
+      "isTuned" : false,
+      "json" : "{\"key\":\"f22\"}",
+      "key" : "F22",
+      "promoted" : false
+    },
+    {
+      "channelRestriction" : true,
+      "found" : "crowded",
+      "isTuned" : false,
+      "json" : "{\"key\":\"F22\",\"title\":\"The Park\",\"found\":\"crowded\",\"promoted\":true,\"channelRestriction\":true}",
+      "key" : "F22",
+      "promoted" : true,
+      "title" : "The Park"
+    },
+    {
+      "beatHz" : 11.2,
+      "channelRestriction" : false,
+      "isTuned" : true,
+      "json" : "{\"key\":\"F29\",\"beatHz\":11.2}",
+      "key" : "F29",
+      "promoted" : false
+    },
+    {
+      "carrierHz" : 210.5,
+      "channelRestriction" : false,
+      "isTuned" : true,
+      "json" : "{\"key\":\"F29\",\"carrierHz\":210.5}",
+      "key" : "F29",
+      "promoted" : false
+    },
+    {
+      "channelRestriction" : false,
+      "isTuned" : false,
+      "json" : "{}",
+      "key" : "",
+      "promoted" : false
+    },
+    {
+      "channelRestriction" : false,
+      "isTuned" : false,
+      "json" : "{\"key\":\"f13\",\"beatHz\":null}",
+      "key" : "F13",
+      "promoted" : false
+    },
+    {
+      "channelRestriction" : false,
+      "isTuned" : false,
+      "json" : "not json",
+      "key" : "",
+      "promoted" : false
+    }
+  ],
+  "runtimeCount" : 2,
+  "shelvedCount" : 5,
+  "standingCases" : [
+    {
+      "affirmation" : "channel-restriction",
+      "documented" : [
+
+      ],
+      "entries" : 0,
+      "entryBodies" : [
+
+      ],
+      "isDocumented" : false,
+      "isEligible" : false,
+      "key" : "F29",
+      "label" : "yours to find",
+      "outstanding" : "3 more written visits"
+    },
+    {
+      "affirmation" : "channel-restriction",
+      "documented" : [
+
+      ],
+      "entries" : 2,
+      "entryBodies" : [
+        "one",
+        "two"
+      ],
+      "isDocumented" : false,
+      "isEligible" : false,
+      "key" : "F29",
+      "label" : "yours to find",
+      "outstanding" : "1 more written visit"
+    },
+    {
+      "affirmation" : "affirmation",
+      "documented" : [
+
+      ],
+      "entries" : 3,
+      "entryBodies" : [
+        "one",
+        "two",
+        "three"
+      ],
+      "isDocumented" : false,
+      "isEligible" : true,
+      "key" : "F29",
+      "label" : "ready to name"
+    },
+    {
+      "affirmation" : "affirmation",
+      "documented" : [
+
+      ],
+      "entries" : 4,
+      "entryBodies" : [
+        "one",
+        "",
+        "  ",
+        "two",
+        "three",
+        "four"
+      ],
+      "isDocumented" : false,
+      "isEligible" : true,
+      "key" : "F29",
+      "label" : "ready to name"
+    },
+    {
+      "affirmation" : "affirmation",
+      "documented" : [
+        "F10",
+        "F12"
+      ],
+      "entries" : 1,
+      "entryBodies" : [
+        "a visit"
+      ],
+      "isDocumented" : true,
+      "isEligible" : false,
+      "key" : "F10",
+      "label" : "described"
+    },
+    {
+      "affirmation" : "affirmation",
+      "documented" : [
+        "F29"
+      ],
+      "entries" : 3,
+      "entryBodies" : [
+        "one",
+        "two",
+        "three"
+      ],
+      "isDocumented" : true,
+      "isEligible" : false,
+      "key" : "f29",
+      "label" : "described"
+    }
+  ],
+  "unassignedCount" : 0,
+  "unresolvedUses" : [
+
+  ],
+  "usedCount" : 106
+}

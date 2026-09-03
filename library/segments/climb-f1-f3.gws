@@ -1,0 +1,21 @@
+# From the Gateway Experience Manual: "You will move to Focus 3 by a
+# conventional count of one to three." The manual publishes no wording for the
+# count itself, so this is the bare form -- a v3 guided body is authoring work.
+
+@segment  climb-f1-f3
+@title    Climb — Waking to Focus 3
+@levels   F3
+@from     F1
+@fixed
+@verbosity 1
+@duration ~25s
+
+say Focus 3.
+pause 4
+level F3
+say One.
+pause 5
+say Two.
+pause 5
+say Three.
+pause 8

@@ -1,0 +1,15 @@
+@segment  climb-f21-f23
+@title    Climb — Focus 21 to Focus 23
+@levels   F23
+@fixed
+@duration ~30s
+
+say We continue upward, to Focus 23.
+pause 4
+level F23
+say Twenty-one.
+pause 3
+say Twenty-two.
+pause 3
+say Twenty-three.
+pause 5

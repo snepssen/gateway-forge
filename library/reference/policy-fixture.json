@@ -1,0 +1,1421 @@
+{
+  "beatCases" : [
+    {
+      "key" : "F1"
+    },
+    {
+      "key" : "F2"
+    },
+    {
+      "beat" : 5,
+      "key" : "F11"
+    },
+    {
+      "beat" : 2.1428571428571432,
+      "key" : "F28"
+    },
+    {
+      "beat" : 1.2428571428571429,
+      "key" : "F48"
+    },
+    {
+      "key" : "F49"
+    },
+    {
+      "key" : "F50"
+    },
+    {
+      "key" : "notalevel"
+    },
+    {
+      "key" : "F"
+    }
+  ],
+  "cartCases" : [
+    {
+      "entryCount" : 1,
+      "level" : "F27",
+      "prompt" : "Focus level: F27\n\nThe listener's journal entries for this level, oldest first. Each was\nwritten immediately after a visit. These are your only source.\n--- entry 1, written 2026-09-01 ---\nResearch institute - The Castle - negative entities removals - belief system adjustments - forgiveness - letting go - energy work - reiki - energy bar tool - REBAL - parallel selves assisting - gathering/class\n\nWrite a description of F27 drawn only from those entries.\nKeep the listener's own words for anything they named.\nWhere entries disagree, say so rather than choosing between them.\nAdd nothing they did not observe.\nIf the entries cannot support an honest description, set enough to false and say briefly what is missing.",
+      "retained" : [
+        "adjustments forgiveness letting",
+        "assisting gathering class",
+        "bar tool rebal",
+        "belief system adjustments",
+        "castle negative entities",
+        "energy bar tool",
+        "energy work reiki",
+        "entities removals belief",
+        "forgiveness letting go",
+        "go energy work",
+        "institute the castle",
+        "letting go energy",
+        "negative entities removals",
+        "parallel selves assisting",
+        "rebal parallel selves",
+        "reiki energy bar",
+        "removals belief system",
+        "research institute the",
+        "selves assisting gathering",
+        "system adjustments forgiveness",
+        "the castle negative",
+        "tool rebal parallel",
+        "work reiki energy"
+      ]
+    },
+    {
+      "entryCount" : 1,
+      "level" : "F34",
+      "prompt" : "Focus level: F34\n\nThe listener's journal entries for this level, oldest first. Each was\nwritten immediately after a visit. These are your only source.\n--- entry 1, written 2026-09-02 ---\nUnconscious after arrival, woke up at 3:20\n\nWrite a description of F34 drawn only from those entries.\nKeep the listener's own words for anything they named.\nWhere entries disagree, say so rather than choosing between them.\nAdd nothing they did not observe.\nIf the entries cannot support an honest description, set enough to false and say briefly what is missing.",
+      "retained" : [
+        "after arrival woke",
+        "arrival woke up",
+        "at 3 20",
+        "unconscious after arrival",
+        "up at 3",
+        "woke up at"
+      ]
+    },
+    {
+      "entryCount" : 3,
+      "level" : "F10-gap",
+      "prompt" : "Focus level: F10\n\nThe listener's journal entries for this level, oldest first. Each was\nwritten immediately after a visit. These are your only source.\n--- entry 1, written 2027-01-15 ---\nfirst thing seen\n\n--- entry 3, written 2027-01-17 ---\nthird thing seen\n\nWrite a description of F10 drawn only from those entries.\nKeep the listener's own words for anything they named.\nWhere entries disagree, say so rather than choosing between them.\nAdd nothing they did not observe.\nIf the entries cannot support an honest description, set enough to false and say briefly what is missing.",
+      "retained" : [
+        "first thing seen",
+        "third thing seen"
+      ]
+    }
+  ],
+  "cartographerModel" : "gateway-cartographer",
+  "cartographerSchema" : "{\"properties\":{\"description\":{\"type\":\"string\"},\"enough\":{\"type\":\"boolean\"},\"title\":{\"type\":\"string\"}},\"required\":[\"title\",\"description\",\"enough\"],\"type\":\"object\"}",
+  "ceiling" : 49,
+  "driftCases" : [
+    {
+      "body" : "You are now in Focus 11. No tape or manual in this library describes this level. The available map is a secondary overview of uncertain origin, so hold its description lightly. That overview calls Focus 11 the Access Channel. It associates the level with directing physical, mental, and emotional functions, and with access to the Total Self. Treat that as a proposition to test, not a result to reproduce. Observe what is actually present for you, without forcing it to match the map. Remember what you notice. Your attributed account may confirm, amend, or reject what the overview says.",
+      "findings" : [
+
+      ],
+      "isProvisional" : false,
+      "level" : "F11",
+      "mentioned" : [
+        "F11",
+        "F11"
+      ]
+    },
+    {
+      "body" : "You are now in Focus 12. A state of awareness far beyond your physical body. Relax, and explore. You are safe, calm, and aware.",
+      "findings" : [
+
+      ],
+      "isProvisional" : false,
+      "level" : "F12",
+      "mentioned" : [
+        "F12"
+      ]
+    },
+    {
+      "body" : "Rest here a moment. Let the absence of time settle around you.",
+      "findings" : [
+
+      ],
+      "isProvisional" : false,
+      "level" : "F15",
+      "mentioned" : [
+
+      ]
+    },
+    {
+      "body" : "You are now in Focus 18. No tape or manual in this library describes this level. The available description comes from public summary material, so hold it lightly. That material associates Focus 18 with working in unconditional love energy, cultivating it in yourself, and carrying it into daily life with those close to you. Treat that as a proposition to test, not a feeling you are required to produce. Observe what is actually present for you, without forcing it to match the description. Remember what you notice. Your attributed account may confirm, amend, or reject the available map.",
+      "findings" : [
+
+      ],
+      "isProvisional" : false,
+      "level" : "F18",
+      "mentioned" : [
+        "F18",
+        "F18"
+      ]
+    },
+    {
+      "body" : "You are now in Focus 21. The way ahead has been cleared for your passing. There is little to see here. It is a transition. A quiet bridge. You need not linger.",
+      "findings" : [
+
+      ],
+      "isProvisional" : false,
+      "level" : "F21",
+      "mentioned" : [
+        "F21"
+      ]
+    },
+    {
+      "body" : "You are now in Focus 22. This area is heavily populated, though only a small part of those here are conscious the way you are right now. Some have altered their awareness through substances, or through injury — not fully conscious, their perception of the physical distorted. Others are millions of people in ordinary physical sleep. Only part of their awareness has come here. Most aren't in control of what they're experiencing — they're running on patterns pulled straight from physical life, so completely that nothing else exists to them right now. Dreams. Dreaming. You won't interrupt them if you move among them. You likely won't even perceive what they're dreaming — it belongs to each of them alone. You're in full control here, whether or not they are. Observe, if you like. You're always free to move on toward Focus 23.",
+      "findings" : [
+
+      ],
+      "isProvisional" : false,
+      "level" : "F22",
+      "mentioned" : [
+        "F22",
+        "F23"
+      ]
+    },
+    {
+      "body" : "You are now in Focus 23. It is like a ghostly river around you. A slow drifting mist, with ripples and waves moving past at their own pace. Pass through. Continue.",
+      "findings" : [
+
+      ],
+      "isProvisional" : false,
+      "level" : "F23",
+      "mentioned" : [
+        "F23"
+      ]
+    },
+    {
+      "body" : "You are now in Focus 24. Ahead of you, a point of light. It's growing larger as you move toward it -- bright, but familiar, the kind of bright you get used to. The light is large enough now to move into. When you're ready, continue forward.",
+      "findings" : [
+
+      ],
+      "isProvisional" : false,
+      "level" : "F24",
+      "mentioned" : [
+        "F24"
+      ]
+    },
+    {
+      "body" : "You are now in Focus 25. Tall structures rise on either side of the path of light you travel. Each one houses a belief system. A religion, a philosophy, a worldview. Built and inhabited by those who hold to it. They stretch high above you, lining the way. You are not stopping here. You move past them on the path of light. Notice them, but do not enter. Continue forward.",
+      "findings" : [
+
+      ],
+      "isProvisional" : false,
+      "level" : "F25",
+      "mentioned" : [
+        "F25"
+      ]
+    },
+    {
+      "body" : "You are now in Focus 26. The void. There is nothing here, and nothing is required of you here. Pass through.",
+      "findings" : [
+
+      ],
+      "isProvisional" : false,
+      "level" : "F26",
+      "mentioned" : [
+        "F26"
+      ]
+    },
+    {
+      "body" : "You are now in Focus 27. Known as The Park. You arrive in the gardens of the Reception Centre. Take a moment to look around. This place is real in the way that matters. It has been here, waiting, and it will be here when you return. The grounds are open. The air is clear. There is space. Behind you, the Reception Centre itself stands open. This is where you can come to engage with the inhabitants of this locale. To meet others, to socialise, to find activity, to ask for guidance, or to simply be among presence. It is always here. You are always welcome. But the Reception Centre is not your destination today.",
+      "findings" : [
+
+      ],
+      "isProvisional" : false,
+      "level" : "F27",
+      "mentioned" : [
+        "F27"
+      ]
+    },
+    {
+      "body" : "You're at Focus 3 now. In later sessions, Focus 3 is a brief signpost on the way to Focus 10. Here, for your first visit, simply notice this light relaxation and the more coherent pattern of mind and brain.",
+      "findings" : [
+
+      ],
+      "isProvisional" : false,
+      "level" : "F3",
+      "mentioned" : [
+        "F3",
+        "F3",
+        "F10"
+      ]
+    },
+    {
+      "body" : "You are now in Focus 34. Behind you, the Park at Focus 27. Ahead, Focus 35, and further gathering beyond. This is a place of gathering. Others may be present, drawn from further than the physical universe accounts for. You may notice them, or you may not — either is a complete visit. If you do notice presence, there is no requirement to engage. Approach it the way you'd want to be approached: gracefully, without demanding anything. If anything here feels difficult to hold, perception tends to respond to intention more directly than it does at home. A shift in thought can be enough to change what you're perceiving. If you feel unmoored, give yourself something ordinary to hold onto. Anything familiar will do. It's often enough to bring things back to steady. What's written here is drawn from one visit, not a settled description. Let your own account, if you keep one, stand beside it rather than under it. Stay as briefly or as long as feels right.",
+      "findings" : [
+
+      ],
+      "isProvisional" : false,
+      "level" : "F34",
+      "mentioned" : [
+        "F34",
+        "F27",
+        "F35"
+      ]
+    },
+    {
+      "body" : "You are now in Focus 35. Behind you, the gathering at Focus 34. Ahead, the clusters of Focus 42. Whatever gathering is happening at 34 may be felt from further out here — the same event, seen with more distance. Time and memory may not work quite the way they do at home. What's happening tends to matter more than what happened, or what's next. If something like a ceremony, a briefing, or an exchange is underway, you don't need to catch every word — or any words at all — to receive it. This place tends to respond to intention almost immediately. If something feels difficult, a change of thought is often enough to change it. Clear skies, and let the weather follow. What's written here is drawn from one visit, not a settled description. Let your own account, if you keep one, stand beside it rather than under it. Stay as long as feels right.",
+      "findings" : [
+
+      ],
+      "isProvisional" : false,
+      "level" : "F35",
+      "mentioned" : [
+        "F35",
+        "F34",
+        "F42"
+      ]
+    },
+    {
+      "body" : "You are now in Focus 42. No tape or manual in this library describes this level. The available map is a secondary overview of uncertain origin, so hold its description lightly. That overview associates Focus 42 with exploring the solar system, our galaxy, and what it calls our I-There. Treat those as coordinates to test, not sights or presences you are required to perceive. Observe the actual scale, structure, or absence that is present for you, without forcing it to match the map. Remember what you notice. Your attributed account may confirm, amend, or reject the available description.",
+      "findings" : [
+
+      ],
+      "isProvisional" : false,
+      "level" : "F42",
+      "mentioned" : [
+        "F42",
+        "F42"
+      ]
+    },
+    {
+      "body" : "You are now in Focus 49. No tape or manual in this library describes this level. The available map is a secondary overview of uncertain origin, so hold its description lightly. That overview associates Focus 49 with exploration beyond our galaxy, I-There clusters, and what it calls the Cluster Council. Treat those as coordinates to test, not a scale, structure, or presence you are required to perceive. Observe what is actually present for you, including any absence, without forcing it to match the map. Remember what you notice. Your attributed account may confirm, amend, or reject the available description.",
+      "findings" : [
+
+      ],
+      "isProvisional" : false,
+      "level" : "F49",
+      "mentioned" : [
+        "F49",
+        "F49"
+      ]
+    },
+    {
+      "body" : "Behind you, Focus 21. Ahead, Focus 34.",
+      "findings" : [
+        "F27's briefing names F21 as its neighbour below, but F26, F25, F24, F23, F22 now sits between them. It is authored, so the wording is yours to amend."
+      ],
+      "isProvisional" : false,
+      "level" : "F27",
+      "mentioned" : [
+        "F21",
+        "F34"
+      ]
+    },
+    {
+      "body" : "Behind you, Focus 1.",
+      "findings" : [
+        "F27's briefing names F1 as its neighbour below, but F26, F25, F24, F23, F22, F21, F18, F15, F12, F11, F10, F3 now sits between them. It is a generated placeholder and can be regenerated."
+      ],
+      "isProvisional" : true,
+      "level" : "F27",
+      "mentioned" : [
+        "F1"
+      ]
+    },
+    {
+      "body" : "Ahead, Focus 12.",
+      "findings" : [
+        "F10's briefing names F12 as its neighbour above, but F11 now sits between them. It is authored, so the wording is yours to amend."
+      ],
+      "isProvisional" : false,
+      "level" : "F10",
+      "mentioned" : [
+        "F12"
+      ]
+    },
+    {
+      "body" : "Focus 10 is where you are.",
+      "findings" : [
+
+      ],
+      "isProvisional" : false,
+      "level" : "F10",
+      "mentioned" : [
+        "F10"
+      ]
+    },
+    {
+      "body" : "no mention at all",
+      "findings" : [
+
+      ],
+      "isProvisional" : false,
+      "level" : "F10",
+      "mentioned" : [
+
+      ]
+    },
+    {
+      "body" : "Focus Focus 12 doubled",
+      "findings" : [
+        "F10's briefing names F12 as its neighbour above, but F11 now sits between them. It is authored, so the wording is yours to amend."
+      ],
+      "isProvisional" : false,
+      "level" : "F10",
+      "mentioned" : [
+        "F12"
+      ]
+    },
+    {
+      "body" : "Focus with no number",
+      "findings" : [
+
+      ],
+      "isProvisional" : false,
+      "level" : "F10",
+      "mentioned" : [
+
+      ]
+    },
+    {
+      "body" : "Focus 12 and Focus 12 again",
+      "findings" : [
+        "F10's briefing names F12 as its neighbour above, but F11 now sits between them. It is authored, so the wording is yours to amend."
+      ],
+      "isProvisional" : false,
+      "level" : "F10",
+      "mentioned" : [
+        "F12",
+        "F12"
+      ]
+    },
+    {
+      "body" : "Focus 12",
+      "findings" : [
+
+      ],
+      "isProvisional" : false,
+      "level" : "notalevel",
+      "mentioned" : [
+        "F12"
+      ]
+    }
+  ],
+  "edgeStations" : [
+    {
+      "n" : 0
+    },
+    {
+      "n" : 1,
+      "station" : {
+        "beatHz" : 0,
+        "carrierHz" : 110,
+        "hasDifferential" : false,
+        "isDocumented" : true,
+        "key" : "F1",
+        "number" : 1,
+        "provenance" : "stated"
+      }
+    },
+    {
+      "n" : 2
+    },
+    {
+      "n" : 49,
+      "station" : {
+        "beatHz" : 1.2,
+        "carrierHz" : 80,
+        "hasDifferential" : true,
+        "isDocumented" : true,
+        "key" : "F49",
+        "number" : 49,
+        "provenance" : "measured"
+      }
+    },
+    {
+      "n" : 50
+    },
+    {
+      "n" : 51
+    },
+    {
+      "n" : -1
+    },
+    {
+      "n" : 100
+    }
+  ],
+  "floor" : 1,
+  "note" : "The ladder, drift and the cartographer, over the real library.",
+  "pathCases" : [
+    {
+      "ascending" : true,
+      "from" : 10,
+      "keys" : [
+        "F10",
+        "F11",
+        "F12"
+      ],
+      "to" : 12
+    },
+    {
+      "ascending" : false,
+      "from" : 12,
+      "keys" : [
+        "F12",
+        "F11",
+        "F10"
+      ],
+      "to" : 10
+    },
+    {
+      "from" : 10,
+      "keys" : [
+
+      ],
+      "to" : 10
+    },
+    {
+      "ascending" : true,
+      "from" : 1,
+      "keys" : [
+        "F1",
+        "F3",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18",
+        "F19",
+        "F20",
+        "F21",
+        "F22",
+        "F23",
+        "F24",
+        "F25",
+        "F26",
+        "F27",
+        "F28",
+        "F29",
+        "F30",
+        "F31",
+        "F32",
+        "F33",
+        "F34",
+        "F35",
+        "F36",
+        "F37",
+        "F38",
+        "F39",
+        "F40",
+        "F41",
+        "F42",
+        "F43",
+        "F44",
+        "F45",
+        "F46",
+        "F47",
+        "F48",
+        "F49"
+      ],
+      "to" : 49
+    },
+    {
+      "ascending" : false,
+      "from" : 49,
+      "keys" : [
+        "F49",
+        "F48",
+        "F47",
+        "F46",
+        "F45",
+        "F44",
+        "F43",
+        "F42",
+        "F41",
+        "F40",
+        "F39",
+        "F38",
+        "F37",
+        "F36",
+        "F35",
+        "F34",
+        "F33",
+        "F32",
+        "F31",
+        "F30",
+        "F29",
+        "F28",
+        "F27",
+        "F26",
+        "F25",
+        "F24",
+        "F23",
+        "F22",
+        "F21",
+        "F20",
+        "F19",
+        "F18",
+        "F17",
+        "F16",
+        "F15",
+        "F14",
+        "F13",
+        "F12",
+        "F11",
+        "F10",
+        "F3",
+        "F1"
+      ],
+      "to" : 1
+    },
+    {
+      "ascending" : true,
+      "from" : 27,
+      "keys" : [
+        "F27",
+        "F28"
+      ],
+      "to" : 28
+    }
+  ],
+  "retainedCases" : [
+    {
+      "bodies" : [
+        "I saw a wide open field there"
+      ],
+      "description" : "a wide open field",
+      "length" : 3,
+      "name" : "plain",
+      "retained" : [
+        "a wide open",
+        "wide open field"
+      ]
+    },
+    {
+      "bodies" : [
+        "a café au lait light over everything"
+      ],
+      "description" : "the café au lait light",
+      "length" : 3,
+      "name" : "accented",
+      "retained" : [
+        "au lait light",
+        "café au lait"
+      ]
+    },
+    {
+      "bodies" : [
+        "I saw свет над водой here"
+      ],
+      "description" : "свет над водой here",
+      "length" : 3,
+      "name" : "nonlatin",
+      "retained" : [
+        "над водой here",
+        "свет над водой"
+      ]
+    },
+    {
+      "bodies" : [
+        "reaching focus 27 was bright"
+      ],
+      "description" : "focus 27 was bright",
+      "length" : 3,
+      "name" : "digits",
+      "retained" : [
+        "27 was bright",
+        "focus 27 was"
+      ]
+    },
+    {
+      "bodies" : [
+        "a wide open field"
+      ],
+      "description" : "a wide, open field",
+      "length" : 3,
+      "name" : "punctuation",
+      "retained" : [
+        "a wide open",
+        "wide open field"
+      ]
+    },
+    {
+      "bodies" : [
+        "two words"
+      ],
+      "description" : "two words",
+      "length" : 3,
+      "name" : "too-short",
+      "retained" : [
+
+      ]
+    },
+    {
+      "bodies" : [
+        "entirely different words"
+      ],
+      "description" : "nothing shared here",
+      "length" : 3,
+      "name" : "no-overlap",
+      "retained" : [
+
+      ]
+    },
+    {
+      "bodies" : [
+        "a wide open field"
+      ],
+      "description" : "wide open",
+      "length" : 2,
+      "name" : "length-two",
+      "retained" : [
+        "wide open"
+      ]
+    }
+  ],
+  "stationRecords" : [
+    "F13"
+  ],
+  "stations" : [
+    {
+      "beatHz" : 0,
+      "carrierHz" : 110,
+      "hasDifferential" : false,
+      "isDocumented" : true,
+      "key" : "F1",
+      "number" : 1,
+      "provenance" : "stated"
+    },
+    {
+      "beatHz" : 0,
+      "carrierHz" : 110,
+      "hasDifferential" : false,
+      "isDocumented" : true,
+      "key" : "F3",
+      "number" : 3,
+      "provenance" : "stated"
+    },
+    {
+      "beatHz" : 4,
+      "carrierHz" : 110,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F10",
+      "number" : 10,
+      "provenance" : "measured"
+    },
+    {
+      "beatHz" : 4,
+      "carrierHz" : 100,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F11",
+      "number" : 11,
+      "provenance" : "stated"
+    },
+    {
+      "beatHz" : 6,
+      "carrierHz" : 110,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F12",
+      "number" : 12,
+      "provenance" : "measured"
+    },
+    {
+      "beatHz" : 5,
+      "carrierHz" : 106.66666666666667,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F13",
+      "number" : 13,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 4,
+      "carrierHz" : 103.33333333333333,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F14",
+      "number" : 14,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 3,
+      "carrierHz" : 100,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F15",
+      "number" : 15,
+      "provenance" : "measured"
+    },
+    {
+      "beatHz" : 3.833333333333333,
+      "carrierHz" : 106.66666666666667,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F16",
+      "number" : 16,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 4.666666666666666,
+      "carrierHz" : 113.33333333333333,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F17",
+      "number" : 17,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 5.5,
+      "carrierHz" : 120,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F18",
+      "number" : 18,
+      "provenance" : "measured"
+    },
+    {
+      "beatHz" : 4.5,
+      "carrierHz" : 111.66666666666667,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F19",
+      "number" : 19,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 3.5,
+      "carrierHz" : 103.33333333333334,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F20",
+      "number" : 20,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 2.5,
+      "carrierHz" : 95,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F21",
+      "number" : 21,
+      "provenance" : "measured"
+    },
+    {
+      "beatHz" : 3.5,
+      "carrierHz" : 95,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F22",
+      "number" : 22,
+      "provenance" : "measured"
+    },
+    {
+      "beatHz" : 3.5,
+      "carrierHz" : 95,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F23",
+      "number" : 23,
+      "provenance" : "measured"
+    },
+    {
+      "beatHz" : 3.2,
+      "carrierHz" : 95,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F24",
+      "number" : 24,
+      "provenance" : "measured"
+    },
+    {
+      "beatHz" : 3,
+      "carrierHz" : 93,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F25",
+      "number" : 25,
+      "provenance" : "measured"
+    },
+    {
+      "beatHz" : 2.4,
+      "carrierHz" : 90,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F26",
+      "number" : 26,
+      "provenance" : "measured"
+    },
+    {
+      "beatHz" : 2.2,
+      "carrierHz" : 90,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F27",
+      "number" : 27,
+      "provenance" : "measured"
+    },
+    {
+      "beatHz" : 2.1428571428571432,
+      "carrierHz" : 89.28571428571429,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F28",
+      "number" : 28,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 2.085714285714286,
+      "carrierHz" : 88.57142857142857,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F29",
+      "number" : 29,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 2.0285714285714285,
+      "carrierHz" : 87.85714285714286,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F30",
+      "number" : 30,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.9714285714285715,
+      "carrierHz" : 87.14285714285714,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F31",
+      "number" : 31,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.9142857142857144,
+      "carrierHz" : 86.42857142857143,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F32",
+      "number" : 32,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.8571428571428572,
+      "carrierHz" : 85.71428571428571,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F33",
+      "number" : 33,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.8,
+      "carrierHz" : 85,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F34",
+      "number" : 34,
+      "provenance" : "measured"
+    },
+    {
+      "beatHz" : 1.8,
+      "carrierHz" : 85,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F35",
+      "number" : 35,
+      "provenance" : "stated"
+    },
+    {
+      "beatHz" : 1.7571428571428571,
+      "carrierHz" : 85,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F36",
+      "number" : 36,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.7142857142857144,
+      "carrierHz" : 85,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F37",
+      "number" : 37,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.6714285714285715,
+      "carrierHz" : 85,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F38",
+      "number" : 38,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.6285714285714286,
+      "carrierHz" : 85,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F39",
+      "number" : 39,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.5857142857142856,
+      "carrierHz" : 85,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F40",
+      "number" : 40,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.542857142857143,
+      "carrierHz" : 85,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F41",
+      "number" : 41,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.5,
+      "carrierHz" : 85,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F42",
+      "number" : 42,
+      "provenance" : "measured"
+    },
+    {
+      "beatHz" : 1.457142857142857,
+      "carrierHz" : 84.28571428571429,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F43",
+      "number" : 43,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.4142857142857144,
+      "carrierHz" : 83.57142857142857,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F44",
+      "number" : 44,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.3714285714285714,
+      "carrierHz" : 82.85714285714286,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F45",
+      "number" : 45,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.3285714285714285,
+      "carrierHz" : 82.14285714285714,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F46",
+      "number" : 46,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.2857142857142856,
+      "carrierHz" : 81.42857142857143,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F47",
+      "number" : 47,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.2428571428571429,
+      "carrierHz" : 80.71428571428571,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F48",
+      "number" : 48,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.2,
+      "carrierHz" : 80,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F49",
+      "number" : 49,
+      "provenance" : "measured"
+    }
+  ],
+  "tunedStations" : [
+    {
+      "beatHz" : 0,
+      "carrierHz" : 110,
+      "hasDifferential" : false,
+      "isDocumented" : true,
+      "key" : "F1",
+      "number" : 1,
+      "provenance" : "stated"
+    },
+    {
+      "beatHz" : 0,
+      "carrierHz" : 110,
+      "hasDifferential" : false,
+      "isDocumented" : true,
+      "key" : "F3",
+      "number" : 3,
+      "provenance" : "stated"
+    },
+    {
+      "beatHz" : 4,
+      "carrierHz" : 110,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F10",
+      "number" : 10,
+      "provenance" : "measured"
+    },
+    {
+      "beatHz" : 4,
+      "carrierHz" : 100,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F11",
+      "number" : 11,
+      "provenance" : "stated"
+    },
+    {
+      "beatHz" : 6,
+      "carrierHz" : 110,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F12",
+      "number" : 12,
+      "provenance" : "measured"
+    },
+    {
+      "beatHz" : 5,
+      "carrierHz" : 106.66666666666667,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F13",
+      "number" : 13,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 4,
+      "carrierHz" : 103.33333333333333,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F14",
+      "number" : 14,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 3,
+      "carrierHz" : 100,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F15",
+      "number" : 15,
+      "provenance" : "measured"
+    },
+    {
+      "beatHz" : 3.833333333333333,
+      "carrierHz" : 106.66666666666667,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F16",
+      "number" : 16,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 4.666666666666666,
+      "carrierHz" : 113.33333333333333,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F17",
+      "number" : 17,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 5.5,
+      "carrierHz" : 120,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F18",
+      "number" : 18,
+      "provenance" : "measured"
+    },
+    {
+      "beatHz" : 4.5,
+      "carrierHz" : 111.66666666666667,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F19",
+      "number" : 19,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 3.5,
+      "carrierHz" : 103.33333333333334,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F20",
+      "number" : 20,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 2.5,
+      "carrierHz" : 95,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F21",
+      "number" : 21,
+      "provenance" : "measured"
+    },
+    {
+      "beatHz" : 3.5,
+      "carrierHz" : 95,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F22",
+      "number" : 22,
+      "provenance" : "measured"
+    },
+    {
+      "beatHz" : 3.5,
+      "carrierHz" : 95,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F23",
+      "number" : 23,
+      "provenance" : "measured"
+    },
+    {
+      "beatHz" : 3.2,
+      "carrierHz" : 95,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F24",
+      "number" : 24,
+      "provenance" : "measured"
+    },
+    {
+      "beatHz" : 3,
+      "carrierHz" : 93,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F25",
+      "number" : 25,
+      "provenance" : "measured"
+    },
+    {
+      "beatHz" : 2.4,
+      "carrierHz" : 90,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F26",
+      "number" : 26,
+      "provenance" : "measured"
+    },
+    {
+      "beatHz" : 2.2,
+      "carrierHz" : 90,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F27",
+      "number" : 27,
+      "provenance" : "measured"
+    },
+    {
+      "beatHz" : 2.1428571428571432,
+      "carrierHz" : 89.28571428571429,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F28",
+      "number" : 28,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 2.085714285714286,
+      "carrierHz" : 88.57142857142857,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F29",
+      "number" : 29,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 2.0285714285714285,
+      "carrierHz" : 87.85714285714286,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F30",
+      "number" : 30,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.9714285714285715,
+      "carrierHz" : 87.14285714285714,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F31",
+      "number" : 31,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.9142857142857144,
+      "carrierHz" : 86.42857142857143,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F32",
+      "number" : 32,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.8571428571428572,
+      "carrierHz" : 85.71428571428571,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F33",
+      "number" : 33,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.8,
+      "carrierHz" : 85,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F34",
+      "number" : 34,
+      "provenance" : "measured"
+    },
+    {
+      "beatHz" : 1.8,
+      "carrierHz" : 85,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F35",
+      "number" : 35,
+      "provenance" : "stated"
+    },
+    {
+      "beatHz" : 1.7571428571428571,
+      "carrierHz" : 85,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F36",
+      "number" : 36,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.7142857142857144,
+      "carrierHz" : 85,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F37",
+      "number" : 37,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.6714285714285715,
+      "carrierHz" : 85,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F38",
+      "number" : 38,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.6285714285714286,
+      "carrierHz" : 85,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F39",
+      "number" : 39,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.5857142857142856,
+      "carrierHz" : 85,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F40",
+      "number" : 40,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.542857142857143,
+      "carrierHz" : 85,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F41",
+      "number" : 41,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.5,
+      "carrierHz" : 85,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F42",
+      "number" : 42,
+      "provenance" : "measured"
+    },
+    {
+      "beatHz" : 1.457142857142857,
+      "carrierHz" : 84.28571428571429,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F43",
+      "number" : 43,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.4142857142857144,
+      "carrierHz" : 83.57142857142857,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F44",
+      "number" : 44,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.3714285714285714,
+      "carrierHz" : 82.85714285714286,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F45",
+      "number" : 45,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.3285714285714285,
+      "carrierHz" : 82.14285714285714,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F46",
+      "number" : 46,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.2857142857142856,
+      "carrierHz" : 81.42857142857143,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F47",
+      "number" : 47,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.2428571428571429,
+      "carrierHz" : 80.71428571428571,
+      "hasDifferential" : true,
+      "isDocumented" : false,
+      "key" : "F48",
+      "number" : 48,
+      "provenance" : "estimated"
+    },
+    {
+      "beatHz" : 1.2,
+      "carrierHz" : 80,
+      "hasDifferential" : true,
+      "isDocumented" : true,
+      "key" : "F49",
+      "number" : 49,
+      "provenance" : "measured"
+    }
+  ]
+}

@@ -1,0 +1,1126 @@
+{
+  "clonableHere" : true,
+  "defaultsCases" : [
+    {
+      "clampedPauseScale" : 1,
+      "clampedVerbosity" : 3,
+      "json" : "{}",
+      "pauseScale" : 1,
+      "verbosity" : 3,
+      "voice" : ""
+    },
+    {
+      "clampedPauseScale" : 1,
+      "clampedVerbosity" : 1,
+      "json" : "{\"verbosity\":1}",
+      "pauseScale" : 1,
+      "verbosity" : 1,
+      "voice" : ""
+    },
+    {
+      "clampedPauseScale" : 1,
+      "clampedVerbosity" : 1,
+      "json" : "{\"verbosity\":0}",
+      "pauseScale" : 1,
+      "verbosity" : 0,
+      "voice" : ""
+    },
+    {
+      "clampedPauseScale" : 1,
+      "clampedVerbosity" : 3,
+      "json" : "{\"verbosity\":9}",
+      "pauseScale" : 1,
+      "verbosity" : 9,
+      "voice" : ""
+    },
+    {
+      "clampedPauseScale" : 1,
+      "clampedVerbosity" : 1,
+      "json" : "{\"verbosity\":-4}",
+      "pauseScale" : 1,
+      "verbosity" : -4,
+      "voice" : ""
+    },
+    {
+      "clampedPauseScale" : 0.5,
+      "clampedVerbosity" : 3,
+      "json" : "{\"pauseScale\":0.1}",
+      "pauseScale" : 0.1,
+      "verbosity" : 3,
+      "voice" : ""
+    },
+    {
+      "clampedPauseScale" : 1.5,
+      "clampedVerbosity" : 3,
+      "json" : "{\"pauseScale\":3}",
+      "pauseScale" : 3,
+      "verbosity" : 3,
+      "voice" : ""
+    },
+    {
+      "clampedPauseScale" : 1.2,
+      "clampedVerbosity" : 3,
+      "json" : "{\"pauseScale\":1.2}",
+      "pauseScale" : 1.2,
+      "verbosity" : 3,
+      "voice" : ""
+    },
+    {
+      "clampedPauseScale" : 0.75,
+      "clampedVerbosity" : 2,
+      "json" : "{\"voice\":\"a\",\"verbosity\":2,\"pauseScale\":0.75}",
+      "pauseScale" : 0.75,
+      "verbosity" : 2,
+      "voice" : "a"
+    },
+    {
+      "clampedPauseScale" : 1,
+      "clampedVerbosity" : 3,
+      "json" : "{\"verbosity\":null}",
+      "pauseScale" : 1,
+      "verbosity" : 3,
+      "voice" : ""
+    },
+    {
+      "clampedPauseScale" : 1,
+      "clampedVerbosity" : 3,
+      "json" : "{\"verbosity\":\"three\"}",
+      "pauseScale" : 1,
+      "verbosity" : 3,
+      "voice" : ""
+    },
+    {
+      "clampedPauseScale" : 1,
+      "clampedVerbosity" : 3,
+      "json" : "not json",
+      "pauseScale" : 1,
+      "verbosity" : 3,
+      "voice" : ""
+    },
+    {
+      "clampedPauseScale" : 1,
+      "clampedVerbosity" : 3,
+      "json" : "[]",
+      "pauseScale" : 1,
+      "verbosity" : 3,
+      "voice" : ""
+    }
+  ],
+  "engineName" : "piper-snepssen",
+  "nameCases" : [
+    {
+      "name" : "",
+      "valid" : false
+    },
+    {
+      "name" : "a",
+      "valid" : true
+    },
+    {
+      "name" : "A1",
+      "valid" : true
+    },
+    {
+      "name" : "with-dash",
+      "valid" : true
+    },
+    {
+      "name" : "with_underscore",
+      "valid" : true
+    },
+    {
+      "name" : "_audition",
+      "valid" : false
+    },
+    {
+      "name" : "_",
+      "valid" : false
+    },
+    {
+      "name" : "has space",
+      "valid" : false
+    },
+    {
+      "name" : "has.dot",
+      "valid" : false
+    },
+    {
+      "name" : "has/slash",
+      "valid" : false
+    },
+    {
+      "name" : "café",
+      "valid" : true
+    },
+    {
+      "name" : "声",
+      "valid" : true
+    },
+    {
+      "name" : "ünïcode",
+      "valid" : true
+    },
+    {
+      "name" : "١٢٣",
+      "valid" : true
+    },
+    {
+      "name" : "emoji🙂",
+      "valid" : false
+    },
+    {
+      "name" : "-",
+      "valid" : true
+    },
+    {
+      "name" : "trailing-",
+      "valid" : true
+    },
+    {
+      "name" : "1",
+      "valid" : true
+    }
+  ],
+  "note" : "Which voice renders, and where the two rules disagree on purpose.",
+  "previewText" : "Rest here for a moment, and let your breathing settle. When you are ready, we will go on.",
+  "profileCases" : [
+    {
+      "engine" : "piper-snepssen",
+      "json" : "{}",
+      "modelVersion" : "1",
+      "referenceText" : "",
+      "referenceWav" : "reference.wav",
+      "renderKey" : "piper-snepssen|1",
+      "targetAlphaDB" : -14
+    },
+    {
+      "engine" : "e",
+      "json" : "{\"engine\":\"e\",\"modelVersion\":\"7\"}",
+      "modelVersion" : "7",
+      "referenceText" : "",
+      "referenceWav" : "reference.wav",
+      "renderKey" : "e|7",
+      "targetAlphaDB" : -14
+    },
+    {
+      "engine" : "piper-snepssen",
+      "json" : "{\"modelVersion\":\"2\"}",
+      "modelVersion" : "2",
+      "referenceText" : "",
+      "referenceWav" : "reference.wav",
+      "renderKey" : "piper-snepssen|2",
+      "targetAlphaDB" : -14
+    },
+    {
+      "engine" : "e",
+      "json" : "{\"engine\":\"e\",\"modelVersion\":\"7\",\"referenceWav\":\"r.wav\",\"referenceText\":\"t\",\"targetAlphaDB\":-3.5}",
+      "modelVersion" : "7",
+      "referenceText" : "t",
+      "referenceWav" : "r.wav",
+      "renderKey" : "e|7",
+      "targetAlphaDB" : -3.5
+    },
+    {
+      "engine" : "piper-snepssen",
+      "json" : "{\"engine\":null}",
+      "modelVersion" : "1",
+      "referenceText" : "",
+      "referenceWav" : "reference.wav",
+      "renderKey" : "piper-snepssen|1",
+      "targetAlphaDB" : -14
+    },
+    {
+      "engine" : "piper-snepssen",
+      "json" : "{\"engine\":5}",
+      "modelVersion" : "1",
+      "referenceText" : "",
+      "referenceWav" : "reference.wav",
+      "renderKey" : "piper-snepssen|1",
+      "targetAlphaDB" : -14
+    },
+    {
+      "engine" : "piper-snepssen",
+      "json" : "{\"targetAlphaDB\":\"loud\"}",
+      "modelVersion" : "1",
+      "referenceText" : "",
+      "referenceWav" : "reference.wav",
+      "renderKey" : "piper-snepssen|1",
+      "targetAlphaDB" : -14
+    },
+    {
+      "engine" : "piper-snepssen",
+      "json" : "[]",
+      "modelVersion" : "1",
+      "referenceText" : "",
+      "referenceWav" : "reference.wav",
+      "renderKey" : "piper-snepssen|1",
+      "targetAlphaDB" : -14
+    },
+    {
+      "engine" : "piper-snepssen",
+      "json" : "not json",
+      "modelVersion" : "1",
+      "referenceText" : "",
+      "referenceWav" : "reference.wav",
+      "renderKey" : "piper-snepssen|1",
+      "targetAlphaDB" : -14
+    },
+    {
+      "engine" : "piper-snepssen",
+      "json" : "{\"modelVersion\":\"\"}",
+      "modelVersion" : "",
+      "referenceText" : "",
+      "referenceWav" : "reference.wav",
+      "renderKey" : "piper-snepssen|",
+      "targetAlphaDB" : -14
+    }
+  ],
+  "resolves" : [
+    {
+      "defaultReason" : "unavailable",
+      "isRemarkable" : true,
+      "note" : "No voice is installed, so nothing can be rendered yet.",
+      "reason" : "unavailable",
+      "voices" : [
+
+      ]
+    },
+    {
+      "defaultReason" : "unavailable",
+      "isRemarkable" : true,
+      "note" : "No voice is installed, so nothing can be rendered yet.",
+      "reason" : "unavailable",
+      "requested" : "",
+      "voices" : [
+
+      ]
+    },
+    {
+      "defaultReason" : "unavailable",
+      "isRemarkable" : true,
+      "note" : "No voice is installed, so nothing can be rendered yet.",
+      "reason" : "unavailable",
+      "requested" : "   ",
+      "voices" : [
+
+      ]
+    },
+    {
+      "defaultReason" : "unavailable",
+      "isRemarkable" : true,
+      "note" : "No voice is installed, so nothing can be rendered yet.",
+      "reason" : "unavailable",
+      "requested" : "default",
+      "voices" : [
+
+      ]
+    },
+    {
+      "defaultReason" : "unavailable",
+      "isRemarkable" : true,
+      "note" : "No voice is installed, so nothing can be rendered yet.",
+      "reason" : "unavailable",
+      "requested" : " default ",
+      "voices" : [
+
+      ]
+    },
+    {
+      "defaultReason" : "unavailable",
+      "isRemarkable" : true,
+      "note" : "No voice is installed, so nothing can be rendered yet.",
+      "reason" : "unavailable",
+      "requested" : "DEFAULT",
+      "voices" : [
+
+      ]
+    },
+    {
+      "defaultReason" : "unavailable",
+      "isRemarkable" : true,
+      "note" : "No voice is installed, so nothing can be rendered yet.",
+      "reason" : "unavailable",
+      "requested" : "a",
+      "voices" : [
+
+      ]
+    },
+    {
+      "defaultReason" : "unavailable",
+      "isRemarkable" : true,
+      "note" : "No voice is installed, so nothing can be rendered yet.",
+      "reason" : "unavailable",
+      "requested" : "b",
+      "voices" : [
+
+      ]
+    },
+    {
+      "defaultReason" : "unavailable",
+      "isRemarkable" : true,
+      "note" : "No voice is installed, so nothing can be rendered yet.",
+      "reason" : "unavailable",
+      "requested" : "café",
+      "voices" : [
+
+      ]
+    },
+    {
+      "defaultReason" : "unavailable",
+      "isRemarkable" : true,
+      "note" : "No voice is installed, so nothing can be rendered yet.",
+      "reason" : "unavailable",
+      "requested" : "gone",
+      "voices" : [
+
+      ]
+    },
+    {
+      "defaultReason" : "unavailable",
+      "isRemarkable" : true,
+      "note" : "No voice is installed, so nothing can be rendered yet.",
+      "reason" : "unavailable",
+      "requested" : "A",
+      "voices" : [
+
+      ]
+    },
+    {
+      "defaultReason" : "unavailable",
+      "isRemarkable" : true,
+      "note" : "No voice is installed, so nothing can be rendered yet.",
+      "reason" : "unavailable",
+      "requested" : "\n\t",
+      "voices" : [
+
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "unspecified",
+      "isRemarkable" : false,
+      "name" : "a",
+      "reason" : "unspecified",
+      "voices" : [
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "unspecified",
+      "isRemarkable" : false,
+      "name" : "a",
+      "reason" : "unspecified",
+      "requested" : "",
+      "voices" : [
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "unspecified",
+      "isRemarkable" : false,
+      "name" : "a",
+      "reason" : "unspecified",
+      "requested" : "   ",
+      "voices" : [
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "unspecified",
+      "isRemarkable" : false,
+      "name" : "a",
+      "reason" : "unspecified",
+      "requested" : "default",
+      "voices" : [
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "unspecified",
+      "isRemarkable" : false,
+      "name" : "a",
+      "reason" : "unspecified",
+      "requested" : " default ",
+      "voices" : [
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "substituted:DEFAULT",
+      "isRemarkable" : true,
+      "name" : "a",
+      "note" : "DEFAULT is no longer installed — using a.",
+      "reason" : "substituted:DEFAULT",
+      "requested" : "DEFAULT",
+      "voices" : [
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "requested",
+      "isRemarkable" : false,
+      "name" : "a",
+      "reason" : "requested",
+      "requested" : "a",
+      "voices" : [
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "substituted:b",
+      "isRemarkable" : true,
+      "name" : "a",
+      "note" : "b is no longer installed — using a.",
+      "reason" : "substituted:b",
+      "requested" : "b",
+      "voices" : [
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "substituted:café",
+      "isRemarkable" : true,
+      "name" : "a",
+      "note" : "café is no longer installed — using a.",
+      "reason" : "substituted:café",
+      "requested" : "café",
+      "voices" : [
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "substituted:gone",
+      "isRemarkable" : true,
+      "name" : "a",
+      "note" : "gone is no longer installed — using a.",
+      "reason" : "substituted:gone",
+      "requested" : "gone",
+      "voices" : [
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "substituted:A",
+      "isRemarkable" : true,
+      "name" : "a",
+      "note" : "A is no longer installed — using a.",
+      "reason" : "substituted:A",
+      "requested" : "A",
+      "voices" : [
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "unspecified",
+      "isRemarkable" : false,
+      "name" : "a",
+      "reason" : "unspecified",
+      "requested" : "\n\t",
+      "voices" : [
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "unspecified",
+      "isRemarkable" : false,
+      "name" : "a",
+      "reason" : "unspecified",
+      "voices" : [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "unspecified",
+      "isRemarkable" : false,
+      "name" : "a",
+      "reason" : "unspecified",
+      "requested" : "",
+      "voices" : [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "unspecified",
+      "isRemarkable" : false,
+      "name" : "a",
+      "reason" : "unspecified",
+      "requested" : "   ",
+      "voices" : [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "unspecified",
+      "isRemarkable" : false,
+      "name" : "a",
+      "reason" : "unspecified",
+      "requested" : "default",
+      "voices" : [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "unspecified",
+      "isRemarkable" : false,
+      "name" : "a",
+      "reason" : "unspecified",
+      "requested" : " default ",
+      "voices" : [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "substituted:DEFAULT",
+      "isRemarkable" : true,
+      "name" : "a",
+      "note" : "DEFAULT is no longer installed — using a.",
+      "reason" : "substituted:DEFAULT",
+      "requested" : "DEFAULT",
+      "voices" : [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "requested",
+      "isRemarkable" : false,
+      "name" : "a",
+      "reason" : "requested",
+      "requested" : "a",
+      "voices" : [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "defaultName" : "b",
+      "defaultReason" : "requested",
+      "isRemarkable" : false,
+      "name" : "b",
+      "reason" : "requested",
+      "requested" : "b",
+      "voices" : [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "substituted:café",
+      "isRemarkable" : true,
+      "name" : "a",
+      "note" : "café is no longer installed — using a.",
+      "reason" : "substituted:café",
+      "requested" : "café",
+      "voices" : [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "substituted:gone",
+      "isRemarkable" : true,
+      "name" : "a",
+      "note" : "gone is no longer installed — using a.",
+      "reason" : "substituted:gone",
+      "requested" : "gone",
+      "voices" : [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "substituted:A",
+      "isRemarkable" : true,
+      "name" : "a",
+      "note" : "A is no longer installed — using a.",
+      "reason" : "substituted:A",
+      "requested" : "A",
+      "voices" : [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "unspecified",
+      "isRemarkable" : false,
+      "name" : "a",
+      "reason" : "unspecified",
+      "requested" : "\n\t",
+      "voices" : [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "defaultName" : "b",
+      "defaultReason" : "unspecified",
+      "isRemarkable" : false,
+      "name" : "b",
+      "reason" : "unspecified",
+      "voices" : [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "b",
+      "defaultReason" : "unspecified",
+      "isRemarkable" : false,
+      "name" : "b",
+      "reason" : "unspecified",
+      "requested" : "",
+      "voices" : [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "b",
+      "defaultReason" : "unspecified",
+      "isRemarkable" : false,
+      "name" : "b",
+      "reason" : "unspecified",
+      "requested" : "   ",
+      "voices" : [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "b",
+      "defaultReason" : "unspecified",
+      "isRemarkable" : false,
+      "name" : "b",
+      "reason" : "unspecified",
+      "requested" : "default",
+      "voices" : [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "b",
+      "defaultReason" : "unspecified",
+      "isRemarkable" : false,
+      "name" : "b",
+      "reason" : "unspecified",
+      "requested" : " default ",
+      "voices" : [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "b",
+      "defaultReason" : "substituted:DEFAULT",
+      "isRemarkable" : true,
+      "name" : "b",
+      "note" : "DEFAULT is no longer installed — using b.",
+      "reason" : "substituted:DEFAULT",
+      "requested" : "DEFAULT",
+      "voices" : [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "requested",
+      "isRemarkable" : false,
+      "name" : "a",
+      "reason" : "requested",
+      "requested" : "a",
+      "voices" : [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "b",
+      "defaultReason" : "requested",
+      "isRemarkable" : false,
+      "name" : "b",
+      "reason" : "requested",
+      "requested" : "b",
+      "voices" : [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "b",
+      "defaultReason" : "substituted:café",
+      "isRemarkable" : true,
+      "name" : "b",
+      "note" : "café is no longer installed — using b.",
+      "reason" : "substituted:café",
+      "requested" : "café",
+      "voices" : [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "b",
+      "defaultReason" : "substituted:gone",
+      "isRemarkable" : true,
+      "name" : "b",
+      "note" : "gone is no longer installed — using b.",
+      "reason" : "substituted:gone",
+      "requested" : "gone",
+      "voices" : [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "b",
+      "defaultReason" : "substituted:A",
+      "isRemarkable" : true,
+      "name" : "b",
+      "note" : "A is no longer installed — using b.",
+      "reason" : "substituted:A",
+      "requested" : "A",
+      "voices" : [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "b",
+      "defaultReason" : "unspecified",
+      "isRemarkable" : false,
+      "name" : "b",
+      "reason" : "unspecified",
+      "requested" : "\n\t",
+      "voices" : [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "café",
+      "defaultReason" : "unspecified",
+      "isRemarkable" : false,
+      "name" : "café",
+      "reason" : "unspecified",
+      "voices" : [
+        "café",
+        "default"
+      ]
+    },
+    {
+      "defaultName" : "café",
+      "defaultReason" : "unspecified",
+      "isRemarkable" : false,
+      "name" : "café",
+      "reason" : "unspecified",
+      "requested" : "",
+      "voices" : [
+        "café",
+        "default"
+      ]
+    },
+    {
+      "defaultName" : "café",
+      "defaultReason" : "unspecified",
+      "isRemarkable" : false,
+      "name" : "café",
+      "reason" : "unspecified",
+      "requested" : "   ",
+      "voices" : [
+        "café",
+        "default"
+      ]
+    },
+    {
+      "defaultName" : "café",
+      "defaultReason" : "unspecified",
+      "isRemarkable" : false,
+      "name" : "café",
+      "reason" : "unspecified",
+      "requested" : "default",
+      "voices" : [
+        "café",
+        "default"
+      ]
+    },
+    {
+      "defaultName" : "café",
+      "defaultReason" : "unspecified",
+      "isRemarkable" : false,
+      "name" : "café",
+      "reason" : "unspecified",
+      "requested" : " default ",
+      "voices" : [
+        "café",
+        "default"
+      ]
+    },
+    {
+      "defaultName" : "café",
+      "defaultReason" : "substituted:DEFAULT",
+      "isRemarkable" : true,
+      "name" : "café",
+      "note" : "DEFAULT is no longer installed — using café.",
+      "reason" : "substituted:DEFAULT",
+      "requested" : "DEFAULT",
+      "voices" : [
+        "café",
+        "default"
+      ]
+    },
+    {
+      "defaultName" : "café",
+      "defaultReason" : "substituted:a",
+      "isRemarkable" : true,
+      "name" : "café",
+      "note" : "a is no longer installed — using café.",
+      "reason" : "substituted:a",
+      "requested" : "a",
+      "voices" : [
+        "café",
+        "default"
+      ]
+    },
+    {
+      "defaultName" : "café",
+      "defaultReason" : "substituted:b",
+      "isRemarkable" : true,
+      "name" : "café",
+      "note" : "b is no longer installed — using café.",
+      "reason" : "substituted:b",
+      "requested" : "b",
+      "voices" : [
+        "café",
+        "default"
+      ]
+    },
+    {
+      "defaultName" : "café",
+      "defaultReason" : "requested",
+      "isRemarkable" : false,
+      "name" : "café",
+      "reason" : "requested",
+      "requested" : "café",
+      "voices" : [
+        "café",
+        "default"
+      ]
+    },
+    {
+      "defaultName" : "café",
+      "defaultReason" : "substituted:gone",
+      "isRemarkable" : true,
+      "name" : "café",
+      "note" : "gone is no longer installed — using café.",
+      "reason" : "substituted:gone",
+      "requested" : "gone",
+      "voices" : [
+        "café",
+        "default"
+      ]
+    },
+    {
+      "defaultName" : "café",
+      "defaultReason" : "substituted:A",
+      "isRemarkable" : true,
+      "name" : "café",
+      "note" : "A is no longer installed — using café.",
+      "reason" : "substituted:A",
+      "requested" : "A",
+      "voices" : [
+        "café",
+        "default"
+      ]
+    },
+    {
+      "defaultName" : "café",
+      "defaultReason" : "unspecified",
+      "isRemarkable" : false,
+      "name" : "café",
+      "reason" : "unspecified",
+      "requested" : "\n\t",
+      "voices" : [
+        "café",
+        "default"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "unspecified",
+      "isRemarkable" : false,
+      "name" : "a",
+      "reason" : "unspecified",
+      "voices" : [
+        "a",
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "unspecified",
+      "isRemarkable" : false,
+      "name" : "a",
+      "reason" : "unspecified",
+      "requested" : "",
+      "voices" : [
+        "a",
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "unspecified",
+      "isRemarkable" : false,
+      "name" : "a",
+      "reason" : "unspecified",
+      "requested" : "   ",
+      "voices" : [
+        "a",
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "unspecified",
+      "isRemarkable" : false,
+      "name" : "a",
+      "reason" : "unspecified",
+      "requested" : "default",
+      "voices" : [
+        "a",
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "unspecified",
+      "isRemarkable" : false,
+      "name" : "a",
+      "reason" : "unspecified",
+      "requested" : " default ",
+      "voices" : [
+        "a",
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "substituted:DEFAULT",
+      "isRemarkable" : true,
+      "name" : "a",
+      "note" : "DEFAULT is no longer installed — using a.",
+      "reason" : "substituted:DEFAULT",
+      "requested" : "DEFAULT",
+      "voices" : [
+        "a",
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "requested",
+      "isRemarkable" : false,
+      "name" : "a",
+      "reason" : "requested",
+      "requested" : "a",
+      "voices" : [
+        "a",
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "substituted:b",
+      "isRemarkable" : true,
+      "name" : "a",
+      "note" : "b is no longer installed — using a.",
+      "reason" : "substituted:b",
+      "requested" : "b",
+      "voices" : [
+        "a",
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "substituted:café",
+      "isRemarkable" : true,
+      "name" : "a",
+      "note" : "café is no longer installed — using a.",
+      "reason" : "substituted:café",
+      "requested" : "café",
+      "voices" : [
+        "a",
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "substituted:gone",
+      "isRemarkable" : true,
+      "name" : "a",
+      "note" : "gone is no longer installed — using a.",
+      "reason" : "substituted:gone",
+      "requested" : "gone",
+      "voices" : [
+        "a",
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "substituted:A",
+      "isRemarkable" : true,
+      "name" : "a",
+      "note" : "A is no longer installed — using a.",
+      "reason" : "substituted:A",
+      "requested" : "A",
+      "voices" : [
+        "a",
+        "a"
+      ]
+    },
+    {
+      "defaultName" : "a",
+      "defaultReason" : "unspecified",
+      "isRemarkable" : false,
+      "name" : "a",
+      "reason" : "unspecified",
+      "requested" : "\n\t",
+      "voices" : [
+        "a",
+        "a"
+      ]
+    }
+  ],
+  "unspecifiedName" : "default"
+}

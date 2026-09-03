@@ -1,0 +1,30 @@
+# not from a tape — written for the app, so there is no v1 line to match.
+@segment  resume
+@title    Settling Back After a Pause
+@levels   F10
+@verbosity 2
+@duration ~55s
+@fixed
+
+# Played when a session resumes after being paused, never on its own.
+#
+# The pause rewinds fifteen seconds before this, so the listener hears the tail
+# of whatever they were in the middle of again -- but they have been *away*,
+# and the tape's own lesson is that a voice arriving cold is a party pooper.
+# This is the gradual re-entry: the bed comes up first, then this, then the
+# session picks up where it left off.
+#
+# @fixed on purpose. It is the same words every time by design -- a familiar
+# re-entry is a shorter one, and a variant here would make the return feel like
+# a new instruction rather than a resumption.
+
+say Take a moment. Let your attention come back to your body.
+pause 6
+say Let your shoulders fall away from your ears. Let your jaw soften. Let your hands rest exactly where they are.
+pause 8
+say Take one slow breath, and let it go without steering it.
+pause 7
+say Let your body become weightless again. Nothing to hold up, nothing to hold on to.
+pause 8
+say And when you are ready, we continue from where we were.
+pause 5

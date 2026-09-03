@@ -1,0 +1,29 @@
+# App-authored transition, not from a tape. No tape or manual in the library
+# reaches Focus 18. The public description and unverified secondary overview
+# associate the destination with unconditional love energy; this body names
+# that proposition without prescribing a sensation during the transition.
+
+@segment    climb-f15-f18
+@title      Climb — Focus 15 to Focus 18
+@levels     F18
+@from       F15
+@fixed
+@verbosity  3
+@protected  Focus 18
+@duration   ~1m10s
+
+say From Focus 15, you will move through the count to Focus 18.
+pause 4
+say The available secondary map associates Focus 18 with unconditional love energy. No tape or manual here establishes what the transition should feel like.
+pause 6
+say Let the numbers mark the change. Observe the transition itself without trying to produce the description in advance.
+pause 5
+level F18
+say Fifteen.
+pause 5
+say Sixteen.
+pause 5
+say Seventeen.
+pause 5
+say Eighteen.
+pause 8

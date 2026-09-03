@@ -1,0 +1,57 @@
+@segment  descend-f27-f10
+@title    Return — Focus 27 down to Focus 10
+@levels   F10
+@fixed
+@duration ~3m
+
+say You'll now return from Focus 27, counting slowly back, down through each state in turn, all the way to Focus 10.
+pause 6
+say Twenty-seven.
+pause 4
+level F26
+say Twenty-six.
+pause 4
+level F25
+say Twenty-five.
+pause 4
+level F23
+say Twenty-four.
+pause 4
+say Twenty-three.
+pause 4
+level F21
+say Twenty-two.
+pause 4
+say Twenty-one.
+pause 4
+level F15
+say Twenty.
+pause 4
+say Nineteen.
+pause 4
+say Eighteen.
+pause 4
+say Seventeen.
+pause 4
+say Sixteen.
+pause 4
+say Fifteen.
+pause 4
+level F12
+say Fourteen. You're returning to time.
+pause 4
+say Thirteen. Calmly and comfortably.
+pause 4
+say Twelve.
+pause 5
+say You're now back in Focus 12, the state of expanded awareness.
+pause 6
+level F10
+say Eleven.
+pause 4
+say Ten.
+pause 5
+say You're now in Focus 10.
+pause 4
+say Mind awake. Body asleep.
+pause 6

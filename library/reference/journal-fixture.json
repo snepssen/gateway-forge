@@ -1,0 +1,157 @@
+{
+  "appendCases" : [
+    {
+      "body" : "A first visit.",
+      "entryBody" : "A first visit.",
+      "entryLevel" : "F10",
+      "entryWrittenMillis" : 1777000000000,
+      "existingFiles" : [
+
+      ],
+      "id" : "2026-04-24-040640",
+      "level" : "f10",
+      "now" : 1777000000,
+      "writtenContents" : "---\nlevel: F10\nwritten: 2026-04-24T03:06:40Z\n---\n\nA first visit.\n",
+      "writtenFile" : "2026-04-24-040640.md"
+    },
+    {
+      "body" : "With a session id.",
+      "entryBody" : "With a session id.",
+      "entryLevel" : "F12",
+      "entrySession" : "session-x",
+      "entryWrittenMillis" : 1777000000000,
+      "existingFiles" : [
+
+      ],
+      "id" : "2026-04-24-040640",
+      "level" : "F12",
+      "now" : 1777000000,
+      "session" : "session-x",
+      "writtenContents" : "---\nlevel: F12\nsession: session-x\nwritten: 2026-04-24T03:06:40Z\n---\n\nWith a session id.\n",
+      "writtenFile" : "2026-04-24-040640.md"
+    },
+    {
+      "body" : "Collides with an existing file.",
+      "entryBody" : "Collides with an existing file.",
+      "entryLevel" : "F10",
+      "entryWrittenMillis" : 1777000000000,
+      "existingFiles" : [
+        "2026-04-24-040640.md"
+      ],
+      "id" : "2026-04-24-040640-1",
+      "level" : "f10",
+      "now" : 1777000000,
+      "writtenContents" : "---\nlevel: F10\nwritten: 2026-04-24T03:06:40Z\n---\n\nCollides with an existing file.\n",
+      "writtenFile" : "2026-04-24-040640-1.md"
+    },
+    {
+      "body" : "Collides twice over.",
+      "entryBody" : "Collides twice over.",
+      "entryLevel" : "F10",
+      "entryWrittenMillis" : 1777000000000,
+      "existingFiles" : [
+        "2026-04-24-040640.md",
+        "2026-04-24-040640-1.md"
+      ],
+      "id" : "2026-04-24-040640-2",
+      "level" : "f10",
+      "now" : 1777000000,
+      "writtenContents" : "---\nlevel: F10\nwritten: 2026-04-24T03:06:40Z\n---\n\nCollides twice over.\n",
+      "writtenFile" : "2026-04-24-040640-2.md"
+    },
+    {
+      "body" : "",
+      "entryBody" : "",
+      "entryLevel" : "F21",
+      "entryWrittenMillis" : 1777000000000,
+      "existingFiles" : [
+
+      ],
+      "id" : "2026-04-24-040640",
+      "level" : "f21",
+      "now" : 1777000000,
+      "writtenContents" : "---\nlevel: F21\nwritten: 2026-04-24T03:06:40Z\n---\n\n\n",
+      "writtenFile" : "2026-04-24-040640.md"
+    }
+  ],
+  "note" : "The journal's write and delete operations, on scratch trees.",
+  "removeCases" : [
+    {
+      "fileExisted" : true,
+      "fileRemainsAfter" : false,
+      "id" : "2026-01-01-000000",
+      "level" : "f10",
+      "result" : true
+    },
+    {
+      "fileExisted" : false,
+      "fileRemainsAfter" : false,
+      "id" : "does-not-exist",
+      "level" : "f10",
+      "result" : false
+    },
+    {
+      "fileExisted" : false,
+      "fileRemainsAfter" : false,
+      "id" : "",
+      "level" : "f10",
+      "result" : false
+    },
+    {
+      "fileExisted" : false,
+      "fileRemainsAfter" : false,
+      "id" : "a/b",
+      "level" : "f10",
+      "result" : false
+    },
+    {
+      "fileExisted" : false,
+      "fileRemainsAfter" : false,
+      "id" : "../outside",
+      "level" : "f10",
+      "result" : false
+    },
+    {
+      "fileExisted" : false,
+      "fileRemainsAfter" : false,
+      "id" : "has..dots",
+      "level" : "f10",
+      "result" : false
+    }
+  ],
+  "visitCountCases" : [
+    {
+      "bodies" : [
+
+      ],
+      "count" : 0,
+      "level" : "f10"
+    },
+    {
+      "bodies" : [
+        "one",
+        "two",
+        "three"
+      ],
+      "count" : 3,
+      "level" : "f10"
+    },
+    {
+      "bodies" : [
+        "",
+        "  ",
+        "real content"
+      ],
+      "count" : 1,
+      "level" : "f10"
+    },
+    {
+      "bodies" : [
+        "",
+        ""
+      ],
+      "count" : 0,
+      "level" : "f10"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+# Generated session scaffold: reach the level, hear what is known about it,
+# spend time there, come back. Edit freely -- this is your file now; the
+# generator never rewrites an existing session.
+#
+# What it deliberately leaves for you:
+#   · the return is the plain waking count unless a real descent exists
+#     for this level -- retracing the climb is authoring work
+#   · the hold below is a starting guess, not a prescription
+#   · anything this level's briefing does not say is not said here either
+#
+# This route enters F22, which levels.json marks as populated
+# by minds the listener did not choose, so the affirmation is the 1977
+# original -- the one that asks for protection. Swap it for the settled
+# `affirmation` if you disagree with that marking; the reason it was
+# made is written next to the level.
+
+@title    Focus 22 — Here and There
+@level    F10
+@ending   return
+@pan      right
+@seed     1022
+@verbosity 3
+
+surf 0.55
+use opening
+use comfort
+use orientation
+use ocean
+
+surf 0.30
+use conversion-box
+use affirmation-1977
+
+surf 0.18
+use resonant-tuning
+use balloon
+use return-methods
+use clear-skies
+
+surf 0.0
+use relax-10
+use climb-f10-f12
+use briefing-f12
+use climb-f12-f15
+use briefing-f15
+use climb-f15-f21
+use briefing-f21
+use climb-f21-f22
+use briefing-f22
+
+hold 600
+
+use return

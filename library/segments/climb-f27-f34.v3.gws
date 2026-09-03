@@ -1,0 +1,41 @@
+# App-authored transition, not from a tape. Grounded in the separately retained
+# public F34/35 Gathering description and the owner's attributed 2025 account
+# at focus/F34/notes.md. That account cannot reliably split events between 34
+# and 35, so this body names the uncertainty and prescribes no encounter.
+
+@segment    climb-f27-f34
+@title      Climb — Focus 27 to Focus 34
+@levels     F34
+@from       F27
+@fixed
+@verbosity  3
+@protected  Focus 34
+@duration   ~1m35s
+
+say From Focus 27, you will move through the count to Focus 34.
+pause 4
+say The public map names Focus 34 and 35 together as the Gathering. One attributed account also describes a gathering and a dark starfield, but does not reliably separate what occurred at 34 from what occurred at 35.
+pause 7
+say Carry those as maps, not requirements. You do not need to perceive a presence, a gathering, or any particular scene.
+pause 6
+say Let the numbers mark the movement, and observe what is actually present.
+pause 5
+level F34
+say Twenty-seven.
+pause 5
+say Twenty-eight.
+pause 5
+say Twenty-nine.
+pause 5
+say Thirty.
+pause 5
+say Thirty-one.
+pause 5
+say Thirty-two.
+pause 5
+say Thirty-three.
+pause 5
+say Thirty-four.
+pause 4
+say Focus 34.
+pause 8

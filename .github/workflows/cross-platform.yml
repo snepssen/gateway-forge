@@ -1,0 +1,38 @@
+name: Cross-platform core
+
+on:
+  push:
+    paths:
+      - "cross-platform/**"
+      - "library/**"
+      - "focus/**"
+      - "fixtures/**"
+      - ".github/workflows/cross-platform.yml"
+  pull_request:
+    paths:
+      - "cross-platform/**"
+      - "library/**"
+      - "focus/**"
+      - "fixtures/**"
+      - ".github/workflows/cross-platform.yml"
+
+jobs:
+  core:
+    name: ${{ matrix.os }} / Node 22
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    defaults:
+      run:
+        working-directory: cross-platform
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: cross-platform/package-lock.json
+      - run: npm ci
+      - run: npm run check:ci

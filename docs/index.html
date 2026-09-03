@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A guided-meditation assembly system and journal for the Monroe Institute's Gateway framework — the tape's own maps kept beside what was actually found, never merged.">
+<title>Gateway Forge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Libre+Franklin:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Dark-first, close to the app's own Monokai instrument panel -- purple for
+   what is selected/live, green for verified, orange for what is still
+   provisional, cyan for information. Not a docs-template palette; it is the
+   app's own state language, carried onto the page that describes it. */
+:root{
+  --ground:#131410; --surface:#1B1C16; --raise:#232419; --line:#31321F;
+  --ink:#F1EFE3; --muted:#8D8A72;
+  --signal:#AE81FF;             /* active / selected / the climb */
+  --verified:#A6E22E;           /* found, measured, checks passing */
+  --published:#66D9EF;          /* the Institute's own account */
+  --provisional:#FD971F;        /* still becoming */
+  --shadow:0 1px 0 rgba(255,255,255,.03);
+  --measure:64ch;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --ground:#F6F4E9; --surface:#EDEBDC; --raise:#E4E1CE; --line:#D6D2BA;
+    --ink:#17180F; --muted:#6B6850;
+    --signal:#6C3FCE; --verified:#3F6B0E; --published:#0A6E82; --provisional:#95530A;
+    --shadow:0 1px 0 rgba(0,0,0,.03);
+  }
+}
+:root[data-theme="light"]{
+  --ground:#F6F4E9; --surface:#EDEBDC; --raise:#E4E1CE; --line:#D6D2BA;
+  --ink:#17180F; --muted:#6B6850;
+  --signal:#6C3FCE; --verified:#3F6B0E; --published:#0A6E82; --provisional:#95530A;
+  --shadow:0 1px 0 rgba(0,0,0,.03);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font:400 17px/1.64 "Libre Franklin",system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+h1,h2,.ui{font-family:Fraunces,Georgia,serif}
+h3{font-family:"Libre Franklin",system-ui,sans-serif}
+.mono,code{font-family:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+a{color:var(--signal);text-decoration-thickness:1px;text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+p{margin:0 0 1.05em;max-width:var(--measure)}
+.lede{font-size:20px;color:var(--ink)}
+.eyebrow{
+  font-family:"Libre Franklin",sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 14px;
+}
+
+/* ---------------------------------------------------------------- masthead */
+header{padding:78px 0 0;border-bottom:1px solid var(--line)}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;font-family:"Libre Franklin",sans-serif;
+  font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);border:1px solid var(--line);border-radius:2px;padding:5px 10px;
+}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--verified)}
+h1{
+  font-weight:600;font-style:italic;font-size:clamp(50px,8.6vw,98px);line-height:.98;
+  letter-spacing:-.02em;margin:26px 0 0;text-wrap:balance;
+}
+.subhead{margin:24px 0 0;font-size:21px;line-height:1.55;max-width:56ch}
+.headmeta{
+  display:flex;flex-wrap:wrap;gap:10px 26px;margin:34px 0 0;padding:18px 0 42px;
+  border-top:1px solid var(--line);
+}
+.headmeta span{font-size:13px;color:var(--muted);font-family:"Libre Franklin",sans-serif}
+.headmeta b{color:var(--ink);font-weight:600}
+
+/* ------------------------------------------------------------ section jump */
+.jump{position:sticky; top:0; z-index:20; background:var(--ground); border-bottom:1px solid var(--line)}
+@supports (backdrop-filter:blur(10px)){
+  .jump{background:color-mix(in srgb, var(--ground) 84%, transparent); backdrop-filter:blur(10px)}
+}
+.jump .wrap{display:flex; align-items:center; justify-content:space-between; gap:20px; height:46px}
+.jump ul{display:flex; gap:26px; margin:0; padding:0; list-style:none}
+.jump a{
+  font-family:"Libre Franklin",sans-serif; font-size:11px; font-weight:700;
+  letter-spacing:.16em; text-transform:uppercase; text-decoration:none;
+  color:var(--muted); white-space:nowrap;
+}
+.jump .mark{color:var(--ink); letter-spacing:.06em; font-family:Fraunces,serif; font-style:italic; font-weight:600}
+.jump a:hover{color:var(--signal)}
+section[id],header[id]{scroll-margin-top:58px}
+@media (max-width:520px){
+  .jump .mark{display:none}
+  .jump .wrap{justify-content:center}
+  .jump ul{gap:18px}
+}
+
+section{padding:64px 0;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+h2{font-size:clamp(27px,3.8vw,38px);font-weight:600;font-style:italic;letter-spacing:-.01em;margin:0 0 8px;text-wrap:balance}
+h3{font-size:19px;font-weight:600;letter-spacing:-.005em;margin:0 0 6px}
+
+/* --------------------------------------------------------------- readouts */
+.readout{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin:26px 0 0}
+.readout.two{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.readout.three{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.cell{background:var(--surface);padding:20px 22px}
+.cell .n{
+  font-family:"JetBrains Mono",monospace;font-size:29px;font-weight:500;
+  color:var(--signal);letter-spacing:-.02em;font-variant-numeric:tabular-nums;
+}
+.cell .n small{font-size:15px;color:var(--muted);margin-left:3px;font-weight:400}
+.cell .l{font-size:14px;color:var(--muted);margin-top:5px;line-height:1.4}
+.cell .l b{color:var(--ink);font-weight:500}
+
+/* ------------------------------------------------------------------ table */
+.tablewrap{overflow-x:auto;margin:26px 0 0}
+table{border-collapse:collapse;width:100%;min-width:480px;font-size:15px}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:"Libre Franklin",sans-serif;font-size:11px;font-weight:700;
+   letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+td.mono{font-variant-numeric:tabular-nums;font-family:"JetBrains Mono",monospace;font-size:14px}
+.pill{
+  display:inline-block;font-family:"Libre Franklin",sans-serif;font-size:11px;
+  font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 8px;
+  border:1px solid currentColor;border-radius:2px;white-space:nowrap;
+}
+.pill.pub{color:var(--published)} .pill.found{color:var(--verified)} .pill.prov{color:var(--provisional)}
+
+/* ------------------------------------------------------------------- ladder */
+/* The climb, standing in for a screenshot: F1 to F49, trunk and spurs. This is
+   the app's own structure, not Monroe's text -- safe to show, and more honest
+   than a screenshot of a library that a public checkout does not ship with. */
+.ladder-wrap{margin:30px 0 0;border:1px solid var(--line);background:var(--surface);padding:26px 22px;overflow-x:auto}
+.ladder{display:flex;align-items:flex-end;gap:3px;min-width:640px}
+.rung{display:flex;flex-direction:column;align-items:center;gap:8px;flex:1}
+.rung .stem{width:2px;background:var(--line)}
+.rung.trunk .stem{background:var(--signal)}
+.rung .k{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted)}
+.rung.trunk .k{color:var(--ink)}
+.spur{position:relative}
+.spur::before{
+  content:"";position:absolute;left:-3px;top:-14px;width:10px;height:1px;background:var(--line);
+}
+.cap{font-size:14px;color:var(--muted);margin:16px 2px 0;max-width:70ch}
+
+/* -------------------------------------------------------------------- grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);margin:28px 0 0}
+.card{background:var(--surface);padding:24px 22px;display:flex;flex-direction:column;gap:9px}
+.card h3{margin:0}
+.card p{font-size:15px;margin:0;color:var(--muted)}
+.note{
+  border-left:2px solid var(--signal);padding:2px 0 2px 18px;margin:26px 0 0;
+  font-size:16px;color:var(--muted);max-width:var(--measure);
+}
+.note b{color:var(--ink);font-weight:500}
+
+/* ------------------------------------------------------------------ steps */
+ol.steps{counter-reset:s;list-style:none;padding:0;margin:24px 0 0;max-width:var(--measure)}
+ol.steps li{counter-increment:s;position:relative;padding:0 0 20px 46px}
+ol.steps li::before{
+  content:counter(s);position:absolute;left:0;top:1px;width:28px;height:28px;
+  display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;
+  font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--signal);
+}
+ol.steps b{font-weight:600}
+pre{
+  background:var(--ground);border:1px solid var(--line);padding:14px 16px;margin:14px 0 0;
+  overflow-x:auto;font-family:"JetBrains Mono",monospace;font-size:13px;line-height:1.6;
+}
+
+/* -------------------------------------------------------------- installer */
+.install{display:grid;grid-template-columns:minmax(0,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:26px 0 0}
+.cmd{background:var(--surface);padding:16px 18px 18px;min-width:0}
+.cmdhead{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.os{font-family:"Libre Franklin",sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.cmd pre{margin:10px 0 0;background:var(--ground);min-width:0}
+.copy{
+  font-family:"Libre Franklin",sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
+  background:transparent;border:1px solid var(--line);border-radius:2px;
+  padding:5px 11px;cursor:pointer;white-space:nowrap;
+}
+.copy:hover{color:var(--signal);border-color:var(--signal)}
+.copy[data-state="done"]{color:var(--verified);border-color:var(--verified)}
+
+/* ---------------------------------------------------------------- contact */
+.contact{display:flex;flex-wrap:wrap;gap:14px;margin:26px 0 0}
+.contact a{
+  display:inline-flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);
+  border:1px solid var(--line);background:var(--surface);padding:12px 18px;
+  font-family:"Libre Franklin",sans-serif;font-weight:600;font-size:15px;
+}
+.contact a:hover{border-color:var(--signal);color:var(--signal)}
+footer{padding:44px 0 70px;color:var(--muted);font-size:14px}
+
+@media (max-width:720px){
+  header{padding-top:52px}
+  section{padding:48px 0}
+  body{font-size:16px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .card,.contact a{transition:border-color .16s ease,color .16s ease}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header id="top">
+  <span class="badge"><span class="dot"></span>macOS · source-available · companion iOS app</span>
+  <h1>Gateway&nbsp;Forge</h1>
+  <p class="subhead">A guided-meditation assembly system and journal built around the Monroe Institute's Gateway framework — the Institute's own map kept beside what was actually found, never merged into one answer.</p>
+  <div class="headmeta">
+    <span><b>49</b> Focus levels, F1 through F49</span>
+    <span><b>3,672</b> checks passing</span>
+    <span><b>Local-first.</b> No cloud, ever</span>
+    <span>Bed generated live, never sampled</span>
+  </div>
+</header>
+
+<nav class="jump" aria-label="Jump to a section">
+  <div class="wrap">
+    <a class="mark" href="#top">Gateway&nbsp;Forge</a>
+    <ul>
+      <li><a href="#screenshots">Screenshots</a></li>
+      <li><a href="#downloads">Downloads</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section>
+  <p class="eyebrow">Why it exists</p>
+  <h2>The interesting part isn't the meditation. It's what happens when two maps disagree.</h2>
+  <p class="lede">The Monroe Institute published what its Gateway tapes are supposed to do. Practicing them for years produces a second account — the listener's own — and the two do not always agree. Focus 26 is the clearest case: the Institute places it among the Belief System Territories; what's actually there is a featureless dark. Most tools would pick a winner. This one shows both, permanently, and lets the disagreement stand.</p>
+  <p>That single decision — <b>published is not found, and neither overwrites the other</b> — runs through the whole app: three-valued coverage (a level is described by a tape, by a second-hand summary, or by nothing at all, and those are different kinds of evidence), a local model that drafts session content but only from what's actually written down, and a binaural bed generated fresh at playback from measurements of the real tapes rather than looped recordings of them.</p>
+  <div class="note"><b>Nothing here is asserted that could be measured.</b> Where something hasn't been tested, the checks say so by name rather than passing quietly over it.</div>
+</section>
+
+<section>
+  <p class="eyebrow">Measured</p>
+  <h2>A cut-off breath, measured back to a clean one</h2>
+  <p>The bundled voice is a Piper/VITS model fine-tuned on real speech, and its training clips were trimmed tight — so the model learned to stop mid-breath. A short line like <em>"Build the pattern."</em> ended at rms 0.0061 with the mic still open, against roughly 0.0007 for a clean stop. The fix isn't a fade — fading a real recording eats the same consonant it's meant to protect — it's giving the model two extra frames of silence to decay into before the cut.</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>padding</th><th>mean tail rms</th><th>worst case</th><th>runs above threshold</th></tr></thead>
+      <tbody>
+        <tr><td>none</td><td class="mono">0.00180</td><td class="mono">0.00605</td><td class="mono">14%</td></tr>
+        <tr><td>+1 frame</td><td class="mono">0.00075</td><td class="mono">0.00246</td><td class="mono">0%</td></tr>
+        <tr><td><b>+2 frames</b></td><td class="mono"><b>0.00039</b></td><td class="mono"><b>0.00079</b></td><td class="mono"><b>0%</b></td></tr>
+        <tr><td>+3 frames</td><td class="mono">0.00112</td><td class="mono">0.00336</td><td class="mono">0%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:22px">Three frames is worse than two — past a point the model has room to voice into the extra silence rather than settle into it. It's a measured optimum, not a rounder-sounding guess, over seven real lines and five draws each.</p>
+</section>
+
+<section id="screenshots">
+  <p class="eyebrow">Structure, not scenery</p>
+  <h2>Every level is reachable, and the floor is F1</h2>
+  <p>This is the app's own ladder rather than a screenshot of it — the library a public checkout ships with is deliberately bare (the Institute's transcripts aren't the author's to redistribute), so a screenshot of a full one would show more than this release actually contains. What's real and shown here: forty-nine levels, one trunk, and the spurs branching off it.</p>
+  <div class="ladder-wrap">
+    <div class="ladder" id="ladderSvg"></div>
+  </div>
+  <p class="cap"><span style="color:var(--signal)">■</span> the trunk — the F27 tape's own seven climbs, F1 through F27 — with spurs branching where the tapes detour: F11 off F10, F18 off F15, F22 off F21, F24 off F23, then F27 continuing to F34, F35, F42, F49. Every level is an album whether or not anything has been written yet; an empty one is a place awaiting content, never an error state.</p>
+  <div class="note">The relationship is enforced, not just drawn: a check derives the return path by reversing the climb, so adding a level and forgetting its way back fails the build rather than shipping quietly broken.</div>
+</section>
+
+<section>
+  <p class="eyebrow">Measured, from the source material</p>
+  <h2>What the tapes actually play</h2>
+  <p>FFT analysis across all fifty original tapes, keeping only genuine offset pairs (a real binaural signal, not two centred peaks) and weighting by how long each one holds. The whole programme collapses to three signals:</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>signal</th><th>beat</th><th>carrier</th><th>where</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">A</td><td class="mono">4.0 Hz</td><td class="mono">~99–100 Hz</td><td>Wave I · Focus 10</td></tr>
+        <tr><td class="mono">B</td><td class="mono">1.50 Hz</td><td class="mono">~99.2 Hz</td><td>Waves II–VI · Focus 12, and parts of 15 &amp; 21</td></tr>
+        <tr><td class="mono">C</td><td class="mono">0.37 Hz</td><td class="mono">~48.8 Hz</td><td>Waves VI–VIII · Focus 21 upward, all of Focus 27</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:22px">The app never plays a looped recording of these — it regenerates the pair live from the measurement, so the differential can move continuously through a session's transitions instead of cutting at a seam. Transitions sweep rather than glide: the differential widens before it narrows, matching how a transition was actually described rather than a straight linear fade.</p>
+</section>
+
+<section>
+  <p class="eyebrow">Three decisions worth naming</p>
+  <h2>What this app won't do</h2>
+  <div class="grid">
+    <div class="card">
+      <h3><span class="pill pub">Published</span> <span class="pill found">Found</span> — never merged</h3>
+      <p>The Institute's own description and the listener's own account are stored separately and shown together. A level page can disagree with itself on purpose — that's the data, not a bug to reconcile.</p>
+    </div>
+    <div class="card">
+      <h3>A local model that curates, not invents</h3>
+      <p>Session drafting runs on a local Ollama model against the app's own documented material — it proposes an include/omit decision per real segment, never new narration, and nothing reaches the library unreviewed.</p>
+    </div>
+    <div class="card">
+      <h3>Offer, never prescribe</h3>
+      <p>Guidance invites noticing rather than asserting what you'll feel. A placeholder briefing for an unmapped level says so and names the level as unmapped, rather than inventing scenery to fill the gap.</p>
+    </div>
+  </div>
+</section>
+
+<section id="downloads">
+  <p class="eyebrow">Downloads</p>
+  <h2>Build it yourself</h2>
+  <p class="lede">There's no packaged release yet — this is source-available, not a shipped binary. Clone it, run the build script, and it produces a signed (ad-hoc) <code>Gateway Forge.app</code> from a clean checkout.</p>
+
+  <div class="install">
+    <div class="cmd">
+      <div class="cmdhead">
+        <span class="os">macOS · Xcode required</span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+      <pre><code>git clone https://github.com/snepssen/gateway-forge.git
+cd gateway-forge && ./build.sh</code></pre>
+    </div>
+  </div>
+
+  <div class="note"><b>Read the script before you run it</b> — it's short: checks, then <code>swift build</code>, then it assembles and ad-hoc signs the <code>.app</code>. No installer, no elevated permissions, nothing leaves the machine.</div>
+
+  <h3 style="margin-top:44px">The companion</h3>
+  <p><code>GatewayCompanion.xcodeproj</code> is the iOS 17 client — build and run it from Xcode on a device or simulator. It talks to the desktop over the LAN only: pairing is Keychain-secured, the listener's library and journal never touch a server outside the house.</p>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>component</th><th>platform</th><th>status</th></tr></thead>
+      <tbody>
+        <tr><td>Desktop app</td><td>macOS 14+, Apple Silicon</td><td><span class="pill found">Installed daily driver</span></td></tr>
+        <tr><td>iOS companion</td><td>iOS 17+</td><td><span class="pill found">Builds and syncs over LAN</span></td></tr>
+        <tr><td>Windows / Linux</td><td>—</td><td><span class="pill prov">Not started — TTS engine research first</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">How it's built</p>
+  <h2>One executable, no cloud, checked by name</h2>
+  <p>Native Swift and SwiftUI throughout, no web engine and no bundled interpreter — the build fails outright on any Python file anywhere in the tree, on purpose. Speech runs through the same Piper/VITS-over-ONNX engine <a href="https://github.com/snepssen/voice-forge">Voice Forge</a> was built to expose, here bundled as a single fixed voice fine-tuned on the author's own speech.</p>
+  <div class="readout three">
+    <div class="cell"><div class="n">3,672</div><div class="l">checks currently passing</div></div>
+    <div class="cell"><div class="n">49</div><div class="l">Focus levels, F1 to F49, every one reachable</div></div>
+    <div class="cell"><div class="n">3</div><div class="l">measured beat signals carrying all fifty source tapes</div></div>
+  </div>
+  <p style="margin-top:26px">A checkout of this public copy has its corpus-dependent suites — the ones that read the original tape transcripts or the Institute's manuals — stand down by name instead of either failing on files that were never meant to ship here, or quietly reporting health they never actually looked for. <span class="mono" style="font-size:14px">note [source tapes] no tape transcripts in this tree — corpus suites stand down (this is the expected state of a build made for distribution)</span> is what that looks like in practice.</p>
+  <h3 style="margin-top:34px">A ledger the app keeps, not the Institute's recordings</h3>
+  <p>The three retained resonant-tuning cues and the wake-up signal that used to come from sampled Monroe tape recordings are now synthesised: the bed generates its own tuning and its own return signal, live, at the measured frequencies above. Nothing sampled from the original tapes ships in this build.</p>
+</section>
+
+<section id="contact">
+  <p class="eyebrow">Get in touch</p>
+  <h2>If something looks wrong, say so</h2>
+  <p>No analytics, no crash reporter, no way for a failure to reach me on its own. If you build it and something breaks, the version and platform are worth including.</p>
+  <div class="contact">
+    <a href="https://t.me/snepssen">Message on Telegram</a>
+    <a href="mailto:snepssen@proton.me">Email</a>
+  </div>
+</section>
+
+<footer>
+  Gateway Forge · a guided-meditation assembly system for the Gateway framework ·
+  built with Swift, SwiftUI, Piper/VITS and a local Ollama model.
+</footer>
+
+</div>
+
+<script>
+document.querySelectorAll(".copy").forEach(function (button) {
+  var code = button.closest(".cmd").querySelector("code");
+  var timer;
+  function flash(label, state) {
+    clearTimeout(timer);
+    button.textContent = label;
+    if (state) { button.dataset.state = state; } else { delete button.dataset.state; }
+    timer = setTimeout(function () {
+      button.textContent = "Copy";
+      delete button.dataset.state;
+    }, 1800);
+  }
+  function selectInstead() {
+    var range = document.createRange();
+    range.selectNodeContents(code);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    flash("Selected", null);
+  }
+  button.addEventListener("click", function () {
+    var text = code.textContent.trim();
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(function () {
+        flash("Copied", "done");
+      }, selectInstead);
+    } else {
+      selectInstead();
+    }
+  });
+});
+
+/* The climb ladder. Trunk: F1, F3, F10, F12, F15, F21, F23, F25, F27, then the
+   spurs off it, then F27's own continuation to F34/F35/F42/F49. Heights are
+   ordinal position, not a claim about anything the levels measure. */
+(function () {
+  var trunk = ["F1","F3","F10","F12","F15","F21","F23","F25","F27"];
+  var spurs = {"F10":"F11","F15":"F18","F21":"F22","F23":"F24"};
+  var tail = ["F34","F35","F42","F49"];
+  var order = [];
+  trunk.forEach(function (k) {
+    order.push({ k: k, trunk: true });
+    if (spurs[k]) order.push({ k: spurs[k], trunk: false });
+  });
+  tail.forEach(function (k) { order.push({ k: k, trunk: true }); });
+
+  var el = document.getElementById("ladderSvg");
+  var max = order.length;
+  order.forEach(function (rung, i) {
+    var wrap = document.createElement("div");
+    wrap.className = "rung" + (rung.trunk ? " trunk" : " spur");
+    var h = 26 + Math.round((i / max) * 130);
+    var stem = document.createElement("div");
+    stem.className = "stem";
+    stem.style.height = h + "px";
+    var label = document.createElement("div");
+    label.className = "k";
+    label.textContent = rung.k;
+    wrap.appendChild(stem);
+    wrap.appendChild(label);
+    el.appendChild(wrap);
+  });
+})();
+</script>
+</body>
+</html>

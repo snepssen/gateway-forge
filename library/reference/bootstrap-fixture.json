@@ -1,0 +1,900 @@
+{
+  "note" : "Install and upgrade on scratch trees. Nothing here touches the real library.",
+  "receiptName" : ".gateway-forge-content.json",
+  "receiptSchemaVersion" : 2,
+  "scenarios" : [
+    {
+      "finalFiles" : [
+        {
+          "path" : "library/levels.json",
+          "text" : "[{\"key\":\"F10\",\"name\":\"N\",\"beatHz\":4,\"carrier\":100,\"bed\":{\"pink\":0.3,\"white\":0.05},\"layers\":[],\"rampSeconds\":20}]"
+        },
+        {
+          "path" : "library/segments/a.gws",
+          "text" : "@segment a\nsay one\n"
+        },
+        {
+          "path" : "library/templates/t.gws",
+          "text" : "use a\n"
+        }
+      ],
+      "focusSpec" : [
+
+      ],
+      "name" : "install-fresh",
+      "ops" : [
+        "install"
+      ],
+      "receiptFiles" : [
+        "library/levels.json",
+        "library/segments/a.gws",
+        "library/templates/t.gws"
+      ],
+      "result" : "installed",
+      "rootSpec" : [
+
+      ],
+      "sourceSpec" : [
+        {
+          "path" : "levels.json",
+          "text" : "[{\"key\":\"F10\",\"name\":\"N\",\"beatHz\":4,\"carrier\":100,\"bed\":{\"pink\":0.3,\"white\":0.05},\"layers\":[],\"rampSeconds\":20}]"
+        },
+        {
+          "path" : "segments/a.gws",
+          "text" : "@segment a\nsay one\n"
+        },
+        {
+          "path" : "templates/t.gws",
+          "text" : "use a\n"
+        }
+      ],
+      "upgrades" : [
+
+      ]
+    },
+    {
+      "finalFiles" : [
+        {
+          "path" : "library/levels.json",
+          "text" : "[{\"key\":\"F10\",\"name\":\"N\",\"beatHz\":4,\"carrier\":100,\"bed\":{\"pink\":0.3,\"white\":0.05},\"layers\":[],\"rampSeconds\":20}]"
+        },
+        {
+          "path" : "library/segments/a.gws",
+          "text" : "@segment a\nsay one\n"
+        },
+        {
+          "path" : "library/templates/t.gws",
+          "text" : "use a\n"
+        }
+      ],
+      "focusSpec" : [
+
+      ],
+      "name" : "install-twice",
+      "ops" : [
+        "install",
+        "install"
+      ],
+      "receiptFiles" : [
+        "library/levels.json",
+        "library/segments/a.gws",
+        "library/templates/t.gws"
+      ],
+      "result" : "alreadyInstalled",
+      "rootSpec" : [
+
+      ],
+      "sourceSpec" : [
+        {
+          "path" : "levels.json",
+          "text" : "[{\"key\":\"F10\",\"name\":\"N\",\"beatHz\":4,\"carrier\":100,\"bed\":{\"pink\":0.3,\"white\":0.05},\"layers\":[],\"rampSeconds\":20}]"
+        },
+        {
+          "path" : "segments/a.gws",
+          "text" : "@segment a\nsay one\n"
+        },
+        {
+          "path" : "templates/t.gws",
+          "text" : "use a\n"
+        }
+      ],
+      "upgrades" : [
+
+      ]
+    },
+    {
+      "error" : "sourceMissing",
+      "finalFiles" : [
+
+      ],
+      "focusSpec" : [
+
+      ],
+      "name" : "install-unusable-source",
+      "ops" : [
+        "install"
+      ],
+      "receiptFiles" : [
+
+      ],
+      "rootSpec" : [
+
+      ],
+      "sourceSpec" : [
+        {
+          "path" : "levels.json",
+          "text" : "[]"
+        }
+      ],
+      "upgrades" : [
+
+      ]
+    },
+    {
+      "error" : "sourceMissing",
+      "finalFiles" : [
+
+      ],
+      "focusSpec" : [
+
+      ],
+      "name" : "install-source-without-scripts",
+      "ops" : [
+        "install"
+      ],
+      "receiptFiles" : [
+
+      ],
+      "rootSpec" : [
+
+      ],
+      "sourceSpec" : [
+        {
+          "path" : "levels.json",
+          "text" : "[{\"key\":\"F10\",\"name\":\"N\",\"beatHz\":4,\"carrier\":100,\"bed\":{\"pink\":0.3,\"white\":0.05},\"layers\":[],\"rampSeconds\":20}]"
+        },
+        {
+          "path" : "segments/readme.md",
+          "text" : "not a script\n"
+        }
+      ],
+      "upgrades" : [
+
+      ]
+    },
+    {
+      "error" : "sourceMissing",
+      "finalFiles" : [
+
+      ],
+      "focusSpec" : [
+
+      ],
+      "name" : "install-source-without-templates",
+      "ops" : [
+        "install"
+      ],
+      "receiptFiles" : [
+
+      ],
+      "rootSpec" : [
+
+      ],
+      "sourceSpec" : [
+        {
+          "path" : "levels.json",
+          "text" : "[{\"key\":\"F10\",\"name\":\"N\",\"beatHz\":4,\"carrier\":100,\"bed\":{\"pink\":0.3,\"white\":0.05},\"layers\":[],\"rampSeconds\":20}]"
+        },
+        {
+          "path" : "segments/a.gws",
+          "text" : "@segment a\nsay one\n"
+        }
+      ],
+      "upgrades" : [
+
+      ]
+    },
+    {
+      "finalFiles" : [
+        {
+          "path" : "library/levels.json",
+          "text" : "[{\"key\":\"F10\",\"name\":\"N\",\"beatHz\":4,\"carrier\":100,\"bed\":{\"pink\":0.3,\"white\":0.05},\"layers\":[],\"rampSeconds\":20}]"
+        },
+        {
+          "path" : "library/segments/a.gws",
+          "text" : "MINE, edited\n"
+        },
+        {
+          "path" : "library/templates/t.gws",
+          "text" : "use a\n"
+        }
+      ],
+      "focusSpec" : [
+
+      ],
+      "name" : "install-repairs-interrupted",
+      "ops" : [
+        "install"
+      ],
+      "receiptFiles" : [
+        "library/levels.json",
+        "library/segments/a.gws",
+        "library/templates/t.gws"
+      ],
+      "result" : "repaired",
+      "rootSpec" : [
+        {
+          "path" : "library/segments/a.gws",
+          "text" : "MINE, edited\n"
+        }
+      ],
+      "sourceSpec" : [
+        {
+          "path" : "levels.json",
+          "text" : "[{\"key\":\"F10\",\"name\":\"N\",\"beatHz\":4,\"carrier\":100,\"bed\":{\"pink\":0.3,\"white\":0.05},\"layers\":[],\"rampSeconds\":20}]"
+        },
+        {
+          "path" : "segments/a.gws",
+          "text" : "@segment a\nsay one\n"
+        },
+        {
+          "path" : "templates/t.gws",
+          "text" : "use a\n"
+        }
+      ],
+      "upgrades" : [
+
+      ]
+    },
+    {
+      "finalFiles" : [
+        {
+          "path" : "focus/F10/scripts/s.gws",
+          "text" : "say scripted\n"
+        },
+        {
+          "path" : "focus/F10/sources/src.md",
+          "text" : "source text\n"
+        },
+        {
+          "path" : "library/levels.json",
+          "text" : "[{\"key\":\"F10\",\"name\":\"N\",\"beatHz\":4,\"carrier\":100,\"bed\":{\"pink\":0.3,\"white\":0.05},\"layers\":[],\"rampSeconds\":20}]"
+        },
+        {
+          "path" : "library/segments/a.gws",
+          "text" : "@segment a\nsay one\n"
+        },
+        {
+          "path" : "library/templates/t.gws",
+          "text" : "use a\n"
+        }
+      ],
+      "focusSpec" : [
+        {
+          "path" : "F10/scripts/s.gws",
+          "text" : "say scripted\n"
+        },
+        {
+          "path" : "F10/sources/src.md",
+          "text" : "source text\n"
+        },
+        {
+          "path" : "F10/entries/2026-01-01-000000.md",
+          "text" : "a visit\n"
+        },
+        {
+          "path" : "F10/notes.md",
+          "text" : "my note\n"
+        }
+      ],
+      "name" : "install-with-focus",
+      "ops" : [
+        "install"
+      ],
+      "receiptFiles" : [
+        "focus/F10/scripts/s.gws",
+        "focus/F10/sources/src.md",
+        "library/levels.json",
+        "library/segments/a.gws",
+        "library/templates/t.gws"
+      ],
+      "result" : "installed",
+      "rootSpec" : [
+
+      ],
+      "sourceSpec" : [
+        {
+          "path" : "levels.json",
+          "text" : "[{\"key\":\"F10\",\"name\":\"N\",\"beatHz\":4,\"carrier\":100,\"bed\":{\"pink\":0.3,\"white\":0.05},\"layers\":[],\"rampSeconds\":20}]"
+        },
+        {
+          "path" : "segments/a.gws",
+          "text" : "@segment a\nsay one\n"
+        },
+        {
+          "path" : "templates/t.gws",
+          "text" : "use a\n"
+        }
+      ],
+      "upgrades" : [
+
+      ]
+    },
+    {
+      "error" : "destinationUnusable",
+      "finalFiles" : [
+
+      ],
+      "focusSpec" : [
+
+      ],
+      "name" : "upgrade-not-installed",
+      "ops" : [
+        "upgrade"
+      ],
+      "receiptFiles" : [
+
+      ],
+      "rootSpec" : [
+
+      ],
+      "sourceSpec" : [
+        {
+          "path" : "levels.json",
+          "text" : "[{\"key\":\"F10\",\"name\":\"N\",\"beatHz\":4,\"carrier\":100,\"bed\":{\"pink\":0.3,\"white\":0.05},\"layers\":[],\"rampSeconds\":20}]"
+        },
+        {
+          "path" : "segments/a.gws",
+          "text" : "@segment a\nsay one\n"
+        },
+        {
+          "path" : "templates/t.gws",
+          "text" : "use a\n"
+        }
+      ],
+      "upgrades" : [
+
+      ]
+    },
+    {
+      "finalFiles" : [
+        {
+          "path" : "library/levels.json",
+          "text" : "[{\"key\":\"F10\",\"name\":\"N\",\"beatHz\":4,\"carrier\":100,\"bed\":{\"pink\":0.3,\"white\":0.05},\"layers\":[],\"rampSeconds\":20}]"
+        },
+        {
+          "path" : "library/segments/a.gws",
+          "text" : "@segment a\nsay one\n"
+        },
+        {
+          "path" : "library/templates/t.gws",
+          "text" : "use a\n"
+        }
+      ],
+      "focusSpec" : [
+
+      ],
+      "name" : "upgrade-no-changes",
+      "ops" : [
+        "install",
+        "upgrade"
+      ],
+      "receiptFiles" : [
+        "library/levels.json",
+        "library/segments/a.gws",
+        "library/templates/t.gws"
+      ],
+      "rootSpec" : [
+
+      ],
+      "sourceSpec" : [
+        {
+          "path" : "levels.json",
+          "text" : "[{\"key\":\"F10\",\"name\":\"N\",\"beatHz\":4,\"carrier\":100,\"bed\":{\"pink\":0.3,\"white\":0.05},\"layers\":[],\"rampSeconds\":20}]"
+        },
+        {
+          "path" : "segments/a.gws",
+          "text" : "@segment a\nsay one\n"
+        },
+        {
+          "path" : "templates/t.gws",
+          "text" : "use a\n"
+        }
+      ],
+      "upgrades" : [
+        {
+          "added" : [
+
+          ],
+          "kept" : [
+
+          ],
+          "updated" : [
+
+          ]
+        }
+      ]
+    },
+    {
+      "finalFiles" : [
+        {
+          "path" : "library/levels.json",
+          "text" : "[{\"key\":\"F10\",\"name\":\"N\",\"beatHz\":4,\"carrier\":100,\"bed\":{\"pink\":0.3,\"white\":0.05},\"layers\":[],\"rampSeconds\":20}]"
+        },
+        {
+          "path" : "library/segments/a.gws",
+          "text" : "@segment a\nsay one\n"
+        },
+        {
+          "path" : "library/segments/b.gws",
+          "text" : "@segment b\nsay two\n"
+        },
+        {
+          "path" : "library/templates/t.gws",
+          "text" : "use a\n"
+        }
+      ],
+      "focusSpec" : [
+
+      ],
+      "name" : "upgrade-adds-new",
+      "ops" : [
+        "install",
+        "add-to-source",
+        "upgrade"
+      ],
+      "receiptFiles" : [
+        "library/levels.json",
+        "library/segments/a.gws",
+        "library/segments/b.gws",
+        "library/templates/t.gws"
+      ],
+      "rootSpec" : [
+
+      ],
+      "sourceSpec" : [
+        {
+          "path" : "levels.json",
+          "text" : "[{\"key\":\"F10\",\"name\":\"N\",\"beatHz\":4,\"carrier\":100,\"bed\":{\"pink\":0.3,\"white\":0.05},\"layers\":[],\"rampSeconds\":20}]"
+        },
+        {
+          "path" : "segments/a.gws",
+          "text" : "@segment a\nsay one\n"
+        },
+        {
+          "path" : "templates/t.gws",
+          "text" : "use a\n"
+        }
+      ],
+      "upgrades" : [
+        {
+          "added" : [
+            "library/segments/b.gws"
+          ],
+          "kept" : [
+
+          ],
+          "updated" : [
+
+          ]
+        }
+      ]
+    },
+    {
+      "finalFiles" : [
+        {
+          "path" : "library/levels.json",
+          "text" : "[{\"key\":\"F10\",\"name\":\"N\",\"beatHz\":4,\"carrier\":100,\"bed\":{\"pink\":0.3,\"white\":0.05},\"layers\":[],\"rampSeconds\":20}]"
+        },
+        {
+          "path" : "library/segments/a.gws",
+          "text" : "@segment a\nsay one improved\n"
+        },
+        {
+          "path" : "library/templates/t.gws",
+          "text" : "use a\n"
+        }
+      ],
+      "focusSpec" : [
+
+      ],
+      "name" : "upgrade-updates-untouched",
+      "ops" : [
+        "install",
+        "change-source",
+        "upgrade"
+      ],
+      "receiptFiles" : [
+        "library/levels.json",
+        "library/segments/a.gws",
+        "library/templates/t.gws"
+      ],
+      "rootSpec" : [
+
+      ],
+      "sourceSpec" : [
+        {
+          "path" : "levels.json",
+          "text" : "[{\"key\":\"F10\",\"name\":\"N\",\"beatHz\":4,\"carrier\":100,\"bed\":{\"pink\":0.3,\"white\":0.05},\"layers\":[],\"rampSeconds\":20}]"
+        },
+        {
+          "path" : "segments/a.gws",
+          "text" : "@segment a\nsay one\n"
+        },
+        {
+          "path" : "templates/t.gws",
+          "text" : "use a\n"
+        }
+      ],
+      "upgrades" : [
+        {
+          "added" : [
+
+          ],
+          "kept" : [
+
+          ],
+          "updated" : [
+            "library/segments/a.gws"
+          ]
+        }
+      ]
+    },
+    {
+      "finalFiles" : [
+        {
+          "path" : "library/levels.json",
+          "text" : "[{\"key\":\"F10\",\"name\":\"N\",\"beatHz\":4,\"carrier\":100,\"bed\":{\"pink\":0.3,\"white\":0.05},\"layers\":[],\"rampSeconds\":20}]"
+        },
+        {
+          "path" : "library/segments/a.gws",
+          "text" : "@segment a\nsay MY OWN WORDS\n"
+        },
+        {
+          "path" : "library/templates/t.gws",
+          "text" : "use a\n"
+        }
+      ],
+      "focusSpec" : [
+
+      ],
+      "name" : "upgrade-keeps-edited",
+      "ops" : [
+        "install",
+        "edit-on-disk",
+        "change-source",
+        "upgrade"
+      ],
+      "receiptFiles" : [
+        "library/levels.json",
+        "library/segments/a.gws",
+        "library/templates/t.gws"
+      ],
+      "rootSpec" : [
+
+      ],
+      "sourceSpec" : [
+        {
+          "path" : "levels.json",
+          "text" : "[{\"key\":\"F10\",\"name\":\"N\",\"beatHz\":4,\"carrier\":100,\"bed\":{\"pink\":0.3,\"white\":0.05},\"layers\":[],\"rampSeconds\":20}]"
+        },
+        {
+          "path" : "segments/a.gws",
+          "text" : "@segment a\nsay one\n"
+        },
+        {
+          "path" : "templates/t.gws",
+          "text" : "use a\n"
+        }
+      ],
+      "upgrades" : [
+        {
+          "added" : [
+
+          ],
+          "kept" : [
+            "library/segments/a.gws"
+          ],
+          "updated" : [
+
+          ]
+        }
+      ]
+    },
+    {
+      "finalFiles" : [
+        {
+          "path" : "library/levels.json",
+          "text" : "[{\"key\":\"F10\",\"name\":\"N\",\"beatHz\":4,\"carrier\":100,\"bed\":{\"pink\":0.3,\"white\":0.05},\"layers\":[],\"rampSeconds\":20}]"
+        },
+        {
+          "path" : "library/segments/a.gws",
+          "text" : "@segment a\nsay MY OWN WORDS\n"
+        },
+        {
+          "path" : "library/templates/t.gws",
+          "text" : "use a\n"
+        }
+      ],
+      "focusSpec" : [
+
+      ],
+      "name" : "upgrade-twice-keeps-edited",
+      "ops" : [
+        "install",
+        "edit-on-disk",
+        "change-source",
+        "upgrade",
+        "upgrade"
+      ],
+      "receiptFiles" : [
+        "library/levels.json",
+        "library/segments/a.gws",
+        "library/templates/t.gws"
+      ],
+      "rootSpec" : [
+
+      ],
+      "sourceSpec" : [
+        {
+          "path" : "levels.json",
+          "text" : "[{\"key\":\"F10\",\"name\":\"N\",\"beatHz\":4,\"carrier\":100,\"bed\":{\"pink\":0.3,\"white\":0.05},\"layers\":[],\"rampSeconds\":20}]"
+        },
+        {
+          "path" : "segments/a.gws",
+          "text" : "@segment a\nsay one\n"
+        },
+        {
+          "path" : "templates/t.gws",
+          "text" : "use a\n"
+        }
+      ],
+      "upgrades" : [
+        {
+          "added" : [
+
+          ],
+          "kept" : [
+            "library/segments/a.gws"
+          ],
+          "updated" : [
+
+          ]
+        },
+        {
+          "added" : [
+
+          ],
+          "kept" : [
+            "library/segments/a.gws"
+          ],
+          "updated" : [
+
+          ]
+        }
+      ]
+    },
+    {
+      "finalFiles" : [
+        {
+          "path" : "library/levels.json",
+          "text" : "[{\"key\":\"F10\",\"name\":\"N\",\"beatHz\":4,\"carrier\":100,\"bed\":{\"pink\":0.3,\"white\":0.05},\"layers\":[],\"rampSeconds\":20}]"
+        },
+        {
+          "path" : "library/segments/a.gws",
+          "text" : "@segment a\nsay one\n"
+        },
+        {
+          "path" : "library/segments/b.gws",
+          "text" : "@segment b\nsay two\n"
+        },
+        {
+          "path" : "library/templates/t.gws",
+          "text" : "use a\n"
+        }
+      ],
+      "focusSpec" : [
+
+      ],
+      "name" : "upgrade-restores-deleted",
+      "ops" : [
+        "install",
+        "delete-on-disk",
+        "upgrade"
+      ],
+      "receiptFiles" : [
+        "library/levels.json",
+        "library/segments/a.gws",
+        "library/segments/b.gws",
+        "library/templates/t.gws"
+      ],
+      "rootSpec" : [
+
+      ],
+      "sourceSpec" : [
+        {
+          "path" : "levels.json",
+          "text" : "[{\"key\":\"F10\",\"name\":\"N\",\"beatHz\":4,\"carrier\":100,\"bed\":{\"pink\":0.3,\"white\":0.05},\"layers\":[],\"rampSeconds\":20}]"
+        },
+        {
+          "path" : "segments/a.gws",
+          "text" : "@segment a\nsay one\n"
+        },
+        {
+          "path" : "templates/t.gws",
+          "text" : "use a\n"
+        },
+        {
+          "path" : "segments/b.gws",
+          "text" : "@segment b\nsay two\n"
+        }
+      ],
+      "upgrades" : [
+        {
+          "added" : [
+            "library/segments/a.gws"
+          ],
+          "kept" : [
+
+          ],
+          "updated" : [
+
+          ]
+        }
+      ]
+    },
+    {
+      "finalFiles" : [
+        {
+          "path" : "library/levels.json",
+          "text" : "[{\"key\":\"F10\",\"name\":\"N\",\"beatHz\":4,\"carrier\":100,\"bed\":{\"pink\":0.3,\"white\":0.05},\"layers\":[],\"rampSeconds\":20}]"
+        },
+        {
+          "path" : "library/segments/a.gws",
+          "text" : "@segment a\nsay one\n"
+        },
+        {
+          "path" : "library/templates/t.gws",
+          "text" : "use a\n"
+        }
+      ],
+      "focusSpec" : [
+
+      ],
+      "name" : "upgrade-after-schema-1",
+      "ops" : [
+        "install",
+        "downgrade-receipt",
+        "change-source",
+        "upgrade"
+      ],
+      "receiptFiles" : [
+        "library/levels.json",
+        "library/templates/t.gws"
+      ],
+      "rootSpec" : [
+
+      ],
+      "sourceSpec" : [
+        {
+          "path" : "levels.json",
+          "text" : "[{\"key\":\"F10\",\"name\":\"N\",\"beatHz\":4,\"carrier\":100,\"bed\":{\"pink\":0.3,\"white\":0.05},\"layers\":[],\"rampSeconds\":20}]"
+        },
+        {
+          "path" : "segments/a.gws",
+          "text" : "@segment a\nsay one\n"
+        },
+        {
+          "path" : "templates/t.gws",
+          "text" : "use a\n"
+        }
+      ],
+      "upgrades" : [
+        {
+          "added" : [
+
+          ],
+          "kept" : [
+            "library/segments/a.gws"
+          ],
+          "updated" : [
+
+          ]
+        }
+      ]
+    },
+    {
+      "finalFiles" : [
+        {
+          "path" : "focus/F10/entries/2026-01-01-000000.md",
+          "text" : "MY VISIT\n"
+        },
+        {
+          "path" : "focus/F10/notes.md",
+          "text" : "MY NOTE\n"
+        },
+        {
+          "path" : "focus/F10/scripts/s.gws",
+          "text" : "say scripted\n"
+        },
+        {
+          "path" : "focus/F10/sources/src.md",
+          "text" : "source text\n"
+        },
+        {
+          "path" : "library/levels.json",
+          "text" : "[{\"key\":\"F10\",\"name\":\"N\",\"beatHz\":4,\"carrier\":100,\"bed\":{\"pink\":0.3,\"white\":0.05},\"layers\":[],\"rampSeconds\":20}]"
+        },
+        {
+          "path" : "library/segments/a.gws",
+          "text" : "@segment a\nsay one\n"
+        },
+        {
+          "path" : "library/templates/t.gws",
+          "text" : "use a\n"
+        }
+      ],
+      "focusSpec" : [
+        {
+          "path" : "F10/scripts/s.gws",
+          "text" : "say scripted\n"
+        },
+        {
+          "path" : "F10/sources/src.md",
+          "text" : "source text\n"
+        },
+        {
+          "path" : "F10/entries/2026-01-01-000000.md",
+          "text" : "a visit\n"
+        },
+        {
+          "path" : "F10/notes.md",
+          "text" : "my note\n"
+        }
+      ],
+      "name" : "upgrade-never-touches-journal",
+      "ops" : [
+        "install",
+        "write-journal",
+        "upgrade"
+      ],
+      "receiptFiles" : [
+        "focus/F10/scripts/s.gws",
+        "focus/F10/sources/src.md",
+        "library/levels.json",
+        "library/segments/a.gws",
+        "library/templates/t.gws"
+      ],
+      "rootSpec" : [
+
+      ],
+      "sourceSpec" : [
+        {
+          "path" : "levels.json",
+          "text" : "[{\"key\":\"F10\",\"name\":\"N\",\"beatHz\":4,\"carrier\":100,\"bed\":{\"pink\":0.3,\"white\":0.05},\"layers\":[],\"rampSeconds\":20}]"
+        },
+        {
+          "path" : "segments/a.gws",
+          "text" : "@segment a\nsay one\n"
+        },
+        {
+          "path" : "templates/t.gws",
+          "text" : "use a\n"
+        }
+      ],
+      "upgrades" : [
+        {
+          "added" : [
+
+          ],
+          "kept" : [
+
+          ],
+          "updated" : [
+
+          ]
+        }
+      ]
+    }
+  ]
+}

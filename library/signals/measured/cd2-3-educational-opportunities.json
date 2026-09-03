@@ -1,0 +1,50 @@
+{
+  "id": "cd2-3-educational-opportunities",
+  "provenance": "measured",
+  "tape": "Wave VIII - Union/CD2 - 3 - Educational Opportunities.flac",
+  "duration": 2280.0,
+  "holds": [
+    {
+      "start": 10.0,
+      "end": 340.0,
+      "carrier": 48.81,
+      "beat": 0.374,
+      "gain": 1.0,
+      "confidence": 0.99
+    },
+    {
+      "start": 430.0,
+      "end": 530.0,
+      "carrier": 146.08,
+      "beat": 1.5,
+      "gain": 0.314,
+      "confidence": 0.77
+    },
+    {
+      "start": 440.0,
+      "end": 2190.0,
+      "carrier": 73.22,
+      "beat": 0.382,
+      "gain": 1.0,
+      "confidence": 0.76
+    },
+    {
+      "start": 2160.0,
+      "end": 2190.0,
+      "carrier": 146.08,
+      "beat": 1.5,
+      "gain": 0.314,
+      "confidence": 0.77
+    },
+    {
+      "start": 2200.0,
+      "end": 2260.0,
+      "carrier": 48.81,
+      "beat": 0.374,
+      "gain": 1.0,
+      "confidence": 0.99
+    }
+  ],
+  "notes": "FFT of the tape, 20 s windows (0.05 Hz), 226 windows. 3 simultaneous binaural layers above 4% presence. Pairs required near-equal level in both ears; layers overlap in time because Hemi-Sync sounds several at once.",
+  "level": "F27"
+}

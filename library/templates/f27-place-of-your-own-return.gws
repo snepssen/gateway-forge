@@ -1,0 +1,63 @@
+# Same tape as f27-place-of-your-own, ending with the graceful return and the
+# waking count instead of being left at the Park.
+#
+# The affirmation is the 1977 original rather than the settled form: the
+# route enters F23, F25 and F26, which levels.json marks as populated by minds
+# the listener did not choose. The tape's own preparatory process is
+# expanded through reusable components, so which affirmation fills that
+# slot is this library's choice and not a claim about the source.
+
+@title    Focus 27 — The Place of Your Own (return)
+@level    F10
+@ending   return
+@pan      right
+@seed     2727
+@verbosity 3
+
+surf 0.55
+use opening
+use comfort
+use orientation
+use ocean
+
+surf 0.30
+use conversion-box
+use affirmation-1977
+
+surf 0.18
+use resonant-tuning
+use balloon
+use return-methods
+use clear-skies
+
+surf 0.0
+use relax-10
+
+use climb-f10-f12
+use briefing-f12
+use free
+
+use climb-f12-f15
+use briefing-f15
+use free
+
+use climb-f15-f21
+use briefing-f21
+
+use climb-f21-f23
+use briefing-f23
+
+use climb-f23-f25
+use briefing-f25
+
+use climb-f25-f26
+use briefing-f26
+
+use climb-f26-f27
+use briefing-f27
+
+bed 0.38 0.03
+use place-of-your-own
+use gratitude
+use descend-f27-f10
+use return

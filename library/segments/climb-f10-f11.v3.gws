@@ -1,0 +1,25 @@
+# App-authored transition, not from a tape. No tape or manual in the library
+# reaches Focus 11. The only descriptive footing is the unverified secondary
+# overview at library/reference/focus-levels-overview.md; this body labels that
+# footing aloud and makes no claim about what the transition should feel like.
+
+@segment    climb-f10-f11
+@title      Climb — Focus 10 to Focus 11
+@levels     F11
+@from       F10
+@fixed
+@verbosity  3
+@protected  Focus 11
+@duration   ~55s
+
+say From Focus 10, you will move one step to Focus 11.
+pause 4
+say The only available map is a secondary overview. It calls Focus 11 the Access Channel, but no tape or manual here establishes what the transition should feel like.
+pause 6
+say Let the number mark the change, and let your own observation supply the account.
+pause 5
+level F11
+say Ten.
+pause 5
+say Eleven.
+pause 8
