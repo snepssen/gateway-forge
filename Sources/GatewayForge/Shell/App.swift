@@ -40,7 +40,7 @@ struct GatewayForgeApp: App {
                                 renderer: renderer, library: store?.library)
                         }
                     }
-                    companion.startIfEnabled()
+                    await companion.startIfEnabled()
                     companion.consumeGenerationRequests(
                         renderer: renderer, library: store.library)
                 }

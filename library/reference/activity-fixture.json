@@ -320,25 +320,25 @@
       ]
     },
     {
-      "count" : 1,
+      "count" : 0,
       "ids" : [
-        "sync-6fb66843-2907-4775-a6f3-11a3bdfba1b1"
+
       ],
       "level" : "F27",
-      "substantive" : 1,
+      "substantive" : 0,
       "words" : [
-        35
+
       ]
     },
     {
-      "count" : 1,
+      "count" : 0,
       "ids" : [
-        "sync-52d97e5d-9273-4c1e-bf7c-8f1ff5505c75"
+
       ],
       "level" : "F34",
-      "substantive" : 1,
+      "substantive" : 0,
       "words" : [
-        7
+
       ]
     },
     {
@@ -373,111 +373,47 @@
       "words" : [
 
       ]
-    },
-    {
-      "count" : 0,
-      "ids" : [
-
-      ],
-      "level" : "F13",
-      "substantive" : 0,
-      "words" : [
-
-      ]
     }
   ],
   "ledger" : {
-    "appSeconds" : 251638.0257203579,
+    "appSeconds" : 0,
     "completedTracks" : [
-      "2026-08-23-130926-continuous-f3-f3aaebf8",
-      "2026-08-26-104002-castle-bc28388d",
-      "2026-08-26-121910-continuous-f3-7cf5d029",
-      "2026-08-26-122142-continuous-f3-f2a2da9c",
-      "2026-08-26-123157-continuous-f3-73b8a6ff",
-      "2026-08-26-123632-continuous-f3-00f0a1ae",
-      "2026-08-26-132012-continuous-f3-44d74987",
-      "2026-08-26-f10-visit",
-      "2026-08-26-f3-visit",
-      "2026-08-30-054710-continuous-f27-cf70ec3d",
-      "2026-08-30-054900-continuous-f27-0a1b2926",
-      "2026-08-31-033037-continuous-f13-dc43a6cf",
-      "2026-09-01-020304-continuous-f11-fe4c50ca",
-      "2026-09-01-021555-continuous-f12-661f0753",
-      "2026-09-01-203010-advanced-focus-10-9fff7165",
-      "2026-09-01-212643-f34-visit-42f62888",
-      "2026-09-02-031803-continuous-f13-ba802011",
-      "2026-09-02-103454-continuous-f18-22f1d696"
+
     ],
-    "completionCount" : 26,
+    "completionCount" : 0,
     "completionIDs" : [
-      "2026-08-23-130926-continuous-f3-f3aaebf8@1787507974.0",
-      "2026-08-23-130926-continuous-f3-f3aaebf8@1787511909.0",
-      "2026-08-26-f3-visit@1787742055.0",
-      "2026-08-26-f10-visit@1787745368.0",
-      "2026-08-26-121910-continuous-f3-7cf5d029@1787746846.0",
-      "2026-08-26-122142-continuous-f3-f2a2da9c@1787746919.0",
-      "2026-08-26-123157-continuous-f3-73b8a6ff@1787747549.0",
-      "2026-08-26-123632-continuous-f3-00f0a1ae@1787747824.0",
-      "2026-08-26-132012-continuous-f3-44d74987@1787750420.0",
-      "2026-08-26-104002-castle-bc28388d@1788042230.0",
-      "2026-08-26-132012-continuous-f3-44d74987@1788059055.0",
-      "2026-08-30-054710-continuous-f27-cf70ec3d@1788068921.0",
-      "2026-08-30-054900-continuous-f27-0a1b2926@1788069025.0",
-      "2026-08-31-033037-continuous-f13-dc43a6cf@1788147236.0",
-      "2026-08-31-033037-continuous-f13-dc43a6cf@1788148057.0",
-      "2026-09-01-020304-continuous-f11-fe4c50ca@1788228806.0",
-      "2026-09-01-021555-continuous-f12-661f0753@1788229143.0",
-      "2026-09-01-203010-advanced-focus-10-9fff7165@1788295972.0",
-      "2026-09-01-212643-f34-visit-42f62888@1788301479.0",
-      "2026-09-02-031803-continuous-f13-ba802011@1788319280.0",
-      "6b6b80a9-88b6-4c82-a39a-e09372b4e431",
-      "f820dc17-473f-45f0-a7d6-b7d8f191b506",
-      "f3b15bf0-af54-45d4-97e2-b66ddcb609e5",
-      "2155ae0b-8a5f-4632-bbea-8e53ac4a867d",
-      "b5e31510-bacd-4067-9e9f-81668cc7b85b",
-      "7a3b8f49-4095-49a9-9568-46f4b428aa75"
+
     ],
-    "deepestLevel" : "F34",
-    "firstOpened" : "2026-08-23T17:58:18Z",
-    "listeningSeconds" : 32627.08561053308,
+    "listeningSeconds" : 0,
     "reachedLevels" : [
-      "F10",
-      "F11",
-      "F12",
-      "F13",
-      "F18",
-      "F27",
-      "F3",
-      "F34"
+
     ],
-    "renderSeconds" : 4073.179773211479,
+    "renderSeconds" : 0,
     "schemaVersion" : 1
   },
   "note" : "The ledger on disk, the stats measured from the tree, and what the store refuses.",
   "noteURLs" : {
-    "count" : 242,
+    "count" : 197,
     "sample" : [
       "focus/F1/notes.md",
       "focus/F10/notes.md",
-      "focus/F10/renders/2026-09-01-203010-advanced-focus-10-9fff7165/notes.md",
-      "focus/F10/renders/2026-09-02-040522-release-and-recharge-d2384752/notes.md",
-      "focus/F10/renders/2026-09-02-103820-exploration-sleep-04faf809/notes.md",
-      "focus/F10/renders/2026-09-02-103839-free-flow-10-3f6bbeef/notes.md",
-      "focus/F10/renders/2026-09-02-104100-color-breathing-cae3960f/notes.md",
-      "focus/F10/renders/2026-09-02-104116-energy-bar-tool-9c66383f/notes.md"
+      "focus/F11/notes.md",
+      "focus/F12/notes.md",
+      "focus/F15/notes.md",
+      "focus/F18/notes.md",
+      "focus/F21/notes.md",
+      "focus/F22/notes.md"
     ]
   },
   "stats" : {
-    "deepestLevel" : "F34",
-    "levelsReached" : 8,
-    "levelsWithMaterial" : 18,
-    "listensCompleted" : 26,
-    "noteWords" : 2165,
-    "notesLogged" : 11,
-    "progression" : 0.4444444444444444,
-    "sessionsAssembled" : 44,
-    "sessionsCompleted" : 16,
-    "sessionsOutstanding" : 28
+    "levelsReached" : 0,
+    "levelsWithMaterial" : 0,
+    "listensCompleted" : 0,
+    "noteWords" : 416,
+    "notesLogged" : 2,
+    "sessionsAssembled" : 0,
+    "sessionsCompleted" : 0,
+    "sessionsOutstanding" : 0
   },
   "wordCases" : [
     {
