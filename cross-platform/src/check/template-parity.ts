@@ -8,6 +8,7 @@ import { tmpdir } from "os";
 import * as TE from "../core/templateEdit.js";
 import * as SP from "../core/sessionPlan.js";
 import { scan, type Library, type SegmentRef } from "../core/library.js";
+import { toPortableRelative } from "../core/path.js";
 import { parse, type ScriptDoc } from "../core/scriptDoc.js";
 
 interface StepLineOut { ordinal: number; line: number; text: string; kind: string; segmentID: string }
@@ -130,7 +131,11 @@ const load = (f: string): ScriptDoc | undefined => {
 };
 const takesDir = join(root, "segments-rendered", "snepssen-suno");
 const rendered = (name: string): boolean => read(join(takesDir, name)) !== undefined;
-const rel = (p: string) => (p.startsWith(root + "/") ? p.slice(root.length + 1) : p);
+// Host paths are backslash-separated on Windows; the fixture Swift wrote is
+// always slash-separated portable relative. A naive `startsWith(root + "/")`
+// silently no-ops there and compares an absolute Windows path against a
+// relative POSIX one.
+const rel = (p: string) => toPortableRelative(p, root) ?? p;
 
 const realTemplateDoc = parse(fx.editFixture.source);
 
