@@ -1,0 +1,609 @@
+{
+  "echoCases" : [
+    {
+      "draft" : "the conventional count of ten",
+      "hits" : [
+        "the conventional count of ten"
+      ],
+      "minWords" : 3,
+      "name" : "exact-run",
+      "source" : "we begin the conventional count of ten now"
+    },
+    {
+      "draft" : "entirely different words here",
+      "hits" : [
+
+      ],
+      "minWords" : 3,
+      "name" : "no-overlap",
+      "source" : "nothing at all in common"
+    },
+    {
+      "draft" : "two words",
+      "hits" : [
+
+      ],
+      "minWords" : 3,
+      "name" : "too-short-draft",
+      "source" : "two words and more besides"
+    },
+    {
+      "draft" : "anything at all here",
+      "hits" : [
+
+      ],
+      "minWords" : 3,
+      "name" : "empty-source",
+      "source" : ""
+    },
+    {
+      "draft" : "",
+      "hits" : [
+
+      ],
+      "minWords" : 3,
+      "name" : "empty-draft",
+      "source" : "some source text here"
+    },
+    {
+      "draft" : "one, two. three! four?",
+      "hits" : [
+        "one two three four"
+      ],
+      "minWords" : 3,
+      "name" : "punctuation-split",
+      "source" : "one two three four five"
+    },
+    {
+      "draft" : "THE CONVENTIONAL COUNT",
+      "hits" : [
+        "the conventional count"
+      ],
+      "minWords" : 3,
+      "name" : "case-insensitive",
+      "source" : "the conventional count of ten"
+    },
+    {
+      "draft" : "café au lait served",
+      "hits" : [
+        "café au lait served"
+      ],
+      "minWords" : 3,
+      "name" : "accented",
+      "source" : "a café au lait served here"
+    },
+    {
+      "draft" : "alpha beta gamma filler delta epsilon zeta",
+      "hits" : [
+        "alpha beta gamma",
+        "delta epsilon zeta"
+      ],
+      "minWords" : 3,
+      "name" : "two-separate-runs",
+      "source" : "alpha beta gamma and delta epsilon zeta"
+    },
+    {
+      "draft" : "one two three four five six",
+      "hits" : [
+        "one two three four five six"
+      ],
+      "minWords" : 3,
+      "name" : "overlapping-merges",
+      "source" : "one two three four five six"
+    },
+    {
+      "draft" : "a b",
+      "hits" : [
+        "a b"
+      ],
+      "minWords" : 2,
+      "name" : "min-two",
+      "source" : "a b c"
+    },
+    {
+      "draft" : "hello",
+      "hits" : [
+        "hello"
+      ],
+      "minWords" : 1,
+      "name" : "min-one",
+      "source" : "hello there"
+    },
+    {
+      "draft" : "focus 10 and 12",
+      "hits" : [
+        "focus 10 and 12"
+      ],
+      "minWords" : 3,
+      "name" : "numbers",
+      "source" : "reach focus 10 and 12 now"
+    }
+  ],
+  "endpoint" : "http://127.0.0.1:11434/api/chat",
+  "gwsCases" : [
+    {
+      "id" : "f12-visit",
+      "levels" : [
+        "F12"
+      ],
+      "lines" : [
+        [
+          "You are here.",
+          "6.0"
+        ],
+        [
+          "Rest a moment.",
+          "12.4"
+        ],
+        [
+          "And again.",
+          "12.5"
+        ]
+      ],
+      "name" : "typical",
+      "parsedSteps" : 6,
+      "parses" : true,
+      "proposalTitle" : "Proposed",
+      "protectedTerms" : [
+        "REBAL"
+      ],
+      "source" : "# Drafted by gateway-composer, reviewed and accepted in-app.\n\n@segment  f12-visit\n@title    Into Focus 12\n@levels   F12\n@verbosity 3\n@protected REBAL\n\nsay You are here.\npause 6\nsay Rest a moment.\npause 12\nsay And again.\npause 13\n",
+      "title" : "Into Focus 12",
+      "verbosity" : 3
+    },
+    {
+      "id" : "x",
+      "levels" : [
+        "F10"
+      ],
+      "lines" : [
+        [
+          "One line.",
+          "3.0"
+        ]
+      ],
+      "name" : "no-title-uses-proposal",
+      "parsedSteps" : 2,
+      "parses" : true,
+      "proposalTitle" : "Fallback Title",
+      "protectedTerms" : [
+
+      ],
+      "source" : "# Drafted by gateway-composer, reviewed and accepted in-app.\n\n@segment  x\n@title    Fallback Title\n@levels   F10\n\nsay One line.\npause 3\n",
+      "title" : ""
+    },
+    {
+      "id" : "y",
+      "levels" : [
+        "F10",
+        "F12"
+      ],
+      "lines" : [
+        [
+          "A.",
+          "2.0"
+        ]
+      ],
+      "name" : "no-verbosity-no-protected",
+      "parsedSteps" : 2,
+      "parses" : true,
+      "proposalTitle" : "T",
+      "protectedTerms" : [
+
+      ],
+      "source" : "# Drafted by gateway-composer, reviewed and accepted in-app.\n\n@segment  y\n@title    Y\n@levels   F10, F12\n\nsay A.\npause 2\n",
+      "title" : "Y"
+    },
+    {
+      "id" : "z",
+      "levels" : [
+        "F3"
+      ],
+      "lines" : [
+        [
+          "Half up.",
+          "2.5"
+        ],
+        [
+          "Half down.",
+          "3.49"
+        ],
+        [
+          "Exact.",
+          "20.0"
+        ]
+      ],
+      "name" : "rounding",
+      "parsedSteps" : 6,
+      "parses" : true,
+      "proposalTitle" : "T",
+      "protectedTerms" : [
+
+      ],
+      "source" : "# Drafted by gateway-composer, reviewed and accepted in-app.\n\n@segment  z\n@title    Z\n@levels   F3\n@verbosity 1\n\nsay Half up.\npause 3\nsay Half down.\npause 3\nsay Exact.\npause 20\n",
+      "title" : "Z",
+      "verbosity" : 1
+    }
+  ],
+  "model" : "gateway-composer",
+  "note" : "The compose layer's pure half. The network client is not ported.",
+  "promptCases" : [
+    {
+      "instruction" : "Keep it under two minutes.",
+      "level" : "F12",
+      "name" : "full",
+      "prompt" : "Draft the f12-visit segment (\"Into Focus 12\") for F12 at verbosity 3. Published context: 'expanded awareness' The original tape says this about the level: 'the tape says a thing' Use it for what is TRUE of this level -- what is there, what the listener does. Do NOT copy its phrasing; write fresh lines in your own register. Protected terms that must appear verbatim: Energy Conversion Box, REBAL. Keep it under two minutes.",
+      "protectedTerms" : [
+        "Energy Conversion Box",
+        "REBAL"
+      ],
+      "published" : "expanded awareness",
+      "segmentID" : "f12-visit",
+      "sourceExcerpt" : "the tape says a thing",
+      "title" : "Into Focus 12",
+      "verbosity" : 3
+    },
+    {
+      "instruction" : "",
+      "level" : "F10",
+      "name" : "bare",
+      "prompt" : "Draft the relax-10 segment (\"Ten-Point Relaxation\") for F10 at verbosity 1.",
+      "protectedTerms" : [
+
+      ],
+      "published" : "",
+      "segmentID" : "relax-10",
+      "sourceExcerpt" : "",
+      "title" : "Ten-Point Relaxation",
+      "verbosity" : 1
+    },
+    {
+      "instruction" : "do this",
+      "level" : "F3",
+      "name" : "no-protected",
+      "prompt" : "Draft the x segment (\"X\") for F3 at verbosity 2. Published context: 'ctx' do this",
+      "protectedTerms" : [
+
+      ],
+      "published" : "ctx",
+      "segmentID" : "x",
+      "sourceExcerpt" : "",
+      "title" : "X",
+      "verbosity" : 2
+    },
+    {
+      "instruction" : "",
+      "level" : "F15",
+      "name" : "only-excerpt",
+      "prompt" : "Draft the y segment (\"Y\") for F15 at verbosity 3. The original tape says this about the level: 'excerpt only' Use it for what is TRUE of this level -- what is there, what the listener does. Do NOT copy its phrasing; write fresh lines in your own register.",
+      "protectedTerms" : [
+
+      ],
+      "published" : "",
+      "segmentID" : "y",
+      "sourceExcerpt" : "excerpt only",
+      "title" : "Y",
+      "verbosity" : 3
+    },
+    {
+      "instruction" : "",
+      "level" : "F27",
+      "name" : "quotes-in-title",
+      "prompt" : "Draft the z segment (\"The \"Park\"\") for F27 at verbosity 3.",
+      "protectedTerms" : [
+
+      ],
+      "published" : "",
+      "segmentID" : "z",
+      "sourceExcerpt" : "",
+      "title" : "The \"Park\"",
+      "verbosity" : 3
+    }
+  ],
+  "realEchoCases" : [
+    {
+      "draft" : "Once Focus 10 is familiar to you, you don't need the full count to return to it. Inhale deeply. As you hold your breath, think the number ten, inside a bright, moving circle. Exhale, and you'll be in Focus 10, just as you are right now. Returning is just as quick. Think the number one, and intend to be awake. Do this, and you'll be completely awake, both physically and mentally, refreshed, in every way. The more you use these, the faster and more natural they'll become.",
+      "hits" : [
+        "you ll be",
+        "in focus 10",
+        "the number one",
+        "you ll be completely",
+        "awake both physically and mentally",
+        "in every way",
+        "the more you use"
+      ],
+      "minWords" : 3,
+      "name" : "advanced-focus-10 vs cd1-2-introduction-to-focus-10.md",
+      "source" : "[redacted: Gateway tape transcript, removed from history. The echo detector is exercised on the library's own segment bodies instead.]"
+    },
+    {
+      "draft" : "Return to Focus 12, and reinforce it. Let your consciousness expand even further, deeper, well beyond your five physical senses. In this expanded state, you're free to explore however you choose. Set new patterns for your life. Reopen a communication point with someone. Practice nonverbal communication. Or simply observe and experience. Use this time however serves you. I'll call you when it's done. Return now to normal Focus 12. Calm and comfortable, back in Focus 12.",
+      "hits" : [
+        "to focus 12",
+        "return now to",
+        "calm and comfortable",
+        "in focus 12"
+      ],
+      "minWords" : 3,
+      "name" : "advanced-focus-12 vs cd1-1-introduction-to-focus-12.md",
+      "source" : "[redacted: Gateway tape transcript, removed from history. The echo detector is exercised on the library's own segment bodies instead.]"
+    },
+    {
+      "draft" : "Say in your mind. Say to yourself. I am more than my physical body. Because I am more than physical matter, I can perceive that which is greater than the physical world. Therefore, in these exercises, I deeply desire to expand, to experience, to know, to understand, to control, to use such greater energies and energy systems as may be beneficial and constructive to me, and to those who follow me. Also during these exercises, I deeply desire the help and cooperation, the assistance, the understanding, of those individuals whose wisdom, development, and experience are equal or greater than my own. I ask their guidance and protection from any influence or any source that might provide me with less than my stated desires. I now protect myself as may be needed from such influence, and reject any source that may restrain me from my stated desires.",
+      "hits" : [
+        "say in your mind say to yourself i am more than my physical body because i am more than physical matter i",
+        "i deeply desire to expand to experience to know to understand to control to use such greater energies and energy systems as may be beneficial and constructive to me and to those",
+        "i deeply desire the help and cooperation the assistance the understanding of those individuals whose wisdom development and experience are equal or greater than my own",
+        "as may be"
+      ],
+      "minWords" : 3,
+      "name" : "affirmation-1977 vs cd1-2-introduction-to-focus-10.md",
+      "source" : "[redacted: Gateway tape transcript, removed from history. The echo detector is exercised on the library's own segment bodies instead.]"
+    },
+    {
+      "draft" : "Say in your mind. Say to yourself. I am more than my physical body, because I am more than physical matter. I deeply desire to expand. To experience. To know. To understand. To control. To use such greater energies and energy systems as may be beneficial and constructive to me, and to those near and close to me. I deeply desire the help and cooperation, the assistance, the understanding, of those individuals whose wisdom, development, and experience are equal or greater than my own.",
+      "hits" : [
+        "say in your mind say to yourself i am more than my physical body because i am more than physical matter i deeply desire to expand to experience to know to understand to control to use such greater energies and energy systems as may be beneficial and constructive to me and to those near and close to me",
+        "i deeply desire the help and cooperation the assistance the understanding of those individuals whose wisdom development and experience are equal or greater than my own"
+      ],
+      "minWords" : 3,
+      "name" : "affirmation-direct vs cd1-2-introduction-to-focus-10.md",
+      "source" : "[redacted: Gateway tape transcript, removed from history. The echo detector is exercised on the library's own segment bodies instead.]"
+    },
+    {
+      "draft" : "Say in your mind. Say to yourself. I am much more than my physical body. It is my intent, through these explorations beyond physical matter reality, to contribute to the expansion of human consciousness. In consciously experiencing and acquiring knowledge of realms beyond ordinary consciousness, I will work to bridge these realities. In so doing, I ask for help — to be open, allowing, and calm, and perceiving clearly, responding appropriately, and carrying out my intent of service. I am truly grateful for this assistance. I set forth empowered by the energetic field of my fellow explorers, and acknowledgement of our oneness in love.",
+      "hits" : [
+        "more than my physical body",
+        "physical matter reality",
+        "ask for help"
+      ],
+      "minWords" : 3,
+      "name" : "affirmation-service vs cd2-4-intro-focus-27.md",
+      "source" : "[redacted: Gateway tape transcript, removed from history. The echo detector is exercised on the library's own segment bodies instead.]"
+    },
+    {
+      "draft" : "Say in your mind. Say to yourself. I am more than my physical body, because I am more than physical matter. I can perceive that which is greater than the physical world. I deeply desire to expand. To experience. To know. To understand. To control. To use such greater energies and energy systems as may be beneficial and constructive to me, and to those near and close to me. I deeply desire the help and cooperation, the assistance, the understanding, of those individuals whose wisdom, development, and experience are equal or greater than my own.",
+      "hits" : [
+        "say in your mind say to yourself i am more than my physical body because i am more than physical matter i",
+        "i deeply desire to expand to experience to know to understand to control to use such greater energies and energy systems as may be beneficial and constructive to me and to those near and close to me",
+        "i deeply desire the help and cooperation the assistance the understanding of those individuals whose wisdom development and experience are equal or greater than my own"
+      ],
+      "minWords" : 3,
+      "name" : "affirmation vs cd1-2-introduction-to-focus-10.md",
+      "source" : "[redacted: Gateway tape transcript, removed from history. The echo detector is exercised on the library's own segment bodies instead.]"
+    },
+    {
+      "draft" : "You are now ready to create your Resonant Energy Balloon. A moving field of your own energy that surrounds and protects you. Let the energy you've built rise gently out the top of your head, like a fountain cascading down and around your body, spiralling gently as it descends. Some strands fall straight, others spiral clockwise, and some counterclockwise. Allow the energy to wrap around you completely, and re-enter through the soles of your feet. You are now inside your own Resonant Energy Balloon. This living energy field performs two important functions. First. It holds in and concentrates your own energy, so you can direct it as needed. Second. It protects you from external energies, unless you consciously open to receive them. Take a moment now to feel its strength and softness. Feel how it supports and surrounds you. To recreate your REBAL at any time. Inhale deeply. Visualise a circle with the number ten inside. Then exhale, and imagine blowing that circle outward around you. Your balloon will instantly form again. To dissolve it, simply inhale, and imagine the glowing circle returning into your body.",
+      "hits" : [
+        "the top of your head",
+        "at any time"
+      ],
+      "minWords" : 3,
+      "name" : "balloon vs cd1-2-introduction-to-focus-10.md",
+      "source" : "[redacted: Gateway tape transcript, removed from history. The echo detector is exercised on the library's own segment bodies instead.]"
+    },
+    {
+      "draft" : "You are now in Focus 12. A state of awareness far beyond your physical body. Relax, and explore. You are safe, calm, and aware.",
+      "hits" : [
+        "you are now in focus 12",
+        "of awareness far beyond",
+        "your physical body",
+        "relax and explore"
+      ],
+      "minWords" : 3,
+      "name" : "briefing-f12 vs cd1-1-introduction-to-focus-12.md",
+      "source" : "[redacted: Gateway tape transcript, removed from history. The echo detector is exercised on the library's own segment bodies instead.]"
+    },
+    {
+      "draft" : "Rest here a moment. Let the absence of time settle around you.",
+      "hits" : [
+
+      ],
+      "minWords" : 3,
+      "name" : "briefing-f15 vs cd2-4-intro-to-focus-15.md",
+      "source" : "[redacted: Gateway tape transcript, removed from history. The echo detector is exercised on the library's own segment bodies instead.]"
+    },
+    {
+      "draft" : "You are now in Focus 21. The way ahead has been cleared for your passing. There is little to see here. It is a transition. A quiet bridge. You need not linger.",
+      "hits" : [
+        "you are now in focus 21"
+      ],
+      "minWords" : 3,
+      "name" : "briefing-f21 vs cd3-5-movement-to-locale-2-intro-focus-21.md",
+      "source" : "[redacted: Gateway tape transcript, removed from history. The echo detector is exercised on the library's own segment bodies instead.]"
+    },
+    {
+      "draft" : "You are now in Focus 23. It is like a ghostly river around you. A slow drifting mist, with ripples and waves moving past at their own pace. Pass through. Continue.",
+      "hits" : [
+        "you are now",
+        "in focus 23"
+      ],
+      "minWords" : 3,
+      "name" : "briefing-f23 vs cd1-2-intro-focus-23.md",
+      "source" : "[redacted: Gateway tape transcript, removed from history. The echo detector is exercised on the library's own segment bodies instead.]"
+    },
+    {
+      "draft" : "You are now in Focus 25. Tall structures rise on either side of the path of light you travel. Each one houses a belief system. A religion, a philosophy, a worldview. Built and inhabited by those who hold to it. They stretch high above you, lining the way. You are not stopping here. You move past them on the path of light. Notice them, but do not enter. Continue forward.",
+      "hits" : [
+        "you are now in focus 25"
+      ],
+      "minWords" : 3,
+      "name" : "briefing-f25 vs cd2-3-intro-focus-25.md",
+      "source" : "[redacted: Gateway tape transcript, removed from history. The echo detector is exercised on the library's own segment bodies instead.]"
+    },
+    {
+      "draft" : "You are now in Focus 27. Known as The Park. You arrive in the gardens of the Reception Centre. Take a moment to look around. This place is real in the way that matters. It has been here, waiting, and it will be here when you return. The grounds are open. The air is clear. There is space. Behind you, the Reception Centre itself stands open. This is where you can come to engage with the inhabitants of this locale. To meet others, to socialise, to find activity, to ask for guidance, or to simply be among presence. It is always here. You are always welcome. But the Reception Centre is not your destination today.",
+      "hits" : [
+        "you are now in focus 27",
+        "in the way",
+        "it will be",
+        "where you can",
+        "here you are"
+      ],
+      "minWords" : 3,
+      "name" : "briefing-f27 vs cd2-4-intro-focus-27.md",
+      "source" : "[redacted: Gateway tape transcript, removed from history. The echo detector is exercised on the library's own segment bodies instead.]"
+    },
+    {
+      "draft" : "As you sit, breathe into your chest. On the exhale, let the light of the campfire brighten, just a little. You are sending a signal. Not with words, but with presence. Say inwardly. I am here. I welcome connection. Your flame glows softly in answer. Others may see it, feel it, sense it. Let this signal radiate out into the surrounding area.",
+      "hits" : [
+
+      ],
+      "minWords" : 3,
+      "name" : "campfire-calling vs cd2-4-intro-to-focus-15.md",
+      "source" : "[redacted: Gateway tape transcript, removed from history. The echo detector is exercised on the library's own segment bodies instead.]"
+    },
+    {
+      "draft" : "Before you depart, take a moment to acknowledge those who joined you. Offer thanks for their presence, in whatever way feels natural. No words are necessary. Intent is enough. Now, turn your attention back to the fire. Watch as the flames begin to fold in upon themselves. The light dims, the heat fades, and the entire fireplace resets. The void absorbs it back into nothingness. In its place, a new unlit fireplace forms. Clear, and untouched. It shimmers for a moment like a mirage, then ripples away into silence. The space is reset, and left just as you found it.",
+      "hits" : [
+
+      ],
+      "minWords" : 3,
+      "name" : "campfire-closure vs cd2-4-intro-to-focus-15.md",
+      "source" : "[redacted: Gateway tape transcript, removed from history. The echo detector is exercised on the library's own segment bodies instead.]"
+    },
+    {
+      "draft" : "Now that the fire burns steadily, sit with it. You have made yourself visible. You are here. Simply wait. If contact comes, you will feel it. Not as a thought, but as a presence. It will draw your attention in a way you cannot ignore. Like a shout without volume. Like a single footstep in silence. It may feel like a tension in the space, a weight that wasn't there before. You may sense where it comes from, just as you know where a sound originates even when you cannot see it. This is not about imagining, or trying to know. It is about noticing what arrives on its own. Rest here, with the fire before you, until the experience feels complete.",
+      "hits" : [
+
+      ],
+      "minWords" : 3,
+      "name" : "campfire-presence vs cd2-4-intro-to-focus-15.md",
+      "source" : "[redacted: Gateway tape transcript, removed from history. The echo detector is exercised on the library's own segment bodies instead.]"
+    },
+    {
+      "draft" : "You find yourself in the quiet void of the starfield of reality. In this exercise, you will light a campfire. An invitation to any individuals equal to or greater than yourself, who may wish to join you. The fireplace is prepared before you, the wood neatly stacked and waiting. Kneel down and see the small box of matches lying there for you. Slide it open. Take a match. And light it. Hear the sharp scratch, see the flare of light. Guide the flame into the waiting timber. Lean close, blow gently, and watch as the small spark grows into a steady fire. The campfire is now lit. A beacon of presence and connection. Feel the warmth of the flames brushing against your skin. Hear the gentle crackle and pop as the wood begins to burn. Notice the faint smell of smoke curling into the night air. Watch how the firelight flickers and bends, casting soft shadows that move across the ground. When you feel the fire burning steadily, take your place nearby. Sit comfortably, and let its glow settle you here and now. The beacon is lit. You are present. Now let others approach in their own time.",
+      "hits" : [
+        "in this exercise you will"
+      ],
+      "minWords" : 3,
+      "name" : "campfire vs cd2-4-intro-to-focus-15.md",
+      "source" : "[redacted: Gateway tape transcript, removed from history. The echo detector is exercised on the library's own segment bodies instead.]"
+    },
+    {
+      "draft" : "Your place can take on another form: The Castle. An educational and research edition of what is already yours. Let it grow, if you wish it to. Let it become a structure — a castle, if that is the shape that fits. You are not required to picture it in detail. Let it arrange itself. This is a space for co-working. Entities and individuals — equal to you, or further along than you, in power, in development, in experience — may be met with here. You set the terms, the same as always. Approach gracefully. Demand nothing. Be present. Let your intuition lead more than your expectation does. The castle has many rooms. Each one is larger inside than it appears from without. Each room holds whatever might be needed, on a whim — for testing, for exploring, for simulating, for exchanging creativity, energy, and information, between whoever is present in it. Some rooms you will not enter. That is not exclusion. In those rooms, a version of you is already at work. Think of it as a system running many processes at once, each one handled by a separate core, or a separate thread — the same you, in parallel, doing what does not fit in one place at one time. Or think of it as compartments, each one sealed from the others by design and not by accident. What happens in one need not be known to the rest, and the whole still functions. You do not need to visit every room to benefit from what happens in them. You do not need to understand the architecture. You only need to be here, in the room you are in. Walk the halls if you wish. Or stay where you arrived. Either is the castle working as intended. Stay as long as feels right.",
+      "hits" : [
+
+      ],
+      "minWords" : 3,
+      "name" : "castle vs cd2-4-intro-focus-27.md",
+      "source" : "[redacted: Gateway tape transcript, removed from history. The echo detector is exercised on the library's own segment bodies instead.]"
+    },
+    {
+      "draft" : "Say in your mind, and say to the farthest areas of your perception. I open this channel of communication only to those whose knowledge, wisdom, development, and experience are equal or greater than my own. I restrict such contact and communication to constructive purpose, and reject all other. I open such channel only when I so consciously desire. At all other times, it will remain closed.",
+      "hits" : [
+        "in your mind",
+        "wisdom development and experience are equal or greater than my own i"
+      ],
+      "minWords" : 3,
+      "name" : "channel-restriction vs cd1-1-introduction-to-focus-12.md",
+      "source" : "[redacted: Gateway tape transcript, removed from history. The echo detector is exercised on the library's own segment bodies instead.]"
+    },
+    {
+      "draft" : "Before we go further, one more thing that's always yours to use. If the experience ever feels clouded, or fogged, or harder to hold onto than it should be, you have a technique for that. Think: clear skies. Clear skies changes the field around you the way it changes any weather here. What you hold in mind is what continues. Used this way, it dispels interference and lets the experience carry on, with less between you and it. If that isn't enough on its own, there's a second step. Send out a single, deliberate pulse — not force, coherence. It settles the field around you, and steadies whatever is underway so it can continue without interruption. And if you'd rather not continue at all, you always can eject. Return to Focus 1, and the channel closes behind you, at least for now. This is never a failure. It's a door, and it stays unlocked from your side. None of this is a sign of danger. It's a sign you're steering. Carry this with you as you go. Nobody, and nothing, can harm you here. They may try to make you believe they can — that belief is the only lever they have. The part of you doing the steering knows more than you can perceive right now, and isn't asking your permission to be capable. Trust it.",
+      "hits" : [
+
+      ],
+      "minWords" : 3,
+      "name" : "clear-skies vs cd1-2-introduction-to-focus-10.md",
+      "source" : "[redacted: Gateway tape transcript, removed from history. The echo detector is exercised on the library's own segment bodies instead.]"
+    },
+    {
+      "draft" : "Now, from Focus 10, you will move into a different state of consciousness. That state is called Focus 12. Focus 12. Where your awareness moves far beyond the limits of your physical body. Far beyond physical perception. To reach Focus 12, all you need do is count slowly in your mind from ten to twelve. When you reach the number twelve, you will be in Focus 12. A state of expanded awareness. Let me guide you. Ten. Eleven. Your awareness is expanding, reaching outward, more and more. Twelve.",
+      "hits" : [
+        "now from focus 10 you",
+        "move into a different state of",
+        "that state is called focus 12 focus 12 where your awareness",
+        "moves far beyond the limits of your physical body far beyond",
+        "to reach focus 12 all you need do",
+        "is count slowly in your mind from",
+        "when you reach the",
+        "you will be in focus 12",
+        "state of expanded awareness",
+        "ten eleven your awareness is expanding",
+        "reaching outward more and more"
+      ],
+      "minWords" : 3,
+      "name" : "climb-f10-f12 vs cd1-1-introduction-to-focus-12.md",
+      "source" : "[redacted: Gateway tape transcript, removed from history. The echo detector is exercised on the library's own segment bodies instead.]"
+    },
+    {
+      "draft" : "Now, you will move from Focus 12 into another state of being. Focus 15. Focus 15 is the state of no time. A state not limited by time or space. Because the energy that you are is beyond time, it is not controlled by time, and it can move freely. To reach Focus 15 from Focus 12, all you need do is count up slowly in your mind to fifteen. Express the desire to be in no time, and you will move into that state. I will count for you now. Twelve. Thirteen. You are moving out of the area of time, more and more. Fourteen. You are moving into the state where time has no meaning. You remain calm and serene. Fifteen. You are now in Focus 15. The state of no time. Where time does not exist.",
+      "hits" : [
+        "now you will move from focus 12",
+        "into another state of being",
+        "focus 15 is",
+        "the state of no time",
+        "not limited by time or space",
+        "because the energy that you are is beyond time",
+        "is not controlled by time and",
+        "to reach focus 15 from focus 12 all you need do is count",
+        "slowly in your mind",
+        "the desire to be in no time and",
+        "you will move",
+        "you are moving out of the area of time more and more",
+        "you are moving into the state where time has no meaning",
+        "you remain calm and serene",
+        "you are now in focus 15 the state of no time where time does not exist"
+      ],
+      "minWords" : 3,
+      "name" : "climb-f12-f15 vs cd2-4-intro-to-focus-15.md",
+      "source" : "[redacted: Gateway tape transcript, removed from history. The echo detector is exercised on the library's own segment bodies instead.]"
+    },
+    {
+      "draft" : "From Focus 15, we continue the climb. The next state is Focus 21. The threshold between the physical and the non-physical. Count with me. Fifteen. Sixteen. Seventeen. Eighteen. Nineteen. Twenty. Twenty-one.",
+      "hits" : [
+        "fifteen sixteen seventeen"
+      ],
+      "minWords" : 3,
+      "name" : "climb-f15-f21 vs cd3-5-movement-to-locale-2-intro-focus-21.md",
+      "source" : "[redacted: Gateway tape transcript, removed from history. The echo detector is exercised on the library's own segment bodies instead.]"
+    },
+    {
+      "draft" : "We continue upward, to Focus 23. Twenty-one. Twenty-two. Twenty-three.",
+      "hits" : [
+        "to focus 23",
+        "twenty one twenty"
+      ],
+      "minWords" : 3,
+      "name" : "climb-f21-f23 vs cd1-2-intro-focus-23.md",
+      "source" : "[redacted: Gateway tape transcript, removed from history. The echo detector is exercised on the library's own segment bodies instead.]"
+    }
+  ],
+  "retagCases" : [
+    {
+      "name" : "untagged",
+      "result" : "@segment a\n@title A\n@verbosity 3\n\nsay one\n",
+      "source" : "@segment a\n@title A\n\nsay one\n",
+      "verbosity" : 3
+    },
+    {
+      "name" : "already-tagged",
+      "source" : "@segment a\n@verbosity 2\n\nsay one\n",
+      "verbosity" : 3
+    },
+    {
+      "name" : "no-directives",
+      "source" : "say one\nsay two\n",
+      "verbosity" : 3
+    },
+    {
+      "name" : "directive-with-leading-space",
+      "result" : "  @segment a\n@verbosity 1\n\nsay one\n",
+      "source" : "  @segment a\n\nsay one\n",
+      "verbosity" : 1
+    },
+    {
+      "name" : "directives-then-blank-then-body",
+      "result" : "@segment a\n@title A\n@verbosity 2\n\n\nsay one\n",
+      "source" : "@segment a\n@title A\n\n\nsay one\n",
+      "verbosity" : 2
+    },
+    {
+      "name" : "empty",
+      "source" : "",
+      "verbosity" : 3
+    }
+  ],
+  "schemaJSON" : "{\"properties\":{\"lines\":{\"items\":{\"properties\":{\"pause\":{\"maximum\":20,\"minimum\":2,\"type\":\"number\"},\"say\":{\"type\":\"string\"}},\"required\":[\"say\",\"pause\"],\"type\":\"object\"},\"maxItems\":10,\"minItems\":3,\"type\":\"array\"},\"title\":{\"type\":\"string\"}},\"required\":[\"title\",\"lines\"],\"type\":\"object\"}"
+}

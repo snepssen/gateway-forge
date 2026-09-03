@@ -1,0 +1,46 @@
+# The Void — custom guided meditation inside Focus 15.
+# Was levels.json "C15-VOID" until 2026-08-19; its beat/carrier/bed were F15's
+# own, verbatim, because it never was a separate level.
+# v1 note carried over: "source template level; the one already written"
+#
+# Content authored 2026-08-19 from the user's own account: their first time
+# lingering in the featurelessness of F15 (distinct from F26's void proper —
+# see library/segments/void.gws and focus/F15/notes.md / focus/F26/notes.md).
+# Solitary session, so the solo opening/climb path is reused rather than
+# opening-gathering's cohort framing.
+
+@title    Focus 15 — The Void
+@level    F10
+@ending   return
+@pan      right
+@seed     1526
+@verbosity 3
+
+surf 0.55
+use opening
+use comfort
+use orientation
+use ocean
+
+surf 0.30
+use conversion-box
+use affirmation
+
+surf 0.18
+use resonant-tuning
+use balloon
+
+surf 0.0
+use relax-10
+use return-anchor
+use clear-skies
+
+use climb-f10-f12
+use briefing-f12
+
+use climb-f12-f15
+
+use void
+
+use descend-f15-f10
+use return

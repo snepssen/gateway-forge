@@ -1,0 +1,31 @@
+# Source-grounded exercise recipe: Wave I, Advanced Focus 10. The source tape
+# moves directly through headphone orientation, the Energy Conversion Box,
+# Resonant Tuning and the Resonant Energy Balloon before the full ten-point
+# induction. It then teaches instant access and returns to waking awareness.
+#
+# Deliberately absent: the Affirmation, return-method briefing, Clear Skies and
+# an open exploration hold. They belong to other exercises; adding them here
+# would turn the source tape into the generic visit scaffold.
+
+@title    Advanced Focus 10 — Instant Access
+@level    F10
+@ending   return
+@pan      right
+@seed     10103
+@verbosity 3
+
+surf 0.55
+use orientation
+
+surf 0.30
+use conversion-box
+
+surf 0.18
+use resonant-tuning
+use balloon
+
+surf 0.0
+use relax-10
+use advanced-focus-10
+
+use return

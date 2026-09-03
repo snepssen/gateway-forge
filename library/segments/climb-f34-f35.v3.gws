@@ -1,0 +1,27 @@
+# App-authored transition, not from a tape. Public material describes F34/35
+# as one paired Gathering region. The owner's attributed account tentatively
+# places the ceremony further out at F35, but cannot establish a clean border.
+# This body makes the count an observation point rather than asserting a shift.
+
+@segment    climb-f34-f35
+@title      Climb — Focus 34 to Focus 35
+@levels     F35
+@from       F34
+@fixed
+@verbosity  3
+@protected  Focus 35
+@duration   ~1m
+
+say You will move now from Focus 34 to Focus 35.
+pause 4
+say Public material describes 34 and 35 together as one Gathering region. One attributed account places a ceremony further out, but does not establish a clear border between the two levels.
+pause 7
+say Let the next number become an observation point. Notice whether the vantage changes, and do not force a distinction if none is present.
+pause 6
+level F35
+say Thirty-four.
+pause 5
+say Thirty-five.
+pause 4
+say Focus 35.
+pause 8

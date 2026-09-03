@@ -1,0 +1,25 @@
+@segment  climb-f15-f21
+@title    Climb — Focus 15 to Focus 21
+@levels   F21
+@fixed
+@duration ~1m
+
+say From Focus 15, we continue the climb. The next state is Focus 21. The threshold between the physical and the non-physical.
+pause 5
+say Count with me.
+pause 3
+level F21
+say Fifteen.
+pause 3
+say Sixteen.
+pause 3
+say Seventeen.
+pause 3
+say Eighteen.
+pause 3
+say Nineteen.
+pause 3
+say Twenty.
+pause 3
+say Twenty-one.
+pause 5

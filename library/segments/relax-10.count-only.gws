@@ -1,0 +1,36 @@
+@segment  relax-10
+@title    Ten-Point Relaxation
+@levels   F10
+@from     F1
+@verbosity 1
+@duration ~2m
+
+say Now we move to the Focus 10 state. Mind awake. Body asleep.
+pause 4
+level F10
+say I will count from one to ten. Nothing to do but hear the numbers.
+pause 4
+say One.
+pause 7
+say Two.
+pause 7
+say Three.
+pause 7
+say Four.
+pause 7
+say Five.
+pause 7
+say Six.
+pause 7
+say Seven.
+pause 7
+say Eight.
+pause 7
+say Nine.
+pause 7
+say Ten.
+pause 8
+say Ten. Ten. Ten.
+pause 6
+say Mind awake. Body asleep.
+pause 10

@@ -1,0 +1,30 @@
+# Source-grounded recipe: Wave III — Freedom, CD2-3.
+# The tape's preparatory process is expanded through the existing reusable
+# components; its authored exercise remains one segment rather than being
+# paraphrased here. No generic briefing, Clear Skies or extra hold is added.
+# The exercise itself performs the balloon lift to Focus 12; no canonical counted climb is inserted.
+
+@title    Vectors
+@level    F10
+@ending   return
+@pan      right
+@seed     20008
+@verbosity 3
+
+surf 0.55
+use orientation
+
+surf 0.30
+use conversion-box
+
+surf 0.18
+use resonant-tuning
+use balloon
+use affirmation
+
+surf 0.0
+use relax-10
+level F12
+use vectors
+level F10
+use return-one

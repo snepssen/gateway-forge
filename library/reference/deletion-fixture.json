@@ -1,0 +1,451 @@
+{
+  "baseEpoch" : 1800000000,
+  "daysCases" : [
+    {
+      "days" : 30,
+      "expired" : false,
+      "offsetDays" : 0
+    },
+    {
+      "days" : 29,
+      "expired" : false,
+      "offsetDays" : -1
+    },
+    {
+      "days" : 30,
+      "expired" : false,
+      "offsetDays" : -0.5
+    },
+    {
+      "days" : 1,
+      "expired" : false,
+      "offsetDays" : -29
+    },
+    {
+      "days" : 1,
+      "expired" : false,
+      "offsetDays" : -29.5
+    },
+    {
+      "days" : 1,
+      "expired" : false,
+      "offsetDays" : -29.99
+    },
+    {
+      "days" : 0,
+      "expired" : true,
+      "offsetDays" : -30
+    },
+    {
+      "days" : 0,
+      "expired" : true,
+      "offsetDays" : -30.01
+    },
+    {
+      "days" : 0,
+      "expired" : true,
+      "offsetDays" : -40
+    }
+  ],
+  "kinds" : [
+    "template",
+    "session",
+    "segment",
+    "voice",
+    "other"
+  ],
+  "note" : "Deletion scenarios on scratch trees. Nothing here touches the real library.",
+  "retentionDays" : 30,
+  "safeCases" : [
+    {
+      "id" : "ok",
+      "originalPath" : "focus/F10/a.wav",
+      "payloadName" : "a.wav",
+      "safe" : true
+    },
+    {
+      "id" : "",
+      "originalPath" : "a.wav",
+      "payloadName" : "a.wav",
+      "safe" : false
+    },
+    {
+      "id" : ".",
+      "originalPath" : "a.wav",
+      "payloadName" : "a.wav",
+      "safe" : false
+    },
+    {
+      "id" : "..",
+      "originalPath" : "a.wav",
+      "payloadName" : "a.wav",
+      "safe" : false
+    },
+    {
+      "id" : "a/b",
+      "originalPath" : "a.wav",
+      "payloadName" : "a.wav",
+      "safe" : false
+    },
+    {
+      "id" : "a\\\\b",
+      "originalPath" : "a.wav",
+      "payloadName" : "a.wav",
+      "safe" : false
+    },
+    {
+      "id" : "ok",
+      "originalPath" : "",
+      "payloadName" : "",
+      "safe" : false
+    },
+    {
+      "id" : "ok",
+      "originalPath" : "/abs.wav",
+      "payloadName" : "abs.wav",
+      "safe" : false
+    },
+    {
+      "id" : "ok",
+      "originalPath" : "../up.wav",
+      "payloadName" : "up.wav",
+      "safe" : false
+    },
+    {
+      "id" : "ok",
+      "originalPath" : "a/../b.wav",
+      "payloadName" : "b.wav",
+      "safe" : false
+    },
+    {
+      "id" : "ok",
+      "originalPath" : "trailing/",
+      "payloadName" : "trailing",
+      "safe" : true
+    },
+    {
+      "id" : "ok",
+      "originalPath" : "a//b.wav",
+      "payloadName" : "b.wav",
+      "safe" : true
+    }
+  ],
+  "scenarios" : [
+    {
+      "arg" : "/etc/hosts",
+      "error" : "outsideLibrary(\"/etc/hosts\")",
+      "indexIDs" : 0,
+      "indexPaths" : [
+
+      ],
+      "name" : "outside-library",
+      "nowOffsetDays" : 0,
+      "op" : "delete",
+      "setupFiles" : [
+
+      ],
+      "survivors" : [
+
+      ]
+    },
+    {
+      "arg" : "a/../../escape",
+      "error" : "outsideLibrary(\"/var/folders/3x/5srl8pcj4_j_ns2q0k3pd0lw0000gn/T/gf-del-92603A21-86B7-4C4E-806A-71150B9FD944/a/../../escape\")",
+      "indexIDs" : 0,
+      "indexPaths" : [
+
+      ],
+      "name" : "climbing-out",
+      "nowOffsetDays" : 0,
+      "op" : "delete",
+      "setupFiles" : [
+        "a/keep.txt"
+      ],
+      "survivors" : [
+        "a/keep.txt"
+      ]
+    },
+    {
+      "arg" : "focus/F10/gone.wav",
+      "error" : "missingSource(\"focus/F10/gone.wav\")",
+      "indexIDs" : 0,
+      "indexPaths" : [
+
+      ],
+      "name" : "missing-source",
+      "nowOffsetDays" : 0,
+      "op" : "delete",
+      "setupFiles" : [
+
+      ],
+      "survivors" : [
+
+      ]
+    },
+    {
+      "arg" : "focus/F10/a.wav",
+      "indexIDs" : 1,
+      "indexPaths" : [
+        "focus/F10/a.wav"
+      ],
+      "name" : "delete-ok",
+      "nowOffsetDays" : 0,
+      "op" : "delete",
+      "setupFiles" : [
+        "focus/F10/a.wav"
+      ],
+      "survivors" : [
+        "memory/deleted/<id>/a.wav",
+        "memory/deleted/index.json"
+      ]
+    },
+    {
+      "arg" : "focus/F10/a.wav",
+      "indexIDs" : 0,
+      "indexPaths" : [
+
+      ],
+      "name" : "delete-then-restore",
+      "nowOffsetDays" : 0,
+      "op" : "delete+restore",
+      "setupFiles" : [
+        "focus/F10/a.wav"
+      ],
+      "survivors" : [
+        "focus/F10/a.wav",
+        "memory/deleted/index.json"
+      ]
+    },
+    {
+      "arg" : "focus/F10/a.wav",
+      "error" : "originalPathOccupied(\"focus/F10/a.wav\")",
+      "indexIDs" : 1,
+      "indexPaths" : [
+        "focus/F10/a.wav"
+      ],
+      "name" : "restore-occupied",
+      "nowOffsetDays" : 0,
+      "op" : "delete+recreate+restore",
+      "setupFiles" : [
+        "focus/F10/a.wav"
+      ],
+      "survivors" : [
+        "focus/F10/a.wav",
+        "memory/deleted/<id>/a.wav",
+        "memory/deleted/index.json"
+      ]
+    },
+    {
+      "arg" : "focus/F10/a.wav",
+      "error" : "payloadMissing(\"T\")",
+      "indexIDs" : 1,
+      "indexPaths" : [
+        "focus/F10/a.wav"
+      ],
+      "name" : "restore-payload-gone",
+      "nowOffsetDays" : 0,
+      "op" : "delete+drop+restore",
+      "setupFiles" : [
+        "focus/F10/a.wav"
+      ],
+      "survivors" : [
+        "memory/deleted/index.json"
+      ]
+    },
+    {
+      "arg" : "focus/F10/a.wav",
+      "indexIDs" : 0,
+      "indexPaths" : [
+
+      ],
+      "name" : "remove-payload-gone",
+      "nowOffsetDays" : 0,
+      "op" : "delete+drop+remove",
+      "setupFiles" : [
+        "focus/F10/a.wav"
+      ],
+      "survivors" : [
+        "memory/deleted/index.json"
+      ]
+    },
+    {
+      "arg" : "nope",
+      "error" : "unknownItem(\"nope\")",
+      "indexIDs" : 0,
+      "indexPaths" : [
+
+      ],
+      "name" : "restore-unknown",
+      "nowOffsetDays" : 0,
+      "op" : "restore",
+      "setupFiles" : [
+
+      ],
+      "survivors" : [
+
+      ]
+    },
+    {
+      "arg" : "",
+      "indexIDs" : 1,
+      "indexPaths" : [
+        "focus/F10/b.wav"
+      ],
+      "name" : "expire-mixed",
+      "nowOffsetDays" : 0,
+      "op" : "expire",
+      "setupFiles" : [
+        "memory/deleted/old/a.wav",
+        "memory/deleted/new/b.wav"
+      ],
+      "setupIndex" : "{\"schemaVersion\":1,\"items\":[{\"id\":\"old\",\"kind\":\"session\",\"title\":\"T\",\"originalPath\":\"focus/F10/a.wav\",\"deleted\":\"2026-12-06T08:00:00Z\"},{\"id\":\"new\",\"kind\":\"session\",\"title\":\"T\",\"originalPath\":\"focus/F10/b.wav\",\"deleted\":\"2027-01-14T08:00:00Z\"}]}",
+      "survivors" : [
+        "memory/deleted/<id>/b.wav",
+        "memory/deleted/index.json"
+      ]
+    },
+    {
+      "arg" : "",
+      "indexIDs" : 0,
+      "indexPaths" : [
+
+      ],
+      "name" : "expire-exactly-30-days",
+      "nowOffsetDays" : 0,
+      "op" : "expire",
+      "setupFiles" : [
+        "memory/deleted/edge/a.wav"
+      ],
+      "setupIndex" : "{\"schemaVersion\":1,\"items\":[{\"id\":\"edge\",\"kind\":\"session\",\"title\":\"T\",\"originalPath\":\"focus/F10/a.wav\",\"deleted\":\"2026-12-16T08:00:00Z\"}]}",
+      "survivors" : [
+        "memory/deleted/index.json"
+      ]
+    },
+    {
+      "arg" : "",
+      "error" : "unsafeItem(\"bad\")",
+      "indexIDs" : 0,
+      "indexPaths" : [
+
+      ],
+      "name" : "index-unsafe-path",
+      "nowOffsetDays" : 0,
+      "op" : "load",
+      "setupFiles" : [
+
+      ],
+      "setupIndex" : "{\"schemaVersion\":1,\"items\":[{\"id\":\"bad\",\"kind\":\"session\",\"title\":\"T\",\"originalPath\":\"../../etc/passwd\",\"deleted\":\"2027-01-14T08:00:00Z\"}]}",
+      "survivors" : [
+        "memory/deleted/index.json"
+      ]
+    },
+    {
+      "arg" : "",
+      "error" : "unsafeItem(\"bad\")",
+      "indexIDs" : 0,
+      "indexPaths" : [
+
+      ],
+      "name" : "index-absolute-path",
+      "nowOffsetDays" : 0,
+      "op" : "load",
+      "setupFiles" : [
+
+      ],
+      "setupIndex" : "{\"schemaVersion\":1,\"items\":[{\"id\":\"bad\",\"kind\":\"session\",\"title\":\"T\",\"originalPath\":\"/etc/passwd\",\"deleted\":\"2027-01-14T08:00:00Z\"}]}",
+      "survivors" : [
+        "memory/deleted/index.json"
+      ]
+    },
+    {
+      "arg" : "",
+      "error" : "duplicateItem(\"same\")",
+      "indexIDs" : 0,
+      "indexPaths" : [
+
+      ],
+      "name" : "index-duplicate-ids",
+      "nowOffsetDays" : 0,
+      "op" : "load",
+      "setupFiles" : [
+
+      ],
+      "setupIndex" : "{\"schemaVersion\":1,\"items\":[{\"id\":\"same\",\"kind\":\"session\",\"title\":\"T\",\"originalPath\":\"focus/a.wav\",\"deleted\":\"2027-01-14T08:00:00Z\"},{\"id\":\"same\",\"kind\":\"session\",\"title\":\"T\",\"originalPath\":\"focus/b.wav\",\"deleted\":\"2027-01-14T08:00:00Z\"}]}",
+      "survivors" : [
+        "memory/deleted/index.json"
+      ]
+    },
+    {
+      "arg" : "",
+      "error" : "unsupportedSchema(2)",
+      "indexIDs" : 0,
+      "indexPaths" : [
+
+      ],
+      "name" : "index-bad-schema",
+      "nowOffsetDays" : 0,
+      "op" : "load",
+      "setupFiles" : [
+
+      ],
+      "setupIndex" : "{\"schemaVersion\":2,\"items\":[]}",
+      "survivors" : [
+        "memory/deleted/index.json"
+      ]
+    },
+    {
+      "arg" : "",
+      "error" : "other",
+      "indexIDs" : 0,
+      "indexPaths" : [
+
+      ],
+      "name" : "index-unknown-kind",
+      "nowOffsetDays" : 0,
+      "op" : "load",
+      "setupFiles" : [
+
+      ],
+      "setupIndex" : "{\"schemaVersion\":1,\"items\":[{\"id\":\"x\",\"kind\":\"sideways\",\"title\":\"T\",\"originalPath\":\"a.wav\",\"deleted\":\"2027-01-15T00:00:00Z\"}]}",
+      "survivors" : [
+        "memory/deleted/index.json"
+      ]
+    },
+    {
+      "arg" : "focus/F10/a.wav",
+      "error" : "unsafeItem(\"bad\")",
+      "indexIDs" : 0,
+      "indexPaths" : [
+
+      ],
+      "name" : "rollback-on-bad-index",
+      "nowOffsetDays" : 0,
+      "op" : "delete",
+      "setupFiles" : [
+        "focus/F10/a.wav"
+      ],
+      "setupIndex" : "{\"schemaVersion\":1,\"items\":[{\"id\":\"bad\",\"kind\":\"session\",\"title\":\"T\",\"originalPath\":\"../../etc/passwd\",\"deleted\":\"2027-01-14T08:00:00Z\"}]}",
+      "survivors" : [
+        "focus/F10/a.wav",
+        "memory/deleted/index.json"
+      ]
+    },
+    {
+      "arg" : "focus/F10/a.wav",
+      "indexIDs" : 1,
+      "indexPaths" : [
+        "focus/F10/a.wav"
+      ],
+      "name" : "symlinked-route-is-inside",
+      "nowOffsetDays" : 0,
+      "op" : "delete-resolved",
+      "setupFiles" : [
+        "focus/F10/a.wav"
+      ],
+      "survivors" : [
+        "memory/deleted/<id>/a.wav",
+        "memory/deleted/index.json"
+      ]
+    }
+  ]
+}

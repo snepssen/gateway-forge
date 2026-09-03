@@ -1,0 +1,41 @@
+{
+  "id": "cd4-8-the-absolute",
+  "provenance": "measured",
+  "tape": "Wave VIII - Union/CD4 - 8 - The Absolute.flac",
+  "duration": 2280.0,
+  "holds": [
+    {
+      "start": 0.0,
+      "end": 360.0,
+      "carrier": 44.85,
+      "beat": 0.341,
+      "gain": 1.0,
+      "confidence": 0.99
+    },
+    {
+      "start": 430.0,
+      "end": 2270.0,
+      "carrier": 44.85,
+      "beat": 0.341,
+      "gain": 1.0,
+      "confidence": 0.99
+    },
+    {
+      "start": 430.0,
+      "end": 530.0,
+      "carrier": 97.24,
+      "beat": 1.5,
+      "gain": 0.327,
+      "confidence": 0.71
+    },
+    {
+      "start": 2160.0,
+      "end": 2190.0,
+      "carrier": 97.24,
+      "beat": 1.5,
+      "gain": 0.327,
+      "confidence": 0.71
+    }
+  ],
+  "notes": "FFT of the tape, 20 s windows (0.05 Hz), 226 windows. 2 simultaneous binaural layers above 4% presence. Pairs required near-equal level in both ears; layers overlap in time because Hemi-Sync sounds several at once."
+}

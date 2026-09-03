@@ -1,0 +1,8 @@
+@segment   orientation
+@title     Headphone Orientation
+@levels    F10
+@duration  ~20s
+@protected right ear
+
+say Now, you should be hearing my voice in your right ear. If you're not, turn your headphones around so that you are.
+pause 6

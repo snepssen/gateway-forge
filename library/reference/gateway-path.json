@@ -1,0 +1,354 @@
+{
+  "lessons" : [
+    {
+      "disc" : 1,
+      "slug" : "orientation",
+      "track" : 1,
+      "wave" : 1,
+      "waveTitle" : "Discovery"
+    },
+    {
+      "disc" : 1,
+      "slug" : "introduction-to-focus-10",
+      "track" : 2,
+      "wave" : 1,
+      "waveTitle" : "Discovery"
+    },
+    {
+      "disc" : 2,
+      "slug" : "advanced-focus-10",
+      "track" : 3,
+      "wave" : 1,
+      "waveTitle" : "Discovery"
+    },
+    {
+      "disc" : 2,
+      "slug" : "release-and-recharge",
+      "track" : 4,
+      "wave" : 1,
+      "waveTitle" : "Discovery"
+    },
+    {
+      "disc" : 3,
+      "slug" : "exploration-sleep",
+      "track" : 5,
+      "wave" : 1,
+      "waveTitle" : "Discovery"
+    },
+    {
+      "disc" : 3,
+      "slug" : "free-flow-10",
+      "track" : 6,
+      "wave" : 1,
+      "waveTitle" : "Discovery"
+    },
+    {
+      "disc" : 1,
+      "slug" : "introduction-to-focus-12",
+      "track" : 1,
+      "wave" : 2,
+      "waveTitle" : "Threshold"
+    },
+    {
+      "disc" : 1,
+      "slug" : "problem-solving",
+      "track" : 2,
+      "wave" : 2,
+      "waveTitle" : "Threshold"
+    },
+    {
+      "disc" : 2,
+      "slug" : "one-month-patterning",
+      "track" : 3,
+      "wave" : 2,
+      "waveTitle" : "Threshold"
+    },
+    {
+      "disc" : 2,
+      "slug" : "color-breathing",
+      "track" : 4,
+      "wave" : 2,
+      "waveTitle" : "Threshold"
+    },
+    {
+      "disc" : 3,
+      "slug" : "energy-bar-tool",
+      "track" : 5,
+      "wave" : 2,
+      "waveTitle" : "Threshold"
+    },
+    {
+      "disc" : 3,
+      "slug" : "living-body-map",
+      "track" : 6,
+      "wave" : 2,
+      "waveTitle" : "Threshold"
+    },
+    {
+      "disc" : 1,
+      "slug" : "lift-off",
+      "track" : 1,
+      "wave" : 3,
+      "waveTitle" : "Freedom"
+    },
+    {
+      "disc" : 1,
+      "slug" : "remote-viewing",
+      "track" : 2,
+      "wave" : 3,
+      "waveTitle" : "Freedom"
+    },
+    {
+      "disc" : 2,
+      "slug" : "vectors",
+      "track" : 3,
+      "wave" : 3,
+      "waveTitle" : "Freedom"
+    },
+    {
+      "disc" : 2,
+      "slug" : "five-questions",
+      "track" : 4,
+      "wave" : 3,
+      "waveTitle" : "Freedom"
+    },
+    {
+      "disc" : 3,
+      "slug" : "energy-food",
+      "track" : 5,
+      "wave" : 3,
+      "waveTitle" : "Freedom"
+    },
+    {
+      "disc" : 3,
+      "slug" : "first-stage-separation",
+      "track" : 6,
+      "wave" : 3,
+      "waveTitle" : "Freedom"
+    },
+    {
+      "disc" : 1,
+      "slug" : "one-year-patterning",
+      "track" : 1,
+      "wave" : 4,
+      "waveTitle" : "Adventure"
+    },
+    {
+      "disc" : 1,
+      "slug" : "five-messages",
+      "track" : 2,
+      "wave" : 4,
+      "waveTitle" : "Adventure"
+    },
+    {
+      "disc" : 2,
+      "slug" : "free-flow-12",
+      "track" : 3,
+      "wave" : 4,
+      "waveTitle" : "Adventure"
+    },
+    {
+      "disc" : 2,
+      "slug" : "nvc-i",
+      "track" : 4,
+      "wave" : 4,
+      "waveTitle" : "Adventure"
+    },
+    {
+      "disc" : 3,
+      "slug" : "nvc-ii",
+      "track" : 5,
+      "wave" : 4,
+      "waveTitle" : "Adventure"
+    },
+    {
+      "disc" : 3,
+      "slug" : "compoint",
+      "track" : 6,
+      "wave" : 4,
+      "waveTitle" : "Adventure"
+    },
+    {
+      "disc" : 1,
+      "slug" : "advanced-focus-12",
+      "track" : 1,
+      "wave" : 5,
+      "waveTitle" : "Exploring Focus 15"
+    },
+    {
+      "disc" : 1,
+      "slug" : "discovering-intuition",
+      "track" : 2,
+      "wave" : 5,
+      "waveTitle" : "Exploring Focus 15"
+    },
+    {
+      "disc" : 2,
+      "slug" : "exploring-intuition",
+      "track" : 3,
+      "wave" : 5,
+      "waveTitle" : "Exploring Focus 15"
+    },
+    {
+      "disc" : 2,
+      "slug" : "intro-to-focus-15",
+      "track" : 4,
+      "wave" : 5,
+      "waveTitle" : "Exploring Focus 15"
+    },
+    {
+      "disc" : 3,
+      "slug" : "mission-15-creation-and-manifestation",
+      "track" : 5,
+      "wave" : 5,
+      "waveTitle" : "Exploring Focus 15"
+    },
+    {
+      "disc" : 3,
+      "slug" : "exploring-focus-15",
+      "track" : 6,
+      "wave" : 5,
+      "waveTitle" : "Exploring Focus 15"
+    },
+    {
+      "disc" : 1,
+      "slug" : "sensing-locale-1",
+      "track" : 1,
+      "wave" : 6,
+      "waveTitle" : "Odyssey"
+    },
+    {
+      "disc" : 1,
+      "slug" : "expansion-in-locale-1",
+      "track" : 2,
+      "wave" : 6,
+      "waveTitle" : "Odyssey"
+    },
+    {
+      "disc" : 2,
+      "slug" : "point-of-departure",
+      "track" : 3,
+      "wave" : 6,
+      "waveTitle" : "Odyssey"
+    },
+    {
+      "disc" : 2,
+      "slug" : "nonphysical-friends",
+      "track" : 4,
+      "wave" : 6,
+      "waveTitle" : "Odyssey"
+    },
+    {
+      "disc" : 3,
+      "slug" : "movement-to-locale-2-intro-focus-21",
+      "track" : 5,
+      "wave" : 6,
+      "waveTitle" : "Odyssey"
+    },
+    {
+      "disc" : 3,
+      "slug" : "free-flow-journey-in-focus-21",
+      "track" : 6,
+      "wave" : 6,
+      "waveTitle" : "Odyssey"
+    },
+    {
+      "disc" : 1,
+      "slug" : "explore-total-self",
+      "track" : 1,
+      "wave" : 7,
+      "waveTitle" : "Voyager"
+    },
+    {
+      "disc" : 1,
+      "slug" : "intro-focus-23",
+      "track" : 2,
+      "wave" : 7,
+      "waveTitle" : "Voyager"
+    },
+    {
+      "disc" : 2,
+      "slug" : "intro-focus-25",
+      "track" : 3,
+      "wave" : 7,
+      "waveTitle" : "Voyager"
+    },
+    {
+      "disc" : 2,
+      "slug" : "intro-focus-27",
+      "track" : 4,
+      "wave" : 7,
+      "waveTitle" : "Voyager"
+    },
+    {
+      "disc" : 3,
+      "slug" : "first-retrieval",
+      "track" : 5,
+      "wave" : 7,
+      "waveTitle" : "Voyager"
+    },
+    {
+      "disc" : 3,
+      "slug" : "messages-from-beyond",
+      "track" : 6,
+      "wave" : 7,
+      "waveTitle" : "Voyager"
+    },
+    {
+      "disc" : 1,
+      "slug" : "special-tour",
+      "track" : 1,
+      "wave" : 8,
+      "waveTitle" : "Union"
+    },
+    {
+      "disc" : 1,
+      "slug" : "meeting-with-the-entry-director",
+      "track" : 2,
+      "wave" : 8,
+      "waveTitle" : "Union"
+    },
+    {
+      "disc" : 2,
+      "slug" : "educational-opportunities",
+      "track" : 3,
+      "wave" : 8,
+      "waveTitle" : "Union"
+    },
+    {
+      "disc" : 2,
+      "slug" : "healing-and-regeneration-center",
+      "track" : 4,
+      "wave" : 8,
+      "waveTitle" : "Union"
+    },
+    {
+      "disc" : 3,
+      "slug" : "planning-center",
+      "track" : 5,
+      "wave" : 8,
+      "waveTitle" : "Union"
+    },
+    {
+      "disc" : 3,
+      "slug" : "coordination-area",
+      "track" : 6,
+      "wave" : 8,
+      "waveTitle" : "Union"
+    },
+    {
+      "disc" : 4,
+      "slug" : "inner-earth",
+      "track" : 7,
+      "wave" : 8,
+      "waveTitle" : "Union"
+    },
+    {
+      "disc" : 4,
+      "slug" : "the-absolute",
+      "track" : 8,
+      "wave" : 8,
+      "waveTitle" : "Union"
+    }
+  ]
+}

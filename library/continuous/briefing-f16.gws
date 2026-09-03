@@ -1,0 +1,39 @@
+# Generated invitation to discovery: nothing in this library describes
+# Focus 16 -- no tape, no manual, no overview. So this names the
+# level, places it on the ladder, and then asks rather than tells.
+#
+# It deliberately suggests nothing about what is here. A briefing for
+# a described level can afford to relay a map; this one has none, and
+# inventing scenery would be worse than silence -- the listener would
+# go looking for what the app had implied instead of reporting what is
+# actually there.
+#
+# What it does ask for is translation: that whatever is present come
+# in a form the listener can recognise and carry back. That is the
+# only real difficulty of an unmapped level -- not reaching it, but
+# bringing something back that survives the return in words.
+#
+# @provisional keeps it on the worklist. Edit freely; the generator
+# never rewrites an existing segment, so once you have been here it is
+# yours.
+
+@segment     briefing-f16
+@title       Focus 16
+@levels      F16
+@provisional
+@duration    ~1m20s
+
+say You are now in Focus 16.
+pause 5
+say Behind you, Focus 15. Ahead, Focus 17.
+pause 6
+say No tape, manual or overview in this library describes this level. There is no map of it to hold lightly, and nothing here you are meant to reproduce.
+pause 8
+say So let it be whatever it is. An open mind, and no expectation of what you will find.
+pause 8
+say Ask what is present here.
+pause 12
+say And ask that it come in a form you will recognise — something you can carry back and set down in your own words.
+pause 12
+say Stay as briefly or as long as feels right. What you notice is the first record this level has.
+pause 8

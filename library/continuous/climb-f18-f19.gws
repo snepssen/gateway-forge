@@ -1,0 +1,18 @@
+# Generated scaffold: the bare climb, counts only. Edit freely -- this is
+# your file now; the generator never rewrites an existing segment. The
+# guided version is authoring work: add a v3 body and a briefing segment.
+
+@segment  climb-f18-f19
+@title    Climb — Focus 18 to Focus 19
+@levels   F19
+@fixed
+@verbosity 1
+@duration ~1m
+
+say Focus 19.
+pause 4
+level F19
+say Eighteen.
+pause 5
+say Nineteen.
+pause 8

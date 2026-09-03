@@ -1,0 +1,61 @@
+# From "Living Body Map" (Wave II - Threshold, CD3-6). Builds on
+# energy-bar-tool.gws, which the tape has the listener reach for by name
+# partway through -- assumes that tool already exists. The four-color
+# construction pass and the four-color healing pass are each condensed from
+# the tape's repeated color-by-color instructions into one pass through the
+# sequence.
+
+@segment   living-body-map
+@title     The Living Body Map
+@levels    F10
+@duration  ~4m
+@protected Living Body Map, Energy Bar Tool
+
+say Now, another energy tool: your Living Body Map. Through it, you can directly balance and equalise the vital energies of your physical body.
+pause 8
+say Visualise the outline of your physical body in bright white light. Head, neck, shoulders, arms, hands, chest, back, stomach, hips, legs, feet. This white outline represents every energy factor in your body.
+pause 10
+say Now change the outline's color, one at a time. Red, for your circulation.
+pause 6
+say Back to white.
+pause 4
+say Blue, for your nerve system.
+pause 6
+say Back to white.
+pause 4
+say Yellow, for your organs and glands.
+pause 6
+say Back to white.
+pause 4
+say Orange, for your muscle and bone.
+pause 6
+say Back to bright, sparkling white — the composite of your body's total energy.
+pause 8
+say Now place this white map over your physical body. Notice any parts that look dim, or flickering.
+pause 10
+say Reach for your Energy Bar Tool, and charge it bright white.
+pause 6
+say Wherever your map shows dim or flickering, let purple healing energy flow from the tool into those parts.
+pause 10
+say Now bathe the whole map, head to feet, in that same purple — washing out anything that doesn't belong, recharging everything it touches.
+hold 30
+say Change your map to red again — circulation — and look for anything dim or flickering. Use the Energy Bar Tool's purple ray on it.
+pause 10
+say Back to white, then blue — your nerve system. Same again: purple, on anything dim.
+pause 10
+say Back to white, then yellow — organs and glands. Purple, on anything dim.
+pause 10
+say Back to white, then orange — muscle and bone. Purple, on anything dim.
+pause 10
+say Now let the map return to white — the total of your physical body.
+pause 6
+say Look deeper, just behind it. There's a second map — finer, thinner. Your emotional body.
+pause 8
+say Wherever it looks dim or flickering, brighten it with the same purple energy. Wherever it looks unusually, unevenly bright, use the tool to even it out — calm, serene, balanced.
+pause 12
+say Both maps are clean now. Turn away from them.
+pause 5
+say Release the Energy Bar Tool. Let it float free, somewhere you can find it again.
+pause 8
+say You're stronger now, physically and emotionally — and because of that, clearer and more awake mentally. Let your awareness be brighter, stronger, and clearer.
+pause 8

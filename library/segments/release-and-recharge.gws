@@ -1,0 +1,31 @@
+# From "Release and Recharge" (Wave I - Discovery, CD2-4). The tape walks
+# through the fear/emotion/memory cycle three times as a demonstration;
+# written here as one clean pass plus an open invitation to repeat, since the
+# tool is meant to run for as many fears as surface, not exactly three.
+
+@segment   release-and-recharge
+@title     Release and Recharge
+@levels    F10
+@duration  ~4m
+@protected Energy Conversion Box
+
+say This is a practice for cleaning, balancing, and recharging what you're carrying.
+pause 5
+say From Focus 10, return to your Energy Conversion Box. Raise the lid, and look inside.
+pause 8
+say Find one radiation of fear. Just one — whatever surfaces first.
+pause 8
+say Pull it out of the box, and let it go. Up and away, like a bubble rising through water.
+pause 10
+say With that fear gone, look again. Underneath it was an emotion. Find it now.
+pause 8
+say Take that out as well, and release it the same way. Up and away, free of you, and you free of it. You won't need it again.
+pause 10
+say Now, free of the fear and the emotion that covered it, there's a memory left underneath — the event itself, clean of what was wrapped around it.
+pause 8
+say Calmly, retrieve that clean energy, and let it come back into you.
+pause 10
+say Close the box, and turn away.
+pause 5
+say Repeat this with each fear that surfaces, for as long as feels right.
+hold 120

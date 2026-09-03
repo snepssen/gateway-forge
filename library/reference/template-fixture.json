@@ -1,0 +1,2141 @@
+{
+  "editFixture" : {
+    "note" : "real template",
+    "source" : "# Source-grounded recipe: Wave III — Freedom, CD1-2.\n# The tape's preparatory process is expanded through the existing reusable\n# components; its authored exercise remains one segment rather than being\n# paraphrased here. No generic briefing, Clear Skies or extra hold is added.\n\n@title    Remote Viewing\n@level    F10\n@ending   return\n@pan      right\n@seed     20007\n@verbosity 3\n\n# Awake preparation — must happen before the listener lies down.\nuse remote-viewing-intent\n\nsurf 0.55\nuse orientation\n\nsurf 0.30\nuse conversion-box\n\nsurf 0.18\nuse resonant-tuning\nuse balloon\nuse affirmation\n\nsurf 0.0\nuse relax-10\nuse remote-viewing\nuse return-one\n",
+    "steps" : [
+      {
+        "kind" : "use",
+        "line" : 13,
+        "ordinal" : 0,
+        "segmentID" : "remote-viewing-intent",
+        "text" : "use remote-viewing-intent"
+      },
+      {
+        "kind" : "surf",
+        "line" : 15,
+        "ordinal" : 1,
+        "segmentID" : "",
+        "text" : "surf 0.55"
+      },
+      {
+        "kind" : "use",
+        "line" : 16,
+        "ordinal" : 2,
+        "segmentID" : "orientation",
+        "text" : "use orientation"
+      },
+      {
+        "kind" : "surf",
+        "line" : 18,
+        "ordinal" : 3,
+        "segmentID" : "",
+        "text" : "surf 0.30"
+      },
+      {
+        "kind" : "use",
+        "line" : 19,
+        "ordinal" : 4,
+        "segmentID" : "conversion-box",
+        "text" : "use conversion-box"
+      },
+      {
+        "kind" : "surf",
+        "line" : 21,
+        "ordinal" : 5,
+        "segmentID" : "",
+        "text" : "surf 0.18"
+      },
+      {
+        "kind" : "use",
+        "line" : 22,
+        "ordinal" : 6,
+        "segmentID" : "resonant-tuning",
+        "text" : "use resonant-tuning"
+      },
+      {
+        "kind" : "use",
+        "line" : 23,
+        "ordinal" : 7,
+        "segmentID" : "balloon",
+        "text" : "use balloon"
+      },
+      {
+        "kind" : "use",
+        "line" : 24,
+        "ordinal" : 8,
+        "segmentID" : "affirmation",
+        "text" : "use affirmation"
+      },
+      {
+        "kind" : "surf",
+        "line" : 26,
+        "ordinal" : 9,
+        "segmentID" : "",
+        "text" : "surf 0.0"
+      },
+      {
+        "kind" : "use",
+        "line" : 27,
+        "ordinal" : 10,
+        "segmentID" : "relax-10",
+        "text" : "use relax-10"
+      },
+      {
+        "kind" : "use",
+        "line" : 28,
+        "ordinal" : 11,
+        "segmentID" : "remote-viewing",
+        "text" : "use remote-viewing"
+      },
+      {
+        "kind" : "use",
+        "line" : 29,
+        "ordinal" : 12,
+        "segmentID" : "return-one",
+        "text" : "use return-one"
+      }
+    ]
+  },
+  "editOpCases" : [
+    {
+      "name" : "insert at 0",
+      "result" : "@title    T\n@level    F10\n# a leading comment\nuse new-one\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n",
+      "resultSteps" : [
+        {
+          "kind" : "use",
+          "line" : 3,
+          "ordinal" : 0,
+          "segmentID" : "new-one",
+          "text" : "use new-one"
+        },
+        {
+          "kind" : "surf",
+          "line" : 4,
+          "ordinal" : 1,
+          "segmentID" : "",
+          "text" : "surf 0.5"
+        },
+        {
+          "kind" : "use",
+          "line" : 5,
+          "ordinal" : 2,
+          "segmentID" : "a",
+          "text" : "use a"
+        },
+        {
+          "kind" : "use",
+          "line" : 6,
+          "ordinal" : 3,
+          "segmentID" : "b",
+          "text" : "use b v2"
+        },
+        {
+          "kind" : "pause",
+          "line" : 7,
+          "ordinal" : 4,
+          "segmentID" : "",
+          "text" : "pause 5"
+        },
+        {
+          "kind" : "use",
+          "line" : 9,
+          "ordinal" : 5,
+          "segmentID" : "c",
+          "text" : "use c"
+        }
+      ],
+      "source" : "@title    T\n@level    F10\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n"
+    },
+    {
+      "name" : "insert at 2",
+      "result" : "@title    T\n@level    F10\n# a leading comment\nsurf 0.5\nuse a\nuse new-one\nuse b v2\npause 5\n# trailing comment\nuse c\n",
+      "resultSteps" : [
+        {
+          "kind" : "surf",
+          "line" : 3,
+          "ordinal" : 0,
+          "segmentID" : "",
+          "text" : "surf 0.5"
+        },
+        {
+          "kind" : "use",
+          "line" : 4,
+          "ordinal" : 1,
+          "segmentID" : "a",
+          "text" : "use a"
+        },
+        {
+          "kind" : "use",
+          "line" : 5,
+          "ordinal" : 2,
+          "segmentID" : "new-one",
+          "text" : "use new-one"
+        },
+        {
+          "kind" : "use",
+          "line" : 6,
+          "ordinal" : 3,
+          "segmentID" : "b",
+          "text" : "use b v2"
+        },
+        {
+          "kind" : "pause",
+          "line" : 7,
+          "ordinal" : 4,
+          "segmentID" : "",
+          "text" : "pause 5"
+        },
+        {
+          "kind" : "use",
+          "line" : 9,
+          "ordinal" : 5,
+          "segmentID" : "c",
+          "text" : "use c"
+        }
+      ],
+      "source" : "@title    T\n@level    F10\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n"
+    },
+    {
+      "name" : "insert past the end",
+      "result" : "@title    T\n@level    F10\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\nuse new-one\n",
+      "resultSteps" : [
+        {
+          "kind" : "surf",
+          "line" : 3,
+          "ordinal" : 0,
+          "segmentID" : "",
+          "text" : "surf 0.5"
+        },
+        {
+          "kind" : "use",
+          "line" : 4,
+          "ordinal" : 1,
+          "segmentID" : "a",
+          "text" : "use a"
+        },
+        {
+          "kind" : "use",
+          "line" : 5,
+          "ordinal" : 2,
+          "segmentID" : "b",
+          "text" : "use b v2"
+        },
+        {
+          "kind" : "pause",
+          "line" : 6,
+          "ordinal" : 3,
+          "segmentID" : "",
+          "text" : "pause 5"
+        },
+        {
+          "kind" : "use",
+          "line" : 8,
+          "ordinal" : 4,
+          "segmentID" : "c",
+          "text" : "use c"
+        },
+        {
+          "kind" : "use",
+          "line" : 9,
+          "ordinal" : 5,
+          "segmentID" : "new-one",
+          "text" : "use new-one"
+        }
+      ],
+      "source" : "@title    T\n@level    F10\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n"
+    },
+    {
+      "name" : "insert into an empty body",
+      "result" : "@title T\n@level F10\n# just a comment\n\nuse only-one",
+      "resultSteps" : [
+        {
+          "kind" : "use",
+          "line" : 4,
+          "ordinal" : 0,
+          "segmentID" : "only-one",
+          "text" : "use only-one"
+        }
+      ],
+      "source" : "@title T\n@level F10\n# just a comment\n"
+    },
+    {
+      "name" : "append",
+      "result" : "@title    T\n@level    F10\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\nuse appended\n",
+      "resultSteps" : [
+        {
+          "kind" : "surf",
+          "line" : 3,
+          "ordinal" : 0,
+          "segmentID" : "",
+          "text" : "surf 0.5"
+        },
+        {
+          "kind" : "use",
+          "line" : 4,
+          "ordinal" : 1,
+          "segmentID" : "a",
+          "text" : "use a"
+        },
+        {
+          "kind" : "use",
+          "line" : 5,
+          "ordinal" : 2,
+          "segmentID" : "b",
+          "text" : "use b v2"
+        },
+        {
+          "kind" : "pause",
+          "line" : 6,
+          "ordinal" : 3,
+          "segmentID" : "",
+          "text" : "pause 5"
+        },
+        {
+          "kind" : "use",
+          "line" : 8,
+          "ordinal" : 4,
+          "segmentID" : "c",
+          "text" : "use c"
+        },
+        {
+          "kind" : "use",
+          "line" : 9,
+          "ordinal" : 5,
+          "segmentID" : "appended",
+          "text" : "use appended"
+        }
+      ],
+      "source" : "@title    T\n@level    F10\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n"
+    },
+    {
+      "name" : "remove first",
+      "result" : "@title    T\n@level    F10\n# a leading comment\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n",
+      "resultSteps" : [
+        {
+          "kind" : "use",
+          "line" : 3,
+          "ordinal" : 0,
+          "segmentID" : "a",
+          "text" : "use a"
+        },
+        {
+          "kind" : "use",
+          "line" : 4,
+          "ordinal" : 1,
+          "segmentID" : "b",
+          "text" : "use b v2"
+        },
+        {
+          "kind" : "pause",
+          "line" : 5,
+          "ordinal" : 2,
+          "segmentID" : "",
+          "text" : "pause 5"
+        },
+        {
+          "kind" : "use",
+          "line" : 7,
+          "ordinal" : 3,
+          "segmentID" : "c",
+          "text" : "use c"
+        }
+      ],
+      "source" : "@title    T\n@level    F10\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n"
+    },
+    {
+      "name" : "remove middle",
+      "result" : "@title    T\n@level    F10\n# a leading comment\nsurf 0.5\nuse a\npause 5\n# trailing comment\nuse c\n",
+      "resultSteps" : [
+        {
+          "kind" : "surf",
+          "line" : 3,
+          "ordinal" : 0,
+          "segmentID" : "",
+          "text" : "surf 0.5"
+        },
+        {
+          "kind" : "use",
+          "line" : 4,
+          "ordinal" : 1,
+          "segmentID" : "a",
+          "text" : "use a"
+        },
+        {
+          "kind" : "pause",
+          "line" : 5,
+          "ordinal" : 2,
+          "segmentID" : "",
+          "text" : "pause 5"
+        },
+        {
+          "kind" : "use",
+          "line" : 7,
+          "ordinal" : 3,
+          "segmentID" : "c",
+          "text" : "use c"
+        }
+      ],
+      "source" : "@title    T\n@level    F10\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n"
+    },
+    {
+      "name" : "remove out of range",
+      "result" : "@title    T\n@level    F10\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n",
+      "resultSteps" : [
+        {
+          "kind" : "surf",
+          "line" : 3,
+          "ordinal" : 0,
+          "segmentID" : "",
+          "text" : "surf 0.5"
+        },
+        {
+          "kind" : "use",
+          "line" : 4,
+          "ordinal" : 1,
+          "segmentID" : "a",
+          "text" : "use a"
+        },
+        {
+          "kind" : "use",
+          "line" : 5,
+          "ordinal" : 2,
+          "segmentID" : "b",
+          "text" : "use b v2"
+        },
+        {
+          "kind" : "pause",
+          "line" : 6,
+          "ordinal" : 3,
+          "segmentID" : "",
+          "text" : "pause 5"
+        },
+        {
+          "kind" : "use",
+          "line" : 8,
+          "ordinal" : 4,
+          "segmentID" : "c",
+          "text" : "use c"
+        }
+      ],
+      "source" : "@title    T\n@level    F10\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n"
+    },
+    {
+      "name" : "move forward",
+      "result" : "@title    T\n@level    F10\n# a leading comment\nuse a\nuse b v2\nsurf 0.5\npause 5\n# trailing comment\nuse c\n",
+      "resultSteps" : [
+        {
+          "kind" : "use",
+          "line" : 3,
+          "ordinal" : 0,
+          "segmentID" : "a",
+          "text" : "use a"
+        },
+        {
+          "kind" : "use",
+          "line" : 4,
+          "ordinal" : 1,
+          "segmentID" : "b",
+          "text" : "use b v2"
+        },
+        {
+          "kind" : "surf",
+          "line" : 5,
+          "ordinal" : 2,
+          "segmentID" : "",
+          "text" : "surf 0.5"
+        },
+        {
+          "kind" : "pause",
+          "line" : 6,
+          "ordinal" : 3,
+          "segmentID" : "",
+          "text" : "pause 5"
+        },
+        {
+          "kind" : "use",
+          "line" : 8,
+          "ordinal" : 4,
+          "segmentID" : "c",
+          "text" : "use c"
+        }
+      ],
+      "source" : "@title    T\n@level    F10\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n"
+    },
+    {
+      "name" : "move backward",
+      "result" : "@title    T\n@level    F10\n# a leading comment\npause 5\nsurf 0.5\nuse a\nuse b v2\n# trailing comment\nuse c\n",
+      "resultSteps" : [
+        {
+          "kind" : "pause",
+          "line" : 3,
+          "ordinal" : 0,
+          "segmentID" : "",
+          "text" : "pause 5"
+        },
+        {
+          "kind" : "surf",
+          "line" : 4,
+          "ordinal" : 1,
+          "segmentID" : "",
+          "text" : "surf 0.5"
+        },
+        {
+          "kind" : "use",
+          "line" : 5,
+          "ordinal" : 2,
+          "segmentID" : "a",
+          "text" : "use a"
+        },
+        {
+          "kind" : "use",
+          "line" : 6,
+          "ordinal" : 3,
+          "segmentID" : "b",
+          "text" : "use b v2"
+        },
+        {
+          "kind" : "use",
+          "line" : 8,
+          "ordinal" : 4,
+          "segmentID" : "c",
+          "text" : "use c"
+        }
+      ],
+      "source" : "@title    T\n@level    F10\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n"
+    },
+    {
+      "name" : "move to same position",
+      "result" : "@title    T\n@level    F10\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n",
+      "resultSteps" : [
+        {
+          "kind" : "surf",
+          "line" : 3,
+          "ordinal" : 0,
+          "segmentID" : "",
+          "text" : "surf 0.5"
+        },
+        {
+          "kind" : "use",
+          "line" : 4,
+          "ordinal" : 1,
+          "segmentID" : "a",
+          "text" : "use a"
+        },
+        {
+          "kind" : "use",
+          "line" : 5,
+          "ordinal" : 2,
+          "segmentID" : "b",
+          "text" : "use b v2"
+        },
+        {
+          "kind" : "pause",
+          "line" : 6,
+          "ordinal" : 3,
+          "segmentID" : "",
+          "text" : "pause 5"
+        },
+        {
+          "kind" : "use",
+          "line" : 8,
+          "ordinal" : 4,
+          "segmentID" : "c",
+          "text" : "use c"
+        }
+      ],
+      "source" : "@title    T\n@level    F10\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n"
+    },
+    {
+      "name" : "move adjacent forward by one",
+      "result" : "@title    T\n@level    F10\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n",
+      "resultSteps" : [
+        {
+          "kind" : "surf",
+          "line" : 3,
+          "ordinal" : 0,
+          "segmentID" : "",
+          "text" : "surf 0.5"
+        },
+        {
+          "kind" : "use",
+          "line" : 4,
+          "ordinal" : 1,
+          "segmentID" : "a",
+          "text" : "use a"
+        },
+        {
+          "kind" : "use",
+          "line" : 5,
+          "ordinal" : 2,
+          "segmentID" : "b",
+          "text" : "use b v2"
+        },
+        {
+          "kind" : "pause",
+          "line" : 6,
+          "ordinal" : 3,
+          "segmentID" : "",
+          "text" : "pause 5"
+        },
+        {
+          "kind" : "use",
+          "line" : 8,
+          "ordinal" : 4,
+          "segmentID" : "c",
+          "text" : "use c"
+        }
+      ],
+      "source" : "@title    T\n@level    F10\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n"
+    },
+    {
+      "name" : "replace",
+      "result" : "@title    T\n@level    F10\n# a leading comment\nsurf 0.5\nuse replaced v3\nuse b v2\npause 5\n# trailing comment\nuse c\n",
+      "resultSteps" : [
+        {
+          "kind" : "surf",
+          "line" : 3,
+          "ordinal" : 0,
+          "segmentID" : "",
+          "text" : "surf 0.5"
+        },
+        {
+          "kind" : "use",
+          "line" : 4,
+          "ordinal" : 1,
+          "segmentID" : "replaced",
+          "text" : "use replaced v3"
+        },
+        {
+          "kind" : "use",
+          "line" : 5,
+          "ordinal" : 2,
+          "segmentID" : "b",
+          "text" : "use b v2"
+        },
+        {
+          "kind" : "pause",
+          "line" : 6,
+          "ordinal" : 3,
+          "segmentID" : "",
+          "text" : "pause 5"
+        },
+        {
+          "kind" : "use",
+          "line" : 8,
+          "ordinal" : 4,
+          "segmentID" : "c",
+          "text" : "use c"
+        }
+      ],
+      "source" : "@title    T\n@level    F10\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n"
+    },
+    {
+      "name" : "replace out of range",
+      "result" : "@title    T\n@level    F10\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n",
+      "resultSteps" : [
+        {
+          "kind" : "surf",
+          "line" : 3,
+          "ordinal" : 0,
+          "segmentID" : "",
+          "text" : "surf 0.5"
+        },
+        {
+          "kind" : "use",
+          "line" : 4,
+          "ordinal" : 1,
+          "segmentID" : "a",
+          "text" : "use a"
+        },
+        {
+          "kind" : "use",
+          "line" : 5,
+          "ordinal" : 2,
+          "segmentID" : "b",
+          "text" : "use b v2"
+        },
+        {
+          "kind" : "pause",
+          "line" : 6,
+          "ordinal" : 3,
+          "segmentID" : "",
+          "text" : "pause 5"
+        },
+        {
+          "kind" : "use",
+          "line" : 8,
+          "ordinal" : 4,
+          "segmentID" : "c",
+          "text" : "use c"
+        }
+      ],
+      "source" : "@title    T\n@level    F10\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n"
+    },
+    {
+      "name" : "set directive, exact key exists, keeps its gap",
+      "result" : "@title    T\n@level    F12\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n",
+      "resultSteps" : [
+        {
+          "kind" : "surf",
+          "line" : 3,
+          "ordinal" : 0,
+          "segmentID" : "",
+          "text" : "surf 0.5"
+        },
+        {
+          "kind" : "use",
+          "line" : 4,
+          "ordinal" : 1,
+          "segmentID" : "a",
+          "text" : "use a"
+        },
+        {
+          "kind" : "use",
+          "line" : 5,
+          "ordinal" : 2,
+          "segmentID" : "b",
+          "text" : "use b v2"
+        },
+        {
+          "kind" : "pause",
+          "line" : 6,
+          "ordinal" : 3,
+          "segmentID" : "",
+          "text" : "pause 5"
+        },
+        {
+          "kind" : "use",
+          "line" : 8,
+          "ordinal" : 4,
+          "segmentID" : "c",
+          "text" : "use c"
+        }
+      ],
+      "source" : "@title    T\n@level    F10\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n"
+    },
+    {
+      "name" : "set directive, tighter gap",
+      "result" : "@title T\n@level F10\n@voice snepssen\nsay one\n",
+      "resultSteps" : [
+        {
+          "kind" : "say",
+          "line" : 3,
+          "ordinal" : 0,
+          "segmentID" : "",
+          "text" : "say one"
+        }
+      ],
+      "source" : "@title T\n@level F10\nsay one\n"
+    },
+    {
+      "name" : "clear an existing directive",
+      "result" : "@title    T\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n",
+      "resultSteps" : [
+        {
+          "kind" : "surf",
+          "line" : 2,
+          "ordinal" : 0,
+          "segmentID" : "",
+          "text" : "surf 0.5"
+        },
+        {
+          "kind" : "use",
+          "line" : 3,
+          "ordinal" : 1,
+          "segmentID" : "a",
+          "text" : "use a"
+        },
+        {
+          "kind" : "use",
+          "line" : 4,
+          "ordinal" : 2,
+          "segmentID" : "b",
+          "text" : "use b v2"
+        },
+        {
+          "kind" : "pause",
+          "line" : 5,
+          "ordinal" : 3,
+          "segmentID" : "",
+          "text" : "pause 5"
+        },
+        {
+          "kind" : "use",
+          "line" : 7,
+          "ordinal" : 4,
+          "segmentID" : "c",
+          "text" : "use c"
+        }
+      ],
+      "source" : "@title    T\n@level    F10\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n"
+    },
+    {
+      "name" : "clear a directive that is not there",
+      "result" : "@title    T\n@level    F10\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n",
+      "resultSteps" : [
+        {
+          "kind" : "surf",
+          "line" : 3,
+          "ordinal" : 0,
+          "segmentID" : "",
+          "text" : "surf 0.5"
+        },
+        {
+          "kind" : "use",
+          "line" : 4,
+          "ordinal" : 1,
+          "segmentID" : "a",
+          "text" : "use a"
+        },
+        {
+          "kind" : "use",
+          "line" : 5,
+          "ordinal" : 2,
+          "segmentID" : "b",
+          "text" : "use b v2"
+        },
+        {
+          "kind" : "pause",
+          "line" : 6,
+          "ordinal" : 3,
+          "segmentID" : "",
+          "text" : "pause 5"
+        },
+        {
+          "kind" : "use",
+          "line" : 8,
+          "ordinal" : 4,
+          "segmentID" : "c",
+          "text" : "use c"
+        }
+      ],
+      "source" : "@title    T\n@level    F10\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n"
+    },
+    {
+      "name" : "set a new directive lands after the last one",
+      "result" : "@title    T\n@level    F10\n@seed 42\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n",
+      "resultSteps" : [
+        {
+          "kind" : "surf",
+          "line" : 4,
+          "ordinal" : 0,
+          "segmentID" : "",
+          "text" : "surf 0.5"
+        },
+        {
+          "kind" : "use",
+          "line" : 5,
+          "ordinal" : 1,
+          "segmentID" : "a",
+          "text" : "use a"
+        },
+        {
+          "kind" : "use",
+          "line" : 6,
+          "ordinal" : 2,
+          "segmentID" : "b",
+          "text" : "use b v2"
+        },
+        {
+          "kind" : "pause",
+          "line" : 7,
+          "ordinal" : 3,
+          "segmentID" : "",
+          "text" : "pause 5"
+        },
+        {
+          "kind" : "use",
+          "line" : 9,
+          "ordinal" : 4,
+          "segmentID" : "c",
+          "text" : "use c"
+        }
+      ],
+      "source" : "@title    T\n@level    F10\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n"
+    },
+    {
+      "name" : "set flag on",
+      "result" : "@title    T\n@level    F10\n@fixed\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n",
+      "resultSteps" : [
+        {
+          "kind" : "surf",
+          "line" : 4,
+          "ordinal" : 0,
+          "segmentID" : "",
+          "text" : "surf 0.5"
+        },
+        {
+          "kind" : "use",
+          "line" : 5,
+          "ordinal" : 1,
+          "segmentID" : "a",
+          "text" : "use a"
+        },
+        {
+          "kind" : "use",
+          "line" : 6,
+          "ordinal" : 2,
+          "segmentID" : "b",
+          "text" : "use b v2"
+        },
+        {
+          "kind" : "pause",
+          "line" : 7,
+          "ordinal" : 3,
+          "segmentID" : "",
+          "text" : "pause 5"
+        },
+        {
+          "kind" : "use",
+          "line" : 9,
+          "ordinal" : 4,
+          "segmentID" : "c",
+          "text" : "use c"
+        }
+      ],
+      "source" : "@title    T\n@level    F10\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n"
+    },
+    {
+      "name" : "set flag off when absent",
+      "result" : "@title    T\n@level    F10\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n",
+      "resultSteps" : [
+        {
+          "kind" : "surf",
+          "line" : 3,
+          "ordinal" : 0,
+          "segmentID" : "",
+          "text" : "surf 0.5"
+        },
+        {
+          "kind" : "use",
+          "line" : 4,
+          "ordinal" : 1,
+          "segmentID" : "a",
+          "text" : "use a"
+        },
+        {
+          "kind" : "use",
+          "line" : 5,
+          "ordinal" : 2,
+          "segmentID" : "b",
+          "text" : "use b v2"
+        },
+        {
+          "kind" : "pause",
+          "line" : 6,
+          "ordinal" : 3,
+          "segmentID" : "",
+          "text" : "pause 5"
+        },
+        {
+          "kind" : "use",
+          "line" : 8,
+          "ordinal" : 4,
+          "segmentID" : "c",
+          "text" : "use c"
+        }
+      ],
+      "source" : "@title    T\n@level    F10\n# a leading comment\nsurf 0.5\nuse a\nuse b v2\npause 5\n# trailing comment\nuse c\n"
+    },
+    {
+      "name" : "set flag on then the trailing-gap cleanup fires",
+      "result" : "@title T\n@level F10\n@fixed\nsay one\n",
+      "resultSteps" : [
+        {
+          "kind" : "say",
+          "line" : 3,
+          "ordinal" : 0,
+          "segmentID" : "",
+          "text" : "say one"
+        }
+      ],
+      "source" : "@title T\n@level F10\n@fixed  \nsay one\n"
+    }
+  ],
+  "madePlan" : {
+    "destination" : "F10",
+    "estimatedSeconds" : 0.7137758743754461,
+    "isReady" : false,
+    "items" : [
+      {
+        "index" : 0,
+        "isFallback" : true,
+        "isRendered" : false,
+        "kind" : "segment",
+        "needs" : [
+
+        ],
+        "outputName" : "sparse.v1.take1.wav",
+        "requested" : 3,
+        "seconds" : 0.7137758743754461,
+        "segmentID" : "sparse-thing",
+        "served" : 1,
+        "title" : "Sparse Thing"
+      }
+    ],
+    "missingRenders" : [
+      "segment.sparse-thing.0"
+    ],
+    "name" : "constructed: served below requested",
+    "needsComposing" : [
+      "segment.sparse-thing.0"
+    ],
+    "needsToHand" : [
+
+    ],
+    "pauseScale" : 1,
+    "template" : "made",
+    "verbosity" : 3,
+    "voice" : "v"
+  },
+  "mismatchCase" : {
+    "hasFile" : [
+      true
+    ],
+    "isRendered" : [
+      false
+    ],
+    "missingRenders" : [
+      "segment.ghost.0"
+    ]
+  },
+  "multiSpaceCase" : {
+    "note" : "constructed: extra spaces before a use id",
+    "source" : "@title T\n@level F10\nuse    spaced-out   v2\n",
+    "steps" : [
+      {
+        "kind" : "use",
+        "line" : 2,
+        "ordinal" : 0,
+        "segmentID" : "spaced-out",
+        "text" : "use    spaced-out   v2"
+      }
+    ]
+  },
+  "needsCase" : {
+    "needsToHand" : [
+      "paper",
+      "pen",
+      "a candle"
+    ]
+  },
+  "newTemplateCases" : [
+    {
+      "result" : "# Built in Gateway Forge. A template is a recipe: `use <segment>` steps in\n# order, interleaved with the session-level surf and bed cues that segments\n# are forbidden to carry. Edit it here or in the app -- it is the same file.\n\n@title    A Fresh One\n@level    F10\n@voice    default\n@ending   return\n@pan      right\n@verbosity 3\n\nsurf 0.55\nuse opening\nuse comfort\nuse orientation\nuse ocean\n\nsurf 0.30\nuse conversion-box\nuse affirmation\n\nsurf 0.18\nuse resonant-tuning\nuse balloon\n\nsurf 0.0\nuse relax-10\n",
+      "title" : "A Fresh One"
+    },
+    {
+      "result" : "# Built in Gateway Forge. A template is a recipe: `use <segment>` steps in\n# order, interleaved with the session-level surf and bed cues that segments\n# are forbidden to carry. Edit it here or in the app -- it is the same file.\n\n@title    No Induction\n@level    F10\n@voice    default\n@ending   return\n@pan      right\n@verbosity 3\n\n",
+      "title" : "No Induction"
+    },
+    {
+      "result" : "# Built in Gateway Forge. A template is a recipe: `use <segment>` steps in\n# order, interleaved with the session-level surf and bed cues that segments\n# are forbidden to carry. Edit it here or in the app -- it is the same file.\n\n@title    With Seed And Body\n@level    F10\n@voice    default\n@ending   return\n@pan      right\n@verbosity 3\n@seed     42\n\nsurf 0.55\nuse opening\nuse comfort\nuse orientation\nuse ocean\n\nsurf 0.30\nuse conversion-box\nuse affirmation\n\nsurf 0.18\nuse resonant-tuning\nuse balloon\n\nsurf 0.0\nuse relax-10\n\nuse free-flow-10\n",
+      "title" : "With Seed And Body"
+    },
+    {
+      "result" : "# Built in Gateway Forge. A template is a recipe: `use <segment>` steps in\n# order, interleaved with the session-level surf and bed cues that segments\n# are forbidden to carry. Edit it here or in the app -- it is the same file.\n\n@title    Custom Everything\n@level    F21\n@voice    snepssen\n@ending   stay\n@pan      right\n@verbosity 1\n\nsurf 0.55\nuse opening\nuse comfort\nuse orientation\nuse ocean\n\nsurf 0.30\nuse conversion-box\nuse affirmation\n\nsurf 0.18\nuse resonant-tuning\nuse balloon\n\nsurf 0.0\nuse relax-10\n",
+      "title" : "Custom Everything"
+    }
+  ],
+  "note" : "TemplateEdit's line surgery and SessionPlan's build, over a real template plus constructed edges.",
+  "planCases" : [
+    {
+      "destination" : "F21",
+      "destinationKey" : "F21",
+      "estimatedSeconds" : 1368.486795146324,
+      "isReady" : false,
+      "items" : [
+        {
+          "file" : "library/segments/remote-viewing-intent.gws",
+          "index" : 0,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "upright",
+          "needs" : [
+            "paper",
+            "something to write with"
+          ],
+          "outputName" : "remote-viewing-intent.take1.wav",
+          "requested" : 3,
+          "seconds" : 69.40613847251961,
+          "segmentID" : "remote-viewing-intent",
+          "title" : "Setting the Target"
+        },
+        {
+          "file" : "library/segments/announcement.gws",
+          "index" : 1,
+          "isFallback" : false,
+          "isRendered" : false,
+          "kind" : "announcement",
+          "needs" : [
+
+          ],
+          "outputName" : "announcement.v3.f21.take1.wav",
+          "requested" : 3,
+          "seconds" : 56.33904354032833,
+          "segmentID" : "announcement",
+          "served" : 3,
+          "title" : "What This Session Is"
+        },
+        {
+          "file" : "library/segments/orientation.gws",
+          "index" : 2,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "orientation.take1.wav",
+          "requested" : 3,
+          "seconds" : 13.851534618129907,
+          "segmentID" : "orientation",
+          "title" : "Headphone Orientation"
+        },
+        {
+          "file" : "library/segments/conversion-box.gws",
+          "index" : 3,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "conversion-box.take1.wav",
+          "requested" : 3,
+          "seconds" : 70.83369022127053,
+          "segmentID" : "conversion-box",
+          "title" : "Energy Conversion Box"
+        },
+        {
+          "file" : "library/segments/resonant-tuning.gws",
+          "index" : 4,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "resonant-tuning.take1.wav",
+          "requested" : 3,
+          "seconds" : 234.17273376159886,
+          "segmentID" : "resonant-tuning",
+          "title" : "Resonant Tuning"
+        },
+        {
+          "file" : "library/segments/balloon.gws",
+          "index" : 5,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "balloon.take1.wav",
+          "requested" : 3,
+          "seconds" : 148.3811563169165,
+          "segmentID" : "balloon",
+          "title" : "Resonant Energy Balloon"
+        },
+        {
+          "file" : "library/segments/affirmation.gws",
+          "index" : 6,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "affirmation.take1.wav",
+          "requested" : 3,
+          "seconds" : 65.90435403283368,
+          "segmentID" : "affirmation",
+          "title" : "The Gateway Affirmation — settled form"
+        },
+        {
+          "file" : "library/segments/relax-10.gws",
+          "index" : 7,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "relax-10.take1.wav",
+          "requested" : 3,
+          "seconds" : 420.91006423982867,
+          "segmentID" : "relax-10",
+          "served" : 3,
+          "title" : "Ten-Point Relaxation"
+        },
+        {
+          "file" : "library/segments/remote-viewing.gws",
+          "index" : 8,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "remote-viewing.take1.wav",
+          "requested" : 3,
+          "seconds" : 253.91434689507494,
+          "segmentID" : "remote-viewing",
+          "title" : "Remote Viewing"
+        },
+        {
+          "file" : "library/segments/return-one.gws",
+          "index" : 9,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "return-one.take1.wav",
+          "requested" : 3,
+          "seconds" : 34.77373304782299,
+          "segmentID" : "return-one",
+          "title" : "Ending — Instant Return to Waking"
+        }
+      ],
+      "missingRenders" : [
+        "announcement.announcement.1"
+      ],
+      "name" : "real template, v3, real destination",
+      "needsComposing" : [
+
+      ],
+      "needsToHand" : [
+        "paper",
+        "something to write with"
+      ],
+      "pauseScale" : 1,
+      "template" : "remote-viewing",
+      "verbosity" : 3,
+      "voice" : "snepssen-suno"
+    },
+    {
+      "destination" : "F21",
+      "destinationKey" : "F21",
+      "estimatedSeconds" : 1017.3647394718059,
+      "isReady" : false,
+      "items" : [
+        {
+          "file" : "library/segments/remote-viewing-intent.gws",
+          "index" : 0,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "upright",
+          "needs" : [
+            "paper",
+            "something to write with"
+          ],
+          "outputName" : "remote-viewing-intent.take1.wav",
+          "requested" : 1,
+          "seconds" : 69.40613847251961,
+          "segmentID" : "remote-viewing-intent",
+          "title" : "Setting the Target"
+        },
+        {
+          "file" : "library/segments/announcement.v1.gws",
+          "index" : 1,
+          "isFallback" : false,
+          "isRendered" : false,
+          "kind" : "announcement",
+          "needs" : [
+
+          ],
+          "outputName" : "announcement.v1.f21.take1.wav",
+          "requested" : 1,
+          "seconds" : 15.780870806566739,
+          "segmentID" : "announcement",
+          "served" : 1,
+          "title" : "What This Session Is"
+        },
+        {
+          "file" : "library/segments/orientation.gws",
+          "index" : 2,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "orientation.take1.wav",
+          "requested" : 1,
+          "seconds" : 13.851534618129907,
+          "segmentID" : "orientation",
+          "title" : "Headphone Orientation"
+        },
+        {
+          "file" : "library/segments/conversion-box.gws",
+          "index" : 3,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "conversion-box.take1.wav",
+          "requested" : 1,
+          "seconds" : 70.83369022127053,
+          "segmentID" : "conversion-box",
+          "title" : "Energy Conversion Box"
+        },
+        {
+          "file" : "library/segments/resonant-tuning.gws",
+          "index" : 4,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "resonant-tuning.take1.wav",
+          "requested" : 1,
+          "seconds" : 234.17273376159886,
+          "segmentID" : "resonant-tuning",
+          "title" : "Resonant Tuning"
+        },
+        {
+          "file" : "library/segments/balloon.gws",
+          "index" : 5,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "balloon.take1.wav",
+          "requested" : 1,
+          "seconds" : 148.3811563169165,
+          "segmentID" : "balloon",
+          "title" : "Resonant Energy Balloon"
+        },
+        {
+          "file" : "library/segments/affirmation.gws",
+          "index" : 6,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "affirmation.take1.wav",
+          "requested" : 1,
+          "seconds" : 65.90435403283368,
+          "segmentID" : "affirmation",
+          "title" : "The Gateway Affirmation — settled form"
+        },
+        {
+          "file" : "library/segments/relax-10.count-only.gws",
+          "index" : 7,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "relax-10.count-only.take1.wav",
+          "requested" : 1,
+          "seconds" : 110.34618129907207,
+          "segmentID" : "relax-10",
+          "served" : 1,
+          "title" : "Ten-Point Relaxation"
+        },
+        {
+          "file" : "library/segments/remote-viewing.gws",
+          "index" : 8,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "remote-viewing.take1.wav",
+          "requested" : 1,
+          "seconds" : 253.91434689507494,
+          "segmentID" : "remote-viewing",
+          "title" : "Remote Viewing"
+        },
+        {
+          "file" : "library/segments/return-one.gws",
+          "index" : 9,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "return-one.take1.wav",
+          "requested" : 1,
+          "seconds" : 34.77373304782299,
+          "segmentID" : "return-one",
+          "title" : "Ending — Instant Return to Waking"
+        }
+      ],
+      "missingRenders" : [
+        "announcement.announcement.1"
+      ],
+      "name" : "real template, v1",
+      "needsComposing" : [
+
+      ],
+      "needsToHand" : [
+        "paper",
+        "something to write with"
+      ],
+      "pauseScale" : 1,
+      "template" : "remote-viewing",
+      "verbosity" : 1,
+      "voice" : "snepssen-suno"
+    },
+    {
+      "destination" : "F21",
+      "destinationKey" : "F21",
+      "estimatedSeconds" : 763.0007137758744,
+      "isReady" : false,
+      "items" : [
+        {
+          "file" : "library/segments/remote-viewing-intent.gws",
+          "index" : 0,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "upright",
+          "needs" : [
+            "paper",
+            "something to write with"
+          ],
+          "outputName" : "remote-viewing-intent.take1.wav",
+          "requested" : 2,
+          "seconds" : 50.40613847251962,
+          "segmentID" : "remote-viewing-intent",
+          "title" : "Setting the Target"
+        },
+        {
+          "file" : "library/segments/announcement.v2.gws",
+          "index" : 1,
+          "isFallback" : false,
+          "isRendered" : false,
+          "kind" : "announcement",
+          "needs" : [
+
+          ],
+          "outputName" : "announcement.v2.f21.take1.wav",
+          "requested" : 2,
+          "seconds" : 25.91684511063526,
+          "segmentID" : "announcement",
+          "served" : 2,
+          "title" : "What This Session Is"
+        },
+        {
+          "file" : "library/segments/orientation.gws",
+          "index" : 2,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "orientation.take1.wav",
+          "requested" : 2,
+          "seconds" : 10.851534618129907,
+          "segmentID" : "orientation",
+          "title" : "Headphone Orientation"
+        },
+        {
+          "file" : "library/segments/conversion-box.gws",
+          "index" : 3,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "conversion-box.take1.wav",
+          "requested" : 2,
+          "seconds" : 51.83369022127052,
+          "segmentID" : "conversion-box",
+          "title" : "Energy Conversion Box"
+        },
+        {
+          "file" : "library/segments/resonant-tuning.gws",
+          "index" : 4,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "resonant-tuning.take1.wav",
+          "requested" : 2,
+          "seconds" : 191.17273376159886,
+          "segmentID" : "resonant-tuning",
+          "title" : "Resonant Tuning"
+        },
+        {
+          "file" : "library/segments/balloon.gws",
+          "index" : 5,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "balloon.take1.wav",
+          "requested" : 2,
+          "seconds" : 107.38115631691649,
+          "segmentID" : "balloon",
+          "title" : "Resonant Energy Balloon"
+        },
+        {
+          "file" : "library/segments/affirmation.gws",
+          "index" : 6,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "affirmation.take1.wav",
+          "requested" : 2,
+          "seconds" : 49.90435403283369,
+          "segmentID" : "affirmation",
+          "title" : "The Gateway Affirmation — settled form"
+        },
+        {
+          "file" : "library/segments/relax-10.count-only.gws",
+          "index" : 7,
+          "isFallback" : true,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "relax-10.count-only.take1.wav",
+          "requested" : 2,
+          "seconds" : 62.846181299072086,
+          "segmentID" : "relax-10",
+          "served" : 1,
+          "title" : "Ten-Point Relaxation"
+        },
+        {
+          "file" : "library/segments/remote-viewing.gws",
+          "index" : 8,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "remote-viewing.take1.wav",
+          "requested" : 2,
+          "seconds" : 186.91434689507494,
+          "segmentID" : "remote-viewing",
+          "title" : "Remote Viewing"
+        },
+        {
+          "file" : "library/segments/return-one.gws",
+          "index" : 9,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "return-one.take1.wav",
+          "requested" : 2,
+          "seconds" : 25.773733047822986,
+          "segmentID" : "return-one",
+          "title" : "Ending — Instant Return to Waking"
+        }
+      ],
+      "missingRenders" : [
+        "announcement.announcement.1"
+      ],
+      "name" : "real template, v2, pause scale 0.5",
+      "needsComposing" : [
+        "segment.relax-10.7"
+      ],
+      "needsToHand" : [
+        "paper",
+        "something to write with"
+      ],
+      "pauseScale" : 0.5,
+      "template" : "remote-viewing",
+      "verbosity" : 2,
+      "voice" : "snepssen-suno"
+    },
+    {
+      "destination" : "F21",
+      "destinationKey" : "F21",
+      "estimatedSeconds" : 1698.486795146324,
+      "isReady" : false,
+      "items" : [
+        {
+          "file" : "library/segments/remote-viewing-intent.gws",
+          "index" : 0,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "upright",
+          "needs" : [
+            "paper",
+            "something to write with"
+          ],
+          "outputName" : "remote-viewing-intent.take1.wav",
+          "requested" : 3,
+          "seconds" : 88.40613847251964,
+          "segmentID" : "remote-viewing-intent",
+          "title" : "Setting the Target"
+        },
+        {
+          "file" : "library/segments/announcement.gws",
+          "index" : 1,
+          "isFallback" : false,
+          "isRendered" : false,
+          "kind" : "announcement",
+          "needs" : [
+
+          ],
+          "outputName" : "announcement.v3.f21.take1.wav",
+          "requested" : 3,
+          "seconds" : 71.83904354032833,
+          "segmentID" : "announcement",
+          "served" : 3,
+          "title" : "What This Session Is"
+        },
+        {
+          "file" : "library/segments/orientation.gws",
+          "index" : 2,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "orientation.take1.wav",
+          "requested" : 3,
+          "seconds" : 16.851534618129907,
+          "segmentID" : "orientation",
+          "title" : "Headphone Orientation"
+        },
+        {
+          "file" : "library/segments/conversion-box.gws",
+          "index" : 3,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "conversion-box.take1.wav",
+          "requested" : 3,
+          "seconds" : 89.83369022127053,
+          "segmentID" : "conversion-box",
+          "title" : "Energy Conversion Box"
+        },
+        {
+          "file" : "library/segments/resonant-tuning.gws",
+          "index" : 4,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "resonant-tuning.take1.wav",
+          "requested" : 3,
+          "seconds" : 277.17273376159886,
+          "segmentID" : "resonant-tuning",
+          "title" : "Resonant Tuning"
+        },
+        {
+          "file" : "library/segments/balloon.gws",
+          "index" : 5,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "balloon.take1.wav",
+          "requested" : 3,
+          "seconds" : 189.38115631691647,
+          "segmentID" : "balloon",
+          "title" : "Resonant Energy Balloon"
+        },
+        {
+          "file" : "library/segments/affirmation.gws",
+          "index" : 6,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "affirmation.take1.wav",
+          "requested" : 3,
+          "seconds" : 81.9043540328337,
+          "segmentID" : "affirmation",
+          "title" : "The Gateway Affirmation — settled form"
+        },
+        {
+          "file" : "library/segments/relax-10.gws",
+          "index" : 7,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "relax-10.take1.wav",
+          "requested" : 3,
+          "seconds" : 518.4100642398287,
+          "segmentID" : "relax-10",
+          "served" : 3,
+          "title" : "Ten-Point Relaxation"
+        },
+        {
+          "file" : "library/segments/remote-viewing.gws",
+          "index" : 8,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "remote-viewing.take1.wav",
+          "requested" : 3,
+          "seconds" : 320.91434689507497,
+          "segmentID" : "remote-viewing",
+          "title" : "Remote Viewing"
+        },
+        {
+          "file" : "library/segments/return-one.gws",
+          "index" : 9,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "return-one.take1.wav",
+          "requested" : 3,
+          "seconds" : 43.77373304782299,
+          "segmentID" : "return-one",
+          "title" : "Ending — Instant Return to Waking"
+        }
+      ],
+      "missingRenders" : [
+        "announcement.announcement.1"
+      ],
+      "name" : "real template, pause scale 2.0",
+      "needsComposing" : [
+
+      ],
+      "needsToHand" : [
+        "paper",
+        "something to write with"
+      ],
+      "pauseScale" : 2,
+      "template" : "remote-viewing",
+      "verbosity" : 3,
+      "voice" : "snepssen-suno"
+    },
+    {
+      "destination" : "F10",
+      "estimatedSeconds" : 1312.1477516059958,
+      "isReady" : true,
+      "items" : [
+        {
+          "file" : "library/segments/remote-viewing-intent.gws",
+          "index" : 0,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "upright",
+          "needs" : [
+            "paper",
+            "something to write with"
+          ],
+          "outputName" : "remote-viewing-intent.take1.wav",
+          "requested" : 3,
+          "seconds" : 69.40613847251961,
+          "segmentID" : "remote-viewing-intent",
+          "title" : "Setting the Target"
+        },
+        {
+          "file" : "library/segments/orientation.gws",
+          "index" : 1,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "orientation.take1.wav",
+          "requested" : 3,
+          "seconds" : 13.851534618129907,
+          "segmentID" : "orientation",
+          "title" : "Headphone Orientation"
+        },
+        {
+          "file" : "library/segments/conversion-box.gws",
+          "index" : 2,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "conversion-box.take1.wav",
+          "requested" : 3,
+          "seconds" : 70.83369022127053,
+          "segmentID" : "conversion-box",
+          "title" : "Energy Conversion Box"
+        },
+        {
+          "file" : "library/segments/resonant-tuning.gws",
+          "index" : 3,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "resonant-tuning.take1.wav",
+          "requested" : 3,
+          "seconds" : 234.17273376159886,
+          "segmentID" : "resonant-tuning",
+          "title" : "Resonant Tuning"
+        },
+        {
+          "file" : "library/segments/balloon.gws",
+          "index" : 4,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "balloon.take1.wav",
+          "requested" : 3,
+          "seconds" : 148.3811563169165,
+          "segmentID" : "balloon",
+          "title" : "Resonant Energy Balloon"
+        },
+        {
+          "file" : "library/segments/affirmation.gws",
+          "index" : 5,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "affirmation.take1.wav",
+          "requested" : 3,
+          "seconds" : 65.90435403283368,
+          "segmentID" : "affirmation",
+          "title" : "The Gateway Affirmation — settled form"
+        },
+        {
+          "file" : "library/segments/relax-10.gws",
+          "index" : 6,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "relax-10.take1.wav",
+          "requested" : 3,
+          "seconds" : 420.91006423982867,
+          "segmentID" : "relax-10",
+          "served" : 3,
+          "title" : "Ten-Point Relaxation"
+        },
+        {
+          "file" : "library/segments/remote-viewing.gws",
+          "index" : 7,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "remote-viewing.take1.wav",
+          "requested" : 3,
+          "seconds" : 253.91434689507494,
+          "segmentID" : "remote-viewing",
+          "title" : "Remote Viewing"
+        },
+        {
+          "file" : "library/segments/return-one.gws",
+          "index" : 8,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "return-one.take1.wav",
+          "requested" : 3,
+          "seconds" : 34.77373304782299,
+          "segmentID" : "return-one",
+          "title" : "Ending — Instant Return to Waking"
+        }
+      ],
+      "missingRenders" : [
+
+      ],
+      "name" : "no destination at all",
+      "needsComposing" : [
+
+      ],
+      "needsToHand" : [
+        "paper",
+        "something to write with"
+      ],
+      "pauseScale" : 1,
+      "template" : "remote-viewing",
+      "verbosity" : 3,
+      "voice" : "snepssen-suno"
+    },
+    {
+      "destination" : "F10",
+      "destinationKey" : "NOWHERE",
+      "estimatedSeconds" : 1312.1477516059958,
+      "isReady" : true,
+      "items" : [
+        {
+          "file" : "library/segments/remote-viewing-intent.gws",
+          "index" : 0,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "upright",
+          "needs" : [
+            "paper",
+            "something to write with"
+          ],
+          "outputName" : "remote-viewing-intent.take1.wav",
+          "requested" : 3,
+          "seconds" : 69.40613847251961,
+          "segmentID" : "remote-viewing-intent",
+          "title" : "Setting the Target"
+        },
+        {
+          "file" : "library/segments/orientation.gws",
+          "index" : 1,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "orientation.take1.wav",
+          "requested" : 3,
+          "seconds" : 13.851534618129907,
+          "segmentID" : "orientation",
+          "title" : "Headphone Orientation"
+        },
+        {
+          "file" : "library/segments/conversion-box.gws",
+          "index" : 2,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "conversion-box.take1.wav",
+          "requested" : 3,
+          "seconds" : 70.83369022127053,
+          "segmentID" : "conversion-box",
+          "title" : "Energy Conversion Box"
+        },
+        {
+          "file" : "library/segments/resonant-tuning.gws",
+          "index" : 3,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "resonant-tuning.take1.wav",
+          "requested" : 3,
+          "seconds" : 234.17273376159886,
+          "segmentID" : "resonant-tuning",
+          "title" : "Resonant Tuning"
+        },
+        {
+          "file" : "library/segments/balloon.gws",
+          "index" : 4,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "balloon.take1.wav",
+          "requested" : 3,
+          "seconds" : 148.3811563169165,
+          "segmentID" : "balloon",
+          "title" : "Resonant Energy Balloon"
+        },
+        {
+          "file" : "library/segments/affirmation.gws",
+          "index" : 5,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "affirmation.take1.wav",
+          "requested" : 3,
+          "seconds" : 65.90435403283368,
+          "segmentID" : "affirmation",
+          "title" : "The Gateway Affirmation — settled form"
+        },
+        {
+          "file" : "library/segments/relax-10.gws",
+          "index" : 6,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "relax-10.take1.wav",
+          "requested" : 3,
+          "seconds" : 420.91006423982867,
+          "segmentID" : "relax-10",
+          "served" : 3,
+          "title" : "Ten-Point Relaxation"
+        },
+        {
+          "file" : "library/segments/remote-viewing.gws",
+          "index" : 7,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "remote-viewing.take1.wav",
+          "requested" : 3,
+          "seconds" : 253.91434689507494,
+          "segmentID" : "remote-viewing",
+          "title" : "Remote Viewing"
+        },
+        {
+          "file" : "library/segments/return-one.gws",
+          "index" : 8,
+          "isFallback" : false,
+          "isRendered" : true,
+          "kind" : "segment",
+          "needs" : [
+
+          ],
+          "outputName" : "return-one.take1.wav",
+          "requested" : 3,
+          "seconds" : 34.77373304782299,
+          "segmentID" : "return-one",
+          "title" : "Ending — Instant Return to Waking"
+        }
+      ],
+      "missingRenders" : [
+
+      ],
+      "name" : "destination nothing describes",
+      "needsComposing" : [
+
+      ],
+      "needsToHand" : [
+        "paper",
+        "something to write with"
+      ],
+      "pauseScale" : 1,
+      "template" : "remote-viewing",
+      "verbosity" : 3,
+      "voice" : "snepssen-suno"
+    }
+  ],
+  "scaledCases" : [
+    {
+      "pauseScale" : 1,
+      "result" : 5.784439685938615,
+      "source" : "@title T\n@level F10\nsay one two three four five\npause 4\n"
+    },
+    {
+      "pauseScale" : 0.5,
+      "result" : 3.784439685938615,
+      "source" : "@title T\n@level F10\nsay one two three four five\npause 4\n"
+    },
+    {
+      "pauseScale" : 2,
+      "result" : 7.784439685938615,
+      "source" : "@title T\n@level F10\nsay one two three four five\npause 4\n"
+    },
+    {
+      "pauseScale" : 1.5,
+      "result" : 30,
+      "source" : "@title T\n@level F10\nmedia ocean 30\n"
+    },
+    {
+      "pauseScale" : 0.5,
+      "result" : 5,
+      "source" : "@title T\n@level F10\nhold 10\n"
+    },
+    {
+      "pauseScale" : 1,
+      "result" : 0,
+      "source" : "@title T\n@level F10\nsurf 0.3\nbed 0.2 10\nbeat 4\nlevel F12\npan left\n"
+    },
+    {
+      "pauseScale" : 1,
+      "result" : 1.0706638115631693,
+      "source" : "@title T\n@level F10\nsay one    two   three\n"
+    }
+  ],
+  "slugCases" : [
+    {
+      "slug" : "a-fresh-one",
+      "title" : "A Fresh One"
+    },
+    {
+      "slug" : "leading-and-trailing",
+      "title" : "  Leading And Trailing  "
+    },
+    {
+      "slug" : "multiple-dashes",
+      "title" : "Multiple---Dashes"
+    },
+    {
+      "slug" : "ünïcode-café",
+      "title" : "Ünïcode Café"
+    },
+    {
+      "slug" : "already-a-slug",
+      "title" : "already-a-slug"
+    },
+    {
+      "slug" : "123-numbers",
+      "title" : "123 Numbers"
+    },
+    {
+      "slug" : "",
+      "title" : ""
+    },
+    {
+      "slug" : "",
+      "title" : "!!!"
+    },
+    {
+      "slug" : "声-mixed",
+      "title" : "声 Mixed"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+# The Castle — custom guided meditation inside Focus 27, shared cohort scenario.
+# Was levels.json "C27-CASTLE" until 2026-08-19; its beat/carrier/bed were F27's
+# own, verbatim, because it never was a separate level.
+# v1 note carried over: "shared render, identical across cohort; translation
+# layer active"
+#
+# Content authored 2026-08-19 from the user's own account: the Place of Your
+# Own grown into an educational/research edition for co-working with entities
+# and individuals of equal or greater development -- many rooms, each larger
+# inside than out, the unvisited ones held by a version of the listener (the
+# user's own multi-core / CIA-compartmentalisation framing, kept verbatim
+# rather than reworded). Follows place-of-your-own directly, the way the
+# castle grows out of what is already there.
+
+@title    Focus 27 — The Castle
+@level    F10
+@ending   stay
+@pan      right
+@seed     2728
+@verbosity 3
+
+surf 0.55
+use opening
+use comfort
+use orientation
+use ocean
+
+surf 0.30
+use conversion-box
+use affirmation
+
+surf 0.18
+use resonant-tuning
+use balloon
+use return-methods
+use clear-skies
+
+surf 0.0
+use relax-10
+
+use climb-f10-f12
+use briefing-f12
+use free
+
+use climb-f12-f15
+use briefing-f15
+use free
+
+use climb-f15-f21
+use briefing-f21
+
+use climb-f21-f23
+use briefing-f23
+
+use climb-f23-f25
+use briefing-f25
+
+use climb-f25-f26
+use briefing-f26
+
+use climb-f26-f27
+use briefing-f27
+
+bed 0.38 0.03
+use place-of-your-own
+use affirmation-service
+use castle
+use stay

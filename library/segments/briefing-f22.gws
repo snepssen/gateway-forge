@@ -1,0 +1,26 @@
+# No longer provisional. Grounded in "Intro Focus 23" (Wave VII - Voyager,
+# CD1-2): the tape passes through Focus 22 on the way from 21 to 23 and
+# describes it in some detail, but says "22" and "twenty-two" without always
+# pairing the word "focus" right next to the number, so the library's
+# automated Library.sourceCoverage() scan (which looks for the literal
+# "focus <digits>" pattern) still reports 0 for this level -- a known
+# scanner limitation, not evidence the corpus is actually silent here. This
+# briefing exists precisely because it is not.
+
+@segment     briefing-f22
+@title       Focus 22 — Here and There
+@levels      F22
+@duration    ~1m
+
+say You are now in Focus 22.
+pause 5
+say This area is heavily populated, though only a small part of those here are conscious the way you are right now.
+pause 8
+say Some have altered their awareness through substances, or through injury — not fully conscious, their perception of the physical distorted.
+pause 8
+say Others are millions of people in ordinary physical sleep. Only part of their awareness has come here. Most aren't in control of what they're experiencing — they're running on patterns pulled straight from physical life, so completely that nothing else exists to them right now. Dreams. Dreaming.
+pause 10
+say You won't interrupt them if you move among them. You likely won't even perceive what they're dreaming — it belongs to each of them alone.
+pause 8
+say You're in full control here, whether or not they are. Observe, if you like. You're always free to move on toward Focus 23.
+pause 8

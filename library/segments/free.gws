@@ -1,0 +1,6 @@
+@segment  free
+@title    Open Exploration
+@levels   F12, F15, F21, F27
+@duration ~1m
+
+hold 60

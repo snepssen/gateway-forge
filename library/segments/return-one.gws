@@ -1,0 +1,17 @@
+# From "Free Flow 10" (Wave I - Discovery, CD3-6). This executes the
+# one-count waking return after the listener has already learned it. It is
+# distinct from return-anchor.gws, which teaches the anchor and explicitly
+# leaves the listener in Focus 10, and from return.gws's full ten-to-one count.
+
+@segment   return-one
+@title     Ending — Instant Return to Waking
+@levels    F10
+@fixed
+@duration  ~25s
+
+say Return now to full physical waking consciousness by the method you've learned. Think the number one in your mind.
+pause 5
+say As you do, become completely wide awake, physically and mentally, fully refreshed and filled with new vitality.
+pause 5
+say Begin your return to full physical waking consciousness. Begin it now.
+pause 8

@@ -1,0 +1,34 @@
+# Source-grounded exercise recipe: Wave I, Release and Recharge. The transcript
+# explicitly calls for orientation, the standard preparatory process and Focus
+# 10 before the fear/emotion/memory cycle. Its closing health statement is the
+# separate health-affirmation segment, but it belongs to this same tape.
+#
+# The source finally asks the listener to use the newly learned one-count waking
+# return. This recipe keeps the full authored waking count as a safety adaptation:
+# the session must not leave a new listener at Focus 10 if that anchor is not yet
+# reliable. No unrelated Clear Skies or open exploration hold is added.
+
+@title    Release and Recharge
+@level    F10
+@ending   return
+@pan      right
+@seed     10104
+@verbosity 3
+
+surf 0.55
+use orientation
+
+surf 0.30
+use conversion-box
+use affirmation
+
+surf 0.18
+use resonant-tuning
+use balloon
+
+surf 0.0
+use relax-10
+use release-and-recharge
+use health-affirmation
+
+use return

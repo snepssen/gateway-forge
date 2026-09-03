@@ -1,0 +1,38 @@
+# From "Exploration, Sleep" (Wave I - Discovery, CD3-5). Unlike most F10
+# tools, this one is meant to end in actual sleep, not a return count -- a
+# session using it should end @ending stay, or simply let the listener drift.
+# The transcript's countdown (11-20) has three ASR number errors -- "sixty",
+# "seventy", "ninety" for sixteen/seventeen/nineteen, and a garbled "twenty
+# twenty twenty" -- corrected here against the stated 11-to-20 sequence.
+
+@segment   exploration-sleep
+@title     Exploration — Sleep
+@levels    F10
+@duration  ~3m
+
+say From Focus 10, explore the process your body uses to fall into total sleep — a way to remember what that feels like, so you can call on it later.
+pause 8
+say Think how nice it would be to float. To float out and away. Calm. Serene.
+pause 8
+say Turn slowly, as if you were a log rolling in water.
+pause 6
+say Detach easily. Let yourself float upward, slowly, up and away. Calm and pleasant.
+pause 10
+say Notice how you feel right now. Remember it.
+pause 8
+say Now float back down, in the direction you came from. More, and more.
+pause 8
+say Turn again, as if you were a log rolling in water.
+pause 6
+say You're nearly back where you started.
+pause 5
+say Now you've returned, completely, to where you began.
+pause 6
+say Relax, and feel calm and comfortable in Focus 10. Remember what you've noticed.
+pause 8
+say From this moment on, whenever you want normal, natural, restful sleep, count slowly in your mind from one to twenty. When you reach twenty, you'll be there.
+pause 10
+say The more you use this, the easier and more effective it becomes.
+pause 6
+say Let this count carry the rest of the way. Eleven. Twelve. Thirteen. Fourteen. Fifteen. Sixteen. Seventeen. Eighteen. Nineteen. Twenty.
+hold 60

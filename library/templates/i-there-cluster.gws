@@ -1,0 +1,55 @@
+# Built in Gateway Forge. A template is a recipe: `use <segment>` steps in
+# order, interleaved with the session-level surf and bed cues that segments
+# are forbidden to carry. Edit it here or in the app -- it is the same file.
+#
+# The affirmation is the 1977 original rather than the settled form: the
+# route enters F23, F25, F26, F34 and F35, which levels.json marks as populated by minds
+# the listener did not choose. The tape's own preparatory process is
+# expanded through reusable components, so which affirmation fills that
+# slot is this library's choice and not a claim about the source.
+
+@title    f42-I-There cluster
+@level    F1
+@ending   stay
+@pan      right
+@verbosity 3
+@seed     718237
+
+surf 0.55
+use opening
+use comfort
+use orientation
+use ocean
+
+surf 0.30
+use conversion-box
+use resonant-tuning
+surf 0.18
+use affirmation-1977
+use balloon
+
+
+surf 0.0
+use relax-10
+use climb-f10-f12
+pause 10
+use climb-f12-f15
+pause 10
+use climb-f15-f21
+pause 10
+use climb-f21-f23
+pause 10
+use climb-f23-f25
+pause 10
+use climb-f25-f26
+pause 10
+use climb-f26-f27
+pause 10
+use climb-f27-f34
+pause 10
+use climb-f34-f35
+pause 10
+use climb-f35-f42
+use briefing-f42
+hold 1800
+use stay

@@ -1,0 +1,31 @@
+# Source-grounded exercise recipe: Wave I, Exploration, Sleep. The transcript
+# asks the listener to lie down, checks right-ear orientation, then names the
+# preparatory order explicitly: Energy Conversion Box, Resonant Tuning,
+# Resonant Energy Balloon, Affirmation and Focus 10.
+#
+# This is a sleep tape, not a visit followed by a return. The exercise itself
+# counts from eleven to twenty and the manual says the signals fade while the
+# listener remains in natural sleep. No waking count, return-method briefing,
+# Clear Skies or invented exploration hold belongs after it.
+
+@title    Exploration, Sleep
+@level    F10
+@ending   stay
+@pan      right
+@seed     10105
+@verbosity 3
+
+surf 0.55
+use orientation
+
+surf 0.30
+use conversion-box
+
+surf 0.18
+use resonant-tuning
+use balloon
+use affirmation
+
+surf 0.0
+use relax-10
+use exploration-sleep

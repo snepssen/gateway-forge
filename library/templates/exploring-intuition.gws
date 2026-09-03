@@ -1,0 +1,29 @@
+# Source-grounded recipe: Wave V — Exploring Focus 15, CD2-3.
+# The tape's preparatory process is expanded through the existing reusable
+# components; its authored exercise remains one segment rather than being
+# paraphrased here. No generic briefing, Clear Skies or extra hold is added.
+
+@title    Exploring Intuition
+@level    F10
+@ending   return
+@pan      right
+@seed     20020
+@verbosity 3
+
+surf 0.55
+use orientation
+
+surf 0.30
+use conversion-box
+
+surf 0.18
+use resonant-tuning
+use balloon
+use affirmation
+
+surf 0.0
+use relax-10
+use climb-f10-f12
+use exploring-intuition
+level F10
+use return-one

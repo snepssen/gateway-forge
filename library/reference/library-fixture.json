@@ -1,0 +1,4646 @@
+{
+  "continuousSegments" : [
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m20s",
+      "levels" : [
+        "F13"
+      ],
+      "path" : "library/continuous/briefing-f13.gws",
+      "provisional" : true,
+      "segmentID" : "briefing-f13",
+      "title" : "Focus 13",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m20s",
+      "levels" : [
+        "F14"
+      ],
+      "path" : "library/continuous/briefing-f14.gws",
+      "provisional" : true,
+      "segmentID" : "briefing-f14",
+      "title" : "Focus 14",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m20s",
+      "levels" : [
+        "F16"
+      ],
+      "path" : "library/continuous/briefing-f16.gws",
+      "provisional" : true,
+      "segmentID" : "briefing-f16",
+      "title" : "Focus 16",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m20s",
+      "levels" : [
+        "F17"
+      ],
+      "path" : "library/continuous/briefing-f17.gws",
+      "provisional" : true,
+      "segmentID" : "briefing-f17",
+      "title" : "Focus 17",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m20s",
+      "levels" : [
+        "F19"
+      ],
+      "path" : "library/continuous/briefing-f19.gws",
+      "provisional" : true,
+      "segmentID" : "briefing-f19",
+      "title" : "Focus 19",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m20s",
+      "levels" : [
+        "F20"
+      ],
+      "path" : "library/continuous/briefing-f20.gws",
+      "provisional" : true,
+      "segmentID" : "briefing-f20",
+      "title" : "Focus 20",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m20s",
+      "levels" : [
+        "F28"
+      ],
+      "path" : "library/continuous/briefing-f28.gws",
+      "provisional" : true,
+      "segmentID" : "briefing-f28",
+      "title" : "Focus 28",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m20s",
+      "levels" : [
+        "F29"
+      ],
+      "path" : "library/continuous/briefing-f29.gws",
+      "provisional" : true,
+      "segmentID" : "briefing-f29",
+      "title" : "Focus 29",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m20s",
+      "levels" : [
+        "F30"
+      ],
+      "path" : "library/continuous/briefing-f30.gws",
+      "provisional" : true,
+      "segmentID" : "briefing-f30",
+      "title" : "Focus 30",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m20s",
+      "levels" : [
+        "F31"
+      ],
+      "path" : "library/continuous/briefing-f31.gws",
+      "provisional" : true,
+      "segmentID" : "briefing-f31",
+      "title" : "Focus 31",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m20s",
+      "levels" : [
+        "F32"
+      ],
+      "path" : "library/continuous/briefing-f32.gws",
+      "provisional" : true,
+      "segmentID" : "briefing-f32",
+      "title" : "Focus 32",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m20s",
+      "levels" : [
+        "F33"
+      ],
+      "path" : "library/continuous/briefing-f33.gws",
+      "provisional" : true,
+      "segmentID" : "briefing-f33",
+      "title" : "Focus 33",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m20s",
+      "levels" : [
+        "F36"
+      ],
+      "path" : "library/continuous/briefing-f36.gws",
+      "provisional" : true,
+      "segmentID" : "briefing-f36",
+      "title" : "Focus 36",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m20s",
+      "levels" : [
+        "F37"
+      ],
+      "path" : "library/continuous/briefing-f37.gws",
+      "provisional" : true,
+      "segmentID" : "briefing-f37",
+      "title" : "Focus 37",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m20s",
+      "levels" : [
+        "F38"
+      ],
+      "path" : "library/continuous/briefing-f38.gws",
+      "provisional" : true,
+      "segmentID" : "briefing-f38",
+      "title" : "Focus 38",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m20s",
+      "levels" : [
+        "F39"
+      ],
+      "path" : "library/continuous/briefing-f39.gws",
+      "provisional" : true,
+      "segmentID" : "briefing-f39",
+      "title" : "Focus 39",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m20s",
+      "levels" : [
+        "F40"
+      ],
+      "path" : "library/continuous/briefing-f40.gws",
+      "provisional" : true,
+      "segmentID" : "briefing-f40",
+      "title" : "Focus 40",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m20s",
+      "levels" : [
+        "F41"
+      ],
+      "path" : "library/continuous/briefing-f41.gws",
+      "provisional" : true,
+      "segmentID" : "briefing-f41",
+      "title" : "Focus 41",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m20s",
+      "levels" : [
+        "F43"
+      ],
+      "path" : "library/continuous/briefing-f43.gws",
+      "provisional" : true,
+      "segmentID" : "briefing-f43",
+      "title" : "Focus 43",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m20s",
+      "levels" : [
+        "F44"
+      ],
+      "path" : "library/continuous/briefing-f44.gws",
+      "provisional" : true,
+      "segmentID" : "briefing-f44",
+      "title" : "Focus 44",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m20s",
+      "levels" : [
+        "F45"
+      ],
+      "path" : "library/continuous/briefing-f45.gws",
+      "provisional" : true,
+      "segmentID" : "briefing-f45",
+      "title" : "Focus 45",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m20s",
+      "levels" : [
+        "F46"
+      ],
+      "path" : "library/continuous/briefing-f46.gws",
+      "provisional" : true,
+      "segmentID" : "briefing-f46",
+      "title" : "Focus 46",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m20s",
+      "levels" : [
+        "F47"
+      ],
+      "path" : "library/continuous/briefing-f47.gws",
+      "provisional" : true,
+      "segmentID" : "briefing-f47",
+      "title" : "Focus 47",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m20s",
+      "levels" : [
+        "F48"
+      ],
+      "path" : "library/continuous/briefing-f48.gws",
+      "provisional" : true,
+      "segmentID" : "briefing-f48",
+      "title" : "Focus 48",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F12"
+      ],
+      "origin" : "F11",
+      "path" : "library/continuous/climb-f11-f12.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f11-f12",
+      "title" : "Climb — Focus 11 to Focus 12",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f11-f12.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F13"
+      ],
+      "origin" : "F12",
+      "path" : "library/continuous/climb-f12-f13.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f12-f13",
+      "title" : "Climb — Focus 12 to Focus 13",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f12-f13.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F14"
+      ],
+      "origin" : "F13",
+      "path" : "library/continuous/climb-f13-f14.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f13-f14",
+      "title" : "Climb — Focus 13 to Focus 14",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f13-f14.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F15"
+      ],
+      "origin" : "F14",
+      "path" : "library/continuous/climb-f14-f15.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f14-f15",
+      "title" : "Climb — Focus 14 to Focus 15",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f14-f15.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F16"
+      ],
+      "origin" : "F15",
+      "path" : "library/continuous/climb-f15-f16.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f15-f16",
+      "title" : "Climb — Focus 15 to Focus 16",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f15-f16.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F17"
+      ],
+      "origin" : "F16",
+      "path" : "library/continuous/climb-f16-f17.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f16-f17",
+      "title" : "Climb — Focus 16 to Focus 17",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f16-f17.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F18"
+      ],
+      "origin" : "F17",
+      "path" : "library/continuous/climb-f17-f18.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f17-f18",
+      "title" : "Climb — Focus 17 to Focus 18",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f17-f18.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F19"
+      ],
+      "origin" : "F18",
+      "path" : "library/continuous/climb-f18-f19.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f18-f19",
+      "title" : "Climb — Focus 18 to Focus 19",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f18-f19.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F20"
+      ],
+      "origin" : "F19",
+      "path" : "library/continuous/climb-f19-f20.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f19-f20",
+      "title" : "Climb — Focus 19 to Focus 20",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f19-f20.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F21"
+      ],
+      "origin" : "F20",
+      "path" : "library/continuous/climb-f20-f21.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f20-f21",
+      "title" : "Climb — Focus 20 to Focus 21",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f20-f21.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F23"
+      ],
+      "origin" : "F22",
+      "path" : "library/continuous/climb-f22-f23.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f22-f23",
+      "title" : "Climb — Focus 22 to Focus 23",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f22-f23.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F25"
+      ],
+      "origin" : "F24",
+      "path" : "library/continuous/climb-f24-f25.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f24-f25",
+      "title" : "Climb — Focus 24 to Focus 25",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f24-f25.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F28"
+      ],
+      "origin" : "F27",
+      "path" : "library/continuous/climb-f27-f28.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f27-f28",
+      "title" : "Climb — Focus 27 to Focus 28",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f27-f28.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F29"
+      ],
+      "origin" : "F28",
+      "path" : "library/continuous/climb-f28-f29.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f28-f29",
+      "title" : "Climb — Focus 28 to Focus 29",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f28-f29.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F30"
+      ],
+      "origin" : "F29",
+      "path" : "library/continuous/climb-f29-f30.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f29-f30",
+      "title" : "Climb — Focus 29 to Focus 30",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f29-f30.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F31"
+      ],
+      "origin" : "F30",
+      "path" : "library/continuous/climb-f30-f31.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f30-f31",
+      "title" : "Climb — Focus 30 to Focus 31",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f30-f31.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F32"
+      ],
+      "origin" : "F31",
+      "path" : "library/continuous/climb-f31-f32.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f31-f32",
+      "title" : "Climb — Focus 31 to Focus 32",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f31-f32.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F33"
+      ],
+      "origin" : "F32",
+      "path" : "library/continuous/climb-f32-f33.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f32-f33",
+      "title" : "Climb — Focus 32 to Focus 33",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f32-f33.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F34"
+      ],
+      "origin" : "F33",
+      "path" : "library/continuous/climb-f33-f34.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f33-f34",
+      "title" : "Climb — Focus 33 to Focus 34",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f33-f34.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F36"
+      ],
+      "origin" : "F35",
+      "path" : "library/continuous/climb-f35-f36.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f35-f36",
+      "title" : "Climb — Focus 35 to Focus 36",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f35-f36.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F37"
+      ],
+      "origin" : "F36",
+      "path" : "library/continuous/climb-f36-f37.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f36-f37",
+      "title" : "Climb — Focus 36 to Focus 37",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f36-f37.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F38"
+      ],
+      "origin" : "F37",
+      "path" : "library/continuous/climb-f37-f38.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f37-f38",
+      "title" : "Climb — Focus 37 to Focus 38",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f37-f38.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F39"
+      ],
+      "origin" : "F38",
+      "path" : "library/continuous/climb-f38-f39.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f38-f39",
+      "title" : "Climb — Focus 38 to Focus 39",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f38-f39.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F40"
+      ],
+      "origin" : "F39",
+      "path" : "library/continuous/climb-f39-f40.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f39-f40",
+      "title" : "Climb — Focus 39 to Focus 40",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f39-f40.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F41"
+      ],
+      "origin" : "F40",
+      "path" : "library/continuous/climb-f40-f41.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f40-f41",
+      "title" : "Climb — Focus 40 to Focus 41",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f40-f41.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F42"
+      ],
+      "origin" : "F41",
+      "path" : "library/continuous/climb-f41-f42.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f41-f42",
+      "title" : "Climb — Focus 41 to Focus 42",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f41-f42.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F43"
+      ],
+      "origin" : "F42",
+      "path" : "library/continuous/climb-f42-f43.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f42-f43",
+      "title" : "Climb — Focus 42 to Focus 43",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f42-f43.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F44"
+      ],
+      "origin" : "F43",
+      "path" : "library/continuous/climb-f43-f44.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f43-f44",
+      "title" : "Climb — Focus 43 to Focus 44",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f43-f44.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F45"
+      ],
+      "origin" : "F44",
+      "path" : "library/continuous/climb-f44-f45.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f44-f45",
+      "title" : "Climb — Focus 44 to Focus 45",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f44-f45.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F46"
+      ],
+      "origin" : "F45",
+      "path" : "library/continuous/climb-f45-f46.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f45-f46",
+      "title" : "Climb — Focus 45 to Focus 46",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f45-f46.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F47"
+      ],
+      "origin" : "F46",
+      "path" : "library/continuous/climb-f46-f47.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f46-f47",
+      "title" : "Climb — Focus 46 to Focus 47",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f46-f47.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F48"
+      ],
+      "origin" : "F47",
+      "path" : "library/continuous/climb-f47-f48.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f47-f48",
+      "title" : "Climb — Focus 47 to Focus 48",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f47-f48.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F49"
+      ],
+      "origin" : "F48",
+      "path" : "library/continuous/climb-f48-f49.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f48-f49",
+      "title" : "Climb — Focus 48 to Focus 49",
+      "verbosities" : [
+        1
+      ],
+      "verbosityFiles" : {
+        "1" : "library/continuous/climb-f48-f49.gws"
+      }
+    }
+  ],
+  "focus" : [
+    {
+      "exists" : false,
+      "key" : "F1",
+      "notePath" : "focus/F1/notes.md",
+      "renders" : [
+
+      ],
+      "scripts" : [
+
+      ]
+    },
+    {
+      "exists" : true,
+      "key" : "F3",
+      "notePath" : "focus/F3/notes.md",
+      "renders" : [
+        "focus/F3/renders/2026-08-26-121910-continuous-f3-7cf5d029",
+        "focus/F3/renders/2026-08-26-122142-continuous-f3-f2a2da9c",
+        "focus/F3/renders/2026-08-26-123157-continuous-f3-73b8a6ff",
+        "focus/F3/renders/2026-08-26-123632-continuous-f3-00f0a1ae",
+        "focus/F3/renders/2026-08-26-132012-continuous-f3-44d74987",
+        "focus/F3/renders/2026-08-26-f3-visit"
+      ],
+      "scripts" : [
+
+      ]
+    },
+    {
+      "exists" : true,
+      "key" : "F10",
+      "notePath" : "focus/F10/notes.md",
+      "renders" : [
+        "focus/F10/renders/2026-09-01-203010-advanced-focus-10-9fff7165",
+        "focus/F10/renders/2026-09-02-040522-release-and-recharge-d2384752",
+        "focus/F10/renders/2026-09-02-103820-exploration-sleep-04faf809",
+        "focus/F10/renders/2026-09-02-103839-free-flow-10-3f6bbeef",
+        "focus/F10/renders/2026-09-02-104100-color-breathing-cae3960f",
+        "focus/F10/renders/2026-09-02-104116-energy-bar-tool-9c66383f",
+        "focus/F10/renders/2026-09-02-104135-living-body-map-1b772a2e"
+      ],
+      "scripts" : [
+
+      ]
+    },
+    {
+      "exists" : true,
+      "key" : "F11",
+      "notePath" : "focus/F11/notes.md",
+      "renders" : [
+        "focus/F11/renders/2026-08-26-f11-visit",
+        "focus/F11/renders/2026-09-01-020304-continuous-f11-fe4c50ca"
+      ],
+      "scripts" : [
+
+      ]
+    },
+    {
+      "exists" : true,
+      "key" : "F12",
+      "notePath" : "focus/F12/notes.md",
+      "renders" : [
+        "focus/F12/renders/2026-08-31-104549-continuous-f12-1bacb584",
+        "focus/F12/renders/2026-09-01-021555-continuous-f12-661f0753",
+        "focus/F12/renders/2026-09-02-103917-f12-visit-54134d29",
+        "focus/F12/renders/2026-09-02-104004-problem-solving-2634536f",
+        "focus/F12/renders/2026-09-02-104019-one-month-patterning-d59b6a0d"
+      ],
+      "scripts" : [
+
+      ]
+    },
+    {
+      "exists" : true,
+      "key" : "F15",
+      "notePath" : "focus/F15/notes.md",
+      "renders" : [
+        "focus/F15/renders/2026-08-26-f15-visit"
+      ],
+      "scripts" : [
+        "focus/F15/scripts/void.gws"
+      ]
+    },
+    {
+      "exists" : true,
+      "key" : "F18",
+      "notePath" : "focus/F18/notes.md",
+      "renders" : [
+        "focus/F18/renders/2026-08-26-f18-visit",
+        "focus/F18/renders/2026-09-02-103454-continuous-f18-22f1d696",
+        "focus/F18/renders/2026-09-02-103650-continuous-f18-9fc5618f",
+        "focus/F18/renders/2026-09-02-103650-f18-visit-37a5aa13",
+        "focus/F18/renders/2026-09-02-103650-f18-visit-ab83c432"
+      ],
+      "scripts" : [
+
+      ]
+    },
+    {
+      "exists" : true,
+      "key" : "F21",
+      "notePath" : "focus/F21/notes.md",
+      "renders" : [
+        "focus/F21/renders/2026-08-26-f21-visit"
+      ],
+      "scripts" : [
+
+      ]
+    },
+    {
+      "exists" : true,
+      "key" : "F22",
+      "notePath" : "focus/F22/notes.md",
+      "renders" : [
+        "focus/F22/renders/2026-08-26-f22-visit"
+      ],
+      "scripts" : [
+
+      ]
+    },
+    {
+      "exists" : true,
+      "key" : "F23",
+      "notePath" : "focus/F23/notes.md",
+      "renders" : [
+        "focus/F23/renders/2026-08-26-f23-visit"
+      ],
+      "scripts" : [
+
+      ]
+    },
+    {
+      "exists" : true,
+      "key" : "F24",
+      "notePath" : "focus/F24/notes.md",
+      "renders" : [
+        "focus/F24/renders/2026-08-26-f24-visit"
+      ],
+      "scripts" : [
+
+      ]
+    },
+    {
+      "exists" : true,
+      "key" : "F25",
+      "notePath" : "focus/F25/notes.md",
+      "renders" : [
+        "focus/F25/renders/2026-08-26-f25-visit"
+      ],
+      "scripts" : [
+
+      ]
+    },
+    {
+      "exists" : true,
+      "key" : "F26",
+      "notePath" : "focus/F26/notes.md",
+      "renders" : [
+        "focus/F26/renders/2026-08-26-f26-visit"
+      ],
+      "scripts" : [
+
+      ]
+    },
+    {
+      "exists" : true,
+      "key" : "F27",
+      "notePath" : "focus/F27/notes.md",
+      "renders" : [
+        "focus/F27/renders/2026-08-26-104002-castle-bc28388d",
+        "focus/F27/renders/2026-08-26-f27-visit",
+        "focus/F27/renders/2026-08-30-054710-continuous-f27-cf70ec3d",
+        "focus/F27/renders/2026-08-30-054900-continuous-f27-0a1b2926"
+      ],
+      "scripts" : [
+        "focus/F27/scripts/castle.gws"
+      ]
+    },
+    {
+      "exists" : true,
+      "key" : "F34",
+      "notePath" : "focus/F34/notes.md",
+      "renders" : [
+        "focus/F34/renders/2026-08-26-f34-visit",
+        "focus/F34/renders/2026-09-01-212643-f34-visit-42f62888"
+      ],
+      "scripts" : [
+
+      ]
+    },
+    {
+      "exists" : true,
+      "key" : "F35",
+      "notePath" : "focus/F35/notes.md",
+      "renders" : [
+        "focus/F35/renders/2026-08-26-f35-visit"
+      ],
+      "scripts" : [
+
+      ]
+    },
+    {
+      "exists" : true,
+      "key" : "F42",
+      "notePath" : "focus/F42/notes.md",
+      "renders" : [
+        "focus/F42/renders/2026-08-26-f42-visit"
+      ],
+      "scripts" : [
+
+      ]
+    },
+    {
+      "exists" : true,
+      "key" : "F49",
+      "notePath" : "focus/F49/notes.md",
+      "renders" : [
+        "focus/F49/renders/2026-08-26-f49-visit"
+      ],
+      "scripts" : [
+
+      ]
+    },
+    {
+      "exists" : true,
+      "key" : "F13",
+      "notePath" : "focus/F13/notes.md",
+      "renders" : [
+        "focus/F13/renders/2026-08-30-215020-continuous-f13-87e3c130",
+        "focus/F13/renders/2026-08-31-033037-continuous-f13-dc43a6cf",
+        "focus/F13/renders/2026-09-02-031803-continuous-f13-ba802011"
+      ],
+      "scripts" : [
+
+      ]
+    }
+  ],
+  "levelKeys" : [
+    "F1",
+    "F3",
+    "F10",
+    "F11",
+    "F12",
+    "F15",
+    "F18",
+    "F21",
+    "F22",
+    "F23",
+    "F24",
+    "F25",
+    "F26",
+    "F27",
+    "F34",
+    "F35",
+    "F42",
+    "F49"
+  ],
+  "mentionCases" : {
+    "FOCUS 27 shouting" : [
+      "F27"
+    ],
+    "Focus 10 and Focus 12" : [
+      "F10",
+      "F12"
+    ],
+    "Focus 49." : [
+      "F49"
+    ],
+    "focus\n10 across a newline" : [
+      "F10"
+    ],
+    "focus  21 two spaces" : [
+      "F21"
+    ],
+    "focus 1 then focus 1 again" : [
+      "F1"
+    ],
+    "focus 100 too many digits" : [
+
+    ],
+    "focus 3" : [
+      "F3"
+    ],
+    "focus 7,focus 8" : [
+      "F7",
+      "F8"
+    ],
+    "focus10 no space" : [
+
+    ],
+    "nothing here" : [
+
+    ]
+  },
+  "note" : "The whole scanned library, paths relative to the root.",
+  "references" : [
+    {
+      "kind" : "model",
+      "levels" : [
+        "F10",
+        "F12",
+        "F21",
+        "F22"
+      ],
+      "mentions" : [
+
+      ],
+      "path" : "library/reference/contenteo-phasing-model.md",
+      "source" : "Contenteo, 15 May 2011 (diagram)",
+      "title" : "Contenteo's Model — Basic Astral Projection Zone"
+    },
+    {
+      "kind" : "model",
+      "levels" : [
+        "F1",
+        "F10",
+        "F11",
+        "F12",
+        "F15",
+        "F18",
+        "F21",
+        "F22",
+        "F23",
+        "F24",
+        "F25",
+        "F26",
+        "F27",
+        "F34",
+        "F35",
+        "F42",
+        "F49"
+      ],
+      "mentions" : [
+        "F1",
+        "F10",
+        "F11",
+        "F12",
+        "F15",
+        "F18",
+        "F21",
+        "F22",
+        "F23",
+        "F24",
+        "F25",
+        "F26",
+        "F27",
+        "F34",
+        "F42",
+        "F49"
+      ],
+      "path" : "library/reference/focus-levels-overview.md",
+      "source" : "PDF overview of the Monroe Institute focus levels, OCR'd from screenshots",
+      "title" : "Focus Levels — Institute overview"
+    },
+    {
+      "kind" : "model",
+      "levels" : [
+        "F10",
+        "F12",
+        "F15",
+        "F21",
+        "F23",
+        "F25",
+        "F27"
+      ],
+      "mentions" : [
+        "F10",
+        "F12",
+        "F15",
+        "F21",
+        "F27"
+      ],
+      "path" : "library/reference/measured-beats.md",
+      "source" : "FFT analysis of all 50 Gateway Experience tapes, completed 2026-08; the app now generates the bed live and no further measurement is needed",
+      "title" : "Measured Hemi-Sync signals — what the tapes actually play"
+    },
+    {
+      "kind" : "model",
+      "levels" : [
+        "F23",
+        "F24",
+        "F25",
+        "F26",
+        "F27"
+      ],
+      "mentions" : [
+
+      ],
+      "path" : "library/reference/monroe-rings.md",
+      "source" : "Robert Monroe, Far Journeys (table)",
+      "title" : "The Rings — inward and outward flow"
+    }
+  ],
+  "segments" : [
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F10"
+      ],
+      "path" : "library/segments/advanced-focus-10.gws",
+      "provisional" : false,
+      "segmentID" : "advanced-focus-10",
+      "title" : "Advanced Focus 10 — Instant Access",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~3m",
+      "levels" : [
+        "F12"
+      ],
+      "path" : "library/segments/advanced-focus-12.gws",
+      "provisional" : false,
+      "segmentID" : "advanced-focus-12",
+      "title" : "Advanced Focus 12",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m30s",
+      "family" : "affirmation",
+      "levels" : [
+        "F10"
+      ],
+      "path" : "library/segments/affirmation-1977.gws",
+      "provisional" : false,
+      "segmentID" : "affirmation-1977",
+      "title" : "The Gateway Affirmation — 1977 original",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "family" : "affirmation",
+      "levels" : [
+        "F10"
+      ],
+      "path" : "library/segments/affirmation-direct.gws",
+      "provisional" : false,
+      "segmentID" : "affirmation-direct",
+      "title" : "The Gateway Affirmation — short and direct",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F27"
+      ],
+      "path" : "library/segments/affirmation-service.gws",
+      "provisional" : false,
+      "segmentID" : "affirmation-service",
+      "title" : "The Gateway Affirmation — service form",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "",
+      "family" : "affirmation",
+      "levels" : [
+        "F10"
+      ],
+      "path" : "library/segments/affirmation.gws",
+      "provisional" : false,
+      "segmentID" : "affirmation",
+      "title" : "The Gateway Affirmation — settled form",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~70s",
+      "levels" : [
+        "F1"
+      ],
+      "origin" : "F1",
+      "path" : "library/segments/announcement.gws",
+      "provisional" : false,
+      "segmentID" : "announcement",
+      "title" : "What This Session Is",
+      "verbosities" : [
+        1,
+        2,
+        3
+      ],
+      "verbosityFiles" : {
+        "1" : "library/segments/announcement.v1.gws",
+        "2" : "library/segments/announcement.v2.gws",
+        "3" : "library/segments/announcement.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~3m",
+      "levels" : [
+        "F10"
+      ],
+      "path" : "library/segments/balloon.gws",
+      "provisional" : false,
+      "segmentID" : "balloon",
+      "title" : "Resonant Energy Balloon",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F11"
+      ],
+      "path" : "library/segments/briefing-f11.gws",
+      "provisional" : false,
+      "segmentID" : "briefing-f11",
+      "title" : "Focus 11 — The Access Channel",
+      "verbosities" : [
+        2
+      ],
+      "verbosityFiles" : {
+        "2" : "library/segments/briefing-f11.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~20s",
+      "levels" : [
+        "F12"
+      ],
+      "path" : "library/segments/briefing-f12.gws",
+      "provisional" : false,
+      "segmentID" : "briefing-f12",
+      "title" : "Focus 12 — Expanded Awareness",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~15s",
+      "levels" : [
+        "F15"
+      ],
+      "path" : "library/segments/briefing-f15.gws",
+      "provisional" : false,
+      "segmentID" : "briefing-f15",
+      "title" : "Focus 15 — No Time",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F18"
+      ],
+      "path" : "library/segments/briefing-f18.gws",
+      "provisional" : false,
+      "segmentID" : "briefing-f18",
+      "title" : "Focus 18 — The Heart Level",
+      "verbosities" : [
+        2
+      ],
+      "verbosityFiles" : {
+        "2" : "library/segments/briefing-f18.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~30s",
+      "levels" : [
+        "F21"
+      ],
+      "path" : "library/segments/briefing-f21.gws",
+      "provisional" : false,
+      "segmentID" : "briefing-f21",
+      "title" : "Focus 21 — The Threshold",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F22"
+      ],
+      "path" : "library/segments/briefing-f22.gws",
+      "provisional" : false,
+      "segmentID" : "briefing-f22",
+      "title" : "Focus 22 — Here and There",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~35s",
+      "levels" : [
+        "F23"
+      ],
+      "path" : "library/segments/briefing-f23.gws",
+      "provisional" : false,
+      "segmentID" : "briefing-f23",
+      "title" : "Focus 23 — The Ghostly River",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~30s",
+      "levels" : [
+        "F24"
+      ],
+      "path" : "library/segments/briefing-f24.gws",
+      "provisional" : false,
+      "segmentID" : "briefing-f24",
+      "title" : "Focus 24 — The Approaching Light",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~50s",
+      "levels" : [
+        "F25"
+      ],
+      "path" : "library/segments/briefing-f25.gws",
+      "provisional" : false,
+      "segmentID" : "briefing-f25",
+      "title" : "Focus 25 — The Belief System Territories",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~25s",
+      "levels" : [
+        "F26"
+      ],
+      "path" : "library/segments/briefing-f26.gws",
+      "provisional" : false,
+      "segmentID" : "briefing-f26",
+      "title" : "Focus 26 — The Void",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m30s",
+      "levels" : [
+        "F27"
+      ],
+      "path" : "library/segments/briefing-f27.gws",
+      "provisional" : false,
+      "segmentID" : "briefing-f27",
+      "title" : "Focus 27 — The Park and the Reception Centre",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~15s",
+      "levels" : [
+        "F3"
+      ],
+      "path" : "library/segments/briefing-f3.gws",
+      "provisional" : false,
+      "segmentID" : "briefing-f3",
+      "title" : "Focus 3",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m10s",
+      "levels" : [
+        "F34"
+      ],
+      "path" : "library/segments/briefing-f34.gws",
+      "provisional" : false,
+      "segmentID" : "briefing-f34",
+      "title" : "Focus 34 — The Gathering",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m10s",
+      "levels" : [
+        "F35"
+      ],
+      "path" : "library/segments/briefing-f35.gws",
+      "provisional" : false,
+      "segmentID" : "briefing-f35",
+      "title" : "Focus 35 — The Gathering (upper)",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F42"
+      ],
+      "path" : "library/segments/briefing-f42.gws",
+      "provisional" : false,
+      "segmentID" : "briefing-f42",
+      "title" : "Focus 42 — I-There Cluster",
+      "verbosities" : [
+        2
+      ],
+      "verbosityFiles" : {
+        "2" : "library/segments/briefing-f42.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F49"
+      ],
+      "path" : "library/segments/briefing-f49.gws",
+      "provisional" : false,
+      "segmentID" : "briefing-f49",
+      "title" : "Focus 49 — Sea of I-There Clusters",
+      "verbosities" : [
+        2
+      ],
+      "verbosityFiles" : {
+        "2" : "library/segments/briefing-f49.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m30s",
+      "levels" : [
+        "F15"
+      ],
+      "path" : "library/segments/campfire-calling.gws",
+      "provisional" : false,
+      "segmentID" : "campfire-calling",
+      "shelved" : "source session removed by user on 2026-08-22",
+      "title" : "Astral Campfire — Calling",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~2m",
+      "levels" : [
+        "F15"
+      ],
+      "path" : "library/segments/campfire-closure.gws",
+      "provisional" : false,
+      "segmentID" : "campfire-closure",
+      "shelved" : "source session removed by user on 2026-08-22",
+      "title" : "Astral Campfire — Gratitude and Closure",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~32m",
+      "levels" : [
+        "F15"
+      ],
+      "path" : "library/segments/campfire-presence.gws",
+      "provisional" : false,
+      "segmentID" : "campfire-presence",
+      "shelved" : "source session removed by user on 2026-08-22",
+      "title" : "Astral Campfire — Group Presence",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~3m",
+      "levels" : [
+        "F15"
+      ],
+      "path" : "library/segments/campfire.gws",
+      "provisional" : false,
+      "segmentID" : "campfire",
+      "shelved" : "source session removed by user on 2026-08-22",
+      "title" : "Astral Campfire — Arrival",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~26m",
+      "levels" : [
+        "F27"
+      ],
+      "path" : "library/segments/castle.gws",
+      "provisional" : false,
+      "segmentID" : "castle",
+      "title" : "The Castle",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~40s",
+      "levels" : [
+        "F12"
+      ],
+      "path" : "library/segments/channel-restriction.gws",
+      "provisional" : false,
+      "segmentID" : "channel-restriction",
+      "title" : "Channel Restriction",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m40s",
+      "levels" : [
+        "F10"
+      ],
+      "path" : "library/segments/clear-skies.gws",
+      "provisional" : false,
+      "segmentID" : "clear-skies",
+      "title" : "The Clear Skies Technique",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~45s",
+      "levels" : [
+        "F3"
+      ],
+      "origin" : "F1",
+      "path" : "library/segments/climb-f1-f3.v3.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f1-f3",
+      "title" : "Climb — Waking to Focus 3",
+      "verbosities" : [
+        1,
+        3
+      ],
+      "verbosityFiles" : {
+        "1" : "library/segments/climb-f1-f3.gws",
+        "3" : "library/segments/climb-f1-f3.v3.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~55s",
+      "levels" : [
+        "F11"
+      ],
+      "origin" : "F10",
+      "path" : "library/segments/climb-f10-f11.v3.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f10-f11",
+      "title" : "Climb — Focus 10 to Focus 11",
+      "verbosities" : [
+        1,
+        3
+      ],
+      "verbosityFiles" : {
+        "1" : "library/segments/climb-f10-f11.gws",
+        "3" : "library/segments/climb-f10-f11.v3.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m30s",
+      "levels" : [
+        "F12"
+      ],
+      "origin" : "F10",
+      "path" : "library/segments/climb-f10-f12.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f10-f12",
+      "title" : "Climb — Focus 10 to Focus 12",
+      "verbosities" : [
+        1,
+        3
+      ],
+      "verbosityFiles" : {
+        "1" : "library/segments/climb-f10-f12.v1.gws",
+        "3" : "library/segments/climb-f10-f12.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m40s",
+      "levels" : [
+        "F15"
+      ],
+      "origin" : "F12",
+      "path" : "library/segments/climb-f12-f15.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f12-f15",
+      "title" : "Climb — Focus 12 to Focus 15",
+      "verbosities" : [
+        1,
+        3
+      ],
+      "verbosityFiles" : {
+        "1" : "library/segments/climb-f12-f15.v1.gws",
+        "3" : "library/segments/climb-f12-f15.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m10s",
+      "levels" : [
+        "F18"
+      ],
+      "origin" : "F15",
+      "path" : "library/segments/climb-f15-f18.v3.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f15-f18",
+      "title" : "Climb — Focus 15 to Focus 18",
+      "verbosities" : [
+        1,
+        3
+      ],
+      "verbosityFiles" : {
+        "1" : "library/segments/climb-f15-f18.gws",
+        "3" : "library/segments/climb-f15-f18.v3.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F21"
+      ],
+      "origin" : "F15",
+      "path" : "library/segments/climb-f15-f21.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f15-f21",
+      "title" : "Climb — Focus 15 to Focus 21",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~50s",
+      "levels" : [
+        "F22"
+      ],
+      "origin" : "F21",
+      "path" : "library/segments/climb-f21-f22.v3.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f21-f22",
+      "title" : "Climb — Focus 21 to Focus 22",
+      "verbosities" : [
+        1,
+        3
+      ],
+      "verbosityFiles" : {
+        "1" : "library/segments/climb-f21-f22.gws",
+        "3" : "library/segments/climb-f21-f22.v3.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~30s",
+      "levels" : [
+        "F23"
+      ],
+      "origin" : "F21",
+      "path" : "library/segments/climb-f21-f23.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f21-f23",
+      "title" : "Climb — Focus 21 to Focus 23",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F24"
+      ],
+      "origin" : "F23",
+      "path" : "library/segments/climb-f23-f24.v3.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f23-f24",
+      "title" : "Climb — Focus 23 to Focus 24",
+      "verbosities" : [
+        1,
+        3
+      ],
+      "verbosityFiles" : {
+        "1" : "library/segments/climb-f23-f24.gws",
+        "3" : "library/segments/climb-f23-f24.v3.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~30s",
+      "levels" : [
+        "F25"
+      ],
+      "origin" : "F23",
+      "path" : "library/segments/climb-f23-f25.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f23-f25",
+      "title" : "Climb — Focus 23 to Focus 25",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~25s",
+      "levels" : [
+        "F26"
+      ],
+      "origin" : "F25",
+      "path" : "library/segments/climb-f25-f26.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f25-f26",
+      "title" : "Climb — Focus 25 to Focus 26",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F27"
+      ],
+      "origin" : "F26",
+      "path" : "library/segments/climb-f26-f27.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f26-f27",
+      "title" : "Climb — Focus 26 to Focus 27",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m35s",
+      "levels" : [
+        "F34"
+      ],
+      "origin" : "F27",
+      "path" : "library/segments/climb-f27-f34.v3.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f27-f34",
+      "title" : "Climb — Focus 27 to Focus 34",
+      "verbosities" : [
+        1,
+        3
+      ],
+      "verbosityFiles" : {
+        "1" : "library/segments/climb-f27-f34.gws",
+        "3" : "library/segments/climb-f27-f34.v3.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F35"
+      ],
+      "origin" : "F34",
+      "path" : "library/segments/climb-f34-f35.v3.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f34-f35",
+      "title" : "Climb — Focus 34 to Focus 35",
+      "verbosities" : [
+        1,
+        3
+      ],
+      "verbosityFiles" : {
+        "1" : "library/segments/climb-f34-f35.gws",
+        "3" : "library/segments/climb-f34-f35.v3.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m35s",
+      "levels" : [
+        "F42"
+      ],
+      "origin" : "F35",
+      "path" : "library/segments/climb-f35-f42.v3.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f35-f42",
+      "title" : "Climb — Focus 35 to Focus 42",
+      "verbosities" : [
+        1,
+        3
+      ],
+      "verbosityFiles" : {
+        "1" : "library/segments/climb-f35-f42.gws",
+        "3" : "library/segments/climb-f35-f42.v3.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m35s",
+      "levels" : [
+        "F49"
+      ],
+      "origin" : "F42",
+      "path" : "library/segments/climb-f42-f49.v3.gws",
+      "provisional" : false,
+      "segmentID" : "climb-f42-f49",
+      "title" : "Climb — Focus 42 to Focus 49",
+      "verbosities" : [
+        1,
+        3
+      ],
+      "verbosityFiles" : {
+        "1" : "library/segments/climb-f42-f49.gws",
+        "3" : "library/segments/climb-f42-f49.v3.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~2m",
+      "levels" : [
+        "F10"
+      ],
+      "path" : "library/segments/color-breathing.gws",
+      "provisional" : false,
+      "segmentID" : "color-breathing",
+      "title" : "Color Breathing",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~40s",
+      "levels" : [
+        "F10"
+      ],
+      "path" : "library/segments/comfort.gws",
+      "provisional" : false,
+      "segmentID" : "comfort",
+      "title" : "Comfort and Settling",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~4m",
+      "levels" : [
+        "F12"
+      ],
+      "path" : "library/segments/compoint.gws",
+      "provisional" : false,
+      "segmentID" : "compoint",
+      "title" : "Compoint",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "",
+      "levels" : [
+        "F10"
+      ],
+      "path" : "library/segments/conversion-box.gws",
+      "provisional" : false,
+      "segmentID" : "conversion-box",
+      "title" : "Energy Conversion Box",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~5m",
+      "levels" : [
+        "F27"
+      ],
+      "path" : "library/segments/coordination-area.gws",
+      "provisional" : false,
+      "segmentID" : "coordination-area",
+      "title" : "The Coordination Area",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m40s",
+      "levels" : [
+        "F10"
+      ],
+      "path" : "library/segments/descend-f15-f10.gws",
+      "provisional" : false,
+      "segmentID" : "descend-f15-f10",
+      "title" : "Return — Focus 15 down to Focus 10",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~3m",
+      "levels" : [
+        "F10"
+      ],
+      "path" : "library/segments/descend-f27-f10.gws",
+      "provisional" : false,
+      "segmentID" : "descend-f27-f10",
+      "title" : "Return — Focus 27 down to Focus 10",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~4m",
+      "levels" : [
+        "F12"
+      ],
+      "path" : "library/segments/discovering-intuition.gws",
+      "provisional" : false,
+      "segmentID" : "discovering-intuition",
+      "title" : "Discovering Intuition",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~3m30s",
+      "levels" : [
+        "F27"
+      ],
+      "path" : "library/segments/educational-center.gws",
+      "provisional" : false,
+      "segmentID" : "educational-center",
+      "title" : "The Educational Center",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~2m30s",
+      "levels" : [
+        "F10"
+      ],
+      "path" : "library/segments/energy-bar-tool.gws",
+      "provisional" : false,
+      "segmentID" : "energy-bar-tool",
+      "title" : "The Energy Bar Tool",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~2m30s",
+      "levels" : [
+        "F12"
+      ],
+      "path" : "library/segments/energy-food.gws",
+      "provisional" : false,
+      "segmentID" : "energy-food",
+      "title" : "Energy Food",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~4m",
+      "levels" : [
+        "F12"
+      ],
+      "path" : "library/segments/expansion-in-locale-1.gws",
+      "provisional" : false,
+      "segmentID" : "expansion-in-locale-1",
+      "title" : "Expansion in Locale 1",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~3m",
+      "levels" : [
+        "F10"
+      ],
+      "path" : "library/segments/exploration-sleep.gws",
+      "provisional" : false,
+      "segmentID" : "exploration-sleep",
+      "title" : "Exploration — Sleep",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~5m",
+      "levels" : [
+        "F21"
+      ],
+      "path" : "library/segments/explore-total-self.gws",
+      "provisional" : false,
+      "segmentID" : "explore-total-self",
+      "title" : "Explore Total Self — The Inner Helper",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~5m",
+      "levels" : [
+        "F15"
+      ],
+      "path" : "library/segments/exploring-focus-15.gws",
+      "provisional" : false,
+      "segmentID" : "exploring-focus-15",
+      "title" : "Exploring Focus 15",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~5m",
+      "levels" : [
+        "F12"
+      ],
+      "path" : "library/segments/exploring-intuition.gws",
+      "provisional" : false,
+      "segmentID" : "exploring-intuition",
+      "title" : "Exploring Intuition",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~4m30s",
+      "levels" : [
+        "F27"
+      ],
+      "path" : "library/segments/first-retrieval.gws",
+      "provisional" : false,
+      "segmentID" : "first-retrieval",
+      "title" : "First Retrieval",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~7m",
+      "levels" : [
+        "F12"
+      ],
+      "path" : "library/segments/first-stage-separation.gws",
+      "provisional" : false,
+      "segmentID" : "first-stage-separation",
+      "title" : "First Stage Separation",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~4m",
+      "levels" : [
+        "F12"
+      ],
+      "path" : "library/segments/five-messages.gws",
+      "provisional" : false,
+      "segmentID" : "five-messages",
+      "title" : "Five Messages",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~5m",
+      "levels" : [
+        "F12"
+      ],
+      "path" : "library/segments/five-questions.gws",
+      "provisional" : false,
+      "segmentID" : "five-questions",
+      "title" : "Five Questions",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~3m30s",
+      "levels" : [
+        "F23"
+      ],
+      "path" : "library/segments/focus-23-observation.gws",
+      "provisional" : false,
+      "segmentID" : "focus-23-observation",
+      "title" : "Focus 23 — Observing the Newly Arrived",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~3m",
+      "levels" : [
+        "F25"
+      ],
+      "path" : "library/segments/focus-25-observation.gws",
+      "provisional" : false,
+      "segmentID" : "focus-25-observation",
+      "title" : "Focus 25 — Visiting Without Participation",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~5m",
+      "levels" : [
+        "F10"
+      ],
+      "path" : "library/segments/free-flow-10.gws",
+      "provisional" : false,
+      "segmentID" : "free-flow-10",
+      "title" : "Free Flow — Your Own Purpose",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~5m",
+      "levels" : [
+        "F12"
+      ],
+      "path" : "library/segments/free-flow-12.gws",
+      "provisional" : false,
+      "segmentID" : "free-flow-12",
+      "title" : "Free Flow — Focus 12",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~5m",
+      "levels" : [
+        "F21"
+      ],
+      "path" : "library/segments/free-flow-journey-focus-21.gws",
+      "provisional" : false,
+      "segmentID" : "free-flow-journey-focus-21",
+      "title" : "Free Flow Journey — Focus 21",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F12",
+        "F15",
+        "F21",
+        "F27"
+      ],
+      "path" : "library/segments/free.gws",
+      "provisional" : false,
+      "segmentID" : "free",
+      "title" : "Open Exploration",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m",
+      "levels" : [
+        "F27"
+      ],
+      "path" : "library/segments/gratitude.gws",
+      "provisional" : false,
+      "segmentID" : "gratitude",
+      "title" : "Gratitude",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~3m30s",
+      "levels" : [
+        "F27"
+      ],
+      "path" : "library/segments/healing-and-regeneration-center.gws",
+      "provisional" : false,
+      "segmentID" : "healing-and-regeneration-center",
+      "title" : "The Healing and Regeneration Center",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m30s",
+      "levels" : [
+        "F10"
+      ],
+      "path" : "library/segments/health-affirmation.gws",
+      "provisional" : false,
+      "segmentID" : "health-affirmation",
+      "title" : "The Health Affirmation",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~7m",
+      "levels" : [
+        "F27"
+      ],
+      "path" : "library/segments/inner-earth.gws",
+      "provisional" : false,
+      "segmentID" : "inner-earth",
+      "title" : "Inner Earth",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~3m",
+      "levels" : [
+        "F10"
+      ],
+      "path" : "library/segments/lift-off.gws",
+      "provisional" : false,
+      "segmentID" : "lift-off",
+      "title" : "Lift Off",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~4m",
+      "levels" : [
+        "F10"
+      ],
+      "path" : "library/segments/living-body-map.gws",
+      "provisional" : false,
+      "segmentID" : "living-body-map",
+      "title" : "The Living Body Map",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~4m30s",
+      "levels" : [
+        "F27"
+      ],
+      "path" : "library/segments/meeting-with-the-entry-director.gws",
+      "provisional" : false,
+      "segmentID" : "meeting-with-the-entry-director",
+      "title" : "Meeting with the Entry Director",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~3m",
+      "levels" : [
+        "F27"
+      ],
+      "path" : "library/segments/messages-from-beyond.gws",
+      "provisional" : false,
+      "segmentID" : "messages-from-beyond",
+      "title" : "Messages From Beyond",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~4m",
+      "levels" : [
+        "F15"
+      ],
+      "path" : "library/segments/mission-15-creation-and-manifestation.gws",
+      "provisional" : false,
+      "segmentID" : "mission-15-creation-and-manifestation",
+      "title" : "Mission 15 — Creation and Manifestation",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~3m30s",
+      "levels" : [
+        "F21"
+      ],
+      "path" : "library/segments/movement-to-locale-2.gws",
+      "provisional" : false,
+      "segmentID" : "movement-to-locale-2",
+      "title" : "Movement to Locale 2",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~5m",
+      "levels" : [
+        "F12"
+      ],
+      "path" : "library/segments/nonphysical-friends.gws",
+      "provisional" : false,
+      "segmentID" : "nonphysical-friends",
+      "title" : "Nonphysical Friends",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~4m",
+      "levels" : [
+        "F12"
+      ],
+      "path" : "library/segments/nvc-i.gws",
+      "provisional" : false,
+      "segmentID" : "nvc-i",
+      "title" : "NVC I — Nonverbal Communication",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~5m",
+      "levels" : [
+        "F12"
+      ],
+      "path" : "library/segments/nvc-ii.gws",
+      "provisional" : false,
+      "segmentID" : "nvc-ii",
+      "title" : "NVC II — Nonverbal Communication",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~2m",
+      "levels" : [
+        "F10"
+      ],
+      "path" : "library/segments/ocean.gws",
+      "provisional" : false,
+      "segmentID" : "ocean",
+      "title" : "Ocean Surf — Energy Framing",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~4m",
+      "levels" : [
+        "F12"
+      ],
+      "path" : "library/segments/one-year-patterning.gws",
+      "provisional" : false,
+      "segmentID" : "one-year-patterning",
+      "title" : "One-Year Patterning",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~15s",
+      "levels" : [
+        "F10"
+      ],
+      "path" : "library/segments/opening-gathering.gws",
+      "provisional" : false,
+      "segmentID" : "opening-gathering",
+      "shelved" : "source session removed by user on 2026-08-22",
+      "title" : "Opening — Toward Gathering",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~20s",
+      "levels" : [
+        "F10"
+      ],
+      "path" : "library/segments/opening.gws",
+      "provisional" : false,
+      "segmentID" : "opening",
+      "title" : "Opening",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~20s",
+      "levels" : [
+        "F10"
+      ],
+      "path" : "library/segments/orientation.gws",
+      "provisional" : false,
+      "segmentID" : "orientation",
+      "title" : "Headphone Orientation",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~4m",
+      "levels" : [
+        "F12"
+      ],
+      "path" : "library/segments/patterning.gws",
+      "provisional" : false,
+      "segmentID" : "patterning",
+      "title" : "Patterning",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~2m30s",
+      "levels" : [
+        "F27"
+      ],
+      "path" : "library/segments/place-of-your-own.gws",
+      "provisional" : false,
+      "segmentID" : "place-of-your-own",
+      "title" : "The Place of Your Own",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~5m",
+      "levels" : [
+        "F27"
+      ],
+      "path" : "library/segments/planning-center.gws",
+      "provisional" : false,
+      "segmentID" : "planning-center",
+      "title" : "The Planning Center",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~5m",
+      "levels" : [
+        "F12"
+      ],
+      "path" : "library/segments/point-of-departure.gws",
+      "provisional" : false,
+      "segmentID" : "point-of-departure",
+      "title" : "Point of Departure",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~2m30s",
+      "levels" : [
+        "F12"
+      ],
+      "path" : "library/segments/problem-solving.gws",
+      "provisional" : false,
+      "segmentID" : "problem-solving",
+      "title" : "Problem Solving",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~9m",
+      "levels" : [
+        "F10"
+      ],
+      "origin" : "F1",
+      "path" : "library/segments/relax-10.gws",
+      "provisional" : false,
+      "segmentID" : "relax-10",
+      "title" : "Ten-Point Relaxation",
+      "verbosities" : [
+        1,
+        3
+      ],
+      "verbosityFiles" : {
+        "1" : "library/segments/relax-10.count-only.gws",
+        "3" : "library/segments/relax-10.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~4m",
+      "levels" : [
+        "F10"
+      ],
+      "path" : "library/segments/release-and-recharge.gws",
+      "provisional" : false,
+      "segmentID" : "release-and-recharge",
+      "title" : "Release and Recharge",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~55s",
+      "levels" : [
+        "F10"
+      ],
+      "path" : "library/segments/remote-viewing-intent.gws",
+      "provisional" : false,
+      "segmentID" : "remote-viewing-intent",
+      "title" : "Setting the Target",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~6m",
+      "levels" : [
+        "F10"
+      ],
+      "path" : "library/segments/remote-viewing.gws",
+      "provisional" : false,
+      "segmentID" : "remote-viewing",
+      "title" : "Remote Viewing",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~4m",
+      "levels" : [
+        "F10"
+      ],
+      "path" : "library/segments/resonant-tuning.gws",
+      "provisional" : false,
+      "segmentID" : "resonant-tuning",
+      "title" : "Resonant Tuning",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~55s",
+      "levels" : [
+        "F10"
+      ],
+      "path" : "library/segments/resume.gws",
+      "provisional" : false,
+      "segmentID" : "resume",
+      "title" : "Settling Back After a Pause",
+      "verbosities" : [
+        2
+      ],
+      "verbosityFiles" : {
+        "2" : "library/segments/resume.gws"
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~50s",
+      "levels" : [
+        "F10"
+      ],
+      "path" : "library/segments/return-anchor.gws",
+      "provisional" : false,
+      "segmentID" : "return-anchor",
+      "title" : "The Instant Return Anchor",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m30s",
+      "levels" : [
+        "F10"
+      ],
+      "path" : "library/segments/return-methods.gws",
+      "provisional" : false,
+      "segmentID" : "return-methods",
+      "title" : "The Two Ways Back",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~25s",
+      "levels" : [
+        "F10"
+      ],
+      "path" : "library/segments/return-one.gws",
+      "provisional" : false,
+      "segmentID" : "return-one",
+      "title" : "Ending — Instant Return to Waking",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : true,
+      "continuousExitDefault" : false,
+      "duration" : "~1m20s",
+      "levels" : [
+        "F3"
+      ],
+      "path" : "library/segments/return-three.gws",
+      "provisional" : false,
+      "segmentID" : "return-three",
+      "title" : "Ending — Focus 3 to Waking",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : true,
+      "continuousExitDefault" : false,
+      "duration" : "~1m20s",
+      "levels" : [
+        "F12"
+      ],
+      "path" : "library/segments/return-twelve.gws",
+      "provisional" : false,
+      "segmentID" : "return-twelve",
+      "title" : "Ending — Focus 12 to Waking",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : true,
+      "continuousExitDefault" : true,
+      "duration" : "~2m30s",
+      "levels" : [
+        "F10"
+      ],
+      "path" : "library/segments/return.gws",
+      "provisional" : false,
+      "segmentID" : "return",
+      "title" : "Ending — Return to Waking",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~5m",
+      "levels" : [
+        "F12"
+      ],
+      "path" : "library/segments/sensing-locale-1.gws",
+      "provisional" : false,
+      "segmentID" : "sensing-locale-1",
+      "title" : "Sensing Locale 1",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~4m",
+      "levels" : [
+        "F27"
+      ],
+      "path" : "library/segments/special-tour.gws",
+      "provisional" : false,
+      "segmentID" : "special-tour",
+      "title" : "Special Tour of Focus 27",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~10m",
+      "levels" : [
+        "F27"
+      ],
+      "path" : "library/segments/stay.gws",
+      "provisional" : false,
+      "segmentID" : "stay",
+      "title" : "Ending — Stay",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~5m",
+      "levels" : [
+        "F27"
+      ],
+      "path" : "library/segments/the-absolute.gws",
+      "provisional" : false,
+      "segmentID" : "the-absolute",
+      "title" : "The Absolute",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~4m30s",
+      "levels" : [
+        "F12"
+      ],
+      "path" : "library/segments/vectors.gws",
+      "provisional" : false,
+      "segmentID" : "vectors",
+      "title" : "Vectors",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~21m",
+      "levels" : [
+        "F15"
+      ],
+      "path" : "library/segments/void.gws",
+      "provisional" : false,
+      "segmentID" : "void",
+      "title" : "The Void",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    }
+  ],
+  "signalIDs" : [
+    "cd1-1-advanced-focus-12",
+    "cd1-1-explore-total-self",
+    "cd1-1-introduction-to-focus-12",
+    "cd1-1-lift-off",
+    "cd1-1-one-year-patterning",
+    "cd1-1-orientation",
+    "cd1-1-sensing-locale-1",
+    "cd1-1-special-tour",
+    "cd1-2-discovering-intuition",
+    "cd1-2-expansion-in-locale-1",
+    "cd1-2-five-messages",
+    "cd1-2-intro-focus-23",
+    "cd1-2-introduction-to-focus-10",
+    "cd1-2-meeting-with-the-entry-director",
+    "cd1-2-problem-solving",
+    "cd1-2-remote-viewing",
+    "cd2-3-advanced-focus-10",
+    "cd2-3-educational-opportunities",
+    "cd2-3-exploring-intuition",
+    "cd2-3-free-flow-12",
+    "cd2-3-intro-focus-25",
+    "cd2-3-one-month-patterning",
+    "cd2-3-point-of-departure",
+    "cd2-3-vectors",
+    "cd2-4-color-breathing",
+    "cd2-4-five-questions",
+    "cd2-4-healing-and-regeneration-center",
+    "cd2-4-intro-focus-27",
+    "cd2-4-intro-to-focus-15",
+    "cd2-4-nonphysical-friends",
+    "cd2-4-nvc-i",
+    "cd2-4-release-and-recharge",
+    "cd3-5-energy-bar-tool",
+    "cd3-5-energy-food",
+    "cd3-5-exploration-sleep",
+    "cd3-5-first-retrieval",
+    "cd3-5-mission-15-creation-and-manifestation",
+    "cd3-5-movement-to-locale-2-intro-focus-21",
+    "cd3-5-nvc-ii",
+    "cd3-5-planning-center",
+    "cd3-6-compoint",
+    "cd3-6-coordination-area",
+    "cd3-6-exploring-focus-15",
+    "cd3-6-first-stage-separation",
+    "cd3-6-free-flow-10",
+    "cd3-6-free-flow-journey-in-focus-21",
+    "cd3-6-living-body-map",
+    "cd3-6-messages-from-beyond",
+    "cd4-7-inner-earth",
+    "cd4-8-the-absolute"
+  ],
+  "sources" : [
+    {
+      "kind" : "transcript",
+      "levels" : [
+
+      ],
+      "mentions" : [
+        "F3"
+      ],
+      "path" : "library/sources/gateway-experience/wave-i-discovery/cd1-1-orientation.md",
+      "source" : "The Gateway Experience — Wave I - Discovery (Monroe Institute)",
+      "title" : "CD1 - 1 - Orientation"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F10"
+      ],
+      "mentions" : [
+        "F10"
+      ],
+      "path" : "library/sources/gateway-experience/wave-i-discovery/cd1-2-introduction-to-focus-10.md",
+      "source" : "The Gateway Experience — Wave I - Discovery (Monroe Institute)",
+      "title" : "CD1 - 2 - Introduction to Focus 10"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F10"
+      ],
+      "mentions" : [
+        "F10"
+      ],
+      "path" : "library/sources/gateway-experience/wave-i-discovery/cd2-3-advanced-focus-10.md",
+      "source" : "The Gateway Experience — Wave I - Discovery (Monroe Institute)",
+      "title" : "CD2 - 3 - Advanced Focus 10"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F10"
+      ],
+      "mentions" : [
+        "F10"
+      ],
+      "path" : "library/sources/gateway-experience/wave-i-discovery/cd2-4-release-and-recharge.md",
+      "source" : "The Gateway Experience — Wave I - Discovery (Monroe Institute)",
+      "title" : "CD2 - 4 - Release and Recharge"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F10"
+      ],
+      "mentions" : [
+        "F10"
+      ],
+      "path" : "library/sources/gateway-experience/wave-i-discovery/cd3-5-exploration-sleep.md",
+      "source" : "The Gateway Experience — Wave I - Discovery (Monroe Institute)",
+      "title" : "CD3 - 5 - Exploration, Sleep"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+
+      ],
+      "mentions" : [
+        "F10"
+      ],
+      "path" : "library/sources/gateway-experience/wave-i-discovery/cd3-6-free-flow-10.md",
+      "source" : "The Gateway Experience — Wave I - Discovery (Monroe Institute)",
+      "title" : "CD3 - 6 - Free Flow 10"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F12"
+      ],
+      "mentions" : [
+        "F10",
+        "F12"
+      ],
+      "path" : "library/sources/gateway-experience/wave-ii-threshold/cd1-1-introduction-to-focus-12.md",
+      "source" : "The Gateway Experience — Wave II - Threshold (Monroe Institute)",
+      "title" : "CD1 - 1 - Introduction to Focus 12"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F12"
+      ],
+      "mentions" : [
+        "F10",
+        "F12"
+      ],
+      "path" : "library/sources/gateway-experience/wave-ii-threshold/cd1-2-problem-solving.md",
+      "source" : "The Gateway Experience — Wave II - Threshold (Monroe Institute)",
+      "title" : "CD1 - 2 - Problem Solving"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F10"
+      ],
+      "mentions" : [
+        "F10",
+        "F12"
+      ],
+      "path" : "library/sources/gateway-experience/wave-ii-threshold/cd2-3-one-month-patterning.md",
+      "source" : "The Gateway Experience — Wave II - Threshold (Monroe Institute)",
+      "title" : "CD2 - 3 - One-Month Patterning"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+
+      ],
+      "mentions" : [
+        "F10"
+      ],
+      "path" : "library/sources/gateway-experience/wave-ii-threshold/cd2-4-color-breathing.md",
+      "source" : "The Gateway Experience — Wave II - Threshold (Monroe Institute)",
+      "title" : "CD2 - 4 - Color Breathing"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+
+      ],
+      "mentions" : [
+        "F10"
+      ],
+      "path" : "library/sources/gateway-experience/wave-ii-threshold/cd3-5-energy-bar-tool.md",
+      "source" : "The Gateway Experience — Wave II - Threshold (Monroe Institute)",
+      "title" : "CD3 - 5 - Energy Bar Tool"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+
+      ],
+      "mentions" : [
+        "F10"
+      ],
+      "path" : "library/sources/gateway-experience/wave-ii-threshold/cd3-6-living-body-map.md",
+      "source" : "The Gateway Experience — Wave II - Threshold (Monroe Institute)",
+      "title" : "CD3 - 6 - Living Body Map"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+
+      ],
+      "mentions" : [
+        "F10"
+      ],
+      "path" : "library/sources/gateway-experience/wave-iii-freedom/cd1-1-lift-off.md",
+      "source" : "The Gateway Experience — Wave III - Freedom (Monroe Institute)",
+      "title" : "CD1 - 1 - Lift Off"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+
+      ],
+      "mentions" : [
+
+      ],
+      "path" : "library/sources/gateway-experience/wave-iii-freedom/cd1-2-remote-viewing.md",
+      "source" : "The Gateway Experience — Wave III - Freedom (Monroe Institute)",
+      "title" : "CD1 - 2 - Remote Viewing"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F12"
+      ],
+      "mentions" : [
+        "F10",
+        "F12"
+      ],
+      "path" : "library/sources/gateway-experience/wave-iii-freedom/cd2-3-vectors.md",
+      "source" : "The Gateway Experience — Wave III - Freedom (Monroe Institute)",
+      "title" : "CD2 - 3 - Vectors"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F12"
+      ],
+      "mentions" : [
+        "F10",
+        "F12"
+      ],
+      "path" : "library/sources/gateway-experience/wave-iii-freedom/cd2-4-five-questions.md",
+      "source" : "The Gateway Experience — Wave III - Freedom (Monroe Institute)",
+      "title" : "CD2 - 4 - Five Questions"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F12"
+      ],
+      "mentions" : [
+        "F10",
+        "F12"
+      ],
+      "path" : "library/sources/gateway-experience/wave-iii-freedom/cd3-5-energy-food.md",
+      "source" : "The Gateway Experience — Wave III - Freedom (Monroe Institute)",
+      "title" : "CD3 - 5 - Energy Food"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F12"
+      ],
+      "mentions" : [
+        "F10",
+        "F12"
+      ],
+      "path" : "library/sources/gateway-experience/wave-iii-freedom/cd3-6-first-stage-separation.md",
+      "source" : "The Gateway Experience — Wave III - Freedom (Monroe Institute)",
+      "title" : "CD3 - 6 - First Stage Separation"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F12"
+      ],
+      "mentions" : [
+        "F10",
+        "F12"
+      ],
+      "path" : "library/sources/gateway-experience/wave-iv-adventure/cd1-1-one-year-patterning.md",
+      "source" : "The Gateway Experience — Wave IV - Adventure (Monroe Institute)",
+      "title" : "CD1 - 1 - One Year Patterning"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F12"
+      ],
+      "mentions" : [
+        "F10",
+        "F12"
+      ],
+      "path" : "library/sources/gateway-experience/wave-iv-adventure/cd1-2-five-messages.md",
+      "source" : "The Gateway Experience — Wave IV - Adventure (Monroe Institute)",
+      "title" : "CD1 - 2 - Five Messages"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F12"
+      ],
+      "mentions" : [
+        "F10",
+        "F12"
+      ],
+      "path" : "library/sources/gateway-experience/wave-iv-adventure/cd2-3-free-flow-12.md",
+      "source" : "The Gateway Experience — Wave IV - Adventure (Monroe Institute)",
+      "title" : "CD2 - 3 - Free Flow 12"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F12"
+      ],
+      "mentions" : [
+        "F10",
+        "F12"
+      ],
+      "path" : "library/sources/gateway-experience/wave-iv-adventure/cd2-4-nvc-i.md",
+      "source" : "The Gateway Experience — Wave IV - Adventure (Monroe Institute)",
+      "title" : "CD2 - 4 - NVC I"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F12"
+      ],
+      "mentions" : [
+        "F10",
+        "F12"
+      ],
+      "path" : "library/sources/gateway-experience/wave-iv-adventure/cd3-5-nvc-ii.md",
+      "source" : "The Gateway Experience — Wave IV - Adventure (Monroe Institute)",
+      "title" : "CD3 - 5 - NVC II"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+
+      ],
+      "mentions" : [
+        "F12"
+      ],
+      "path" : "library/sources/gateway-experience/wave-iv-adventure/cd3-6-compoint.md",
+      "source" : "The Gateway Experience — Wave IV - Adventure (Monroe Institute)",
+      "title" : "CD3 - 6 - Compoint"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F12"
+      ],
+      "mentions" : [
+        "F12"
+      ],
+      "path" : "library/sources/gateway-experience/wave-v-exploring-focus-15/cd1-1-advanced-focus-12.md",
+      "source" : "The Gateway Experience — Wave V - Exploring Focus 15 (Monroe Institute)",
+      "title" : "CD1 - 1 - Advanced Focus 12"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F12"
+      ],
+      "mentions" : [
+        "F12"
+      ],
+      "path" : "library/sources/gateway-experience/wave-v-exploring-focus-15/cd1-2-discovering-intuition.md",
+      "source" : "The Gateway Experience — Wave V - Exploring Focus 15 (Monroe Institute)",
+      "title" : "CD1 - 2 - Discovering Intuition"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+
+      ],
+      "mentions" : [
+        "F12"
+      ],
+      "path" : "library/sources/gateway-experience/wave-v-exploring-focus-15/cd2-3-exploring-intuition.md",
+      "source" : "The Gateway Experience — Wave V - Exploring Focus 15 (Monroe Institute)",
+      "title" : "CD2 - 3 - Exploring Intuition"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F15"
+      ],
+      "mentions" : [
+        "F10",
+        "F12",
+        "F15"
+      ],
+      "path" : "library/sources/gateway-experience/wave-v-exploring-focus-15/cd2-4-intro-to-focus-15.md",
+      "source" : "The Gateway Experience — Wave V - Exploring Focus 15 (Monroe Institute)",
+      "title" : "CD2 - 4 - Intro to Focus 15"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F15"
+      ],
+      "mentions" : [
+        "F10",
+        "F12",
+        "F15"
+      ],
+      "path" : "library/sources/gateway-experience/wave-v-exploring-focus-15/cd3-5-mission-15-creation-and-manifestation.md",
+      "source" : "The Gateway Experience — Wave V - Exploring Focus 15 (Monroe Institute)",
+      "title" : "CD3 - 5 - Mission 15 Creation and Manifestation"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F15"
+      ],
+      "mentions" : [
+        "F10",
+        "F12",
+        "F15"
+      ],
+      "path" : "library/sources/gateway-experience/wave-v-exploring-focus-15/cd3-6-exploring-focus-15.md",
+      "source" : "The Gateway Experience — Wave V - Exploring Focus 15 (Monroe Institute)",
+      "title" : "CD3 - 6 - Exploring Focus 15"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+
+      ],
+      "mentions" : [
+        "F10",
+        "F12"
+      ],
+      "path" : "library/sources/gateway-experience/wave-vi-odyssey/cd1-1-sensing-locale-1.md",
+      "source" : "The Gateway Experience — Wave VI - Odyssey (Monroe Institute)",
+      "title" : "CD1 - 1 - Sensing Locale 1"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+
+      ],
+      "mentions" : [
+        "F10"
+      ],
+      "path" : "library/sources/gateway-experience/wave-vi-odyssey/cd1-2-expansion-in-locale-1.md",
+      "source" : "The Gateway Experience — Wave VI - Odyssey (Monroe Institute)",
+      "title" : "CD1 - 2 - Expansion in Locale 1"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+
+      ],
+      "mentions" : [
+        "F12"
+      ],
+      "path" : "library/sources/gateway-experience/wave-vi-odyssey/cd2-3-point-of-departure.md",
+      "source" : "The Gateway Experience — Wave VI - Odyssey (Monroe Institute)",
+      "title" : "CD2 - 3 - Point of Departure"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+
+      ],
+      "mentions" : [
+        "F12"
+      ],
+      "path" : "library/sources/gateway-experience/wave-vi-odyssey/cd2-4-nonphysical-friends.md",
+      "source" : "The Gateway Experience — Wave VI - Odyssey (Monroe Institute)",
+      "title" : "CD2 - 4 - Nonphysical friends"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F21"
+      ],
+      "mentions" : [
+        "F12",
+        "F21"
+      ],
+      "path" : "library/sources/gateway-experience/wave-vi-odyssey/cd3-5-movement-to-locale-2-intro-focus-21.md",
+      "source" : "The Gateway Experience — Wave VI - Odyssey (Monroe Institute)",
+      "title" : "CD3 - 5 - Movement to Locale 2 - Intro Focus 21"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F21"
+      ],
+      "mentions" : [
+        "F12",
+        "F21"
+      ],
+      "path" : "library/sources/gateway-experience/wave-vi-odyssey/cd3-6-free-flow-journey-in-focus-21.md",
+      "source" : "The Gateway Experience — Wave VI - Odyssey (Monroe Institute)",
+      "title" : "CD3 - 6 - Free Flow Journey in Focus 21"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F21"
+      ],
+      "mentions" : [
+        "F10",
+        "F12",
+        "F15",
+        "F21"
+      ],
+      "path" : "library/sources/gateway-experience/wave-vii-voyager/cd1-1-explore-total-self.md",
+      "source" : "The Gateway Experience — Wave VII - Voyager (Monroe Institute)",
+      "title" : "CD1 - 1 - Explore Total Self"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F23"
+      ],
+      "mentions" : [
+        "F12",
+        "F15",
+        "F21",
+        "F23"
+      ],
+      "path" : "library/sources/gateway-experience/wave-vii-voyager/cd1-2-intro-focus-23.md",
+      "source" : "The Gateway Experience — Wave VII - Voyager (Monroe Institute)",
+      "title" : "CD1 - 2 - Intro Focus 23"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F25"
+      ],
+      "mentions" : [
+        "F10",
+        "F12",
+        "F15",
+        "F21",
+        "F23",
+        "F25"
+      ],
+      "path" : "library/sources/gateway-experience/wave-vii-voyager/cd2-3-intro-focus-25.md",
+      "source" : "The Gateway Experience — Wave VII - Voyager (Monroe Institute)",
+      "title" : "CD2 - 3 - Intro Focus 25"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F27"
+      ],
+      "mentions" : [
+        "F10",
+        "F12",
+        "F15",
+        "F21",
+        "F23",
+        "F25",
+        "F27"
+      ],
+      "path" : "library/sources/gateway-experience/wave-vii-voyager/cd2-4-intro-focus-27.md",
+      "source" : "The Gateway Experience — Wave VII - Voyager (Monroe Institute)",
+      "title" : "CD2 - 4 - Intro Focus 27"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F27"
+      ],
+      "mentions" : [
+        "F10",
+        "F12",
+        "F15",
+        "F21",
+        "F23",
+        "F25",
+        "F27"
+      ],
+      "path" : "library/sources/gateway-experience/wave-vii-voyager/cd3-5-first-retrieval.md",
+      "source" : "The Gateway Experience — Wave VII - Voyager (Monroe Institute)",
+      "title" : "CD3 - 5 - First Retrieval"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+
+      ],
+      "mentions" : [
+
+      ],
+      "path" : "library/sources/gateway-experience/wave-vii-voyager/cd3-6-messages-from-beyond.md",
+      "source" : "The Gateway Experience — Wave VII - Voyager (Monroe Institute)",
+      "title" : "CD3 - 6 - Messages From Beyond"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F27"
+      ],
+      "mentions" : [
+        "F10",
+        "F12",
+        "F15",
+        "F21",
+        "F23",
+        "F25",
+        "F27"
+      ],
+      "path" : "library/sources/gateway-experience/wave-viii-union/cd1-1-special-tour.md",
+      "source" : "The Gateway Experience — Wave VIII - Union (Monroe Institute)",
+      "title" : "CD1 - 1 - Special Tour"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F27"
+      ],
+      "mentions" : [
+        "F27"
+      ],
+      "path" : "library/sources/gateway-experience/wave-viii-union/cd1-2-meeting-with-the-entry-director.md",
+      "source" : "The Gateway Experience — Wave VIII - Union (Monroe Institute)",
+      "title" : "CD1 - 2 - Meeting with the Entry Director"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F27"
+      ],
+      "mentions" : [
+        "F27"
+      ],
+      "path" : "library/sources/gateway-experience/wave-viii-union/cd2-3-educational-opportunities.md",
+      "source" : "The Gateway Experience — Wave VIII - Union (Monroe Institute)",
+      "title" : "CD2 - 3 - Educational Opportunities"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F27"
+      ],
+      "mentions" : [
+        "F27"
+      ],
+      "path" : "library/sources/gateway-experience/wave-viii-union/cd2-4-healing-and-regeneration-center.md",
+      "source" : "The Gateway Experience — Wave VIII - Union (Monroe Institute)",
+      "title" : "CD2 - 4 - Healing and Regeneration Center"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F27"
+      ],
+      "mentions" : [
+        "F27"
+      ],
+      "path" : "library/sources/gateway-experience/wave-viii-union/cd3-5-planning-center.md",
+      "source" : "The Gateway Experience — Wave VIII - Union (Monroe Institute)",
+      "title" : "CD3 - 5 - Planning Center"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F27"
+      ],
+      "mentions" : [
+        "F27"
+      ],
+      "path" : "library/sources/gateway-experience/wave-viii-union/cd3-6-coordination-area.md",
+      "source" : "The Gateway Experience — Wave VIII - Union (Monroe Institute)",
+      "title" : "CD3 - 6 - Coordination Area"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+        "F27"
+      ],
+      "mentions" : [
+        "F12",
+        "F15",
+        "F21",
+        "F27"
+      ],
+      "path" : "library/sources/gateway-experience/wave-viii-union/cd4-7-inner-earth.md",
+      "source" : "The Gateway Experience — Wave VIII - Union (Monroe Institute)",
+      "title" : "CD4 - 7 - Inner Earth"
+    },
+    {
+      "kind" : "transcript",
+      "levels" : [
+
+      ],
+      "mentions" : [
+        "F27"
+      ],
+      "path" : "library/sources/gateway-experience/wave-viii-union/cd4-8-the-absolute.md",
+      "source" : "The Gateway Experience — Wave VIII - Union (Monroe Institute)",
+      "title" : "CD4 - 8 - The Absolute"
+    },
+    {
+      "kind" : "manual",
+      "levels" : [
+        "F1",
+        "F3",
+        "F10"
+      ],
+      "mentions" : [
+        "F10",
+        "F12"
+      ],
+      "path" : "library/sources/manuals/00-general-guidance.md",
+      "source" : "The Gateway Experience Guidance Manual (Monroe Institute, 1989)",
+      "title" : "Gateway Experience Manual — General guidance"
+    },
+    {
+      "kind" : "manual",
+      "levels" : [
+        "F12"
+      ],
+      "mentions" : [
+        "F10",
+        "F12",
+        "F15"
+      ],
+      "path" : "library/sources/manuals/gateway-intermediate-workbook-1977.md",
+      "source" : "Monroe Institute of Applied Sciences, 1977 — CIA FOIA release CIA-RDP96-00788R001700210023-7",
+      "title" : "Gateway Intermediate Workbook (1977)"
+    },
+    {
+      "kind" : "manual",
+      "levels" : [
+        "F10"
+      ],
+      "mentions" : [
+        "F3",
+        "F10"
+      ],
+      "path" : "library/sources/manuals/wave-i-discovery.md",
+      "source" : "The Gateway Experience Guidance Manual (Monroe Institute, 1989)",
+      "title" : "Gateway Experience Manual — WAVE I: DISCOVERY"
+    },
+    {
+      "kind" : "manual",
+      "levels" : [
+        "F12"
+      ],
+      "mentions" : [
+        "F10",
+        "F12"
+      ],
+      "path" : "library/sources/manuals/wave-ii-threshold.md",
+      "source" : "The Gateway Experience Guidance Manual (Monroe Institute, 1989)",
+      "title" : "Gateway Experience Manual — WAVE II: THRESHOLD"
+    },
+    {
+      "kind" : "manual",
+      "levels" : [
+        "F10"
+      ],
+      "mentions" : [
+        "F10",
+        "F12"
+      ],
+      "path" : "library/sources/manuals/wave-iii-freedom.md",
+      "source" : "The Gateway Experience Guidance Manual (Monroe Institute, 1989)",
+      "title" : "Gateway Experience Manual — WAVE III: FREEDOM"
+    },
+    {
+      "kind" : "manual",
+      "levels" : [
+
+      ],
+      "mentions" : [
+        "F10",
+        "F12"
+      ],
+      "path" : "library/sources/manuals/wave-iv-adventure.md",
+      "source" : "The Gateway Experience Guidance Manual (Monroe Institute, 1989)",
+      "title" : "Gateway Experience Manual — WAVE IV: ADVENTURE"
+    },
+    {
+      "kind" : "manual",
+      "levels" : [
+        "F12"
+      ],
+      "mentions" : [
+        "F10",
+        "F12"
+      ],
+      "path" : "library/sources/manuals/wave-v-exploring.md",
+      "source" : "The Gateway Experience Guidance Manual (Monroe Institute, 1989)",
+      "title" : "Gateway Experience Manual — WAVE V: EXPLORING"
+    },
+    {
+      "kind" : "manual",
+      "levels" : [
+        "F21"
+      ],
+      "mentions" : [
+        "F10",
+        "F12",
+        "F15",
+        "F21"
+      ],
+      "path" : "library/sources/manuals/wave-vi-prospecting.md",
+      "source" : "The Gateway Experience Guidance Manual (Monroe Institute, 1989)",
+      "title" : "Gateway Experience Manual — WAVE VI: PROSPECTING"
+    }
+  ],
+  "synthetic" : {
+    "continuousSegments" : [
+      {
+        "continuousExit" : true,
+        "continuousExitDefault" : true,
+        "duration" : "",
+        "levels" : [
+          "F12"
+        ],
+        "path" : "library/continuous/exit.gws",
+        "provisional" : false,
+        "segmentID" : "cont-exit",
+        "title" : "Exit",
+        "verbosities" : [
+
+        ],
+        "verbosityFiles" : {
+
+        }
+      }
+    ],
+    "focusScripts" : [
+      "focus/F10/scripts/a.gws",
+      "focus/F10/scripts/b.gws"
+    ],
+    "referenceTitles" : [
+      "A Model"
+    ],
+    "segments" : [
+      {
+        "continuousExit" : false,
+        "continuousExitDefault" : false,
+        "duration" : "",
+        "levels" : [
+          "F10"
+        ],
+        "path" : "library/segments/a-tied.gws",
+        "provisional" : false,
+        "segmentID" : "tied",
+        "title" : "First By Name",
+        "verbosities" : [
+          2
+        ],
+        "verbosityFiles" : {
+          "2" : "library/segments/b-tied.gws"
+        }
+      },
+      {
+        "continuousExit" : false,
+        "continuousExitDefault" : false,
+        "duration" : "",
+        "levels" : [
+          "F10"
+        ],
+        "path" : "library/segments/alpha.gws",
+        "provisional" : false,
+        "segmentID" : "alpha",
+        "title" : "Alpha",
+        "verbosities" : [
+
+        ],
+        "verbosityFiles" : {
+
+        }
+      },
+      {
+        "continuousExit" : false,
+        "continuousExitDefault" : false,
+        "duration" : "",
+        "levels" : [
+          "F12"
+        ],
+        "origin" : "F10",
+        "path" : "library/segments/climb-f10-f12.gws",
+        "provisional" : false,
+        "segmentID" : "climb-f10-f12",
+        "title" : "Climb",
+        "verbosities" : [
+
+        ],
+        "verbosityFiles" : {
+
+        }
+      },
+      {
+        "continuousExit" : false,
+        "continuousExitDefault" : false,
+        "duration" : "",
+        "levels" : [
+          "F10"
+        ],
+        "path" : "library/segments/layered.gws",
+        "provisional" : false,
+        "segmentID" : "layered",
+        "title" : "Layered Canonical",
+        "verbosities" : [
+          3
+        ],
+        "verbosityFiles" : {
+          "3" : "library/segments/layered-v3.gws"
+        }
+      },
+      {
+        "continuousExit" : false,
+        "continuousExitDefault" : false,
+        "duration" : "",
+        "levels" : [
+          "F10"
+        ],
+        "path" : "library/segments/mike.gws",
+        "provisional" : false,
+        "segmentID" : "mike",
+        "title" : "Mike",
+        "verbosities" : [
+
+        ],
+        "verbosityFiles" : {
+
+        }
+      },
+      {
+        "continuousExit" : false,
+        "continuousExitDefault" : false,
+        "duration" : "",
+        "levels" : [
+          "F10"
+        ],
+        "path" : "library/segments/not-a-climb.gws",
+        "provisional" : false,
+        "segmentID" : "not-a-climb",
+        "title" : "Not A Climb",
+        "verbosities" : [
+
+        ],
+        "verbosityFiles" : {
+
+        }
+      },
+      {
+        "continuousExit" : false,
+        "continuousExitDefault" : false,
+        "duration" : "",
+        "levels" : [
+          "F10"
+        ],
+        "path" : "library/segments/zulu.gws",
+        "provisional" : false,
+        "segmentID" : "zulu",
+        "title" : "Zulu",
+        "verbosities" : [
+
+        ],
+        "verbosityFiles" : {
+
+        }
+      }
+    ],
+    "signalIDs" : [
+      "alpha-profile",
+      "zeta-profile"
+    ],
+    "sourceKinds" : [
+      "A Manual:manual",
+      "A Tape:transcript"
+    ],
+    "templates" : [
+      "library/templates/t-one.gws",
+      "library/templates/t-two.gws"
+    ],
+    "voiceHasReferenceText" : [
+      true,
+      false
+    ],
+    "voiceNames" : [
+      "alpha",
+      "zeta"
+    ]
+  },
+  "templates" : [
+    "library/templates/advanced-focus-10.gws",
+    "library/templates/advanced-focus-12.gws",
+    "library/templates/color-breathing.gws",
+    "library/templates/compoint.gws",
+    "library/templates/coordination-area.gws",
+    "library/templates/discovering-intuition.gws",
+    "library/templates/educational-opportunities.gws",
+    "library/templates/energy-bar-tool.gws",
+    "library/templates/energy-food.gws",
+    "library/templates/expansion-in-locale-1.gws",
+    "library/templates/exploration-sleep.gws",
+    "library/templates/explore-total-self.gws",
+    "library/templates/exploring-focus-15.gws",
+    "library/templates/exploring-intuition.gws",
+    "library/templates/f10-visit.gws",
+    "library/templates/f11-visit.gws",
+    "library/templates/f12-visit.gws",
+    "library/templates/f15-visit.gws",
+    "library/templates/f18-visit.gws",
+    "library/templates/f21-visit.gws",
+    "library/templates/f22-visit.gws",
+    "library/templates/f23-visit.gws",
+    "library/templates/f24-visit.gws",
+    "library/templates/f25-visit.gws",
+    "library/templates/f26-visit.gws",
+    "library/templates/f27-place-of-your-own-return.gws",
+    "library/templates/f27-place-of-your-own.gws",
+    "library/templates/f27-visit.gws",
+    "library/templates/f3-visit.gws",
+    "library/templates/f34-visit.gws",
+    "library/templates/f35-visit.gws",
+    "library/templates/f42-visit.gws",
+    "library/templates/f49-visit.gws",
+    "library/templates/first-retrieval.gws",
+    "library/templates/first-stage-separation.gws",
+    "library/templates/five-messages.gws",
+    "library/templates/five-questions.gws",
+    "library/templates/free-flow-10.gws",
+    "library/templates/free-flow-12.gws",
+    "library/templates/free-flow-journey-focus-21.gws",
+    "library/templates/healing-and-regeneration-center.gws",
+    "library/templates/i-there-cluster.gws",
+    "library/templates/inner-earth.gws",
+    "library/templates/intro-focus-23.gws",
+    "library/templates/intro-focus-25.gws",
+    "library/templates/lift-off.gws",
+    "library/templates/living-body-map.gws",
+    "library/templates/meeting-with-the-entry-director.gws",
+    "library/templates/messages-from-beyond.gws",
+    "library/templates/mission-15-creation-and-manifestation.gws",
+    "library/templates/movement-to-locale-2.gws",
+    "library/templates/nonphysical-friends.gws",
+    "library/templates/nvc-i.gws",
+    "library/templates/nvc-ii.gws",
+    "library/templates/one-month-patterning.gws",
+    "library/templates/one-year-patterning.gws",
+    "library/templates/planning-center.gws",
+    "library/templates/point-of-departure.gws",
+    "library/templates/problem-solving.gws",
+    "library/templates/release-and-recharge.gws",
+    "library/templates/remote-viewing.gws",
+    "library/templates/sensing-locale-1.gws",
+    "library/templates/special-tour.gws",
+    "library/templates/the-absolute.gws",
+    "library/templates/vectors.gws"
+  ],
+  "voices" : [
+    {
+      "hasProfile" : true,
+      "hasReference" : false,
+      "hasReferenceText" : false,
+      "name" : "snepssen-rode",
+      "notePath" : "voices/snepssen-rode/notes.md",
+      "path" : "voices/snepssen-rode"
+    },
+    {
+      "hasProfile" : true,
+      "hasReference" : false,
+      "hasReferenceText" : false,
+      "name" : "snepssen-suno",
+      "notePath" : "voices/snepssen-suno/notes.md",
+      "path" : "voices/snepssen-suno"
+    }
+  ]
+}

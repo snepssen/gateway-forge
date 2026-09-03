@@ -1,0 +1,2 @@
+[{"key":"F10","name":"Mind Awake","beatHz":4.0,"carrier":100,"bed":{"pink":0.3,"white":0.05},"layers":[],"rampSeconds":20},
+ {"key":"F12","name":"Expanded","beatHz":7.5,"carrier":96,"bed":{"pink":0.25,"white":0.02},"layers":[],"rampSeconds":18}]

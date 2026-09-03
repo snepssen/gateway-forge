@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "sessions": [
+    {"level": "F3", "template": "f3-visit"},
+    {"level": "F10", "template": "f10-visit"},
+    {"level": "F11", "template": "f11-visit"},
+    {"level": "F12", "template": "f12-visit"}
+  ],
+  "notes": "First-session progression after setup and the initial overnight render. This intentionally differs from the original box-set order."
+}

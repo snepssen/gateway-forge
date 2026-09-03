@@ -1,0 +1,1037 @@
+{
+  "files" : 127,
+  "generation_realtime_factor" : 24.64349513589439,
+  "lines" : 1061,
+  "mean_seconds_per_take" : 156.51585072178483,
+  "measured" : "2026-08-26",
+  "measurements" : [
+    {
+      "generateSeconds" : 0.8636130094528198,
+      "segment" : "announcement",
+      "speechSeconds" : 22.6625,
+      "takeSeconds" : 53.6625,
+      "words" : 71,
+      "wordsPerSecond" : 3.1329288472145613
+    },
+    {
+      "generateSeconds" : 0.2564300298690796,
+      "segment" : "announcement.v1",
+      "speechSeconds" : 6.803416666666667,
+      "takeSeconds" : 15.803416666666665,
+      "words" : 19,
+      "wordsPerSecond" : 2.792714444948004
+    },
+    {
+      "generateSeconds" : 0.5919779539108276,
+      "segment" : "announcement.v2",
+      "speechSeconds" : 16.323583333333332,
+      "takeSeconds" : 35.32358333333333,
+      "words" : 46,
+      "wordsPerSecond" : 2.8180087092805404
+    },
+    {
+      "generateSeconds" : 0.5074208974838257,
+      "segment" : "briefing-f3",
+      "speechSeconds" : 13.955166666666667,
+      "takeSeconds" : 22.955166666666667,
+      "words" : 39,
+      "wordsPerSecond" : 2.7946638640407975
+    },
+    {
+      "generateSeconds" : 0.09667801856994629,
+      "segment" : "climb-f1-f3",
+      "speechSeconds" : 2.449625,
+      "takeSeconds" : 24.449625,
+      "words" : 5,
+      "wordsPerSecond" : 2.04112874419554
+    },
+    {
+      "generateSeconds" : 0.6666079759597778,
+      "segment" : "climb-f1-f3.v3",
+      "speechSeconds" : 18.389999999999997,
+      "takeSeconds" : 57.39,
+      "words" : 57,
+      "wordsPerSecond" : 3.0995106035889077
+    },
+    {
+      "generateSeconds" : 2.709743022918701,
+      "segment" : "return-three",
+      "speechSeconds" : 51.919583333333335,
+      "takeSeconds" : 102.91958333333334,
+      "words" : 144,
+      "wordsPerSecond" : 2.773519946712464
+    },
+    {
+      "generateSeconds" : 1.2184189558029175,
+      "segment" : "advanced-focus-10",
+      "speechSeconds" : 30.615375,
+      "takeSeconds" : 69.615375,
+      "words" : 90,
+      "wordsPerSecond" : 2.939699415734741
+    },
+    {
+      "generateSeconds" : 2.0450359582901,
+      "segment" : "affirmation-1977",
+      "speechSeconds" : 56.389583333333334,
+      "takeSeconds" : 98.38958333333332,
+      "words" : 146,
+      "wordsPerSecond" : 2.5891306757305945
+    },
+    {
+      "generateSeconds" : 1.1509150266647339,
+      "segment" : "affirmation-direct",
+      "speechSeconds" : 31.54420833333333,
+      "takeSeconds" : 63.54420833333333,
+      "words" : 84,
+      "wordsPerSecond" : 2.6629294072736545
+    },
+    {
+      "generateSeconds" : 1.2530120611190796,
+      "segment" : "affirmation",
+      "speechSeconds" : 35.259458333333335,
+      "takeSeconds" : 67.25945833333333,
+      "words" : 95,
+      "wordsPerSecond" : 2.6943125189813135
+    },
+    {
+      "generateSeconds" : 2.4266337156295776,
+      "segment" : "balloon",
+      "speechSeconds" : 67.50016666666666,
+      "takeSeconds" : 149.50016666666667,
+      "words" : 186,
+      "wordsPerSecond" : 2.7555487517314776
+    },
+    {
+      "generateSeconds" : 2.6593310832977295,
+      "segment" : "clear-skies",
+      "speechSeconds" : 74.141125,
+      "takeSeconds" : 137.141125,
+      "words" : 227,
+      "wordsPerSecond" : 3.0617285615776666
+    },
+    {
+      "generateSeconds" : 2.2164759635925293,
+      "segment" : "color-breathing",
+      "speechSeconds" : 62.27575,
+      "takeSeconds" : 117.27575,
+      "words" : 177,
+      "wordsPerSecond" : 2.8421978057269484
+    },
+    {
+      "generateSeconds" : 0.6560559272766113,
+      "segment" : "comfort",
+      "speechSeconds" : 17.948958333333334,
+      "takeSeconds" : 25.948958333333334,
+      "words" : 56,
+      "wordsPerSecond" : 3.1199582148453366
+    },
+    {
+      "generateSeconds" : 1.2172510623931885,
+      "segment" : "conversion-box",
+      "speechSeconds" : 34.34229166666667,
+      "takeSeconds" : 72.34229166666667,
+      "words" : 92,
+      "wordsPerSecond" : 2.6789126623514496
+    },
+    {
+      "generateSeconds" : 1.0054762363433838,
+      "segment" : "descend-f15-f10",
+      "speechSeconds" : 27.17870833333334,
+      "takeSeconds" : 90.17870833333332,
+      "words" : 59,
+      "wordsPerSecond" : 2.1708169231736236
+    },
+    {
+      "generateSeconds" : 1.2740015983581543,
+      "segment" : "descend-f27-f10",
+      "speechSeconds" : 33.947124999999986,
+      "takeSeconds" : 129.94712500000003,
+      "words" : 66,
+      "wordsPerSecond" : 1.9441999874805311
+    },
+    {
+      "generateSeconds" : 2.4912530183792114,
+      "segment" : "energy-bar-tool",
+      "speechSeconds" : 69.00937499999999,
+      "takeSeconds" : 190.009375,
+      "words" : 200,
+      "wordsPerSecond" : 2.8981569533125033
+    },
+    {
+      "generateSeconds" : 2.361699938774109,
+      "segment" : "exploration-sleep",
+      "speechSeconds" : 65.45675,
+      "takeSeconds" : 214.45674999999997,
+      "words" : 186,
+      "wordsPerSecond" : 2.8415709609780504
+    },
+    {
+      "generateSeconds" : 0.3996438980102539,
+      "segment" : "free-flow-10",
+      "speechSeconds" : 10.971375,
+      "takeSeconds" : 323.971375,
+      "words" : 32,
+      "wordsPerSecond" : 2.916680908272664
+    },
+    {
+      "generateSeconds" : 2.3849509954452515,
+      "segment" : "health-affirmation",
+      "speechSeconds" : 67.163625,
+      "takeSeconds" : 109.163625,
+      "words" : 189,
+      "wordsPerSecond" : 2.8140232156915297
+    },
+    {
+      "generateSeconds" : 1.750100016593933,
+      "segment" : "lift-off",
+      "speechSeconds" : 48.11145833333334,
+      "takeSeconds" : 142.1114583333333,
+      "words" : 136,
+      "wordsPerSecond" : 2.826769437287548
+    },
+    {
+      "generateSeconds" : 4.410483956336975,
+      "segment" : "living-body-map",
+      "speechSeconds" : 122.40341666666669,
+      "takeSeconds" : 327.4034166666667,
+      "words" : 349,
+      "wordsPerSecond" : 2.8512276005367494
+    },
+    {
+      "generateSeconds" : 1.3726869821548462,
+      "segment" : "ocean",
+      "speechSeconds" : 38.70754166666667,
+      "takeSeconds" : 69.70754166666667,
+      "words" : 117,
+      "wordsPerSecond" : 3.0226667714409654
+    },
+    {
+      "generateSeconds" : 0.25159895420074463,
+      "segment" : "opening-gathering",
+      "speechSeconds" : 7.024,
+      "takeSeconds" : 10.024000000000001,
+      "words" : 20,
+      "wordsPerSecond" : 2.847380410022779
+    },
+    {
+      "generateSeconds" : 0.1986459493637085,
+      "segment" : "opening",
+      "speechSeconds" : 5.688875,
+      "takeSeconds" : 8.688875,
+      "words" : 17,
+      "wordsPerSecond" : 2.988288545626332
+    },
+    {
+      "generateSeconds" : 0.2173229455947876,
+      "segment" : "orientation",
+      "speechSeconds" : 5.990708333333333,
+      "takeSeconds" : 11.990708333333334,
+      "words" : 22,
+      "wordsPerSecond" : 3.6723537144327674
+    },
+    {
+      "generateSeconds" : 0.6865482330322266,
+      "segment" : "relax-10.count-only",
+      "speechSeconds" : 18.111291666666663,
+      "takeSeconds" : 113.11129166666666,
+      "words" : 43,
+      "wordsPerSecond" : 2.374209459568272
+    },
+    {
+      "generateSeconds" : 7.178081750869751,
+      "segment" : "relax-10",
+      "speechSeconds" : 200.50379166666664,
+      "takeSeconds" : 395.50379166666664,
+      "words" : 633,
+      "wordsPerSecond" : 3.1570475288185533
+    },
+    {
+      "generateSeconds" : 1.7940276861190796,
+      "segment" : "release-and-recharge",
+      "speechSeconds" : 49.690583333333336,
+      "takeSeconds" : 241.69058333333334,
+      "words" : 156,
+      "wordsPerSecond" : 3.139427825862378
+    },
+    {
+      "generateSeconds" : 0.9532431364059448,
+      "segment" : "remote-viewing-intent",
+      "speechSeconds" : 26.250041666666664,
+      "takeSeconds" : 64.25004166666668,
+      "words" : 88,
+      "wordsPerSecond" : 3.3523756311497923
+    },
+    {
+      "generateSeconds" : 3.7722240686416626,
+      "segment" : "remote-viewing",
+      "speechSeconds" : 105.31370833333335,
+      "takeSeconds" : 239.31370833333335,
+      "words" : 336,
+      "wordsPerSecond" : 3.190467844285861
+    },
+    {
+      "generateSeconds" : 2.005988121032715,
+      "segment" : "resonant-tuning",
+      "speechSeconds" : 54.926624999999994,
+      "takeSeconds" : 230.92662499999997,
+      "words" : 163,
+      "wordsPerSecond" : 2.9675954056889537
+    },
+    {
+      "generateSeconds" : 0.8257842063903809,
+      "segment" : "resume",
+      "speechSeconds" : 21.164875,
+      "takeSeconds" : 55.16487500000001,
+      "words" : 68,
+      "wordsPerSecond" : 3.2128703807605765
+    },
+    {
+      "generateSeconds" : 0.9281818866729736,
+      "segment" : "return-anchor",
+      "speechSeconds" : 25.913375000000002,
+      "takeSeconds" : 47.913375,
+      "words" : 72,
+      "wordsPerSecond" : 2.778487943002407
+    },
+    {
+      "generateSeconds" : 1.373757004737854,
+      "segment" : "return-methods",
+      "speechSeconds" : 38.10383333333333,
+      "takeSeconds" : 63.10383333333333,
+      "words" : 112,
+      "wordsPerSecond" : 2.939336812131763
+    },
+    {
+      "generateSeconds" : 0.6417759656906128,
+      "segment" : "return-one",
+      "speechSeconds" : 17.786416666666668,
+      "takeSeconds" : 35.78641666666667,
+      "words" : 47,
+      "wordsPerSecond" : 2.6424659267137374
+    },
+    {
+      "generateSeconds" : 2.112363815307617,
+      "segment" : "return",
+      "speechSeconds" : 57.38770833333332,
+      "takeSeconds" : 132.38770833333334,
+      "words" : 152,
+      "wordsPerSecond" : 2.648650807192307
+    },
+    {
+      "generateSeconds" : 1.3629339933395386,
+      "segment" : "briefing-f11",
+      "speechSeconds" : 37.62779166666667,
+      "takeSeconds" : 84.62779166666668,
+      "words" : 99,
+      "wordsPerSecond" : 2.6310340207315734
+    },
+    {
+      "generateSeconds" : 0.1204688549041748,
+      "segment" : "climb-f10-f11",
+      "speechSeconds" : 3.2275,
+      "takeSeconds" : 20.2275,
+      "words" : 4,
+      "wordsPerSecond" : 1.2393493415956622
+    },
+    {
+      "generateSeconds" : 0.799502968788147,
+      "segment" : "climb-f10-f11.v3",
+      "speechSeconds" : 22.163333333333334,
+      "takeSeconds" : 50.16333333333333,
+      "words" : 55,
+      "wordsPerSecond" : 2.481576176868702
+    },
+    {
+      "generateSeconds" : 1.1444299221038818,
+      "segment" : "advanced-focus-12",
+      "speechSeconds" : 31.46295833333333,
+      "takeSeconds" : 240.46295833333335,
+      "words" : 76,
+      "wordsPerSecond" : 2.415538907524854
+    },
+    {
+      "generateSeconds" : 0.30011796951293945,
+      "segment" : "briefing-f12",
+      "speechSeconds" : 8.440416666666666,
+      "takeSeconds" : 12.440416666666666,
+      "words" : 24,
+      "wordsPerSecond" : 2.84346151947475
+    },
+    {
+      "generateSeconds" : 0.8986090421676636,
+      "segment" : "channel-restriction",
+      "speechSeconds" : 24.822041666666667,
+      "takeSeconds" : 48.822041666666664,
+      "words" : 66,
+      "wordsPerSecond" : 2.6589271296176618
+    },
+    {
+      "generateSeconds" : 1.1893428564071655,
+      "segment" : "climb-f10-f12",
+      "speechSeconds" : 32.67033333333333,
+      "takeSeconds" : 63.67033333333334,
+      "words" : 88,
+      "wordsPerSecond" : 2.6935752109457103
+    },
+    {
+      "generateSeconds" : 0.14158308506011963,
+      "segment" : "climb-f10-f12.v1",
+      "speechSeconds" : 3.5525833333333336,
+      "takeSeconds" : 25.55258333333333,
+      "words" : 5,
+      "wordsPerSecond" : 1.4074265206070697
+    },
+    {
+      "generateSeconds" : 1.2614221572875977,
+      "segment" : "compoint",
+      "speechSeconds" : 33.79633333333334,
+      "takeSeconds" : 189.79633333333334,
+      "words" : 89,
+      "wordsPerSecond" : 2.633421771592579
+    },
+    {
+      "generateSeconds" : 2.294819951057434,
+      "segment" : "discovering-intuition",
+      "speechSeconds" : 63.10004166666667,
+      "takeSeconds" : 151.10004166666667,
+      "words" : 184,
+      "wordsPerSecond" : 2.9160044136262453
+    },
+    {
+      "generateSeconds" : 2.2953450679779053,
+      "segment" : "energy-food",
+      "speechSeconds" : 63.146458333333335,
+      "takeSeconds" : 155.14645833333333,
+      "words" : 180,
+      "wordsPerSecond" : 2.8505161611729344
+    },
+    {
+      "generateSeconds" : 1.5516016483306885,
+      "segment" : "expansion-in-locale-1",
+      "speechSeconds" : 42.95675,
+      "takeSeconds" : 99.95675000000001,
+      "words" : 112,
+      "wordsPerSecond" : 2.6072735949530634
+    },
+    {
+      "generateSeconds" : 2.907628297805786,
+      "segment" : "exploring-intuition",
+      "speechSeconds" : 80.63104166666666,
+      "takeSeconds" : 290.6310416666667,
+      "words" : 229,
+      "wordsPerSecond" : 2.840097253694168
+    },
+    {
+      "generateSeconds" : 3.6370458602905273,
+      "segment" : "first-stage-separation",
+      "speechSeconds" : 99.49708333333336,
+      "takeSeconds" : 249.49708333333334,
+      "words" : 292,
+      "wordsPerSecond" : 2.934759394119592
+    },
+    {
+      "generateSeconds" : 2.5367114543914795,
+      "segment" : "five-messages",
+      "speechSeconds" : 66.362375,
+      "takeSeconds" : 192.36237500000004,
+      "words" : 175,
+      "wordsPerSecond" : 2.6370364231237957
+    },
+    {
+      "generateSeconds" : 2.372746229171753,
+      "segment" : "five-questions",
+      "speechSeconds" : 54.613125000000004,
+      "takeSeconds" : 170.613125,
+      "words" : 144,
+      "wordsPerSecond" : 2.636728808322175
+    },
+    {
+      "generateSeconds" : 1.1814639568328857,
+      "segment" : "free-flow-12",
+      "speechSeconds" : 30.685041666666667,
+      "takeSeconds" : 367.6850416666667,
+      "words" : 80,
+      "wordsPerSecond" : 2.607133497456008
+    },
+    {
+      "generateSeconds" : 3.292561173439026,
+      "segment" : "nonphysical-friends",
+      "speechSeconds" : 87.22541666666665,
+      "takeSeconds" : 282.22541666666666,
+      "words" : 250,
+      "wordsPerSecond" : 2.8661370682283938
+    },
+    {
+      "generateSeconds" : 3.540451765060425,
+      "segment" : "nvc-i",
+      "speechSeconds" : 88.01466666666667,
+      "takeSeconds" : 263.01466666666664,
+      "words" : 245,
+      "wordsPerSecond" : 2.783626971262365
+    },
+    {
+      "generateSeconds" : 4.134029150009155,
+      "segment" : "nvc-ii",
+      "speechSeconds" : 98.62591666666668,
+      "takeSeconds" : 327.6259166666666,
+      "words" : 243,
+      "wordsPerSecond" : 2.463855426776768
+    },
+    {
+      "generateSeconds" : 2.3664592504501343,
+      "segment" : "one-year-patterning",
+      "speechSeconds" : 61.393208333333334,
+      "takeSeconds" : 197.39320833333335,
+      "words" : 177,
+      "wordsPerSecond" : 2.883055061057921
+    },
+    {
+      "generateSeconds" : 2.259650945663452,
+      "segment" : "patterning",
+      "speechSeconds" : 59.09437500000001,
+      "takeSeconds" : 194.09437500000004,
+      "words" : 172,
+      "wordsPerSecond" : 2.910598512971835
+    },
+    {
+      "generateSeconds" : 2.749959945678711,
+      "segment" : "point-of-departure",
+      "speechSeconds" : 74.05975000000001,
+      "takeSeconds" : 244.05975,
+      "words" : 207,
+      "wordsPerSecond" : 2.7950404909549382
+    },
+    {
+      "generateSeconds" : 2.1927090883255005,
+      "segment" : "problem-solving",
+      "speechSeconds" : 46.219208333333334,
+      "takeSeconds" : 112.21920833333334,
+      "words" : 134,
+      "wordsPerSecond" : 2.899227503716438
+    },
+    {
+      "generateSeconds" : 0.8400170803070068,
+      "segment" : "return-twelve",
+      "speechSeconds" : 17.577166666666667,
+      "takeSeconds" : 63.57716666666667,
+      "words" : 40,
+      "wordsPerSecond" : 2.275679622237183
+    },
+    {
+      "generateSeconds" : 3.638622999191284,
+      "segment" : "sensing-locale-1",
+      "speechSeconds" : 76.67204166666667,
+      "takeSeconds" : 193.67204166666667,
+      "words" : 209,
+      "wordsPerSecond" : 2.7258958475193857
+    },
+    {
+      "generateSeconds" : 3.304163098335266,
+      "segment" : "vectors",
+      "speechSeconds" : 74.14091666666666,
+      "takeSeconds" : 205.1409166666667,
+      "words" : 212,
+      "wordsPerSecond" : 2.859419731120131
+    },
+    {
+      "generateSeconds" : 0.17474400997161865,
+      "segment" : "briefing-f15",
+      "speechSeconds" : 4.04025,
+      "takeSeconds" : 8.04025,
+      "words" : 12,
+      "wordsPerSecond" : 2.970113235567106
+    },
+    {
+      "generateSeconds" : 0.9392490386962891,
+      "segment" : "campfire-calling",
+      "speechSeconds" : 21.083625,
+      "takeSeconds" : 57.083625,
+      "words" : 62,
+      "wordsPerSecond" : 2.9406707812342514
+    },
+    {
+      "generateSeconds" : 1.541991949081421,
+      "segment" : "campfire-closure",
+      "speechSeconds" : 35.56120833333334,
+      "takeSeconds" : 85.56120833333334,
+      "words" : 100,
+      "wordsPerSecond" : 2.8120529275228505
+    },
+    {
+      "generateSeconds" : 1.5604740381240845,
+      "segment" : "campfire-presence",
+      "speechSeconds" : 37.44208333333333,
+      "takeSeconds" : 1877.4420833333334,
+      "words" : 122,
+      "wordsPerSecond" : 3.258365698133785
+    },
+    {
+      "generateSeconds" : 2.9101011753082275,
+      "segment" : "campfire",
+      "speechSeconds" : 65.99083333333333,
+      "takeSeconds" : 149.99083333333337,
+      "words" : 198,
+      "wordsPerSecond" : 3.000416724545076
+    },
+    {
+      "generateSeconds" : 1.9295568466186523,
+      "segment" : "climb-f12-f15",
+      "speechSeconds" : 45.60383333333334,
+      "takeSeconds" : 86.60383333333333,
+      "words" : 139,
+      "wordsPerSecond" : 3.0479893868570986
+    },
+    {
+      "generateSeconds" : 0.21076977252960205,
+      "segment" : "climb-f12-f15.v1",
+      "speechSeconds" : 4.504583333333334,
+      "takeSeconds" : 31.504583333333336,
+      "words" : 6,
+      "wordsPerSecond" : 1.3319766904079178
+    },
+    {
+      "generateSeconds" : 0.8200340270996094,
+      "segment" : "exploring-focus-15",
+      "speechSeconds" : 19.04029166666667,
+      "takeSeconds" : 213.04029166666666,
+      "words" : 53,
+      "wordsPerSecond" : 2.7835708048940075
+    },
+    {
+      "generateSeconds" : 3.0121397972106934,
+      "segment" : "mission-15-creation-and-manifestation",
+      "speechSeconds" : 62.53116666666667,
+      "takeSeconds" : 218.53116666666668,
+      "words" : 182,
+      "wordsPerSecond" : 2.910548606428261
+    },
+    {
+      "generateSeconds" : 2.0608659982681274,
+      "segment" : "void",
+      "speechSeconds" : 47.02029166666667,
+      "takeSeconds" : 1305.0202916666667,
+      "words" : 155,
+      "wordsPerSecond" : 3.2964491394229616
+    },
+    {
+      "generateSeconds" : 1.7658309936523438,
+      "segment" : "briefing-f18",
+      "speechSeconds" : 36.74541666666667,
+      "takeSeconds" : 83.74541666666667,
+      "words" : 98,
+      "wordsPerSecond" : 2.666999285625191
+    },
+    {
+      "generateSeconds" : 0.26612401008605957,
+      "segment" : "climb-f15-f18",
+      "speechSeconds" : 4.701958333333334,
+      "takeSeconds" : 31.701958333333334,
+      "words" : 6,
+      "wordsPerSecond" : 1.2760640513261317
+    },
+    {
+      "generateSeconds" : 1.2432981729507446,
+      "segment" : "climb-f15-f18.v3",
+      "speechSeconds" : 24.61295833333333,
+      "takeSeconds" : 62.61295833333334,
+      "words" : 57,
+      "wordsPerSecond" : 2.3158532683494975
+    },
+    {
+      "generateSeconds" : 0.42487895488739014,
+      "segment" : "briefing-f21",
+      "speechSeconds" : 9.392416666666666,
+      "takeSeconds" : 21.392416666666666,
+      "words" : 32,
+      "wordsPerSecond" : 3.407003877241392
+    },
+    {
+      "generateSeconds" : 0.7786469459533691,
+      "segment" : "climb-f15-f21",
+      "speechSeconds" : 15.301791666666666,
+      "takeSeconds" : 46.30179166666667,
+      "words" : 31,
+      "wordsPerSecond" : 2.025906552337281
+    },
+    {
+      "generateSeconds" : 2.7321949005126953,
+      "segment" : "explore-total-self",
+      "speechSeconds" : 57.318208333333324,
+      "takeSeconds" : 189.31820833333333,
+      "words" : 175,
+      "wordsPerSecond" : 3.0531310222100747
+    },
+    {
+      "generateSeconds" : 2.4415810108184814,
+      "segment" : "free-flow-journey-focus-21",
+      "speechSeconds" : 54.915000000000006,
+      "takeSeconds" : 218.91500000000002,
+      "words" : 159,
+      "wordsPerSecond" : 2.8953837749248836
+    },
+    {
+      "generateSeconds" : 1.242216944694519,
+      "segment" : "movement-to-locale-2",
+      "speechSeconds" : 29.268666666666665,
+      "takeSeconds" : 155.26866666666666,
+      "words" : 80,
+      "wordsPerSecond" : 2.7332984078536775
+    },
+    {
+      "generateSeconds" : 2.075379967689514,
+      "segment" : "briefing-f22",
+      "speechSeconds" : 48.66891666666666,
+      "takeSeconds" : 95.66891666666666,
+      "words" : 142,
+      "wordsPerSecond" : 2.9176733267468804
+    },
+    {
+      "generateSeconds" : 0.15635204315185547,
+      "segment" : "climb-f21-f22",
+      "speechSeconds" : 3.0649583333333332,
+      "takeSeconds" : 20.064958333333333,
+      "words" : 4,
+      "wordsPerSecond" : 1.305074837885235
+    },
+    {
+      "generateSeconds" : 0.879133939743042,
+      "segment" : "climb-f21-f22.v3",
+      "speechSeconds" : 19.493041666666667,
+      "takeSeconds" : 48.49304166666667,
+      "words" : 54,
+      "wordsPerSecond" : 2.7702192876517904
+    },
+    {
+      "generateSeconds" : 0.4984980821609497,
+      "segment" : "briefing-f23",
+      "speechSeconds" : 10.530208333333333,
+      "takeSeconds" : 28.530208333333334,
+      "words" : 31,
+      "wordsPerSecond" : 2.9439113661094076
+    },
+    {
+      "generateSeconds" : 0.2612341642379761,
+      "segment" : "climb-f21-f23",
+      "speechSeconds" : 5.178,
+      "takeSeconds" : 20.178000000000004,
+      "words" : 9,
+      "wordsPerSecond" : 1.738122827346466
+    },
+    {
+      "generateSeconds" : 2.316259980201721,
+      "segment" : "focus-23-observation",
+      "speechSeconds" : 54.172000000000004,
+      "takeSeconds" : 116.17200000000001,
+      "words" : 152,
+      "wordsPerSecond" : 2.805877575131064
+    },
+    {
+      "generateSeconds" : 0.6252909898757935,
+      "segment" : "briefing-f24",
+      "speechSeconds" : 14.814291666666668,
+      "takeSeconds" : 35.81429166666666,
+      "words" : 47,
+      "wordsPerSecond" : 3.17261203286241
+    },
+    {
+      "generateSeconds" : 0.16230201721191406,
+      "segment" : "climb-f23-f24",
+      "speechSeconds" : 3.1462499999999998,
+      "takeSeconds" : 20.146250000000002,
+      "words" : 4,
+      "wordsPerSecond" : 1.2713547874453717
+    },
+    {
+      "generateSeconds" : 1.0555990934371948,
+      "segment" : "climb-f23-f24.v3",
+      "speechSeconds" : 23.4055,
+      "takeSeconds" : 59.405499999999996,
+      "words" : 74,
+      "wordsPerSecond" : 3.1616500395206253
+    },
+    {
+      "generateSeconds" : 1.0006239414215088,
+      "segment" : "briefing-f25",
+      "speechSeconds" : 22.418833333333332,
+      "takeSeconds" : 44.41883333333333,
+      "words" : 70,
+      "wordsPerSecond" : 3.1223747890538465
+    },
+    {
+      "generateSeconds" : 0.268943190574646,
+      "segment" : "climb-f23-f25",
+      "speechSeconds" : 5.36375,
+      "takeSeconds" : 20.363750000000003,
+      "words" : 8,
+      "wordsPerSecond" : 1.491493824283384
+    },
+    {
+      "generateSeconds" : 1.393041729927063,
+      "segment" : "focus-25-observation",
+      "speechSeconds" : 32.50783333333333,
+      "takeSeconds" : 152.50783333333334,
+      "words" : 100,
+      "wordsPerSecond" : 3.0761816382718012
+    },
+    {
+      "generateSeconds" : 0.30115294456481934,
+      "segment" : "briefing-f26",
+      "speechSeconds" : 7.6277083333333335,
+      "takeSeconds" : 21.627708333333334,
+      "words" : 21,
+      "wordsPerSecond" : 2.753120476333543
+    },
+    {
+      "generateSeconds" : 0.26432299613952637,
+      "segment" : "climb-f25-f26",
+      "speechSeconds" : 6.04875,
+      "takeSeconds" : 19.04875,
+      "words" : 14,
+      "wordsPerSecond" : 2.3145277949989667
+    },
+    {
+      "generateSeconds" : 1.7287609577178955,
+      "segment" : "affirmation-service",
+      "speechSeconds" : 39.508625,
+      "takeSeconds" : 75.508625,
+      "words" : 104,
+      "wordsPerSecond" : 2.632336610044009
+    },
+    {
+      "generateSeconds" : 1.687672734260559,
+      "segment" : "briefing-f27",
+      "speechSeconds" : 38.243208333333335,
+      "takeSeconds" : 83.24320833333334,
+      "words" : 115,
+      "wordsPerSecond" : 3.0070698827787505
+    },
+    {
+      "generateSeconds" : 4.309661865234375,
+      "segment" : "castle",
+      "speechSeconds" : 97.66291666666665,
+      "takeSeconds" : 1707.6629166666667,
+      "words" : 305,
+      "wordsPerSecond" : 3.1229868041008406
+    },
+    {
+      "generateSeconds" : 0.6048108339309692,
+      "segment" : "climb-f26-f27",
+      "speechSeconds" : 12.828916666666668,
+      "takeSeconds" : 47.82891666666667,
+      "words" : 35,
+      "wordsPerSecond" : 2.7282116572586665
+    },
+    {
+      "generateSeconds" : 2.2661678791046143,
+      "segment" : "coordination-area",
+      "speechSeconds" : 52.175124999999994,
+      "takeSeconds" : 176.17512500000004,
+      "words" : 133,
+      "wordsPerSecond" : 2.5491074530247895
+    },
+    {
+      "generateSeconds" : 1.8148679733276367,
+      "segment" : "educational-center",
+      "speechSeconds" : 42.73625,
+      "takeSeconds" : 134.73624999999998,
+      "words" : 112,
+      "wordsPerSecond" : 2.6207259644915033
+    },
+    {
+      "generateSeconds" : 2.0664377212524414,
+      "segment" : "first-retrieval",
+      "speechSeconds" : 46.61383333333333,
+      "takeSeconds" : 118.61383333333332,
+      "words" : 138,
+      "wordsPerSecond" : 2.9604945599124726
+    },
+    {
+      "generateSeconds" : 0.6472110748291016,
+      "segment" : "gratitude",
+      "speechSeconds" : 13.38625,
+      "takeSeconds" : 38.386250000000004,
+      "words" : 37,
+      "wordsPerSecond" : 2.764030254925763
+    },
+    {
+      "generateSeconds" : 1.9558690786361694,
+      "segment" : "healing-and-regeneration-center",
+      "speechSeconds" : 41.55204166666667,
+      "takeSeconds" : 161.55204166666667,
+      "words" : 109,
+      "wordsPerSecond" : 2.623216468504857
+    },
+    {
+      "generateSeconds" : 4.508806347846985,
+      "segment" : "inner-earth",
+      "speechSeconds" : 102.42283333333334,
+      "takeSeconds" : 250.4228333333333,
+      "words" : 264,
+      "wordsPerSecond" : 2.5775502532801116
+    },
+    {
+      "generateSeconds" : 2.2418352365493774,
+      "segment" : "meeting-with-the-entry-director",
+      "speechSeconds" : 48.08845833333333,
+      "takeSeconds" : 157.08845833333334,
+      "words" : 149,
+      "wordsPerSecond" : 3.0984565769852956
+    },
+    {
+      "generateSeconds" : 2.8710927963256836,
+      "segment" : "messages-from-beyond",
+      "speechSeconds" : 60.91729166666667,
+      "takeSeconds" : 179.9172916666667,
+      "words" : 186,
+      "wordsPerSecond" : 3.053320246372301
+    },
+    {
+      "generateSeconds" : 2.442146897315979,
+      "segment" : "place-of-your-own",
+      "speechSeconds" : 53.33604166666666,
+      "takeSeconds" : 142.33604166666666,
+      "words" : 167,
+      "wordsPerSecond" : 3.131090999285193
+    },
+    {
+      "generateSeconds" : 3.010159969329834,
+      "segment" : "planning-center",
+      "speechSeconds" : 69.18370833333333,
+      "takeSeconds" : 177.18370833333333,
+      "words" : 192,
+      "wordsPerSecond" : 2.7752198404128143
+    },
+    {
+      "generateSeconds" : 2.6788980960845947,
+      "segment" : "special-tour",
+      "speechSeconds" : 62.066791666666674,
+      "takeSeconds" : 176.0667916666667,
+      "words" : 162,
+      "wordsPerSecond" : 2.610091413618259
+    },
+    {
+      "generateSeconds" : 0.21798110008239746,
+      "segment" : "stay",
+      "speechSeconds" : 4.841291666666667,
+      "takeSeconds" : 616.8412916666666,
+      "words" : 17,
+      "wordsPerSecond" : 3.511459579485502
+    },
+    {
+      "generateSeconds" : 3.6585901975631714,
+      "segment" : "the-absolute",
+      "speechSeconds" : 83.95145833333332,
+      "takeSeconds" : 243.95145833333336,
+      "words" : 247,
+      "wordsPerSecond" : 2.9421764065047515
+    },
+    {
+      "generateSeconds" : 2.497030019760132,
+      "segment" : "briefing-f34",
+      "speechSeconds" : 58.09620833333334,
+      "takeSeconds" : 127.09620833333335,
+      "words" : 169,
+      "wordsPerSecond" : 2.908967811295774
+    },
+    {
+      "generateSeconds" : 0.41392695903778076,
+      "segment" : "climb-f27-f34",
+      "speechSeconds" : 8.927916666666667,
+      "takeSeconds" : 55.92791666666667,
+      "words" : 10,
+      "wordsPerSecond" : 1.1200821393568863
+    },
+    {
+      "generateSeconds" : 1.8242652416229248,
+      "segment" : "climb-f27-f34.v3",
+      "speechSeconds" : 40.72754166666666,
+      "takeSeconds" : 109.72754166666667,
+      "words" : 91,
+      "wordsPerSecond" : 2.2343602455750156
+    },
+    {
+      "generateSeconds" : 2.305340886116028,
+      "segment" : "briefing-f35",
+      "speechSeconds" : 53.54504166666667,
+      "takeSeconds" : 120.54504166666666,
+      "words" : 157,
+      "wordsPerSecond" : 2.9321108941770984
+    },
+    {
+      "generateSeconds" : 0.17554306983947754,
+      "segment" : "climb-f34-f35",
+      "speechSeconds" : 3.6454583333333335,
+      "takeSeconds" : 20.645458333333334,
+      "words" : 4,
+      "wordsPerSecond" : 1.0972557177309665
+    },
+    {
+      "generateSeconds" : 1.2555512189865112,
+      "segment" : "climb-f34-f35.v3",
+      "speechSeconds" : 29.419583333333332,
+      "takeSeconds" : 63.41958333333333,
+      "words" : 67,
+      "wordsPerSecond" : 2.277394592604133
+    },
+    {
+      "generateSeconds" : 1.7026340961456299,
+      "segment" : "briefing-f42",
+      "speechSeconds" : 39.84533333333333,
+      "takeSeconds" : 86.84533333333334,
+      "words" : 98,
+      "wordsPerSecond" : 2.4595101057422033
+    },
+    {
+      "generateSeconds" : 0.45529425144195557,
+      "segment" : "climb-f35-f42",
+      "speechSeconds" : 9.090416666666668,
+      "takeSeconds" : 56.09041666666667,
+      "words" : 10,
+      "wordsPerSecond" : 1.1000595865609386
+    },
+    {
+      "generateSeconds" : 1.5853700637817383,
+      "segment" : "climb-f35-f42.v3",
+      "speechSeconds" : 35.514666666666656,
+      "takeSeconds" : 99.51466666666668,
+      "words" : 74,
+      "wordsPerSecond" : 2.083646193122091
+    },
+    {
+      "generateSeconds" : 1.7311570644378662,
+      "segment" : "briefing-f49",
+      "speechSeconds" : 40.611583333333336,
+      "takeSeconds" : 87.61158333333333,
+      "words" : 99,
+      "wordsPerSecond" : 2.437728152271827
+    },
+    {
+      "generateSeconds" : 0.4645700454711914,
+      "segment" : "climb-f42-f49",
+      "speechSeconds" : 10.251416666666668,
+      "takeSeconds" : 57.25141666666667,
+      "words" : 10,
+      "wordsPerSecond" : 0.9754749343586658
+    },
+    {
+      "generateSeconds" : 1.7846001386642456,
+      "segment" : "climb-f42-f49.v3",
+      "speechSeconds" : 40.70433333333334,
+      "takeSeconds" : 104.70433333333334,
+      "words" : 81,
+      "wordsPerSecond" : 1.9899601189062588
+    }
+  ],
+  "method" : "Every say\/pause\/hold\/media step in every real segment file under library\/segments (RenderInventory.orderedSegmentFiles), rendered once live through the engine and timed -- not an estimate, and not a hand-picked sample. words_per_second pools speech-seconds against word count; seconds_per_take is each file's real speech seconds plus its authored pause\/hold\/media seconds, matching what RenderPlan.collapse writes to disk; generation_realtime_factor pools audio-seconds produced against wall-clock generation time. No audio was written to segments-rendered\/ and no take was stamped -- this is a timing pass, not a render.",
+  "per_line_max" : 4.276114844227245,
+  "per_line_mean" : 2.5648247504045707,
+  "per_line_min" : 0.6677053193857111,
+  "per_line_stdev" : 0.7129386340096494,
+  "pooled_words_per_second" : 2.802340039670478,
+  "takes" : 127,
+  "total_generate_seconds" : 207.458926320076,
+  "total_speech_seconds" : 5112.513041666665,
+  "total_take_seconds" : 19877.513041666673,
+  "total_words" : 14327,
+  "voice" : "piper-snepssen"
+}

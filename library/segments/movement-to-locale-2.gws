@@ -1,0 +1,24 @@
+# From "Movement to Locale 2 - Intro Focus 21" (Wave VI - Odyssey, CD3-5).
+# Distinct from climb-f15-f21.gws (a bare fifteen-to-twenty-one count):
+# this tape counts from twelve and introduces Focus 21 with its own
+# imagery -- the white light, the bridge to Locale 2. Assumes F21 already
+# reached; doesn't repeat the climb itself, since the app's canonical path
+# there is climb-f15-f21.gws.
+
+@segment  movement-to-locale-2
+@title    Movement to Locale 2
+@levels   F21
+@duration ~3m30s
+
+say You're in Focus 21 -- the bridge. A bridge to other reality systems, other dimensions of Locale 2. A bridge that lets you visit, and return, from a realm beyond physical existence.
+pause 8
+say Relax, and notice the difference in energy here.
+pause 6
+say Now perceive a bright, shining pattern of white light. Move into it.
+pause 8
+say Observe. Explore. Experience.
+pause 6
+say Move through the light now, calmly, and perceive what Locale 2 makes possible.
+hold 90
+say Notice the difference between where you were and where you are now.
+pause 8

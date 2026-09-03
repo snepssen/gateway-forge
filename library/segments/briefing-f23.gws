@@ -1,0 +1,11 @@
+@segment  briefing-f23
+@title    Focus 23 — The Ghostly River
+@levels   F23
+@duration ~35s
+
+say You are now in Focus 23.
+pause 4
+say It is like a ghostly river around you. A slow drifting mist, with ripples and waves moving past at their own pace.
+pause 8
+say Pass through. Continue.
+pause 6

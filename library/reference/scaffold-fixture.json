@@ -1,0 +1,2220 @@
+{
+  "briefings" : [
+    {
+      "fixed" : false,
+      "levels" : [
+        "F29"
+      ],
+      "name" : "both-neighbours",
+      "parses" : true,
+      "provisional" : true,
+      "segment" : "briefing-f29",
+      "source" : "# Generated invitation to discovery: nothing in this library describes\n# Focus 29 -- no tape, no manual, no overview. So this names the\n# level, places it on the ladder, and then asks rather than tells.\n#\n# It deliberately suggests nothing about what is here. A briefing for\n# a described level can afford to relay a map; this one has none, and\n# inventing scenery would be worse than silence -- the listener would\n# go looking for what the app had implied instead of reporting what is\n# actually there.\n#\n# What it does ask for is translation: that whatever is present come\n# in a form the listener can recognise and carry back. That is the\n# only real difficulty of an unmapped level -- not reaching it, but\n# bringing something back that survives the return in words.\n#\n# @provisional keeps it on the worklist. Edit freely; the generator\n# never rewrites an existing segment, so once you have been here it is\n# yours.\n\n@segment     briefing-f29\n@title       Focus 29\n@levels      F29\n@provisional\n@duration    ~1m20s\n\nsay You are now in Focus 29.\npause 5\nsay Behind you, Focus 28. Ahead, Focus 30.\npause 6\nsay No tape, manual or overview in this library describes this level. There is no map of it to hold lightly, and nothing here you are meant to reproduce.\npause 8\nsay So let it be whatever it is. An open mind, and no expectation of what you will find.\npause 8\nsay Ask what is present here.\npause 12\nsay And ask that it come in a form you will recognise — something you can carry back and set down in your own words.\npause 12\nsay Stay as briefly or as long as feels right. What you notice is the first record this level has.\npause 8\n",
+      "steps" : 14
+    },
+    {
+      "fixed" : false,
+      "levels" : [
+        "F49"
+      ],
+      "name" : "below-only",
+      "parses" : true,
+      "provisional" : true,
+      "segment" : "briefing-f49",
+      "source" : "# Generated invitation to discovery: nothing in this library describes\n# Focus 49 -- no tape, no manual, no overview. So this names the\n# level, places it on the ladder, and then asks rather than tells.\n#\n# It deliberately suggests nothing about what is here. A briefing for\n# a described level can afford to relay a map; this one has none, and\n# inventing scenery would be worse than silence -- the listener would\n# go looking for what the app had implied instead of reporting what is\n# actually there.\n#\n# What it does ask for is translation: that whatever is present come\n# in a form the listener can recognise and carry back. That is the\n# only real difficulty of an unmapped level -- not reaching it, but\n# bringing something back that survives the return in words.\n#\n# @provisional keeps it on the worklist. Edit freely; the generator\n# never rewrites an existing segment, so once you have been here it is\n# yours.\n\n@segment     briefing-f49\n@title       Focus 49\n@levels      F49\n@provisional\n@duration    ~1m20s\n\nsay You are now in Focus 49.\npause 5\nsay Behind you, Focus 48.\npause 6\nsay No tape, manual or overview in this library describes this level. There is no map of it to hold lightly, and nothing here you are meant to reproduce.\npause 8\nsay So let it be whatever it is. An open mind, and no expectation of what you will find.\npause 8\nsay Ask what is present here.\npause 12\nsay And ask that it come in a form you will recognise — something you can carry back and set down in your own words.\npause 12\nsay Stay as briefly or as long as feels right. What you notice is the first record this level has.\npause 8\n",
+      "steps" : 14
+    },
+    {
+      "fixed" : false,
+      "levels" : [
+        "F1"
+      ],
+      "name" : "above-only",
+      "parses" : true,
+      "provisional" : true,
+      "segment" : "briefing-f1",
+      "source" : "# Generated invitation to discovery: nothing in this library describes\n# Focus 1 -- no tape, no manual, no overview. So this names the\n# level, places it on the ladder, and then asks rather than tells.\n#\n# It deliberately suggests nothing about what is here. A briefing for\n# a described level can afford to relay a map; this one has none, and\n# inventing scenery would be worse than silence -- the listener would\n# go looking for what the app had implied instead of reporting what is\n# actually there.\n#\n# What it does ask for is translation: that whatever is present come\n# in a form the listener can recognise and carry back. That is the\n# only real difficulty of an unmapped level -- not reaching it, but\n# bringing something back that survives the return in words.\n#\n# @provisional keeps it on the worklist. Edit freely; the generator\n# never rewrites an existing segment, so once you have been here it is\n# yours.\n\n@segment     briefing-f1\n@title       Focus 1\n@levels      F1\n@provisional\n@duration    ~1m20s\n\nsay You are now in Focus 1.\npause 5\nsay Ahead, Focus 2.\npause 6\nsay No tape, manual or overview in this library describes this level. There is no map of it to hold lightly, and nothing here you are meant to reproduce.\npause 8\nsay So let it be whatever it is. An open mind, and no expectation of what you will find.\npause 8\nsay Ask what is present here.\npause 12\nsay And ask that it come in a form you will recognise — something you can carry back and set down in your own words.\npause 12\nsay Stay as briefly or as long as feels right. What you notice is the first record this level has.\npause 8\n",
+      "steps" : 14
+    },
+    {
+      "fixed" : false,
+      "levels" : [
+        "F22"
+      ],
+      "name" : "neither",
+      "parses" : true,
+      "provisional" : true,
+      "segment" : "briefing-f22",
+      "source" : "# Generated invitation to discovery: nothing in this library describes\n# Focus 22 -- no tape, no manual, no overview. So this names the\n# level, places it on the ladder, and then asks rather than tells.\n#\n# It deliberately suggests nothing about what is here. A briefing for\n# a described level can afford to relay a map; this one has none, and\n# inventing scenery would be worse than silence -- the listener would\n# go looking for what the app had implied instead of reporting what is\n# actually there.\n#\n# What it does ask for is translation: that whatever is present come\n# in a form the listener can recognise and carry back. That is the\n# only real difficulty of an unmapped level -- not reaching it, but\n# bringing something back that survives the return in words.\n#\n# @provisional keeps it on the worklist. Edit freely; the generator\n# never rewrites an existing segment, so once you have been here it is\n# yours.\n\n@segment     briefing-f22\n@title       Focus 22\n@levels      F22\n@provisional\n@duration    ~1m20s\n\nsay You are now in Focus 22.\npause 5\nsay This level sits on the same ladder as the others.\npause 6\nsay No tape, manual or overview in this library describes this level. There is no map of it to hold lightly, and nothing here you are meant to reproduce.\npause 8\nsay So let it be whatever it is. An open mind, and no expectation of what you will find.\npause 8\nsay Ask what is present here.\npause 12\nsay And ask that it come in a form you will recognise — something you can carry back and set down in your own words.\npause 12\nsay Stay as briefly or as long as feels right. What you notice is the first record this level has.\npause 8\n",
+      "steps" : 14
+    },
+    {
+      "fixed" : false,
+      "levels" : [
+        "F34"
+      ],
+      "name" : "lowercase-key",
+      "parses" : true,
+      "provisional" : true,
+      "segment" : "briefing-f34",
+      "source" : "# Generated invitation to discovery: nothing in this library describes\n# Focus 34 -- no tape, no manual, no overview. So this names the\n# level, places it on the ladder, and then asks rather than tells.\n#\n# It deliberately suggests nothing about what is here. A briefing for\n# a described level can afford to relay a map; this one has none, and\n# inventing scenery would be worse than silence -- the listener would\n# go looking for what the app had implied instead of reporting what is\n# actually there.\n#\n# What it does ask for is translation: that whatever is present come\n# in a form the listener can recognise and carry back. That is the\n# only real difficulty of an unmapped level -- not reaching it, but\n# bringing something back that survives the return in words.\n#\n# @provisional keeps it on the worklist. Edit freely; the generator\n# never rewrites an existing segment, so once you have been here it is\n# yours.\n\n@segment     briefing-f34\n@title       Focus 34\n@levels      F34\n@provisional\n@duration    ~1m20s\n\nsay You are now in Focus 34.\npause 5\nsay Behind you, Focus 27.\npause 6\nsay No tape, manual or overview in this library describes this level. There is no map of it to hold lightly, and nothing here you are meant to reproduce.\npause 8\nsay So let it be whatever it is. An open mind, and no expectation of what you will find.\npause 8\nsay Ask what is present here.\npause 12\nsay And ask that it come in a form you will recognise — something you can carry back and set down in your own words.\npause 12\nsay Stay as briefly or as long as feels right. What you notice is the first record this level has.\npause 8\n",
+      "steps" : 14
+    },
+    {
+      "fixed" : false,
+      "levels" : [
+
+      ],
+      "name" : "not-a-level",
+      "parses" : false,
+      "provisional" : false,
+      "steps" : 0
+    }
+  ],
+  "climbs" : [
+    {
+      "fixed" : true,
+      "levels" : [
+        "F10"
+      ],
+      "name" : "F1->F10",
+      "parses" : true,
+      "provisional" : false,
+      "segment" : "climb-f1-f10",
+      "source" : "# Generated scaffold: the bare climb, counts only. Edit freely -- this is\n# your file now; the generator never rewrites an existing segment. The\n# guided version is authoring work: add a v3 body and a briefing segment.\n\n@segment  climb-f1-f10\n@title    Climb — Focus 1 to Focus 10\n@levels   F10\n@fixed\n@verbosity 1\n@duration ~1m\n\nsay Focus 10.\npause 4\nlevel F10\nsay One.\npause 5\nsay Two.\npause 5\nsay Three.\npause 5\nsay Four.\npause 5\nsay Five.\npause 5\nsay Six.\npause 5\nsay Seven.\npause 5\nsay Eight.\npause 5\nsay Nine.\npause 5\nsay Ten.\npause 8\n",
+      "steps" : 23,
+      "verbosity" : 1
+    },
+    {
+      "fixed" : true,
+      "levels" : [
+        "F12"
+      ],
+      "name" : "F10->F12",
+      "parses" : true,
+      "provisional" : false,
+      "segment" : "climb-f10-f12",
+      "source" : "# Generated scaffold: the bare climb, counts only. Edit freely -- this is\n# your file now; the generator never rewrites an existing segment. The\n# guided version is authoring work: add a v3 body and a briefing segment.\n\n@segment  climb-f10-f12\n@title    Climb — Focus 10 to Focus 12\n@levels   F12\n@fixed\n@verbosity 1\n@duration ~1m\n\nsay Focus 12.\npause 4\nlevel F12\nsay Ten.\npause 5\nsay Eleven.\npause 5\nsay Twelve.\npause 8\n",
+      "steps" : 9,
+      "verbosity" : 1
+    },
+    {
+      "fixed" : true,
+      "levels" : [
+        "F34"
+      ],
+      "name" : "F27->F34",
+      "parses" : true,
+      "provisional" : false,
+      "segment" : "climb-f27-f34",
+      "source" : "# Generated scaffold: the bare climb, counts only. Edit freely -- this is\n# your file now; the generator never rewrites an existing segment. The\n# guided version is authoring work: add a v3 body and a briefing segment.\n\n@segment  climb-f27-f34\n@title    Climb — Focus 27 to Focus 34\n@levels   F34\n@fixed\n@verbosity 1\n@duration ~1m\n\nsay Focus 34.\npause 4\nlevel F34\nsay Twenty-seven.\npause 5\nsay Twenty-eight.\npause 5\nsay Twenty-nine.\npause 5\nsay Thirty.\npause 5\nsay Thirty-one.\npause 5\nsay Thirty-two.\npause 5\nsay Thirty-three.\npause 5\nsay Thirty-four.\npause 8\n",
+      "steps" : 19,
+      "verbosity" : 1
+    },
+    {
+      "fixed" : true,
+      "levels" : [
+        "F2"
+      ],
+      "name" : "F1->F2",
+      "parses" : true,
+      "provisional" : false,
+      "segment" : "climb-f1-f2",
+      "source" : "# Generated scaffold: the bare climb, counts only. Edit freely -- this is\n# your file now; the generator never rewrites an existing segment. The\n# guided version is authoring work: add a v3 body and a briefing segment.\n\n@segment  climb-f1-f2\n@title    Climb — Focus 1 to Focus 2\n@levels   F2\n@fixed\n@verbosity 1\n@duration ~1m\n\nsay Focus 2.\npause 4\nlevel F2\nsay One.\npause 5\nsay Two.\npause 8\n",
+      "steps" : 7,
+      "verbosity" : 1
+    },
+    {
+      "fixed" : true,
+      "levels" : [
+        "F22"
+      ],
+      "name" : "f21->f22",
+      "parses" : true,
+      "provisional" : false,
+      "segment" : "climb-f21-f22",
+      "source" : "# Generated scaffold: the bare climb, counts only. Edit freely -- this is\n# your file now; the generator never rewrites an existing segment. The\n# guided version is authoring work: add a v3 body and a briefing segment.\n\n@segment  climb-f21-f22\n@title    Climb — Focus 21 to Focus 22\n@levels   F22\n@fixed\n@verbosity 1\n@duration ~1m\n\nsay Focus 22.\npause 4\nlevel F22\nsay Twenty-one.\npause 5\nsay Twenty-two.\npause 8\n",
+      "steps" : 7,
+      "verbosity" : 1
+    },
+    {
+      "fixed" : false,
+      "levels" : [
+
+      ],
+      "name" : "F12->F10",
+      "parses" : false,
+      "provisional" : false,
+      "steps" : 0
+    },
+    {
+      "fixed" : false,
+      "levels" : [
+
+      ],
+      "name" : "F10->F10",
+      "parses" : false,
+      "provisional" : false,
+      "steps" : 0
+    },
+    {
+      "fixed" : false,
+      "levels" : [
+
+      ],
+      "name" : "X->F10",
+      "parses" : false,
+      "provisional" : false,
+      "steps" : 0
+    },
+    {
+      "fixed" : true,
+      "levels" : [
+        "F49"
+      ],
+      "name" : "F1->F49",
+      "parses" : true,
+      "provisional" : false,
+      "segment" : "climb-f1-f49",
+      "source" : "# Generated scaffold: the bare climb, counts only. Edit freely -- this is\n# your file now; the generator never rewrites an existing segment. The\n# guided version is authoring work: add a v3 body and a briefing segment.\n\n@segment  climb-f1-f49\n@title    Climb — Focus 1 to Focus 49\n@levels   F49\n@fixed\n@verbosity 1\n@duration ~4m\n\nsay Focus 49.\npause 4\nlevel F49\nsay One.\npause 5\nsay Two.\npause 5\nsay Three.\npause 5\nsay Four.\npause 5\nsay Five.\npause 5\nsay Six.\npause 5\nsay Seven.\npause 5\nsay Eight.\npause 5\nsay Nine.\npause 5\nsay Ten.\npause 5\nsay Eleven.\npause 5\nsay Twelve.\npause 5\nsay Thirteen.\npause 5\nsay Fourteen.\npause 5\nsay Fifteen.\npause 5\nsay Sixteen.\npause 5\nsay Seventeen.\npause 5\nsay Eighteen.\npause 5\nsay Nineteen.\npause 5\nsay Twenty.\npause 5\nsay Twenty-one.\npause 5\nsay Twenty-two.\npause 5\nsay Twenty-three.\npause 5\nsay Twenty-four.\npause 5\nsay Twenty-five.\npause 5\nsay Twenty-six.\npause 5\nsay Twenty-seven.\npause 5\nsay Twenty-eight.\npause 5\nsay Twenty-nine.\npause 5\nsay Thirty.\npause 5\nsay Thirty-one.\npause 5\nsay Thirty-two.\npause 5\nsay Thirty-three.\npause 5\nsay Thirty-four.\npause 5\nsay Thirty-five.\npause 5\nsay Thirty-six.\npause 5\nsay Thirty-seven.\npause 5\nsay Thirty-eight.\npause 5\nsay Thirty-nine.\npause 5\nsay Forty.\npause 5\nsay Forty-one.\npause 5\nsay Forty-two.\npause 5\nsay Forty-three.\npause 5\nsay Forty-four.\npause 5\nsay Forty-five.\npause 5\nsay Forty-six.\npause 5\nsay Forty-seven.\npause 5\nsay Forty-eight.\npause 5\nsay Forty-nine.\npause 8\n",
+      "steps" : 101,
+      "verbosity" : 1
+    }
+  ],
+  "continuousSegments" : [
+    {
+      "levels" : [
+        "F13"
+      ],
+      "segmentID" : "briefing-f13"
+    },
+    {
+      "levels" : [
+        "F14"
+      ],
+      "segmentID" : "briefing-f14"
+    },
+    {
+      "levels" : [
+        "F16"
+      ],
+      "segmentID" : "briefing-f16"
+    },
+    {
+      "levels" : [
+        "F17"
+      ],
+      "segmentID" : "briefing-f17"
+    },
+    {
+      "levels" : [
+        "F19"
+      ],
+      "segmentID" : "briefing-f19"
+    },
+    {
+      "levels" : [
+        "F20"
+      ],
+      "segmentID" : "briefing-f20"
+    },
+    {
+      "levels" : [
+        "F28"
+      ],
+      "segmentID" : "briefing-f28"
+    },
+    {
+      "levels" : [
+        "F29"
+      ],
+      "segmentID" : "briefing-f29"
+    },
+    {
+      "levels" : [
+        "F30"
+      ],
+      "segmentID" : "briefing-f30"
+    },
+    {
+      "levels" : [
+        "F31"
+      ],
+      "segmentID" : "briefing-f31"
+    },
+    {
+      "levels" : [
+        "F32"
+      ],
+      "segmentID" : "briefing-f32"
+    },
+    {
+      "levels" : [
+        "F33"
+      ],
+      "segmentID" : "briefing-f33"
+    },
+    {
+      "levels" : [
+        "F36"
+      ],
+      "segmentID" : "briefing-f36"
+    },
+    {
+      "levels" : [
+        "F37"
+      ],
+      "segmentID" : "briefing-f37"
+    },
+    {
+      "levels" : [
+        "F38"
+      ],
+      "segmentID" : "briefing-f38"
+    },
+    {
+      "levels" : [
+        "F39"
+      ],
+      "segmentID" : "briefing-f39"
+    },
+    {
+      "levels" : [
+        "F40"
+      ],
+      "segmentID" : "briefing-f40"
+    },
+    {
+      "levels" : [
+        "F41"
+      ],
+      "segmentID" : "briefing-f41"
+    },
+    {
+      "levels" : [
+        "F43"
+      ],
+      "segmentID" : "briefing-f43"
+    },
+    {
+      "levels" : [
+        "F44"
+      ],
+      "segmentID" : "briefing-f44"
+    },
+    {
+      "levels" : [
+        "F45"
+      ],
+      "segmentID" : "briefing-f45"
+    },
+    {
+      "levels" : [
+        "F46"
+      ],
+      "segmentID" : "briefing-f46"
+    },
+    {
+      "levels" : [
+        "F47"
+      ],
+      "segmentID" : "briefing-f47"
+    },
+    {
+      "levels" : [
+        "F48"
+      ],
+      "segmentID" : "briefing-f48"
+    },
+    {
+      "levels" : [
+        "F12"
+      ],
+      "origin" : "F11",
+      "segmentID" : "climb-f11-f12"
+    },
+    {
+      "levels" : [
+        "F13"
+      ],
+      "origin" : "F12",
+      "segmentID" : "climb-f12-f13"
+    },
+    {
+      "levels" : [
+        "F14"
+      ],
+      "origin" : "F13",
+      "segmentID" : "climb-f13-f14"
+    },
+    {
+      "levels" : [
+        "F15"
+      ],
+      "origin" : "F14",
+      "segmentID" : "climb-f14-f15"
+    },
+    {
+      "levels" : [
+        "F16"
+      ],
+      "origin" : "F15",
+      "segmentID" : "climb-f15-f16"
+    },
+    {
+      "levels" : [
+        "F17"
+      ],
+      "origin" : "F16",
+      "segmentID" : "climb-f16-f17"
+    },
+    {
+      "levels" : [
+        "F18"
+      ],
+      "origin" : "F17",
+      "segmentID" : "climb-f17-f18"
+    },
+    {
+      "levels" : [
+        "F19"
+      ],
+      "origin" : "F18",
+      "segmentID" : "climb-f18-f19"
+    },
+    {
+      "levels" : [
+        "F20"
+      ],
+      "origin" : "F19",
+      "segmentID" : "climb-f19-f20"
+    },
+    {
+      "levels" : [
+        "F21"
+      ],
+      "origin" : "F20",
+      "segmentID" : "climb-f20-f21"
+    },
+    {
+      "levels" : [
+        "F23"
+      ],
+      "origin" : "F22",
+      "segmentID" : "climb-f22-f23"
+    },
+    {
+      "levels" : [
+        "F25"
+      ],
+      "origin" : "F24",
+      "segmentID" : "climb-f24-f25"
+    },
+    {
+      "levels" : [
+        "F28"
+      ],
+      "origin" : "F27",
+      "segmentID" : "climb-f27-f28"
+    },
+    {
+      "levels" : [
+        "F29"
+      ],
+      "origin" : "F28",
+      "segmentID" : "climb-f28-f29"
+    },
+    {
+      "levels" : [
+        "F30"
+      ],
+      "origin" : "F29",
+      "segmentID" : "climb-f29-f30"
+    },
+    {
+      "levels" : [
+        "F31"
+      ],
+      "origin" : "F30",
+      "segmentID" : "climb-f30-f31"
+    },
+    {
+      "levels" : [
+        "F32"
+      ],
+      "origin" : "F31",
+      "segmentID" : "climb-f31-f32"
+    },
+    {
+      "levels" : [
+        "F33"
+      ],
+      "origin" : "F32",
+      "segmentID" : "climb-f32-f33"
+    },
+    {
+      "levels" : [
+        "F34"
+      ],
+      "origin" : "F33",
+      "segmentID" : "climb-f33-f34"
+    },
+    {
+      "levels" : [
+        "F36"
+      ],
+      "origin" : "F35",
+      "segmentID" : "climb-f35-f36"
+    },
+    {
+      "levels" : [
+        "F37"
+      ],
+      "origin" : "F36",
+      "segmentID" : "climb-f36-f37"
+    },
+    {
+      "levels" : [
+        "F38"
+      ],
+      "origin" : "F37",
+      "segmentID" : "climb-f37-f38"
+    },
+    {
+      "levels" : [
+        "F39"
+      ],
+      "origin" : "F38",
+      "segmentID" : "climb-f38-f39"
+    },
+    {
+      "levels" : [
+        "F40"
+      ],
+      "origin" : "F39",
+      "segmentID" : "climb-f39-f40"
+    },
+    {
+      "levels" : [
+        "F41"
+      ],
+      "origin" : "F40",
+      "segmentID" : "climb-f40-f41"
+    },
+    {
+      "levels" : [
+        "F42"
+      ],
+      "origin" : "F41",
+      "segmentID" : "climb-f41-f42"
+    },
+    {
+      "levels" : [
+        "F43"
+      ],
+      "origin" : "F42",
+      "segmentID" : "climb-f42-f43"
+    },
+    {
+      "levels" : [
+        "F44"
+      ],
+      "origin" : "F43",
+      "segmentID" : "climb-f43-f44"
+    },
+    {
+      "levels" : [
+        "F45"
+      ],
+      "origin" : "F44",
+      "segmentID" : "climb-f44-f45"
+    },
+    {
+      "levels" : [
+        "F46"
+      ],
+      "origin" : "F45",
+      "segmentID" : "climb-f45-f46"
+    },
+    {
+      "levels" : [
+        "F47"
+      ],
+      "origin" : "F46",
+      "segmentID" : "climb-f46-f47"
+    },
+    {
+      "levels" : [
+        "F48"
+      ],
+      "origin" : "F47",
+      "segmentID" : "climb-f47-f48"
+    },
+    {
+      "levels" : [
+        "F49"
+      ],
+      "origin" : "F48",
+      "segmentID" : "climb-f48-f49"
+    }
+  ],
+  "focusCases" : [
+    {
+      "key" : "F10",
+      "n" : 10
+    },
+    {
+      "key" : "f27",
+      "n" : 27
+    },
+    {
+      "key" : "F1",
+      "n" : 1
+    },
+    {
+      "key" : "F0",
+      "n" : 0
+    },
+    {
+      "key" : "F"
+    },
+    {
+      "key" : ""
+    },
+    {
+      "key" : "X10"
+    },
+    {
+      "key" : "F10x"
+    },
+    {
+      "key" : "10"
+    },
+    {
+      "key" : "F-3",
+      "n" : -3
+    },
+    {
+      "key" : "F 10"
+    },
+    {
+      "key" : "F+7",
+      "n" : 7
+    },
+    {
+      "key" : "FF10"
+    },
+    {
+      "key" : "f49",
+      "n" : 49
+    },
+    {
+      "key" : "F007",
+      "n" : 7
+    }
+  ],
+  "neighbourCases" : [
+    {
+      "above" : "F11",
+      "arg" : [
+
+      ],
+      "below" : "F9",
+      "ceiling" : 49,
+      "floor" : 1,
+      "kind" : "granular",
+      "level" : "F10"
+    },
+    {
+      "above" : "F28",
+      "arg" : [
+
+      ],
+      "below" : "F26",
+      "ceiling" : 49,
+      "floor" : 1,
+      "kind" : "granular",
+      "level" : "F27"
+    },
+    {
+      "above" : "F2",
+      "arg" : [
+
+      ],
+      "ceiling" : 49,
+      "floor" : 1,
+      "kind" : "granular",
+      "level" : "F1"
+    },
+    {
+      "arg" : [
+
+      ],
+      "below" : "F48",
+      "ceiling" : 49,
+      "floor" : 1,
+      "kind" : "granular",
+      "level" : "F49"
+    },
+    {
+      "above" : "F30",
+      "arg" : [
+
+      ],
+      "below" : "F28",
+      "ceiling" : 49,
+      "floor" : 1,
+      "kind" : "granular",
+      "level" : "F29"
+    },
+    {
+      "arg" : [
+
+      ],
+      "ceiling" : 49,
+      "floor" : 1,
+      "kind" : "granular",
+      "level" : "notalevel"
+    },
+    {
+      "above" : "F12",
+      "arg" : [
+        "F1",
+        "F3",
+        "F10",
+        "F12",
+        "F15",
+        "F21",
+        "F27"
+      ],
+      "below" : "F3",
+      "ceiling" : 0,
+      "floor" : 0,
+      "kind" : "documented",
+      "level" : "F10"
+    },
+    {
+      "above" : "F12",
+      "arg" : [
+        "F1",
+        "F3",
+        "F10",
+        "F12",
+        "F15",
+        "F21",
+        "F27"
+      ],
+      "below" : "F10",
+      "ceiling" : 0,
+      "floor" : 0,
+      "kind" : "documented",
+      "level" : "F11"
+    },
+    {
+      "arg" : [
+        "F1",
+        "F3",
+        "F10",
+        "F12",
+        "F15",
+        "F21",
+        "F27"
+      ],
+      "below" : "F21",
+      "ceiling" : 0,
+      "floor" : 0,
+      "kind" : "documented",
+      "level" : "F27"
+    },
+    {
+      "arg" : [
+        "F1",
+        "F3",
+        "F10",
+        "F12",
+        "F15",
+        "F21",
+        "F27"
+      ],
+      "below" : "F27",
+      "ceiling" : 0,
+      "floor" : 0,
+      "kind" : "documented",
+      "level" : "F28"
+    },
+    {
+      "above" : "F3",
+      "arg" : [
+        "F1",
+        "F3",
+        "F10",
+        "F12",
+        "F15",
+        "F21",
+        "F27"
+      ],
+      "ceiling" : 0,
+      "floor" : 0,
+      "kind" : "documented",
+      "level" : "F1"
+    },
+    {
+      "above" : "F3",
+      "arg" : [
+        "F1",
+        "F3",
+        "F10",
+        "F12",
+        "F15",
+        "F21",
+        "F27"
+      ],
+      "below" : "F1",
+      "ceiling" : 0,
+      "floor" : 0,
+      "kind" : "documented",
+      "level" : "F2"
+    },
+    {
+      "arg" : [
+        "F1",
+        "F3",
+        "F10",
+        "F12",
+        "F15",
+        "F21",
+        "F27"
+      ],
+      "ceiling" : 0,
+      "floor" : 0,
+      "kind" : "documented",
+      "level" : "notalevel"
+    }
+  ],
+  "note" : "Generated scaffold text, and route walks over the real library.",
+  "routeCases" : [
+    {
+      "from" : "F1",
+      "includingContinuous" : false,
+      "routeCount" : 1,
+      "routes" : [
+        [
+          "relax-10"
+        ]
+      ],
+      "to" : "F10"
+    },
+    {
+      "from" : "F1",
+      "includingContinuous" : true,
+      "routeCount" : 1,
+      "routes" : [
+        [
+          "relax-10"
+        ]
+      ],
+      "to" : "F10"
+    },
+    {
+      "from" : "F1",
+      "includingContinuous" : false,
+      "routeCount" : 1,
+      "routes" : [
+        [
+          "relax-10",
+          "climb-f10-f12"
+        ]
+      ],
+      "to" : "F12"
+    },
+    {
+      "from" : "F1",
+      "includingContinuous" : true,
+      "routeCount" : 2,
+      "routes" : [
+        [
+          "relax-10",
+          "climb-f10-f12"
+        ],
+        [
+          "relax-10",
+          "climb-f10-f11",
+          "climb-f11-f12"
+        ]
+      ],
+      "to" : "F12"
+    },
+    {
+      "from" : "F1",
+      "includingContinuous" : false,
+      "routeCount" : 1,
+      "routes" : [
+        [
+          "relax-10",
+          "climb-f10-f12",
+          "climb-f12-f15",
+          "climb-f15-f21"
+        ]
+      ],
+      "to" : "F21"
+    },
+    {
+      "from" : "F1",
+      "includingContinuous" : true,
+      "routeCount" : 8,
+      "routes" : [
+        [
+          "relax-10",
+          "climb-f10-f12",
+          "climb-f12-f15",
+          "climb-f15-f21"
+        ],
+        [
+          "relax-10",
+          "climb-f10-f11",
+          "climb-f11-f12",
+          "climb-f12-f15",
+          "climb-f15-f21"
+        ],
+        [
+          "relax-10",
+          "climb-f10-f12",
+          "climb-f12-f13",
+          "climb-f13-f14",
+          "climb-f14-f15",
+          "climb-f15-f21"
+        ],
+        [
+          "relax-10",
+          "climb-f10-f11",
+          "climb-f11-f12",
+          "climb-f12-f13",
+          "climb-f13-f14",
+          "climb-f14-f15",
+          "climb-f15-f21"
+        ],
+        [
+          "relax-10",
+          "climb-f10-f12",
+          "climb-f12-f15",
+          "climb-f15-f18",
+          "climb-f18-f19",
+          "climb-f19-f20",
+          "climb-f20-f21"
+        ],
+        [
+          "relax-10",
+          "climb-f10-f11",
+          "climb-f11-f12",
+          "climb-f12-f15",
+          "climb-f15-f18",
+          "climb-f18-f19",
+          "climb-f19-f20",
+          "climb-f20-f21"
+        ],
+        [
+          "relax-10",
+          "climb-f10-f12",
+          "climb-f12-f13",
+          "climb-f13-f14",
+          "climb-f14-f15",
+          "climb-f15-f18",
+          "climb-f18-f19",
+          "climb-f19-f20",
+          "climb-f20-f21"
+        ],
+        [
+          "relax-10",
+          "climb-f10-f12",
+          "climb-f12-f15",
+          "climb-f15-f16",
+          "climb-f16-f17",
+          "climb-f17-f18",
+          "climb-f18-f19",
+          "climb-f19-f20",
+          "climb-f20-f21"
+        ]
+      ],
+      "to" : "F21"
+    },
+    {
+      "from" : "F1",
+      "includingContinuous" : false,
+      "routeCount" : 1,
+      "routes" : [
+        [
+          "relax-10",
+          "climb-f10-f12",
+          "climb-f12-f15",
+          "climb-f15-f21",
+          "climb-f21-f23",
+          "climb-f23-f25",
+          "climb-f25-f26",
+          "climb-f26-f27"
+        ]
+      ],
+      "to" : "F27"
+    },
+    {
+      "from" : "F1",
+      "includingContinuous" : true,
+      "routeCount" : 8,
+      "routes" : [
+        [
+          "relax-10",
+          "climb-f10-f12",
+          "climb-f12-f15",
+          "climb-f15-f21",
+          "climb-f21-f23",
+          "climb-f23-f25",
+          "climb-f25-f26",
+          "climb-f26-f27"
+        ],
+        [
+          "relax-10",
+          "climb-f10-f11",
+          "climb-f11-f12",
+          "climb-f12-f15",
+          "climb-f15-f21",
+          "climb-f21-f23",
+          "climb-f23-f25",
+          "climb-f25-f26",
+          "climb-f26-f27"
+        ],
+        [
+          "relax-10",
+          "climb-f10-f12",
+          "climb-f12-f15",
+          "climb-f15-f21",
+          "climb-f21-f22",
+          "climb-f22-f23",
+          "climb-f23-f25",
+          "climb-f25-f26",
+          "climb-f26-f27"
+        ],
+        [
+          "relax-10",
+          "climb-f10-f12",
+          "climb-f12-f15",
+          "climb-f15-f21",
+          "climb-f21-f23",
+          "climb-f23-f24",
+          "climb-f24-f25",
+          "climb-f25-f26",
+          "climb-f26-f27"
+        ],
+        [
+          "relax-10",
+          "climb-f10-f12",
+          "climb-f12-f13",
+          "climb-f13-f14",
+          "climb-f14-f15",
+          "climb-f15-f21",
+          "climb-f21-f23",
+          "climb-f23-f25",
+          "climb-f25-f26",
+          "climb-f26-f27"
+        ],
+        [
+          "relax-10",
+          "climb-f10-f11",
+          "climb-f11-f12",
+          "climb-f12-f15",
+          "climb-f15-f21",
+          "climb-f21-f22",
+          "climb-f22-f23",
+          "climb-f23-f25",
+          "climb-f25-f26",
+          "climb-f26-f27"
+        ],
+        [
+          "relax-10",
+          "climb-f10-f11",
+          "climb-f11-f12",
+          "climb-f12-f15",
+          "climb-f15-f21",
+          "climb-f21-f23",
+          "climb-f23-f24",
+          "climb-f24-f25",
+          "climb-f25-f26",
+          "climb-f26-f27"
+        ],
+        [
+          "relax-10",
+          "climb-f10-f12",
+          "climb-f12-f15",
+          "climb-f15-f21",
+          "climb-f21-f22",
+          "climb-f22-f23",
+          "climb-f23-f24",
+          "climb-f24-f25",
+          "climb-f25-f26",
+          "climb-f26-f27"
+        ]
+      ],
+      "to" : "F27"
+    },
+    {
+      "from" : "F1",
+      "includingContinuous" : false,
+      "routeCount" : 1,
+      "routes" : [
+        [
+          "relax-10",
+          "climb-f10-f12",
+          "climb-f12-f15",
+          "climb-f15-f21",
+          "climb-f21-f23",
+          "climb-f23-f25",
+          "climb-f25-f26",
+          "climb-f26-f27",
+          "climb-f27-f34"
+        ]
+      ],
+      "to" : "F34"
+    },
+    {
+      "from" : "F1",
+      "includingContinuous" : true,
+      "routeCount" : 8,
+      "routes" : [
+        [
+          "relax-10",
+          "climb-f10-f12",
+          "climb-f12-f15",
+          "climb-f15-f21",
+          "climb-f21-f23",
+          "climb-f23-f25",
+          "climb-f25-f26",
+          "climb-f26-f27",
+          "climb-f27-f34"
+        ],
+        [
+          "relax-10",
+          "climb-f10-f11",
+          "climb-f11-f12",
+          "climb-f12-f15",
+          "climb-f15-f21",
+          "climb-f21-f23",
+          "climb-f23-f25",
+          "climb-f25-f26",
+          "climb-f26-f27",
+          "climb-f27-f34"
+        ],
+        [
+          "relax-10",
+          "climb-f10-f12",
+          "climb-f12-f15",
+          "climb-f15-f21",
+          "climb-f21-f22",
+          "climb-f22-f23",
+          "climb-f23-f25",
+          "climb-f25-f26",
+          "climb-f26-f27",
+          "climb-f27-f34"
+        ],
+        [
+          "relax-10",
+          "climb-f10-f12",
+          "climb-f12-f15",
+          "climb-f15-f21",
+          "climb-f21-f23",
+          "climb-f23-f24",
+          "climb-f24-f25",
+          "climb-f25-f26",
+          "climb-f26-f27",
+          "climb-f27-f34"
+        ],
+        [
+          "relax-10",
+          "climb-f10-f12",
+          "climb-f12-f13",
+          "climb-f13-f14",
+          "climb-f14-f15",
+          "climb-f15-f21",
+          "climb-f21-f23",
+          "climb-f23-f25",
+          "climb-f25-f26",
+          "climb-f26-f27",
+          "climb-f27-f34"
+        ],
+        [
+          "relax-10",
+          "climb-f10-f11",
+          "climb-f11-f12",
+          "climb-f12-f15",
+          "climb-f15-f21",
+          "climb-f21-f22",
+          "climb-f22-f23",
+          "climb-f23-f25",
+          "climb-f25-f26",
+          "climb-f26-f27",
+          "climb-f27-f34"
+        ],
+        [
+          "relax-10",
+          "climb-f10-f11",
+          "climb-f11-f12",
+          "climb-f12-f15",
+          "climb-f15-f21",
+          "climb-f21-f23",
+          "climb-f23-f24",
+          "climb-f24-f25",
+          "climb-f25-f26",
+          "climb-f26-f27",
+          "climb-f27-f34"
+        ],
+        [
+          "relax-10",
+          "climb-f10-f12",
+          "climb-f12-f15",
+          "climb-f15-f21",
+          "climb-f21-f22",
+          "climb-f22-f23",
+          "climb-f23-f24",
+          "climb-f24-f25",
+          "climb-f25-f26",
+          "climb-f26-f27",
+          "climb-f27-f34"
+        ]
+      ],
+      "to" : "F34"
+    },
+    {
+      "from" : "F1",
+      "includingContinuous" : false,
+      "routeCount" : 1,
+      "routes" : [
+        [
+
+        ]
+      ],
+      "to" : "F1"
+    },
+    {
+      "from" : "F1",
+      "includingContinuous" : true,
+      "routeCount" : 1,
+      "routes" : [
+        [
+
+        ]
+      ],
+      "to" : "F1"
+    },
+    {
+      "from" : "F1",
+      "includingContinuous" : false,
+      "routeCount" : 0,
+      "routes" : [
+
+      ],
+      "to" : "F999"
+    },
+    {
+      "from" : "F1",
+      "includingContinuous" : true,
+      "routeCount" : 0,
+      "routes" : [
+
+      ],
+      "to" : "F999"
+    },
+    {
+      "from" : "F10",
+      "includingContinuous" : true,
+      "routeCount" : 2,
+      "routes" : [
+        [
+          "climb-f10-f12"
+        ],
+        [
+          "climb-f10-f11",
+          "climb-f11-f12"
+        ]
+      ],
+      "to" : "F12"
+    },
+    {
+      "from" : "F21",
+      "includingContinuous" : true,
+      "routeCount" : 4,
+      "routes" : [
+        [
+          "climb-f21-f23",
+          "climb-f23-f25",
+          "climb-f25-f26",
+          "climb-f26-f27"
+        ],
+        [
+          "climb-f21-f22",
+          "climb-f22-f23",
+          "climb-f23-f25",
+          "climb-f25-f26",
+          "climb-f26-f27"
+        ],
+        [
+          "climb-f21-f23",
+          "climb-f23-f24",
+          "climb-f24-f25",
+          "climb-f25-f26",
+          "climb-f26-f27"
+        ],
+        [
+          "climb-f21-f22",
+          "climb-f22-f23",
+          "climb-f23-f24",
+          "climb-f24-f25",
+          "climb-f25-f26",
+          "climb-f26-f27"
+        ]
+      ],
+      "to" : "F27"
+    },
+    {
+      "from" : "F10",
+      "includingContinuous" : true,
+      "routeCount" : 1,
+      "routes" : [
+        [
+
+        ]
+      ],
+      "to" : "F10"
+    },
+    {
+      "from" : "F12",
+      "includingContinuous" : true,
+      "routeCount" : 0,
+      "routes" : [
+
+      ],
+      "to" : "F10"
+    }
+  ],
+  "segments" : [
+    {
+      "levels" : [
+        "F10"
+      ],
+      "segmentID" : "advanced-focus-10"
+    },
+    {
+      "levels" : [
+        "F12"
+      ],
+      "segmentID" : "advanced-focus-12"
+    },
+    {
+      "levels" : [
+        "F10"
+      ],
+      "segmentID" : "affirmation-1977"
+    },
+    {
+      "levels" : [
+        "F10"
+      ],
+      "segmentID" : "affirmation-direct"
+    },
+    {
+      "levels" : [
+        "F27"
+      ],
+      "segmentID" : "affirmation-service"
+    },
+    {
+      "levels" : [
+        "F10"
+      ],
+      "segmentID" : "affirmation"
+    },
+    {
+      "levels" : [
+        "F1"
+      ],
+      "origin" : "F1",
+      "segmentID" : "announcement"
+    },
+    {
+      "levels" : [
+        "F10"
+      ],
+      "segmentID" : "balloon"
+    },
+    {
+      "levels" : [
+        "F11"
+      ],
+      "segmentID" : "briefing-f11"
+    },
+    {
+      "levels" : [
+        "F12"
+      ],
+      "segmentID" : "briefing-f12"
+    },
+    {
+      "levels" : [
+        "F15"
+      ],
+      "segmentID" : "briefing-f15"
+    },
+    {
+      "levels" : [
+        "F18"
+      ],
+      "segmentID" : "briefing-f18"
+    },
+    {
+      "levels" : [
+        "F21"
+      ],
+      "segmentID" : "briefing-f21"
+    },
+    {
+      "levels" : [
+        "F22"
+      ],
+      "segmentID" : "briefing-f22"
+    },
+    {
+      "levels" : [
+        "F23"
+      ],
+      "segmentID" : "briefing-f23"
+    },
+    {
+      "levels" : [
+        "F24"
+      ],
+      "segmentID" : "briefing-f24"
+    },
+    {
+      "levels" : [
+        "F25"
+      ],
+      "segmentID" : "briefing-f25"
+    },
+    {
+      "levels" : [
+        "F26"
+      ],
+      "segmentID" : "briefing-f26"
+    },
+    {
+      "levels" : [
+        "F27"
+      ],
+      "segmentID" : "briefing-f27"
+    },
+    {
+      "levels" : [
+        "F3"
+      ],
+      "segmentID" : "briefing-f3"
+    },
+    {
+      "levels" : [
+        "F34"
+      ],
+      "segmentID" : "briefing-f34"
+    },
+    {
+      "levels" : [
+        "F35"
+      ],
+      "segmentID" : "briefing-f35"
+    },
+    {
+      "levels" : [
+        "F42"
+      ],
+      "segmentID" : "briefing-f42"
+    },
+    {
+      "levels" : [
+        "F49"
+      ],
+      "segmentID" : "briefing-f49"
+    },
+    {
+      "levels" : [
+        "F15"
+      ],
+      "segmentID" : "campfire-calling"
+    },
+    {
+      "levels" : [
+        "F15"
+      ],
+      "segmentID" : "campfire-closure"
+    },
+    {
+      "levels" : [
+        "F15"
+      ],
+      "segmentID" : "campfire-presence"
+    },
+    {
+      "levels" : [
+        "F15"
+      ],
+      "segmentID" : "campfire"
+    },
+    {
+      "levels" : [
+        "F27"
+      ],
+      "segmentID" : "castle"
+    },
+    {
+      "levels" : [
+        "F12"
+      ],
+      "segmentID" : "channel-restriction"
+    },
+    {
+      "levels" : [
+        "F10"
+      ],
+      "segmentID" : "clear-skies"
+    },
+    {
+      "levels" : [
+        "F3"
+      ],
+      "origin" : "F1",
+      "segmentID" : "climb-f1-f3"
+    },
+    {
+      "levels" : [
+        "F11"
+      ],
+      "origin" : "F10",
+      "segmentID" : "climb-f10-f11"
+    },
+    {
+      "levels" : [
+        "F12"
+      ],
+      "origin" : "F10",
+      "segmentID" : "climb-f10-f12"
+    },
+    {
+      "levels" : [
+        "F15"
+      ],
+      "origin" : "F12",
+      "segmentID" : "climb-f12-f15"
+    },
+    {
+      "levels" : [
+        "F18"
+      ],
+      "origin" : "F15",
+      "segmentID" : "climb-f15-f18"
+    },
+    {
+      "levels" : [
+        "F21"
+      ],
+      "origin" : "F15",
+      "segmentID" : "climb-f15-f21"
+    },
+    {
+      "levels" : [
+        "F22"
+      ],
+      "origin" : "F21",
+      "segmentID" : "climb-f21-f22"
+    },
+    {
+      "levels" : [
+        "F23"
+      ],
+      "origin" : "F21",
+      "segmentID" : "climb-f21-f23"
+    },
+    {
+      "levels" : [
+        "F24"
+      ],
+      "origin" : "F23",
+      "segmentID" : "climb-f23-f24"
+    },
+    {
+      "levels" : [
+        "F25"
+      ],
+      "origin" : "F23",
+      "segmentID" : "climb-f23-f25"
+    },
+    {
+      "levels" : [
+        "F26"
+      ],
+      "origin" : "F25",
+      "segmentID" : "climb-f25-f26"
+    },
+    {
+      "levels" : [
+        "F27"
+      ],
+      "origin" : "F26",
+      "segmentID" : "climb-f26-f27"
+    },
+    {
+      "levels" : [
+        "F34"
+      ],
+      "origin" : "F27",
+      "segmentID" : "climb-f27-f34"
+    },
+    {
+      "levels" : [
+        "F35"
+      ],
+      "origin" : "F34",
+      "segmentID" : "climb-f34-f35"
+    },
+    {
+      "levels" : [
+        "F42"
+      ],
+      "origin" : "F35",
+      "segmentID" : "climb-f35-f42"
+    },
+    {
+      "levels" : [
+        "F49"
+      ],
+      "origin" : "F42",
+      "segmentID" : "climb-f42-f49"
+    },
+    {
+      "levels" : [
+        "F10"
+      ],
+      "segmentID" : "color-breathing"
+    },
+    {
+      "levels" : [
+        "F10"
+      ],
+      "segmentID" : "comfort"
+    },
+    {
+      "levels" : [
+        "F12"
+      ],
+      "segmentID" : "compoint"
+    },
+    {
+      "levels" : [
+        "F10"
+      ],
+      "segmentID" : "conversion-box"
+    },
+    {
+      "levels" : [
+        "F27"
+      ],
+      "segmentID" : "coordination-area"
+    },
+    {
+      "levels" : [
+        "F10"
+      ],
+      "segmentID" : "descend-f15-f10"
+    },
+    {
+      "levels" : [
+        "F10"
+      ],
+      "segmentID" : "descend-f27-f10"
+    },
+    {
+      "levels" : [
+        "F12"
+      ],
+      "segmentID" : "discovering-intuition"
+    },
+    {
+      "levels" : [
+        "F27"
+      ],
+      "segmentID" : "educational-center"
+    },
+    {
+      "levels" : [
+        "F10"
+      ],
+      "segmentID" : "energy-bar-tool"
+    },
+    {
+      "levels" : [
+        "F12"
+      ],
+      "segmentID" : "energy-food"
+    },
+    {
+      "levels" : [
+        "F12"
+      ],
+      "segmentID" : "expansion-in-locale-1"
+    },
+    {
+      "levels" : [
+        "F10"
+      ],
+      "segmentID" : "exploration-sleep"
+    },
+    {
+      "levels" : [
+        "F21"
+      ],
+      "segmentID" : "explore-total-self"
+    },
+    {
+      "levels" : [
+        "F15"
+      ],
+      "segmentID" : "exploring-focus-15"
+    },
+    {
+      "levels" : [
+        "F12"
+      ],
+      "segmentID" : "exploring-intuition"
+    },
+    {
+      "levels" : [
+        "F27"
+      ],
+      "segmentID" : "first-retrieval"
+    },
+    {
+      "levels" : [
+        "F12"
+      ],
+      "segmentID" : "first-stage-separation"
+    },
+    {
+      "levels" : [
+        "F12"
+      ],
+      "segmentID" : "five-messages"
+    },
+    {
+      "levels" : [
+        "F12"
+      ],
+      "segmentID" : "five-questions"
+    },
+    {
+      "levels" : [
+        "F23"
+      ],
+      "segmentID" : "focus-23-observation"
+    },
+    {
+      "levels" : [
+        "F25"
+      ],
+      "segmentID" : "focus-25-observation"
+    },
+    {
+      "levels" : [
+        "F10"
+      ],
+      "segmentID" : "free-flow-10"
+    },
+    {
+      "levels" : [
+        "F12"
+      ],
+      "segmentID" : "free-flow-12"
+    },
+    {
+      "levels" : [
+        "F21"
+      ],
+      "segmentID" : "free-flow-journey-focus-21"
+    },
+    {
+      "levels" : [
+        "F12",
+        "F15",
+        "F21",
+        "F27"
+      ],
+      "segmentID" : "free"
+    },
+    {
+      "levels" : [
+        "F27"
+      ],
+      "segmentID" : "gratitude"
+    },
+    {
+      "levels" : [
+        "F27"
+      ],
+      "segmentID" : "healing-and-regeneration-center"
+    },
+    {
+      "levels" : [
+        "F10"
+      ],
+      "segmentID" : "health-affirmation"
+    },
+    {
+      "levels" : [
+        "F27"
+      ],
+      "segmentID" : "inner-earth"
+    },
+    {
+      "levels" : [
+        "F10"
+      ],
+      "segmentID" : "lift-off"
+    },
+    {
+      "levels" : [
+        "F10"
+      ],
+      "segmentID" : "living-body-map"
+    },
+    {
+      "levels" : [
+        "F27"
+      ],
+      "segmentID" : "meeting-with-the-entry-director"
+    },
+    {
+      "levels" : [
+        "F27"
+      ],
+      "segmentID" : "messages-from-beyond"
+    },
+    {
+      "levels" : [
+        "F15"
+      ],
+      "segmentID" : "mission-15-creation-and-manifestation"
+    },
+    {
+      "levels" : [
+        "F21"
+      ],
+      "segmentID" : "movement-to-locale-2"
+    },
+    {
+      "levels" : [
+        "F12"
+      ],
+      "segmentID" : "nonphysical-friends"
+    },
+    {
+      "levels" : [
+        "F12"
+      ],
+      "segmentID" : "nvc-i"
+    },
+    {
+      "levels" : [
+        "F12"
+      ],
+      "segmentID" : "nvc-ii"
+    },
+    {
+      "levels" : [
+        "F10"
+      ],
+      "segmentID" : "ocean"
+    },
+    {
+      "levels" : [
+        "F12"
+      ],
+      "segmentID" : "one-year-patterning"
+    },
+    {
+      "levels" : [
+        "F10"
+      ],
+      "segmentID" : "opening-gathering"
+    },
+    {
+      "levels" : [
+        "F10"
+      ],
+      "segmentID" : "opening"
+    },
+    {
+      "levels" : [
+        "F10"
+      ],
+      "segmentID" : "orientation"
+    },
+    {
+      "levels" : [
+        "F12"
+      ],
+      "segmentID" : "patterning"
+    },
+    {
+      "levels" : [
+        "F27"
+      ],
+      "segmentID" : "place-of-your-own"
+    },
+    {
+      "levels" : [
+        "F27"
+      ],
+      "segmentID" : "planning-center"
+    },
+    {
+      "levels" : [
+        "F12"
+      ],
+      "segmentID" : "point-of-departure"
+    },
+    {
+      "levels" : [
+        "F12"
+      ],
+      "segmentID" : "problem-solving"
+    },
+    {
+      "levels" : [
+        "F10"
+      ],
+      "origin" : "F1",
+      "segmentID" : "relax-10"
+    },
+    {
+      "levels" : [
+        "F10"
+      ],
+      "segmentID" : "release-and-recharge"
+    },
+    {
+      "levels" : [
+        "F10"
+      ],
+      "segmentID" : "remote-viewing-intent"
+    },
+    {
+      "levels" : [
+        "F10"
+      ],
+      "segmentID" : "remote-viewing"
+    },
+    {
+      "levels" : [
+        "F10"
+      ],
+      "segmentID" : "resonant-tuning"
+    },
+    {
+      "levels" : [
+        "F10"
+      ],
+      "segmentID" : "resume"
+    },
+    {
+      "levels" : [
+        "F10"
+      ],
+      "segmentID" : "return-anchor"
+    },
+    {
+      "levels" : [
+        "F10"
+      ],
+      "segmentID" : "return-methods"
+    },
+    {
+      "levels" : [
+        "F10"
+      ],
+      "segmentID" : "return-one"
+    },
+    {
+      "levels" : [
+        "F3"
+      ],
+      "segmentID" : "return-three"
+    },
+    {
+      "levels" : [
+        "F12"
+      ],
+      "segmentID" : "return-twelve"
+    },
+    {
+      "levels" : [
+        "F10"
+      ],
+      "segmentID" : "return"
+    },
+    {
+      "levels" : [
+        "F12"
+      ],
+      "segmentID" : "sensing-locale-1"
+    },
+    {
+      "levels" : [
+        "F27"
+      ],
+      "segmentID" : "special-tour"
+    },
+    {
+      "levels" : [
+        "F27"
+      ],
+      "segmentID" : "stay"
+    },
+    {
+      "levels" : [
+        "F27"
+      ],
+      "segmentID" : "the-absolute"
+    },
+    {
+      "levels" : [
+        "F12"
+      ],
+      "segmentID" : "vectors"
+    },
+    {
+      "levels" : [
+        "F15"
+      ],
+      "segmentID" : "void"
+    }
+  ],
+  "synthRoutes" : [
+    {
+      "from" : "FA",
+      "name" : "cycle",
+      "routeCount" : 1,
+      "routes" : [
+        [
+          "z",
+          "x"
+        ]
+      ],
+      "segments" : [
+        {
+          "levels" : [
+            "FC"
+          ],
+          "origin" : "FB",
+          "segmentID" : "x"
+        },
+        {
+          "levels" : [
+            "FB"
+          ],
+          "origin" : "FC",
+          "segmentID" : "y"
+        },
+        {
+          "levels" : [
+            "FB"
+          ],
+          "origin" : "FA",
+          "segmentID" : "z"
+        }
+      ],
+      "to" : "FC"
+    },
+    {
+      "from" : "FA",
+      "name" : "tie",
+      "routeCount" : 2,
+      "routes" : [
+        [
+          "alpha"
+        ],
+        [
+          "zeta"
+        ]
+      ],
+      "segments" : [
+        {
+          "levels" : [
+            "FB"
+          ],
+          "origin" : "FA",
+          "segmentID" : "zeta"
+        },
+        {
+          "levels" : [
+            "FB"
+          ],
+          "origin" : "FA",
+          "segmentID" : "alpha"
+        }
+      ],
+      "to" : "FB"
+    },
+    {
+      "from" : "FA",
+      "name" : "long-and-short",
+      "routeCount" : 2,
+      "routes" : [
+        [
+          "direct"
+        ],
+        [
+          "s1",
+          "s2",
+          "s3"
+        ]
+      ],
+      "segments" : [
+        {
+          "levels" : [
+            "FD"
+          ],
+          "origin" : "FA",
+          "segmentID" : "direct"
+        },
+        {
+          "levels" : [
+            "FB"
+          ],
+          "origin" : "FA",
+          "segmentID" : "s1"
+        },
+        {
+          "levels" : [
+            "FC"
+          ],
+          "origin" : "FB",
+          "segmentID" : "s2"
+        },
+        {
+          "levels" : [
+            "FD"
+          ],
+          "origin" : "FC",
+          "segmentID" : "s3"
+        }
+      ],
+      "to" : "FD"
+    },
+    {
+      "from" : "FA",
+      "name" : "self-loop",
+      "routeCount" : 1,
+      "routes" : [
+        [
+          "up"
+        ]
+      ],
+      "segments" : [
+        {
+          "levels" : [
+            "FA"
+          ],
+          "origin" : "FA",
+          "segmentID" : "loop"
+        },
+        {
+          "levels" : [
+            "FB"
+          ],
+          "origin" : "FA",
+          "segmentID" : "up"
+        }
+      ],
+      "to" : "FB"
+    }
+  ],
+  "wordCases" : [
+    {
+      "n" : 0
+    },
+    {
+      "n" : 1,
+      "word" : "One"
+    },
+    {
+      "n" : 5,
+      "word" : "Five"
+    },
+    {
+      "n" : 9,
+      "word" : "Nine"
+    },
+    {
+      "n" : 10,
+      "word" : "Ten"
+    },
+    {
+      "n" : 11,
+      "word" : "Eleven"
+    },
+    {
+      "n" : 13,
+      "word" : "Thirteen"
+    },
+    {
+      "n" : 19,
+      "word" : "Nineteen"
+    },
+    {
+      "n" : 20,
+      "word" : "Twenty"
+    },
+    {
+      "n" : 21,
+      "word" : "Twenty-one"
+    },
+    {
+      "n" : 27,
+      "word" : "Twenty-seven"
+    },
+    {
+      "n" : 29,
+      "word" : "Twenty-nine"
+    },
+    {
+      "n" : 30,
+      "word" : "Thirty"
+    },
+    {
+      "n" : 34,
+      "word" : "Thirty-four"
+    },
+    {
+      "n" : 40,
+      "word" : "Forty"
+    },
+    {
+      "n" : 42,
+      "word" : "Forty-two"
+    },
+    {
+      "n" : 49,
+      "word" : "Forty-nine"
+    },
+    {
+      "n" : 50
+    },
+    {
+      "n" : -1
+    },
+    {
+      "n" : 100
+    }
+  ]
+}

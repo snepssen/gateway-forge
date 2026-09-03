@@ -1,0 +1,29 @@
+# Source-grounded recipe: Wave IV — Adventure, CD3-5.
+# The tape's preparatory process is expanded through the existing reusable
+# components; its authored exercise remains one segment rather than being
+# paraphrased here. No generic briefing, Clear Skies or extra hold is added.
+
+@title    NVC II
+@level    F10
+@ending   return
+@pan      right
+@seed     20016
+@verbosity 3
+
+surf 0.55
+use orientation
+
+surf 0.30
+use conversion-box
+
+surf 0.18
+use resonant-tuning
+use balloon
+use affirmation
+
+surf 0.0
+use relax-10
+use climb-f10-f12
+use nvc-ii
+level F10
+use return-one

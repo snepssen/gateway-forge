@@ -1,0 +1,30 @@
+# Source-grounded recipe: Wave VI — Odyssey, CD3-6.
+# The tape's preparatory process is expanded through the existing reusable
+# components; its authored exercise remains one segment rather than being
+# paraphrased here. No generic briefing, Clear Skies or extra hold is added.
+
+@title    Free Flow Journey in Focus 21
+@level    F10
+@ending   return
+@pan      right
+@seed     20028
+@verbosity 3
+
+surf 0.55
+use orientation
+
+surf 0.30
+use conversion-box
+
+surf 0.18
+use resonant-tuning
+use balloon
+use affirmation
+
+surf 0.0
+use relax-10
+use climb-f10-f12
+use climb-f12-f15
+use climb-f15-f21
+use free-flow-journey-focus-21
+use return-twelve
