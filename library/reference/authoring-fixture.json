@@ -1,0 +1,1049 @@
+{
+  "beatCases" : [
+    {
+      "key" : "F1"
+    },
+    {
+      "key" : "F3"
+    },
+    {
+      "key" : "F10"
+    },
+    {
+      "deviation" : 1,
+      "estimate" : 5,
+      "key" : "F11"
+    },
+    {
+      "deviation" : 2.25,
+      "estimate" : 3.75,
+      "key" : "F12"
+    },
+    {
+      "deviation" : 2.75,
+      "estimate" : 5.75,
+      "key" : "F15"
+    },
+    {
+      "deviation" : 2.75,
+      "estimate" : 2.75,
+      "key" : "F18"
+    },
+    {
+      "deviation" : 1.5,
+      "estimate" : 4,
+      "key" : "F21"
+    },
+    {
+      "deviation" : 0.5,
+      "estimate" : 3,
+      "key" : "F22"
+    },
+    {
+      "deviation" : 0.1499999999999999,
+      "estimate" : 3.35,
+      "key" : "F23"
+    },
+    {
+      "deviation" : 0.04999999999999982,
+      "estimate" : 3.25,
+      "key" : "F24"
+    },
+    {
+      "deviation" : 0.20000000000000018,
+      "estimate" : 2.8,
+      "key" : "F25"
+    },
+    {
+      "deviation" : 0.20000000000000018,
+      "estimate" : 2.6,
+      "key" : "F26"
+    },
+    {
+      "deviation" : 0.12499999999999956,
+      "estimate" : 2.3249999999999997,
+      "key" : "F27"
+    },
+    {
+      "deviation" : 0.050000000000000044,
+      "estimate" : 1.85,
+      "key" : "F34"
+    },
+    {
+      "deviation" : 0.03750000000000009,
+      "estimate" : 1.7625,
+      "key" : "F35"
+    },
+    {
+      "deviation" : 0,
+      "estimate" : 1.5,
+      "key" : "F42"
+    },
+    {
+      "key" : "F49"
+    },
+    {
+      "estimate" : 5,
+      "key" : "F13"
+    },
+    {
+      "estimate" : 3.833333333333333,
+      "key" : "F16"
+    },
+    {
+      "estimate" : 4.5,
+      "key" : "F19"
+    },
+    {
+      "key" : "F99"
+    },
+    {
+      "key" : "NOWHERE"
+    },
+    {
+      "key" : "F1"
+    }
+  ],
+  "coverageCases" : [
+    {
+      "coverage" : {
+        "count" : 1,
+        "hasAnything" : true,
+        "kind" : "secondary",
+        "label" : "1 overview"
+      },
+      "level" : "F1",
+      "sourceCoverage" : 0
+    },
+    {
+      "coverage" : {
+        "count" : 2,
+        "hasAnything" : true,
+        "kind" : "primary",
+        "label" : "2 tapes"
+      },
+      "level" : "F3",
+      "sourceCoverage" : 2
+    },
+    {
+      "coverage" : {
+        "count" : 39,
+        "hasAnything" : true,
+        "kind" : "primary",
+        "label" : "39 tapes"
+      },
+      "level" : "F10",
+      "sourceCoverage" : 39
+    },
+    {
+      "coverage" : {
+        "count" : 1,
+        "hasAnything" : true,
+        "kind" : "secondary",
+        "label" : "1 overview"
+      },
+      "level" : "F11",
+      "sourceCoverage" : 0
+    },
+    {
+      "coverage" : {
+        "count" : 38,
+        "hasAnything" : true,
+        "kind" : "primary",
+        "label" : "38 tapes"
+      },
+      "level" : "F12",
+      "sourceCoverage" : 38
+    },
+    {
+      "coverage" : {
+        "count" : 12,
+        "hasAnything" : true,
+        "kind" : "primary",
+        "label" : "12 tapes"
+      },
+      "level" : "F15",
+      "sourceCoverage" : 12
+    },
+    {
+      "coverage" : {
+        "count" : 1,
+        "hasAnything" : true,
+        "kind" : "secondary",
+        "label" : "1 overview"
+      },
+      "level" : "F18",
+      "sourceCoverage" : 0
+    },
+    {
+      "coverage" : {
+        "count" : 10,
+        "hasAnything" : true,
+        "kind" : "primary",
+        "label" : "10 tapes"
+      },
+      "level" : "F21",
+      "sourceCoverage" : 10
+    },
+    {
+      "coverage" : {
+        "count" : 2,
+        "hasAnything" : true,
+        "kind" : "secondary",
+        "label" : "2 overviews"
+      },
+      "level" : "F22",
+      "sourceCoverage" : 0
+    },
+    {
+      "coverage" : {
+        "count" : 5,
+        "hasAnything" : true,
+        "kind" : "primary",
+        "label" : "5 tapes"
+      },
+      "level" : "F23",
+      "sourceCoverage" : 5
+    },
+    {
+      "coverage" : {
+        "count" : 2,
+        "hasAnything" : true,
+        "kind" : "secondary",
+        "label" : "2 overviews"
+      },
+      "level" : "F24",
+      "sourceCoverage" : 0
+    },
+    {
+      "coverage" : {
+        "count" : 4,
+        "hasAnything" : true,
+        "kind" : "primary",
+        "label" : "4 tapes"
+      },
+      "level" : "F25",
+      "sourceCoverage" : 4
+    },
+    {
+      "coverage" : {
+        "count" : 2,
+        "hasAnything" : true,
+        "kind" : "secondary",
+        "label" : "2 overviews"
+      },
+      "level" : "F26",
+      "sourceCoverage" : 0
+    },
+    {
+      "coverage" : {
+        "count" : 10,
+        "hasAnything" : true,
+        "kind" : "primary",
+        "label" : "10 tapes"
+      },
+      "level" : "F27",
+      "sourceCoverage" : 10
+    },
+    {
+      "coverage" : {
+        "count" : 1,
+        "hasAnything" : true,
+        "kind" : "secondary",
+        "label" : "1 overview"
+      },
+      "level" : "F34",
+      "sourceCoverage" : 0
+    },
+    {
+      "coverage" : {
+        "count" : 1,
+        "hasAnything" : true,
+        "kind" : "secondary",
+        "label" : "1 overview"
+      },
+      "level" : "F35",
+      "sourceCoverage" : 0
+    },
+    {
+      "coverage" : {
+        "count" : 1,
+        "hasAnything" : true,
+        "kind" : "secondary",
+        "label" : "1 overview"
+      },
+      "level" : "F42",
+      "sourceCoverage" : 0
+    },
+    {
+      "coverage" : {
+        "count" : 1,
+        "hasAnything" : true,
+        "kind" : "secondary",
+        "label" : "1 overview"
+      },
+      "level" : "F49",
+      "sourceCoverage" : 0
+    },
+    {
+      "coverage" : {
+        "count" : 1,
+        "hasAnything" : true,
+        "kind" : "secondary",
+        "label" : "1 overview"
+      },
+      "entries" : 0,
+      "level" : "F11",
+      "sourceCoverage" : 0
+    },
+    {
+      "coverage" : {
+        "count" : 1,
+        "hasAnything" : true,
+        "kind" : "secondary",
+        "label" : "1 overview"
+      },
+      "entries" : 3,
+      "level" : "F11",
+      "sourceCoverage" : 0
+    },
+    {
+      "coverage" : {
+        "count" : 39,
+        "hasAnything" : true,
+        "kind" : "primary",
+        "label" : "39 tapes"
+      },
+      "entries" : 5,
+      "level" : "F10",
+      "sourceCoverage" : 39
+    },
+    {
+      "coverage" : {
+        "count" : 2,
+        "hasAnything" : true,
+        "kind" : "selfMapped",
+        "label" : "2 visits of your own"
+      },
+      "entries" : 2,
+      "level" : "NOWHERE",
+      "sourceCoverage" : 0
+    }
+  ],
+  "excerptCases" : [
+    {
+      "level" : "F12",
+      "maxChars" : 1200,
+      "result" : "This is the introduction to Focus 12. It expands your awareness in ways ordinary states do not. Focus 12 is reached gradually. You will notice it as a widening.",
+      "transcript" : "This is the introduction to Focus 12.\nIt expands your awareness in ways ordinary states do not.\n\nFocus 12 is reached gradually.\nYou will notice it as a widening.\n\nUnrelated paragraph about something else entirely, going on for a\ngood while so it is definitely a separate block of its own text."
+    },
+    {
+      "level" : "F12",
+      "maxChars" : 40,
+      "result" : "This is the introduction to Focus 12.",
+      "transcript" : "This is the introduction to Focus 12.\nIt expands your awareness in ways ordinary states do not.\n\nFocus 12 is reached gradually.\nYou will notice it as a widening.\n\nUnrelated paragraph about something else entirely, going on for a\ngood while so it is definitely a separate block of its own text."
+    },
+    {
+      "level" : "F99",
+      "maxChars" : 1200,
+      "result" : "",
+      "transcript" : "This is the introduction to Focus 12.\nIt expands your awareness in ways ordinary states do not.\n\nFocus 12 is reached gradually.\nYou will notice it as a widening.\n\nUnrelated paragraph about something else entirely, going on for a\ngood while so it is definitely a separate block of its own text."
+    },
+    {
+      "level" : "F12",
+      "maxChars" : 1200,
+      "result" : "",
+      "transcript" : ""
+    }
+  ],
+  "gaps" : [
+
+  ],
+  "madeBeatCases" : [
+    {
+      "key" : "F5"
+    },
+    {
+      "key" : "F1"
+    },
+    {
+      "key" : "F20"
+    },
+    {
+      "deviation" : 15,
+      "estimate" : 15,
+      "key" : "F15"
+    }
+  ],
+  "madeGaps" : [
+    {
+      "coverage" : {
+        "count" : 0,
+        "hasAnything" : false,
+        "kind" : "none",
+        "label" : "nothing written"
+      },
+      "kind" : "missingBriefing",
+      "level" : "F20",
+      "summary" : "F20 has no briefing, and nothing describes it",
+      "toCompose" : "briefing-f20"
+    },
+    {
+      "coverage" : {
+        "count" : 0,
+        "hasAnything" : false,
+        "kind" : "none",
+        "label" : "nothing written"
+      },
+      "kind" : "missingBriefing",
+      "level" : "F30",
+      "summary" : "F30 has no briefing, and nothing describes it",
+      "toCompose" : "briefing-f30"
+    },
+    {
+      "kind" : "bareClimbOnly",
+      "level" : "F30",
+      "segment" : "climb-f20-f30",
+      "summary" : "climb-f20-f30 reaches F30 on the bare count only",
+      "toCompose" : "climb-f20-f30"
+    },
+    {
+      "coverage" : {
+        "count" : 0,
+        "hasAnything" : false,
+        "kind" : "none",
+        "label" : "nothing written"
+      },
+      "kind" : "provisionalBriefing",
+      "level" : "F40",
+      "segment" : "briefing-f40",
+      "summary" : "F40's briefing is provisional — awaiting your experience",
+      "toCompose" : "briefing-f40"
+    }
+  ],
+  "newSourceCases" : [
+    {
+      "id" : "a-segment",
+      "levels" : [
+        "F10"
+      ],
+      "result" : "@segment  a-segment\n@title    A Segment\n@levels   F10\n@verbosity 2\n\nsay \npause 6\n",
+      "title" : "A Segment",
+      "verbosity" : 2
+    },
+    {
+      "id" : "b",
+      "levels" : [
+        "F10",
+        "F12"
+      ],
+      "result" : "@segment  b\n@title    B\n@levels   F10, F12\n\nsay \npause 6\n",
+      "title" : "B"
+    },
+    {
+      "id" : "c",
+      "levels" : [
+
+      ],
+      "result" : "@segment  c\n@title    \n@levels   \n@verbosity 1\n\nsay \npause 6\n",
+      "title" : "",
+      "verbosity" : 1
+    }
+  ],
+  "note" : "Coverage, unresolved uses, the beat curve, and the authoring worklist, over the real library.",
+  "reflowCases" : [
+    {
+      "paragraphs" : [
+        "One sentence.",
+        "Still going and still.",
+        "Next paragraph."
+      ],
+      "text" : "One sentence.\nStill going\nand still.\n\nNext paragraph."
+    },
+    {
+      "paragraphs" : [
+        "Body text here."
+      ],
+      "text" : "---\ntitle: X\n---\nBody text here."
+    },
+    {
+      "paragraphs" : [
+        "Body after heading."
+      ],
+      "text" : "# Heading\nBody after heading."
+    },
+    {
+      "paragraphs" : [
+        "Actual paragraph text that goes on for a while and has a period."
+      ],
+      "text" : "key: value\nActual paragraph text that goes on for a while and has a period."
+    },
+    {
+      "paragraphs" : [
+
+      ],
+      "text" : ""
+    },
+    {
+      "paragraphs" : [
+        "No terminator at all"
+      ],
+      "text" : "No terminator at all"
+    },
+    {
+      "paragraphs" : [
+        "Multiple.",
+        "Blank lines.",
+        "Between."
+      ],
+      "text" : "Multiple.\n\n\nBlank lines.\n\nBetween."
+    }
+  ],
+  "singlePhrasing" : [
+    {
+      "kind" : "noVariants",
+      "segment" : "advanced-focus-10",
+      "summary" : "advanced-focus-10 has one phrasing, so one take",
+      "toCompose" : "advanced-focus-10"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "advanced-focus-12",
+      "summary" : "advanced-focus-12 has one phrasing, so one take",
+      "toCompose" : "advanced-focus-12"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "announcement",
+      "summary" : "announcement has one phrasing, so one take",
+      "toCompose" : "announcement"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "balloon",
+      "summary" : "balloon has one phrasing, so one take",
+      "toCompose" : "balloon"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "briefing-f11",
+      "summary" : "briefing-f11 has one phrasing, so one take",
+      "toCompose" : "briefing-f11"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "briefing-f12",
+      "summary" : "briefing-f12 has one phrasing, so one take",
+      "toCompose" : "briefing-f12"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "briefing-f15",
+      "summary" : "briefing-f15 has one phrasing, so one take",
+      "toCompose" : "briefing-f15"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "briefing-f18",
+      "summary" : "briefing-f18 has one phrasing, so one take",
+      "toCompose" : "briefing-f18"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "briefing-f21",
+      "summary" : "briefing-f21 has one phrasing, so one take",
+      "toCompose" : "briefing-f21"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "briefing-f22",
+      "summary" : "briefing-f22 has one phrasing, so one take",
+      "toCompose" : "briefing-f22"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "briefing-f23",
+      "summary" : "briefing-f23 has one phrasing, so one take",
+      "toCompose" : "briefing-f23"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "briefing-f24",
+      "summary" : "briefing-f24 has one phrasing, so one take",
+      "toCompose" : "briefing-f24"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "briefing-f25",
+      "summary" : "briefing-f25 has one phrasing, so one take",
+      "toCompose" : "briefing-f25"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "briefing-f26",
+      "summary" : "briefing-f26 has one phrasing, so one take",
+      "toCompose" : "briefing-f26"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "briefing-f27",
+      "summary" : "briefing-f27 has one phrasing, so one take",
+      "toCompose" : "briefing-f27"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "briefing-f3",
+      "summary" : "briefing-f3 has one phrasing, so one take",
+      "toCompose" : "briefing-f3"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "briefing-f34",
+      "summary" : "briefing-f34 has one phrasing, so one take",
+      "toCompose" : "briefing-f34"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "briefing-f35",
+      "summary" : "briefing-f35 has one phrasing, so one take",
+      "toCompose" : "briefing-f35"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "briefing-f42",
+      "summary" : "briefing-f42 has one phrasing, so one take",
+      "toCompose" : "briefing-f42"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "briefing-f49",
+      "summary" : "briefing-f49 has one phrasing, so one take",
+      "toCompose" : "briefing-f49"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "campfire-calling",
+      "summary" : "campfire-calling has one phrasing, so one take",
+      "toCompose" : "campfire-calling"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "campfire-closure",
+      "summary" : "campfire-closure has one phrasing, so one take",
+      "toCompose" : "campfire-closure"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "campfire-presence",
+      "summary" : "campfire-presence has one phrasing, so one take",
+      "toCompose" : "campfire-presence"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "campfire",
+      "summary" : "campfire has one phrasing, so one take",
+      "toCompose" : "campfire"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "castle",
+      "summary" : "castle has one phrasing, so one take",
+      "toCompose" : "castle"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "clear-skies",
+      "summary" : "clear-skies has one phrasing, so one take",
+      "toCompose" : "clear-skies"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "color-breathing",
+      "summary" : "color-breathing has one phrasing, so one take",
+      "toCompose" : "color-breathing"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "comfort",
+      "summary" : "comfort has one phrasing, so one take",
+      "toCompose" : "comfort"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "compoint",
+      "summary" : "compoint has one phrasing, so one take",
+      "toCompose" : "compoint"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "coordination-area",
+      "summary" : "coordination-area has one phrasing, so one take",
+      "toCompose" : "coordination-area"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "discovering-intuition",
+      "summary" : "discovering-intuition has one phrasing, so one take",
+      "toCompose" : "discovering-intuition"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "educational-center",
+      "summary" : "educational-center has one phrasing, so one take",
+      "toCompose" : "educational-center"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "energy-bar-tool",
+      "summary" : "energy-bar-tool has one phrasing, so one take",
+      "toCompose" : "energy-bar-tool"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "energy-food",
+      "summary" : "energy-food has one phrasing, so one take",
+      "toCompose" : "energy-food"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "expansion-in-locale-1",
+      "summary" : "expansion-in-locale-1 has one phrasing, so one take",
+      "toCompose" : "expansion-in-locale-1"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "exploration-sleep",
+      "summary" : "exploration-sleep has one phrasing, so one take",
+      "toCompose" : "exploration-sleep"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "explore-total-self",
+      "summary" : "explore-total-self has one phrasing, so one take",
+      "toCompose" : "explore-total-self"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "exploring-focus-15",
+      "summary" : "exploring-focus-15 has one phrasing, so one take",
+      "toCompose" : "exploring-focus-15"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "exploring-intuition",
+      "summary" : "exploring-intuition has one phrasing, so one take",
+      "toCompose" : "exploring-intuition"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "first-retrieval",
+      "summary" : "first-retrieval has one phrasing, so one take",
+      "toCompose" : "first-retrieval"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "first-stage-separation",
+      "summary" : "first-stage-separation has one phrasing, so one take",
+      "toCompose" : "first-stage-separation"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "five-messages",
+      "summary" : "five-messages has one phrasing, so one take",
+      "toCompose" : "five-messages"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "five-questions",
+      "summary" : "five-questions has one phrasing, so one take",
+      "toCompose" : "five-questions"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "focus-23-observation",
+      "summary" : "focus-23-observation has one phrasing, so one take",
+      "toCompose" : "focus-23-observation"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "focus-25-observation",
+      "summary" : "focus-25-observation has one phrasing, so one take",
+      "toCompose" : "focus-25-observation"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "free-flow-10",
+      "summary" : "free-flow-10 has one phrasing, so one take",
+      "toCompose" : "free-flow-10"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "free-flow-12",
+      "summary" : "free-flow-12 has one phrasing, so one take",
+      "toCompose" : "free-flow-12"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "free-flow-journey-focus-21",
+      "summary" : "free-flow-journey-focus-21 has one phrasing, so one take",
+      "toCompose" : "free-flow-journey-focus-21"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "gratitude",
+      "summary" : "gratitude has one phrasing, so one take",
+      "toCompose" : "gratitude"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "healing-and-regeneration-center",
+      "summary" : "healing-and-regeneration-center has one phrasing, so one take",
+      "toCompose" : "healing-and-regeneration-center"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "inner-earth",
+      "summary" : "inner-earth has one phrasing, so one take",
+      "toCompose" : "inner-earth"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "lift-off",
+      "summary" : "lift-off has one phrasing, so one take",
+      "toCompose" : "lift-off"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "living-body-map",
+      "summary" : "living-body-map has one phrasing, so one take",
+      "toCompose" : "living-body-map"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "meeting-with-the-entry-director",
+      "summary" : "meeting-with-the-entry-director has one phrasing, so one take",
+      "toCompose" : "meeting-with-the-entry-director"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "messages-from-beyond",
+      "summary" : "messages-from-beyond has one phrasing, so one take",
+      "toCompose" : "messages-from-beyond"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "mission-15-creation-and-manifestation",
+      "summary" : "mission-15-creation-and-manifestation has one phrasing, so one take",
+      "toCompose" : "mission-15-creation-and-manifestation"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "movement-to-locale-2",
+      "summary" : "movement-to-locale-2 has one phrasing, so one take",
+      "toCompose" : "movement-to-locale-2"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "nonphysical-friends",
+      "summary" : "nonphysical-friends has one phrasing, so one take",
+      "toCompose" : "nonphysical-friends"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "nvc-i",
+      "summary" : "nvc-i has one phrasing, so one take",
+      "toCompose" : "nvc-i"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "nvc-ii",
+      "summary" : "nvc-ii has one phrasing, so one take",
+      "toCompose" : "nvc-ii"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "ocean",
+      "summary" : "ocean has one phrasing, so one take",
+      "toCompose" : "ocean"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "one-year-patterning",
+      "summary" : "one-year-patterning has one phrasing, so one take",
+      "toCompose" : "one-year-patterning"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "opening-gathering",
+      "summary" : "opening-gathering has one phrasing, so one take",
+      "toCompose" : "opening-gathering"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "orientation",
+      "summary" : "orientation has one phrasing, so one take",
+      "toCompose" : "orientation"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "patterning",
+      "summary" : "patterning has one phrasing, so one take",
+      "toCompose" : "patterning"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "place-of-your-own",
+      "summary" : "place-of-your-own has one phrasing, so one take",
+      "toCompose" : "place-of-your-own"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "planning-center",
+      "summary" : "planning-center has one phrasing, so one take",
+      "toCompose" : "planning-center"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "point-of-departure",
+      "summary" : "point-of-departure has one phrasing, so one take",
+      "toCompose" : "point-of-departure"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "problem-solving",
+      "summary" : "problem-solving has one phrasing, so one take",
+      "toCompose" : "problem-solving"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "relax-10",
+      "summary" : "relax-10 has one phrasing, so one take",
+      "toCompose" : "relax-10"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "release-and-recharge",
+      "summary" : "release-and-recharge has one phrasing, so one take",
+      "toCompose" : "release-and-recharge"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "remote-viewing",
+      "summary" : "remote-viewing has one phrasing, so one take",
+      "toCompose" : "remote-viewing"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "resonant-tuning",
+      "summary" : "resonant-tuning has one phrasing, so one take",
+      "toCompose" : "resonant-tuning"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "return-anchor",
+      "summary" : "return-anchor has one phrasing, so one take",
+      "toCompose" : "return-anchor"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "return-methods",
+      "summary" : "return-methods has one phrasing, so one take",
+      "toCompose" : "return-methods"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "sensing-locale-1",
+      "summary" : "sensing-locale-1 has one phrasing, so one take",
+      "toCompose" : "sensing-locale-1"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "special-tour",
+      "summary" : "special-tour has one phrasing, so one take",
+      "toCompose" : "special-tour"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "stay",
+      "summary" : "stay has one phrasing, so one take",
+      "toCompose" : "stay"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "the-absolute",
+      "summary" : "the-absolute has one phrasing, so one take",
+      "toCompose" : "the-absolute"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "vectors",
+      "summary" : "vectors has one phrasing, so one take",
+      "toCompose" : "vectors"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "void",
+      "summary" : "void has one phrasing, so one take",
+      "toCompose" : "void"
+    }
+  ],
+  "unresolvedCases" : [
+    {
+      "includingLadder" : false,
+      "result" : [
+
+      ],
+      "source" : "@title T\n@level F10\nuse relax-10\n"
+    },
+    {
+      "includingLadder" : false,
+      "result" : [
+        "nothing-here"
+      ],
+      "source" : "@title T\n@level F10\nuse nothing-here\n"
+    },
+    {
+      "includingLadder" : false,
+      "result" : [
+        "relax-10 (bad verbosity override 'v9')"
+      ],
+      "source" : "@title T\n@level F10\nuse relax-10 v9\n"
+    },
+    {
+      "includingLadder" : false,
+      "result" : [
+
+      ],
+      "source" : "@title T\n@level F10\nuse relax-10 v2\n"
+    },
+    {
+      "includingLadder" : false,
+      "result" : [
+        "relax-10 (bad verbosity override 'vbogus')"
+      ],
+      "source" : "@title T\n@level F10\nuse relax-10 vbogus\n"
+    },
+    {
+      "includingLadder" : false,
+      "result" : [
+        "climb-f12-f13"
+      ],
+      "source" : "@title T\n@level F12\nuse climb-f12-f13\n"
+    },
+    {
+      "includingLadder" : true,
+      "result" : [
+
+      ],
+      "source" : "@title T\n@level F12\nuse climb-f12-f13\n"
+    },
+    {
+      "includingLadder" : false,
+      "result" : [
+        "a",
+        "b"
+      ],
+      "source" : "@title T\n@level F10\nuse a\nuse b\nuse relax-10\n"
+    }
+  ]
+}

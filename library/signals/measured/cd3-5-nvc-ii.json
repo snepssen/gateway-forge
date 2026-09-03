@@ -1,0 +1,210 @@
+{
+  "id": "cd3-5-nvc-ii",
+  "provenance": "measured",
+  "tape": "Wave IV - Adventure/CD3 - 5 - NVC II.flac",
+  "duration": 2742.0,
+  "holds": [
+    {
+      "start": 0.0,
+      "end": 30.0,
+      "carrier": 104.44,
+      "beat": 14.003,
+      "gain": 0.322,
+      "confidence": 0.64
+    },
+    {
+      "start": 0.0,
+      "end": 50.0,
+      "carrier": 194.37,
+      "beat": 14.518,
+      "gain": 0.294,
+      "confidence": 0.58
+    },
+    {
+      "start": 10.0,
+      "end": 40.0,
+      "carrier": 190.31,
+      "beat": 14.452,
+      "gain": 0.306,
+      "confidence": 0.68
+    },
+    {
+      "start": 30.0,
+      "end": 60.0,
+      "carrier": 220.47,
+      "beat": 13.71,
+      "gain": 0.261,
+      "confidence": 0.63
+    },
+    {
+      "start": 30.0,
+      "end": 70.0,
+      "carrier": 85.05,
+      "beat": 13.76,
+      "gain": 0.259,
+      "confidence": 0.58
+    },
+    {
+      "start": 40.0,
+      "end": 70.0,
+      "carrier": 210.65,
+      "beat": 13.994,
+      "gain": 0.276,
+      "confidence": 0.57
+    },
+    {
+      "start": 70.0,
+      "end": 100.0,
+      "carrier": 190.31,
+      "beat": 14.452,
+      "gain": 0.306,
+      "confidence": 0.68
+    },
+    {
+      "start": 70.0,
+      "end": 100.0,
+      "carrier": 210.65,
+      "beat": 13.994,
+      "gain": 0.276,
+      "confidence": 0.57
+    },
+    {
+      "start": 100.0,
+      "end": 220.0,
+      "carrier": 167.1,
+      "beat": 3.907,
+      "gain": 0.805,
+      "confidence": 0.98
+    },
+    {
+      "start": 100.0,
+      "end": 170.0,
+      "carrier": 98.4,
+      "beat": 4.029,
+      "gain": 0.489,
+      "confidence": 0.78
+    },
+    {
+      "start": 170.0,
+      "end": 210.0,
+      "carrier": 98.4,
+      "beat": 4.029,
+      "gain": 0.489,
+      "confidence": 0.78
+    },
+    {
+      "start": 180.0,
+      "end": 210.0,
+      "carrier": 146.88,
+      "beat": 3.957,
+      "gain": 1.0,
+      "confidence": 0.8
+    },
+    {
+      "start": 250.0,
+      "end": 330.0,
+      "carrier": 98.4,
+      "beat": 4.029,
+      "gain": 0.489,
+      "confidence": 0.78
+    },
+    {
+      "start": 260.0,
+      "end": 400.0,
+      "carrier": 167.1,
+      "beat": 3.907,
+      "gain": 0.805,
+      "confidence": 0.98
+    },
+    {
+      "start": 330.0,
+      "end": 400.0,
+      "carrier": 98.4,
+      "beat": 4.029,
+      "gain": 0.489,
+      "confidence": 0.78
+    },
+    {
+      "start": 340.0,
+      "end": 2080.0,
+      "carrier": 146.88,
+      "beat": 3.957,
+      "gain": 1.0,
+      "confidence": 0.8
+    },
+    {
+      "start": 420.0,
+      "end": 2050.0,
+      "carrier": 184.83,
+      "beat": 3.934,
+      "gain": 0.577,
+      "confidence": 0.84
+    },
+    {
+      "start": 460.0,
+      "end": 500.0,
+      "carrier": 194.37,
+      "beat": 14.518,
+      "gain": 0.294,
+      "confidence": 0.58
+    },
+    {
+      "start": 2130.0,
+      "end": 2160.0,
+      "carrier": 25.38,
+      "beat": 4.002,
+      "gain": 0.326,
+      "confidence": 0.61
+    },
+    {
+      "start": 2220.0,
+      "end": 2260.0,
+      "carrier": 210.65,
+      "beat": 13.994,
+      "gain": 0.276,
+      "confidence": 0.57
+    },
+    {
+      "start": 2230.0,
+      "end": 2260.0,
+      "carrier": 104.44,
+      "beat": 14.003,
+      "gain": 0.322,
+      "confidence": 0.64
+    },
+    {
+      "start": 2260.0,
+      "end": 2290.0,
+      "carrier": 85.05,
+      "beat": 13.76,
+      "gain": 0.259,
+      "confidence": 0.58
+    },
+    {
+      "start": 2300.0,
+      "end": 2330.0,
+      "carrier": 25.38,
+      "beat": 4.002,
+      "gain": 0.326,
+      "confidence": 0.61
+    },
+    {
+      "start": 2550.0,
+      "end": 2580.0,
+      "carrier": 98.4,
+      "beat": 4.029,
+      "gain": 0.489,
+      "confidence": 0.78
+    },
+    {
+      "start": 2580.0,
+      "end": 2670.0,
+      "carrier": 146.88,
+      "beat": 3.957,
+      "gain": 1.0,
+      "confidence": 0.8
+    }
+  ],
+  "notes": "FFT of the tape, 20 s windows (0.05 Hz), 273 windows. 11 simultaneous binaural layers above 4% presence. Pairs required near-equal level in both ears; layers overlap in time because Hemi-Sync sounds several at once.",
+  "level": "F12"
+}

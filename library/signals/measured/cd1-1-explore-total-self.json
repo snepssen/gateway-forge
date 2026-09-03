@@ -1,0 +1,18 @@
+{
+  "id": "cd1-1-explore-total-self",
+  "provenance": "measured",
+  "tape": "Wave VII - Voyager/CD1 - 1 - Explore Total Self.flac",
+  "duration": 2208.0,
+  "holds": [
+    {
+      "start": 0.0,
+      "end": 2190.0,
+      "carrier": 48.81,
+      "beat": 0.374,
+      "gain": 1.0,
+      "confidence": 1.0
+    }
+  ],
+  "notes": "FFT of the tape, 20 s windows (0.05 Hz), 219 windows. 1 simultaneous binaural layers above 4% presence. Pairs required near-equal level in both ears; layers overlap in time because Hemi-Sync sounds several at once.",
+  "level": "F21"
+}

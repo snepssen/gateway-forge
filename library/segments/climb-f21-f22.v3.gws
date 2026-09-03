@@ -1,0 +1,24 @@
+# Cut from Wave VII, Intro Focus 23 (CD1-2). The tape passes through Focus 22
+# on its way from 21 to 23 and supplies an actual transition body, even though
+# Library.sourceCoverage misses word-number mentions such as "focus twenty-one".
+
+@segment    climb-f21-f22
+@title      Climb — Focus 21 to Focus 22
+@levels     F22
+@from       F21
+@fixed
+@verbosity  3
+@protected  Focus 22
+@duration   ~50s
+
+say You will move beyond Focus 21 as I count.
+pause 4
+level F22
+say Twenty-two.
+pause 5
+say You are changing. Less aware of time and space, and more aware of this other state.
+pause 6
+say So close to time and space, but not part of it.
+pause 6
+say Focus 22. Relax, and remain calm, serene, and sure. You and your consciousness are in full control.
+pause 8

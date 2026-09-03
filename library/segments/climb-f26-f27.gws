@@ -1,0 +1,19 @@
+@segment  climb-f26-f27
+@title    Climb — Focus 26 to Focus 27
+@levels   F27
+@fixed
+@duration ~1m
+
+say Ahead of you in the void, a small white dot appears.
+pause 5
+say Twenty-six.
+pause 4
+say It begins to glow. Faintly at first.
+pause 5
+say It grows brighter. And brighter. And larger, expanding to meet you.
+pause 6
+level F27
+say Twenty-seven.
+pause 5
+say You enter the light.
+pause 10

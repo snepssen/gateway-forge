@@ -1,0 +1,20 @@
+@segment  campfire-presence
+@title    Astral Campfire — Group Presence
+@levels   F15
+@shelved  source session removed by user on 2026-08-22
+@duration ~32m
+
+say Now that the fire burns steadily, sit with it. You have made yourself visible. You are here.
+pause 6
+say Simply wait.
+pause 8
+say If contact comes, you will feel it. Not as a thought, but as a presence. It will draw your attention in a way you cannot ignore.
+pause 6
+say Like a shout without volume. Like a single footstep in silence. It may feel like a tension in the space, a weight that wasn't there before.
+pause 8
+say You may sense where it comes from, just as you know where a sound originates even when you cannot see it.
+pause 6
+say This is not about imagining, or trying to know. It is about noticing what arrives on its own.
+pause 6
+say Rest here, with the fire before you, until the experience feels complete.
+hold 1800

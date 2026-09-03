@@ -1,0 +1,19 @@
+# not from a tape — written for the app, so there is no v1 line to match.
+@segment  announcement
+@title    What This Session Is
+@levels   F1
+@verbosity 2
+@duration ~45s
+@from     F1
+
+# Verbosity 2: adds what the destination is, and what the session will do to
+# get there. See announcement.v1.gws for how the tokens work.
+
+say This session is set to verbosity two. The climbs, and a description of each place you arrive.
+pause 4
+say We are going to [[destination]]. [[destinationLine]]
+pause 5
+say The way there passes through [[stations]].
+pause 4
+say Nothing is required of you along the way. Notice what is there, and let the rest be.
+pause 6

@@ -1,0 +1,361 @@
+{
+  "id": "cd1-1-orientation",
+  "provenance": "measured",
+  "tape": "Wave I - Discovery/CD1 - 1 - Orientation.flac",
+  "duration": 1986.0,
+  "holds": [
+    {
+      "start": 110.0,
+      "end": 140.0,
+      "carrier": 108.56,
+      "beat": 11.007,
+      "gain": 0.46,
+      "confidence": 0.58
+    },
+    {
+      "start": 110.0,
+      "end": 140.0,
+      "carrier": 109.9,
+      "beat": 14.025,
+      "gain": 0.264,
+      "confidence": 0.55
+    },
+    {
+      "start": 180.0,
+      "end": 210.0,
+      "carrier": 184.91,
+      "beat": 14.563,
+      "gain": 0.265,
+      "confidence": 0.62
+    },
+    {
+      "start": 190.0,
+      "end": 220.0,
+      "carrier": 90.7,
+      "beat": 1.243,
+      "gain": 0.299,
+      "confidence": 0.63
+    },
+    {
+      "start": 200.0,
+      "end": 230.0,
+      "carrier": 115.18,
+      "beat": 11.98,
+      "gain": 0.335,
+      "confidence": 0.62
+    },
+    {
+      "start": 210.0,
+      "end": 240.0,
+      "carrier": 115.82,
+      "beat": 2.493,
+      "gain": 0.542,
+      "confidence": 0.51
+    },
+    {
+      "start": 210.0,
+      "end": 240.0,
+      "carrier": 259.25,
+      "beat": 12.539,
+      "gain": 0.278,
+      "confidence": 0.62
+    },
+    {
+      "start": 240.0,
+      "end": 270.0,
+      "carrier": 120.14,
+      "beat": 1.047,
+      "gain": 0.446,
+      "confidence": 0.67
+    },
+    {
+      "start": 240.0,
+      "end": 270.0,
+      "carrier": 94.89,
+      "beat": 4.945,
+      "gain": 0.312,
+      "confidence": 0.59
+    },
+    {
+      "start": 260.0,
+      "end": 290.0,
+      "carrier": 220.32,
+      "beat": 1.728,
+      "gain": 0.322,
+      "confidence": 0.67
+    },
+    {
+      "start": 330.0,
+      "end": 1300.0,
+      "carrier": 298.79,
+      "beat": 3.842,
+      "gain": 1.0,
+      "confidence": 0.79
+    },
+    {
+      "start": 390.0,
+      "end": 420.0,
+      "carrier": 98.92,
+      "beat": 10.293,
+      "gain": 0.367,
+      "confidence": 0.59
+    },
+    {
+      "start": 560.0,
+      "end": 590.0,
+      "carrier": 104.84,
+      "beat": 13.543,
+      "gain": 0.314,
+      "confidence": 0.59
+    },
+    {
+      "start": 560.0,
+      "end": 590.0,
+      "carrier": 105.87,
+      "beat": 11.231,
+      "gain": 0.31,
+      "confidence": 0.53
+    },
+    {
+      "start": 580.0,
+      "end": 960.0,
+      "carrier": 59.45,
+      "beat": 1.183,
+      "gain": 0.685,
+      "confidence": 0.81
+    },
+    {
+      "start": 620.0,
+      "end": 650.0,
+      "carrier": 109.9,
+      "beat": 14.025,
+      "gain": 0.264,
+      "confidence": 0.55
+    },
+    {
+      "start": 640.0,
+      "end": 670.0,
+      "carrier": 110.3,
+      "beat": 11.438,
+      "gain": 0.335,
+      "confidence": 0.58
+    },
+    {
+      "start": 790.0,
+      "end": 820.0,
+      "carrier": 104.33,
+      "beat": 14.943,
+      "gain": 0.358,
+      "confidence": 0.63
+    },
+    {
+      "start": 800.0,
+      "end": 830.0,
+      "carrier": 110.05,
+      "beat": 12.194,
+      "gain": 0.316,
+      "confidence": 0.64
+    },
+    {
+      "start": 800.0,
+      "end": 830.0,
+      "carrier": 104.84,
+      "beat": 13.543,
+      "gain": 0.314,
+      "confidence": 0.59
+    },
+    {
+      "start": 800.0,
+      "end": 830.0,
+      "carrier": 124.23,
+      "beat": 10.289,
+      "gain": 0.309,
+      "confidence": 0.51
+    },
+    {
+      "start": 810.0,
+      "end": 840.0,
+      "carrier": 94.89,
+      "beat": 4.945,
+      "gain": 0.312,
+      "confidence": 0.59
+    },
+    {
+      "start": 840.0,
+      "end": 870.0,
+      "carrier": 115.18,
+      "beat": 11.98,
+      "gain": 0.335,
+      "confidence": 0.62
+    },
+    {
+      "start": 840.0,
+      "end": 880.0,
+      "carrier": 109.97,
+      "beat": 2.997,
+      "gain": 0.305,
+      "confidence": 0.59
+    },
+    {
+      "start": 850.0,
+      "end": 880.0,
+      "carrier": 114.85,
+      "beat": 11.708,
+      "gain": 0.309,
+      "confidence": 0.67
+    },
+    {
+      "start": 920.0,
+      "end": 950.0,
+      "carrier": 106.57,
+      "beat": 12.786,
+      "gain": 0.33,
+      "confidence": 0.6
+    },
+    {
+      "start": 1120.0,
+      "end": 1150.0,
+      "carrier": 109.6,
+      "beat": 8.209,
+      "gain": 0.389,
+      "confidence": 0.57
+    },
+    {
+      "start": 1150.0,
+      "end": 1190.0,
+      "carrier": 115.38,
+      "beat": 13.017,
+      "gain": 0.28,
+      "confidence": 0.62
+    },
+    {
+      "start": 1280.0,
+      "end": 1310.0,
+      "carrier": 114.61,
+      "beat": 3.205,
+      "gain": 0.256,
+      "confidence": 0.6
+    },
+    {
+      "start": 1320.0,
+      "end": 1350.0,
+      "carrier": 104.84,
+      "beat": 13.543,
+      "gain": 0.314,
+      "confidence": 0.59
+    },
+    {
+      "start": 1350.0,
+      "end": 1650.0,
+      "carrier": 113.59,
+      "beat": 1.348,
+      "gain": 1.0,
+      "confidence": 0.93
+    },
+    {
+      "start": 1400.0,
+      "end": 1430.0,
+      "carrier": 110.13,
+      "beat": 12.75,
+      "gain": 0.502,
+      "confidence": 0.52
+    },
+    {
+      "start": 1400.0,
+      "end": 1440.0,
+      "carrier": 109.24,
+      "beat": 10.534,
+      "gain": 0.326,
+      "confidence": 0.58
+    },
+    {
+      "start": 1460.0,
+      "end": 1490.0,
+      "carrier": 298.79,
+      "beat": 3.842,
+      "gain": 1.0,
+      "confidence": 0.79
+    },
+    {
+      "start": 1490.0,
+      "end": 1520.0,
+      "carrier": 298.79,
+      "beat": 3.842,
+      "gain": 1.0,
+      "confidence": 0.79
+    },
+    {
+      "start": 1610.0,
+      "end": 1870.0,
+      "carrier": 298.79,
+      "beat": 3.842,
+      "gain": 1.0,
+      "confidence": 0.79
+    },
+    {
+      "start": 1650.0,
+      "end": 1870.0,
+      "carrier": 59.45,
+      "beat": 1.183,
+      "gain": 0.685,
+      "confidence": 0.81
+    },
+    {
+      "start": 1850.0,
+      "end": 1880.0,
+      "carrier": 110.3,
+      "beat": 11.438,
+      "gain": 0.335,
+      "confidence": 0.58
+    },
+    {
+      "start": 1890.0,
+      "end": 1920.0,
+      "carrier": 210.4,
+      "beat": 12.473,
+      "gain": 0.256,
+      "confidence": 0.56
+    },
+    {
+      "start": 1900.0,
+      "end": 1930.0,
+      "carrier": 184.91,
+      "beat": 14.563,
+      "gain": 0.265,
+      "confidence": 0.62
+    },
+    {
+      "start": 1920.0,
+      "end": 1950.0,
+      "carrier": 119.47,
+      "beat": 4.527,
+      "gain": 0.493,
+      "confidence": 0.57
+    },
+    {
+      "start": 1920.0,
+      "end": 1950.0,
+      "carrier": 95.19,
+      "beat": 10.213,
+      "gain": 0.352,
+      "confidence": 0.58
+    },
+    {
+      "start": 1940.0,
+      "end": 1970.0,
+      "carrier": 121.48,
+      "beat": 1.475,
+      "gain": 0.423,
+      "confidence": 0.64
+    },
+    {
+      "start": 1940.0,
+      "end": 1970.0,
+      "carrier": 179.26,
+      "beat": 4.42,
+      "gain": 0.25,
+      "confidence": 0.48
+    }
+  ],
+  "notes": "FFT of the tape, 20 s windows (0.05 Hz), 197 windows. 84 simultaneous binaural layers above 4% presence. Pairs required near-equal level in both ears; layers overlap in time because Hemi-Sync sounds several at once."
+}

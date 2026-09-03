@@ -1,0 +1,25 @@
+# From "Free Flow 12" (Wave IV - Adventure, CD2-3). Distinct from free.gws
+# (a bare generic hold used at F12/F15/F21/F27): this one names the purpose
+# explicitly and closes with thanks and closing any opened channels, rather
+# than just ending. The tape's "beacon guidepost" audio cue has no equivalent
+# directive in this format, so it's narrated in words instead.
+
+@segment  free-flow-12
+@title    Free Flow — Focus 12
+@levels   F12
+@duration ~5m
+
+say Remember your purpose for this exercise.
+pause 6
+say Here in Focus 12, you're free. Free to send out questions and receive answers. Free to find whatever communication or information you're looking for.
+pause 8
+say Explore. I'll call you when this period is done.
+hold 300
+say Begin moving back now to where you started.
+pause 5
+say As you do, give thanks for anything you've received or communicated with.
+pause 6
+say And close down any channels you've opened.
+pause 6
+say You're back now, at your starting point. Calm, comfortable, and relaxed in Focus 12.
+pause 6

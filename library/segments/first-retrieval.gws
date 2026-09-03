@@ -1,0 +1,28 @@
+# From "First Retrieval" (Wave VII - Voyager, CD3-5): assisting someone
+# newly arrived at Focus 23, escorting them to the reception center at
+# Focus 27. Assumes F27 and its "special place" already reached
+# (place-of-your-own.gws).
+
+@segment  first-retrieval
+@title    First Retrieval
+@levels   F27
+@duration ~4m30s
+
+say From your special place, move out into the park itself -- the walks, the gardens, the trees.
+pause 6
+say Ask for help in making a rescue run.
+pause 6
+say With that help beside you, move back to Focus 23.
+pause 8
+say Select someone newly arrived here -- with the one beside you helping. Take your time choosing.
+pause 10
+say Now begin escorting them back to the reception center, the way station at Focus 27. As you go, ask them about their most recent life. What name did they use? Where did they live? Learn what you can.
+pause 12
+say Continue the move to Focus 27 now.
+pause 8
+say You're in the park at the reception center. Ask your friend to bring the newcomer to whoever can help them best.
+pause 8
+say Say goodbye to them, warmly. Then return to your own special place.
+pause 8
+say Relax, and remember in detail what you've just done.
+pause 6

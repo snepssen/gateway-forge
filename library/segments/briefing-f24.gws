@@ -1,0 +1,19 @@
+# No longer provisional. Grounded in "Intro Focus 25" (Wave VII - Voyager,
+# CD2-3): the tape passes through Focus 24 on the way from 23 to 25 and
+# describes it only as a passage -- a point of light growing larger and
+# brighter, familiar, until it's large enough to move into. Thin, but real:
+# the tape's own account, not a placeholder. Same automated-scanner caveat as
+# briefing-f22.gws -- Library.sourceCoverage() still reads 0 here because the
+# tape never pairs "focus" directly next to the digits.
+
+@segment     briefing-f24
+@title       Focus 24 — The Approaching Light
+@levels      F24
+@duration    ~30s
+
+say You are now in Focus 24.
+pause 5
+say Ahead of you, a point of light. It's growing larger as you move toward it -- bright, but familiar, the kind of bright you get used to.
+pause 8
+say The light is large enough now to move into. When you're ready, continue forward.
+pause 8

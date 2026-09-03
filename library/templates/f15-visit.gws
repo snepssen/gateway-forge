@@ -1,0 +1,45 @@
+# Generated session scaffold: reach the level, hear what is known about it,
+# spend time there, come back. Edit freely -- this is your file now; the
+# generator never rewrites an existing session.
+#
+# What it deliberately leaves for you:
+#   · the return is the plain waking count unless a real descent exists
+#     for this level -- retracing the climb is authoring work
+#   · the hold below is a starting guess, not a prescription
+#   · anything this level's briefing does not say is not said here either
+
+@title    Focus 15 — No Time, No Space
+@level    F10
+@ending   return
+@pan      right
+@seed     1015
+@verbosity 3
+
+surf 0.55
+use opening
+use comfort
+use orientation
+use ocean
+
+surf 0.30
+use conversion-box
+use affirmation
+
+surf 0.18
+use resonant-tuning
+use balloon
+use return-methods
+use clear-skies
+
+surf 0.0
+use relax-10
+use climb-f10-f12
+use briefing-f12
+use climb-f12-f15
+use briefing-f15
+
+hold 600
+
+use gratitude
+use descend-f15-f10
+use return

@@ -1,0 +1,37 @@
+# Source-grounded recipe: Wave VIII — Union, CD3-6.
+# The tape's preparatory process is expanded through the existing reusable
+# components; its authored exercise remains one segment rather than being
+# paraphrased here. No generic briefing, Clear Skies or extra hold is added.
+
+# Wave VIII replaces the earlier induction affirmation with its fixed service form.
+
+@title    Coordination Area
+@level    F10
+@ending   return
+@pan      right
+@seed     20039
+@verbosity 3
+
+surf 0.55
+use orientation
+
+surf 0.30
+use conversion-box
+
+surf 0.18
+use resonant-tuning
+use balloon
+use affirmation-service
+
+surf 0.0
+use relax-10
+use climb-f10-f12
+use climb-f12-f15
+use climb-f15-f21
+use climb-f21-f23
+use climb-f23-f25
+use climb-f25-f26
+use climb-f26-f27
+use coordination-area
+level F10
+use return-one

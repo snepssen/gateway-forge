@@ -1,0 +1,24 @@
+@segment   resonant-tuning
+@title     Resonant Tuning
+@levels    F10
+@duration  ~4m
+@protected Resonant Tuning
+
+say Begin your process of Resonant Tuning.
+pause 4
+say Inhale slowly through your nose, drawing in fresh, new energy from all over your body, and direct the already existing energy up into your head. Hold the energy there for a moment.
+pause 5
+say Then exhale through your mouth, lips pursed as if blowing out a candle. As you do, imagine any stale or used-up energy leaving your body with the breath.
+pause 8
+say Again. Inhale fresh energy from all over your body, and direct it up into your head. And hold.
+pause 6
+say Now exhale. Releasing the stale old energy that still remains.
+pause 6
+say Do this at your own pace for a few breaths.
+hold 45
+say Now, begin to hum gently as you exhale. Let the sound vibrate softly through your throat, jaw, and the space inside your head. Don't force it. Just hum lightly. Let the sound carry tension away.
+pause 6
+say With each hum, you're allowing your energy to align and tune the instrument that is your body.
+media resonantTuning 90
+say Breathe normally. You can breathe normally now.
+pause 6

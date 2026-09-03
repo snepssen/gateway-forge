@@ -1,0 +1,41 @@
+# Source-grounded recipe: Wave VII — Voyager, CD3-5.
+# The tape's preparatory process is expanded through the existing reusable
+# components; its authored exercise remains one segment rather than being
+# paraphrased here. No generic briefing, Clear Skies or extra hold is added.
+#
+# The affirmation is the 1977 original rather than the settled form: the
+# route enters F23, F25 and F26, which levels.json marks as populated by minds
+# the listener did not choose. The tape's own preparatory process is
+# expanded through reusable components, so which affirmation fills that
+# slot is this library's choice and not a claim about the source.
+
+@title    First Retrieval
+@level    F10
+@ending   return
+@pan      right
+@seed     20032
+@verbosity 3
+
+surf 0.55
+use orientation
+
+surf 0.30
+use conversion-box
+
+surf 0.18
+use resonant-tuning
+use balloon
+use affirmation-1977
+
+surf 0.0
+use relax-10
+use climb-f10-f12
+use climb-f12-f15
+use climb-f15-f21
+use climb-f21-f23
+use climb-f23-f25
+use climb-f25-f26
+use climb-f26-f27
+use first-retrieval
+level F10
+use return

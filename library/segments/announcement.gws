@@ -1,0 +1,30 @@
+# not from a tape — written for the app, so there is no v1 line to match.
+@segment  announcement
+@title    What This Session Is
+@levels   F1
+@verbosity 3
+@duration ~70s
+@from     F1
+
+# Verbosity 3: everything named -- what was chosen, where we are going, what is
+# known about it, what the route is, and roughly how long it takes. See
+# announcement.v1.gws for how the tokens work.
+#
+# This does NOT use [[destinationLine]], which v2 does. Where a level has a
+# published description, that token and [[destinationPublished]] resolve to the
+# same sentence, and v3 spoke it twice six seconds apart -- once plainly and
+# once after "what has been written about it". v2 has only the one line and
+# still uses it.
+
+say This session is set to verbosity three. Every level named, and what is known about each of them.
+pause 4
+say We are going to [[destination]].
+pause 5
+say What has been written about it: [[destinationPublished]]
+pause 6
+say The way there passes through [[stations]], and takes about [[duration]].
+pause 5
+say None of this is a prescription. It is a description of where we are going, offered so that you can recognise it if you arrive.
+pause 5
+say When you are ready, we begin.
+pause 6

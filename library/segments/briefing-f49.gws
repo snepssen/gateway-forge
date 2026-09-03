@@ -1,0 +1,24 @@
+# App-authored briefing, not from a tape. Grounded only in the public label in
+# levels.json and the unverified secondary overview. No tape or manual in the
+# library describes Focus 49. Beyond-galaxy, I-There cluster and Cluster Council
+# language is presented as a map to test, never as expected scale or company.
+
+@segment     briefing-f49
+@title       Focus 49 — Sea of I-There Clusters
+@levels      F49
+@verbosity   2
+@protected   Focus 49, I-There, Cluster Council
+@duration    ~1m
+
+say You are now in Focus 49.
+pause 5
+say No tape or manual in this library describes this level. The available map is a secondary overview of uncertain origin, so hold its description lightly.
+pause 6
+say That overview associates Focus 49 with exploration beyond our galaxy, I-There clusters, and what it calls the Cluster Council.
+pause 8
+say Treat those as coordinates to test, not a scale, structure, or presence you are required to perceive.
+pause 6
+say Observe what is actually present for you, including any absence, without forcing it to match the map.
+pause 12
+say Remember what you notice. Your attributed account may confirm, amend, or reject the available description.
+pause 10

@@ -1,0 +1,11 @@
+@segment  stay
+@title    Ending — Stay
+@levels   F27
+@duration ~10m
+
+say I will leave you here now.
+pause 6
+say Stay as long as you wish.
+pause 6
+say Return when you are ready.
+hold 600

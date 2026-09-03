@@ -1,0 +1,39 @@
+# App-authored transition, not from a tape. No tape or manual in the library
+# reaches Focus 49. The only descriptive footing is the public I-There-cluster
+# label and an unverified secondary overview; this body labels that footing and
+# prescribes neither distance, structure nor company.
+
+@segment    climb-f42-f49
+@title      Climb — Focus 42 to Focus 49
+@levels     F49
+@from       F42
+@fixed
+@verbosity  3
+@protected  Focus 49, I-There, Cluster Council
+@duration   ~1m35s
+
+say From Focus 42, you will move through the count to Focus 49.
+pause 4
+say The available secondary map associates Focus 49 with exploration beyond our galaxy, I-There clusters, and what it calls the Cluster Council. No tape or manual here establishes what this movement should feel or look like.
+pause 7
+say Carry those as coordinates, not requirements. Let the numbers mark the movement, and observe what is actually present, including any absence.
+pause 6
+level F49
+say Forty-two.
+pause 5
+say Forty-three.
+pause 5
+say Forty-four.
+pause 5
+say Forty-five.
+pause 5
+say Forty-six.
+pause 5
+say Forty-seven.
+pause 5
+say Forty-eight.
+pause 5
+say Forty-nine.
+pause 4
+say Focus 49. I-There. Cluster Council.
+pause 8

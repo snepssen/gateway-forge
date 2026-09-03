@@ -1,0 +1,34 @@
+@segment  descend-f15-f10
+@title    Return — Focus 15 down to Focus 10
+@levels   F10
+@fixed
+@duration ~1m40s
+
+say You'll now return from Focus 15 to Focus 12.
+pause 4
+say Fifteen.
+pause 4
+level F12
+say Fourteen. You're returning to time.
+pause 4
+say Thirteen. Calmly and comfortably.
+pause 4
+say Twelve.
+pause 5
+say You're now back in Focus 12, the state of expanded awareness.
+pause 6
+say Now return to Focus 10.
+pause 3
+level F10
+say Twelve.
+pause 4
+say Eleven.
+pause 4
+say Ten.
+pause 5
+say You're now in Focus 10.
+pause 4
+say Mind awake. Body asleep.
+pause 6
+say Now, express gratitude for all you've perceived, received, and aligned with.
+pause 10

@@ -1,0 +1,30 @@
+@segment   castle
+@title     The Castle
+@levels    F27
+@duration  ~26m
+@protected Castle
+
+say Your place can take on another form: The Castle. An educational and research edition of what is already yours.
+pause 8
+say Let it grow, if you wish it to. Let it become a structure — a castle, if that is the shape that fits. You are not required to picture it in detail. Let it arrange itself.
+pause 10
+say This is a space for co-working. Entities and individuals — equal to you, or further along than you, in power, in development, in experience — may be met with here.
+pause 10
+say You set the terms, the same as always. Approach gracefully. Demand nothing. Be present. Let your intuition lead more than your expectation does.
+pause 12
+say The castle has many rooms. Each one is larger inside than it appears from without.
+pause 8
+say Each room holds whatever might be needed, on a whim — for testing, for exploring, for simulating, for exchanging creativity, energy, and information, between whoever is present in it.
+pause 10
+say Some rooms you will not enter. That is not exclusion. In those rooms, a version of you is already at work.
+pause 10
+say Think of it as a system running many processes at once, each one handled by a separate core, or a separate thread — the same you, in parallel, doing what does not fit in one place at one time.
+pause 10
+say Or think of it as compartments, each one sealed from the others by design and not by accident. What happens in one need not be known to the rest, and the whole still functions.
+pause 10
+say You do not need to visit every room to benefit from what happens in them. You do not need to understand the architecture. You only need to be here, in the room you are in.
+pause 12
+say Walk the halls if you wish. Or stay where you arrived. Either is the castle working as intended.
+pause 10
+say Stay as long as feels right.
+hold 1500

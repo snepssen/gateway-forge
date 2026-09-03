@@ -1,0 +1,32 @@
+# Source-grounded recipe: Wave VIII — Union, CD4-7.
+# The tape's preparatory process is expanded through the existing reusable
+# components; its authored exercise remains one segment rather than being
+# paraphrased here. No generic briefing, Clear Skies or extra hold is added.
+# The source enters from Focus 12 and lets awareness move automatically to the appropriate state; the F27 cue records the authored destination without inventing a counted climb.
+# Wave VIII replaces the earlier induction affirmation with its fixed service form.
+
+@title    Inner Earth
+@level    F10
+@ending   return
+@pan      right
+@seed     20040
+@verbosity 3
+
+surf 0.55
+use orientation
+
+surf 0.30
+use conversion-box
+
+surf 0.18
+use resonant-tuning
+use balloon
+use affirmation-service
+
+surf 0.0
+use relax-10
+use climb-f10-f12
+level F27
+use inner-earth
+level F10
+use return-one

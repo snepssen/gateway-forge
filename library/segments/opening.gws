@@ -1,0 +1,8 @@
+@segment  opening
+@title    Opening
+@levels   F10
+@duration ~20s
+@seed     2727
+
+say {This is the beginning of your journey.|This is where the journey begins.} A quiet, personal path that starts in comfort and stillness.
+pause 3

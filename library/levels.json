@@ -1,0 +1,309 @@
+[
+  {
+    "key": "F1",
+    "name": "Waking Consciousness (C1)",
+    "beatHz": 0.0,
+    "carrier": 110.0,
+    "bed": {
+      "pink": 0.28,
+      "white": 0.08
+    },
+    "layers": [],
+    "rampSeconds": 20.0,
+    "notes": "baseline; not a render target",
+    "published": "Normal, everyday waking consciousness. Completely in phase with physical matter reality. Also referred to as “C1 Consciousness”.",
+    "beatVerified": false
+  },
+  {
+    "key": "F3",
+    "name": "Light Relaxation",
+    "beatHz": 0.0,
+    "carrier": 110.0,
+    "bed": {
+      "pink": 0.28,
+      "white": 0.08
+    },
+    "layers": [],
+    "rampSeconds": 20.0,
+    "notes": "light head and body relaxation; nothing deep, nothing floaty. later sessions pass through it, while the initial journey stops here once. no frequency is published for it",
+    "published": "Focus 3 is a signpost on the way to Focus 10, a Hemi-Sync state where your brain and mind are more coherent, synchronized, and balanced. You will move to Focus 3 by a conventional count of one to three.",
+    "beatVerified": false
+  },
+  {
+    "key": "F10",
+    "name": "Mind Awake, Body Asleep",
+    "beatHz": 4.0,
+    "carrier": 110.0,
+    "signalProfile": "cd1-2-introduction-to-focus-10",
+    "bed": {
+      "pink": 0.28,
+      "white": 0.08
+    },
+    "layers": [],
+    "rampSeconds": 20.0,
+    "notes": "entry state",
+    "published": "The physical body is deeply relaxed while the mind remains conscious, awake and alert. “Mind awake, body asleep.” This is the first state of consciousness explored in our Gateway Voyage program.",
+    "beatVerified": true
+  },
+  {
+    "key": "F11",
+    "name": "The Access Channel",
+    "beatHz": 4.0,
+    "carrier": 100.0,
+    "signalProfile": "cd1-2-introduction-to-focus-10",
+    "bed": {
+      "pink": 0.28,
+      "white": 0.08
+    },
+    "layers": [],
+    "rampSeconds": 20.0,
+    "notes": "no tape reaches F11, but climb-f10-f11 branches directly off F10 rather than continuing to F12 -- grounded in F10's measured signal (4.0 Hz @ 99-100 Hz, library/reference/measured-beats.md) rather than a linear split toward F12's 6.0 Hz. Still unverified: nobody has heard this level's own tone.",
+    "published": "The Access Channel — the ultimate communication channel to all levels of awareness: mental, physical, and emotional. Opened during each Human Plus® exercise.",
+    "beatVerified": false
+  },
+  {
+    "key": "F12",
+    "name": "Expanded Awareness",
+    "beatHz": 6.0,
+    "carrier": 110.0,
+    "signalProfile": "cd1-1-introduction-to-focus-12",
+    "bed": {
+      "pink": 0.28,
+      "white": 0.08
+    },
+    "layers": [],
+    "rampSeconds": 20.0,
+    "notes": "beyond the five senses",
+    "published": "A state of expanded awareness while the body remains deeply relaxed and asleep.",
+    "beatVerified": true
+  },
+  {
+    "key": "F15",
+    "name": "No Time, No Space",
+    "beatHz": 3.0,
+    "carrier": 100.0,
+    "signalProfile": "cd3-6-exploring-focus-15",
+    "bed": {
+      "pink": 0.34,
+      "white": 0.05
+    },
+    "layers": [
+      7.0
+    ],
+    "rampSeconds": 20.0,
+    "notes": "a place of no time; nothing identifiable here",
+    "published": "A state of No-Time. Consciousness is now far removed from physical body signals. Linear time is no longer relevant to experience. Sometimes referred to as the Void or Pure Potential.",
+    "beatVerified": true
+  },
+  {
+    "key": "F18",
+    "name": "The Heart Level",
+    "beatHz": 5.5,
+    "carrier": 120.0,
+    "signalProfile": "cd1-1-introduction-to-focus-12",
+    "bed": {
+      "pink": 0.28,
+      "white": 0.08
+    },
+    "layers": [],
+    "rampSeconds": 20.0,
+    "notes": "unconditional love register",
+    "published": "Through Focus 18, individuals can cultivate a state of unconditional love and acceptance, leading to profound personal growth.",
+    "beatVerified": true
+  },
+  {
+    "key": "F21",
+    "name": "The Bridge State",
+    "beatHz": 2.5,
+    "carrier": 95.0,
+    "signalProfile": "cd3-5-movement-to-locale-2-intro-focus-21",
+    "bed": {
+      "pink": 0.28,
+      "white": 0.08
+    },
+    "layers": [
+      8.0
+    ],
+    "rampSeconds": 20.0,
+    "notes": "edge of the time/space continuum",
+    "published": "On the very edge of perception of the time/space continuum. Mind remains fully conscious and active. The Bridge to other realities.",
+    "beatVerified": true
+  },
+  {
+    "key": "F22",
+    "name": "Here and There",
+    "beatHz": 3.5,
+    "carrier": 95.0,
+    "signalProfile": "cd1-2-intro-focus-23",
+    "bed": {
+      "pink": 0.28,
+      "white": 0.08
+    },
+    "layers": [],
+    "rampSeconds": 20.0,
+    "notes": "",
+    "published": "On the border between time/space and non-physical states of being. Comatose.",
+    "exposure": "Minds that are here without being in charge of themselves — comatose, delirious, drugged, drunk. Contact is possible and none of it is deliberate on their side.",
+    "beatVerified": true
+  },
+  {
+    "key": "F23",
+    "name": "New Arrivals",
+    "beatHz": 3.5,
+    "carrier": 95.0,
+    "signalProfile": "cd1-2-intro-focus-23",
+    "bed": {
+      "pink": 0.28,
+      "white": 0.08
+    },
+    "layers": [],
+    "rampSeconds": 20.0,
+    "notes": "",
+    "published": "The condition in which an individual may find him or herself immediately following physical death. The territory of the ‘new arrivals’.",
+    "exposure": "The newly dead, most of them not yet aware they have died. Bewildered, stuck, some of them frightened or angry. Every route above F21 passes through it.",
+    "beatVerified": true
+  },
+  {
+    "key": "F24",
+    "name": "Belief System Territories",
+    "beatHz": 3.2,
+    "carrier": 95.0,
+    "signalProfile": "cd1-2-intro-focus-23",
+    "bed": {
+      "pink": 0.28,
+      "white": 0.08
+    },
+    "layers": [],
+    "rampSeconds": 20.0,
+    "notes": "",
+    "published": "The site of non-physical activity generated by simple or primitive religious or cultural beliefs. One of the Belief System Territories (24–26): thought-responsive environments explored in the Lifeline and Exploration 27 programs.",
+    "exposure": "A belief system territory: a thought-responsive environment built and held by a belief, with people inside it who cannot leave it.",
+    "beatVerified": true
+  },
+  {
+    "key": "F25",
+    "name": "Belief System Territories",
+    "beatHz": 3.0,
+    "carrier": 93.0,
+    "signalProfile": "cd1-2-intro-focus-23",
+    "bed": {
+      "pink": 0.28,
+      "white": 0.08
+    },
+    "layers": [],
+    "rampSeconds": 20.0,
+    "notes": "structures lining the path of light; pass, don't enter",
+    "published": "The expression of the major organized religious beliefs in recent human history. One of the Belief System Territories (24–26): thought-responsive environments explored in the Lifeline and Exploration 27 programs.",
+    "exposure": "A belief system territory: a thought-responsive environment built and held by a belief, with people inside it who cannot leave it.",
+    "beatVerified": true
+  },
+  {
+    "key": "F26",
+    "name": "The Void",
+    "beatHz": 2.4,
+    "carrier": 90.0,
+    "signalProfile": "cd1-2-intro-focus-23",
+    "bed": {
+      "pink": 0.4,
+      "white": 0.02
+    },
+    "layers": [],
+    "rampSeconds": 20.0,
+    "notes": "completely dark; no starlight, no dots, no features. nothing required; pass through",
+    "published": "Here are identified certain areas, few in number, containing the structures and knowledge of various highly individual religious and other beliefs based on direct experience of self. One of the Belief System Territories (24–26).",
+    "exposure": "A belief system territory: a thought-responsive environment built and held by a belief, with people inside it who cannot leave it.",
+    "beatVerified": true
+  },
+  {
+    "key": "F27",
+    "name": "The Park",
+    "beatHz": 2.2,
+    "carrier": 90.0,
+    "signalProfile": "cd2-4-intro-focus-27",
+    "bed": {
+      "pink": 0.36,
+      "white": 0.04
+    },
+    "layers": [
+      6.5
+    ],
+    "rampSeconds": 20.0,
+    "notes": "way-station; review and planning. entered through the white dot out of F26",
+    "published": "The edge of human thought capacity. The site of a way-station (not a terminus) for rest and recovery from the trauma of physical death, for reviewing life events and for planning the next phase of life.",
+    "beatVerified": true
+  },
+  {
+    "key": "F34",
+    "name": "The Gathering",
+    "beatHz": 1.8,
+    "carrier": 85.0,
+    "signalProfile": "cd2-4-intro-focus-27",
+    "bed": {
+      "pink": 0.28,
+      "white": 0.08
+    },
+    "layers": [
+      6.0
+    ],
+    "rampSeconds": 20.0,
+    "notes": "",
+    "published": "The area of the Gathering. Beings from many other locations within the physical universe are gathered here to witness the upcoming Earth Changes. First mentioned in Bob Monroe’s second book, Far Journeys. Published as the pair Focus 34/35.",
+    "exposure": "Non-human intelligences gathered from elsewhere. Whatever is here, nothing in the human record describes what it wants.",
+    "beatVerified": true
+  },
+  {
+    "key": "F35",
+    "name": "The Gathering (upper)",
+    "beatHz": 1.8,
+    "carrier": 85.0,
+    "signalProfile": "cd2-4-intro-focus-27",
+    "bed": {
+      "pink": 0.28,
+      "white": 0.08
+    },
+    "layers": [
+      6.0
+    ],
+    "rampSeconds": 20.0,
+    "notes": "paired with F34; values copied from it, unverified",
+    "published": "The area of the Gathering. Beings from many other locations within the physical universe are gathered here to witness the upcoming Earth Changes. First mentioned in Bob Monroe’s second book, Far Journeys. Published as the pair Focus 34/35.",
+    "exposure": "Non-human intelligences gathered from elsewhere. Whatever is here, nothing in the human record describes what it wants.",
+    "beatVerified": false
+  },
+  {
+    "key": "F42",
+    "name": "I-There Cluster",
+    "beatHz": 1.5,
+    "carrier": 85.0,
+    "signalProfile": "cd2-4-intro-focus-27",
+    "bed": {
+      "pink": 0.28,
+      "white": 0.08
+    },
+    "layers": [
+      5.5
+    ],
+    "rampSeconds": 20.0,
+    "notes": "",
+    "published": "I-There cluster consciousness.",
+    "beatVerified": true
+  },
+  {
+    "key": "F49",
+    "name": "Sea of I-There Clusters",
+    "beatHz": 1.2,
+    "carrier": 80.0,
+    "signalProfile": "cd2-4-intro-focus-27",
+    "bed": {
+      "pink": 0.28,
+      "white": 0.08
+    },
+    "layers": [
+      5.0
+    ],
+    "rampSeconds": 20.0,
+    "notes": "",
+    "published": "Sea of I-There clusters.",
+    "beatVerified": true
+  }
+]

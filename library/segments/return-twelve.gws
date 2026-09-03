@@ -1,0 +1,38 @@
+# From the standard Wave VI - Odyssey ending. These tapes return directly from
+# Focus 12 through a complete twelve-to-one waking count. Kept separate from
+# return.gws's ten-to-one count and return-one.gws's learned instant exit.
+
+@segment   return-twelve
+@title     Ending — Focus 12 to Waking
+@levels    F12
+@fixed
+@continuous-exit
+@duration  ~1m20s
+
+say Return now to full physical waking consciousness as I count from twelve back to one.
+pause 5
+say Twelve.
+pause 3
+say Eleven.
+pause 3
+level F10
+say Ten.
+pause 3
+say Nine.
+pause 3
+say Eight.
+pause 3
+say Seven. Breathe deeply.
+pause 3
+say Six.
+pause 3
+say Five. Begin to move your physical body.
+pause 3
+say Four.
+pause 3
+say Three.
+pause 3
+say Two.
+pause 3
+say One. Awake and alert. Welcome back.
+pause 8

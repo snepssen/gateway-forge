@@ -1,0 +1,9 @@
+@segment  briefing-f21
+@title    Focus 21 — The Threshold
+@levels   F21
+@duration ~30s
+
+say You are now in Focus 21.
+pause 4
+say The way ahead has been cleared for your passing. There is little to see here. It is a transition. A quiet bridge. You need not linger.
+pause 8

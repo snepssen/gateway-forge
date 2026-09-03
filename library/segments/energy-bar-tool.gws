@@ -1,0 +1,48 @@
+# From "Energy Bar Tool" (Wave II - Threshold, CD3-5). The tape cycles
+# through six colors one at a time (orange, yellow, green, blue, red, back to
+# white); condensed here into one pass through the sequence rather than six
+# near-identical build-ups. Prerequisite for living-body-map.gws, which
+# reaches for this tool by name.
+
+@segment   energy-bar-tool
+@title     The Energy Bar Tool
+@levels    F10
+@duration  ~2m30s
+@protected Energy Bar Tool
+
+say Now, construct your first energy tool. Visualise a small spot of light — white, glowing, sparkling.
+pause 6
+say Stretch it out into a white line. Then thicken it into a straight, round bar of sparkling white light.
+pause 8
+say Look at it closely. Pick it up. Hold it. Feel the glowing energy, and move it around until you're familiar with it. This is your Energy Bar Tool.
+pause 10
+say Now make it change color. Sparkling orange.
+pause 5
+say Back to sparkling white.
+pause 4
+say Sparkling yellow.
+pause 5
+say Back to white.
+pause 4
+say Bright sparkling green.
+pause 5
+say Back to white.
+pause 4
+say Brilliant blue.
+pause 5
+say Back to white.
+pause 4
+say Bright sparkling red.
+pause 5
+say And back now to sparkling white.
+pause 6
+say Hold it firmly. It's yours — you created it, and you control it.
+pause 6
+say Now make it flash. On, then off. Slowly at first.
+pause 6
+say Faster now. On and off, faster and faster, until you can no longer tell the moments it's off — until it looks like one solid, smooth bar of light again, even though it's still pulsing.
+hold 20
+say Now release the bar. Move back from it a little, and just feel the energy radiating from it. It's yours — become comfortable with it.
+pause 10
+say Release it fully, and let it float free. It will stay here, ready, whenever you want it again.
+pause 8

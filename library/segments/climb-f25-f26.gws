@@ -1,0 +1,13 @@
+@segment  climb-f25-f26
+@title    Climb — Focus 25 to Focus 26
+@levels   F26
+@fixed
+@duration ~25s
+
+say The path of light continues, and the structures fall away behind you.
+pause 5
+level F26
+say Twenty-five.
+pause 3
+say Twenty-six.
+pause 5

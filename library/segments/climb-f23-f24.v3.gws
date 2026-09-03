@@ -1,0 +1,28 @@
+# Cut from Wave VII, Intro Focus 25 (CD2-3). The tape crosses Focus 24 as the
+# first stage of its movement from 23 to 25: a point of light approached until
+# the count of twenty-four. This file stops at that authored intermediate rung.
+
+@segment    climb-f23-f24
+@title      Climb — Focus 23 to Focus 24
+@levels     F24
+@from       F23
+@fixed
+@verbosity  3
+@protected  Focus 24
+@duration   ~1m
+
+say As you move, remain fully conscious and under complete control.
+pause 4
+say Before you is a tiny pinpoint of light. Look for it.
+pause 5
+say When you perceive it, focus your attention on that speck of light.
+pause 5
+say With your attention on the speck of light, move in the direction of that light.
+pause 6
+level F24
+say Twenty-four.
+pause 5
+say Focus 24.
+pause 3
+say The light is getting larger and larger. It is very bright, but you get used to it because it is familiar to you.
+pause 8

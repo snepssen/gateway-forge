@@ -1,0 +1,272 @@
+{
+  "matchesCases" : [
+    {
+      "declaredBytes" : 5,
+      "declaredSha" : "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824",
+      "result" : true,
+      "writeContent" : "hello"
+    },
+    {
+      "declaredBytes" : 5,
+      "declaredSha" : "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824",
+      "result" : false,
+      "writeContent" : "howdy"
+    },
+    {
+      "declaredBytes" : 5,
+      "declaredSha" : "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824",
+      "result" : false
+    },
+    {
+      "declaredBytes" : 0,
+      "declaredSha" : "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "result" : true,
+      "writeContent" : ""
+    }
+  ],
+  "note" : "OllamaModelStore, ModelFile/FileIntegrity, LocalModelProfile, PartialDownloadRecovery.",
+  "profiles" : [
+    {
+      "model" : "gateway-composer",
+      "modelfile" : "Modelfile"
+    },
+    {
+      "model" : "gateway-cartographer",
+      "modelfile" : "Cartographer.modelfile"
+    }
+  ],
+  "recoveryCases" : [
+    {
+      "expected" : 1000,
+      "kind" : "missing",
+      "setup" : "no file at all"
+    },
+    {
+      "expected" : 1000,
+      "kind" : "complete",
+      "setup" : "exact match"
+    },
+    {
+      "bytes" : 500,
+      "expected" : 1000,
+      "kind" : "resumable",
+      "setup" : "partial"
+    },
+    {
+      "bytes" : 1500,
+      "expected" : 1000,
+      "kind" : "oversized",
+      "setup" : "oversized"
+    },
+    {
+      "bytes" : 0,
+      "expected" : 1000,
+      "kind" : "resumable",
+      "setup" : "zero bytes written"
+    },
+    {
+      "expected" : 0,
+      "kind" : "complete",
+      "setup" : "zero expected, zero written"
+    }
+  ],
+  "shaCases" : [
+    {
+      "data" : "",
+      "sha256" : "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "data" : "hello",
+      "sha256" : "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
+    },
+    {
+      "data" : "The quick brown fox jumps over the lazy dog",
+      "sha256" : "d7a8fbb307d7809469ca9abcb0082e4f8d5651e46d3cdb762d02d0bf37c9e592"
+    }
+  ],
+  "sizesCases" : [
+    {
+      "files" : [
+        [
+          "a.bin",
+          "100"
+        ]
+      ],
+      "result" : true,
+      "write" : [
+        [
+          "a.bin",
+          "100"
+        ]
+      ]
+    },
+    {
+      "files" : [
+        [
+          "a.bin",
+          "100"
+        ]
+      ],
+      "result" : false,
+      "write" : [
+        [
+          "a.bin",
+          "99"
+        ]
+      ]
+    },
+    {
+      "files" : [
+        [
+          "a.bin",
+          "100"
+        ]
+      ],
+      "result" : false,
+      "write" : [
+
+      ]
+    },
+    {
+      "files" : [
+        [
+          "a.bin",
+          "100"
+        ],
+        [
+          "b.bin",
+          "200"
+        ]
+      ],
+      "result" : true,
+      "write" : [
+        [
+          "a.bin",
+          "100"
+        ],
+        [
+          "b.bin",
+          "200"
+        ]
+      ]
+    },
+    {
+      "files" : [
+        [
+          "a.bin",
+          "100"
+        ],
+        [
+          "b.bin",
+          "200"
+        ]
+      ],
+      "result" : false,
+      "write" : [
+        [
+          "a.bin",
+          "100"
+        ],
+        [
+          "b.bin",
+          "199"
+        ]
+      ]
+    },
+    {
+      "files" : [
+
+      ],
+      "result" : true,
+      "write" : [
+
+      ]
+    }
+  ],
+  "storeCases" : [
+    {
+      "hasCompleteModel" : false,
+      "hasManifest" : false,
+      "name" : "gateway-composer",
+      "setup" : "nothing on disk"
+    },
+    {
+      "hasCompleteModel" : true,
+      "hasManifest" : true,
+      "name" : "gateway-composer",
+      "setup" : "complete, default tag"
+    },
+    {
+      "hasCompleteModel" : true,
+      "hasManifest" : true,
+      "name" : "gateway-composer:v2",
+      "setup" : "complete, explicit tag"
+    },
+    {
+      "hasCompleteModel" : true,
+      "hasManifest" : true,
+      "name" : "someone/gateway-composer",
+      "setup" : "namespaced"
+    },
+    {
+      "hasCompleteModel" : false,
+      "hasManifest" : true,
+      "name" : "gateway-composer",
+      "setup" : "manifest present, a blob is the wrong size"
+    },
+    {
+      "hasCompleteModel" : false,
+      "hasManifest" : true,
+      "name" : "gateway-composer",
+      "setup" : "manifest present, a blob is missing"
+    },
+    {
+      "hasCompleteModel" : false,
+      "hasManifest" : true,
+      "name" : "gateway-composer",
+      "setup" : "wrong schema version, otherwise a genuinely complete model"
+    },
+    {
+      "hasCompleteModel" : false,
+      "hasManifest" : true,
+      "name" : "gateway-composer",
+      "setup" : "a declared size is negative"
+    },
+    {
+      "hasCompleteModel" : false,
+      "hasManifest" : true,
+      "name" : "gateway-composer",
+      "setup" : "no layers at all"
+    },
+    {
+      "hasCompleteModel" : false,
+      "hasManifest" : true,
+      "name" : "gateway-composer",
+      "setup" : "malformed manifest json"
+    },
+    {
+      "hasCompleteModel" : false,
+      "hasManifest" : false,
+      "name" : "",
+      "setup" : "empty name"
+    },
+    {
+      "hasCompleteModel" : false,
+      "hasManifest" : false,
+      "name" : "../escape",
+      "setup" : "path traversal in the name"
+    },
+    {
+      "hasCompleteModel" : false,
+      "hasManifest" : false,
+      "name" : "a:../escape",
+      "setup" : "path traversal in the tag"
+    },
+    {
+      "hasCompleteModel" : false,
+      "hasManifest" : true,
+      "name" : "a:b:c",
+      "setup" : "a tag containing its own colon is one component, not split further"
+    }
+  ]
+}

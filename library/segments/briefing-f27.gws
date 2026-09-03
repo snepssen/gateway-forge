@@ -1,0 +1,16 @@
+@segment   briefing-f27
+@title     Focus 27 — The Park and the Reception Centre
+@levels    F27
+@duration  ~1m30s
+@protected Reception Centre
+
+say You are now in Focus 27. Known as The Park.
+pause 5
+say You arrive in the gardens of the Reception Centre. Take a moment to look around.
+pause 12
+say This place is real in the way that matters. It has been here, waiting, and it will be here when you return. The grounds are open. The air is clear. There is space.
+pause 10
+say Behind you, the Reception Centre itself stands open. This is where you can come to engage with the inhabitants of this locale. To meet others, to socialise, to find activity, to ask for guidance, or to simply be among presence. It is always here. You are always welcome.
+pause 10
+say But the Reception Centre is not your destination today.
+pause 8

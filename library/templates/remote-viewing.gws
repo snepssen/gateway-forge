@@ -1,0 +1,30 @@
+# Source-grounded recipe: Wave III — Freedom, CD1-2.
+# The tape's preparatory process is expanded through the existing reusable
+# components; its authored exercise remains one segment rather than being
+# paraphrased here. No generic briefing, Clear Skies or extra hold is added.
+
+@title    Remote Viewing
+@level    F10
+@ending   return
+@pan      right
+@seed     20007
+@verbosity 3
+
+# Awake preparation — must happen before the listener lies down.
+use remote-viewing-intent
+
+surf 0.55
+use orientation
+
+surf 0.30
+use conversion-box
+
+surf 0.18
+use resonant-tuning
+use balloon
+use affirmation
+
+surf 0.0
+use relax-10
+use remote-viewing
+use return-one

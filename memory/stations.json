@@ -1,0 +1,10 @@
+{
+  "records" : [
+    {
+      "channelRestriction" : true,
+      "key" : "F13",
+      "promoted" : false
+    }
+  ],
+  "schemaVersion" : 1
+}

@@ -1,0 +1,39 @@
+# App-authored transition, not from a tape. No tape or manual in the library
+# reaches Focus 42. The only descriptive footing is the public I-There label
+# and an unverified secondary overview; this body labels that footing and
+# prescribes neither distance, imagery nor presence.
+
+@segment    climb-f35-f42
+@title      Climb — Focus 35 to Focus 42
+@levels     F42
+@from       F35
+@fixed
+@verbosity  3
+@protected  Focus 42, I-There
+@duration   ~1m35s
+
+say From Focus 35, you will move through the count to Focus 42.
+pause 4
+say The available secondary map associates Focus 42 with the solar system, our galaxy, and what it calls our I-There. No tape or manual here establishes what this movement should feel or look like.
+pause 7
+say Carry those as coordinates, not requirements. Let the numbers mark the movement, and observe what is actually present.
+pause 6
+level F42
+say Thirty-five.
+pause 5
+say Thirty-six.
+pause 5
+say Thirty-seven.
+pause 5
+say Thirty-eight.
+pause 5
+say Thirty-nine.
+pause 5
+say Forty.
+pause 5
+say Forty-one.
+pause 5
+say Forty-two.
+pause 4
+say Focus 42. I-There.
+pause 8

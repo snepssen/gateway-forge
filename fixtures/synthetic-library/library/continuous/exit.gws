@@ -1,0 +1,5 @@
+@segment cont-exit
+@title Exit
+@continuous-exit default
+@levels F12
+say bye
