@@ -107,6 +107,86 @@ if flags["per-sentence"] != nil, args.count >= 2 {
     }
 }
 
+// What the engine will speak from, as JSON — the fixture the Windows and
+// Linux port is held to. Deterministic: no model is run, only the phonemizer
+// and the id mapping, which is exactly the part a port can get wrong while
+// still producing fluent speech.
+//
+//     gfrender --phonemes "You are now at Focus 10."
+//
+// The same thing for a whole file of lines, one line per row, in one engine
+// load. Comparing a port over a handful of hand-picked sentences proves very
+// little; comparing it over every line the library actually speaks proves
+// something, and that is thousands of process launches otherwise.
+//
+//     gfrender --phonemes-file lines.txt > swift.json
+//
+if let listPath = flags["phonemes-file"] {
+    do {
+        let engine = try SpeechEngines.load(
+            voicesRoot: URL(fileURLWithPath: FileManager.default.currentDirectoryPath).appending(path: "voices"),
+            voice: requestedVoice)
+        guard let piper = engine as? PiperSpeechEngine else {
+            FileHandle.standardError.write(Data("gfrender: this engine has no phoneme form\n".utf8))
+            exit(1)
+        }
+        let source = try String(contentsOf: URL(fileURLWithPath: listPath), encoding: .utf8)
+        let lines = source.split(separator: "\n", omittingEmptySubsequences: true).map(String.init)
+        struct Row: Encodable { var text: String; var calls: [Call] }
+        struct Call: Encodable { var sentence: String; var phonemes: String; var ids: [Int] }
+        var rows: [Row] = []
+        for line in lines {
+            let forms = try piper.spokenForm(of: line)
+            rows.append(Row(text: line,
+                            calls: forms.map { .init(sentence: $0.sentence, phonemes: $0.phonemes, ids: $0.ids) }))
+        }
+        let enc = JSONEncoder()
+        enc.outputFormatting = [.sortedKeys, .withoutEscapingSlashes]
+        // `print`, not `FileHandle.standardOutput.write`: the banner above is
+        // printed and therefore buffered, and an unbuffered write here comes
+        // out *before* it flushes — leaving the banner glued to the end of the
+        // JSON, which parses as far as the closing bracket and then fails.
+        print(String(data: try enc.encode(rows), encoding: .utf8) ?? "")
+        exit(0)
+    } catch {
+        FileHandle.standardError.write(Data("gfrender: \(error.localizedDescription)\n".utf8))
+        exit(1)
+    }
+}
+
+if let text = flags["phonemes"] {
+    do {
+        let engine = try SpeechEngines.load(
+            voicesRoot: URL(fileURLWithPath: FileManager.default.currentDirectoryPath).appending(path: "voices"),
+            voice: requestedVoice)
+        guard let piper = engine as? PiperSpeechEngine else {
+            FileHandle.standardError.write(Data("gfrender: this engine has no phoneme form\n".utf8))
+            exit(1)
+        }
+        struct Out: Encodable {
+            var text: String
+            var voice: String
+            var modelSampleRate: Int
+            var scales: [Float]
+            var calls: [Call]
+            struct Call: Encodable { var sentence: String; var phonemes: String; var ids: [Int] }
+        }
+        let forms = try piper.spokenForm(of: text)
+        let out = Out(text: text,
+                      voice: requestedVoice.isEmpty ? (Engine.bundledVoices().first ?? "") : requestedVoice,
+                      modelSampleRate: piper.modelSampleRate,
+                      scales: piper.inferenceScales,
+                      calls: forms.map { .init(sentence: $0.sentence, phonemes: $0.phonemes, ids: $0.ids) })
+        let enc = JSONEncoder()
+        enc.outputFormatting = [.prettyPrinted, .sortedKeys, .withoutEscapingSlashes]
+        print(String(data: try enc.encode(out), encoding: .utf8) ?? "")
+        exit(0)
+    } catch {
+        FileHandle.standardError.write(Data("gfrender: \(error.localizedDescription)\n".utf8))
+        exit(1)
+    }
+}
+
 let probing = flags["probe"] != nil
 guard probing || args.count >= 2 else {
     print("usage: gfrender \"text\" out.wav [--voice name] [--max 600]  |  gfrender --probe  |  gfrender --measure-pace")

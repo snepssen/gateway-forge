@@ -208,6 +208,46 @@ public final class PiperSpeechEngine: SpeechEngine, @unchecked Sendable {
                           hitCap: false, stoppedOnRepeat: false)
     }
 
+    /// What this engine will actually speak from, per inference call.
+    ///
+    /// Exposed for one reason: the Windows and Linux build has to be held to
+    /// it. Everything between the authored text and the model — the espeak
+    /// respellings, the clause terminators, NFD, the dropped final stop, the
+    /// BOS/PAD/EOS framing and the two trailing pads — is a decision this file
+    /// made and measured, and a port that got any of them wrong would still
+    /// produce fluent speech, just not *this voice's* speech. A fixture nobody
+    /// can regenerate is a number somebody once typed, so `gfrender
+    /// --phonemes` prints this and `cross-platform` compares against it.
+    ///
+    /// The call decomposition is `generate`'s own, not a second opinion about
+    /// it: one entry here is one inference call there.
+    public struct SpokenForm: Sendable {
+        public var sentence: String
+        public var phonemes: String
+        public var ids: [Int]
+    }
+
+    public func spokenForm(of text: String) throws -> [SpokenForm] {
+        let sentences = RenderPlan.sentences(in: text)
+        let calls = sentences.count > 1 ? sentences : [sentences.first ?? text]
+        return try calls.map { sentence in
+            let phonemes = try phonemizer.phonemize(sentence, dropFinalStop: dropFinalFullStop)
+            return SpokenForm(sentence: sentence, phonemes: phonemes,
+                              ids: phonemesToIds(phonemes, map: config.phoneme_id_map))
+        }
+    }
+
+    /// The three inference scales, in the order the model's `scales` input
+    /// wants them. Read off the bundled config rather than restated.
+    public var inferenceScales: [Float] {
+        [Float(config.inference.noise_scale),
+         Float(config.inference.length_scale),
+         Float(config.inference.noise_w)]
+    }
+
+    /// The rate the model emits at, before this engine resamples to 24 kHz.
+    public var modelSampleRate: Int { config.audio.sample_rate }
+
     /// One sentence, one inference call.
     private func renderOne(_ text: String) throws -> [Float] {
         let phonemized = try phonemizer.phonemize(text, dropFinalStop: dropFinalFullStop)
