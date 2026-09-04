@@ -34,5 +34,12 @@ jobs:
           node-version: 22
           cache: npm
           cache-dependency-path: cross-platform/package-lock.json
+      # The checks compile the whole of `src`, which now includes the Electron
+      # main process, so the build needs Electron's *types*. It does not need
+      # Electron itself: nothing here launches a window. Skipping the binary
+      # keeps a ~100MB download out of both runners for something they would
+      # never execute.
       - run: npm ci
+        env:
+          ELECTRON_SKIP_BINARY_DOWNLOAD: 1
       - run: npm run check:ci
