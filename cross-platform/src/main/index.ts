@@ -16,7 +16,8 @@
 import { app, BrowserWindow, ipcMain } from "electron";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
-import { bedPlanFor, listeningModel, saveListening, shellModel } from "./model.js";
+import { bedPlanFor, engineStatus, listeningModel, saveListening, shellModel,
+         speakCalibrationLine } from "./model.js";
 import { guardOutboundSockets } from "./netguard.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -78,6 +79,30 @@ ipcMain.handle("bed:level", (_event, key: unknown) => {
   try {
     if (typeof key !== "string") throw new Error("a level key is required");
     return { ok: true, ...bedPlanFor(key) };
+  } catch (error) {
+    return { ok: false, error: error instanceof Error ? error.message : String(error) };
+  }
+});
+
+// The voice, spoken. Returns raw samples rather than a file: the renderer
+// plays them through the same graph the bed runs in, so the Narration slider
+// balances against the room the way it is meant to.
+//
+// `Float32Array` crosses the bridge as its underlying buffer, which
+// structured-clone copies rather than shares — a few hundred KB per line and
+// nothing retained on this side.
+ipcMain.handle("speech:calibration", async () => {
+  try {
+    const spoken = await speakCalibrationLine();
+    return { ok: true, ...spoken, samples: spoken.samples.buffer };
+  } catch (error) {
+    return { ok: false, error: error instanceof Error ? error.message : String(error) };
+  }
+});
+
+ipcMain.handle("speech:engine", () => {
+  try {
+    return { ok: true, ...engineStatus() };
   } catch (error) {
     return { ok: false, error: error instanceof Error ? error.message : String(error) };
   }

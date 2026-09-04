@@ -47,6 +47,10 @@ type BedReply =
   | { ok: true; plan: BedPlan; profile: AudioProfile }
   | { ok: false; error: string };
 
+type SpeechReply =
+  | { ok: true; samples: ArrayBuffer; sampleRate: number; voice: string; text: string }
+  | { ok: false; error: string };
+
 type ListeningReply =
   | { ok: true; profile: AudioProfile; bed: BedPlan;
       levels: { name: string; field: keyof AudioProfile; tint: string; why: string }[] }
@@ -59,6 +63,8 @@ declare global {
       bedLevel(key: string): Promise<BedReply>;
       listening(): Promise<ListeningReply>;
       saveListening(profile: AudioProfile): Promise<{ ok: boolean; error?: string }>;
+      speakCalibration(): Promise<SpeechReply>;
+      speechEngine(): Promise<{ ok: boolean; name?: string; voices?: string[]; voice?: string; error?: string }>;
     };
   }
 }
@@ -376,6 +382,7 @@ function wireDestinations(): void {
   $("mixListen").addEventListener("click", () => { void listening.toggle(); });
   $("mixTuning").addEventListener("click", () => listening.cue("tuning"));
   $("mixReturn").addEventListener("click", () => listening.cue("return"));
+  $("mixSpeak").addEventListener("click", () => { void listening.speak(); });
 }
 
 async function start(): Promise<void> {
