@@ -207,10 +207,18 @@ for (const level of lib.levels) {
     console.log("  note: no memory/audio.json in this tree — byte-parity check stands down");
   } else {
     const again = encodeAudioProfile(decodeAudioProfile(JSON.parse(original)));
+    // Line endings are called out by name because that is the way this fails
+    // on a fresh Windows checkout, and "the bytes differ" would send the next
+    // person looking at the encoder instead of at `.gitattributes`.
+    const onlyLineEndings = again !== original && again === original.replace(/\r\n/g, "\n");
     check(again === original,
       "re-encoding the Mac's own calibration reproduces it byte for byte"
-      + (again === original ? "" : `\n         mine:  ${JSON.stringify(again.slice(0, 60))}`
-                                 + `\n         theirs: ${JSON.stringify(original.slice(0, 60))}`));
+      + (again === original ? ""
+         : onlyLineEndings
+           ? " — the only difference is line endings, so this checkout has CRLF where "
+             + "`.gitattributes` asks memory/** for LF"
+           : `\n         mine:   ${JSON.stringify(again.slice(0, 70))}`
+             + `\n         theirs: ${JSON.stringify(original.slice(0, 70))}`));
   }
 }
 

@@ -5,3 +5,9 @@ library/**/*.gws text eol=lf
 library/reference/**/*.json text eol=lf
 focus/**/*.gws text eol=lf
 fixtures/** text eol=lf
+
+# `memory/audio.json` is written by *both* builds, and `audio-parity` compares
+# the bytes the TypeScript encoder produces against the ones Swift's
+# `JSONEncoder` left there. A CRLF checkout fails that comparison, and worse,
+# the first slider moved on Windows would rewrite the whole file back to LF.
+memory/** text eol=lf
