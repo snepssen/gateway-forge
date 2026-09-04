@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "cross-platform/**"
+      - "Sources/GatewayTTS/Resources/**"
       - "library/**"
       - "focus/**"
       - "fixtures/**"
@@ -11,6 +12,7 @@ on:
   pull_request:
     paths:
       - "cross-platform/**"
+      - "Sources/GatewayTTS/Resources/**"
       - "library/**"
       - "focus/**"
       - "fixtures/**"
@@ -43,3 +45,9 @@ jobs:
         env:
           ELECTRON_SKIP_BINARY_DOWNLOAD: 1
       - run: npm run check:ci
+      # The speech engine, on the platforms it is for. Separate from the core
+      # checks because it loads a 63 MB model and they must never — and worth
+      # the minute it costs, because the whole point of vendoring espeak-ng
+      # was to make Windows and Linux phonemize exactly as the Mac does, and
+      # nothing but running it here proves that on those machines.
+      - run: npm run speech
