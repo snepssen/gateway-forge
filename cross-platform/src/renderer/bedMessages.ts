@@ -1,0 +1,52 @@
+/**
+ * What the page and the audio worklet say to each other.
+ *
+ * One file rather than a shape agreed by convention at each end: the worklet
+ * runs in its own global scope with its own module graph, so a mismatch here
+ * is not a compile error anywhere unless the types are shared.
+ */
+import type { BedPlan } from "../core/bedPlan.js";
+import type { AudioProfile } from "../core/audioProfile.js";
+
+/**
+ * The state the processor is *built* with, passed as `processorOptions`
+ * rather than posted.
+ *
+ * A message posted to a worklet is delivered on the audio thread's own queue,
+ * which is not synchronised with the node's construction — so a plan posted
+ * immediately after `new AudioWorkletNode` races the processor coming into
+ * existence, and an `OfflineAudioContext` can render a whole buffer without
+ * ever draining that queue. Construction options have neither problem: they
+ * are part of the processor's creation. Later changes still go over the port,
+ * where a realtime context delivers them reliably.
+ */
+export interface BedInit {
+  plan: BedPlan;
+  profile: AudioProfile;
+  holdLastStage: boolean;
+  playing: boolean;
+}
+
+/** Page → worklet. */
+export type ToBed =
+  | { kind: "plan"; plan: BedPlan; holdLastStage: boolean }
+  | { kind: "profile"; profile: AudioProfile }
+  /** Ramped up to the calibrated master, from wherever the bed currently is. */
+  | { kind: "play" }
+  /** Ramped down. The worklet keeps rendering until it is actually silent and
+   *  then says so — stopping the graph at the moment of the request would
+   *  cut the ramp off and click. */
+  | { kind: "stop" }
+  | { kind: "seek"; seconds: number };
+
+/** Worklet → page. */
+export type FromBed =
+  /** Roughly four times a second while sounding, so the page can show that
+   *  audio is genuinely being produced rather than that a button is lit. */
+  | { kind: "position"; seconds: number }
+  /** The stop ramp has finished; the context can be suspended now. */
+  | { kind: "silent" }
+  /** The output device gave fewer than two channels, so there is no
+   *  differential to hear. Said out loud rather than played as something that
+   *  sounds like it is working. */
+  | { kind: "notStereo"; channels: number };

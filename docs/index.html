@@ -371,18 +371,23 @@ cd gateway-forge && ./build.sh</code></pre>
       <tbody>
         <tr><td>Desktop app</td><td>macOS 14+, Apple Silicon</td><td><span class="pill found">Installed daily driver</span></td></tr>
         <tr><td>iOS companion</td><td>iOS 17+</td><td><span class="pill found">Builds and syncs over LAN</span></td></tr>
-        <tr><td>Windows / Linux</td><td>TypeScript core</td><td><span class="pill prov">Core ported and checked — no interface yet</span></td></tr>
+        <tr><td>Windows / Linux</td><td>TypeScript core + Electron shell</td><td><span class="pill prov">Shell and bed run — nothing packaged yet</span></td></tr>
       </tbody>
     </table>
   </div>
-  <div class="note"><b>There is no Windows or Linux download, and that is not an oversight.</b>
-  <code>cross-platform/</code> is 57 core modules and 29 check suites with no
-  interface on top of them and nothing to package — deliberately, so the rules
-  are proven to travel before anything is built to sit on them. Every push runs
-  that core on real Ubuntu and Windows runners against the same fixtures the Mac
-  build is held to. What is still undecided is the speech engine: the bundled
-  voice is Piper through ONNX Runtime, and which engine a non-Mac build should
-  carry is the question that gates the interface, not the other way round.</div>
+  <div class="note"><b>There is still no Windows or Linux download.</b>
+  <code>cross-platform/</code> is 59 core modules, 30 check suites, and a shell
+  drawn on top of them: the climb rail, a level page, and the bed — the binaural
+  pair and the noise textures under it — sounding live through the same
+  <code>BedEngine</code> the Mac plays, <em>imported</em> by the audio worklet
+  rather than copied into it, so the parity suites that hold it to the Swift
+  original are checking the code that actually plays. Every push runs that core
+  on real Ubuntu and Windows runners against the same fixtures the Mac build is
+  held to. What is missing is no longer the interface: the library is not yet
+  bundled into an application, <code>electron-builder</code> has never been run
+  against it, and the speech engine is still undecided — the bundled voice is
+  Piper through ONNX Runtime, and until that is answered a non-Mac build has no
+  narration. The bed plays; nobody speaks yet.</div>
 </section>
 
 <section>

@@ -63,6 +63,23 @@
         <h3>Signal</h3>
         <p class="mono" id="levelSignal"></p>
         <p class="muted" id="levelSignalNote"></p>
+
+        <!--
+          The bed, made audible. A carrier and a differential printed as two
+          decimals are the one thing on this page that cannot be checked by
+          reading it, so the control that sounds them belongs here rather than
+          in a player somewhere else.
+        -->
+        <div class="listen" id="listen" hidden>
+          <button class="listen-button" id="listenButton" type="button">
+            <span class="listen-glyph" id="listenGlyph" aria-hidden="true">▶</span>
+            <span id="listenLabel">Listen</span>
+          </button>
+          <span class="listen-time mono" id="listenTime" hidden>0:00</span>
+          <span class="listen-note" id="listenNote">Headphones — the differential is between the ears.</span>
+        </div>
+        <p class="listen-played" id="listenPlayed" hidden></p>
+        <p class="listen-error" id="listenError" hidden></p>
       </section>
 
       <section class="card" id="publishedCard">
