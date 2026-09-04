@@ -14,11 +14,23 @@
 // scope of every other file instead.
 export {};
 
+interface StationRow {
+  beat: number;
+  carrier: number;
+  differential: boolean;
+  provenance: "measured" | "tuned" | "stated" | "estimated";
+}
+
 interface LevelRow {
   key: string;
   name: string;
+  /** What the bed would play: a measured tape profile where there is one.
+   *  The rail chip's number. */
   beat: number;
   carrier: number;
+  /** The ladder's reading of this rung, and where it came from. The level
+   *  page's number — deliberately not the same quantity as above. */
+  station?: StationRow;
   unverified: boolean;
   published: string;
   notes: string;
@@ -50,10 +62,20 @@ function show(which: (typeof panes)[number]): void {
 /** A differential of zero is the same frequency in both ears — no binaural
  *  signal at all, which is correct at waking consciousness and at a signpost
  *  passed through. It is described that way rather than printed as "0.0 Hz",
- *  which would read as a missing measurement. */
-function signalSentence(l: LevelRow): string {
-  if (l.beat <= 0) return `no differential — ${l.carrier.toFixed(0)} Hz carrier, textures only`;
-  return `${l.beat.toFixed(2)} Hz differential at ${l.carrier.toFixed(0)} Hz carrier`;
+ *  which would read as a missing measurement. Same sentence the Mac prints. */
+function signalSentence(st: StationRow): string {
+  if (!st.differential) return "no differential — textures only";
+  return `${st.beat.toFixed(2)} Hz differential at ${st.carrier.toFixed(0)} Hz carrier`;
+}
+
+/** Where the number came from, said rather than implied. */
+function provenanceNote(p: StationRow["provenance"]): string {
+  switch (p) {
+    case "measured": return "Measured off the tape for this level.";
+    case "tuned":    return "Tuned by hand for this level.";
+    case "stated":   return "Stated in the level's own configuration, not yet verified.";
+    case "estimated":return "Interpolated from the levels either side. An estimate, not a measurement.";
+  }
 }
 
 function beatLabel(l: LevelRow): string {
@@ -101,10 +123,16 @@ function selectLevel(model: ShellModel, key: string): void {
   $("levelName").textContent = level.name;
   $("levelKey").textContent = level.key;
   $("levelUnverified").hidden = !level.unverified;
-  $("levelSignal").textContent = signalSentence(level);
-  $("levelSignalNote").textContent = level.unverified
-    ? "A placeholder, carried from what the neighbouring levels imply. Not yet tuned."
-    : "Tuned or measured for this level.";
+  // Below Focus 10 the count is an induction rather than a rung, so there is
+  // no station to read — said plainly instead of shown as a blank reading.
+  if (level.station) {
+    $("levelSignal").textContent = signalSentence(level.station);
+    $("levelSignalNote").textContent = provenanceNote(level.station.provenance);
+  } else {
+    $("levelSignal").textContent = "—";
+    $("levelSignalNote").textContent =
+      "This station is below Focus 10, where the count is an induction rather than a ladder.";
+  }
 
   // Published and found are shown together and never merged. Where one is
   // empty it says so rather than borrowing the other's text.
