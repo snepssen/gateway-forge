@@ -243,3 +243,61 @@ h3 { font-size: 13px; font-weight: 600; margin: 0 0 6px; }
 .listen-played { margin: 9px 0 0; font-size: 11.5px; color: var(--cyan); }
 
 .listen-error { margin: 10px 0 0; font-size: 12px; color: var(--red); }
+
+/* --------------------------------------------------------- studio contents */
+.destlist { list-style: none; margin: 0; padding: 0; }
+.destrow {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 11px 14px;
+  margin: 0 0 7px;
+  border: 1px solid var(--inset);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--fg);
+  font: inherit;
+  cursor: default;
+}
+.destrow:hover:not([disabled]) { border-color: var(--comment); }
+.destrow:focus-visible { outline: 2px solid var(--purple); outline-offset: 2px; }
+/* Gray is "nothing there yet" in this project's state language, and seven of
+   these eight are exactly that. They are shown rather than hidden so the list
+   says what the build is, not what it wishes it were. */
+.destrow[disabled] { background: transparent; color: var(--comment); }
+.destrow .t { font-weight: 600; }
+.destrow .s { display: block; margin-top: 2px; font-size: 11.5px; color: var(--comment); }
+.destrow[disabled] .t { font-weight: 500; }
+
+/* ------------------------------------------------------------------- mixer */
+.cue-button {
+  padding: 5px 11px;
+  border: 1px solid var(--inset);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--fg);
+  font: inherit;
+  font-size: 12px;
+  cursor: default;
+}
+.cue-button:hover:not([disabled]) { border-color: var(--comment); }
+.cue-button:focus-visible { outline: 2px solid var(--purple); outline-offset: 2px; }
+.cue-button[disabled] { color: var(--comment); border-color: var(--inset); }
+
+.mixrow { padding: 9px 0; border-bottom: 1px solid var(--inset); }
+.mixrow:last-child { border-bottom: 0; padding-bottom: 0; }
+.mixrow:first-child { padding-top: 0; }
+
+.mixhead { display: flex; align-items: center; gap: 12px; }
+/* A fixed name column, so eight sliders start at one edge and the eye reads
+   the row of handles as a mix rather than as eight separate controls. */
+.mixname { width: 118px; flex: 0 0 118px; }
+.mixhead input[type="range"] { flex: 1 1 auto; min-width: 0; height: 18px; }
+.mixvalue {
+  width: 42px; flex: 0 0 42px; text-align: right;
+  font-family: "SF Mono", "Cascadia Mono", monospace;
+  font-size: 11.5px; font-variant-numeric: tabular-nums;
+}
+
+.mixwhy { margin: 3px 0 0 130px; font-size: 11.5px; color: var(--comment); }
+.mixwhy.is-silent { color: var(--orange); }
