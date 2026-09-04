@@ -9,6 +9,8 @@
  */
 
 import { BedPlayer, type BedState, timecode } from "./bed.js";
+import { $ } from "./dom.js";
+import { ListeningPane } from "./listening.js";
 import type { BedPlan } from "../core/bedPlan.js";
 import type { AudioProfile } from "../core/audioProfile.js";
 
@@ -45,22 +47,23 @@ type BedReply =
   | { ok: true; plan: BedPlan; profile: AudioProfile }
   | { ok: false; error: string };
 
+type ListeningReply =
+  | { ok: true; profile: AudioProfile; bed: BedPlan;
+      levels: { name: string; field: keyof AudioProfile; tint: string; why: string }[] }
+  | { ok: false; error: string };
+
 declare global {
   interface Window {
     gateway: {
       shellModel(): Promise<ModelReply>;
       bedLevel(key: string): Promise<BedReply>;
+      listening(): Promise<ListeningReply>;
+      saveListening(profile: AudioProfile): Promise<{ ok: boolean; error?: string }>;
     };
   }
 }
 
-const $ = <T extends HTMLElement>(id: string): T => {
-  const el = document.getElementById(id);
-  if (!el) throw new Error(`the page is missing #${id}`);
-  return el as T;
-};
-
-const panes = ["paneHome", "paneLevel", "paneStudio", "paneError"] as const;
+const panes = ["paneHome", "paneLevel", "paneStudio", "paneListening", "paneError"] as const;
 function show(which: (typeof panes)[number]): void {
   for (const p of panes) $(p).hidden = p !== which;
 }
@@ -148,6 +151,7 @@ function selectLevel(model: ShellModel, key: string): void {
   $("inspectorTitle").textContent = `${level.key} — notes`;
   $("inspectorBody").textContent = level.notes || "Write what you perceived.";
 
+  if (!$("paneListening").hidden) { bed.stop(); listening.close(); }
   $("listen").hidden = false;
   void armBed(level);
 
@@ -167,7 +171,10 @@ const headphoneNote = "Headphones — the differential is between the ears.";
 let armed: { key: string; plan: BedPlan; profile: AudioProfile } | undefined;
 
 const bed = new BedPlayer({
-  state: renderBedState,
+  state: state => {
+    renderBedState(state);
+    listening.bedState(state === "playing" || state === "starting");
+  },
   position: seconds => { $("listenTime").textContent = timecode(seconds); },
   notStereo: channels => {
     const note = $("listenNote");
@@ -183,6 +190,8 @@ const bed = new BedPlayer({
     error.hidden = false;
   },
 });
+
+const listening = new ListeningPane(bed);
 
 function renderBedState(state: BedState): void {
   const sounding = state === "playing" || state === "starting";
@@ -278,30 +287,95 @@ function renderCounts(model: ShellModel): void {
   }
 }
 
-function wireDestinations(model: ShellModel): void {
+/**
+ * Studio's eight destinations, in the Mac's own order and with its own
+ * subtitles. Seven of them do not exist on this build; they are listed
+ * anyway, greyed, because a menu showing only what works misrepresents what
+ * Studio is — and because the gap is the honest headline of this port.
+ */
+const studioDestinations: { key: string; title: string; subtitle: string; built: boolean }[] = [
+  { key: "queues", title: "Production", subtitle: "Narration, assembly and opportunistic rendering.", built: false },
+  { key: "sessions", title: "Session Plans", subtitle: "Templates, structure, bed automation and composition.", built: false },
+  { key: "listening", title: "Listening", subtitle: "Calibrate the live bed.", built: true },
+  { key: "voice", title: "Voice", subtitle: "The bundled voices, and which one the queue renders with.", built: false },
+  { key: "library", title: "Library", subtitle: "Authored coverage, gaps and unassigned material.", built: false },
+  { key: "deleted", title: "Recently Deleted", subtitle: "Restore anything deleted in the last 30 days, or remove it now.", built: false },
+  { key: "system", title: "System", subtitle: "Installed components, the local composer, and measured readiness.", built: false },
+];
+
+/** Everything that has to happen on the way out of wherever we were: the bed
+ *  silenced, and any unsaved drag flushed to the file. */
+function leaveCurrentPane(): void {
+  bed.stop();
+  armed = undefined;
+  $("listen").hidden = true;
+  if (!$("paneListening").hidden) listening.close();
+}
+
+function openListening(): void {
+  leaveCurrentPane();
+  $("inspectorTitle").textContent = "Listening";
+  $("inspectorBody").textContent =
+    "Eight levels, saved once and applied to everything a session plays.";
+  show("paneListening");
+  void listening.open();
+}
+
+function renderStudio(): void {
+  const list = $("studioList");
+  list.textContent = "";
+  for (const dest of studioDestinations) {
+    const li = document.createElement("li");
+    const button = document.createElement("button");
+    button.className = "destrow";
+    button.type = "button";
+    button.disabled = !dest.built;
+
+    const title = document.createElement("span");
+    title.className = "t";
+    title.textContent = dest.title;
+
+    const subtitle = document.createElement("span");
+    subtitle.className = "s";
+    subtitle.textContent = dest.built
+      ? dest.subtitle
+      : `${dest.subtitle} Not built on this platform yet.`;
+
+    button.append(title, subtitle);
+    if (dest.built) button.addEventListener("click", openListening);
+    li.append(button);
+    list.append(li);
+  }
+}
+
+function openStudio(): void {
+  leaveCurrentPane();
+  $("inspectorTitle").textContent = "Studio";
+  $("inspectorBody").textContent = "Build, tune and maintain Gateway Forge.";
+  show("paneStudio");
+}
+
+function openHome(): void {
+  leaveCurrentPane();
+  $("inspectorTitle").textContent = "The default path";
+  $("inspectorBody").textContent = "The order the tapes teach it in.";
+  show("paneHome");
+}
+
+function wireDestinations(): void {
   for (const el of document.querySelectorAll<HTMLButtonElement>(".dest")) {
     el.addEventListener("click", () => {
       for (const other of document.querySelectorAll(".dest, .level")) {
         other.classList.remove("is-selected");
       }
       el.classList.add("is-selected");
-      // Sound with nothing on screen accounting for it is how a bed gets left
-      // running in another room. Leaving the level page stops it.
-      bed.stop();
-      armed = undefined;
-      $("listen").hidden = true;
-      const dest = el.dataset.dest;
-      if (dest === "studio") {
-        $("inspectorTitle").textContent = "Journal";
-        $("inspectorBody").textContent = "Select a segment, a session plan, or a tape.";
-        show("paneStudio");
-      } else {
-        $("inspectorTitle").textContent = "The default path";
-        $("inspectorBody").textContent = "The order the tapes teach it in.";
-        show("paneHome");
-      }
+      if (el.dataset.dest === "studio") openStudio(); else openHome();
     });
   }
+
+  $("mixListen").addEventListener("click", () => { void listening.toggle(); });
+  $("mixTuning").addEventListener("click", () => listening.cue("tuning"));
+  $("mixReturn").addEventListener("click", () => listening.cue("return"));
 }
 
 async function start(): Promise<void> {
@@ -315,7 +389,8 @@ async function start(): Promise<void> {
   $("root").textContent = model.root;
   renderCounts(model);
   renderLevels(model);
-  wireDestinations(model);
+  renderStudio();
+  wireDestinations();
   $("listenButton").addEventListener("click", toggleBed);
   renderBedState("stopped");
   // A bed still ramping when the window goes is a bed that outlives its
