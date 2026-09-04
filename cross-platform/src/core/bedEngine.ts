@@ -7,6 +7,8 @@
  * xorshift32 from the same seed, and it must stay that way or the two
  * implementations stop being comparable even when they sound identical.
  */
+import type { AudioProfile } from "./audioProfile.js";
+import { clampedAudioProfile } from "./audioProfile.js";
 import {
   type BedPlan, type Tuning, type Warble,
   signalAt, textureAt, tuningContains, tuningEnvelope, tuningState,
@@ -85,6 +87,23 @@ export class BedEngine {
   private rng = 0x9e3779b9;
 
   constructor(plan: BedPlan) { this.plan = plan; }
+
+  /**
+   * The saved headphone calibration, as ramp targets rather than immediate
+   * values — every one of these is reached over `rampSeconds` inside
+   * `render`, because a step change in amplitude is an audible click and this
+   * is called while a slider is moving.
+   */
+  apply(profile: AudioProfile): void {
+    const p = clampedAudioProfile(profile);
+    this.targetHemi = p.hemiSync;
+    this.targetPink = p.pinkNoise;
+    this.targetWhite = p.whiteNoise;
+    this.targetSurf = p.surf;
+    this.targetTuning = p.resonantTuning;
+    this.targetReturnSignal = p.returnSignal;
+    this.targetGain = p.master;
+  }
 
   get elapsedSeconds(): number { return this.t; }
   seek(seconds: number): void { this.t = Math.max(0, seconds); }
