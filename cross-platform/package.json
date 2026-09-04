@@ -3,16 +3,66 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Gateway Forge for Windows and Linux. Core and checks first; the interface follows.",
+  "main": "out/main/index.js",
+  "description": "Gateway Forge for Windows and Linux. The ported core, its checks, and the shell drawn on top of them.",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && node scripts/copy-static.mjs",
     "check": "npm run build && node out/check/platform-paths.js && node out/check/run.js && node out/check/bed-parity.js && node out/check/build-parity.js && node out/check/script-parity.js && node out/check/render-parity.js && node out/check/library-parity.js && node out/check/manifest-parity.js && node out/check/compose-parity.js && node out/check/activity-parity.js && node out/check/recipe-parity.js && node out/check/storage-parity.js && node out/check/deletion-parity.js && node out/check/bootstrap-parity.js && node out/check/scaffold-parity.js && node out/check/policy-parity.js && node out/check/path-parity.js && node out/check/continuous-parity.js && node out/check/transit-parity.js && node out/check/session-parity.js && node out/check/voice-parity.js && node out/check/small-parity.js && node out/check/graph-parity.js && node out/check/queue-parity.js && node out/check/authoring-parity.js && node out/check/template-parity.js && node out/check/journal-write-parity.js && node out/check/compose-eval-parity.js && node out/check/model-parity.js",
     "check:ci": "npm run build && node out/check/platform-paths.js && node out/check/run.js && node out/check/bed-parity.js && node out/check/build-parity.js && node out/check/script-parity.js && node out/check/render-parity.js && node out/check/compose-parity.js && node out/check/deletion-parity.js && node out/check/bootstrap-parity.js && node out/check/scaffold-parity.js && node out/check/policy-parity.js && node out/check/path-parity.js && node out/check/continuous-parity.js && node out/check/voice-parity.js && node out/check/small-parity.js && node out/check/graph-parity.js && node out/check/queue-parity.js && node out/check/authoring-parity.js && node out/check/template-parity.js && node out/check/journal-write-parity.js && node out/check/compose-eval-parity.js && node out/check/model-parity.js",
     "rules": "npm run build && node out/check/platform-paths.js && node out/check/run.js",
-    "parity": "npm run build && node out/check/bed-parity.js && node out/check/build-parity.js && node out/check/script-parity.js && node out/check/render-parity.js && node out/check/library-parity.js && node out/check/manifest-parity.js && node out/check/compose-parity.js && node out/check/activity-parity.js && node out/check/recipe-parity.js && node out/check/storage-parity.js && node out/check/deletion-parity.js && node out/check/bootstrap-parity.js && node out/check/scaffold-parity.js && node out/check/policy-parity.js && node out/check/path-parity.js && node out/check/continuous-parity.js && node out/check/transit-parity.js && node out/check/session-parity.js && node out/check/voice-parity.js && node out/check/small-parity.js && node out/check/graph-parity.js && node out/check/queue-parity.js && node out/check/authoring-parity.js && node out/check/template-parity.js && node out/check/journal-write-parity.js && node out/check/compose-eval-parity.js && node out/check/model-parity.js"
+    "parity": "npm run build && node out/check/bed-parity.js && node out/check/build-parity.js && node out/check/script-parity.js && node out/check/render-parity.js && node out/check/library-parity.js && node out/check/manifest-parity.js && node out/check/compose-parity.js && node out/check/activity-parity.js && node out/check/recipe-parity.js && node out/check/storage-parity.js && node out/check/deletion-parity.js && node out/check/bootstrap-parity.js && node out/check/scaffold-parity.js && node out/check/policy-parity.js && node out/check/path-parity.js && node out/check/continuous-parity.js && node out/check/transit-parity.js && node out/check/session-parity.js && node out/check/voice-parity.js && node out/check/small-parity.js && node out/check/graph-parity.js && node out/check/queue-parity.js && node out/check/authoring-parity.js && node out/check/template-parity.js && node out/check/journal-write-parity.js && node out/check/compose-eval-parity.js && node out/check/model-parity.js",
+    "start": "npm run build && electron .",
+    "dist": "npm run build && electron-builder --publish never",
+    "dist:linux": "npm run build && electron-builder --linux --publish never",
+    "dist:win": "npm run build && electron-builder --win --publish never"
   },
   "devDependencies": {
-    "typescript": "^5.6.0",
-    "@types/node": "^22.0.0"
+    "@types/node": "^22.0.0",
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0",
+    "typescript": "^5.6.0"
+  },
+  "build": {
+    "appId": "local.gatewayforge.app",
+    "productName": "Gateway Forge",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "out/**/*",
+      "package.json"
+    ],
+    "linux": {
+      "target": [
+        {
+          "target": "tar.gz",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "category": "AudioVideo"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    }
+  },
+  "allowScripts": {
+    "electron@33.4.11": true
   }
 }

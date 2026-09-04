@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; script-src 'self'; img-src 'self' data:">
+<title>Gateway Forge</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--
+  Three columns, the same three the Swift shell has: the climb rail, the
+  workspace, and an inspector. The rail is 200 wide and does not stretch —
+  on the Mac an unpinned ideal let the split view pay for the inspector out
+  of the rail, and the rail ended up showing beat chips with no level names.
+  The same mistake is available here, so the same answer: a fixed track.
+-->
+<div class="shell">
+
+  <nav class="rail" aria-label="Climb">
+    <ul class="destinations">
+      <li><button class="dest is-selected" data-dest="home">
+        <span class="glyph" aria-hidden="true">⌂</span>Home</button></li>
+      <li><button class="dest" data-dest="focus">
+        <span class="glyph" aria-hidden="true">⬡</span>Focus</button></li>
+      <li><button class="dest" data-dest="studio">
+        <span class="glyph" aria-hidden="true">≡</span>Studio</button></li>
+    </ul>
+
+    <h2 class="rail-section">The Climb</h2>
+    <ul class="levels" id="levels">
+      <!-- filled from the ported core; never hard-coded here -->
+    </ul>
+    <p class="rail-empty" id="railEmpty" hidden>
+      No levels — <code>library/levels.json</code> was not found.
+    </p>
+  </nav>
+
+  <main class="workspace" id="workspace">
+    <div class="pane" id="paneHome">
+      <h1>Gateway Forge</h1>
+      <p class="sub">Choose an experience. Build and maintenance live in Studio.</p>
+
+      <section class="card">
+        <h3>Library</h3>
+        <p class="muted">Read through the same core the Mac build uses, so this
+          cannot disagree with it about what is here.</p>
+        <dl class="counts" id="counts"></dl>
+      </section>
+
+      <section class="card" id="rootCard">
+        <h3>Library root</h3>
+        <p class="mono muted" id="root"></p>
+      </section>
+    </div>
+
+    <div class="pane" id="paneLevel" hidden>
+      <h1 id="levelName"></h1>
+      <p class="chips"><span class="chip" id="levelKey"></span>
+        <span class="chip chip-warn" id="levelUnverified" hidden>beat unverified</span></p>
+
+      <section class="card">
+        <h3>Signal</h3>
+        <p class="mono" id="levelSignal"></p>
+        <p class="muted" id="levelSignalNote"></p>
+      </section>
+
+      <section class="card" id="publishedCard">
+        <h3>Description</h3>
+        <p class="eyebrow">Published · Monroe Institute</p>
+        <p id="levelPublished"></p>
+      </section>
+
+      <section class="card" id="notesCard">
+        <h3>Found</h3>
+        <p class="eyebrow">The listener's own account</p>
+        <p id="levelNotes"></p>
+      </section>
+    </div>
+
+    <div class="pane" id="paneStudio" hidden>
+      <h1>Studio</h1>
+      <p class="sub">Build, tune and maintain Gateway Forge.</p>
+      <p class="muted">Destinations arrive with the panels behind them. The
+        shell is what is standing up first.</p>
+    </div>
+
+    <div class="pane" id="paneError" hidden>
+      <h1>The library did not scan</h1>
+      <p class="sub" id="errorText"></p>
+      <p class="muted">Stated rather than shown as an empty library, because an
+        empty shell and a failed scan are not the same thing.</p>
+    </div>
+  </main>
+
+  <aside class="inspector" aria-label="Inspector">
+    <h2 id="inspectorTitle">The default path</h2>
+    <p class="muted" id="inspectorBody">
+      The order the tapes teach it in.
+    </p>
+  </aside>
+
+</div>
+<script type="module" src="app.js"></script>
+</body>
+</html>
