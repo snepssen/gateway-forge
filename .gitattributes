@@ -1,6 +1,11 @@
 # Parity fixtures contain byte-level digests of authored source. A Windows
 # checkout must read the same bytes Swift measured on macOS.
 cross-platform/** text eol=lf
+# ...but the vendored phonemizer is a WebAssembly binary, and the rule above
+# would "normalise" its line endings into corruption. Git said so as a warning
+# on the very first `git add`; it is an error waiting to happen on a Windows
+# checkout, where the damage would show up as a phonemizer that will not load.
+cross-platform/vendor/espeakng/*.wasm binary
 library/**/*.gws text eol=lf
 library/reference/**/*.json text eol=lf
 focus/**/*.gws text eol=lf
