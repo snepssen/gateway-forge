@@ -18,6 +18,7 @@ import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 import { scan } from "../core/library.js";
 import { resolvedSignal } from "../core/level.js";
+import { ladderNumber, station, hasDifferential } from "../core/continuousLadder.js";
 import { guardOutboundSockets } from "./netguard.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -70,11 +71,29 @@ function shellModel() {
     root: lib.root,
     levels: lib.levels.map(l => {
       const signal = resolvedSignal(l, lib.signals);
+      // Two different signals, and they are not interchangeable — this is
+      // the distinction the Mac keeps and the first draft here collapsed.
+      //
+      // The rail chip is `resolvedSignal`: what the bed would actually play,
+      // which prefers a measured tape profile over the level's own numbers.
+      // The level page is the *station*, which is the ladder's reading of
+      // that rung and carries where it came from. For F10 they genuinely
+      // differ — 4.05 Hz at 100 Hz measured off the tape, against the 4.00
+      // at 110 the level is authored with — so showing one under the other's
+      // heading would be a quiet lie about which is which.
+      const n = ladderNumber(l.key);
+      const st = n === undefined ? undefined : station(n, lib.levels);
       return {
         key: l.key,
         name: l.name,
         beat: signal.beat,
         carrier: signal.carrier,
+        station: st === undefined ? undefined : {
+          beat: st.beatHz,
+          carrier: st.carrierHz,
+          differential: hasDifferential(st),
+          provenance: st.provenance,
+        },
         // `beatVerified` only means anything where there is a beat to
         // verify: a differential of zero is the same frequency in both
         // ears, which is correct at waking consciousness, not unverified.
