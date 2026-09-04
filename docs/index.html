@@ -159,10 +159,6 @@ img{max-width:100%}
   padding:10px;border-radius:3px;
 }
 .shot img{display:block;width:100%;height:auto;border-radius:1px}
-/* Two-up where a pair is worth comparing side by side, collapsing to one
-   column before either gets too small to read. */
-.pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px;margin:30px 0 0}
-.pair .shot{margin:0}
 
 /* -------------------------------------------------------------------- grid */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:1px;
@@ -288,13 +284,12 @@ footer{padding:44px 0 70px;color:var(--muted);font-size:14px}
   <p class="eyebrow">The app</p>
   <h2>Every level is reachable, and the floor is F1</h2>
   <p>Shots below are a genuinely fresh install — this public checkout's own bundled library, zero visits, zero journal entries. Not staged: the Institute's transcripts aren't the author's to redistribute, so a public build never has more to show than this.</p>
-  <div class="shot"><img src="img/home.png" alt="Gateway Forge's Home screen: Continue, Build a session, Practice stats all at zero on a fresh install, Recent sessions empty"></div>
-  <p class="cap">Home. The climb rail on the left lists every Focus level whether or not anything has been written for it yet — an empty one is a place awaiting content, never an error state.</p>
-  <div class="pair">
-    <div class="shot"><img src="img/focus-f10.png" alt="The Focus 10 level page: published description, measured signal, visits, and getting-here guidance"></div>
-    <div class="shot"><img src="img/studio.png" alt="The Studio destinations: Production, Session Plans, Listening, Voice, Library, Recently Deleted, System"></div>
-  </div>
-  <p class="cap">A level page — published description kept separate from what a listener finds, the measured binaural signal, and how to get there — beside Studio, where building and maintenance live so Home never has to.</p>
+  <div class="shot"><img src="img/home.png" alt="Gateway Forge's Home screen: the climb rail listing every Focus level, Continue, Build a session, Practice statistics all at zero on a fresh install, and the default path listed down the right"></div>
+  <p class="cap">Home, and the shell everything else sits in: the climb rail on the left, the workspace in the middle, an inspector on the right. The rail lists every Focus level whether or not anything has been written for it yet — an empty one is a place awaiting content, never an error state.</p>
+  <div class="shot"><img src="img/focus-f10.png" alt="The Focus 10 level page: measured signal, the Institute's published description, visits, how to get there, and the level's own journal open in the right-hand pane"></div>
+  <p class="cap">A level. The measured signal it actually plays, the Institute's published description kept as theirs, and the space for what you found instead — with that level's journal in the right pane rather than behind a separate mode.</p>
+  <div class="shot"><img src="img/studio.png" alt="The Studio destinations: Production, Session Plans, Listening, Voice, Library, Recently Deleted, System"></div>
+  <p class="cap">Studio, where building and maintenance live so Home never has to carry them.</p>
   <div class="ladder-wrap">
     <div class="ladder" id="ladderSvg"></div>
   </div>
