@@ -1,0 +1,126 @@
+/**
+ * Everything the shell draws, resolved through the ported core.
+ *
+ * Deliberately free of any `electron` import: the main process wires these to
+ * IPC, and a check — or a probe measuring the audio the bed actually
+ * produces — can call them without booting an application. Nothing about a
+ * level, a signal or a bed is decided here either; this is composition over
+ * `src/core`, which is what the parity suites hold to the Swift original.
+ */
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
+import { scan, type Library } from "../core/library.js";
+import { resolvedSignal } from "../core/level.js";
+import { ladderNumber, station, hasDifferential } from "../core/continuousLadder.js";
+import { buildPlan, type BedPlan } from "../core/bedPlan.js";
+import { loadAudioProfile } from "../core/audioProfileStore.js";
+import type { AudioProfile } from "../core/audioProfile.js";
+
+const here = dirname(fileURLToPath(import.meta.url));
+
+/** The library root. `GFLibraryRoot` matches the Swift app's development
+ *  override; without it the repository this is running from is the library,
+ *  which is what a checkout wants. The installed layout is a later step and
+ *  is deliberately not guessed at here. */
+export function libraryRoot(): string {
+  const override = process.env.GFLibraryRoot?.trim();
+  if (override) return override;
+  return join(here, "..", "..", "..");
+}
+
+/** Everything the shell needs to draw itself, resolved through the ported
+ *  core so the rail cannot disagree with the Mac about what a level is. */
+export /**
+ * The library as it was at launch.
+ *
+ * Cached because the level pages ask for a bed every time one is selected,
+ * and a full re-scan per click is a real cost for a directory that nothing in
+ * this build can yet change. The Mac's `LibraryStore` watches the tree and
+ * re-scans; that belongs with the Studio panes that can edit it, so until
+ * those exist this is honest rather than merely convenient — and it is stated
+ * here rather than discovered later as a stale reading.
+ */
+let cached: Library | undefined;
+export function library(): Library {
+  return (cached ??= scan(libraryRoot()));
+}
+
+export function shellModel() {
+  const lib = library();
+  return {
+    root: lib.root,
+    levels: lib.levels.map(l => {
+      const signal = resolvedSignal(l, lib.signals);
+      // Two different signals, and they are not interchangeable — this is
+      // the distinction the Mac keeps and the first draft here collapsed.
+      //
+      // The rail chip is `resolvedSignal`: what the bed would actually play,
+      // which prefers a measured tape profile over the level's own numbers.
+      // The level page is the *station*, which is the ladder's reading of
+      // that rung and carries where it came from. For F10 they genuinely
+      // differ — 4.05 Hz at 100 Hz measured off the tape, against the 4.00
+      // at 110 the level is authored with — so showing one under the other's
+      // heading would be a quiet lie about which is which.
+      const n = ladderNumber(l.key);
+      const st = n === undefined ? undefined : station(n, lib.levels);
+      return {
+        key: l.key,
+        name: l.name,
+        beat: signal.beat,
+        carrier: signal.carrier,
+        station: st === undefined ? undefined : {
+          beat: st.beatHz,
+          carrier: st.carrierHz,
+          differential: hasDifferential(st),
+          provenance: st.provenance,
+        },
+        // `beatVerified` only means anything where there is a beat to
+        // verify: a differential of zero is the same frequency in both
+        // ears, which is correct at waking consciousness, not unverified.
+        unverified: l.beatHz > 0 && !l.beatVerified,
+        published: l.published,
+        notes: l.notes,
+      };
+    }),
+    counts: {
+      segments: lib.segments.length,
+      templates: lib.templates.length,
+      voices: lib.voices.length,
+      focus: lib.focus.length,
+    },
+  };
+}
+
+/**
+ * The bed one level sounds like, on its own.
+ *
+ * Deliberately routed through `buildPlan` — the same function the assembler
+ * and the tape preview use — with an empty timeline and this level as the
+ * start. That yields exactly one stage, at the level's own resolved signal
+ * and its own noise bed, with no surf, which is what a tape whose only
+ * instruction was `level F10` would produce. Writing a one-stage plan by hand
+ * here would be a second opinion about what a level sounds like, and the
+ * whole point of the port is that there is only ever one.
+ *
+ * `stay`, so there is no return signal: this is a level held, not a journey
+ * that brings you back. Thirty minutes is `auditionPlan`'s own length, and
+ * `holdLastStage` keeps it sounding past the end rather than stopping mid-
+ * listen at a boundary that means nothing here.
+ */
+export function bedPlanFor(key: string): { plan: BedPlan; profile: AudioProfile } {
+  const lib = library();
+  const level = lib.levels.find(l => l.key === key);
+  if (!level) throw new Error(`no level ${key} in this library`);
+  return {
+    plan: buildPlan({
+      timeline: [],
+      levels: lib.levels,
+      signals: lib.signals,
+      startLevel: level.key,
+      totalSeconds: 30 * 60,
+      ending: "stay",
+    }),
+    profile: loadAudioProfile(libraryRoot()),
+  };
+}
+

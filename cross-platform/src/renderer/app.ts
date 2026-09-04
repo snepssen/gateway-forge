@@ -8,11 +8,9 @@
  * cannot drift: they are reading the same arithmetic.
  */
 
-// This file is loaded as a module and has no imports of its own, so it needs
-// an explicit one to be treated as such — `declare global` below is only
-// legal inside a module, and without it the bridge type lands in the global
-// scope of every other file instead.
-export {};
+import { BedPlayer, type BedState, timecode } from "./bed.js";
+import type { BedPlan } from "../core/bedPlan.js";
+import type { AudioProfile } from "../core/audioProfile.js";
 
 interface StationRow {
   beat: number;
@@ -43,9 +41,17 @@ interface ShellModel {
 }
 
 type ModelReply = { ok: true; model: ShellModel } | { ok: false; error: string };
+type BedReply =
+  | { ok: true; plan: BedPlan; profile: AudioProfile }
+  | { ok: false; error: string };
 
 declare global {
-  interface Window { gateway: { shellModel(): Promise<ModelReply> } }
+  interface Window {
+    gateway: {
+      shellModel(): Promise<ModelReply>;
+      bedLevel(key: string): Promise<BedReply>;
+    };
+  }
 }
 
 const $ = <T extends HTMLElement>(id: string): T => {
@@ -142,7 +148,114 @@ function selectLevel(model: ShellModel, key: string): void {
   $("inspectorTitle").textContent = `${level.key} — notes`;
   $("inspectorBody").textContent = level.notes || "Write what you perceived.";
 
+  $("listen").hidden = false;
+  void armBed(level);
+
   show("paneLevel");
+}
+
+// ---------------------------------------------------------------------- bed
+//
+// The one thing on this page that cannot be verified by reading it. A carrier
+// and a differential are two decimals until they are in the room.
+
+const headphoneNote = "Headphones — the differential is between the ears.";
+
+/** The plan and calibration behind the level currently on screen, fetched
+ *  when it is selected so the control can describe what it will play before
+ *  anyone presses it. */
+let armed: { key: string; plan: BedPlan; profile: AudioProfile } | undefined;
+
+const bed = new BedPlayer({
+  state: renderBedState,
+  position: seconds => { $("listenTime").textContent = timecode(seconds); },
+  notStereo: channels => {
+    const note = $("listenNote");
+    note.classList.add("is-warning");
+    note.textContent = channels === 1
+      ? "This output is mono. A binaural differential is a difference between the ears, "
+        + "so there is nothing here to hear — silence rather than something that would pass for it."
+      : `This output has ${channels} channel(s). A binaural pair needs two.`;
+  },
+  failed: message => {
+    const error = $("listenError");
+    error.textContent = `The bed did not start: ${message}`;
+    error.hidden = false;
+  },
+});
+
+function renderBedState(state: BedState): void {
+  const sounding = state === "playing" || state === "starting";
+  $("listen").classList.toggle("is-sounding", sounding);
+  $("listenGlyph").textContent = sounding ? "\u25a0" : "\u25b6";
+  $("listenLabel").textContent =
+    state === "starting" ? "Starting" :
+    state === "playing" ? "Stop" :
+    state === "stopping" ? "Stopping" : "Listen";
+  const time = $("listenTime");
+  time.hidden = !sounding;
+  if (state === "stopped") time.textContent = "0:00";
+  // Between the press and the ramp finishing there is nothing useful a second
+  // press could do, and one would race the first.
+  ($("listenButton") as HTMLButtonElement).disabled = state === "starting" || state === "stopping";
+}
+
+/**
+ * What the bed is about to play, when that is not the number printed above it.
+ *
+ * The level page shows the *station* — the ladder's reading of this rung. A
+ * tape plays `resolvedSignal`, which prefers a pair measured off a real
+ * recording where one exists. At Focus 10 those genuinely differ: 4.00 Hz at
+ * 110 Hz authored, 4.05 at 100 measured. A button that quietly sounded the
+ * second while sitting under the first would be the same quiet lie the
+ * published-and-found rule exists to prevent, one layer down — so it is said.
+ */
+function playedNote(plan: BedPlan, station: StationRow | undefined): string | undefined {
+  const stage = plan.stages[0];
+  if (!stage || !station) return undefined;
+  const differs = Math.abs(station.beat - stage.beat) > 0.005
+    || Math.abs(station.carrier - stage.carrier) > 0.5;
+  if (!differs) return undefined;
+  const measured = stage.signalSource;
+  return `Plays ${stage.beat.toFixed(2)} Hz at ${stage.carrier.toFixed(0)} Hz — the pair measured off `
+    + `${measured ?? "the tape"}, which is what a session drives this level at. The reading above is `
+    + `the ladder's.`;
+}
+
+/** Fetch the bed behind a level, describe it, and follow it if the bed is
+ *  already sounding. Following rather than stopping is deliberate: the rail
+ *  is a climb, and hearing one rung against the next is most of what it is
+ *  for. */
+async function armBed(level: LevelRow): Promise<void> {
+  armed = undefined;
+  $("listenError").hidden = true;
+  $("listenPlayed").hidden = true;
+  const note = $("listenNote");
+  if (!note.classList.contains("is-warning")) note.textContent = headphoneNote;
+
+  const reply = await window.gateway.bedLevel(level.key);
+  // A level selected while this was in flight wins; a late reply for the old
+  // one must not arm the control against the level now on screen.
+  if ($("levelKey").textContent !== level.key) return;
+  if (!reply.ok) {
+    const error = $("listenError");
+    error.textContent = `No bed for this level: ${reply.error}`;
+    error.hidden = false;
+    return;
+  }
+  armed = { key: level.key, plan: reply.plan, profile: reply.profile };
+
+  const played = playedNote(reply.plan, level.station);
+  $("listenPlayed").textContent = played ?? "";
+  $("listenPlayed").hidden = played === undefined;
+
+  if (bed.isSounding) await bed.play(reply.plan, reply.profile);
+}
+
+function toggleBed(): void {
+  if (bed.isSounding) { bed.stop(); return; }
+  if (!armed) return;
+  void bed.play(armed.plan, armed.profile);
 }
 
 function renderCounts(model: ShellModel): void {
@@ -172,6 +285,11 @@ function wireDestinations(model: ShellModel): void {
         other.classList.remove("is-selected");
       }
       el.classList.add("is-selected");
+      // Sound with nothing on screen accounting for it is how a bed gets left
+      // running in another room. Leaving the level page stops it.
+      bed.stop();
+      armed = undefined;
+      $("listen").hidden = true;
       const dest = el.dataset.dest;
       if (dest === "studio") {
         $("inspectorTitle").textContent = "Journal";
@@ -198,6 +316,11 @@ async function start(): Promise<void> {
   renderCounts(model);
   renderLevels(model);
   wireDestinations(model);
+  $("listenButton").addEventListener("click", toggleBed);
+  renderBedState("stopped");
+  // A bed still ramping when the window goes is a bed that outlives its
+  // window by six tenths of a second, which on Linux is an audible ghost.
+  window.addEventListener("pagehide", () => bed.stop());
   show("paneHome");
 }
 
