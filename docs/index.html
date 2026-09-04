@@ -371,10 +371,18 @@ cd gateway-forge && ./build.sh</code></pre>
       <tbody>
         <tr><td>Desktop app</td><td>macOS 14+, Apple Silicon</td><td><span class="pill found">Installed daily driver</span></td></tr>
         <tr><td>iOS companion</td><td>iOS 17+</td><td><span class="pill found">Builds and syncs over LAN</span></td></tr>
-        <tr><td>Windows / Linux</td><td>—</td><td><span class="pill prov">Not started — TTS engine research first</span></td></tr>
+        <tr><td>Windows / Linux</td><td>TypeScript core</td><td><span class="pill prov">Core ported and checked — no interface yet</span></td></tr>
       </tbody>
     </table>
   </div>
+  <div class="note"><b>There is no Windows or Linux download, and that is not an oversight.</b>
+  <code>cross-platform/</code> is 57 core modules and 29 check suites with no
+  interface on top of them and nothing to package — deliberately, so the rules
+  are proven to travel before anything is built to sit on them. Every push runs
+  that core on real Ubuntu and Windows runners against the same fixtures the Mac
+  build is held to. What is still undecided is the speech engine: the bundled
+  voice is Piper through ONNX Runtime, and which engine a non-Mac build should
+  carry is the question that gates the interface, not the other way round.</div>
 </section>
 
 <section>
