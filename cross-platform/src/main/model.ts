@@ -17,6 +17,8 @@ import { loadAudioProfile, saveAudioProfile } from "../core/audioProfileStore.js
 import { calibrationFields, clampedAudioProfile, decodeAudioProfile,
          type AudioProfile } from "../core/audioProfile.js";
 import { calibrationGuidanceOrder } from "../core/calibration.js";
+import { PiperSpeechEngine, bundledVoices } from "./speech.js";
+import { sampleRate } from "../core/renderPlan.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
 
@@ -162,4 +164,43 @@ export function listeningModel(): {
  */
 export function saveListening(raw: unknown): void {
   saveAudioProfile(clampedAudioProfile(decodeAudioProfile(raw)), libraryRoot());
+}
+
+/**
+ * The engine, loaded once and kept.
+ *
+ * Expensive to open — a 63 MB ONNX session and espeak's data — and most
+ * sessions never speak, so it is opened on the first line asked for rather
+ * than at launch. A failure is returned, never swallowed: a queue that stops
+ * without naming its blocker looks exactly like a queue that finished.
+ */
+let engine: Promise<PiperSpeechEngine> | undefined;
+export function speechEngine(voice?: string): Promise<PiperSpeechEngine> {
+  return (engine ??= PiperSpeechEngine.open(voice));
+}
+
+/**
+ * The line the Listening pane speaks.
+ *
+ * Two sentences with a real pause between them, because the balance being set
+ * is speech against room and a single clause does not show it. Taken from the
+ * library rather than invented, so what is auditioned is the voice saying the
+ * kind of thing it exists to say.
+ */
+export const calibrationLine =
+  "You are now at Focus 10. Mind awake, body asleep.";
+
+export async function speakCalibrationLine(): Promise<{
+  samples: Float32Array; sampleRate: number; voice: string; text: string;
+}> {
+  const e = await speechEngine();
+  const generation = await e.generate(calibrationLine);
+  return { samples: generation.samples, sampleRate, voice: e.voice, text: calibrationLine };
+}
+
+/** What this build can say about its own engine, for the panes that show it. */
+export function engineStatus(): { name: string; voices: string[]; voice?: string } {
+  const voices = bundledVoices();
+  const first = voices[0];
+  return { name: "piper-snepssen", voices, ...(first !== undefined ? { voice: first } : {}) };
 }

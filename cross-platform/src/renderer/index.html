@@ -122,11 +122,14 @@
           </button>
           <button class="cue-button" id="mixTuning" type="button" disabled>Resonant tuning</button>
           <button class="cue-button" id="mixReturn" type="button" disabled>Return signal</button>
+          <button class="cue-button" id="mixSpeak" type="button" disabled>Narration</button>
           <span class="listen-note" id="mixSounding">nothing playing</span>
         </div>
         <p class="listen-played">The tuning and the return signal are generated
-          by the bed, not sampled — so setting their level here sets the level a
-          session will play them at.</p>
+          by the bed, not sampled, and the narration is spoken here rather than
+          played from a file — so the levels set here are the levels a session
+          will play them at.</p>
+        <p class="listen-played mono" id="mixSpeakLine" hidden></p>
       </section>
 
       <section class="card">

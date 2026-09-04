@@ -371,23 +371,32 @@ cd gateway-forge && ./build.sh</code></pre>
       <tbody>
         <tr><td>Desktop app</td><td>macOS 14+, Apple Silicon</td><td><span class="pill found">Installed daily driver</span></td></tr>
         <tr><td>iOS companion</td><td>iOS 17+</td><td><span class="pill found">Builds and syncs over LAN</span></td></tr>
-        <tr><td>Windows / Linux</td><td>TypeScript core + Electron shell</td><td><span class="pill prov">Shell and bed run — nothing packaged yet</span></td></tr>
+        <tr><td>Windows / Linux</td><td>TypeScript core + Electron shell</td><td><span class="pill prov">Speaks and sounds — nothing packaged yet</span></td></tr>
       </tbody>
     </table>
   </div>
   <div class="note"><b>There is still no Windows or Linux download.</b>
-  <code>cross-platform/</code> is 59 core modules, 30 check suites, and a shell
-  drawn on top of them: the climb rail, a level page, and the bed — the binaural
-  pair and the noise textures under it — sounding live through the same
-  <code>BedEngine</code> the Mac plays, <em>imported</em> by the audio worklet
-  rather than copied into it, so the parity suites that hold it to the Swift
-  original are checking the code that actually plays. Every push runs that core
-  on real Ubuntu and Windows runners against the same fixtures the Mac build is
-  held to. What is missing is no longer the interface: the library is not yet
-  bundled into an application, <code>electron-builder</code> has never been run
-  against it, and the speech engine is still undecided — the bundled voice is
-  Piper through ONNX Runtime, and until that is answered a non-Mac build has no
-  narration. The bed plays; nobody speaks yet.</div>
+  <code>cross-platform/</code> is 59 core modules, 31 check suites, and a shell
+  drawn on top of them: the climb rail, a level page, a listening calibration,
+  the bed sounding live through the same <code>BedEngine</code> the Mac plays,
+  and the same fine-tuned voice speaking through the same Piper model. Both
+  are <em>imported</em> rather than copied, so the parity suites that hold them
+  to the Swift original are checking the code that actually runs. Every push
+  runs all of it on real Ubuntu and Windows runners against the fixtures the
+  Mac build is held to — including the speech engine, model and all.
+  <br><br>
+  The phonemizer is why that took a vendored WebAssembly build rather than an
+  <code>npm install</code>. The published package carries espeak-ng 1.52.0;
+  this voice was trained with the espeak-ng its trainer pins, 229 commits
+  later, which inserts a linking palatal glide before a following vowel —
+  <span class="mono">bˈɑːdiʲ ɐslˈiːp</span>. 147 of the voice's 538 training
+  clips contain it. Measured over 817 calls, it was the <em>only</em>
+  difference between the two, so the gap was one espeak version and the answer
+  was to be that version. All 817 now match the macOS engine byte for byte.
+  <br><br>
+  What is missing is packaging: the library is not yet bundled into an
+  application and <code>electron-builder</code> has never been run against it.
+  The voice speaks; nobody has shipped it.</div>
 </section>
 
 <section>
