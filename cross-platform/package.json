@@ -14,8 +14,9 @@
     "speech": "npm run build && node out/check/speech-parity.js",
     "start": "npm run build && electron .",
     "dist": "npm run build && electron-builder --publish never",
-    "dist:linux": "npm run build && electron-builder --linux --publish never",
-    "dist:win": "npm run build && electron-builder --win --publish never"
+    "dist:linux": "npm run build && electron-builder --linux tar.gz --x64 --publish never && node scripts/check-package.mjs dist/linux-unpacked/resources",
+    "dist:win": "npm run build && electron-builder --win zip --x64 --publish never && node scripts/check-package.mjs dist/win-unpacked/resources",
+    "package:check": "node scripts/check-package.mjs"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
@@ -31,7 +32,30 @@
     },
     "files": [
       "out/**/*",
+      "vendor/espeakng/**",
       "package.json"
+    ],
+    "asarUnpack": [
+      "vendor/espeakng/**",
+      "node_modules/onnxruntime-node/bin/**"
+    ],
+    "extraResources": [
+      {
+        "from": "../library",
+        "to": "GatewayLibrary"
+      },
+      {
+        "from": "../focus",
+        "to": "GatewayFocus",
+        "filter": [
+          "**/scripts/*.gws",
+          "**/sources/*.md"
+        ]
+      },
+      {
+        "from": "../Sources/GatewayTTS/Resources",
+        "to": "GatewayVoice"
+      }
     ],
     "linux": {
       "target": [
@@ -50,16 +74,44 @@
           ]
         }
       ],
-      "category": "AudioVideo"
+      "category": "AudioVideo",
+      "files": [
+        "!node_modules/onnxruntime-node/bin/napi-v6/darwin/**",
+        "!node_modules/onnxruntime-node/bin/napi-v6/win32/**"
+      ]
     },
     "win": {
       "target": [
+        {
+          "target": "zip",
+          "arch": [
+            "x64"
+          ]
+        },
         {
           "target": "nsis",
           "arch": [
             "x64"
           ]
         }
+      ],
+      "files": [
+        "!node_modules/onnxruntime-node/bin/napi-v6/darwin/**",
+        "!node_modules/onnxruntime-node/bin/napi-v6/linux/**"
+      ]
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dir",
+          "arch": [
+            "arm64"
+          ]
+        }
+      ],
+      "files": [
+        "!node_modules/onnxruntime-node/bin/napi-v6/linux/**",
+        "!node_modules/onnxruntime-node/bin/napi-v6/win32/**"
       ]
     }
   },
@@ -67,7 +119,6 @@
     "electron@33.4.11": true
   },
   "dependencies": {
-    "onnxruntime-node": "^1.29.0",
-    "piper-phonemize": "^1.4.11"
+    "onnxruntime-node": "^1.29.0"
   }
 }

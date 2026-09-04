@@ -40,6 +40,7 @@ interface ShellModel {
   root: string;
   levels: LevelRow[];
   counts: { segments: number; templates: number; voices: number; focus: number };
+  engine: { name: string; voices: string[]; voice?: string };
 }
 
 type ModelReply = { ok: true; model: ShellModel } | { ok: false; error: string };
@@ -394,6 +395,11 @@ async function start(): Promise<void> {
   }
   const model = reply.model;
   $("root").textContent = model.root;
+  // What it speaks in, said plainly — the library's voice count is about the
+  // listener's own voices and is legitimately zero on a fresh install.
+  $("engine").textContent = model.engine.voice === undefined
+    ? `${model.engine.name} — no voice bundled, so nothing can speak`
+    : `${model.engine.name} · ${model.engine.voice}`;
   renderCounts(model);
   renderLevels(model);
   renderStudio();

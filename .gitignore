@@ -37,3 +37,7 @@ voices/*/*.onnx.json
 # arrives on -- committing it would hand every checkout somebody's night.
 /focus/*/entries/
 /memory/sync-inbox.json
+
+# Built packages. Reproducible from the tag by `.github/workflows/release.yml`,
+# and 450 MB of Electron and model weights that no repository should carry.
+/cross-platform/dist/

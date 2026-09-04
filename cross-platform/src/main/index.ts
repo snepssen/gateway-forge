@@ -16,8 +16,9 @@
 import { app, BrowserWindow, ipcMain } from "electron";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
-import { bedPlanFor, engineStatus, listeningModel, saveListening, shellModel,
-         speakCalibrationLine } from "./model.js";
+import { bedPlanFor, bootstrap, engineStatus, libraryRoot, listeningModel, saveListening,
+         shellModel, speakCalibrationLine } from "./model.js";
+import { setInstalledRoot } from "./paths.js";
 import { guardOutboundSockets } from "./netguard.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -139,6 +140,26 @@ ipcMain.handle("shell:model", () => {
 });
 
 void app.whenReady().then(() => {
+  // Electron owns the per-user data directory, and `paths.ts` deliberately
+  // does not import electron, so it is handed in here — before anything reads
+  // a path. `GF_APPLICATION_SUPPORT_ROOT` still outranks it, which is what
+  // makes a cold install testable without touching a real profile.
+  setInstalledRoot(app.getPath("userData"));
+
+  // First launch of an installed copy: put the authored baseline somewhere the
+  // listener can edit it. A checkout skips this — it already is the library,
+  // and copying it over itself is the one way this could damage a working
+  // tree. Reported rather than silent: an install that half-happened and one
+  // that was already there are different things.
+  try {
+    const done = bootstrap();
+    if (done) console.log(`library ${done.result} at ${done.root}`);
+    else console.log(`running from a checkout at ${libraryRoot()}`);
+  } catch (error) {
+    console.error("the bundled library could not be installed:",
+                  error instanceof Error ? error.message : String(error));
+  }
+
   createWindow();
   app.on("activate", () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
