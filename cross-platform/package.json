@@ -74,11 +74,7 @@
           ]
         }
       ],
-      "category": "AudioVideo",
-      "files": [
-        "!node_modules/onnxruntime-node/bin/napi-v6/darwin/**",
-        "!node_modules/onnxruntime-node/bin/napi-v6/win32/**"
-      ]
+      "category": "AudioVideo"
     },
     "win": {
       "target": [
@@ -94,10 +90,6 @@
             "x64"
           ]
         }
-      ],
-      "files": [
-        "!node_modules/onnxruntime-node/bin/napi-v6/darwin/**",
-        "!node_modules/onnxruntime-node/bin/napi-v6/linux/**"
       ]
     },
     "mac": {
@@ -108,12 +100,9 @@
             "arm64"
           ]
         }
-      ],
-      "files": [
-        "!node_modules/onnxruntime-node/bin/napi-v6/linux/**",
-        "!node_modules/onnxruntime-node/bin/napi-v6/win32/**"
       ]
-    }
+    },
+    "afterPack": "./scripts/after-pack.cjs"
   },
   "allowScripts": {
     "electron@33.4.11": true
