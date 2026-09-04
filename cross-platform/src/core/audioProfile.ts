@@ -104,3 +104,28 @@ export function audioProfileLevels(p: AudioProfile): { name: string; value: numb
     { name: "bed master", value: p.master },
   ];
 }
+
+/**
+ * Which saved level each calibration slider moves.
+ *
+ * `calibrationGuidanceOrder` names the eight levels and says what each is
+ * for, but it is text — Swift's `CalibrationView` binds each name to a field
+ * by writing `$mix.profile.speech` beside it, which a port cannot do. This is
+ * that binding, said once, so a check can hold it: every field reachable,
+ * exactly once, under the name the guidance uses.
+ *
+ * The tints are the Monokai roles the Mac gives them, kept so the two builds
+ * colour the same slider the same way.
+ */
+export const calibrationFields: {
+  name: string; field: keyof AudioProfile; tint: string;
+}[] = [
+  { name: "Narration", field: "speech", tint: "green" },
+  { name: "Bed master", field: "master", tint: "yellow" },
+  { name: "Hemi-Sync", field: "hemiSync", tint: "cyan" },
+  { name: "Surf", field: "surf", tint: "cyan" },
+  { name: "Pink noise", field: "pinkNoise", tint: "purple" },
+  { name: "White noise", field: "whiteNoise", tint: "purple" },
+  { name: "Resonant tuning", field: "resonantTuning", tint: "purple" },
+  { name: "Return signal", field: "returnSignal", tint: "orange" },
+];

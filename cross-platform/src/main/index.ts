@@ -16,7 +16,7 @@
 import { app, BrowserWindow, ipcMain } from "electron";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
-import { bedPlanFor, shellModel } from "./model.js";
+import { bedPlanFor, listeningModel, saveListening, shellModel } from "./model.js";
 import { guardOutboundSockets } from "./netguard.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -78,6 +78,26 @@ ipcMain.handle("bed:level", (_event, key: unknown) => {
   try {
     if (typeof key !== "string") throw new Error("a level key is required");
     return { ok: true, ...bedPlanFor(key) };
+  } catch (error) {
+    return { ok: false, error: error instanceof Error ? error.message : String(error) };
+  }
+});
+
+ipcMain.handle("listening:model", () => {
+  try {
+    return { ok: true, ...listeningModel() };
+  } catch (error) {
+    return { ok: false, error: error instanceof Error ? error.message : String(error) };
+  }
+});
+
+// The only channel in this build that writes anything. It takes eight
+// numbers and puts them in one known file — no path, no filename, nothing
+// the page chooses but the values themselves.
+ipcMain.handle("listening:save", (_event, profile: unknown) => {
+  try {
+    saveListening(profile);
+    return { ok: true };
   } catch (error) {
     return { ok: false, error: error instanceof Error ? error.message : String(error) };
   }

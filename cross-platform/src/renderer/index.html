@@ -98,8 +98,41 @@
     <div class="pane" id="paneStudio" hidden>
       <h1>Studio</h1>
       <p class="sub">Build, tune and maintain Gateway Forge.</p>
-      <p class="muted">Destinations arrive with the panels behind them. The
-        shell is what is standing up first.</p>
+      <!--
+        The Mac's eight destinations, named here in the same order rather than
+        hidden until they work. A list with seven greyed rows says what this
+        build is; a list with one row would suggest Studio is only Listening.
+      -->
+      <ul class="destlist" id="studioList"></ul>
+    </div>
+
+    <div class="pane" id="paneListening" hidden>
+      <h1>Listening</h1>
+      <p class="sub">Calibrate the live bed.</p>
+
+      <section class="card">
+        <p class="muted">Set these with the headphones you will actually wear,
+          and come back when you change them. They are saved to
+          <span class="mono">memory/audio.json</span> — the same file the macOS
+          build reads, so a calibration set here is the one it uses.</p>
+        <div class="listen" id="mixTransport">
+          <button class="listen-button" id="mixListen" type="button">
+            <span class="listen-glyph" id="mixListenGlyph" aria-hidden="true">▶</span>
+            <span id="mixListenLabel">Start listening</span>
+          </button>
+          <button class="cue-button" id="mixTuning" type="button" disabled>Resonant tuning</button>
+          <button class="cue-button" id="mixReturn" type="button" disabled>Return signal</button>
+          <span class="listen-note" id="mixSounding">nothing playing</span>
+        </div>
+        <p class="listen-played">The tuning and the return signal are generated
+          by the bed, not sampled — so setting their level here sets the level a
+          session will play them at.</p>
+      </section>
+
+      <section class="card">
+        <div id="mixer"></div>
+        <p class="listen-error" id="mixError" hidden></p>
+      </section>
     </div>
 
     <div class="pane" id="paneError" hidden>

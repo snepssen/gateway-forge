@@ -16,7 +16,7 @@
  * says nothing about the cause.
  */
 import { BedEngine } from "../core/bedEngine.js";
-import { makePlan } from "../core/bedPlan.js";
+import { makePlan, makeTuning } from "../core/bedPlan.js";
 import { type AudioProfile, defaultAudioProfile } from "../core/audioProfile.js";
 import type { BedInit, ToBed, FromBed } from "./bedMessages.js";
 
@@ -100,6 +100,17 @@ class BedProcessor extends AudioWorkletProcessor {
       }
       case "seek":
         this.engine.seek(message.seconds);
+        break;
+      case "cue":
+        if (message.what === "return") {
+          this.engine.beginReturnSignal(message.seconds);
+        } else {
+          // `.early` is the form the Mac's calibration auditions with.
+          this.engine.plan = {
+            ...this.engine.plan,
+            tuning: makeTuning("early", this.engine.elapsedSeconds, message.seconds),
+          };
+        }
         break;
     }
   }
