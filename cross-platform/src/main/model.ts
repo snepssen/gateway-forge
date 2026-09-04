@@ -7,8 +7,7 @@
  * level, a signal or a bed is decided here either; this is composition over
  * `src/core`, which is what the parity suites hold to the Swift original.
  */
-import { fileURLToPath } from "url";
-import { dirname, join } from "path";
+import { join } from "path";
 import { scan, type Library } from "../core/library.js";
 import { resolvedSignal } from "../core/level.js";
 import { ladderNumber, station, hasDifferential } from "../core/continuousLadder.js";
@@ -17,24 +16,50 @@ import { loadAudioProfile, saveAudioProfile } from "../core/audioProfileStore.js
 import { calibrationFields, clampedAudioProfile, decodeAudioProfile,
          type AudioProfile } from "../core/audioProfile.js";
 import { calibrationGuidanceOrder } from "../core/calibration.js";
+import { install, isInstalled, hasCompletedInstall } from "../core/libraryBootstrap.js";
+import { applicationRoot, includedFocus, includedLibrary, isPackaged } from "./paths.js";
 import { PiperSpeechEngine, bundledVoices } from "./speech.js";
 import { sampleRate } from "../core/renderPlan.js";
 
-const here = dirname(fileURLToPath(import.meta.url));
-
-/** The library root. `GFLibraryRoot` matches the Swift app's development
- *  override; without it the repository this is running from is the library,
- *  which is what a checkout wants. The installed layout is a later step and
- *  is deliberately not guessed at here. */
+/**
+ * The library root.
+ *
+ * In a checkout this is the checkout; in an installed copy it is the writable
+ * root under the user's own data directory, which `bootstrap` fills from the
+ * bundled baseline on first launch. Both answers come from the same policy the
+ * Swift build uses — see `paths.ts`.
+ */
 export function libraryRoot(): string {
-  const override = process.env.GFLibraryRoot?.trim();
-  if (override) return override;
-  return join(here, "..", "..", "..");
+  return applicationRoot();
 }
 
-/** Everything the shell needs to draw itself, resolved through the ported
- *  core so the rail cannot disagree with the Mac about what a level is. */
-export /**
+/**
+ * Put the authored baseline where the listener can edit it, once.
+ *
+ * Only in a packaged copy: a checkout already *is* the library, and copying it
+ * over itself is the one way this could damage a working tree. `install` is
+ * the ported bootstrap — conservative by construction, it never rewrites an
+ * existing valid library and never replaces a file the listener has written.
+ *
+ * Returns what it did rather than a boolean, because "already installed" and
+ * "repaired a half-finished install" are different things to be able to say.
+ */
+export function bootstrap(): { result: string; root: string } | undefined {
+  if (!isPackaged()) return undefined;
+  const source = includedLibrary();
+  if (source === undefined) return undefined;
+  const root = applicationRoot();
+  if (isInstalled(root) && hasCompletedInstall(root)) return { result: "alreadyInstalled", root };
+  const focusSource = includedFocus();
+  const result = install({
+    source,
+    ...(focusSource !== undefined ? { focusSource } : {}),
+    root,
+  });
+  return { result, root };
+}
+
+/**
  * The library as it was at launch.
  *
  * Cached because the level pages ask for a bed every time one is selected,
@@ -92,6 +117,12 @@ export function shellModel() {
       voices: lib.voices.length,
       focus: lib.focus.length,
     },
+    // The counts describe the *library*, and a fresh install has no `voices/`
+    // — that directory is for a listener's own private voices, exactly as on
+    // the Mac. But the app carries a voice regardless, and "voices 0" sitting
+    // beside an engine that speaks reads as an app that cannot. So the engine
+    // says what it speaks in, separately from what the library holds.
+    engine: engineStatus(),
   };
 }
 

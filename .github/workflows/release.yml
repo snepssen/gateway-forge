@@ -1,0 +1,146 @@
+# Tag a version, get Windows and Linux builds and a draft release.
+#
+# Each platform builds on itself. Cross-building from macOS stops partway:
+# electron-builder ships an x86_64 `mksquashfs` for macOS hosts, so an AppImage
+# cannot be produced on Apple Silicon at all — measured here, not assumed — and
+# NSIS wants wine.
+#
+# Nothing here auto-updates anything, and nothing publishes on its own: the
+# release is created as a draft, to be looked at before anybody else sees it.
+# The macOS build is not here; it has its own native `build.sh` and is attached
+# by hand.
+name: release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write        # only to create the release. Nothing else.
+
+jobs:
+  # Cheapest gate first, and the one that matters most: if the ported core or
+  # the speech engine has drifted from the Swift build, the platforms do not
+  # sound alike and there is no point packaging either of them.
+  checks:
+    runs-on: ubuntu-latest
+    defaults:
+      run: { working-directory: cross-platform }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm, cache-dependency-path: cross-platform/package-lock.json }
+      - run: npm ci
+      - run: npm run check:ci
+      - run: npm run speech
+
+  linux:
+    needs: checks
+    runs-on: ubuntu-latest
+    defaults:
+      run: { working-directory: cross-platform }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm, cache-dependency-path: cross-platform/package-lock.json }
+      - run: npm ci
+
+      # tar.gz is the only Linux format that has ever been built for this
+      # project. It is therefore the one step allowed to fail the release.
+      - name: Linux archive
+        run: npm run dist:linux
+
+      # AppImage has never been built anywhere here — it cannot even be
+      # attempted from macOS. Attempted, and allowed to fail, because an
+      # unproven convenience format should not take down a release of the one
+      # that was actually produced. Its own step, so the log names it rather
+      # than reporting one opaque exit code for two targets.
+      - name: Install what AppImage wants
+        run: sudo apt-get update && sudo apt-get install -y fakeroot libarchive-tools
+        working-directory: .
+      - name: AppImage (unproven)
+        continue-on-error: true
+        run: npx electron-builder --linux AppImage --publish never
+
+      - name: What actually built
+        run: ls -la dist/ || true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: linux
+          path: |
+            cross-platform/dist/*.tar.gz
+            cross-platform/dist/*.AppImage
+          if-no-files-found: warn
+
+  windows:
+    needs: checks
+    runs-on: windows-latest
+    defaults:
+      run: { working-directory: cross-platform }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm, cache-dependency-path: cross-platform/package-lock.json }
+      - run: npm ci
+
+      # A zip is a directory with a name; nothing about it can go wrong that
+      # the packaging check would not already have caught. It is the required
+      # artifact.
+      - name: Windows archive
+        run: npm run dist:win
+
+      # The installer has never been built. Allowed to fail for the same
+      # reason as AppImage.
+      - name: Installer (unproven)
+        continue-on-error: true
+        run: npx electron-builder --win nsis --publish never
+
+      - name: What actually built
+        run: dir dist
+        shell: cmd
+      - uses: actions/upload-artifact@v4
+        with:
+          name: windows
+          path: |
+            cross-platform/dist/*.zip
+            cross-platform/dist/*.exe
+          if-no-files-found: warn
+
+  publish:
+    needs: [linux, windows]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with: { path: artifacts }
+      - run: find artifacts -type f | sort
+
+      # Checksums, so somebody can verify what they downloaded rather than
+      # trusting the transport.
+      - name: Checksums
+        run: |
+          cd artifacts
+          find . -type f ! -name SHA256SUMS -printf "%P\n" | sort | while read -r f; do
+            sha256sum "$f"
+          done > ../SHA256SUMS
+          cd .. && cat SHA256SUMS
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            artifacts/**/*
+            SHA256SUMS
+          draft: true
+          body: |
+            Windows and Linux builds of Gateway Forge.
+
+            These carry the same ported core, the same bed engine and the same
+            fine-tuned voice as the macOS build, held to it on every push by
+            the parity suites — including the speech engine, which phonemizes
+            through the exact espeak-ng the voice was trained with rather than
+            a published package that predates it.
+
+            The macOS build is native Swift and is attached separately.
+
+            No installer is signed. Nothing auto-updates. Nothing leaves the
+            machine.

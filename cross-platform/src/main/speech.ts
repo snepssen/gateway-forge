@@ -9,13 +9,11 @@
  */
 import * as ort from "onnxruntime-node";
 import { existsSync, readFileSync, readdirSync } from "fs";
-import { dirname, join } from "path";
-import { fileURLToPath } from "url";
+import { join } from "path";
 import { EspeakPhonemizer } from "./espeak.js";
+import { voiceResources } from "./paths.js";
 import { makeResampler, type Resampler } from "./resample.js";
 import { joinSpeechParts, sampleRate as outputSampleRate, sentences } from "../core/renderPlan.js";
-
-const here = dirname(fileURLToPath(import.meta.url));
 
 /** The bundled voice's config — the exact fields `piper.voice.PiperVoice`
  *  reads, decoded the same way. */
@@ -83,14 +81,12 @@ export function phonemesToIds(phonemized: string, map: Record<string, number[]>)
  *  project a library once. */
 export interface Generation { samples: Float32Array; hitCap: boolean; stoppedOnRepeat: boolean }
 
-/** Where the model, its config and `espeak-ng-data` live. The Swift build
- *  reads them out of its own bundle; here the checkout is the bundle until
- *  there is an installed layout to speak of, which is deliberately not
- *  guessed at. */
+/** Where the model, its config and `espeak-ng-data` live — the app's own
+ *  bundle when packaged, the checkout otherwise. See `paths.ts`. */
 export function resourcesDirectory(): string {
   const override = process.env.GFVoiceResources?.trim();
   if (override) return override;
-  return join(here, "..", "..", "..", "Sources", "GatewayTTS", "Resources");
+  return voiceResources();
 }
 
 /** The voices actually present, by the file naming convention the Mac uses:
