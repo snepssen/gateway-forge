@@ -371,32 +371,40 @@ cd gateway-forge && ./build.sh</code></pre>
       <tbody>
         <tr><td>Desktop app</td><td>macOS 14+, Apple Silicon</td><td><span class="pill found">Installed daily driver</span></td></tr>
         <tr><td>iOS companion</td><td>iOS 17+</td><td><span class="pill found">Builds and syncs over LAN</span></td></tr>
-        <tr><td>Windows / Linux</td><td>TypeScript core + Electron shell</td><td><span class="pill prov">Speaks and sounds — nothing packaged yet</span></td></tr>
+        <tr><td>Windows / Linux</td><td>TypeScript core + Electron shell</td><td><span class="pill found">Packaged, checked, unsigned</span></td></tr>
       </tbody>
     </table>
   </div>
-  <div class="note"><b>There is still no Windows or Linux download.</b>
-  <code>cross-platform/</code> is 59 core modules, 31 check suites, and a shell
+  <div class="note"><b>Windows and Linux are packaged now.</b>
+  <code>cross-platform/</code> is 59 core modules, 31 check suites and a packaging gate, and a shell
   drawn on top of them: the climb rail, a level page, a listening calibration,
   the bed sounding live through the same <code>BedEngine</code> the Mac plays,
-  and the same fine-tuned voice speaking through the same Piper model. Both
-  are <em>imported</em> rather than copied, so the parity suites that hold them
-  to the Swift original are checking the code that actually runs. Every push
-  runs all of it on real Ubuntu and Windows runners against the fixtures the
-  Mac build is held to — including the speech engine, model and all.
+  and the same fine-tuned voice speaking through the same Piper model. Both are
+  <em>imported</em> rather than copied, so the parity suites that hold them to
+  the Swift original are checking the code that actually runs — on real Ubuntu
+  and Windows runners, every push, speech engine and model included.
   <br><br>
-  The phonemizer is why that took a vendored WebAssembly build rather than an
-  <code>npm install</code>. The published package carries espeak-ng 1.52.0;
+  A build carries an immutable copy of the authored library and installs it to
+  a writable root on first launch; the application never edits its own bundle.
+  What it must <em>not</em> carry is checked as carefully as what it must: a
+  package containing a listener's <code>notes.md</code>, a journal, saved
+  calibration, or the author's private voice is refused outright, and that
+  check is verified by planting those files into a real build and watching it
+  fail.
+  <br><br>
+  The phonemizer is why the voice took a vendored WebAssembly build rather than
+  an <code>npm install</code>. The published package carries espeak-ng 1.52.0;
   this voice was trained with the espeak-ng its trainer pins, 229 commits
   later, which inserts a linking palatal glide before a following vowel —
   <span class="mono">bˈɑːdiʲ ɐslˈiːp</span>. 147 of the voice's 538 training
-  clips contain it. Measured over 817 calls, it was the <em>only</em>
-  difference between the two, so the gap was one espeak version and the answer
-  was to be that version. All 817 now match the macOS engine byte for byte.
+  clips contain it. Measured over 817 calls it was the <em>only</em> difference
+  between the two, so the gap was one espeak version and the answer was to be
+  that version. All 817 now match the macOS engine byte for byte.
   <br><br>
-  What is missing is packaging: the library is not yet bundled into an
-  application and <code>electron-builder</code> has never been run against it.
-  The voice speaks; nobody has shipped it.</div>
+  Nothing is signed, nothing auto-updates, and neither format can be built on
+  the author's Mac — electron-builder ships an x86_64 <code>mksquashfs</code>
+  and <code>wine64</code> for macOS hosts — so each platform builds on its own
+  runner and the results are attached to a release.</div>
 </section>
 
 <section>
