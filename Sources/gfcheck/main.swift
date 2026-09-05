@@ -39,7 +39,7 @@ do {
     let version = try String(contentsOfFile: "VERSION", encoding: .utf8)
         .trimmingCharacters(in: .whitespacesAndNewlines)
     let package = try String(contentsOfFile: "Package.swift", encoding: .utf8)
-    c.equal(version, "5.0.0", "the source tree identifies Gateway Forge v5")
+    c.equal(version, "5.1.0", "the source tree identifies Gateway Forge v5")
     let build = try String(contentsOfFile: "build.sh", encoding: .utf8)
     c.expect(build.contains("<string>$APP_VERSION</string>"),
              "the app bundle reads its short version from VERSION")
@@ -4384,8 +4384,13 @@ do {
     if let walker = fm.enumerator(at: root, includingPropertiesForKeys: nil) {
         for case let url as URL in walker {
             let name = url.lastPathComponent
-            // Build output and the model cache are not ours.
-            if name == ".build" || name == ".dd" || name == ".git" {
+            // Build output, the model cache, and npm's own dependency tree are
+            // not ours -- node_modules arrived with the Electron/cross-platform
+            // port, and plenty of native npm packages (node-gyp and friends)
+            // bundle Python build tooling of their own. It's gitignored and
+            // never ships in the app; the principle this check protects is
+            // about what Gateway Forge depends on, not what npm vendors.
+            if name == ".build" || name == ".dd" || name == ".git" || name == "node_modules" {
                 walker.skipDescendants(); continue
             }
             if url.pathExtension == "py" || name == "requirements.txt"

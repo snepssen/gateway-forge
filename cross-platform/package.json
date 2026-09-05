@@ -108,7 +108,8 @@
     "afterPack": "./scripts/after-pack.cjs"
   },
   "allowScripts": {
-    "electron@33.4.11": true
+    "electron@33.4.11": true,
+    "onnxruntime-node@1.29.0": true
   },
   "dependencies": {
     "onnxruntime-node": "^1.29.0"

@@ -4364,6 +4364,13 @@ if subcommand == "storage-fixture" {
 if subcommand == "recipe-fixture" {
     let cwd = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
     let out = cwd.appending(path: "library/reference/recipe-fixture.json")
+    // Scanned from fixtures/synthetic-library, not the live tree: this used
+    // to read memory/sessions/ directly off cwd, which meant every
+    // regeneration baked the operator's own real session history --
+    // filenames, timestamps, destinations -- into a fixture meant to be a
+    // stable, shareable reference. Same category of leak memory/activity.json
+    // is already gitignored against, just reached through a fixture instead.
+    let synthRoot = cwd.appending(path: "fixtures/synthetic-library")
 
     struct RecipeOut: Encodable {
         var file: String
@@ -4387,7 +4394,7 @@ if subcommand == "recipe-fixture" {
     }
 
     var corpus: [RecipeOut] = []
-    let dir = cwd.appending(path: "memory/sessions")
+    let dir = synthRoot.appending(path: "memory/sessions")
     let files = ((try? FileManager.default.contentsOfDirectory(at: dir, includingPropertiesForKeys: nil)) ?? [])
         .filter { $0.pathExtension == "json" }.sorted { $0.path < $1.path }
     for f in files {
@@ -4517,8 +4524,15 @@ if subcommand == "recipe-fixture" {
 if subcommand == "activity-fixture" {
     let cwd = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
     let out = cwd.appending(path: "library/reference/activity-fixture.json")
-    let lib = try Library.scan(root: cwd)
-    let ledger = try ActivityStore.load(root: cwd)
+    // Scanned from fixtures/synthetic-library, not the live tree: this used
+    // to load ActivityStore off cwd directly, which meant every regeneration
+    // baked the operator's own real appSeconds/renderSeconds and completed
+    // session list into a fixture meant to be a stable, shareable reference.
+    // Same category of leak memory/activity.json is already gitignored
+    // against, just reached through a fixture instead.
+    let synthRoot = cwd.appending(path: "fixtures/synthetic-library")
+    let lib = try Library.scan(root: synthRoot)
+    let ledger = try ActivityStore.load(root: synthRoot)
     let stats = ActivityStats.measure(library: lib, ledger: ledger)
 
     struct LedgerOut: Encodable {
