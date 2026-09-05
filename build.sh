@@ -102,6 +102,27 @@ cp "$BIN" "$APP/Contents/MacOS/GatewayForge"
 # resource-bundle copy below, since it is ~60 MB rather than Qwen3's 4.5 GB.
 cp -R "$ROOT/library" "$APP/Contents/Resources/GatewayLibrary"
 
+# App icon. icon/AppIcon.png is the single checked-in source (1024x1024);
+# the .icns is a build artifact, generated here with sips/iconutil -- both
+# ship with macOS, so this needs nothing beyond the base OS. Regenerating on
+# every build means there is never a stale .icns drifting from the source art.
+ICON_SRC="$ROOT/icon/AppIcon.png"
+if [ -f "$ICON_SRC" ]; then
+  ICONSET="$ROOT/.build/AppIcon.iconset"
+  rm -rf "$ICONSET"
+  mkdir -p "$ICONSET"
+  for spec in "16:icon_16x16" "32:icon_16x16@2x" "32:icon_32x32" "64:icon_32x32@2x" \
+              "128:icon_128x128" "256:icon_128x128@2x" "256:icon_256x256" \
+              "512:icon_256x256@2x" "512:icon_512x512" "1024:icon_512x512@2x"; do
+    size="${spec%%:*}"; name="${spec##*:}"
+    sips -z "$size" "$size" "$ICON_SRC" --out "$ICONSET/$name.png" >/dev/null
+  done
+  iconutil -c icns "$ICONSET" -o "$APP/Contents/Resources/AppIcon.icns"
+  echo "icon: built AppIcon.icns from icon/AppIcon.png"
+else
+  echo "icon: no icon/AppIcon.png found, shipping without a custom icon" >&2
+fi
+
 # Focus-local session scripts are product content too, but Focus notes are the
 # listener's journal. Package scripts and their source evidence explicitly;
 # never copy the personal notes or generated render folders beside them.
@@ -213,6 +234,7 @@ cat > "$APP/Contents/Info.plist" <<PLIST
   <key>CFBundleExecutable</key><string>GatewayForge</string>
   <key>CFBundleIdentifier</key><string>local.gatewayforge.app</string>
   <key>CFBundleName</key><string>Gateway Forge</string>
+  <key>CFBundleIconFile</key><string>AppIcon</string>
   <key>CFBundlePackageType</key><string>APPL</string>
   <key>CFBundleShortVersionString</key><string>$APP_VERSION</string>
   <key>CFBundleVersion</key><string>5</string>
