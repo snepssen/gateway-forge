@@ -6,6 +6,14 @@ cross-platform/** text eol=lf
 # on the very first `git add`; it is an error waiting to happen on a Windows
 # checkout, where the damage would show up as a phonemizer that will not load.
 cross-platform/vendor/espeakng/*.wasm binary
+
+# Same problem, different binaries: the app icons electron-builder reads for
+# the win/linux/mac targets. These sat uncommitted on disk since the icon was
+# first added -- discovered via a CRLF warning while fixing a similar issue
+# in the development tree.
+cross-platform/build/icon.ico binary
+cross-platform/build/icon.icns binary
+cross-platform/build/icon.png binary
 library/**/*.gws text eol=lf
 library/reference/**/*.json text eol=lf
 focus/**/*.gws text eol=lf

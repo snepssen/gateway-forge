@@ -44,7 +44,7 @@
       "name" : "completion-without-finished"
     },
     {
-      "error" : "DecodingError.dataCorrupted: Data was corrupted. Debug description: The given data was not valid JSON.. Underlying error: Error Domain=NSCocoaErrorDomain Code=3840 \"Unexpected character 'o' in expected null value around line 1, column 2.\" UserInfo={NSDebugDescription=Unexpected character 'o' in expected null value around line 1, column 2., NSJSONSerializationErrorIndex=1}",
+      "error" : "DecodingError.dataCorrupted: Data was corrupted. Debug description: The given data was not valid JSON.. Underlying error: Error Domain=NSCocoaErrorDomain Code=3840 \"Unexpected character 'o' in expected null value around line 1, column 2.\" UserInfo={NSJSONSerializationErrorIndex=1, NSDebugDescription=Unexpected character 'o' in expected null value around line 1, column 2.}",
       "json" : "nonsense",
       "name" : "not-json"
     }
@@ -181,28 +181,6 @@
       "ids" : [
 
       ],
-      "level" : "F1",
-      "substantive" : 0,
-      "words" : [
-
-      ]
-    },
-    {
-      "count" : 0,
-      "ids" : [
-
-      ],
-      "level" : "F3",
-      "substantive" : 0,
-      "words" : [
-
-      ]
-    },
-    {
-      "count" : 0,
-      "ids" : [
-
-      ],
       "level" : "F10",
       "substantive" : 0,
       "words" : [
@@ -214,161 +192,7 @@
       "ids" : [
 
       ],
-      "level" : "F11",
-      "substantive" : 0,
-      "words" : [
-
-      ]
-    },
-    {
-      "count" : 0,
-      "ids" : [
-
-      ],
       "level" : "F12",
-      "substantive" : 0,
-      "words" : [
-
-      ]
-    },
-    {
-      "count" : 0,
-      "ids" : [
-
-      ],
-      "level" : "F15",
-      "substantive" : 0,
-      "words" : [
-
-      ]
-    },
-    {
-      "count" : 0,
-      "ids" : [
-
-      ],
-      "level" : "F18",
-      "substantive" : 0,
-      "words" : [
-
-      ]
-    },
-    {
-      "count" : 0,
-      "ids" : [
-
-      ],
-      "level" : "F21",
-      "substantive" : 0,
-      "words" : [
-
-      ]
-    },
-    {
-      "count" : 0,
-      "ids" : [
-
-      ],
-      "level" : "F22",
-      "substantive" : 0,
-      "words" : [
-
-      ]
-    },
-    {
-      "count" : 0,
-      "ids" : [
-
-      ],
-      "level" : "F23",
-      "substantive" : 0,
-      "words" : [
-
-      ]
-    },
-    {
-      "count" : 0,
-      "ids" : [
-
-      ],
-      "level" : "F24",
-      "substantive" : 0,
-      "words" : [
-
-      ]
-    },
-    {
-      "count" : 0,
-      "ids" : [
-
-      ],
-      "level" : "F25",
-      "substantive" : 0,
-      "words" : [
-
-      ]
-    },
-    {
-      "count" : 0,
-      "ids" : [
-
-      ],
-      "level" : "F26",
-      "substantive" : 0,
-      "words" : [
-
-      ]
-    },
-    {
-      "count" : 0,
-      "ids" : [
-
-      ],
-      "level" : "F27",
-      "substantive" : 0,
-      "words" : [
-
-      ]
-    },
-    {
-      "count" : 0,
-      "ids" : [
-
-      ],
-      "level" : "F34",
-      "substantive" : 0,
-      "words" : [
-
-      ]
-    },
-    {
-      "count" : 0,
-      "ids" : [
-
-      ],
-      "level" : "F35",
-      "substantive" : 0,
-      "words" : [
-
-      ]
-    },
-    {
-      "count" : 0,
-      "ids" : [
-
-      ],
-      "level" : "F42",
-      "substantive" : 0,
-      "words" : [
-
-      ]
-    },
-    {
-      "count" : 0,
-      "ids" : [
-
-      ],
-      "level" : "F49",
       "substantive" : 0,
       "words" : [
 
@@ -393,27 +217,28 @@
   },
   "note" : "The ledger on disk, the stats measured from the tree, and what the store refuses.",
   "noteURLs" : {
-    "count" : 197,
+    "count" : 12,
     "sample" : [
-      "focus/F1/notes.md",
-      "focus/F10/notes.md",
-      "focus/F11/notes.md",
-      "focus/F12/notes.md",
-      "focus/F15/notes.md",
-      "focus/F18/notes.md",
-      "focus/F21/notes.md",
-      "focus/F22/notes.md"
+      "fixtures/synthetic-library/focus/F10/notes.md",
+      "fixtures/synthetic-library/focus/F10/renders/r1/notes.md",
+      "fixtures/synthetic-library/focus/F12/notes.md",
+      "fixtures/synthetic-library/library/segments/alpha.md",
+      "fixtures/synthetic-library/library/segments/climb-f10-f12.md",
+      "fixtures/synthetic-library/library/segments/layered.md",
+      "fixtures/synthetic-library/library/segments/mike.md",
+      "fixtures/synthetic-library/library/segments/not-a-climb.md"
     ]
   },
   "stats" : {
     "levelsReached" : 0,
-    "levelsWithMaterial" : 0,
+    "levelsWithMaterial" : 1,
     "listensCompleted" : 0,
-    "noteWords" : 416,
-    "notesLogged" : 2,
-    "sessionsAssembled" : 0,
+    "noteWords" : 0,
+    "notesLogged" : 0,
+    "progression" : 0,
+    "sessionsAssembled" : 1,
     "sessionsCompleted" : 0,
-    "sessionsOutstanding" : 0
+    "sessionsOutstanding" : 1
   },
   "wordCases" : [
     {

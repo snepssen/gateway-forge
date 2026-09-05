@@ -242,7 +242,13 @@
   ],
   "calibrationCases" : [
     {
+      "cycleSeconds" : 28,
       "name" : "real voice, has a preview",
+      "narration" : {
+        "detail" : "this voice's preview line",
+        "kind" : "preview",
+        "url" : "voices/snepssen-suno/preview.wav"
+      },
       "voice" : "snepssen-suno"
     },
     {
