@@ -58,6 +58,7 @@
       }
     ],
     "linux": {
+      "icon": "build/icon.png",
       "target": [
         {
           "target": "tar.gz",
@@ -77,6 +78,7 @@
       "category": "AudioVideo"
     },
     "win": {
+      "icon": "build/icon.ico",
       "target": [
         {
           "target": "zip",
@@ -93,6 +95,7 @@
       ]
     },
     "mac": {
+      "icon": "build/icon.icns",
       "target": [
         {
           "target": "dir",
