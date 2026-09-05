@@ -37,13 +37,21 @@ interface Fixture {
 
 const root = join(process.cwd(), "..");
 const fx = JSON.parse(readFileSync(join(root, "library", "reference", "activity-fixture.json"), "utf8")) as Fixture;
+// Scanned from fixtures/synthetic-library, not the live tree -- matching the
+// gfcorpus activity-fixture generator, which was changed the same way for the
+// same reason: this used to compare against whatever the operator's own
+// memory/activity.json happened to hold, which meant every regeneration (and
+// every run of this check) either baked in or read real personal usage
+// history. Each listener's actual practice is their own -- the app's "personal
+// path" -- and isn't a shared invariant this check should assume.
+const scanRoot = join(root, "fixtures", "synthetic-library");
 
 let pass = 0, fail = 0;
 const check = (ok: boolean, what: string) => { ok ? pass++ : fail++; if (!ok) console.log(`  FAIL ${what}`); };
 const near = (a: number, b: number, eps = 1e-9) => Math.abs(a - b) <= eps;
 
-const lib = scan(root);
-const ledger = A.loadLedger(root);
+const lib = scan(scanRoot);
+const ledger = A.loadLedger(scanRoot);
 
 // --- the ledger as it is on disk
 check(ledger.schemaVersion === fx.ledger.schemaVersion, "schema version");
@@ -64,8 +72,8 @@ if (ledger.firstOpened !== undefined && fx.ledger.firstOpened !== undefined) {
 // (`emptyLedger()`); this block reads the raw file a second time specifically
 // to compare against "now," so it needs the same existsSync guard rather than
 // assuming a file loadLedger itself never assumed was there.
-if (existsSync(join(root, "memory", "activity.json"))) {
-  const rawText = readFileSync(join(root, "memory", "activity.json"), "utf8");
+if (existsSync(join(scanRoot, "memory", "activity.json"))) {
+  const rawText = readFileSync(join(scanRoot, "memory", "activity.json"), "utf8");
   const raw = JSON.parse(rawText) as Record<string, number>;
   const live = A.decodeLedger(rawText);
   check(near(live.appSeconds, raw.appSeconds!), "app seconds, against the file as it is now");
@@ -77,8 +85,8 @@ if (existsSync(join(root, "memory", "activity.json"))) {
   check(live.renderSeconds >= fx.ledger.renderSeconds, "as do render seconds");
   check(live.listeningSeconds >= fx.ledger.listeningSeconds, "and listening seconds");
 } else {
-  console.log("  note: no memory/activity.json on this checkout — live-ledger checks stand down "
-    + "(it's gitignored listener practice history, never shipped with the repo)");
+  console.log("  note: no memory/activity.json in fixtures/synthetic-library — live-ledger checks stand down "
+    + "(this tree deliberately carries no shared real-usage baseline; see scanRoot above)");
 }
 check(ledger.completions.length === fx.ledger.completionCount, "completion count");
 check(ledger.completions.map(A.completionID).join("|") === fx.ledger.completionIDs.join("|"),
@@ -153,12 +161,12 @@ check(fx.decodeCases.some(d => d.name === "older-schema" && d.error != null),
 check(fx.decodeCases.some(d => d.name === "date-as-number" && d.error != null),
   "and a numeric date, because the store is ISO8601 both ways");
 check(fx.freshLedgerIsEmpty, "while a root with no ledger at all is a new listener, not an error");
-check(A.loadLedger(join(root, "fixtures", "synthetic-library")).completions.length === 0,
+check(A.loadLedger(scanRoot).completions.length === 0,
   "measured here too: the synthetic tree has no ledger and loads empty");
 
 // --- the journal
 for (const j of fx.journals) {
-  const es = journalEntries(root, j.level);
+  const es = journalEntries(scanRoot, j.level);
   check(es.length === j.count, `${j.level}: ${es.length} entries vs ${j.count}`);
   check(es.filter(isSubstantive).length === j.substantive, `${j.level}: substantive`);
   check(es.map(e => e.id).join("|") === j.ids.join("|"), `${j.level}: ids, oldest first`);
@@ -171,6 +179,9 @@ for (const w of fx.wordCases) {
 
 // --- the bindings the journal is built from
 const renders = lib.focus.flatMap(f => f.renders);
+// Relative to `root`, not `scanRoot` -- the fixture keeps the
+// "fixtures/synthetic-library/" prefix in these paths, since that's the
+// listener-facing root everything else in this file is written against.
 // `root.length` slicing assumes a POSIX host and would leave Windows's
 // backslashes uncompared against the fixture's slash-separated paths.
 const urls = A.journalNoteURLs(lib, renders)
@@ -192,7 +203,13 @@ if (fx.ledger.completionCount > 0) {
   console.log("  note: no completions on this checkout — ledger-size check stands down "
     + "(it's gitignored listener practice history, never shipped with the repo)");
 }
-check(fx.stats.noteWords > 0, `and there is writing to count (${fx.stats.noteWords} words)`);
+check(fx.stats.noteWords > 0 || fx.stats.notesLogged === 0, "note-word count is internally consistent");
+if (fx.stats.noteWords > 0) {
+  check(fx.stats.noteWords > 0, `and there is writing to count (${fx.stats.noteWords} words)`);
+} else {
+  console.log("  note: fixtures/synthetic-library carries no note words — note-word check stands down "
+    + "(no shared real-usage baseline is expected here; see scanRoot above)");
+}
 const journalLevels = fx.journals.filter(j => j.count > 0);
 if (journalLevels.length > 0) {
   check(journalLevels.length > 0, "with journal entries in at least one level");

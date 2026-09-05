@@ -12,7 +12,7 @@
 # re-run after adding tapes without redoing 30 hours.
 set -euo pipefail
 cd "$(dirname "$0")/.."
-ROOT="${1:-/Users/tamtor/MEGA/Guided Meditation/The Gateway Experience}"
+ROOT="${1:?usage: transcribe-tapes.sh <tape-root>}"
 OUT="library/sources/gateway-experience"
 MW="/Applications/MacWhisper.app/Contents/MacOS/mw"
 MODEL="parakeet-pro:nvidia_parakeet-v3"
