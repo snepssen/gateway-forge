@@ -249,6 +249,7 @@ footer{padding:44px 0 70px;color:var(--muted);font-size:14px}
     <ul>
       <li><a href="#screenshots">Screenshots</a></li>
       <li><a href="#downloads">Downloads</a></li>
+      <li><a href="#changelog">Changelog</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -336,17 +337,51 @@ footer{padding:44px 0 70px;color:var(--muted);font-size:14px}
 <section id="downloads">
   <p class="eyebrow">Downloads</p>
   <h2>Get it</h2>
-  <p class="lede">A signed (ad-hoc) build, straight from this repository's own release tag — the same <code>./build.sh</code> anyone can run themselves, just already run.</p>
+  <p class="lede">Ad-hoc signed builds, straight from this repository's own release tag — the same <code>./build.sh</code> and CI packaging anyone can run themselves, just already run.</p>
 
   <div class="grid">
     <div class="card">
       <h3>macOS</h3>
-      <div class="meta">Apple Silicon · 145 MiB · v5.0.0</div>
+      <div class="meta">Apple Silicon · 82 MiB · v5.1.1</div>
       <p>Gatekeeper will refuse an unsigned download by default — right-click the <code>.app</code> and choose Open once, or clear the quarantine flag from Terminal, either of which says you mean to run it.</p>
-      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/Gateway-Forge-macOS.zip">Download .app →</a></div>
+      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/Gateway.Forge-5.1.1-macOS.zip">Download .app →</a></div>
+    </div>
+    <div class="card">
+      <h3>Windows</h3>
+      <div class="meta">x86-64 · 185 MiB installer · v5.1.1</div>
+      <p>Unsigned, so SmartScreen will warn that the publisher is unknown — a code-signing certificate costs money this project does not spend. Choose <b>More info</b>, then <b>Run anyway</b>, if you trust where you got it.</p>
+      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/Gateway.Forge.Setup.5.1.1.exe">Download installer →</a></div>
+      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/Gateway.Forge-5.1.1-win.zip">Or the portable .zip →</a></div>
+    </div>
+    <div class="card">
+      <h3>Linux</h3>
+      <div class="meta">x86-64 · 371 MiB AppImage · v5.1.1</div>
+      <p>The AppImage needs no install — <code>chmod +x</code> it and run. The tarball is the same build, if you would rather place it yourself.</p>
+      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/Gateway.Forge-5.1.1.AppImage">Download AppImage →</a></div>
+      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/gateway-forge-cross-platform-5.1.1.tar.gz">Or the .tar.gz →</a></div>
     </div>
   </div>
-  <div class="note"><code>xattr -cr "Gateway Forge.app"</code> is the Terminal route, run once after unzipping. SHA-256 of the archive is published on the <a href="https://github.com/snepssen/gateway-forge/releases/latest">release page</a> — check it against what you downloaded before you clear anything.</div>
+  <div class="note"><code>xattr -cr "Gateway Forge.app"</code> is the Terminal route on macOS, run once after unzipping. Every archive's SHA-256 is published as <a href="https://github.com/snepssen/gateway-forge/releases/latest"><code>SHA256SUMS</code> on the release page</a> — check it against what you downloaded before you clear any quarantine flag, since that is the point at which verifying still means something.</div>
+
+  <h3 class="handoff">Or let a script do it</h3>
+  <p>One line, if you would rather not click through the warnings by hand. Each reads the asset names from the release rather than guessing them, verifies the SHA-256 against <code>SHA256SUMS</code> and stops on a mismatch, and clears the quarantine flag (macOS) or the downloaded-file block (Windows) — saying so as it goes. Neither asks for elevated permissions, and neither writes outside the paths it prints.</p>
+  <div class="install">
+    <div class="cmd">
+      <div class="cmdhead">
+        <span class="os">macOS · Linux</span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+      <pre><code>curl -fsSL https://raw.githubusercontent.com/snepssen/gateway-forge/main/install.sh | sh</code></pre>
+    </div>
+    <div class="cmd">
+      <div class="cmdhead">
+        <span class="os">Windows · PowerShell</span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+      <pre><code>irm https://raw.githubusercontent.com/snepssen/gateway-forge/main/install.ps1 | iex</code></pre>
+    </div>
+  </div>
+  <div class="note"><b>Read it before you run it.</b> Piping a remote script into a shell is exactly the thing worth being suspicious of, and both are short enough to skim first — drop the <code>| sh</code> (or the <code>| iex</code>) and it prints instead of running.</div>
 
   <h3 class="handoff">Or build it yourself</h3>
   <div class="install">
@@ -371,7 +406,7 @@ cd gateway-forge && ./build.sh</code></pre>
       <tbody>
         <tr><td>Desktop app</td><td>macOS 14+, Apple Silicon</td><td><span class="pill found">Installed daily driver</span></td></tr>
         <tr><td>iOS companion</td><td>iOS 17+</td><td><span class="pill found">Builds and syncs over LAN</span></td></tr>
-        <tr><td>Windows / Linux</td><td>TypeScript core + Electron shell</td><td><span class="pill found">Packaged, checked, unsigned</span></td></tr>
+        <tr><td>Windows / Linux</td><td>TypeScript core + Electron shell</td><td><span class="pill found">Released, checked, unsigned</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -412,13 +447,30 @@ cd gateway-forge && ./build.sh</code></pre>
   <h2>One executable, no cloud, checked by name</h2>
   <p>Native Swift and SwiftUI throughout, no web engine and no bundled interpreter — the build fails outright on any Python file anywhere in the tree, on purpose. Speech runs through the same Piper/VITS-over-ONNX engine <a href="https://github.com/snepssen/voice-forge">Voice Forge</a> was built to expose, here bundled as a single fixed voice fine-tuned on the author's own speech.</p>
   <div class="readout three">
-    <div class="cell"><div class="n">3,672</div><div class="l">checks currently passing</div></div>
+    <div class="cell"><div class="n">3,812</div><div class="l">checks currently passing</div></div>
     <div class="cell"><div class="n">49</div><div class="l">Focus levels, F1 to F49, every one reachable</div></div>
     <div class="cell"><div class="n">3</div><div class="l">measured beat signals carrying all fifty source tapes</div></div>
   </div>
   <p style="margin-top:26px">A checkout of this public copy has its corpus-dependent suites — the ones that read the original tape transcripts or the Institute's manuals — stand down by name instead of either failing on files that were never meant to ship here, or quietly reporting health they never actually looked for. <span class="mono" style="font-size:14px">note [source tapes] no tape transcripts in this tree — corpus suites stand down (this is the expected state of a build made for distribution)</span> is what that looks like in practice.</p>
   <h3 style="margin-top:34px">A ledger the app keeps, not the Institute's recordings</h3>
   <p>The three retained resonant-tuning cues and the wake-up signal that used to come from sampled Monroe tape recordings are now synthesised: the bed generates its own tuning and its own return signal, live, at the measured frequencies above. Nothing sampled from the original tapes ships in this build.</p>
+</section>
+
+<section id="changelog">
+  <p class="eyebrow">Changelog</p>
+  <h2>What changed</h2>
+
+  <h3>v5.1.1 <span class="mono" style="font-size:14px;font-weight:400">· 6 September 2026</span></h3>
+  <p><b>The first release with Windows and Linux builds in it.</b> Both are packaged by CI from the tag, checked before they are built, and published with their checksums — previously only a macOS build existed.</p>
+  <p><b>Resonant Tuning is now an original humming exercise.</b> The old segment followed the Institute's own breathing instructions closely; it has been replaced with three level-scoped variants written from first principles — vagal tone, bone conduction, and the fact that humming <i>quieter</i> drives proportionally more vibration into the skull than into the air. Low and in the chest through Focus 10–15; rising through the throat and jaw at 18; deliberately quiet from 21 upward, where it is felt more than heard. Nothing in it is paraphrased from the Institute's material.</p>
+  <p><b>The Resonant Energy Balloon becomes the Projected Energy Bubble.</b> The three-strand construction was already the author's own; what is new is the load-bearing logic said out loud — strands at different depths pulling against each other like woven fibre, triangulating into a shell — and a crown-to-feet circuit tied back to the breath rhythm the ocean segment already establishes.</p>
+  <p><b>Verbosity now follows practice, per level.</b> Full detail by default; ten completed sessions at a level steps it down to guided, twenty to anchors alone. A month away from a level resets it — earned ease is for someone actively practising there, not a permanent credential. Any level can be held at a chosen verbosity from its own page, and a choice made that way does not decay.</p>
+  <p><b>An app icon</b>, and one-line installers for macOS, Linux and Windows that verify checksums before they unpack anything.</p>
+  <div class="note">Two fixes worth naming because they were real: a fixture was baking journal entries into a file that shipped, and four parity suites asserted against state a distribution build deliberately does not carry — they passed only where the private tree still had the files they should never have read. Both are closed, and <code>npm run check:ci</code> now passes end to end on a fresh checkout as well as in the working tree.</div>
+
+  <h3 class="handoff">v5.0.0</h3>
+  <p>First public release. macOS only — the native SwiftUI app, the authored library, the live-generated bed, and the ledger that keeps a listener's own practice on their own machine.</p>
+  <div class="note">Every release, with its full notes and checksums, is on the <a href="https://github.com/snepssen/gateway-forge/releases">releases page</a>.</div>
 </section>
 
 <section id="contact">
