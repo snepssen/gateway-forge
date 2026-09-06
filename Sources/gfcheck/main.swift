@@ -39,7 +39,7 @@ do {
     let version = try String(contentsOfFile: "VERSION", encoding: .utf8)
         .trimmingCharacters(in: .whitespacesAndNewlines)
     let package = try String(contentsOfFile: "Package.swift", encoding: .utf8)
-    c.equal(version, "5.1.0", "the source tree identifies Gateway Forge v5")
+    c.equal(version, "5.1.1", "the source tree identifies Gateway Forge v5")
     let build = try String(contentsOfFile: "build.sh", encoding: .utf8)
     c.expect(build.contains("<string>$APP_VERSION</string>"),
              "the app bundle reads its short version from VERSION")
@@ -330,7 +330,7 @@ let expected: [(String, String)] = [
     ("opening",           "F10"), ("comfort",        "F10"),
     ("orientation",       "F10"), ("ocean",          "F10"),
     ("conversion-box",    "F10"), ("affirmation",    "F10"),
-    ("resonant-tuning",   "F10"), ("balloon",        "F10"),
+    ("tuning-hum",   "F10"), ("balloon",        "F10"),
     ("return-methods",    "F10"), ("relax-10",       "F10"),
     ("climb-f10-f12",     "F12"), ("briefing-f12",   "F12"),
     ("climb-f12-f15",     "F15"), ("briefing-f15",   "F15"),
@@ -503,12 +503,10 @@ if let d = docs["opening.gws"] {
 if let d = docs["ocean.gws"] {
     c.equal(d.steps.filter { $0.kind == .say }.count, 5, "ocean carries its five framing lines")
 }
-if let d = docs["resonant-tuning.gws"] {
-    c.equal(d.steps.filter { $0.kind == .hold }.count, 1, "the breathing practice remains a hold")
-    c.equal(d.steps.filter { $0.kind == .media }.count, 1,
-            "the humming window is authored as media, not anonymous silence")
-    c.equal(d.steps.first(where: { $0.kind == .media })?.text, "resonantTuning",
-            "the segment names a catalog role, not a filename")
+if let d = docs["tuning-hum.chest.gws"] {
+    c.equal(d.steps.filter { $0.kind == .hold }.count, 1, "the humming window is a hold")
+    c.expect(!d.steps.contains { $0.kind == .media },
+             "no media step -- the bed is generated live, not played from a recording")
 }
 if let d = docs["balloon.gws"] {
     c.expect(d.steps.contains { $0.kind == .hold }, "balloon holds while the field forms")
@@ -816,7 +814,7 @@ c.expect(templates.count >= 3, "templates on disk (\(templates.count))")
 
 let tapeOrder = ["opening", "comfort", "orientation", "ocean",
                  "conversion-box", "affirmation",
-                 "resonant-tuning", "balloon", "return-methods", "clear-skies",
+                 "tuning-hum", "balloon", "return-methods", "clear-skies",
                  "relax-10",
                  "climb-f10-f12", "briefing-f12", "free",
                  "climb-f12-f15", "briefing-f15", "free",
@@ -890,7 +888,7 @@ if let advanced = ScriptDoc.load(root.appending(path: "library/templates/advance
     c.equal(advanced.level, "F10", "the exercise remains at Focus 10")
     c.equal(advanced.ending, "return", "the source exercise returns to waking")
     c.equal(advanced.steps.filter { $0.kind == .use }.map(\.text),
-            ["orientation", "conversion-box", "resonant-tuning", "balloon",
+            ["orientation", "conversion-box", "tuning-hum", "balloon",
              "relax-10", "advanced-focus-10", "return"],
             "the recipe retains the source-grounded Wave I sequence")
     c.expect(!advanced.steps.contains { $0.kind == .hold },
@@ -908,7 +906,7 @@ if let release = ScriptDoc.load(root.appending(path: "library/templates/release-
     c.equal(release.level, "F10", "Release and Recharge remains at Focus 10")
     c.equal(release.ending, "return", "the safety adaptation returns to waking")
     c.equal(release.steps.filter { $0.kind == .use }.map(\.text),
-            ["orientation", "conversion-box", "affirmation", "resonant-tuning",
+            ["orientation", "conversion-box", "affirmation", "tuning-hum",
              "balloon", "relax-10", "release-and-recharge", "health-affirmation",
              "return"],
             "the recipe keeps the source preparation, exercise and health statement together")
@@ -927,7 +925,7 @@ if let sleep = ScriptDoc.load(root.appending(path: "library/templates/exploratio
     c.equal(sleep.level, "F10", "Exploration, Sleep remains at Focus 10")
     c.equal(sleep.ending, "stay", "the source exercise leaves the listener asleep")
     c.equal(sleep.steps.filter { $0.kind == .use }.map(\.text),
-            ["orientation", "conversion-box", "resonant-tuning", "balloon",
+            ["orientation", "conversion-box", "tuning-hum", "balloon",
              "affirmation", "relax-10", "exploration-sleep"],
             "the recipe retains the source's explicit preparation order")
     c.expect(!sleep.steps.contains { $0.kind == .hold },
@@ -946,7 +944,7 @@ if let freeFlow = ScriptDoc.load(root.appending(path: "library/templates/free-fl
     c.equal(freeFlow.level, "F10", "Free Flow remains at Focus 10")
     c.equal(freeFlow.ending, "return", "the source exercise returns to waking")
     c.equal(freeFlow.steps.filter { $0.kind == .use }.map(\.text),
-            ["orientation", "conversion-box", "resonant-tuning", "balloon",
+            ["orientation", "conversion-box", "tuning-hum", "balloon",
              "affirmation", "relax-10", "free-flow-10", "return-one"],
             "the recipe retains the source preparation, purpose and fast return")
     c.expect(!freeFlow.steps.contains { $0.kind == .hold },
@@ -6377,6 +6375,70 @@ do {
     c.equal(stray.deepestLevel(order: order), nil,
             "a level outside the library's order is not reported as progress")
 
+    // Proficiency verbosity. v3 by default, v2 at ten completions, v1 at
+    // twenty -- and reset to v3 if the most recent one has gone stale.
+    let recentBase = Date()
+    func ledgerWith(completions n: Int, at level: String, mostRecentDaysAgo: Double = 0)
+        -> ActivityLedger {
+        var l = ActivityLedger()
+        for i in 0..<n {
+            // Oldest first, so the *most recent* one is the one that carries
+            // mostRecentDaysAgo -- a test that stamped every completion the
+            // same age could not tell decay from a simple off-by-one.
+            let age = mostRecentDaysAgo + Double(n - 1 - i)
+            l.record(.init(track: "t\(i)", level: level, seconds: 60,
+                          finished: recentBase.addingTimeInterval(-age * 86_400)))
+        }
+        return l
+    }
+    c.equal(ActivityLedger().proficiencyVerbosity(for: "F10", now: recentBase), 3,
+            "nothing completed at a level starts at v3")
+    c.equal(ledgerWith(completions: 9, at: "F10").proficiencyVerbosity(for: "F10", now: recentBase), 3,
+            "nine completions is not yet enough to step down")
+    c.equal(ledgerWith(completions: 10, at: "F10").proficiencyVerbosity(for: "F10", now: recentBase), 2,
+            "ten completions steps down to v2")
+    c.equal(ledgerWith(completions: 19, at: "F10").proficiencyVerbosity(for: "F10", now: recentBase), 2,
+            "nineteen completions is still v2")
+    c.equal(ledgerWith(completions: 20, at: "F10").proficiencyVerbosity(for: "F10", now: recentBase), 1,
+            "twenty completions steps down to v1")
+    c.equal(ledgerWith(completions: 30, at: "F10").proficiencyVerbosity(for: "F10", now: recentBase), 1,
+            "v1 is a floor, not a ceiling that keeps counting past it")
+    c.equal(ledgerWith(completions: 20, at: "F10", mostRecentDaysAgo: 29)
+                .proficiencyVerbosity(for: "F10", now: recentBase), 1,
+            "twenty-nine days since practice still holds the earned verbosity")
+    c.equal(ledgerWith(completions: 20, at: "F10", mostRecentDaysAgo: 31)
+                .proficiencyVerbosity(for: "F10", now: recentBase), 3,
+            "a month without practice at this level resets to v3, however many completions came before")
+    c.equal(ledgerWith(completions: 20, at: "F10").proficiencyVerbosity(for: "F12", now: recentBase), 3,
+            "proficiency at one level says nothing about another")
+
+    // Effective verbosity: an override wins outright, and does not decay --
+    // it is a decision, not a measurement.
+    var overridden = ledgerWith(completions: 20, at: "F10")
+    overridden.verbosityOverrides["F10"] = 3
+    c.equal(overridden.effectiveVerbosity(for: "F10", now: recentBase), 3,
+            "an override holds even against twenty earned completions")
+    c.equal(overridden.effectiveVerbosity(for: "F12", now: recentBase), 3,
+            "an override on one level does not leak into another's computed value")
+    let unoverridden = ledgerWith(completions: 20, at: "F10")
+    c.equal(unoverridden.effectiveVerbosity(for: "F10", now: recentBase), 1,
+            "with no override, the effective value is exactly the computed one")
+
+    // The regression this exists to prevent: a ledger saved before
+    // verbosityOverrides existed must still decode, with an empty dictionary
+    // rather than a thrown error. Built by hand, deliberately without the key,
+    // rather than by round-tripping a ledger that already has it.
+    let oldShapeJSON = """
+        {"schemaVersion":1,"appSeconds":10,"renderSeconds":5,"listeningSeconds":3,
+         "completions":[]}
+        """
+    let decoder = JSONDecoder()
+    decoder.dateDecodingStrategy = .iso8601
+    let decodedOld = try decoder.decode(ActivityLedger.self, from: Data(oldShapeJSON.utf8))
+    c.expect(decodedOld.verbosityOverrides.isEmpty,
+             "a ledger from before this field existed decodes with no overrides, not a thrown error")
+    c.equal(decodedOld.appSeconds, 10, "and every field that was already there still decodes")
+
     // The store. A missing ledger is a new listener; a malformed one is an
     // error and is never replaced with zeroes.
     let fm = FileManager.default
@@ -6652,21 +6714,49 @@ if let lib = segLib {
 
 // The density suggested to someone who has not formed an opinion yet. It steps
 // down as a level becomes familiar and never blocks a choice; these pin the
-// steps so the rule cannot drift without saying so.
+// steps so the rule cannot drift without saying so. SessionGuidance is a thin
+// wrapper over ActivityLedger.effectiveVerbosity/proficiencyVerbosity (see the
+// "practice ledger" suite for the underlying ten/twenty/decay rule itself) --
+// what belongs here is that the wrapper actually delegates, and that the
+// rationale text says the right thing at each stage.
 c.suite("suggested density")
 do {
-    c.equal(SessionGuidance.suggestedVerbosity(completionsAtLevel: 0), 3,
+    func ledgerWith(completions n: Int, at level: String) -> ActivityLedger {
+        var l = ActivityLedger()
+        for i in 0..<n {
+            l.record(.init(track: "t\(i)", level: level, seconds: 60, finished: Date()))
+        }
+        return l
+    }
+    c.equal(SessionGuidance.suggestedVerbosity(for: "F10", ledger: ledgerWith(completions: 0, at: "F10")), 3,
             "new ground gets every level named")
-    c.equal(SessionGuidance.suggestedVerbosity(completionsAtLevel: 1), 3,
-            "and a second visit still does")
-    c.equal(SessionGuidance.suggestedVerbosity(completionsAtLevel: 2), 2, "then guided")
-    c.equal(SessionGuidance.suggestedVerbosity(completionsAtLevel: 4), 2, "still guided at four")
-    c.equal(SessionGuidance.suggestedVerbosity(completionsAtLevel: 5), 1,
-            "then anchors alone, once the words are known")
+    c.equal(SessionGuidance.suggestedVerbosity(for: "F10", ledger: ledgerWith(completions: 9, at: "F10")), 3,
+            "and the ninth visit still does")
+    c.equal(SessionGuidance.suggestedVerbosity(for: "F10", ledger: ledgerWith(completions: 10, at: "F10")), 2,
+            "then guided, at ten")
+    c.equal(SessionGuidance.suggestedVerbosity(for: "F10", ledger: ledgerWith(completions: 19, at: "F10")), 2,
+            "still guided at nineteen")
+    c.equal(SessionGuidance.suggestedVerbosity(for: "F10", ledger: ledgerWith(completions: 20, at: "F10")), 1,
+            "then anchors alone, once twenty are on record")
     // Monotonic: familiarity never argues for more words.
-    let steps = (0...12).map { SessionGuidance.suggestedVerbosity(completionsAtLevel: $0) }
+    let steps = (0...25).map { SessionGuidance.suggestedVerbosity(for: "F10", ledger: ledgerWith(completions: $0, at: "F10")) }
     c.expect(steps == steps.sorted(by: >), "the suggestion only ever steps down")
     c.expect(Set(steps) == [1, 2, 3], "and reaches every density")
+
+    // The rationale text: new ground, guided, anchors, and an override that
+    // overrides the wording too, not just the number.
+    c.expect(SessionGuidance.rationale(for: "F10", ledger: ledgerWith(completions: 0, at: "F10"))
+                .contains("new ground"), "names new ground at zero")
+    c.expect(SessionGuidance.rationale(for: "F10", ledger: ledgerWith(completions: 12, at: "F10"))
+                .contains("Guided"), "names guided in the middle band")
+    c.expect(SessionGuidance.rationale(for: "F10", ledger: ledgerWith(completions: 20, at: "F10"))
+                .contains("words are known"), "names the anchors-alone stage at twenty")
+    var overridden = ledgerWith(completions: 20, at: "F10")
+    overridden.verbosityOverrides["F10"] = 3
+    c.equal(SessionGuidance.suggestedVerbosity(for: "F10", ledger: overridden), 3,
+            "an override reaches SessionGuidance too, not just effectiveVerbosity directly")
+    c.expect(SessionGuidance.rationale(for: "F10", ledger: overridden).contains("set for this level"),
+             "and the rationale says it was set, not earned")
 }
 
 // ------------------------------------------------------------------ storage

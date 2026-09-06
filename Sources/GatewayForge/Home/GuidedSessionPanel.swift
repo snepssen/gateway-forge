@@ -92,8 +92,8 @@ struct GuidedSessionPanel: View {
     }
 
     private func densityRow(_ level: String) -> some View {
-        let seen = SessionGuidance.completions(atLevel: level, ledger: activity.snapshot())
-        let suggested = SessionGuidance.suggestedVerbosity(completionsAtLevel: seen)
+        let ledger = activity.snapshot()
+        let suggested = SessionGuidance.suggestedVerbosity(for: level, ledger: ledger)
         let chosenV = verbosity ?? suggested
         return VStack(alignment: .leading, spacing: 7) {
             Divider().overlay(Monokai.inset)
@@ -105,7 +105,7 @@ struct GuidedSessionPanel: View {
             }
             .pickerStyle(.segmented).labelsHidden()
             Text(verbosity == nil || verbosity == suggested
-                 ? SessionGuidance.rationale(completionsAtLevel: seen)
+                 ? SessionGuidance.rationale(for: level, ledger: ledger)
                  : "Your choice, not the suggestion — which was \(suggested).")
                 .font(.caption).foregroundStyle(Monokai.comment)
                 .fixedSize(horizontal: false, vertical: true)

@@ -10,48 +10,63 @@
   },
   "guidanceCases" : [
     {
-      "n" : -5,
-      "rationale" : "Anchors and counts only. You have been here -5 times; the words are known.",
-      "verbosity" : 1
-    },
-    {
-      "n" : -1,
-      "rationale" : "Anchors and counts only. You have been here -1 times; the words are known.",
-      "verbosity" : 1
-    },
-    {
       "n" : 0,
       "rationale" : "Full detail — every level named. This is new ground.",
       "verbosity" : 3
     },
     {
       "n" : 1,
-      "rationale" : "Full detail — every level named. This is new ground.",
+      "rationale" : "Full detail — every level named. It's been a month or more since your last visit here, so this starts fresh again.",
       "verbosity" : 3
     },
     {
       "n" : 2,
-      "rationale" : "Guided — the climbs and each level's briefing. You have been here 2 times.",
-      "verbosity" : 2
+      "rationale" : "Full detail — every level named. It's been a month or more since your last visit here, so this starts fresh again.",
+      "verbosity" : 3
     },
     {
       "n" : 3,
-      "rationale" : "Guided — the climbs and each level's briefing. You have been here 3 times.",
-      "verbosity" : 2
+      "rationale" : "Full detail — every level named. It's been a month or more since your last visit here, so this starts fresh again.",
+      "verbosity" : 3
     },
     {
       "n" : 4,
-      "rationale" : "Guided — the climbs and each level's briefing. You have been here 4 times.",
-      "verbosity" : 2
+      "rationale" : "Full detail — every level named. It's been a month or more since your last visit here, so this starts fresh again.",
+      "verbosity" : 3
     },
     {
       "n" : 5,
-      "rationale" : "Anchors and counts only. You have been here 5 times; the words are known.",
-      "verbosity" : 1
+      "rationale" : "Full detail — every level named. It's been a month or more since your last visit here, so this starts fresh again.",
+      "verbosity" : 3
     },
     {
       "n" : 6,
-      "rationale" : "Anchors and counts only. You have been here 6 times; the words are known.",
+      "rationale" : "Full detail — every level named. It's been a month or more since your last visit here, so this starts fresh again.",
+      "verbosity" : 3
+    },
+    {
+      "n" : 9,
+      "rationale" : "Full detail — every level named. It's been a month or more since your last visit here, so this starts fresh again.",
+      "verbosity" : 3
+    },
+    {
+      "n" : 10,
+      "rationale" : "Guided — the climbs and each level's briefing. You have been here 10 times.",
+      "verbosity" : 2
+    },
+    {
+      "n" : 19,
+      "rationale" : "Guided — the climbs and each level's briefing. You have been here 19 times.",
+      "verbosity" : 2
+    },
+    {
+      "n" : 20,
+      "rationale" : "Anchors and counts only. You have been here 20 times; the words are known.",
+      "verbosity" : 1
+    },
+    {
+      "n" : 25,
+      "rationale" : "Anchors and counts only. You have been here 25 times; the words are known.",
       "verbosity" : 1
     },
     {

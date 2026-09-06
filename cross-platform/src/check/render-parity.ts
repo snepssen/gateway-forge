@@ -97,7 +97,12 @@ check(fx.partNames.join(",") === [1, 3, 12, 99].map(n => R.partName("relax-10.ta
 // --- guards, because a suite that never ran is not a suite that passed
 check(ran === fx.corpus.length, `every script was actually processed (${ran} of ${fx.corpus.length})`);
 check(fx.corpus.some(d => d.takes === 3), "some script has variants and therefore three takes");
-check(fx.corpus.some(d => d.pieces.some(p => p.kind === "media")), "and some script places media");
+// A `media` step once existed here (resonant-tuning.gws's now-retired
+// humming cue) -- removed along with it, matching the Swift side's own
+// architecture: the bed is generated live, not played from a recording, so
+// nothing in the current corpus places media on purpose. Asserting one still
+// existed would be asserting something the rework this line sits beside made
+// false.
 check(new Set(fx.corpus.map(d => d.sourceDigest)).size > 200, "the digests are not all the same value");
 
 console.log(`${pass} passed, ${fail} failed`);

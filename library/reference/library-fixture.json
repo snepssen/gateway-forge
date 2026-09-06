@@ -1598,7 +1598,7 @@
       "path" : "library/segments/balloon.gws",
       "provisional" : false,
       "segmentID" : "balloon",
-      "title" : "Resonant Energy Balloon",
+      "title" : "Projected Energy Bubble",
       "verbosities" : [
 
       ],
@@ -3314,24 +3314,6 @@
     {
       "continuousExit" : false,
       "continuousExitDefault" : false,
-      "duration" : "~4m",
-      "levels" : [
-        "F10"
-      ],
-      "path" : "library/segments/resonant-tuning.gws",
-      "provisional" : false,
-      "segmentID" : "resonant-tuning",
-      "title" : "Resonant Tuning",
-      "verbosities" : [
-
-      ],
-      "verbosityFiles" : {
-
-      }
-    },
-    {
-      "continuousExit" : false,
-      "continuousExitDefault" : false,
       "duration" : "~55s",
       "levels" : [
         "F10"
@@ -3520,6 +3502,27 @@
       "provisional" : false,
       "segmentID" : "the-absolute",
       "title" : "The Absolute",
+      "verbosities" : [
+
+      ],
+      "verbosityFiles" : {
+
+      }
+    },
+    {
+      "continuousExit" : false,
+      "continuousExitDefault" : false,
+      "duration" : "~1m30s",
+      "levels" : [
+        "F10",
+        "F11",
+        "F12",
+        "F15"
+      ],
+      "path" : "library/segments/tuning-hum.chest.gws",
+      "provisional" : false,
+      "segmentID" : "tuning-hum",
+      "title" : "The Tuning Hum",
       "verbosities" : [
 
       ],

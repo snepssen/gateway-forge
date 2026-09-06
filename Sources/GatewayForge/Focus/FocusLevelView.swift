@@ -414,19 +414,38 @@ struct FocusLevelView: View {
     /// before, and said out loud, because a session that quietly decides how
     /// much to explain should say that it decided.
     @ViewBuilder private var visitOffer: some View {
-        let seen = SessionGuidance.completions(atLevel: key, ledger: activity.snapshot())
-        let suggested = SessionGuidance.suggestedVerbosity(completionsAtLevel: seen)
+        let ledger = activity.snapshot()
+        let suggested = SessionGuidance.suggestedVerbosity(for: key, ledger: ledger)
+        let override = ledger.verbosityOverrides[key]
         if let lib = store.library, let visit = lib.visit(to: key, standing: standing) {
             Text(visit.usesLadder
                  ? "No tape describes the way here, so the visit counts up the ladder one station at a time."
                  : "A plain visit: down to Focus 10, up to \(key), time there, and back.")
                 .font(.caption).foregroundStyle(Monokai.comment)
                 .fixedSize(horizontal: false, vertical: true)
-            Text(SessionGuidance.rationale(completionsAtLevel: seen))
+            Text(SessionGuidance.rationale(for: key, ledger: ledger))
                 .font(.caption).foregroundStyle(Monokai.comment)
                 .fixedSize(horizontal: false, vertical: true)
             HStack(spacing: 8) {
-                Button("Assemble a visit") { assembleVisit(visit, verbosity: suggested) }
+                Text("Verbosity").font(.caption).foregroundStyle(Monokai.comment)
+                Picker("", selection: Binding(
+                    get: { override ?? 0 },
+                    set: { activity.setVerbosityOverride($0 == 0 ? nil : $0, for: key) }
+                )) {
+                    Text("Auto (\(suggested))").tag(0)
+                    Text("3 · full").tag(3)
+                    Text("2 · guided").tag(2)
+                    Text("1 · anchors").tag(1)
+                }
+                .pickerStyle(.menu)
+                .labelsHidden()
+                .frame(width: 110)
+                if override != nil {
+                    Text("held here").font(.caption2).foregroundStyle(Monokai.comment)
+                }
+            }
+            HStack(spacing: 8) {
+                Button("Assemble a visit") { assembleVisit(visit, verbosity: override ?? suggested) }
                     .disabled(renderer.voice.isEmpty)
                 if visit.isDerived {
                     Text("Derived now, from the library as it stands.")

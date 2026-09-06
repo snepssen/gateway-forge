@@ -317,7 +317,7 @@ extension Library {
         use \(affirmation)
 
         surf 0.18
-        use resonant-tuning
+        use tuning-hum
         use balloon
         use return-methods
 

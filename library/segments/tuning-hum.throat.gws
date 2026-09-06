@@ -1,0 +1,13 @@
+@segment   tuning-hum
+@title     The Tuning Hum
+@levels    F18
+@duration  ~1m30s
+
+say Breathe with the waves a moment longer.
+pause 4
+say Now let the hum rise. Not from your chest this time — let it climb, through your throat, into your jaw. A little higher, a little brighter than before.
+pause 5
+say Feel where it changes as it moves. That shift is the instrument retuning itself to where you are now.
+hold 60
+say Let the hum settle. Let your breath return to its own quiet rhythm.
+pause 6

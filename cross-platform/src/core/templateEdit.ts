@@ -180,7 +180,7 @@ export function setFlag(name: string, on: boolean, source: string): string {
 export const defaultInduction: string[] = [
   "surf 0.55", "use opening", "use comfort", "use orientation", "use ocean",
   "", "surf 0.30", "use conversion-box", "use affirmation",
-  "", "surf 0.18", "use resonant-tuning", "use balloon",
+  "", "surf 0.18", "use tuning-hum", "use balloon",
   "", "surf 0.0", "use relax-10",
 ];
 

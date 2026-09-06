@@ -3866,7 +3866,7 @@
       "takes" : 1
     },
     {
-      "estimateSeconds" : 148.3811563169165,
+      "estimateSeconds" : 191.85795860099932,
       "name" : "library/segments/balloon.gws",
       "outputNames" : [
         "balloon.take1.wav"
@@ -3875,16 +3875,16 @@
         {
           "index" : 1,
           "kind" : "speech",
-          "text" : "You are now ready to create your Resonant Energy Balloon. A moving field of your own energy that surrounds and protects you."
+          "text" : "You've just tuned your instrument. Now you're going to put it in motion, as a Projected Energy Bubble."
         },
         {
           "kind" : "silence",
-          "seconds" : 5
+          "seconds" : 4
         },
         {
           "index" : 2,
           "kind" : "speech",
-          "text" : "Let the energy you've built rise gently out the top of your head, like a fountain cascading down and around your body, spiralling gently as it descends."
+          "text" : "From the top of your head, let a current begin. Down through your body, out through the soles of your feet, and back up again. A loop, always moving, always returning."
         },
         {
           "kind" : "silence",
@@ -3893,79 +3893,97 @@
         {
           "index" : 3,
           "kind" : "speech",
-          "text" : "Some strands fall straight, others spiral clockwise, and some counterclockwise. Allow the energy to wrap around you completely, and re-enter through the soles of your feet."
+          "text" : "As it moves, it begins to spill outward. Some of it falling straight. Some spiralling clockwise. Some counterclockwise."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 5
+        },
+        {
+          "index" : 4,
+          "kind" : "speech",
+          "text" : "Each one sits at its own depth, its own layer, so none of them cross. But together they pull against each other, like fibres in a woven cloth. Wherever they'd meet, they form small triangles instead, pointing in, pointing out. That's what makes it strong."
         },
         {
           "kind" : "silence",
           "seconds" : 30
         },
         {
-          "index" : 4,
+          "index" : 5,
           "kind" : "speech",
-          "text" : "You are now inside your own Resonant Energy Balloon."
+          "text" : "Keep it moving. If any strand runs thin, there's always more behind it, the same rise and fall you've been breathing with the whole time."
         },
         {
           "kind" : "silence",
-          "seconds" : 4
+          "seconds" : 5
         },
         {
-          "index" : 5,
+          "index" : 6,
           "kind" : "speech",
-          "text" : "This living energy field performs two important functions."
+          "text" : "Let it keep building, layer over layer, until you can no longer pick out a single strand. What's left is a bubble, and you're standing inside it."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 6
+        },
+        {
+          "index" : 7,
+          "kind" : "speech",
+          "text" : "This living field performs two functions."
         },
         {
           "kind" : "silence",
           "seconds" : 3
         },
         {
-          "index" : 6,
+          "index" : 8,
           "kind" : "speech",
-          "text" : "First. It holds in and concentrates your own energy, so you can direct it as needed."
+          "text" : "First. It holds and concentrates your own energy, so you can direct it as you need."
         },
         {
           "kind" : "silence",
           "seconds" : 4
         },
         {
-          "index" : 7,
+          "index" : 9,
           "kind" : "speech",
-          "text" : "Second. It protects you from external energies, unless you consciously open to receive them."
+          "text" : "Second. It protects you from outside energies, unless you consciously choose to let them in."
         },
         {
           "kind" : "silence",
           "seconds" : 5
         },
         {
-          "index" : 8,
+          "index" : 10,
           "kind" : "speech",
-          "text" : "Take a moment now to feel its strength and softness. Feel how it supports and surrounds you."
+          "text" : "Take a moment now to feel its strength and its softness. Feel how it moves with you."
         },
         {
           "kind" : "silence",
           "seconds" : 10
         },
         {
-          "index" : 9,
+          "index" : 11,
           "kind" : "speech",
-          "text" : "To recreate your REBAL at any time. Inhale deeply. Visualise a circle with the number ten inside."
+          "text" : "To recreate your PEBLE at any time. Inhale deeply, and picture the current starting again at the crown of your head."
         },
         {
           "kind" : "silence",
           "seconds" : 4
         },
         {
-          "index" : 10,
+          "index" : 12,
           "kind" : "speech",
-          "text" : "Then exhale, and imagine blowing that circle outward around you. Your balloon will instantly form again."
+          "text" : "Exhale, and let it fall and spiral outward the way it just did. Your bubble will form again."
         },
         {
           "kind" : "silence",
           "seconds" : 5
         },
         {
-          "index" : 11,
+          "index" : 13,
           "kind" : "speech",
-          "text" : "To dissolve it, simply inhale, and imagine the glowing circle returning into your body."
+          "text" : "To dissolve it, inhale, and draw the current back up into your crown, letting the strands unwind as they go."
         },
         {
           "kind" : "silence",
@@ -3975,9 +3993,9 @@
       "seeds" : [
         "229460333738636"
       ],
-      "sourceDigest" : "006f8bafd4a947340cf723fbe99238eef29601f8665b04b27aedf2e19b964469",
-      "speechCount" : 11,
-      "stampValue" : "piper|v1|source006f8bafd4a947340cf723fbe99238eef29601f8665b04b27aedf2e19b964469|join7",
+      "sourceDigest" : "350f0befec30d3d1c73b82701374454240536b35279a251782c70666bc44bed6",
+      "speechCount" : 13,
+      "stampValue" : "piper|v1|source350f0befec30d3d1c73b82701374454240536b35279a251782c70666bc44bed6|join7",
       "takes" : 1
     },
     {
@@ -10444,7 +10462,7 @@
         {
           "index" : 1,
           "kind" : "speech",
-          "text" : "With your Resonant Energy Balloon formed around you, safe and floating, you're going to learn to let it move."
+          "text" : "With your Projected Energy Bubble formed around you, safe and floating, you're going to learn to let it move."
         },
         {
           "kind" : "silence",
@@ -10534,7 +10552,7 @@
         {
           "index" : 11,
           "kind" : "speech",
-          "text" : "Let your Resonant Energy Balloon move inward now, and reabsorb into you — because it is you."
+          "text" : "Let your Projected Energy Bubble move inward now, and reabsorb into you — because it is you."
         },
         {
           "kind" : "silence",
@@ -10553,9 +10571,9 @@
       "seeds" : [
         "7572627301851516"
       ],
-      "sourceDigest" : "16ccfdb82edf4ecd795e5fa15c7519e8d21fe2fc87e6b1a3d0c1f67793e5075c",
+      "sourceDigest" : "acd7904019a4cb7ee14c7890caad2b2a1b9e9aa350cffd97c7426ff167d9494e",
       "speechCount" : 12,
-      "stampValue" : "piper|v1|source16ccfdb82edf4ecd795e5fa15c7519e8d21fe2fc87e6b1a3d0c1f67793e5075c|join7",
+      "stampValue" : "piper|v1|sourceacd7904019a4cb7ee14c7890caad2b2a1b9e9aa350cffd97c7426ff167d9494e|join7",
       "takes" : 1
     },
     {
@@ -13522,104 +13540,6 @@
       "takes" : 1
     },
     {
-      "estimateSeconds" : 234.17273376159886,
-      "name" : "library/segments/resonant-tuning.gws",
-      "outputNames" : [
-        "resonant-tuning.take1.wav"
-      ],
-      "pieces" : [
-        {
-          "index" : 1,
-          "kind" : "speech",
-          "text" : "Begin your process of Resonant Tuning."
-        },
-        {
-          "kind" : "silence",
-          "seconds" : 4
-        },
-        {
-          "index" : 2,
-          "kind" : "speech",
-          "text" : "Inhale slowly through your nose, drawing in fresh, new energy from all over your body, and direct the already existing energy up into your head. Hold the energy there for a moment."
-        },
-        {
-          "kind" : "silence",
-          "seconds" : 5
-        },
-        {
-          "index" : 3,
-          "kind" : "speech",
-          "text" : "Then exhale through your mouth, lips pursed as if blowing out a candle. As you do, imagine any stale or used-up energy leaving your body with the breath."
-        },
-        {
-          "kind" : "silence",
-          "seconds" : 8
-        },
-        {
-          "index" : 4,
-          "kind" : "speech",
-          "text" : "Again. Inhale fresh energy from all over your body, and direct it up into your head. And hold."
-        },
-        {
-          "kind" : "silence",
-          "seconds" : 6
-        },
-        {
-          "index" : 5,
-          "kind" : "speech",
-          "text" : "Now exhale. Releasing the stale old energy that still remains."
-        },
-        {
-          "kind" : "silence",
-          "seconds" : 6
-        },
-        {
-          "index" : 6,
-          "kind" : "speech",
-          "text" : "Do this at your own pace for a few breaths."
-        },
-        {
-          "kind" : "silence",
-          "seconds" : 45
-        },
-        {
-          "index" : 7,
-          "kind" : "speech",
-          "text" : "Now, begin to hum gently as you exhale. Let the sound vibrate softly through your throat, jaw, and the space inside your head. Don't force it. Just hum lightly. Let the sound carry tension away."
-        },
-        {
-          "kind" : "silence",
-          "seconds" : 6
-        },
-        {
-          "index" : 8,
-          "kind" : "speech",
-          "text" : "With each hum, you're allowing your energy to align and tune the instrument that is your body."
-        },
-        {
-          "kind" : "media",
-          "role" : "resonantTuning",
-          "seconds" : 90
-        },
-        {
-          "index" : 9,
-          "kind" : "speech",
-          "text" : "Breathe normally. You can breathe normally now."
-        },
-        {
-          "kind" : "silence",
-          "seconds" : 6
-        }
-      ],
-      "seeds" : [
-        "13000364413490552177"
-      ],
-      "sourceDigest" : "4cd0d49115596193b97e8278556010f603133f345ff455f5ef0fc91f1221362a",
-      "speechCount" : 9,
-      "stampValue" : "piper|v1|source4cd0d49115596193b97e8278556010f603133f345ff455f5ef0fc91f1221362a|join7",
-      "takes" : 1
-    },
-    {
       "estimateSeconds" : 58.26837972876517,
       "name" : "library/segments/resume.gws",
       "outputNames" : [
@@ -14696,6 +14616,162 @@
       "takes" : 1
     },
     {
+      "estimateSeconds" : 100.33904354032833,
+      "name" : "library/segments/tuning-hum.chest.gws",
+      "outputNames" : [
+        "tuning-hum.chest.take1.wav"
+      ],
+      "pieces" : [
+        {
+          "index" : 1,
+          "kind" : "speech",
+          "text" : "You've been breathing with the rise and fall of the waves. Let that same rhythm carry you now into sound."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 4
+        },
+        {
+          "index" : 2,
+          "kind" : "speech",
+          "text" : "On your next exhale, let a hum rise up from low in your chest. Quiet. Easy. Not a performance, just a tone that feels right in your body."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 5
+        },
+        {
+          "index" : 3,
+          "kind" : "speech",
+          "text" : "This is your instrument, and you're tuning it."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 60
+        },
+        {
+          "index" : 4,
+          "kind" : "speech",
+          "text" : "Let the hum settle. You can let your breath return to its own quiet rhythm."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 6
+        }
+      ],
+      "seeds" : [
+        "14868124120210188150"
+      ],
+      "sourceDigest" : "0157dafd878a397b13703d92be3d60e0aae48fd5b34ad7612dcd63536b4301fa",
+      "speechCount" : 4,
+      "stampValue" : "piper|v1|source0157dafd878a397b13703d92be3d60e0aae48fd5b34ad7612dcd63536b4301fa|join7",
+      "takes" : 1
+    },
+    {
+      "estimateSeconds" : 98.91149179157745,
+      "name" : "library/segments/tuning-hum.crown.gws",
+      "outputNames" : [
+        "tuning-hum.crown.take1.wav"
+      ],
+      "pieces" : [
+        {
+          "index" : 1,
+          "kind" : "speech",
+          "text" : "Breathe with the waves once more."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 4
+        },
+        {
+          "index" : 2,
+          "kind" : "speech",
+          "text" : "This time, let the hum drop back down, quiet. Quieter than you'd expect. Quiet enough that you'd barely be heard, but loud enough that you can't miss it."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 5
+        },
+        {
+          "index" : 3,
+          "kind" : "speech",
+          "text" : "At this volume, you'll feel it more than hear it. In your skull. Your jaw. The space behind your eyes."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 60
+        },
+        {
+          "index" : 4,
+          "kind" : "speech",
+          "text" : "Let the hum settle. Let your breath return to its own quiet rhythm."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 6
+        }
+      ],
+      "seeds" : [
+        "14868124120210558536"
+      ],
+      "sourceDigest" : "2a7d72df849f28a97620ce570457f77418670225dbfd641ba1305e9827907c75",
+      "speechCount" : 4,
+      "stampValue" : "piper|v1|source2a7d72df849f28a97620ce570457f77418670225dbfd641ba1305e9827907c75|join7",
+      "takes" : 1
+    },
+    {
+      "estimateSeconds" : 99.26837972876517,
+      "name" : "library/segments/tuning-hum.throat.gws",
+      "outputNames" : [
+        "tuning-hum.throat.take1.wav"
+      ],
+      "pieces" : [
+        {
+          "index" : 1,
+          "kind" : "speech",
+          "text" : "Breathe with the waves a moment longer."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 4
+        },
+        {
+          "index" : 2,
+          "kind" : "speech",
+          "text" : "Now let the hum rise. Not from your chest this time — let it climb, through your throat, into your jaw. A little higher, a little brighter than before."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 5
+        },
+        {
+          "index" : 3,
+          "kind" : "speech",
+          "text" : "Feel where it changes as it moves. That shift is the instrument retuning itself to where you are now."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 60
+        },
+        {
+          "index" : 4,
+          "kind" : "speech",
+          "text" : "Let the hum settle. Let your breath return to its own quiet rhythm."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 6
+        }
+      ],
+      "seeds" : [
+        "11032750051153630929"
+      ],
+      "sourceDigest" : "eac308c3282aec794d88965c9c810dd7c37dd9e27c3b0ba47cb402102cac4d94",
+      "speechCount" : 4,
+      "stampValue" : "piper|v1|sourceeac308c3282aec794d88965c9c810dd7c37dd9e27c3b0ba47cb402102cac4d94|join7",
+      "takes" : 1
+    },
+    {
       "estimateSeconds" : 206.6602426837973,
       "name" : "library/segments/vectors.gws",
       "outputNames" : [
@@ -14705,7 +14781,7 @@
         {
           "index" : 1,
           "kind" : "speech",
-          "text" : "With your Resonant Energy Balloon around you, let it float upward, and you with it, safe and calm."
+          "text" : "With your Projected Energy Bubble around you, let it float upward, and you with it, safe and calm."
         },
         {
           "kind" : "silence",
@@ -14723,7 +14799,7 @@
         {
           "index" : 3,
           "kind" : "speech",
-          "text" : "You're floating there now. Perceive in every direction from inside your balloon."
+          "text" : "You're floating there now. Perceive in every direction from inside your bubble."
         },
         {
           "kind" : "silence",
@@ -14822,7 +14898,7 @@
         {
           "index" : 14,
           "kind" : "speech",
-          "text" : "Relax at twelve, and settle back into the center of your balloon."
+          "text" : "Relax at twelve, and settle back into the center of your bubble."
         },
         {
           "kind" : "silence",
@@ -14840,7 +14916,7 @@
         {
           "index" : 16,
           "kind" : "speech",
-          "text" : "You're back. Let the balloon move inward, and reabsorb into you."
+          "text" : "You're back. Let the bubble move inward, and reabsorb into you."
         },
         {
           "kind" : "silence",
@@ -14859,9 +14935,9 @@
       "seeds" : [
         "229486309253899"
       ],
-      "sourceDigest" : "198b88b6da00f2bc89188be9a4827f0d13b4c1c35cbad4e3d9e36731bfe813a1",
+      "sourceDigest" : "bbdb0e81d7c15f679b4f7c8d344aaf2014645974c407cca6627558ae6b062858",
       "speechCount" : 17,
-      "stampValue" : "piper|v1|source198b88b6da00f2bc89188be9a4827f0d13b4c1c35cbad4e3d9e36731bfe813a1|join7",
+      "stampValue" : "piper|v1|sourcebbdb0e81d7c15f679b4f7c8d344aaf2014645974c407cca6627558ae6b062858|join7",
       "takes" : 1
     },
     {
@@ -14955,9 +15031,9 @@
       "seeds" : [
         "10103"
       ],
-      "sourceDigest" : "3f0c3b5081327db93b61586302581b66f399f6dc85554f2bc9d929cbcd7acae7",
+      "sourceDigest" : "a60d9d9cae9bf91360b733fdeef2dc68c0024de61d535d820cad61795189f646",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source3f0c3b5081327db93b61586302581b66f399f6dc85554f2bc9d929cbcd7acae7|join7",
+      "stampValue" : "piper|v1|sourcea60d9d9cae9bf91360b733fdeef2dc68c0024de61d535d820cad61795189f646|join7",
       "takes" : 1
     },
     {
@@ -14972,9 +15048,9 @@
       "seeds" : [
         "20018"
       ],
-      "sourceDigest" : "1155091923f131b8776962df639f90c76664f22dea22927845d0e2bc6541ef71",
+      "sourceDigest" : "2d366f7a8e78baff2b120d1d30304f80d2a1c96c4e6cd8c8dacf778d76c828ec",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source1155091923f131b8776962df639f90c76664f22dea22927845d0e2bc6541ef71|join7",
+      "stampValue" : "piper|v1|source2d366f7a8e78baff2b120d1d30304f80d2a1c96c4e6cd8c8dacf778d76c828ec|join7",
       "takes" : 1
     },
     {
@@ -14989,9 +15065,9 @@
       "seeds" : [
         "20003"
       ],
-      "sourceDigest" : "651ff61f7482df0a79da26113f6ac35581feacdaeead7eeef23176e379fb1f5c",
+      "sourceDigest" : "7a9dc5beccb3009a57c32946dc5fb3d8aeaa6ececab4f2658046289f045c2053",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source651ff61f7482df0a79da26113f6ac35581feacdaeead7eeef23176e379fb1f5c|join7",
+      "stampValue" : "piper|v1|source7a9dc5beccb3009a57c32946dc5fb3d8aeaa6ececab4f2658046289f045c2053|join7",
       "takes" : 1
     },
     {
@@ -15006,9 +15082,9 @@
       "seeds" : [
         "20017"
       ],
-      "sourceDigest" : "d4f2d971b781dd7a6c63c96d3748b35537b19f1870281023c9ab5734974890d2",
+      "sourceDigest" : "a467afa14d8d0634bde97ac67d28141c2fbfc774c8fb891ed0a7151ecc4768af",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|sourced4f2d971b781dd7a6c63c96d3748b35537b19f1870281023c9ab5734974890d2|join7",
+      "stampValue" : "piper|v1|sourcea467afa14d8d0634bde97ac67d28141c2fbfc774c8fb891ed0a7151ecc4768af|join7",
       "takes" : 1
     },
     {
@@ -15023,9 +15099,9 @@
       "seeds" : [
         "20039"
       ],
-      "sourceDigest" : "010340f0bafff74bbebd240944f1425cab35baa6a8281c41853b8c60d7a017ed",
+      "sourceDigest" : "aca4c392493b729c21173e5e2cb8a17c2716fba87079bce9740336633ab66bc1",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source010340f0bafff74bbebd240944f1425cab35baa6a8281c41853b8c60d7a017ed|join7",
+      "stampValue" : "piper|v1|sourceaca4c392493b729c21173e5e2cb8a17c2716fba87079bce9740336633ab66bc1|join7",
       "takes" : 1
     },
     {
@@ -15040,9 +15116,9 @@
       "seeds" : [
         "20019"
       ],
-      "sourceDigest" : "cd6f0171c90a0d038312590926139dfe65ee9d9ebc56af53d15d18be527c3815",
+      "sourceDigest" : "673a316a9145bfbeed10ee84cc332842f4d6a8c9b299b9083b720b98a10f855f",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|sourcecd6f0171c90a0d038312590926139dfe65ee9d9ebc56af53d15d18be527c3815|join7",
+      "stampValue" : "piper|v1|source673a316a9145bfbeed10ee84cc332842f4d6a8c9b299b9083b720b98a10f855f|join7",
       "takes" : 1
     },
     {
@@ -15057,9 +15133,9 @@
       "seeds" : [
         "20036"
       ],
-      "sourceDigest" : "be134ac1d30f62725f565c0f20fc812cb9de2ed64b11e83ed5999ac681d04999",
+      "sourceDigest" : "372f942f1beae7a9380f530d5677a58fd6613bd63127a2b24216c08161e4361f",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|sourcebe134ac1d30f62725f565c0f20fc812cb9de2ed64b11e83ed5999ac681d04999|join7",
+      "stampValue" : "piper|v1|source372f942f1beae7a9380f530d5677a58fd6613bd63127a2b24216c08161e4361f|join7",
       "takes" : 1
     },
     {
@@ -15074,9 +15150,9 @@
       "seeds" : [
         "20004"
       ],
-      "sourceDigest" : "6cbdaac6c63ea670f69c4831c474f9805d97eac776c5598ab9f91abe4e672964",
+      "sourceDigest" : "36c17838a1c3cce027182a5e743825bfc409b9a324ab817a122ed39e0c4e1fcd",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source6cbdaac6c63ea670f69c4831c474f9805d97eac776c5598ab9f91abe4e672964|join7",
+      "stampValue" : "piper|v1|source36c17838a1c3cce027182a5e743825bfc409b9a324ab817a122ed39e0c4e1fcd|join7",
       "takes" : 1
     },
     {
@@ -15091,9 +15167,9 @@
       "seeds" : [
         "20010"
       ],
-      "sourceDigest" : "5fea1f8a5ff80ddf9b51fa36dd25a8f89f3cb737d7fbdd3fe5ff0414c2a63c06",
+      "sourceDigest" : "d1e56cac3fbf485f6682316a2cde5f20ff450055750b010af0e318b17383b0d4",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source5fea1f8a5ff80ddf9b51fa36dd25a8f89f3cb737d7fbdd3fe5ff0414c2a63c06|join7",
+      "stampValue" : "piper|v1|sourced1e56cac3fbf485f6682316a2cde5f20ff450055750b010af0e318b17383b0d4|join7",
       "takes" : 1
     },
     {
@@ -15108,9 +15184,9 @@
       "seeds" : [
         "20024"
       ],
-      "sourceDigest" : "f603a369271c21537c485471a815e4ed8ff0d3555fb1afe059ac4ae784597988",
+      "sourceDigest" : "a50dd059055e6cfe3055ad65f7693da58eac8b2a7b0b4ce70e9aac834886d016",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|sourcef603a369271c21537c485471a815e4ed8ff0d3555fb1afe059ac4ae784597988|join7",
+      "stampValue" : "piper|v1|sourcea50dd059055e6cfe3055ad65f7693da58eac8b2a7b0b4ce70e9aac834886d016|join7",
       "takes" : 1
     },
     {
@@ -15125,9 +15201,9 @@
       "seeds" : [
         "10105"
       ],
-      "sourceDigest" : "351ded033e8f998d0e08a5d345825c5747a266cc3619aeba3d5a771934d5935e",
+      "sourceDigest" : "b0ef808cc755a64eaf47365a2f25c13468c6dddc4b0708d05630b81469f40bc0",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source351ded033e8f998d0e08a5d345825c5747a266cc3619aeba3d5a771934d5935e|join7",
+      "stampValue" : "piper|v1|sourceb0ef808cc755a64eaf47365a2f25c13468c6dddc4b0708d05630b81469f40bc0|join7",
       "takes" : 1
     },
     {
@@ -15142,9 +15218,9 @@
       "seeds" : [
         "20029"
       ],
-      "sourceDigest" : "278b4d7d7c0653ce20958df4659020cad7e2313406ee02f17bf2f7258646f0c9",
+      "sourceDigest" : "4e6608e91bc4546754f6e5bf958dc779d9e77329c384065f1cd5338f80414445",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source278b4d7d7c0653ce20958df4659020cad7e2313406ee02f17bf2f7258646f0c9|join7",
+      "stampValue" : "piper|v1|source4e6608e91bc4546754f6e5bf958dc779d9e77329c384065f1cd5338f80414445|join7",
       "takes" : 1
     },
     {
@@ -15159,9 +15235,9 @@
       "seeds" : [
         "20022"
       ],
-      "sourceDigest" : "67ca2183917a148ac0e1448184470d40295fa7ea9f277954a71820acb16d2a4a",
+      "sourceDigest" : "8ff744b697f16f41884821cfda37ac71944499b0ca2257a96f44916fb0859f2e",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source67ca2183917a148ac0e1448184470d40295fa7ea9f277954a71820acb16d2a4a|join7",
+      "stampValue" : "piper|v1|source8ff744b697f16f41884821cfda37ac71944499b0ca2257a96f44916fb0859f2e|join7",
       "takes" : 1
     },
     {
@@ -15176,9 +15252,9 @@
       "seeds" : [
         "20020"
       ],
-      "sourceDigest" : "633c4304c6308dacb960e9f1e2ed49ac02bfba72f8e8d8567bb63b77d21c9ad5",
+      "sourceDigest" : "c00f11f235f2d130e1d6444ba7b98d2fe2c484757d4279cd681071445e160e2b",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source633c4304c6308dacb960e9f1e2ed49ac02bfba72f8e8d8567bb63b77d21c9ad5|join7",
+      "stampValue" : "piper|v1|sourcec00f11f235f2d130e1d6444ba7b98d2fe2c484757d4279cd681071445e160e2b|join7",
       "takes" : 1
     },
     {
@@ -15196,9 +15272,9 @@
       "seeds" : [
         "1010"
       ],
-      "sourceDigest" : "4b9f5c649fa5fa54152704aef25edfb981904c6c1a03bec1ef7e7e9c9d0716d3",
+      "sourceDigest" : "0d6f7790a48380b4833077f3422451972af476b763dee7cc31a5d3132ea5f30a",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source4b9f5c649fa5fa54152704aef25edfb981904c6c1a03bec1ef7e7e9c9d0716d3|join7",
+      "stampValue" : "piper|v1|source0d6f7790a48380b4833077f3422451972af476b763dee7cc31a5d3132ea5f30a|join7",
       "takes" : 1
     },
     {
@@ -15216,9 +15292,9 @@
       "seeds" : [
         "1011"
       ],
-      "sourceDigest" : "9f26a00b116ba571c85d54c70efdff94b9bcb878f2cc61c15635079393895049",
+      "sourceDigest" : "94c413862646841d70fdfd7dfedbeecf15c0cd8351124de009fb3a40e904c343",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source9f26a00b116ba571c85d54c70efdff94b9bcb878f2cc61c15635079393895049|join7",
+      "stampValue" : "piper|v1|source94c413862646841d70fdfd7dfedbeecf15c0cd8351124de009fb3a40e904c343|join7",
       "takes" : 1
     },
     {
@@ -15236,9 +15312,9 @@
       "seeds" : [
         "1012"
       ],
-      "sourceDigest" : "ca1e8ef92a4b7632ff6928eb51db6d0c38bfd80818e35e901ff9e2f95cb8ccf3",
+      "sourceDigest" : "f037ee2be5f67ad91ade044ce8395207dfdbe08658dead1e54d475b93a0e855c",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|sourceca1e8ef92a4b7632ff6928eb51db6d0c38bfd80818e35e901ff9e2f95cb8ccf3|join7",
+      "stampValue" : "piper|v1|sourcef037ee2be5f67ad91ade044ce8395207dfdbe08658dead1e54d475b93a0e855c|join7",
       "takes" : 1
     },
     {
@@ -15256,9 +15332,9 @@
       "seeds" : [
         "1015"
       ],
-      "sourceDigest" : "26433aa8a052b2759d7627eabd7dfa39fb3752df3fdf6d45bf1ce833d1aad4a3",
+      "sourceDigest" : "15945100e091c7b984bf92476a6a36d4e5036c6cd4d58dd9ebd4b9ba7a5a80d0",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source26433aa8a052b2759d7627eabd7dfa39fb3752df3fdf6d45bf1ce833d1aad4a3|join7",
+      "stampValue" : "piper|v1|source15945100e091c7b984bf92476a6a36d4e5036c6cd4d58dd9ebd4b9ba7a5a80d0|join7",
       "takes" : 1
     },
     {
@@ -15276,9 +15352,9 @@
       "seeds" : [
         "1018"
       ],
-      "sourceDigest" : "07ab2539b04de269503294ad0119fb8a0918551596b847808cfc68015cbe088b",
+      "sourceDigest" : "7a45aae22f8df1da886f324d8552b9962e8acba98f39303783b26e47e83b82cd",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source07ab2539b04de269503294ad0119fb8a0918551596b847808cfc68015cbe088b|join7",
+      "stampValue" : "piper|v1|source7a45aae22f8df1da886f324d8552b9962e8acba98f39303783b26e47e83b82cd|join7",
       "takes" : 1
     },
     {
@@ -15296,9 +15372,9 @@
       "seeds" : [
         "1021"
       ],
-      "sourceDigest" : "ce741ad2d383b3ab6ef9f2f151f6a1c3af9c92783d6b7266fc963b883baa0427",
+      "sourceDigest" : "8c748b2d997fdb554aee9df010ee1aae0be109b091b565e69df8c50ee74b3db5",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|sourcece741ad2d383b3ab6ef9f2f151f6a1c3af9c92783d6b7266fc963b883baa0427|join7",
+      "stampValue" : "piper|v1|source8c748b2d997fdb554aee9df010ee1aae0be109b091b565e69df8c50ee74b3db5|join7",
       "takes" : 1
     },
     {
@@ -15316,9 +15392,9 @@
       "seeds" : [
         "1022"
       ],
-      "sourceDigest" : "a48873ef2d0bf0daa63fe508b8c0d47b6de5c2f84855c7e6344d56c8f02bf995",
+      "sourceDigest" : "072d91db605487c9ab85d502e6bda7da9c20a43b5c3a3dc57df5b30e9fef98b4",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|sourcea48873ef2d0bf0daa63fe508b8c0d47b6de5c2f84855c7e6344d56c8f02bf995|join7",
+      "stampValue" : "piper|v1|source072d91db605487c9ab85d502e6bda7da9c20a43b5c3a3dc57df5b30e9fef98b4|join7",
       "takes" : 1
     },
     {
@@ -15336,9 +15412,9 @@
       "seeds" : [
         "1023"
       ],
-      "sourceDigest" : "d364b4a616754a2fec063ebfe3366e8ce1f507add22f2082b3d4801d517ca281",
+      "sourceDigest" : "03b259a9d3195fe4589276d8a088c49e20337b2535032916b6ec499620cbbaea",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|sourced364b4a616754a2fec063ebfe3366e8ce1f507add22f2082b3d4801d517ca281|join7",
+      "stampValue" : "piper|v1|source03b259a9d3195fe4589276d8a088c49e20337b2535032916b6ec499620cbbaea|join7",
       "takes" : 1
     },
     {
@@ -15356,9 +15432,9 @@
       "seeds" : [
         "1024"
       ],
-      "sourceDigest" : "005878d895e8a76a1fb274229c37592a18f96d6111f688e24477cdee3d64a2c4",
+      "sourceDigest" : "d386ea46dac6a588122f1140471bd54284c2fadb9a25bc20494e4cf12e2b0394",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source005878d895e8a76a1fb274229c37592a18f96d6111f688e24477cdee3d64a2c4|join7",
+      "stampValue" : "piper|v1|sourced386ea46dac6a588122f1140471bd54284c2fadb9a25bc20494e4cf12e2b0394|join7",
       "takes" : 1
     },
     {
@@ -15376,9 +15452,9 @@
       "seeds" : [
         "1025"
       ],
-      "sourceDigest" : "80d5df7aedbd059782a5dee04d04047a05eb8f5a96ca5ac383c19dcfd4c037eb",
+      "sourceDigest" : "ff7bca5961cb5eeaf2f4247325e080378454eafebb9d17fd83123b4c21f2e0d8",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source80d5df7aedbd059782a5dee04d04047a05eb8f5a96ca5ac383c19dcfd4c037eb|join7",
+      "stampValue" : "piper|v1|sourceff7bca5961cb5eeaf2f4247325e080378454eafebb9d17fd83123b4c21f2e0d8|join7",
       "takes" : 1
     },
     {
@@ -15396,9 +15472,9 @@
       "seeds" : [
         "1026"
       ],
-      "sourceDigest" : "cdb0ec1528eef01e69434c461cf905dec2292d46c39ac194a8798428ffcf4b56",
+      "sourceDigest" : "da94828e24af03af6640ea96f24cf1e9ca92066509f995639d1304002df0dce4",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|sourcecdb0ec1528eef01e69434c461cf905dec2292d46c39ac194a8798428ffcf4b56|join7",
+      "stampValue" : "piper|v1|sourceda94828e24af03af6640ea96f24cf1e9ca92066509f995639d1304002df0dce4|join7",
       "takes" : 1
     },
     {
@@ -15413,9 +15489,9 @@
       "seeds" : [
         "2727"
       ],
-      "sourceDigest" : "025ae6ea1e963f30812b3393560544df1904f6546e5be83291cca4b1a59a7e9c",
+      "sourceDigest" : "b2663fd9f07327918c1279825918f6395c4c6f4da95fa24c716a31af1a3783ca",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source025ae6ea1e963f30812b3393560544df1904f6546e5be83291cca4b1a59a7e9c|join7",
+      "stampValue" : "piper|v1|sourceb2663fd9f07327918c1279825918f6395c4c6f4da95fa24c716a31af1a3783ca|join7",
       "takes" : 1
     },
     {
@@ -15430,9 +15506,9 @@
       "seeds" : [
         "2727"
       ],
-      "sourceDigest" : "bcf6df22077fae60b8f74c05178975b886ff48565fe67ecbf4af611a0b2d6842",
+      "sourceDigest" : "a6547530ae1dcf8d689bac3b5aa5834a27059f45f91c511958e9bf16f7b8ec8e",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|sourcebcf6df22077fae60b8f74c05178975b886ff48565fe67ecbf4af611a0b2d6842|join7",
+      "stampValue" : "piper|v1|sourcea6547530ae1dcf8d689bac3b5aa5834a27059f45f91c511958e9bf16f7b8ec8e|join7",
       "takes" : 1
     },
     {
@@ -15450,9 +15526,9 @@
       "seeds" : [
         "1027"
       ],
-      "sourceDigest" : "5598810742cfb3ab776fc2b22900bdc525202d91b3e9e6ee0db9dd5b7e483f3c",
+      "sourceDigest" : "8cdb44f06a7f1ad8317f301df0fc60282eb082c0d8a2fb97d8459d74f8024e9f",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source5598810742cfb3ab776fc2b22900bdc525202d91b3e9e6ee0db9dd5b7e483f3c|join7",
+      "stampValue" : "piper|v1|source8cdb44f06a7f1ad8317f301df0fc60282eb082c0d8a2fb97d8459d74f8024e9f|join7",
       "takes" : 1
     },
     {
@@ -15470,9 +15546,9 @@
       "seeds" : [
         "1003"
       ],
-      "sourceDigest" : "50591d510bc2f37d838d4cb7d02499c5a3364381f356f97f1f3ac8992a656a1c",
+      "sourceDigest" : "ac1520354c20a9d45afc30cca935add918fd2050fcf4fc5673dfa33a3a274231",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source50591d510bc2f37d838d4cb7d02499c5a3364381f356f97f1f3ac8992a656a1c|join7",
+      "stampValue" : "piper|v1|sourceac1520354c20a9d45afc30cca935add918fd2050fcf4fc5673dfa33a3a274231|join7",
       "takes" : 1
     },
     {
@@ -15490,9 +15566,9 @@
       "seeds" : [
         "1034"
       ],
-      "sourceDigest" : "48945db13cb4346d216c3db36c3b30f707fd70c4a86411081df025d2de421995",
+      "sourceDigest" : "bbfe571ef009c3a74d0a7a01eb574909d917cb251804eb864c0f49622ec8b859",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source48945db13cb4346d216c3db36c3b30f707fd70c4a86411081df025d2de421995|join7",
+      "stampValue" : "piper|v1|sourcebbfe571ef009c3a74d0a7a01eb574909d917cb251804eb864c0f49622ec8b859|join7",
       "takes" : 1
     },
     {
@@ -15510,9 +15586,9 @@
       "seeds" : [
         "1035"
       ],
-      "sourceDigest" : "a64e33f4d14208cc5b09b80ea7d6b5298b17bb03a92d75a5d370f7f68640f3a6",
+      "sourceDigest" : "dfd0af8b049ad178eb496b108e8b56f181020bc418427f019c34327e3ea182a5",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|sourcea64e33f4d14208cc5b09b80ea7d6b5298b17bb03a92d75a5d370f7f68640f3a6|join7",
+      "stampValue" : "piper|v1|sourcedfd0af8b049ad178eb496b108e8b56f181020bc418427f019c34327e3ea182a5|join7",
       "takes" : 1
     },
     {
@@ -15530,9 +15606,9 @@
       "seeds" : [
         "1042"
       ],
-      "sourceDigest" : "6cbf15712728327a0ef190da848de9de5d4b9e4bf97b5b28cfa562d0f44840b0",
+      "sourceDigest" : "144a62408a1d10fe9a800a9ceaff59e3b9563a40b57157c165b9a65bc874f81d",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source6cbf15712728327a0ef190da848de9de5d4b9e4bf97b5b28cfa562d0f44840b0|join7",
+      "stampValue" : "piper|v1|source144a62408a1d10fe9a800a9ceaff59e3b9563a40b57157c165b9a65bc874f81d|join7",
       "takes" : 1
     },
     {
@@ -15550,9 +15626,9 @@
       "seeds" : [
         "1049"
       ],
-      "sourceDigest" : "bd0c0b3a7097fcaafc583f353eaf6c6b173602129fc273ff64b98309821dcf96",
+      "sourceDigest" : "2163e4fa86ec62a9e0e5f2c65a196c96e5a27b2a0937248e2e29c91082082583",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|sourcebd0c0b3a7097fcaafc583f353eaf6c6b173602129fc273ff64b98309821dcf96|join7",
+      "stampValue" : "piper|v1|source2163e4fa86ec62a9e0e5f2c65a196c96e5a27b2a0937248e2e29c91082082583|join7",
       "takes" : 1
     },
     {
@@ -15567,9 +15643,9 @@
       "seeds" : [
         "20032"
       ],
-      "sourceDigest" : "df5aeb0395148343e824a1a1de61134d15b86e46780d5e96a551f5db54a34654",
+      "sourceDigest" : "72350b05ec8c42108cde0ce53291de0bda312b16465aea83794de7da01e4889c",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|sourcedf5aeb0395148343e824a1a1de61134d15b86e46780d5e96a551f5db54a34654|join7",
+      "stampValue" : "piper|v1|source72350b05ec8c42108cde0ce53291de0bda312b16465aea83794de7da01e4889c|join7",
       "takes" : 1
     },
     {
@@ -15584,9 +15660,9 @@
       "seeds" : [
         "20011"
       ],
-      "sourceDigest" : "c130128745a794b1c66a43a16c087810dc907f9aafdc875bff96b52cc4bc1289",
+      "sourceDigest" : "010bbcc34f5782bca83989d37f0c2a45cfb1b403a8856bc3b385b8cc489bd02f",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|sourcec130128745a794b1c66a43a16c087810dc907f9aafdc875bff96b52cc4bc1289|join7",
+      "stampValue" : "piper|v1|source010bbcc34f5782bca83989d37f0c2a45cfb1b403a8856bc3b385b8cc489bd02f|join7",
       "takes" : 1
     },
     {
@@ -15601,9 +15677,9 @@
       "seeds" : [
         "20013"
       ],
-      "sourceDigest" : "5e9898257bc6a0bae3795c75149b60b5148a4b29dbcbc39a482001adad2c8246",
+      "sourceDigest" : "9ed6225ec92b340273b7a30aca81b1d407a5c93f6d097817b9204dd6dfcb4829",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source5e9898257bc6a0bae3795c75149b60b5148a4b29dbcbc39a482001adad2c8246|join7",
+      "stampValue" : "piper|v1|source9ed6225ec92b340273b7a30aca81b1d407a5c93f6d097817b9204dd6dfcb4829|join7",
       "takes" : 1
     },
     {
@@ -15618,9 +15694,9 @@
       "seeds" : [
         "20009"
       ],
-      "sourceDigest" : "eff43e55a30ca1177aac003ee55eb265b6d54cd916b7809d1dc9a6f4306c3835",
+      "sourceDigest" : "990e41570874d07a5ed603e805d02126de7d81442852a72c2caee618d9aa5518",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|sourceeff43e55a30ca1177aac003ee55eb265b6d54cd916b7809d1dc9a6f4306c3835|join7",
+      "stampValue" : "piper|v1|source990e41570874d07a5ed603e805d02126de7d81442852a72c2caee618d9aa5518|join7",
       "takes" : 1
     },
     {
@@ -15635,9 +15711,9 @@
       "seeds" : [
         "10106"
       ],
-      "sourceDigest" : "32e329c2feb75af5cee559f2e9e5da1d9cbe3b5c10ace304b69103e812cd2e9b",
+      "sourceDigest" : "67663b4103124b63849f9591da913663c934823905913c37f11bb26bbf05ba81",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source32e329c2feb75af5cee559f2e9e5da1d9cbe3b5c10ace304b69103e812cd2e9b|join7",
+      "stampValue" : "piper|v1|source67663b4103124b63849f9591da913663c934823905913c37f11bb26bbf05ba81|join7",
       "takes" : 1
     },
     {
@@ -15652,9 +15728,9 @@
       "seeds" : [
         "20014"
       ],
-      "sourceDigest" : "5bf5c72d7f0c4e925b8b7d44b69ad8f3469cbd82d447e2e2d7beb6835e54ce5e",
+      "sourceDigest" : "32a31dfc74a2605c0f28932bece26a69b9313909b0d638fdc8e067c4d9b8067d",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source5bf5c72d7f0c4e925b8b7d44b69ad8f3469cbd82d447e2e2d7beb6835e54ce5e|join7",
+      "stampValue" : "piper|v1|source32a31dfc74a2605c0f28932bece26a69b9313909b0d638fdc8e067c4d9b8067d|join7",
       "takes" : 1
     },
     {
@@ -15669,9 +15745,9 @@
       "seeds" : [
         "20028"
       ],
-      "sourceDigest" : "d984153589178d10f1b7ad518699608554d55b06b7ccd7ac66646482000ed7ea",
+      "sourceDigest" : "1f01f0390532cb7281feb766cee8517fabe702782ea18ef6a2d4c67a884450a7",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|sourced984153589178d10f1b7ad518699608554d55b06b7ccd7ac66646482000ed7ea|join7",
+      "stampValue" : "piper|v1|source1f01f0390532cb7281feb766cee8517fabe702782ea18ef6a2d4c67a884450a7|join7",
       "takes" : 1
     },
     {
@@ -15686,9 +15762,9 @@
       "seeds" : [
         "20037"
       ],
-      "sourceDigest" : "4b448b4016c021de8bc4b207dbd45cae9a491f833ea58b49de9ea25e49e870f2",
+      "sourceDigest" : "9ae7a2aec8f7e6a9bb85833d15c0b75802e2d1d52aa8e297bfa376949d7610de",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source4b448b4016c021de8bc4b207dbd45cae9a491f833ea58b49de9ea25e49e870f2|join7",
+      "stampValue" : "piper|v1|source9ae7a2aec8f7e6a9bb85833d15c0b75802e2d1d52aa8e297bfa376949d7610de|join7",
       "takes" : 1
     },
     {
@@ -15742,9 +15818,9 @@
       "seeds" : [
         "718237"
       ],
-      "sourceDigest" : "b7d5bc21f36fc19d5709a003c26ce1584daf347b598fb77ffb810c23ad63f744",
+      "sourceDigest" : "89358bc28fef819343f365720e46d6dfb0fbf5e507bee925d92a3bacdc094cb9",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|sourceb7d5bc21f36fc19d5709a003c26ce1584daf347b598fb77ffb810c23ad63f744|join7",
+      "stampValue" : "piper|v1|source89358bc28fef819343f365720e46d6dfb0fbf5e507bee925d92a3bacdc094cb9|join7",
       "takes" : 1
     },
     {
@@ -15759,9 +15835,9 @@
       "seeds" : [
         "20040"
       ],
-      "sourceDigest" : "15555131f84e8a0d40a6b54c0624bad15a73bc7bff7e1249d9e79c5b1f968761",
+      "sourceDigest" : "6a0d0de2b663461a27e5cd7b5fb7f1100d0e69d6ac05ad8bf66cf508472d4e31",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source15555131f84e8a0d40a6b54c0624bad15a73bc7bff7e1249d9e79c5b1f968761|join7",
+      "stampValue" : "piper|v1|source6a0d0de2b663461a27e5cd7b5fb7f1100d0e69d6ac05ad8bf66cf508472d4e31|join7",
       "takes" : 1
     },
     {
@@ -15776,9 +15852,9 @@
       "seeds" : [
         "20030"
       ],
-      "sourceDigest" : "c30317ad9c80cd2f80b1ce8fe9eb457fc4fdfa8b3128cb9184a7c3b811a4d6b0",
+      "sourceDigest" : "22649a532db83e6104e0908e622ce47b8343a6a3f544b3248cf75b4d8e0776cf",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|sourcec30317ad9c80cd2f80b1ce8fe9eb457fc4fdfa8b3128cb9184a7c3b811a4d6b0|join7",
+      "stampValue" : "piper|v1|source22649a532db83e6104e0908e622ce47b8343a6a3f544b3248cf75b4d8e0776cf|join7",
       "takes" : 1
     },
     {
@@ -15793,9 +15869,9 @@
       "seeds" : [
         "20031"
       ],
-      "sourceDigest" : "f67b8be0121e6b2c56a18011fdccf6e836bcda56bf1e3cf59663a61c2cf49b1b",
+      "sourceDigest" : "f058526b08a23d900af104953e816bf14d2f63f995cfad317037a34e76be86f5",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|sourcef67b8be0121e6b2c56a18011fdccf6e836bcda56bf1e3cf59663a61c2cf49b1b|join7",
+      "stampValue" : "piper|v1|sourcef058526b08a23d900af104953e816bf14d2f63f995cfad317037a34e76be86f5|join7",
       "takes" : 1
     },
     {
@@ -15810,9 +15886,9 @@
       "seeds" : [
         "20006"
       ],
-      "sourceDigest" : "f2d54b3354c015f95f9ea80f0980b664e05d2644baac8129fac5ac0bb4561472",
+      "sourceDigest" : "73cb04ee1f3448b290b6be53490bff61bc8d0f3b7362eadd2b9528dee1417f39",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|sourcef2d54b3354c015f95f9ea80f0980b664e05d2644baac8129fac5ac0bb4561472|join7",
+      "stampValue" : "piper|v1|source73cb04ee1f3448b290b6be53490bff61bc8d0f3b7362eadd2b9528dee1417f39|join7",
       "takes" : 1
     },
     {
@@ -15827,9 +15903,9 @@
       "seeds" : [
         "20005"
       ],
-      "sourceDigest" : "c5a350d9249c080877657eb7a8c8e5ef080421078d7d2beea090102bc2b47d1d",
+      "sourceDigest" : "a8c42db4504fb16d876bce5c6efbcf900c19b08e3a78fbde8b1d9bcf378343b2",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|sourcec5a350d9249c080877657eb7a8c8e5ef080421078d7d2beea090102bc2b47d1d|join7",
+      "stampValue" : "piper|v1|sourcea8c42db4504fb16d876bce5c6efbcf900c19b08e3a78fbde8b1d9bcf378343b2|join7",
       "takes" : 1
     },
     {
@@ -15844,9 +15920,9 @@
       "seeds" : [
         "20035"
       ],
-      "sourceDigest" : "8f7647765683f7bfda9bac1e80430e98e26d8650210de69d42b6d72575de1923",
+      "sourceDigest" : "88cd417b4fc2ec9879aaad6c9fc9b92b72d10f9866d02be3960c52d337137c4c",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source8f7647765683f7bfda9bac1e80430e98e26d8650210de69d42b6d72575de1923|join7",
+      "stampValue" : "piper|v1|source88cd417b4fc2ec9879aaad6c9fc9b92b72d10f9866d02be3960c52d337137c4c|join7",
       "takes" : 1
     },
     {
@@ -15861,9 +15937,9 @@
       "seeds" : [
         "20033"
       ],
-      "sourceDigest" : "934a91146e272d6f1f846c957a9b174013700708b39712f784f046003bc7f701",
+      "sourceDigest" : "f25eb2a0cd4ad2f12dbdb3ca8df6c02cc806ba0ef4735417d673a34d3e7b1713",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source934a91146e272d6f1f846c957a9b174013700708b39712f784f046003bc7f701|join7",
+      "stampValue" : "piper|v1|sourcef25eb2a0cd4ad2f12dbdb3ca8df6c02cc806ba0ef4735417d673a34d3e7b1713|join7",
       "takes" : 1
     },
     {
@@ -15878,9 +15954,9 @@
       "seeds" : [
         "20021"
       ],
-      "sourceDigest" : "b8c6bbc143d3e302fa870377b962708ccdc82ac8268c100ad3008821198711e2",
+      "sourceDigest" : "7e3b115408cbcfb9d0b768a35315310d6cb97d7bc6ceaaff52d33475184bdc6f",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|sourceb8c6bbc143d3e302fa870377b962708ccdc82ac8268c100ad3008821198711e2|join7",
+      "stampValue" : "piper|v1|source7e3b115408cbcfb9d0b768a35315310d6cb97d7bc6ceaaff52d33475184bdc6f|join7",
       "takes" : 1
     },
     {
@@ -15895,9 +15971,9 @@
       "seeds" : [
         "20027"
       ],
-      "sourceDigest" : "d51a560a7d30019b5914cc56cf6112153a511d49bdf5c75055c993b89d2fd8d5",
+      "sourceDigest" : "bac5c2ee6f0f079028f4a2122e712bebc1ec4d6e7e2ff7577dab034d2571f717",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|sourced51a560a7d30019b5914cc56cf6112153a511d49bdf5c75055c993b89d2fd8d5|join7",
+      "stampValue" : "piper|v1|sourcebac5c2ee6f0f079028f4a2122e712bebc1ec4d6e7e2ff7577dab034d2571f717|join7",
       "takes" : 1
     },
     {
@@ -15912,9 +15988,9 @@
       "seeds" : [
         "20026"
       ],
-      "sourceDigest" : "7797d4b6f643a733561ed2cec048ac70e2400457c7232330ef99134b26171dd4",
+      "sourceDigest" : "b69d2d6823a743dc90795607ffa21133c68daf4350614eb6eb404bf7b1bb49a9",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source7797d4b6f643a733561ed2cec048ac70e2400457c7232330ef99134b26171dd4|join7",
+      "stampValue" : "piper|v1|sourceb69d2d6823a743dc90795607ffa21133c68daf4350614eb6eb404bf7b1bb49a9|join7",
       "takes" : 1
     },
     {
@@ -15929,9 +16005,9 @@
       "seeds" : [
         "20015"
       ],
-      "sourceDigest" : "9e2c2b4bfe23c719d74ce43acdacd6ca092485b22c5f22f420aeb60188e44367",
+      "sourceDigest" : "04e851ac5f7575e73f6d09218a3ff3cf2d75bcab877139205b8816711b218b70",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source9e2c2b4bfe23c719d74ce43acdacd6ca092485b22c5f22f420aeb60188e44367|join7",
+      "stampValue" : "piper|v1|source04e851ac5f7575e73f6d09218a3ff3cf2d75bcab877139205b8816711b218b70|join7",
       "takes" : 1
     },
     {
@@ -15946,9 +16022,9 @@
       "seeds" : [
         "20016"
       ],
-      "sourceDigest" : "3d50f58e6731f145099c34c26628f4e5b9dae9a3afa09ab5a4ece6a4f62dfcc9",
+      "sourceDigest" : "b85425d6399438f98670b0ce86ffd499fda8bb9311fb0b477c1d8891441ec780",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source3d50f58e6731f145099c34c26628f4e5b9dae9a3afa09ab5a4ece6a4f62dfcc9|join7",
+      "stampValue" : "piper|v1|sourceb85425d6399438f98670b0ce86ffd499fda8bb9311fb0b477c1d8891441ec780|join7",
       "takes" : 1
     },
     {
@@ -15963,9 +16039,9 @@
       "seeds" : [
         "20002"
       ],
-      "sourceDigest" : "d1e5e840ffa938d8037c1b0c6746e2734d72ca09dc862ac031a29f87cee508f0",
+      "sourceDigest" : "467f92e8e7bd55929be7ba8798be8eb88f42b6ff257c2a8ab103a974c3feb32b",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|sourced1e5e840ffa938d8037c1b0c6746e2734d72ca09dc862ac031a29f87cee508f0|join7",
+      "stampValue" : "piper|v1|source467f92e8e7bd55929be7ba8798be8eb88f42b6ff257c2a8ab103a974c3feb32b|join7",
       "takes" : 1
     },
     {
@@ -15980,9 +16056,9 @@
       "seeds" : [
         "20012"
       ],
-      "sourceDigest" : "4bd3373979ff331c21894f1b2cf4c13bac98bcfe7a6724139106ac32634102dd",
+      "sourceDigest" : "de037c8ecba581bdc20e8ac079df3ad1a49398ad8e3efd7f31ae6fb3e9fad6cf",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source4bd3373979ff331c21894f1b2cf4c13bac98bcfe7a6724139106ac32634102dd|join7",
+      "stampValue" : "piper|v1|sourcede037c8ecba581bdc20e8ac079df3ad1a49398ad8e3efd7f31ae6fb3e9fad6cf|join7",
       "takes" : 1
     },
     {
@@ -15997,9 +16073,9 @@
       "seeds" : [
         "20038"
       ],
-      "sourceDigest" : "069b7b02b2ed269da28ad281844f142681f513d264b2f5519a12c1c31cf42c96",
+      "sourceDigest" : "a957c0558eef49758fe85eb874571b084e41fb9db35155825e0e07103a0bf038",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source069b7b02b2ed269da28ad281844f142681f513d264b2f5519a12c1c31cf42c96|join7",
+      "stampValue" : "piper|v1|sourcea957c0558eef49758fe85eb874571b084e41fb9db35155825e0e07103a0bf038|join7",
       "takes" : 1
     },
     {
@@ -16014,9 +16090,9 @@
       "seeds" : [
         "20025"
       ],
-      "sourceDigest" : "cacad3c13427f97d16d0c799583dc63acb89883f28a75ea3897bf9844e8f18ff",
+      "sourceDigest" : "4413d821a083eb23e2c74e35e2a770ac7e95891ddc8b053bf2ddf67bdf275b8f",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|sourcecacad3c13427f97d16d0c799583dc63acb89883f28a75ea3897bf9844e8f18ff|join7",
+      "stampValue" : "piper|v1|source4413d821a083eb23e2c74e35e2a770ac7e95891ddc8b053bf2ddf67bdf275b8f|join7",
       "takes" : 1
     },
     {
@@ -16031,9 +16107,9 @@
       "seeds" : [
         "20001"
       ],
-      "sourceDigest" : "11b89787a23ff74bef49959e22eeba96b8c22ffdef05a72830a28896b6103fb9",
+      "sourceDigest" : "ddd9b6a313a128447ab38222c1307c2d511101cad6a237839183caf889343b0c",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source11b89787a23ff74bef49959e22eeba96b8c22ffdef05a72830a28896b6103fb9|join7",
+      "stampValue" : "piper|v1|sourceddd9b6a313a128447ab38222c1307c2d511101cad6a237839183caf889343b0c|join7",
       "takes" : 1
     },
     {
@@ -16048,9 +16124,9 @@
       "seeds" : [
         "10104"
       ],
-      "sourceDigest" : "d22b8303fd5a57ce011aad8413bbd9a0ec5ac8f51854f474e7c7829d5ad69f34",
+      "sourceDigest" : "81288e9db853d0db8fa77f40c5253f4ded3fd3424c42e6225dbf364dfde5faa8",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|sourced22b8303fd5a57ce011aad8413bbd9a0ec5ac8f51854f474e7c7829d5ad69f34|join7",
+      "stampValue" : "piper|v1|source81288e9db853d0db8fa77f40c5253f4ded3fd3424c42e6225dbf364dfde5faa8|join7",
       "takes" : 1
     },
     {
@@ -16065,9 +16141,9 @@
       "seeds" : [
         "20007"
       ],
-      "sourceDigest" : "2cbf370128b1e002bb56c862ad81a777536bd1c4f530d83c6e977249f38ed010",
+      "sourceDigest" : "8e7d9612ddfea719a740e59b8a62b6f3825ad1c83b66cf904d6b696edd762062",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source2cbf370128b1e002bb56c862ad81a777536bd1c4f530d83c6e977249f38ed010|join7",
+      "stampValue" : "piper|v1|source8e7d9612ddfea719a740e59b8a62b6f3825ad1c83b66cf904d6b696edd762062|join7",
       "takes" : 1
     },
     {
@@ -16082,9 +16158,9 @@
       "seeds" : [
         "20023"
       ],
-      "sourceDigest" : "fe8f4a3800aa602bb04ab8268ebc8997a662fe32bd57686db39023b236edae25",
+      "sourceDigest" : "eb620d8ebbd286bfcebe47dcce66e007650647ccd20fb5d926d6affe2b3b2188",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|sourcefe8f4a3800aa602bb04ab8268ebc8997a662fe32bd57686db39023b236edae25|join7",
+      "stampValue" : "piper|v1|sourceeb620d8ebbd286bfcebe47dcce66e007650647ccd20fb5d926d6affe2b3b2188|join7",
       "takes" : 1
     },
     {
@@ -16099,9 +16175,9 @@
       "seeds" : [
         "20034"
       ],
-      "sourceDigest" : "53e98cec914c688e1d0e0e3cd90c661c1f262d8e6fe06399756ee535a301cdf5",
+      "sourceDigest" : "26a815a0a0e3542de1caee20d697cee653af26ea5c75283fa2c74a20ed59c98a",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source53e98cec914c688e1d0e0e3cd90c661c1f262d8e6fe06399756ee535a301cdf5|join7",
+      "stampValue" : "piper|v1|source26a815a0a0e3542de1caee20d697cee653af26ea5c75283fa2c74a20ed59c98a|join7",
       "takes" : 1
     },
     {
@@ -16116,9 +16192,9 @@
       "seeds" : [
         "20041"
       ],
-      "sourceDigest" : "b1e40e0df70cf6ca802f9b26998325c718082b40eb7be5abbf5609d9f48a90a4",
+      "sourceDigest" : "9ab1609ea6e0cafaded4661e71fd39cc4f3d8a308bdba091618427871e19640d",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|sourceb1e40e0df70cf6ca802f9b26998325c718082b40eb7be5abbf5609d9f48a90a4|join7",
+      "stampValue" : "piper|v1|source9ab1609ea6e0cafaded4661e71fd39cc4f3d8a308bdba091618427871e19640d|join7",
       "takes" : 1
     },
     {
@@ -16133,9 +16209,9 @@
       "seeds" : [
         "20008"
       ],
-      "sourceDigest" : "8088b66ead0a5ea3ffb537f52a8378c64d1a3c50b819ad937c35080fcf9ed575",
+      "sourceDigest" : "29258fcdd58d778825f40a1e712a403bfccf53524524f4931f3c5e07dedb73c4",
       "speechCount" : 0,
-      "stampValue" : "piper|v1|source8088b66ead0a5ea3ffb537f52a8378c64d1a3c50b819ad937c35080fcf9ed575|join7",
+      "stampValue" : "piper|v1|source29258fcdd58d778825f40a1e712a403bfccf53524524f4931f3c5e07dedb73c4|join7",
       "takes" : 1
     }
   ],

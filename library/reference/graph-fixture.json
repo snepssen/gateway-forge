@@ -4767,347 +4767,6 @@
       "segmentID" : "remote-viewing"
     },
     {
-      "consumers" : [
-        {
-          "id" : "F15/void",
-          "kind" : "focusScript",
-          "path" : "focus/F15/scripts/void.gws"
-        },
-        {
-          "id" : "F27/castle",
-          "kind" : "focusScript",
-          "path" : "focus/F27/scripts/castle.gws"
-        },
-        {
-          "id" : "advanced-focus-10",
-          "kind" : "template",
-          "path" : "library/templates/advanced-focus-10.gws"
-        },
-        {
-          "id" : "advanced-focus-12",
-          "kind" : "template",
-          "path" : "library/templates/advanced-focus-12.gws"
-        },
-        {
-          "id" : "color-breathing",
-          "kind" : "template",
-          "path" : "library/templates/color-breathing.gws"
-        },
-        {
-          "id" : "compoint",
-          "kind" : "template",
-          "path" : "library/templates/compoint.gws"
-        },
-        {
-          "id" : "coordination-area",
-          "kind" : "template",
-          "path" : "library/templates/coordination-area.gws"
-        },
-        {
-          "id" : "discovering-intuition",
-          "kind" : "template",
-          "path" : "library/templates/discovering-intuition.gws"
-        },
-        {
-          "id" : "educational-opportunities",
-          "kind" : "template",
-          "path" : "library/templates/educational-opportunities.gws"
-        },
-        {
-          "id" : "energy-bar-tool",
-          "kind" : "template",
-          "path" : "library/templates/energy-bar-tool.gws"
-        },
-        {
-          "id" : "energy-food",
-          "kind" : "template",
-          "path" : "library/templates/energy-food.gws"
-        },
-        {
-          "id" : "expansion-in-locale-1",
-          "kind" : "template",
-          "path" : "library/templates/expansion-in-locale-1.gws"
-        },
-        {
-          "id" : "exploration-sleep",
-          "kind" : "template",
-          "path" : "library/templates/exploration-sleep.gws"
-        },
-        {
-          "id" : "explore-total-self",
-          "kind" : "template",
-          "path" : "library/templates/explore-total-self.gws"
-        },
-        {
-          "id" : "exploring-focus-15",
-          "kind" : "template",
-          "path" : "library/templates/exploring-focus-15.gws"
-        },
-        {
-          "id" : "exploring-intuition",
-          "kind" : "template",
-          "path" : "library/templates/exploring-intuition.gws"
-        },
-        {
-          "id" : "f10-visit",
-          "kind" : "template",
-          "path" : "library/templates/f10-visit.gws"
-        },
-        {
-          "id" : "f11-visit",
-          "kind" : "template",
-          "path" : "library/templates/f11-visit.gws"
-        },
-        {
-          "id" : "f12-visit",
-          "kind" : "template",
-          "path" : "library/templates/f12-visit.gws"
-        },
-        {
-          "id" : "f15-visit",
-          "kind" : "template",
-          "path" : "library/templates/f15-visit.gws"
-        },
-        {
-          "id" : "f18-visit",
-          "kind" : "template",
-          "path" : "library/templates/f18-visit.gws"
-        },
-        {
-          "id" : "f21-visit",
-          "kind" : "template",
-          "path" : "library/templates/f21-visit.gws"
-        },
-        {
-          "id" : "f22-visit",
-          "kind" : "template",
-          "path" : "library/templates/f22-visit.gws"
-        },
-        {
-          "id" : "f23-visit",
-          "kind" : "template",
-          "path" : "library/templates/f23-visit.gws"
-        },
-        {
-          "id" : "f24-visit",
-          "kind" : "template",
-          "path" : "library/templates/f24-visit.gws"
-        },
-        {
-          "id" : "f25-visit",
-          "kind" : "template",
-          "path" : "library/templates/f25-visit.gws"
-        },
-        {
-          "id" : "f26-visit",
-          "kind" : "template",
-          "path" : "library/templates/f26-visit.gws"
-        },
-        {
-          "id" : "f27-place-of-your-own",
-          "kind" : "template",
-          "path" : "library/templates/f27-place-of-your-own.gws"
-        },
-        {
-          "id" : "f27-place-of-your-own-return",
-          "kind" : "template",
-          "path" : "library/templates/f27-place-of-your-own-return.gws"
-        },
-        {
-          "id" : "f27-visit",
-          "kind" : "template",
-          "path" : "library/templates/f27-visit.gws"
-        },
-        {
-          "id" : "f3-visit",
-          "kind" : "template",
-          "path" : "library/templates/f3-visit.gws"
-        },
-        {
-          "id" : "f34-visit",
-          "kind" : "template",
-          "path" : "library/templates/f34-visit.gws"
-        },
-        {
-          "id" : "f35-visit",
-          "kind" : "template",
-          "path" : "library/templates/f35-visit.gws"
-        },
-        {
-          "id" : "f42-visit",
-          "kind" : "template",
-          "path" : "library/templates/f42-visit.gws"
-        },
-        {
-          "id" : "f49-visit",
-          "kind" : "template",
-          "path" : "library/templates/f49-visit.gws"
-        },
-        {
-          "id" : "first-retrieval",
-          "kind" : "template",
-          "path" : "library/templates/first-retrieval.gws"
-        },
-        {
-          "id" : "first-stage-separation",
-          "kind" : "template",
-          "path" : "library/templates/first-stage-separation.gws"
-        },
-        {
-          "id" : "five-messages",
-          "kind" : "template",
-          "path" : "library/templates/five-messages.gws"
-        },
-        {
-          "id" : "five-questions",
-          "kind" : "template",
-          "path" : "library/templates/five-questions.gws"
-        },
-        {
-          "id" : "free-flow-10",
-          "kind" : "template",
-          "path" : "library/templates/free-flow-10.gws"
-        },
-        {
-          "id" : "free-flow-12",
-          "kind" : "template",
-          "path" : "library/templates/free-flow-12.gws"
-        },
-        {
-          "id" : "free-flow-journey-focus-21",
-          "kind" : "template",
-          "path" : "library/templates/free-flow-journey-focus-21.gws"
-        },
-        {
-          "id" : "healing-and-regeneration-center",
-          "kind" : "template",
-          "path" : "library/templates/healing-and-regeneration-center.gws"
-        },
-        {
-          "id" : "i-there-cluster",
-          "kind" : "template",
-          "path" : "library/templates/i-there-cluster.gws"
-        },
-        {
-          "id" : "inner-earth",
-          "kind" : "template",
-          "path" : "library/templates/inner-earth.gws"
-        },
-        {
-          "id" : "intro-focus-23",
-          "kind" : "template",
-          "path" : "library/templates/intro-focus-23.gws"
-        },
-        {
-          "id" : "intro-focus-25",
-          "kind" : "template",
-          "path" : "library/templates/intro-focus-25.gws"
-        },
-        {
-          "id" : "lift-off",
-          "kind" : "template",
-          "path" : "library/templates/lift-off.gws"
-        },
-        {
-          "id" : "living-body-map",
-          "kind" : "template",
-          "path" : "library/templates/living-body-map.gws"
-        },
-        {
-          "id" : "meeting-with-the-entry-director",
-          "kind" : "template",
-          "path" : "library/templates/meeting-with-the-entry-director.gws"
-        },
-        {
-          "id" : "messages-from-beyond",
-          "kind" : "template",
-          "path" : "library/templates/messages-from-beyond.gws"
-        },
-        {
-          "id" : "mission-15-creation-and-manifestation",
-          "kind" : "template",
-          "path" : "library/templates/mission-15-creation-and-manifestation.gws"
-        },
-        {
-          "id" : "movement-to-locale-2",
-          "kind" : "template",
-          "path" : "library/templates/movement-to-locale-2.gws"
-        },
-        {
-          "id" : "nonphysical-friends",
-          "kind" : "template",
-          "path" : "library/templates/nonphysical-friends.gws"
-        },
-        {
-          "id" : "nvc-i",
-          "kind" : "template",
-          "path" : "library/templates/nvc-i.gws"
-        },
-        {
-          "id" : "nvc-ii",
-          "kind" : "template",
-          "path" : "library/templates/nvc-ii.gws"
-        },
-        {
-          "id" : "one-month-patterning",
-          "kind" : "template",
-          "path" : "library/templates/one-month-patterning.gws"
-        },
-        {
-          "id" : "one-year-patterning",
-          "kind" : "template",
-          "path" : "library/templates/one-year-patterning.gws"
-        },
-        {
-          "id" : "planning-center",
-          "kind" : "template",
-          "path" : "library/templates/planning-center.gws"
-        },
-        {
-          "id" : "point-of-departure",
-          "kind" : "template",
-          "path" : "library/templates/point-of-departure.gws"
-        },
-        {
-          "id" : "problem-solving",
-          "kind" : "template",
-          "path" : "library/templates/problem-solving.gws"
-        },
-        {
-          "id" : "release-and-recharge",
-          "kind" : "template",
-          "path" : "library/templates/release-and-recharge.gws"
-        },
-        {
-          "id" : "remote-viewing",
-          "kind" : "template",
-          "path" : "library/templates/remote-viewing.gws"
-        },
-        {
-          "id" : "sensing-locale-1",
-          "kind" : "template",
-          "path" : "library/templates/sensing-locale-1.gws"
-        },
-        {
-          "id" : "special-tour",
-          "kind" : "template",
-          "path" : "library/templates/special-tour.gws"
-        },
-        {
-          "id" : "the-absolute",
-          "kind" : "template",
-          "path" : "library/templates/the-absolute.gws"
-        },
-        {
-          "id" : "vectors",
-          "kind" : "template",
-          "path" : "library/templates/vectors.gws"
-        }
-      ],
-      "kind" : "used",
-      "segmentID" : "resonant-tuning"
-    },
-    {
       "kind" : "runtime",
       "roles" : [
         "resumeCeremony"
@@ -5613,6 +5272,347 @@
       ],
       "kind" : "used",
       "segmentID" : "the-absolute"
+    },
+    {
+      "consumers" : [
+        {
+          "id" : "F15/void",
+          "kind" : "focusScript",
+          "path" : "focus/F15/scripts/void.gws"
+        },
+        {
+          "id" : "F27/castle",
+          "kind" : "focusScript",
+          "path" : "focus/F27/scripts/castle.gws"
+        },
+        {
+          "id" : "advanced-focus-10",
+          "kind" : "template",
+          "path" : "library/templates/advanced-focus-10.gws"
+        },
+        {
+          "id" : "advanced-focus-12",
+          "kind" : "template",
+          "path" : "library/templates/advanced-focus-12.gws"
+        },
+        {
+          "id" : "color-breathing",
+          "kind" : "template",
+          "path" : "library/templates/color-breathing.gws"
+        },
+        {
+          "id" : "compoint",
+          "kind" : "template",
+          "path" : "library/templates/compoint.gws"
+        },
+        {
+          "id" : "coordination-area",
+          "kind" : "template",
+          "path" : "library/templates/coordination-area.gws"
+        },
+        {
+          "id" : "discovering-intuition",
+          "kind" : "template",
+          "path" : "library/templates/discovering-intuition.gws"
+        },
+        {
+          "id" : "educational-opportunities",
+          "kind" : "template",
+          "path" : "library/templates/educational-opportunities.gws"
+        },
+        {
+          "id" : "energy-bar-tool",
+          "kind" : "template",
+          "path" : "library/templates/energy-bar-tool.gws"
+        },
+        {
+          "id" : "energy-food",
+          "kind" : "template",
+          "path" : "library/templates/energy-food.gws"
+        },
+        {
+          "id" : "expansion-in-locale-1",
+          "kind" : "template",
+          "path" : "library/templates/expansion-in-locale-1.gws"
+        },
+        {
+          "id" : "exploration-sleep",
+          "kind" : "template",
+          "path" : "library/templates/exploration-sleep.gws"
+        },
+        {
+          "id" : "explore-total-self",
+          "kind" : "template",
+          "path" : "library/templates/explore-total-self.gws"
+        },
+        {
+          "id" : "exploring-focus-15",
+          "kind" : "template",
+          "path" : "library/templates/exploring-focus-15.gws"
+        },
+        {
+          "id" : "exploring-intuition",
+          "kind" : "template",
+          "path" : "library/templates/exploring-intuition.gws"
+        },
+        {
+          "id" : "f10-visit",
+          "kind" : "template",
+          "path" : "library/templates/f10-visit.gws"
+        },
+        {
+          "id" : "f11-visit",
+          "kind" : "template",
+          "path" : "library/templates/f11-visit.gws"
+        },
+        {
+          "id" : "f12-visit",
+          "kind" : "template",
+          "path" : "library/templates/f12-visit.gws"
+        },
+        {
+          "id" : "f15-visit",
+          "kind" : "template",
+          "path" : "library/templates/f15-visit.gws"
+        },
+        {
+          "id" : "f18-visit",
+          "kind" : "template",
+          "path" : "library/templates/f18-visit.gws"
+        },
+        {
+          "id" : "f21-visit",
+          "kind" : "template",
+          "path" : "library/templates/f21-visit.gws"
+        },
+        {
+          "id" : "f22-visit",
+          "kind" : "template",
+          "path" : "library/templates/f22-visit.gws"
+        },
+        {
+          "id" : "f23-visit",
+          "kind" : "template",
+          "path" : "library/templates/f23-visit.gws"
+        },
+        {
+          "id" : "f24-visit",
+          "kind" : "template",
+          "path" : "library/templates/f24-visit.gws"
+        },
+        {
+          "id" : "f25-visit",
+          "kind" : "template",
+          "path" : "library/templates/f25-visit.gws"
+        },
+        {
+          "id" : "f26-visit",
+          "kind" : "template",
+          "path" : "library/templates/f26-visit.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own.gws"
+        },
+        {
+          "id" : "f27-place-of-your-own-return",
+          "kind" : "template",
+          "path" : "library/templates/f27-place-of-your-own-return.gws"
+        },
+        {
+          "id" : "f27-visit",
+          "kind" : "template",
+          "path" : "library/templates/f27-visit.gws"
+        },
+        {
+          "id" : "f3-visit",
+          "kind" : "template",
+          "path" : "library/templates/f3-visit.gws"
+        },
+        {
+          "id" : "f34-visit",
+          "kind" : "template",
+          "path" : "library/templates/f34-visit.gws"
+        },
+        {
+          "id" : "f35-visit",
+          "kind" : "template",
+          "path" : "library/templates/f35-visit.gws"
+        },
+        {
+          "id" : "f42-visit",
+          "kind" : "template",
+          "path" : "library/templates/f42-visit.gws"
+        },
+        {
+          "id" : "f49-visit",
+          "kind" : "template",
+          "path" : "library/templates/f49-visit.gws"
+        },
+        {
+          "id" : "first-retrieval",
+          "kind" : "template",
+          "path" : "library/templates/first-retrieval.gws"
+        },
+        {
+          "id" : "first-stage-separation",
+          "kind" : "template",
+          "path" : "library/templates/first-stage-separation.gws"
+        },
+        {
+          "id" : "five-messages",
+          "kind" : "template",
+          "path" : "library/templates/five-messages.gws"
+        },
+        {
+          "id" : "five-questions",
+          "kind" : "template",
+          "path" : "library/templates/five-questions.gws"
+        },
+        {
+          "id" : "free-flow-10",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-10.gws"
+        },
+        {
+          "id" : "free-flow-12",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-12.gws"
+        },
+        {
+          "id" : "free-flow-journey-focus-21",
+          "kind" : "template",
+          "path" : "library/templates/free-flow-journey-focus-21.gws"
+        },
+        {
+          "id" : "healing-and-regeneration-center",
+          "kind" : "template",
+          "path" : "library/templates/healing-and-regeneration-center.gws"
+        },
+        {
+          "id" : "i-there-cluster",
+          "kind" : "template",
+          "path" : "library/templates/i-there-cluster.gws"
+        },
+        {
+          "id" : "inner-earth",
+          "kind" : "template",
+          "path" : "library/templates/inner-earth.gws"
+        },
+        {
+          "id" : "intro-focus-23",
+          "kind" : "template",
+          "path" : "library/templates/intro-focus-23.gws"
+        },
+        {
+          "id" : "intro-focus-25",
+          "kind" : "template",
+          "path" : "library/templates/intro-focus-25.gws"
+        },
+        {
+          "id" : "lift-off",
+          "kind" : "template",
+          "path" : "library/templates/lift-off.gws"
+        },
+        {
+          "id" : "living-body-map",
+          "kind" : "template",
+          "path" : "library/templates/living-body-map.gws"
+        },
+        {
+          "id" : "meeting-with-the-entry-director",
+          "kind" : "template",
+          "path" : "library/templates/meeting-with-the-entry-director.gws"
+        },
+        {
+          "id" : "messages-from-beyond",
+          "kind" : "template",
+          "path" : "library/templates/messages-from-beyond.gws"
+        },
+        {
+          "id" : "mission-15-creation-and-manifestation",
+          "kind" : "template",
+          "path" : "library/templates/mission-15-creation-and-manifestation.gws"
+        },
+        {
+          "id" : "movement-to-locale-2",
+          "kind" : "template",
+          "path" : "library/templates/movement-to-locale-2.gws"
+        },
+        {
+          "id" : "nonphysical-friends",
+          "kind" : "template",
+          "path" : "library/templates/nonphysical-friends.gws"
+        },
+        {
+          "id" : "nvc-i",
+          "kind" : "template",
+          "path" : "library/templates/nvc-i.gws"
+        },
+        {
+          "id" : "nvc-ii",
+          "kind" : "template",
+          "path" : "library/templates/nvc-ii.gws"
+        },
+        {
+          "id" : "one-month-patterning",
+          "kind" : "template",
+          "path" : "library/templates/one-month-patterning.gws"
+        },
+        {
+          "id" : "one-year-patterning",
+          "kind" : "template",
+          "path" : "library/templates/one-year-patterning.gws"
+        },
+        {
+          "id" : "planning-center",
+          "kind" : "template",
+          "path" : "library/templates/planning-center.gws"
+        },
+        {
+          "id" : "point-of-departure",
+          "kind" : "template",
+          "path" : "library/templates/point-of-departure.gws"
+        },
+        {
+          "id" : "problem-solving",
+          "kind" : "template",
+          "path" : "library/templates/problem-solving.gws"
+        },
+        {
+          "id" : "release-and-recharge",
+          "kind" : "template",
+          "path" : "library/templates/release-and-recharge.gws"
+        },
+        {
+          "id" : "remote-viewing",
+          "kind" : "template",
+          "path" : "library/templates/remote-viewing.gws"
+        },
+        {
+          "id" : "sensing-locale-1",
+          "kind" : "template",
+          "path" : "library/templates/sensing-locale-1.gws"
+        },
+        {
+          "id" : "special-tour",
+          "kind" : "template",
+          "path" : "library/templates/special-tour.gws"
+        },
+        {
+          "id" : "the-absolute",
+          "kind" : "template",
+          "path" : "library/templates/the-absolute.gws"
+        },
+        {
+          "id" : "vectors",
+          "kind" : "template",
+          "path" : "library/templates/vectors.gws"
+        }
+      ],
+      "kind" : "used",
+      "segmentID" : "tuning-hum"
     },
     {
       "consumers" : [

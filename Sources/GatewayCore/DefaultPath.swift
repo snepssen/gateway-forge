@@ -211,30 +211,39 @@ public struct DefaultPath: Sendable, Equatable {
 /// the words are known and the narration becomes something to wait through
 /// rather than follow, which is the opposite of what a bed is trying to do.
 ///
-/// So the suggestion steps down as a level becomes familiar. It is a
-/// suggestion: the picker stays live at every stage, because familiarity is
-/// not the only reason to want detail. Coming back after months, or bringing
-/// someone else to the material, are both good reasons to ask for full guidance
-/// at a level the ledger thinks is well known.
+/// So the suggestion steps down as a level becomes familiar -- ten completions
+/// to guided, twenty to anchors alone, by `ActivityLedger.proficiencyVerbosity`.
+/// It is a suggestion: the picker stays live at every stage, because
+/// familiarity is not the only reason to want detail. A month away from a
+/// level resets it to full detail on its own, which is `proficiencyVerbosity`'s
+/// decay rather than anything decided here -- and a listener's own explicit
+/// override, when they've set one, wins outright over either.
 public enum SessionGuidance {
-    /// Full detail until a level has been reached twice, then guided, then
-    /// anchors alone.
-    public static func suggestedVerbosity(completionsAtLevel n: Int) -> Int {
-        switch n {
-        case 0...1: 3
-        case 2...4: 2
-        default: 1
-        }
+    /// What to seed the picker with: the listener's own override if they set
+    /// one for this level, otherwise what they've earned from completion
+    /// history. This is `ActivityLedger.effectiveVerbosity` under a name that
+    /// reads at the call sites that offer a default visit rather than compose
+    /// one by hand.
+    public static func suggestedVerbosity(for level: String, ledger: ActivityLedger,
+                                          now: Date = Date()) -> Int {
+        ledger.effectiveVerbosity(for: level, now: now)
     }
 
-    public static func rationale(completionsAtLevel n: Int) -> String {
-        switch n {
-        case 0...1:
-            "Full detail — every level named. This is new ground."
-        case 2...4:
-            "Guided — the climbs and each level's briefing. You have been here \(n) times."
+    public static func rationale(for level: String, ledger: ActivityLedger,
+                                 now: Date = Date()) -> String {
+        let n = completions(atLevel: level, ledger: ledger)
+        if let override = ledger.verbosityOverrides[level] {
+            return "Verbosity \(override), set for this level. \(n == 0 ? "" : "\(n) completions on record. ")Change it below at any time."
+        }
+        switch ledger.proficiencyVerbosity(for: level, now: now) {
+        case 3 where n == 0:
+            return "Full detail — every level named. This is new ground."
+        case 3:
+            return "Full detail — every level named. It's been a month or more since your last visit here, so this starts fresh again."
+        case 2:
+            return "Guided — the climbs and each level's briefing. You have been here \(n) times."
         default:
-            "Anchors and counts only. You have been here \(n) times; the words are known."
+            return "Anchors and counts only. You have been here \(n) times; the words are known."
         }
     }
 

@@ -21,7 +21,7 @@ surf 0.30
 use conversion-box
 
 surf 0.18
-use resonant-tuning
+use tuning-hum
 use balloon
 
 surf 0.0
