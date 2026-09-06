@@ -934,12 +934,6 @@
     },
     {
       "kind" : "noVariants",
-      "segment" : "resonant-tuning",
-      "summary" : "resonant-tuning has one phrasing, so one take",
-      "toCompose" : "resonant-tuning"
-    },
-    {
-      "kind" : "noVariants",
       "segment" : "return-anchor",
       "summary" : "return-anchor has one phrasing, so one take",
       "toCompose" : "return-anchor"
@@ -973,6 +967,12 @@
       "segment" : "the-absolute",
       "summary" : "the-absolute has one phrasing, so one take",
       "toCompose" : "the-absolute"
+    },
+    {
+      "kind" : "noVariants",
+      "segment" : "tuning-hum",
+      "summary" : "tuning-hum has one phrasing, so one take",
+      "toCompose" : "tuning-hum"
     },
     {
       "kind" : "noVariants",

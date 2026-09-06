@@ -142,6 +142,27 @@ final class ActivityRecorder: ObservableObject {
         objectWillChange.send()
     }
 
+    /// A listener's explicit choice to hold a level at a verbosity, or `nil`
+    /// to let it go back to being computed from completion history. Written
+    /// immediately rather than left for the flush timer -- unlike a span,
+    /// there is nothing to fold, and no reason to risk a decision someone
+    /// just made to a crash before the next flush.
+    func setVerbosityOverride(_ verbosity: Int?, for level: String) {
+        guard loaded else { return }
+        if let verbosity {
+            ledger.verbosityOverrides[level] = verbosity
+        } else {
+            ledger.verbosityOverrides.removeValue(forKey: level)
+        }
+        do {
+            try ActivityStore.save(ledger, root: root)
+            error = nil
+        } catch {
+            self.error = String(describing: error)
+        }
+        objectWillChange.send()
+    }
+
     /// The ledger as of this instant, including spans still running, without
     /// writing anything. What the panel renders.
     func snapshot() -> ActivityLedger {

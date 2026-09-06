@@ -1918,12 +1918,6 @@
       "levels" : [
         "F10"
       ],
-      "segmentID" : "resonant-tuning"
-    },
-    {
-      "levels" : [
-        "F10"
-      ],
       "segmentID" : "resume"
     },
     {
@@ -1985,6 +1979,15 @@
         "F27"
       ],
       "segmentID" : "the-absolute"
+    },
+    {
+      "levels" : [
+        "F10",
+        "F11",
+        "F12",
+        "F15"
+      ],
+      "segmentID" : "tuning-hum"
     },
     {
       "levels" : [

@@ -84,7 +84,16 @@ struct ComposerWizard: View {
         .background(Monokai.bg)
         .onAppear {
             let defaults = SessionDefaultsIO.load(root: AppPaths.root)
-            verbosity = defaults.clampedVerbosity
+            // Seeded from what this listener has actually earned at this
+            // level, not the flat global default -- a manual choice here
+            // (below) still wins for this one session, the same as it always
+            // did; this only changes where the picker starts.
+            if let source = originalSource, let doc = try? ScriptParser.parse(source),
+               let ledger = try? ActivityStore.load(root: AppPaths.root) {
+                verbosity = ledger.effectiveVerbosity(for: doc.level)
+            } else {
+                verbosity = defaults.clampedVerbosity
+            }
             pauseScale = defaults.clampedPauseScale
             guard voice.isEmpty else { return }
             voice = defaults.resolvedVoice(in: store.library?.voices ?? [])

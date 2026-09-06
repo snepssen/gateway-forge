@@ -1,0 +1,13 @@
+@segment   tuning-hum
+@title     The Tuning Hum
+@levels    F21, F22, F23, F24, F25, F26, F27, F34, F35, F42, F49
+@duration  ~1m30s
+
+say Breathe with the waves once more.
+pause 4
+say This time, let the hum drop back down, quiet. Quieter than you'd expect. Quiet enough that you'd barely be heard, but loud enough that you can't miss it.
+pause 5
+say At this volume, you'll feel it more than hear it. In your skull. Your jaw. The space behind your eyes.
+hold 60
+say Let the hum settle. Let your breath return to its own quiet rhythm.
+pause 6

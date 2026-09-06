@@ -1,0 +1,13 @@
+@segment   tuning-hum
+@title     The Tuning Hum
+@levels    F10, F11, F12, F15
+@duration  ~1m30s
+
+say You've been breathing with the rise and fall of the waves. Let that same rhythm carry you now into sound.
+pause 4
+say On your next exhale, let a hum rise up from low in your chest. Quiet. Easy. Not a performance, just a tone that feels right in your body.
+pause 5
+say This is your instrument, and you're tuning it.
+hold 60
+say Let the hum settle. You can let your breath return to its own quiet rhythm.
+pause 6

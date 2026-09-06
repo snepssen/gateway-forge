@@ -38,11 +38,16 @@ export interface ActivityLedger {
   renderSeconds: number;
   listeningSeconds: number;
   completions: Completion[];
+  /** A listener's explicit choice to hold a level at a verbosity, keyed by
+   *  level. The one part of this type that is a preference rather than a
+   *  measurement, so the one part that is stored rather than computed. */
+  verbosityOverrides: Record<string, number>;
 }
 
 export const emptyLedger = (): ActivityLedger => ({
   schemaVersion: currentSchemaVersion,
   appSeconds: 0, renderSeconds: 0, listeningSeconds: 0, completions: [],
+  verbosityOverrides: {},
 });
 
 /** Swift builds this from , a Double — so a whole
@@ -71,6 +76,46 @@ export const completedTracks = (l: ActivityLedger): Set<string> =>
 /** The levels a completed session has actually taken the listener to. */
 export const reachedLevels = (l: ActivityLedger): Set<string> =>
   new Set(l.completions.map(c => c.level).filter((v): v is string => v !== undefined && v !== ""));
+
+/** Days without a completion at a level before its earned verbosity lapses. */
+export const proficiencyDecayDays = 30;
+/** Completions at a level before it steps down one verbosity notch. */
+export const proficiencyStepCompletions = 10;
+
+/**
+ * What a listener has earned at a level, from completion history alone. v3
+ * until ten completions there, v2 until twenty, v1 beyond.
+ *
+ * **Practice atrophies.** If the most recent completion at this level is older
+ * than `proficiencyDecayDays`, this is v3 again however many came before --
+ * earned ease is for someone actively at a level, not a permanent credential.
+ *
+ * `now` and `finished` are both milliseconds here, where Swift's are seconds;
+ * the day count is what the two have to agree on, not the unit underneath it.
+ */
+export function proficiencyVerbosity(ledger: ActivityLedger, level: string,
+                                     now: number = Date.now()): number {
+  const atLevel = ledger.completions.filter(c => c.level === level);
+  if (atLevel.length === 0) return 3;
+  const mostRecent = Math.max(...atLevel.map(c => c.finished));
+  const daysSince = (now - mostRecent) / 86_400_000;
+  if (daysSince > proficiencyDecayDays) return 3;
+  if (atLevel.length < proficiencyStepCompletions) return 3;
+  if (atLevel.length < proficiencyStepCompletions * 2) return 2;
+  return 1;
+}
+
+/**
+ * What a new session at this level should actually use: the listener's own
+ * override if they set one, otherwise what they have earned. An override is a
+ * decision rather than a measurement, so it neither decays nor gets recomputed
+ * out from under them.
+ */
+export function effectiveVerbosity(ledger: ActivityLedger, level: string,
+                                   now: number = Date.now()): number {
+  const override = ledger.verbosityOverrides[level];
+  return override ?? proficiencyVerbosity(ledger, level, now);
+}
 
 /**
  * How far up the climb the listener has been, in the library's own order rather
@@ -256,5 +301,27 @@ export function decodeLedger(json: string): ActivityLedger {
         ...(typeof c.originDeviceID === "string" ? { originDeviceID: c.originDeviceID } : {}),
       };
     }),
+    // Absent in any ledger written before this field existed. Swift's own
+    // decoder takes it as an empty dictionary rather than throwing, so this
+    // one has to as well -- a ledger that decodes on one platform and fails
+    // on the other is the exact disagreement these ports exist to prevent.
+    // Values are filtered to whole numbers in 1...3, because an override is
+    // a verbosity and nothing else can be one.
+    verbosityOverrides: decodeVerbosityOverrides(raw.verbosityOverrides),
   };
+}
+
+function decodeVerbosityOverrides(raw: unknown): Record<string, number> {
+  if (raw === undefined || raw === null) return {};
+  if (typeof raw !== "object" || Array.isArray(raw)) {
+    throw new Error("activity ledger: verbosityOverrides is not an object");
+  }
+  const out: Record<string, number> = {};
+  for (const [level, value] of Object.entries(raw as Record<string, unknown>)) {
+    if (typeof value !== "number" || !Number.isInteger(value) || value < 1 || value > 3) {
+      throw new Error(`activity ledger: verbosityOverrides[${level}] is not a verbosity`);
+    }
+    out[level] = value;
+  }
+  return out;
 }

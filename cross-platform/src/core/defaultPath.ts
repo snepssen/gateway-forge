@@ -12,6 +12,7 @@ import { readFileSync } from "fs";
 import { basename, join } from "path";
 import type { ScriptDoc } from "./scriptDoc.js";
 import type { ActivityLedger } from "./activity.js";
+import { effectiveVerbosity, proficiencyVerbosity } from "./activity.js";
 
 /** One track's place in the running order: the whole of what the old scan ever
  *  took from the transcript directory. */
@@ -127,26 +128,38 @@ export const isComplete = (lessons: Lesson[], completed: Set<string>): boolean =
  * is not the only reason to want detail.
  */
 /**
- * **Ranges, not thresholds.** Swift matches `case 0...1` and `case 2...4`, and
- * a *negative* count matches neither — it falls to `default`, which is the
- * least detailed setting. Written as `n <= 1` the port gave a negative count
- * full detail instead, which is the opposite answer.
+ * The suggestion now delegates to `proficiencyVerbosity` / `effectiveVerbosity`
+ * rather than carrying its own thresholds. It used to have a second, weaker
+ * rule here (full detail to two completions, guided to five) which disagreed
+ * with the ledger's own -- two answers to one question is worse than either.
  *
- * A negative count should never arrive; it is a filtered `.count`. But the two
- * implementations have to disagree about nothing, including about inputs that
- * cannot happen, or the disagreement is simply waiting for the day one does.
+ * The ranges-not-thresholds note that used to sit here is gone with the
+ * arithmetic it described: there is no bare count to hand in out of range any
+ * more, because the ledger is the argument and a completion count taken from
+ * it cannot be negative.
  */
-export function suggestedVerbosity(completionsAtLevel: number): number {
-  const n = completionsAtLevel;
-  if (n >= 0 && n <= 1) return 3;
-  if (n >= 2 && n <= 4) return 2;
-  return 1;
+export function suggestedVerbosity(level: string, ledger: ActivityLedger,
+                                   now: number = Date.now()): number {
+  return effectiveVerbosity(ledger, level, now);
 }
 
-export function guidanceRationale(n: number): string {
-  if (n >= 0 && n <= 1) return "Full detail — every level named. This is new ground.";
-  if (n >= 2 && n <= 4) return `Guided — the climbs and each level's briefing. You have been here ${n} times.`;
-  return `Anchors and counts only. You have been here ${n} times; the words are known.`;
+export function guidanceRationale(level: string, ledger: ActivityLedger,
+                                  now: number = Date.now()): string {
+  const n = completionsAtLevel(level, ledger);
+  const override = ledger.verbosityOverrides[level];
+  if (override !== undefined) {
+    return `Verbosity ${override}, set for this level. ${n === 0 ? "" : `${n} completions on record. `}Change it below at any time.`;
+  }
+  switch (proficiencyVerbosity(ledger, level, now)) {
+    case 3:
+      return n === 0
+        ? "Full detail — every level named. This is new ground."
+        : "Full detail — every level named. It's been a month or more since your last visit here, so this starts fresh again.";
+    case 2:
+      return `Guided — the climbs and each level's briefing. You have been here ${n} times.`;
+    default:
+      return `Anchors and counts only. You have been here ${n} times; the words are known.`;
+  }
 }
 
 /** Completions the ledger holds for one level. */

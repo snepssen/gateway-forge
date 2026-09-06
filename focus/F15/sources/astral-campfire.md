@@ -26,7 +26,7 @@ is energy. [continues as the shared ocean segment]
 
 ## Energy Conversion Box / Invocation / Resonant Tuning / REBAL / Ten-Point
 
-[Identical to the shared segments: conversion-box, affirmation, resonant-tuning,
+[Identical to the shared segments: conversion-box, affirmation, tuning-hum,
 balloon, relax-10 — see library/segments/. NOTE: the tape's invocation omits the
 line "I can perceive that which is greater than the physical world." That form is now
 offered as `affirmation-direct` -- short and direct, one of three legitimate

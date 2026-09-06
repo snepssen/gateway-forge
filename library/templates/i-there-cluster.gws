@@ -23,7 +23,7 @@ use ocean
 
 surf 0.30
 use conversion-box
-use resonant-tuning
+use tuning-hum
 surf 0.18
 use affirmation-1977
 use balloon

@@ -3195,9 +3195,23 @@ if subcommand == "path-fixture" {
     }
 
     struct GuidanceCase: Encodable { var n: Int; var verbosity: Int; var rationale: String }
-    let guidanceCases = [-5, -1, 0, 1, 2, 3, 4, 5, 6, 100]
-        .map { GuidanceCase(n: $0, verbosity: SessionGuidance.suggestedVerbosity(completionsAtLevel: $0),
-                            rationale: SessionGuidance.rationale(completionsAtLevel: $0)) }
+    func guidanceLedger(completions n: Int, at level: String) -> ActivityLedger {
+        var l = ActivityLedger()
+        for i in 0..<max(0, n) {
+            l.record(.init(track: "t\(i)", level: level, seconds: 60, finished: Date()))
+        }
+        return l
+    }
+    // Negative counts dropped from what this fixture covers: they were never
+    // constructible from a real ledger (a completion count is `atLevel.count`,
+    // never negative), and this signature now takes the ledger itself rather
+    // than a bare count that a caller could hand in out of range.
+    let guidanceCases = [0, 1, 2, 3, 4, 5, 6, 9, 10, 19, 20, 25, 100]
+        .map { n in
+            let ledger = guidanceLedger(completions: n, at: "F10")
+            return GuidanceCase(n: n, verbosity: SessionGuidance.suggestedVerbosity(for: "F10", ledger: ledger),
+                                rationale: SessionGuidance.rationale(for: "F10", ledger: ledger))
+        }
 
     // Constructed joins, covering what the real listing does not exercise: a
     // slug with no template at all, an alias, and a title carrying an accent.

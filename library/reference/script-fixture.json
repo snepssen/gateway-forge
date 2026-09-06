@@ -9159,8 +9159,8 @@
         ],
         "pan" : 0,
         "protectedTerms" : [
-          "Resonant Energy Balloon",
-          "REBAL"
+          "Projected Energy Bubble",
+          "PEBLE"
         ],
         "provisional" : false,
         "segment" : "balloon",
@@ -9172,7 +9172,7 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "You are now ready to create your Resonant Energy Balloon. A moving field of your own energy that surrounds and protects you."
+            "text" : "You've just tuned your instrument. Now you're going to put it in motion, as a Projected Energy Bubble."
           },
           {
             "args" : [
@@ -9180,7 +9180,7 @@
             ],
             "kind" : "pause",
             "option" : "",
-            "seconds" : 5,
+            "seconds" : 4,
             "text" : ""
           },
           {
@@ -9190,7 +9190,7 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "Let the energy you've built rise gently out the top of your head, like a fountain cascading down and around your body, spiralling gently as it descends."
+            "text" : "From the top of your head, let a current begin. Down through your body, out through the soles of your feet, and back up again. A loop, always moving, always returning."
           },
           {
             "args" : [
@@ -9208,7 +9208,25 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "Some strands fall straight, others spiral clockwise, and some counterclockwise. Allow the energy to wrap around you completely, and re-enter through the soles of your feet."
+            "text" : "As it moves, it begins to spill outward. Some of it falling straight. Some spiralling clockwise. Some counterclockwise."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "Each one sits at its own depth, its own layer, so none of them cross. But together they pull against each other, like fibres in a woven cloth. Wherever they'd meet, they form small triangles instead, pointing in, pointing out. That's what makes it strong."
           },
           {
             "args" : [
@@ -9226,7 +9244,7 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "You are now inside your own Resonant Energy Balloon."
+            "text" : "Keep it moving. If any strand runs thin, there's always more behind it, the same rise and fall you've been breathing with the whole time."
           },
           {
             "args" : [
@@ -9234,7 +9252,7 @@
             ],
             "kind" : "pause",
             "option" : "",
-            "seconds" : 4,
+            "seconds" : 5,
             "text" : ""
           },
           {
@@ -9244,7 +9262,25 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "This living energy field performs two important functions."
+            "text" : "Let it keep building, layer over layer, until you can no longer pick out a single strand. What's left is a bubble, and you're standing inside it."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 6,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "This living field performs two functions."
           },
           {
             "args" : [
@@ -9262,7 +9298,7 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "First. It holds in and concentrates your own energy, so you can direct it as needed."
+            "text" : "First. It holds and concentrates your own energy, so you can direct it as you need."
           },
           {
             "args" : [
@@ -9280,7 +9316,7 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "Second. It protects you from external energies, unless you consciously open to receive them."
+            "text" : "Second. It protects you from outside energies, unless you consciously choose to let them in."
           },
           {
             "args" : [
@@ -9298,7 +9334,7 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "Take a moment now to feel its strength and softness. Feel how it supports and surrounds you."
+            "text" : "Take a moment now to feel its strength and its softness. Feel how it moves with you."
           },
           {
             "args" : [
@@ -9316,7 +9352,7 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "To recreate your REBAL at any time. Inhale deeply. Visualise a circle with the number ten inside."
+            "text" : "To recreate your PEBLE at any time. Inhale deeply, and picture the current starting again at the crown of your head."
           },
           {
             "args" : [
@@ -9334,7 +9370,7 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "Then exhale, and imagine blowing that circle outward around you. Your balloon will instantly form again."
+            "text" : "Exhale, and let it fall and spiral outward the way it just did. Your bubble will form again."
           },
           {
             "args" : [
@@ -9352,7 +9388,7 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "To dissolve it, simply inhale, and imagine the glowing circle returning into your body."
+            "text" : "To dissolve it, inhale, and draw the current back up into your crown, letting the strands unwind as they go."
           },
           {
             "args" : [
@@ -9364,7 +9400,7 @@
             "text" : ""
           }
         ],
-        "title" : "Resonant Energy Balloon",
+        "title" : "Projected Energy Bubble",
         "unfilledTokens" : [
 
         ],
@@ -22920,7 +22956,7 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "With your Resonant Energy Balloon formed around you, safe and floating, you're going to learn to let it move."
+            "text" : "With your Projected Energy Bubble formed around you, safe and floating, you're going to learn to let it move."
           },
           {
             "args" : [
@@ -23100,7 +23136,7 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "Let your Resonant Energy Balloon move inward now, and reabsorb into you — because it is you."
+            "text" : "Let your Projected Energy Bubble move inward now, and reabsorb into you — because it is you."
           },
           {
             "args" : [
@@ -29159,203 +29195,6 @@
       "doc" : {
         "continuousExit" : false,
         "continuousExitDefault" : false,
-        "duration" : "~4m",
-        "ending" : "return",
-        "fixed" : false,
-        "level" : "F10",
-        "levels" : [
-          "F10"
-        ],
-        "missingProtectedTerms" : [
-
-        ],
-        "needs" : [
-
-        ],
-        "pan" : 0,
-        "protectedTerms" : [
-          "Resonant Tuning"
-        ],
-        "provisional" : false,
-        "segment" : "resonant-tuning",
-        "steps" : [
-          {
-            "args" : [
-
-            ],
-            "kind" : "say",
-            "option" : "",
-            "seconds" : 0,
-            "text" : "Begin your process of Resonant Tuning."
-          },
-          {
-            "args" : [
-
-            ],
-            "kind" : "pause",
-            "option" : "",
-            "seconds" : 4,
-            "text" : ""
-          },
-          {
-            "args" : [
-
-            ],
-            "kind" : "say",
-            "option" : "",
-            "seconds" : 0,
-            "text" : "Inhale slowly through your nose, drawing in fresh, new energy from all over your body, and direct the already existing energy up into your head. Hold the energy there for a moment."
-          },
-          {
-            "args" : [
-
-            ],
-            "kind" : "pause",
-            "option" : "",
-            "seconds" : 5,
-            "text" : ""
-          },
-          {
-            "args" : [
-
-            ],
-            "kind" : "say",
-            "option" : "",
-            "seconds" : 0,
-            "text" : "Then exhale through your mouth, lips pursed as if blowing out a candle. As you do, imagine any stale or used-up energy leaving your body with the breath."
-          },
-          {
-            "args" : [
-
-            ],
-            "kind" : "pause",
-            "option" : "",
-            "seconds" : 8,
-            "text" : ""
-          },
-          {
-            "args" : [
-
-            ],
-            "kind" : "say",
-            "option" : "",
-            "seconds" : 0,
-            "text" : "Again. Inhale fresh energy from all over your body, and direct it up into your head. And hold."
-          },
-          {
-            "args" : [
-
-            ],
-            "kind" : "pause",
-            "option" : "",
-            "seconds" : 6,
-            "text" : ""
-          },
-          {
-            "args" : [
-
-            ],
-            "kind" : "say",
-            "option" : "",
-            "seconds" : 0,
-            "text" : "Now exhale. Releasing the stale old energy that still remains."
-          },
-          {
-            "args" : [
-
-            ],
-            "kind" : "pause",
-            "option" : "",
-            "seconds" : 6,
-            "text" : ""
-          },
-          {
-            "args" : [
-
-            ],
-            "kind" : "say",
-            "option" : "",
-            "seconds" : 0,
-            "text" : "Do this at your own pace for a few breaths."
-          },
-          {
-            "args" : [
-
-            ],
-            "kind" : "hold",
-            "option" : "",
-            "seconds" : 45,
-            "text" : ""
-          },
-          {
-            "args" : [
-
-            ],
-            "kind" : "say",
-            "option" : "",
-            "seconds" : 0,
-            "text" : "Now, begin to hum gently as you exhale. Let the sound vibrate softly through your throat, jaw, and the space inside your head. Don't force it. Just hum lightly. Let the sound carry tension away."
-          },
-          {
-            "args" : [
-
-            ],
-            "kind" : "pause",
-            "option" : "",
-            "seconds" : 6,
-            "text" : ""
-          },
-          {
-            "args" : [
-
-            ],
-            "kind" : "say",
-            "option" : "",
-            "seconds" : 0,
-            "text" : "With each hum, you're allowing your energy to align and tune the instrument that is your body."
-          },
-          {
-            "args" : [
-
-            ],
-            "kind" : "media",
-            "option" : "",
-            "seconds" : 90,
-            "text" : "resonantTuning"
-          },
-          {
-            "args" : [
-
-            ],
-            "kind" : "say",
-            "option" : "",
-            "seconds" : 0,
-            "text" : "Breathe normally. You can breathe normally now."
-          },
-          {
-            "args" : [
-
-            ],
-            "kind" : "pause",
-            "option" : "",
-            "seconds" : 6,
-            "text" : ""
-          }
-        ],
-        "title" : "Resonant Tuning",
-        "unfilledTokens" : [
-
-        ],
-        "upright" : false,
-        "voice" : "default"
-      },
-      "name" : "library/segments/resonant-tuning.gws",
-      "source" : ""
-    },
-    {
-      "doc" : {
-        "continuousExit" : false,
-        "continuousExitDefault" : false,
         "duration" : "~55s",
         "ending" : "return",
         "fixed" : true,
@@ -31551,6 +31390,340 @@
       "doc" : {
         "continuousExit" : false,
         "continuousExitDefault" : false,
+        "duration" : "~1m30s",
+        "ending" : "return",
+        "fixed" : false,
+        "level" : "F10",
+        "levels" : [
+          "F10",
+          "F11",
+          "F12",
+          "F15"
+        ],
+        "missingProtectedTerms" : [
+
+        ],
+        "needs" : [
+
+        ],
+        "pan" : 0,
+        "protectedTerms" : [
+
+        ],
+        "provisional" : false,
+        "segment" : "tuning-hum",
+        "steps" : [
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "You've been breathing with the rise and fall of the waves. Let that same rhythm carry you now into sound."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 4,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "On your next exhale, let a hum rise up from low in your chest. Quiet. Easy. Not a performance, just a tone that feels right in your body."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "This is your instrument, and you're tuning it."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "hold",
+            "option" : "",
+            "seconds" : 60,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "Let the hum settle. You can let your breath return to its own quiet rhythm."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 6,
+            "text" : ""
+          }
+        ],
+        "title" : "The Tuning Hum",
+        "unfilledTokens" : [
+
+        ],
+        "upright" : false,
+        "voice" : "default"
+      },
+      "name" : "library/segments/tuning-hum.chest.gws",
+      "source" : ""
+    },
+    {
+      "doc" : {
+        "continuousExit" : false,
+        "continuousExitDefault" : false,
+        "duration" : "~1m30s",
+        "ending" : "return",
+        "fixed" : false,
+        "level" : "F10",
+        "levels" : [
+          "F21",
+          "F22",
+          "F23",
+          "F24",
+          "F25",
+          "F26",
+          "F27",
+          "F34",
+          "F35",
+          "F42",
+          "F49"
+        ],
+        "missingProtectedTerms" : [
+
+        ],
+        "needs" : [
+
+        ],
+        "pan" : 0,
+        "protectedTerms" : [
+
+        ],
+        "provisional" : false,
+        "segment" : "tuning-hum",
+        "steps" : [
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "Breathe with the waves once more."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 4,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "This time, let the hum drop back down, quiet. Quieter than you'd expect. Quiet enough that you'd barely be heard, but loud enough that you can't miss it."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "At this volume, you'll feel it more than hear it. In your skull. Your jaw. The space behind your eyes."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "hold",
+            "option" : "",
+            "seconds" : 60,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "Let the hum settle. Let your breath return to its own quiet rhythm."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 6,
+            "text" : ""
+          }
+        ],
+        "title" : "The Tuning Hum",
+        "unfilledTokens" : [
+
+        ],
+        "upright" : false,
+        "voice" : "default"
+      },
+      "name" : "library/segments/tuning-hum.crown.gws",
+      "source" : ""
+    },
+    {
+      "doc" : {
+        "continuousExit" : false,
+        "continuousExitDefault" : false,
+        "duration" : "~1m30s",
+        "ending" : "return",
+        "fixed" : false,
+        "level" : "F10",
+        "levels" : [
+          "F18"
+        ],
+        "missingProtectedTerms" : [
+
+        ],
+        "needs" : [
+
+        ],
+        "pan" : 0,
+        "protectedTerms" : [
+
+        ],
+        "provisional" : false,
+        "segment" : "tuning-hum",
+        "steps" : [
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "Breathe with the waves a moment longer."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 4,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "Now let the hum rise. Not from your chest this time — let it climb, through your throat, into your jaw. A little higher, a little brighter than before."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "Feel where it changes as it moves. That shift is the instrument retuning itself to where you are now."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "hold",
+            "option" : "",
+            "seconds" : 60,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "Let the hum settle. Let your breath return to its own quiet rhythm."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 6,
+            "text" : ""
+          }
+        ],
+        "title" : "The Tuning Hum",
+        "unfilledTokens" : [
+
+        ],
+        "upright" : false,
+        "voice" : "default"
+      },
+      "name" : "library/segments/tuning-hum.throat.gws",
+      "source" : ""
+    },
+    {
+      "doc" : {
+        "continuousExit" : false,
+        "continuousExitDefault" : false,
         "duration" : "~4m30s",
         "ending" : "return",
         "fixed" : false,
@@ -31578,7 +31751,7 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "With your Resonant Energy Balloon around you, let it float upward, and you with it, safe and calm."
+            "text" : "With your Projected Energy Bubble around you, let it float upward, and you with it, safe and calm."
           },
           {
             "args" : [
@@ -31614,7 +31787,7 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "You're floating there now. Perceive in every direction from inside your balloon."
+            "text" : "You're floating there now. Perceive in every direction from inside your bubble."
           },
           {
             "args" : [
@@ -31812,7 +31985,7 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "Relax at twelve, and settle back into the center of your balloon."
+            "text" : "Relax at twelve, and settle back into the center of your bubble."
           },
           {
             "args" : [
@@ -31848,7 +32021,7 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "You're back. Let the balloon move inward, and reabsorb into you."
+            "text" : "You're back. Let the bubble move inward, and reabsorb into you."
           },
           {
             "args" : [
@@ -32125,7 +32298,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -32260,7 +32433,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -32422,7 +32595,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -32566,7 +32739,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -32728,7 +32901,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -32944,7 +33117,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -33106,7 +33279,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -33322,7 +33495,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -33466,7 +33639,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -33628,7 +33801,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -33781,7 +33954,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -33916,7 +34089,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -34096,7 +34269,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -34267,7 +34440,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -34465,7 +34638,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -34654,7 +34827,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -34861,7 +35034,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -35068,7 +35241,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -35311,7 +35484,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -35554,7 +35727,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -35797,7 +35970,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -36058,7 +36231,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -36319,7 +36492,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -36598,7 +36771,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -36877,7 +37050,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -37174,7 +37347,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -37535,7 +37708,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -37878,7 +38051,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -38211,7 +38384,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -38382,7 +38555,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -38715,7 +38888,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -39066,7 +39239,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -39435,7 +39608,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -39786,7 +39959,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -40002,7 +40175,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -40164,7 +40337,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -40326,7 +40499,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -40497,7 +40670,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -40641,7 +40814,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -40803,7 +40976,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -40974,7 +41147,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -41208,7 +41381,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -41541,7 +41714,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -41712,7 +41885,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -41901,7 +42074,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -42099,7 +42272,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -42243,7 +42416,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -42387,7 +42560,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -42603,7 +42776,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -42810,7 +42983,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -42981,7 +43154,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -43152,7 +43325,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -43305,7 +43478,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -43467,7 +43640,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -43629,7 +43802,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -43791,7 +43964,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -43953,7 +44126,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -44169,7 +44342,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -44322,7 +44495,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -44493,7 +44666,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -44646,7 +44819,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -44790,7 +44963,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -44943,7 +45116,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -45159,7 +45332,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [
@@ -45375,7 +45548,7 @@
             "kind" : "use",
             "option" : "",
             "seconds" : 0,
-            "text" : "resonant-tuning"
+            "text" : "tuning-hum"
           },
           {
             "args" : [

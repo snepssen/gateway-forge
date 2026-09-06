@@ -40,6 +40,13 @@ public struct ActivityLedger: Codable, Equatable, Sendable {
     /// One entry per tape that ran to its end. Kept in full rather than
     /// counted: a count cannot answer "when", "which level", or "again".
     public var completions: [Completion] = []
+    /// A listener's explicit choice to hold a level at a verbosity, overriding
+    /// whatever `proficiencyVerbosity` would otherwise compute for it. Keyed
+    /// by level. The one piece of this type that is a preference rather than
+    /// a measurement -- it cannot be derived from completion history, so it
+    /// has to be the one field in this struct that is actually stored rather
+    /// than computed.
+    public var verbosityOverrides: [String: Int] = [:]
 
     /// A tape reaching its end. Named by the render directory, which is what
     /// the rest of the application uses as a session's identity.
@@ -67,6 +74,26 @@ public struct ActivityLedger: Codable, Equatable, Sendable {
     }
 
     public init() {}
+
+    /// Every field decoded with a fallback, the same discipline
+    /// `SessionDefaults` uses -- synthesized `Decodable` does not honour a
+    /// property's default value for a key that is simply missing, so without
+    /// this a ledger saved before `verbosityOverrides` existed would fail to
+    /// decode entirely rather than load with an empty dictionary. That is
+    /// exactly the failure this type's own doc comment warns against: a year
+    /// of practice history lost to a schema change.
+    public init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        schemaVersion = try c.decodeIfPresent(Int.self, forKey: .schemaVersion)
+            ?? ActivityLedger.currentSchemaVersion
+        firstOpened = try c.decodeIfPresent(Date.self, forKey: .firstOpened)
+        appSeconds = try c.decodeIfPresent(Double.self, forKey: .appSeconds) ?? 0
+        renderSeconds = try c.decodeIfPresent(Double.self, forKey: .renderSeconds) ?? 0
+        listeningSeconds = try c.decodeIfPresent(Double.self, forKey: .listeningSeconds) ?? 0
+        completions = try c.decodeIfPresent([Completion].self, forKey: .completions) ?? []
+        verbosityOverrides = try c.decodeIfPresent([String: Int].self, forKey: .verbosityOverrides)
+            ?? [:]
+    }
 
     // MARK: - Accumulating
 
@@ -110,6 +137,46 @@ public struct ActivityLedger: Codable, Equatable, Sendable {
     public func deepestLevel(order: [String]) -> String? {
         let reached = reachedLevels
         return order.last { reached.contains($0) }
+    }
+
+    /// The number of days a step-down at proficiencyDecayDays goes stale after
+    /// no completion at that level. Named so both this and the function below
+    /// read as one policy rather than a bare 30 buried in an expression.
+    public static let proficiencyDecayDays: Double = 30
+    /// Completions needed at a level before it steps down one verbosity notch.
+    /// Ten to v2, another ten (twenty total) to v1 -- see proficiencyVerbosity.
+    public static let proficiencyStepCompletions = 10
+
+    /// What a listener has earned at a level, from completion history alone --
+    /// never stored, matching every other figure `ActivityStats` computes from
+    /// the ledger rather than caching. v3 until ten completions at the level,
+    /// v2 until twenty, v1 beyond that.
+    ///
+    /// **Practice atrophies.** If the most recent completion at this level is
+    /// more than `proficiencyDecayDays` old, this returns v3 regardless of how
+    /// many completions came before -- earned ease is for someone actively at
+    /// a level, not a permanent credential from months ago. Someone returning
+    /// to a level they haven't visited in a month is, in every way this
+    /// figure cares about, back to where they need the fuller guidance.
+    public func proficiencyVerbosity(for level: String, now: Date = Date()) -> Int {
+        let atLevel = completions.filter { $0.level == level }
+        guard let mostRecent = atLevel.map(\.finished).max() else { return 3 }
+        let daysSince = now.timeIntervalSince(mostRecent) / 86_400
+        guard daysSince <= Self.proficiencyDecayDays else { return 3 }
+        switch atLevel.count {
+        case ..<Self.proficiencyStepCompletions: return 3
+        case Self.proficiencyStepCompletions..<(Self.proficiencyStepCompletions * 2): return 2
+        default: return 1
+        }
+    }
+
+    /// What a new session at this level should actually use: the listener's
+    /// own override if they set one, otherwise what they've earned. An
+    /// override is a decision, not a measurement, and decisions do not decay
+    /// or get recomputed out from under someone -- that is the difference
+    /// between this and `proficiencyVerbosity` above.
+    public func effectiveVerbosity(for level: String, now: Date = Date()) -> Int {
+        verbosityOverrides[level] ?? proficiencyVerbosity(for: level, now: now)
     }
 }
 

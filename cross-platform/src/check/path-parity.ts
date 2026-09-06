@@ -104,11 +104,25 @@ for (const c of fx.remainingCases) {
 }
 
 // --- the guidance ladder
+// The fixture carries a completion count per case; the functions now take the
+// ledger those completions live in, so build one that produces that count.
+// Timestamps are `now`, matching the Swift generator -- the decay branch is
+// covered in the activity suite, and baking a stale date into a fixture would
+// make it start failing thirty days after it was written.
+const guidanceNow = Date.now();
+function guidanceLedger(n: number, level: string): ActivityLedger {
+  const l = emptyLedger();
+  for (let i = 0; i < Math.max(0, n); i++) {
+    l.completions.push({ track: `t${i}`, level, seconds: 60, finished: guidanceNow });
+  }
+  return l;
+}
 for (const c of fx.guidanceCases) {
-  check(D.suggestedVerbosity(c.n) === c.verbosity,
-    `verbosity at ${c.n} completions: ${D.suggestedVerbosity(c.n)} vs ${c.verbosity}`);
-  check(D.guidanceRationale(c.n) === c.rationale,
-    `rationale at ${c.n}: ${JSON.stringify(D.guidanceRationale(c.n))} vs ${JSON.stringify(c.rationale)}`);
+  const ledger = guidanceLedger(c.n, "F10");
+  check(D.suggestedVerbosity("F10", ledger, guidanceNow) === c.verbosity,
+    `verbosity at ${c.n} completions: ${D.suggestedVerbosity("F10", ledger, guidanceNow)} vs ${c.verbosity}`);
+  check(D.guidanceRationale("F10", ledger, guidanceNow) === c.rationale,
+    `rationale at ${c.n}: ${JSON.stringify(D.guidanceRationale("F10", ledger, guidanceNow))} vs ${JSON.stringify(c.rationale)}`);
 }
 
 // --- the constructed joins: what the real listing does not exercise
@@ -169,14 +183,23 @@ check(fx.joinCases.some(c => c.name === "accented-title" && c.lessons[0]?.title.
 // a caller handing tracks straight to the join gets them back in that order.
 check(fx.joinCases.some(c => c.name === "out-of-order" && c.lessons[0]?.wave === 2),
   "the join preserves its input order rather than sorting again");
-// Swift matches `case 0...1` and `case 2...4`; a negative count matches
-// neither and falls to `default`, the least detailed setting. Surprising, and
-// pinned here precisely because it is: the port read it as new ground instead,
-// which is the opposite answer, and only a negative case could see it.
-check(fx.guidanceCases.every(c => c.n < 0 ? c.verbosity === 1 : true),
-  "a negative completion count falls through to the least detailed setting");
-check(fx.guidanceCases.some(c => c.n < 0),
-  "and a negative count is actually among the cases, or the rule above is untested");
+// The negative-count rule that used to be pinned here is gone with the API it
+// described. Both functions now take the ledger rather than a bare count, and
+// a count read out of a ledger is a filtered `.length` -- there is no longer a
+// way to hand in a negative one, so there is nothing left to disagree about.
+//
+// What replaces it is the boundary that *can* still drift: the two step-downs.
+// Off-by-one at either edge is the realistic port bug now, in the same way the
+// negative case was the realistic one before.
+check(fx.guidanceCases.every(c => c.n < 10 ? c.verbosity === 3 : true),
+  "below ten completions is full detail");
+check(fx.guidanceCases.every(c => c.n >= 10 && c.n < 20 ? c.verbosity === 2 : true),
+  "ten through nineteen is guided");
+check(fx.guidanceCases.every(c => c.n >= 20 ? c.verbosity === 1 : true),
+  "twenty and beyond is anchors alone");
+check(fx.guidanceCases.some(c => c.n === 9) && fx.guidanceCases.some(c => c.n === 10)
+   && fx.guidanceCases.some(c => c.n === 19) && fx.guidanceCases.some(c => c.n === 20),
+  "and both step boundaries are actually among the cases, or the rules above are untested");
 
 console.log(`${pass} passed, ${fail} failed`);
 process.exit(fail === 0 ? 0 : 1);
