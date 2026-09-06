@@ -3386,8 +3386,17 @@ if subcommand == "policy-fixture" {
         var retained: [String]
     }
     var cartCases: [CartCase] = []
-    for folder in lib.focus {
-        let entries = JournalLog.entries(root: cwd, level: folder.key)
+    // Scanned from fixtures/synthetic-library, not the live tree. `prompt` and
+    // `retained` are built from entry *bodies*, so reading real journals here
+    // wrote the listener's own writing verbatim into a fixture that ships --
+    // the same leak already fixed in activity-fixture and recipe-fixture, and
+    // the reason those two were not the whole of it. The constructed cases
+    // below cover the interesting shapes anyway; a real corpus was never what
+    // made this suite meaningful.
+    let cartRoot = cwd.appending(path: "fixtures/synthetic-library")
+    let cartLib = (try? Library.scan(root: cartRoot)) ?? lib
+    for folder in cartLib.focus {
+        let entries = JournalLog.entries(root: cartRoot, level: folder.key)
         guard !entries.isEmpty else { continue }
         let description = entries.map(\.body).joined(separator: " ")
         cartCases.append(CartCase(
