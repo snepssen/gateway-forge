@@ -3,7 +3,7 @@
  * opportunistic policy and session media — the production-side files that
  * sit beside each other but do not depend on one another.
  */
-import { mkdirSync, readFileSync, rmSync, writeFileSync } from "fs";
+import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "fs";
 import { join } from "path";
 import { tmpdir } from "os";
 import * as SA from "../core/sessionAnnouncement.js";
@@ -171,6 +171,19 @@ function narrationOf(n: Cal.Narration): { kind: string; url: string; detail: str
 for (const c of fx.calibrationCases) {
   const renderedDir = join(root, "segments-rendered", c.voice);
   const n = Cal.narrationFor(c.voice, root, renderedDir);
+  // A case whose expected narration is a `preview` stands down when the
+  // preview is not on disk. voices/*/preview.wav is gitignored -- it is
+  // generated when a voice is auditioned, not shipped -- so the fixture,
+  // written from a tree where one had been made, expects a file no fresh
+  // checkout has. Same standdown as the storage and companion-sync suites,
+  // and the same root cause: a fixture recording state that is deliberately
+  // absent from a distribution build.
+  if (n === undefined && c.narration?.kind === "preview"
+      && !existsSync(join(root, "voices", c.voice, "preview.wav"))) {
+    console.log(`  note: no preview for ${c.voice} on this checkout — `
+      + `calibration "${c.name}" stands down (voices/*/preview.wav is gitignored)`);
+    continue;
+  }
   check((n !== undefined) === (c.narration !== undefined), `calibration ${c.name} found`);
   if (n === undefined || c.narration === undefined) continue;
   // Slash-separated portable relative, the way Swift wrote the fixture --
