@@ -70,9 +70,21 @@ const lib = scan(root);
 // ------------------------------------------------------------------ coverage
 
 for (const c of fx.coverageCases) {
+  // Coverage counts what a level has to draw on, and `library/sources` -- the
+  // transcripts -- is third-party and removed from a build made for
+  // distribution. So on such a tree the fixture's numbers describe material
+  // that is deliberately absent, and comparing against them tests the
+  // exclusion rather than the code. The aggregate check below already stood
+  // down for exactly this; the per-level loop did not, which is why CI failed
+  // on thirty cases while the tree was behaving correctly.
+  if (lib.sources.length === 0) continue;
   const got = c.entries !== undefined ? coverageWithEntries(lib, c.level, c.entries) : coverageFor(lib, c.level);
   eq(coverageOf(got), c.coverage, `coverage ${c.level}/${c.entries ?? "published"}`);
   check(sourceCoverage(lib, c.level) === c.sourceCoverage, `sourceCoverage ${c.level}`);
+}
+if (lib.sources.length === 0) {
+  console.log("  note: no sources in this tree — the per-level coverage cases stand down too "
+    + "(they count tapes and manuals, which a distribution build does not carry)");
 }
 // Primary coverage comes only from a tape or manual, both third-party and
 // removed from a build made for distribution.
