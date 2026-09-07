@@ -83,6 +83,16 @@ bundled here as a single fixed voice fine-tuned on the author's own speech.
 `gfcheck` is the harness: a plain executable that asserts and exits non-zero,
 runs on any toolchain. `swift run gfcheck` from the package root.
 
+## The wider workshop
+
+- [Gateway Forge](https://snepssen.github.io/gateway-forge/) — this project.
+- [Voice Forge](https://snepssen.github.io/voice-forge/) — the measured Piper
+  workbench behind Gateway Forge's speech engine.
+- [Protoke](https://snepssen.github.io/protoke/) — lyric and narration video
+  with a word-timed vector face.
+- [tools-core](https://snepssen.github.io/tools-core/) — audio inspection,
+  authoring helpers, and repeatable research utilities.
+
 ## Licence
 
 **GPL-3.0-or-later.** Not a preference: the app bundles espeak-ng and
