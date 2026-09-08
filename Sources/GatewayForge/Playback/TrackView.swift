@@ -1,4 +1,5 @@
 import SwiftUI
+import AppKit
 import GatewayCore
 
 /// An assembled tape before playback: provenance, sound policy and the
@@ -10,6 +11,7 @@ struct TrackView: View {
     @Environment(\.presentNowPlaying) private var presentNowPlaying
     @State private var confirmingDelete = false
     @State private var deleteError: String?
+    @StateObject private var exporter = SessionExporter()
     let path: String
 
     private var dir: URL { URL(fileURLWithPath: path) }
@@ -23,6 +25,18 @@ struct TrackView: View {
                         .font(.largeTitle).foregroundStyle(Monokai.fg)
                     Spacer()
                     Menu {
+                        // The listener asked for this so they could put a
+                        // session on a phone. It is a mixdown, not a copy --
+                        // see `exportSession`.
+                        Button("Export as WAV…", systemImage: "square.and.arrow.up") {
+                            exporter.begin(track: player.track,
+                                           directoryName: dir.lastPathComponent,
+                                           profile: mix.profile,
+                                           levels: store.library?.levels ?? [],
+                                           signals: store.library?.signals ?? [])
+                        }
+                        .disabled(player.track == nil || exporter.isExporting)
+                        Divider()
                         Button("Delete session", systemImage: "trash",
                                role: .destructive) { confirmingDelete = true }
                     } label: {
@@ -97,6 +111,28 @@ struct TrackView: View {
                         HStack(alignment: .top, spacing: 7) {
                             StatusDot(status: .pending)
                             Text(detail).font(.callout).foregroundStyle(Monokai.orange)
+                        }
+                    }
+                    if exporter.isExporting {
+                        HStack(spacing: 8) {
+                            ProgressView().controlSize(.small)
+                            Text("Mixing the bed under the narration…")
+                                .font(.callout).foregroundStyle(Monokai.comment)
+                        }
+                    } else if let result = exporter.result {
+                        HStack(alignment: .top, spacing: 7) {
+                            StatusDot(status: result.ok ? .ok : .error)
+                            Text(result.message)
+                                .font(.callout)
+                                .foregroundStyle(result.ok ? Monokai.comment : Monokai.orange)
+                                .fixedSize(horizontal: false, vertical: true)
+                            Spacer(minLength: 0)
+                            if result.ok, let url = result.url {
+                                Button("Show in Finder") {
+                                    NSWorkspace.shared.activateFileViewerSelecting([url])
+                                }
+                                .buttonStyle(.link)
+                            }
                         }
                     }
                     SessionSoundSummary()

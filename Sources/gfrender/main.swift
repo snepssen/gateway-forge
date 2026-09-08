@@ -187,6 +187,89 @@ if let text = flags["phonemes"] {
     }
 }
 
+// Export one assembled session as a single stereo wav, bed and all.
+//
+//     gfrender --export-session <render dir> out.wav
+//
+// The same mixdown the application's Export as WAV does, through the same
+// `SessionExport`. It is here as well as in the interface for two reasons: it
+// is how the mixdown gets verified against a real session rather than a
+// synthetic one, and the interface cannot be built on a machine without Xcode
+// while this can.
+if let renderPath = flags["export-session"] {
+    do {
+        let renderDir = URL(fileURLWithPath: renderPath)
+        let wav = renderDir.appending(path: "session.wav")
+        guard FileManager.default.fileExists(atPath: wav.path) else {
+            FileHandle.standardError.write(Data("gfrender: no session.wav in \(renderPath)\n".utf8))
+            exit(1)
+        }
+        guard let out = args.first.map({ URL(fileURLWithPath: $0) }) else {
+            FileHandle.standardError.write(Data("usage: gfrender --export-session <dir> out.wav\n".utf8))
+            exit(2)
+        }
+
+        // Walk up for the root that owns this render, so the same command works
+        // against a checkout and against an installed profile without being
+        // told which it is looking at.
+        var root = renderDir
+        while root.path != "/" ,
+              !FileManager.default.fileExists(atPath: root.appending(path: "library/levels.json").path) {
+            root = root.deletingLastPathComponent()
+        }
+        let levelsURL = root.appending(path: "library/levels.json")
+        guard FileManager.default.fileExists(atPath: levelsURL.path) else {
+            FileHandle.standardError.write(Data("gfrender: no library above \(renderPath)\n".utf8))
+            exit(1)
+        }
+        let levels = try JSONDecoder().decode([Level].self, from: Data(contentsOf: levelsURL))
+        // The measured pairs, walked the same way `Library.scan` walks them —
+        // a level naming a profile is driven off the measurement, not off its
+        // authored numbers, and an export that skipped them would play a
+        // different signal from the one the session plays.
+        var signals: [SignalProfile] = []
+        if let walk = FileManager.default.enumerator(
+            at: root.appending(path: "library/signals"), includingPropertiesForKeys: nil) {
+            for case let u as URL in walk where u.pathExtension == "json" {
+                if let d = try? Data(contentsOf: u),
+                   let profile = try? JSONDecoder().decode(SignalProfile.self, from: d) {
+                    signals.append(profile)
+                }
+            }
+        }
+        signals.sort { $0.id < $1.id }
+        let profile = AudioProfileIO.load(root: root)
+
+        let manifestURL = renderDir.appending(path: "manifest.json")
+        let manifest = (try? JSONDecoder().decode(
+            SessionManifest.self, from: Data(contentsOf: manifestURL)))
+
+        let narration = try AudioIO.loadMono24k(wav)
+        let plan = manifest?.bedPlan(levels: levels, signals: signals)
+        let seconds = max(manifest?.seconds ?? 0,
+                          Double(narration.count) / AudioIO.sampleRate)
+        let mixdown = SessionExport.mix(narration: narration, plan: plan,
+                                        seconds: seconds, profile: profile)
+        try AudioIO.writeWavStereo(left: mixdown.left, right: mixdown.right, to: out,
+                                   sampleRate: Int(AudioIO.sampleRate))
+
+        let megabytes = Double(mixdown.summary.frames * 4) / 1_048_576
+        print(String(format: "wrote %@  %.1fs stereo  %.0f MB  peak %.3f%@",
+                     out.lastPathComponent, mixdown.summary.seconds, megabytes,
+                     mixdown.summary.peak, mixdown.summary.clips ? "  (clips)" : ""))
+        if plan == nil {
+            print("  no bed cues in this manifest — the file is the narration alone")
+        } else {
+            print(String(format: "  bed runs on for %.1fs after the last word",
+                         mixdown.summary.bedOnlyTail))
+        }
+        exit(0)
+    } catch {
+        FileHandle.standardError.write(Data("gfrender: \(error.localizedDescription)\n".utf8))
+        exit(1)
+    }
+}
+
 let probing = flags["probe"] != nil
 guard probing || args.count >= 2 else {
     print("usage: gfrender \"text\" out.wav [--voice name] [--max 600]  |  gfrender --probe  |  gfrender --measure-pace")
