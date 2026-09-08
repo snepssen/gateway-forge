@@ -7513,4 +7513,103 @@ do {
              "the composer client repairs silence and restores required routes before validation")
 } catch { c.expect(false, "composer omission checks threw: \(error)") }
 
+// ------------------------------------------------------------ session export
+//
+// An export is the only artefact that leaves this application, so what it
+// contains is the whole question. `session.wav` is the narration alone —
+// mono, no bed — and handing that to somebody is a voice talking into
+// silence. These hold the mixdown to the player: same plan, same engine, same
+// calibration, and a length taken from the tape rather than from the speech.
+c.suite("session export")
+do {
+    let levels = try JSONDecoder().decode(
+        [Level].self, from: Data(contentsOf: root.appending(path: "library/levels.json")))
+    var profile = AudioProfile()
+    profile.speech = 0.6
+    profile.master = 0.5
+    profile.hemiSync = 0.5
+
+    // A tape that ends on `return`: the wake-up signal runs on after the last
+    // word. This is the case an export measured off the narration truncates.
+    let sr = AudioIO.sampleRate
+    let narrationSeconds = 12.0
+    let tapeSeconds = 20.0
+    let narration = [Float](repeating: 0.2, count: Int(narrationSeconds * sr))
+
+    let manifest = SessionManifest(
+        template: "release-and-recharge", verbosity: 3, voice: "snepssen-suno",
+        seconds: tapeSeconds, narrationOnly: true,
+        level: "F10", startLevel: "F10", ending: "return",
+        segments: [],
+        cues: [SessionManifest.Cue(seconds: 0, kind: "level", text: "F10", args: []),
+               SessionManifest.Cue(seconds: 0, kind: "surf", text: "", args: [0.4])],
+        media: [SessionManifest.MediaCue(role: .returnSignal, asset: "", file: "",
+                                         startSeconds: 12, seconds: 8, fit: .once)])
+
+    let plan = manifest.bedPlan(levels: levels)
+    c.expect(plan != nil, "a manifest with cues yields a bed plan to export")
+    c.expect(plan?.warble != nil,
+             "a tape ending on return carries the wake-up signal into the export")
+
+    let mixed = SessionExport.mix(narration: narration, plan: plan,
+                                  seconds: manifest.seconds, profile: profile)
+
+    // The length is the tape's, not the speech's. Getting this wrong cuts the
+    // return signal off, which is the one part of a session that must not be
+    // cut off.
+    c.equal(mixed.summary.frames, Int(tapeSeconds * sr),
+            "the export runs to the tape's own length, past the last word")
+    c.equal(mixed.left.count, mixed.right.count, "the export is a matched stereo pair")
+    c.expect(abs(mixed.summary.bedOnlyTail - (tapeSeconds - narrationSeconds)) < 0.01,
+             "the bed-only tail is reported, so a caller can say the tape runs on")
+
+    // The bed has to actually be in there. A mixdown that quietly produced the
+    // narration again would pass every length check above.
+    var bedOnlyEnergy = 0.0
+    for i in Int(narrationSeconds * sr) ..< mixed.left.count {
+        bedOnlyEnergy += Double(abs(mixed.left[i])) + Double(abs(mixed.right[i]))
+    }
+    c.expect(bedOnlyEnergy > 0, "the tail after the narration is bed, not silence")
+
+    // The binaural pair is a *difference between the ears*. If the two
+    // channels came out identical the export would be mono wearing a stereo
+    // header, and the whole point would be gone.
+    var channelDifference = 0.0
+    for i in 0 ..< mixed.left.count {
+        channelDifference += Double(abs(mixed.left[i] - mixed.right[i]))
+    }
+    c.expect(channelDifference > 0,
+             "the exported channels differ — a binaural pair survives the mixdown")
+
+    // Narration sits centred, at the level the player gives it.
+    let centred = SessionExport.mix(narration: narration, plan: nil,
+                                    seconds: 0, profile: profile)
+    c.equal(centred.left, centred.right, "with no bed the voice is centred")
+    let firstSample = Double(centred.left.first ?? 0)
+    c.expect(abs(firstSample - 0.2 * 0.6) < 1e-6,
+             "the voice is exported at the calibrated speech level "
+             + "(\(firstSample), want \(0.2 * 0.6))")
+
+    // Silence is a legitimate answer, not a crash.
+    let empty = SessionExport.mix(narration: [], plan: nil, seconds: 0, profile: profile)
+    c.equal(empty.summary.frames, 0, "an empty export is empty rather than a crash")
+
+    // Clipping is reported rather than fixed: quietly turning somebody's
+    // session down would make the export something other than what they hear.
+    var loud = AudioProfile()
+    loud.speech = 1
+    let hot = SessionExport.mix(narration: [Float](repeating: 1.5, count: 100),
+                                plan: nil, seconds: 0, profile: loud)
+    c.expect(hot.summary.clips, "clipping is counted, not hidden")
+    c.expect(hot.left.allSatisfy { $0 <= 1 && $0 >= -1 }, "the exported file never exceeds full scale")
+
+    // A name somebody will recognise on a phone a year later.
+    c.equal(SessionExport.suggestedFilename(manifest: manifest,
+                                            directoryName: "2026-09-07-094855-release-x"),
+            "F10 release-and-recharge 2026-09-07.wav",
+            "the export is named from the level, the template and the date")
+    c.equal(SessionExport.suggestedFilename(manifest: nil, directoryName: "some-render"),
+            "some-render.wav", "a manifest-less render still exports under its own name")
+} catch { c.expect(false, "session export checks threw: \(error)") }
+
 c.finish()
