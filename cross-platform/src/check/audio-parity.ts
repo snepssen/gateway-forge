@@ -27,6 +27,8 @@ import {
 import { calibrationGuidanceOrder } from "../core/calibration.js";
 import { audioProfilePath, encodeAudioProfile, loadAudioProfile, saveAudioProfile } from "../core/audioProfileStore.js";
 import { BedEngine } from "../core/bedEngine.js";
+import { mix, panGains, suggestedFilename } from "../core/sessionExport.js";
+import { decodeManifest, panAt, panSpans } from "../core/sessionManifest.js";
 import { auditionPlan, makeTuning, makeWarble, type BedPlan } from "../core/bedPlan.js";
 import { bedPlanFor, library, libraryRoot, listeningModel } from "../main/model.js";
 import { resolvedSignal } from "../core/level.js";
@@ -345,6 +347,82 @@ for (const level of lib.levels) {
   check(returnOff.rms < base.rms * 0.2,
     `with the return signal at 0 the bed still ducks under it `
     + `(${returnOff.rms.toFixed(4)} against ${base.rms.toFixed(4)} — a hole, and nothing in it)`);
+}
+
+// ------------------------------------------------------- the session export
+//
+// `session.wav` is the narration alone; the bed is generated live underneath
+// it. Anything that hands a session outside the application has to mix, not
+// copy, or it hands over a voice talking into silence.
+{
+  // The pan law, pinned to what `AVAudioPlayerNode` actually does — measured
+  // on the macOS side with `gfrender --measure-pan`, not assumed. A mixdown
+  // made by a tidier law is balanced differently from the session it came from.
+  const centre = panGains(0);
+  check(centre.left === 1 && centre.right === 1,
+    "dead centre is unity in both ears, which is how every existing session is mixed");
+  for (const [pan, wantL, wantR] of [[0.5, 0.3827, 0.9239], [0.9, 0.0785, 0.9969], [1, 0, 1]] as const) {
+    const g = panGains(pan);
+    check(Math.abs(g.left - wantL) < 1e-3 && Math.abs(g.right - wantR) < 1e-3,
+      `pan ${pan} matches the measured player (${g.left.toFixed(4)}/${g.right.toFixed(4)})`);
+    check(Math.abs(g.left * g.left + g.right * g.right - 1) < 1e-3,
+      `pan ${pan} holds constant power at the sides`);
+  }
+  check(panGains(0.001).left ** 2 + panGains(0.001).right ** 2 < 1.01,
+    "any pan at all engages the sides law — the 3 dB step at zero is the player's own");
+  check(panGains(4).right === panGains(1).right, "a pan beyond the ears is clamped");
+
+  const rate = 24000;
+  const voice = new Float32Array(4 * rate).fill(0.5);
+  const quiet: AudioProfile = { ...defaultAudioProfile(), speech: 1, master: 0 };
+
+  // The length is the tape's, not the speech's. A session ending on `return`
+  // runs on past the last word for the whole wake-up signal, and an export
+  // measured off the narration would cut it off.
+  const longer = mix({ narration: voice, seconds: 6, profile: quiet });
+  check(longer.summary.frames === 6 * rate,
+    `the export runs to the tape's own length, past the last word (${longer.summary.frames})`);
+  check(Math.abs(longer.summary.bedOnlyTail - 2) < 1e-6,
+    "the bed-only tail is reported, so a caller can say the tape runs on");
+
+  const panned = mix({
+    narration: voice, seconds: 4, profile: quiet,
+    pans: [{ start: 1, seconds: 2, pan: 0.9 }],
+  });
+  check(Math.abs(panned.left[Math.round(0.5 * rate)]! - panned.right[Math.round(0.5 * rate)]!) < 1e-6,
+    "before the span the voice is centred");
+  check(panned.left[Math.round(2 * rate)]! < panned.right[Math.round(2 * rate)]! - 0.1,
+    "inside the span the voice is louder in the right ear");
+  check(Math.abs(panned.left[Math.round(3.5 * rate)]! - panned.right[Math.round(3.5 * rate)]!) < 1e-6,
+    "after the span it returns to centre");
+
+  // Clipping is counted, never corrected.
+  const hot = mix({ narration: new Float32Array(64).fill(1.5), seconds: 0, profile: quiet });
+  check(hot.summary.clipped > 0, "clipping is counted, not hidden");
+  check(hot.left.every(v => v <= 1 && v >= -1), "the exported file never exceeds full scale");
+  check(mix({ narration: new Float32Array(0), seconds: 0, profile: quiet }).summary.frames === 0,
+    "an empty export is empty rather than a crash");
+
+  // A manifest from before panning was carried yields no spans at all, so a
+  // session already on disk keeps sounding exactly as it does today.
+  const old = decodeManifest({
+    template: "old", seconds: 10,
+    segments: [{ segment: "a", file: "a.wav", seed: 1, startSeconds: 0, seconds: 10 }],
+  });
+  check(panSpans(old).length === 0 && panAt(old, 5) === 0,
+    "a manifest written before panning plays centred");
+  const withPan = decodeManifest({
+    template: "new", seconds: 10,
+    segments: [{ segment: "a", file: "a.wav", seed: 1, startSeconds: 0, seconds: 10, pan: 0.9 }],
+  });
+  check(panSpans(withPan).length === 1 && Math.abs(panAt(withPan, 5) - 0.9) < 1e-9,
+    "a manifest that carries a pan reports it");
+
+  check(suggestedFilename({ level: "F10", template: "release-and-recharge" },
+                          "2026-09-07-094855-release-x") === "F10 release-and-recharge 2026-09-07.wav",
+    "the export is named from the level, the template and the date");
+  check(suggestedFilename(undefined, "some-render") === "some-render.wav",
+    "a manifest-less render still exports under its own name");
 }
 
 console.log(`${pass} passed, ${fail} failed`);

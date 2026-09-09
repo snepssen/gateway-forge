@@ -56,7 +56,17 @@ export class BedEngine {
 
   targetGain = 0;
   gain = 0;
-  gainRampSeconds = 0.6;
+  /** How long the master takes to reach a newly assigned target, independent
+   *  of that target's level.
+   *
+   *  **This read 0.6 and the Swift original reads 0.05** — twelve times too
+   *  slow, for as long as the bed has been ported. `bed-parity` could not see
+   *  it: that fixture assigns `gain` and `targetGain` together, so the ramp
+   *  never runs and every sample it compares is past it. It surfaced by
+   *  mixing one real session down through both engines and diffing, where
+   *  everything after 0.6 s agreed to within the 16-bit step and everything
+   *  before it did not. */
+  gainRampSeconds = 0.05;
   targetHemi = 1;
   targetPink = 1;
   targetWhite = 1;
