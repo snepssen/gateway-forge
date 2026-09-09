@@ -67,6 +67,34 @@ public enum Engine {
     ///
     /// The source-tree lookup is relative to the working directory, matching
     /// how `AppPaths` resolves `GatewayLibrary`/`GatewayFocus` in development.
+    /// Where inside a resource bundle the model actually landed.
+    ///
+    /// **SwiftPM decides this and has changed its mind.** Bundles built by the
+    /// older toolchain held their files flat at the top; the current one nests
+    /// them under `Contents/Resources`, which is an ordinary macOS bundle
+    /// layout and entirely SwiftPM's business. Looking only at the top meant a
+    /// correctly packaged app reported no voice and offered "rebuild the app"
+    /// — with the model sitting two directories further down.
+    ///
+    /// So the layout is not asserted, it is searched: the top first, since
+    /// that is one `contentsOfDirectory` call, then a bounded walk. What this
+    /// function is entitled to know is whether a model is in there, not where
+    /// SwiftPM chose to put it.
+    public static func modelDirectory(in bundle: URL, fileManager: FileManager) -> URL? {
+        let holdsModel = { (dir: URL) -> Bool in
+            (try? fileManager.contentsOfDirectory(at: dir, includingPropertiesForKeys: nil))?
+                .contains { $0.pathExtension == "onnx" } == true
+        }
+        if holdsModel(bundle) { return bundle }
+        guard let walk = fileManager.enumerator(
+            at: bundle, includingPropertiesForKeys: [.isDirectoryKey],
+            options: [.skipsHiddenFiles]) else { return nil }
+        for case let url as URL in walk where url.pathExtension == "onnx" {
+            return url.deletingLastPathComponent()
+        }
+        return nil
+    }
+
     public static func resourceDirectory(fileManager: FileManager = .default) -> URL? {
         let workingDirectory = URL(fileURLWithPath: fileManager.currentDirectoryPath)
         let dev = workingDirectory.appending(path: "Sources/GatewayTTS/Resources")
@@ -80,9 +108,8 @@ public enum Engine {
            let bundle = entries.first(where: {
                $0.lastPathComponent.contains("GatewayTTS") && $0.pathExtension == "bundle"
            }),
-           (try? fileManager.contentsOfDirectory(at: bundle, includingPropertiesForKeys: nil))?
-               .contains(where: { $0.pathExtension == "onnx" }) == true {
-            return bundle
+           let found = modelDirectory(in: bundle, fileManager: fileManager) {
+            return found
         }
         if (try? fileManager.contentsOfDirectory(at: dev, includingPropertiesForKeys: nil))?
             .contains(where: { $0.pathExtension == "onnx" }) == true {

@@ -51,24 +51,26 @@ console.log("continuous transit");
 // ------------------------------------------------- the authored descents
 
 // A descent needs a rendered timeline sidecar to crop against
-// (segments-rendered/, gitignored everywhere), so a fresh checkout made for
+// (segments-rendered/, gitignored everywhere), so a checkout made for
 // distribution has none even though both descend-*.gws segments are present.
-if (fx.descents.length > 0) {
-  check(fx.descents.length > 0, "the library has authored descents to crop");
-} else {
-  console.log("  note: no rendered timelines on this checkout — descent-crop checks stand down "
-    + "(segments-rendered/ is gitignored everywhere)");
-}
+//
+// **The guard here used to test the fixture rather than the disk.**
+// `fx.descents` is never empty, so it never stood down, and the crop checks
+// below failed on every clean checkout — which is what kept `build.sh` red.
+// Only the parts that genuinely need the sidecar stand down now; the segments
+// still parse and their stations are still compared.
+let croppable = 0;
 for (const d of fx.descents) {
   const doc = load(join(root, d.file));
   check(doc !== undefined, `${d.segmentID} parses`);
   if (doc === undefined) continue;
+  eq(T.descentStations(doc), d.stations, `${d.segmentID} stations`);
+
   const timeline = loadTimeline(`${d.segmentID}.take1.wav`,
                                 join(root, "segments-rendered", "snepssen-suno"));
-  check(timeline !== undefined, `${d.segmentID} has a measured timeline`);
   if (timeline === undefined) continue;
+  croppable += 1;
   check(timeline.entries.length === d.timelineEntries, `${d.segmentID} timeline entries`);
-  eq(T.descentStations(doc), d.stations, `${d.segmentID} stations`);
   for (const c of d.crops) {
     const got = T.descentCrop(doc, timeline, c.station);
     eq(got ?? null, c.frames ?? null, `${d.segmentID} crop at "${c.station}"`);
@@ -79,6 +81,13 @@ for (const d of fx.descents) {
     check(c.frames >= 0 && c.frames <= d.totalFrames,
           `${d.segmentID} crop at ${c.station} lies inside the take`);
   }
+}
+if (croppable === 0) {
+  console.log(`  note: no rendered timelines on this checkout — the crop comparisons for `
+    + `${fx.descents.length} descents stand down (segments-rendered/ is gitignored everywhere)`);
+} else if (croppable < fx.descents.length) {
+  console.log(`  note: ${fx.descents.length - croppable} of ${fx.descents.length} descents `
+    + "have no rendered timeline here; the rest are cropped and compared");
 }
 
 // ------------------------------------------------ which way down exists
