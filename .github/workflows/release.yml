@@ -122,12 +122,18 @@ jobs:
         run: npm ci
         working-directory: cross-platform
       - run: ./build.sh
+      # Named with the version, like the Windows and Linux artifacts. The
+      # first CI-built macOS zip was not, and a file called
+      # `Gateway.Forge-macOS.zip` sitting in somebody's Downloads folder does
+      # not say which build it is. `install.sh` matches on "mac" either way.
       - name: Package the app
-        run: ditto -c -k --keepParent "Gateway Forge.app" "Gateway.Forge-macOS.zip"
+        run: |
+          version="$(tr -d '[:space:]' < VERSION)"
+          ditto -c -k --keepParent "Gateway Forge.app" "Gateway.Forge-$version-macOS.zip"
       - uses: actions/upload-artifact@v4
         with:
           name: macos
-          path: Gateway.Forge-macOS.zip
+          path: Gateway.Forge-*-macOS.zip
           if-no-files-found: error
 
   publish:
