@@ -45,6 +45,9 @@ const fx = JSON.parse(
 
 let pass = 0, fail = 0;
 const check = (ok: boolean, what: string) => { ok ? pass++ : fail++; if (!ok) console.log(`  FAIL ${what}`); };
+/** Said out loud, and counted as neither. A suite that quietly skips what it
+ *  cannot see reports health it never looked for. */
+const note = (what: string) => console.log(`  note ${what}`);
 const eq = (a: unknown, b: unknown, what: string) => {
   const ok = JSON.stringify(a) === JSON.stringify(b);
   if (!ok) console.log(`  FAIL ${what}: ${JSON.stringify(a)} vs ${JSON.stringify(b)}`);
@@ -167,15 +170,31 @@ check(fx.resumeCases.some(c => c.playsSettling) && fx.resumeCases.some(c => !c.p
 
 // ------------------------------------------------------------------- freshness
 
-for (const w of fx.freshness) {
-  const raw = read(join(root, w.track, "manifest.json"));
-  const m = raw === undefined ? undefined : loadManifest(raw);
-  check(m !== undefined, `${w.track} manifest loads`);
-  if (m === undefined) continue;
-  const f = freshness(m, join(root, "segments-rendered", m.voice));
-  eq(f.kind, w.state, `${w.track} freshness`);
-  eq(f.kind === "stale" ? f.names : [], w.names, `${w.track} moved parts`);
-  eq(detail(f) ?? null, w.detail ?? null, `${w.track} detail`);
+// **These compare against sessions on disk, and `renders/` is gitignored.**
+// The fixture was captured on a tree that had them; a checkout has none, and
+// demanding them there is asking a check to prove something about data that
+// was deliberately never committed. Absent, it stands down by name; present —
+// a developer's own tree, where the fixture came from — every case still runs.
+const foundTracks = fx.freshness.filter(
+  w => read(join(root, w.track, "manifest.json")) !== undefined);
+if (foundTracks.length === 0) {
+  note(`no assembled sessions on this checkout — ${fx.freshness.length} freshness `
+       + "comparisons stand down (render directories are gitignored everywhere). "
+       + "The freshness *logic* is still checked below, against sessions built here.");
+} else {
+  if (foundTracks.length < fx.freshness.length) {
+    note(`${fx.freshness.length - foundTracks.length} of ${fx.freshness.length} assembled `
+         + "sessions are not on this checkout; the rest are compared");
+  }
+  for (const w of foundTracks) {
+    const m = loadManifest(read(join(root, w.track, "manifest.json"))!);
+    check(m !== undefined, `${w.track} manifest loads`);
+    if (m === undefined) continue;
+    const f = freshness(m, join(root, "segments-rendered", m.voice));
+    eq(f.kind, w.state, `${w.track} freshness`);
+    eq(f.kind === "stale" ? f.names : [], w.names, `${w.track} moved parts`);
+    eq(detail(f) ?? null, w.detail ?? null, `${w.track} detail`);
+  }
 }
 
 // Everything on disk is expected to be current, so the states that matter are

@@ -6,7 +6,7 @@
  * rather than throwing. So this reads files that already exist, missing fields
  * and all, and compares what the two decoders make of them.
  */
-import { readFileSync } from "fs";
+import { existsSync, readFileSync } from "fs";
 import { basename, join } from "path";
 import { scan } from "../core/library.js";
 import {
@@ -50,7 +50,20 @@ const near = (a: number, b: number, eps = 1e-9) => Math.abs(a - b) <= eps;
 
 const lib = scan(root);
 
-for (const t of fx.manifests) {
+// **These read assembled sessions, and `renders/` is gitignored.** The fixture
+// was captured on a tree that had them; a checkout has none. This used to
+// crash with ENOENT rather than fail, which is worse than either: the suite
+// printed no failures at all and looked like it had passed.
+const present = fx.manifests.filter(t => existsSync(join(root, t.dir, "manifest.json")));
+if (present.length === 0) {
+  console.log(`  note: no assembled sessions on this checkout — ${fx.manifests.length} `
+    + "manifest comparisons stand down (renders/ is gitignored everywhere). The decoder "
+    + "itself is still checked below, against manifests written out here.");
+} else if (present.length < fx.manifests.length) {
+  console.log(`  note: ${fx.manifests.length - present.length} of ${fx.manifests.length} `
+    + "assembled sessions are not on this checkout; the rest are compared");
+}
+for (const t of present) {
   const raw = JSON.parse(readFileSync(join(root, t.dir, "manifest.json"), "utf8"));
   const m = decodeManifest(raw);
   decoded += 1;
@@ -153,7 +166,15 @@ check(loadManifest('{"template":"t","purpose":"continuousJourney"}')?.purpose ==
 check(loadManifest("not json at all") === undefined, "and unreadable JSON is simply no manifest");
 
 // --- guards
-check(decoded === fx.manifests.length, `every manifest was decoded (${decoded} of ${fx.manifests.length})`);
+// Every manifest that is *here* was decoded. The guard exists so a loop that
+// silently skipped its subject could not pass; it must still say that, without
+// demanding files a distribution checkout was never given.
+check(decoded === present.length,
+  `every manifest on this checkout was decoded (${decoded} of ${present.length})`);
+if (present.length === 0) {
+  check(fx.manifests.length > 0,
+    `the fixture still carries ${fx.manifests.length} manifests to compare against a tree that has them`);
+}
 // Rendered session manifests are gitignored everywhere (segments-rendered/
 // and every render directory), so a fresh checkout has none on disk -- the
 // same root cause as the Swift side's storage/companion-sync standdowns.

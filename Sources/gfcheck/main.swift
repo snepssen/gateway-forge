@@ -2597,6 +2597,45 @@ do {
 // Reading the source is the only way to check a UI decision from here, and a
 // half-suspended feature — no panel but a live listener — is exactly the
 // failure worth catching.
+// ------------------------------------------------------- bundled voice layout
+//
+// **SwiftPM decides where inside its resource bundle a resource lands, and it
+// has changed its mind.** Older toolchains put them flat at the top; the
+// current one nests them under `Contents/Resources`. Looking only at the top
+// meant a correctly packaged app found no voice and offered "rebuild the app"
+// with the model two directories further down — caught by launching the built
+// app, which no check was doing.
+c.suite("bundled voice layout")
+do {
+    let scratch = FileManager.default.temporaryDirectory
+        .appending(path: "gf-bundle-layout-\(ProcessInfo.processInfo.processIdentifier)")
+    defer { try? FileManager.default.removeItem(at: scratch) }
+    let fm = FileManager.default
+
+    // Flat, the way the old toolchain built it.
+    let flat = scratch.appending(path: "flat.bundle")
+    try fm.createDirectory(at: flat, withIntermediateDirectories: true)
+    try Data("x".utf8).write(to: flat.appending(path: "en_US-v-medium.onnx"))
+    c.equal(Engine.modelDirectory(in: flat, fileManager: fm)?.lastPathComponent,
+            "flat.bundle", "a flat bundle is found at the top")
+
+    // Nested, the way this one does.
+    let nested = scratch.appending(path: "nested.bundle")
+    let inner = nested.appending(path: "Contents/Resources")
+    try fm.createDirectory(at: inner, withIntermediateDirectories: true)
+    try Data("x".utf8).write(to: inner.appending(path: "en_US-v-medium.onnx"))
+    c.equal(Engine.modelDirectory(in: nested, fileManager: fm)?.lastPathComponent,
+            "Resources", "a nested bundle is searched rather than given up on")
+
+    // And a bundle with no model at all is still nil, so the search cannot
+    // turn "missing voice" into a directory that happens to exist.
+    let empty = scratch.appending(path: "empty.bundle")
+    try fm.createDirectory(at: empty.appending(path: "Contents/Resources"),
+                           withIntermediateDirectories: true)
+    c.expect(Engine.modelDirectory(in: empty, fileManager: fm) == nil,
+             "a bundle carrying no model is still no model")
+} catch { c.expect(false, "bundled voice layout checks threw: \(error)") }
+
 c.suite("companion suspended")
 do {
     let service = try String(

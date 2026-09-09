@@ -107,8 +107,31 @@ jobs:
             cross-platform/dist/*.exe
           if-no-files-found: warn
 
+  # The macOS build used to be produced by hand and attached by hand, which is
+  # why v5.1.1 had one and a tag alone did not. `build.sh` runs the whole gate
+  # itself — gfcheck, then the cross-platform parity suites — so a red suite
+  # fails the release here rather than shipping past it.
+  macos:
+    needs: checks
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm, cache-dependency-path: cross-platform/package-lock.json }
+      - name: Cross-platform dependencies, which build.sh gates on
+        run: npm ci
+        working-directory: cross-platform
+      - run: ./build.sh
+      - name: Package the app
+        run: ditto -c -k --keepParent "Gateway Forge.app" "Gateway.Forge-macOS.zip"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: macos
+          path: Gateway.Forge-macOS.zip
+          if-no-files-found: error
+
   publish:
-    needs: [linux, windows]
+    needs: [linux, windows, macos]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4
@@ -140,7 +163,9 @@ jobs:
             through the exact espeak-ng the voice was trained with rather than
             a published package that predates it.
 
-            The macOS build is native Swift and is attached separately.
+            The macOS build is native Swift, built on its own runner by
+            `build.sh` — which runs the whole check suite and the
+            cross-platform parity gate before it packages anything.
 
             No installer is signed. Nothing auto-updates. Nothing leaves the
             machine.

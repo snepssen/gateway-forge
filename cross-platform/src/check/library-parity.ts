@@ -86,27 +86,64 @@ function compareSegments(mine: SegmentRef[], theirs: SegOut[], label: string): v
 compareSegments(lib.segments, fx.segments, "segments");
 compareSegments(lib.continuousSegments, fx.continuousSegments, "continuous");
 
-check(lib.focus.length === fx.focus.length, `focus folders: ${lib.focus.length} vs ${fx.focus.length}`);
-lib.focus.forEach((f, i) => {
-  const t = fx.focus[i];
-  if (!t) return;
-  check(f.key === t.key, `focus[${i}] key ${f.key} vs ${t.key}`);
-  check(f.scripts.map(rel).join(",") === t.scripts.join(","), `focus ${f.key}: scripts`);
-  check(f.renders.map(rel).join(",") === t.renders.join(","), `focus ${f.key}: renders`);
-  check(rel(f.notePath) === t.notePath, `focus ${f.key}: note path`);
-  check(f.exists === t.exists, `focus ${f.key}: exists`);
-});
+// **Focus folders carry renders, and `renders/` is gitignored.** The fixture
+// was captured on a tree that had them; a checkout made for distribution has
+// none, and one of its folders exists only because a render put it there. So
+// the comparison is by key over what is actually here, the absent ones are
+// named, and anything present that the fixture does not know is still a
+// failure — fewer, never different.
+{
+  const expected = new Map(fx.focus.map(t => [t.key, t]));
+  const strays = lib.focus.filter(f => !expected.has(f.key)).map(f => f.key);
+  check(strays.length === 0,
+    `no focus folder here is unknown to the fixture (${strays.join(", ") || "none"})`);
+  const absent = fx.focus.filter(t => !lib.focus.some(f => f.key === t.key)).map(t => t.key);
+  if (absent.length > 0) {
+    console.log(`  note: ${absent.length} of ${fx.focus.length} focus folders are not on this `
+      + `checkout (${absent.join(", ")}) — they exist on the tree the fixture came from `
+      + "because a render created them, and renders/ is gitignored everywhere");
+  }
+  const rendersHere = lib.focus.some(f => f.renders.length > 0);
+  if (!rendersHere && fx.focus.some(t => t.renders.length > 0)) {
+    console.log("  note: no rendered sessions on this checkout — the per-level render lists "
+      + "and their `exists` flags stand down; scripts and note paths are still compared");
+  }
+  for (const f of lib.focus) {
+    const t = expected.get(f.key);
+    if (!t) continue;
+    check(f.scripts.map(rel).join(",") === t.scripts.join(","), `focus ${f.key}: scripts`);
+    check(rel(f.notePath) === t.notePath, `focus ${f.key}: note path`);
+    if (rendersHere || t.renders.length === 0) {
+      check(f.renders.map(rel).join(",") === t.renders.join(","), `focus ${f.key}: renders`);
+      check(f.exists === t.exists, `focus ${f.key}: exists`);
+    }
+  }
+}
 
 check(lib.templates.map(rel).join(",") === fx.templates.join(","), "templates, in name order");
 
+// The Monroe-derived reference maps and the tape and manual transcripts are
+// deliberately not in a public checkout. Matched by path rather than by index,
+// so what *is* here is compared exactly and what is missing is named — and a
+// document appearing that the fixture has never seen is still a failure.
 function compareDocs(mine: typeof lib.references, theirs: RefOut[], label: string): void {
-  check(mine.length === theirs.length, `${label}: ${mine.length} vs ${theirs.length}`);
-  mine.forEach((m, i) => {
-    const t = theirs[i];
+  const expected = new Map(theirs.map(t => [t.path, t]));
+  const strays = mine.map(m => rel(m.path)).filter(p => !expected.has(p));
+  check(strays.length === 0, `${label}: nothing here is unknown to the fixture (${strays.join(", ") || "none"})`);
+  if (mine.length < theirs.length) {
+    console.log(`  note: ${theirs.length - mine.length} of ${theirs.length} ${label} are not `
+      + "in this tree — the Institute's transcripts and manuals do not ship; "
+      + (mine.length === 1 ? "the one that is here is compared in full"
+         : `the ${mine.length} that are here are compared in full`));
+  } else {
+    check(mine.length === theirs.length, `${label}: ${mine.length} vs ${theirs.length}`);
+  }
+  mine.forEach(m => {
+    const t = expected.get(rel(m.path));
     if (!t) return;
     const a = JSON.stringify({ kind: m.kind, title: m.title, source: m.source, levels: m.levels, mentions: m.mentions, path: rel(m.path) });
     const b = JSON.stringify({ kind: t.kind, title: t.title, source: t.source, levels: t.levels, mentions: t.mentions, path: t.path });
-    check(a === b, `${label}[${i}] ${rel(m.path)}`);
+    check(a === b, `${label} ${rel(m.path)}`);
     if (a !== b) console.log(`       mine  ${a}\n       swift ${b}`);
   });
 }
@@ -221,8 +258,11 @@ check(fx.segments.some(s => s.origin != null), "and some declares an origin leve
 // for distribution has them removed, same as the Swift side's `tapesPresent`
 // guard -- an empty `sources` here is that expected state, not a fixture
 // that stopped measuring anything.
-if (fx.sources.length > 0) {
-  check(fx.sources.some(s => s.kind === "manual"), "and the manuals are distinguished from the tapes");
+// **Guarded on the tree, not the fixture.** `fx.sources` is never empty — it
+// was captured where the corpus lives — so testing it meant this never stood
+// down and failed on every clean checkout instead.
+if (lib.sources.length > 0) {
+  check(lib.sources.some(s => s.kind === "manual"), "and the manuals are distinguished from the tapes");
 } else {
   console.log("  note: no sources in this tree — manual/tape distinction check stands down "
     + "(the expected state of a build made for distribution)");

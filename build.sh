@@ -179,9 +179,18 @@ done < <(find "$PRODUCTS" -maxdepth 1 -name '*.bundle')
 # that `Engine.bundledVoices()` scanned up and offered in the picker like any
 # other. A gate that a leftover can satisfy is not a gate.
 VOICE_SRC="$ROOT/Sources/GatewayTTS/Resources"
-voice_names() { # directory -> sorted voice names, one per line
-  find "$1" -maxdepth 1 -name 'en_US-*-medium.onnx' -exec basename {} \; 2>/dev/null \
-    | sed 's/^en_US-//; s/-medium\.onnx$//' | sort
+voice_names() { # directory tree -> sorted voice names, one per line
+  # Searched at any depth, not just the top. SwiftPM's resource bundle used to
+  # hold its files flat and this toolchain nests them under
+  # Contents/Resources/, so a fixed depth read the app as carrying no voice at
+  # all and the gate reported a missing model that was sitting right there.
+  # The layout belongs to SwiftPM; what this script is entitled to assert is
+  # which voices are present, wherever it decided to put them.
+  find "$1" -name 'en_US-*-medium.onnx' -exec basename {} \; 2>/dev/null \
+    | sed 's/^en_US-//; s/-medium\.onnx$//' | sort -u
+}
+voice_model_paths() { # directory tree, voice name -> every matching file
+  find "$1" \( -name "en_US-$2-medium.onnx" -o -name "en_US-$2-medium.onnx.json" \) 2>/dev/null
 }
 SRC_VOICES="$(voice_names "$VOICE_SRC")"
 [ -n "$SRC_VOICES" ] || { echo "error: no voice model in $VOICE_SRC" >&2; exit 1; }
@@ -195,7 +204,7 @@ VOICE_BUNDLE="$(find "$APP/Contents/Resources" -maxdepth 1 -iname '*GatewayTTS*.
 pruned=0
 while IFS= read -r name; do
   echo "$SRC_VOICES" | grep -qx "$name" && continue
-  rm -f "$VOICE_BUNDLE/en_US-$name-medium.onnx" "$VOICE_BUNDLE/en_US-$name-medium.onnx.json"
+  while IFS= read -r stale; do rm -f "$stale"; done < <(voice_model_paths "$VOICE_BUNDLE" "$name")
   echo "pruned stale voice from the bundle: $name"
   pruned=$((pruned + 1))
 done < <(voice_names "$VOICE_BUNDLE")
@@ -212,12 +221,13 @@ fi
 voice_count=0
 while IFS= read -r name; do
   for part in "en_US-$name-medium.onnx" "en_US-$name-medium.onnx.json"; do
-    [ -s "$VOICE_BUNDLE/$part" ] || {
+    found="$(find "$VOICE_BUNDLE" -name "$part" -size +0c 2>/dev/null | head -1)"
+    [ -n "$found" ] || {
       echo "error: $name is packaged without $part" >&2; exit 1; }
   done
   voice_count=$((voice_count + 1))
 done < <(echo "$APP_VOICES")
-[ -d "$VOICE_BUNDLE/espeak-ng-data" ] || {
+[ -n "$(find "$VOICE_BUNDLE" -type d -name espeak-ng-data 2>/dev/null | head -1)" ] || {
   echo "error: espeak-ng-data did not land in the app" >&2; exit 1; }
 echo "voices packaged: $(echo "$APP_VOICES" | tr '\n' ' ')($voice_count)$([ "$pruned" -gt 0 ] && echo ", $pruned pruned")"
 
