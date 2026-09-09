@@ -79,5 +79,46 @@ const peak = left.reduce((m, v) => Math.max(m, Math.abs(v)), 0);
 check(peak > 0.1 && peak <= 1, `the render is audible and unclipped (peak ${peak.toFixed(4)})`);
 check(fx.left.some(v => Math.abs(v) > 0.1), "the fixture itself is not silence");
 
+// ------------------------------------------------------------- the ramp
+//
+// **Everything above this is blind to the master ramp.** The fixture assigns
+// `gain` and `targetGain` together, so the ramp never runs and every sample
+// compared is past it. `gainRampSeconds` sat at 0.6 here against the Swift
+// original's 0.05 — twelve times too slow — for as long as the bed has been
+// ported, and this suite stayed green throughout. It surfaced only by mixing a
+// real session down through both engines and diffing the result.
+//
+// So the constant is now read out of the Swift source and compared, and the
+// ramp is exercised rather than skipped.
+{
+  const source = readFileSync(join(process.cwd(), "..", "Sources", "GatewayCore",
+                                   "BedEngine.swift"), "utf8");
+  const declared = /gainRampSeconds:\s*Double\s*=\s*([0-9.]+)/.exec(source);
+  check(declared !== null, "the Swift engine declares a master ramp length");
+  if (declared) {
+    const theirs = Number(declared[1]);
+    const mine = new BedEngine(plan).gainRampSeconds;
+    check(mine === theirs,
+      `the master ramp is the Swift original's ${theirs}s (this engine says ${mine}s)`);
+  }
+
+  // And it must actually ramp: reach the target at the far end, and be short
+  // of it in the middle. A constant that matched while the arithmetic did not
+  // would pass the comparison above and still sound wrong.
+  const ramped = new BedEngine(plan);
+  ramped.targetGain = 1;
+  const rate = 24000;
+  const half = new Float32Array(1), halfR = new Float32Array(1);
+  const halfway = Math.floor(ramped.gainRampSeconds * rate / 2);
+  for (let i = 0; i < halfway; i++) ramped.render(half, halfR, 1, rate);
+  const midGain = ramped.gain;
+  check(midGain > 0.3 && midGain < 0.7,
+    `the master is part way up halfway through the ramp (${midGain.toFixed(3)})`);
+  const rest = Math.ceil(ramped.gainRampSeconds * rate) - halfway + 2;
+  for (let i = 0; i < rest; i++) ramped.render(half, halfR, 1, rate);
+  check(Math.abs(ramped.gain - 1) < 1e-9,
+    `the master arrives exactly at its target (${ramped.gain})`);
+}
+
 console.log(`${pass} passed, ${fail} failed`);
 process.exit(fail === 0 ? 0 : 1);

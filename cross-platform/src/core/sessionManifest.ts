@@ -37,6 +37,12 @@ export interface Entry {
    *  unknown, never current** — a manifest written before this field existed
    *  cannot prove anything about its own audio. */
   stamp?: string;
+  /** Where this piece's voice sits between the ears, from the `@pan` the
+   *  session was authored with. **Absent means a manifest written before
+   *  panning was carried**, which is every manifest assembled up to now, and
+   *  absent reads as centred — so a session already on disk keeps sounding
+   *  exactly as it does today. */
+  pan?: number;
 }
 
 export interface Cue {
@@ -82,6 +88,7 @@ export const entryEndSeconds = (e: Entry): number | undefined =>
 
 function decodeEntry(raw: Record<string, unknown>): Entry {
   const start = optNum(raw.startSeconds), secs = optNum(raw.seconds), stamp = optStr(raw.stamp);
+  const pan = optNum(raw.pan);
   return {
     segment: str(raw.segment, "untitled"),
     file: str(raw.file, ""),
@@ -92,6 +99,7 @@ function decodeEntry(raw: Record<string, unknown>): Entry {
     ...(start !== undefined ? { startSeconds: start } : {}),
     ...(secs !== undefined ? { seconds: secs } : {}),
     ...(stamp !== undefined ? { stamp } : {}),
+    ...(pan !== undefined ? { pan } : {}),
   };
 }
 
@@ -193,6 +201,27 @@ export function entryAt(m: SessionManifest, t: number): Entry | undefined {
     current = e;
   }
   return current;
+}
+
+/** Where the voice sits across the finished track, one span per piece that
+ *  asks to be anywhere but the middle. A manifest written before panning was
+ *  carried yields none at all and plays centred. */
+export function panSpans(m: SessionManifest): { start: number; seconds: number; pan: number }[] {
+  const out: { start: number; seconds: number; pan: number }[] = [];
+  for (const entry of m.segments) {
+    if (entry.startSeconds === undefined || entry.seconds === undefined) continue;
+    if (entry.pan === undefined || entry.pan === 0 || entry.seconds <= 0) continue;
+    out.push({ start: entry.startSeconds, seconds: entry.seconds, pan: entry.pan });
+  }
+  return out;
+}
+
+/** Where the voice sits at a moment. 0 — centred — wherever nothing says
+ *  otherwise. */
+export function panAt(m: SessionManifest, t: number): number {
+  const i = indexAt(m, t);
+  if (i === undefined) return 0;
+  return m.segments[i]?.pan ?? 0;
 }
 
 export function indexAt(m: SessionManifest, t: number): number | undefined {
