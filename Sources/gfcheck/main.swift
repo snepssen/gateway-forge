@@ -39,7 +39,7 @@ do {
     let version = try String(contentsOfFile: "VERSION", encoding: .utf8)
         .trimmingCharacters(in: .whitespacesAndNewlines)
     let package = try String(contentsOfFile: "Package.swift", encoding: .utf8)
-    c.equal(version, "5.1.1", "the source tree identifies Gateway Forge v5")
+    c.equal(version, "5.2.0", "the source tree identifies Gateway Forge v5")
     let build = try String(contentsOfFile: "build.sh", encoding: .utf8)
     c.expect(build.contains("<string>$APP_VERSION</string>"),
              "the app bundle reads its short version from VERSION")
