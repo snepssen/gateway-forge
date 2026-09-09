@@ -825,6 +825,12 @@ final class SessionPlayer: ObservableObject {
     private var appliedPan: Double = .nan
     private func followPan() {
         let want = track?.manifest?.pan(at: time) ?? 0
+        // **`pan` is silently ignored unless the graph is already running** —
+        // measured, not assumed; `gfrender --measure-pan` shows a value set
+        // before `start()` having no effect at all. Remembering a value that
+        // never landed would stop the ticker from ever applying it, so nothing
+        // is cached until there is a running engine to accept it.
+        guard isPlaying else { appliedPan = .nan; return }
         guard want != appliedPan else { return }
         appliedPan = want
         player.pan = Float(max(-1, min(1, want)))

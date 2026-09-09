@@ -18,41 +18,35 @@ import Foundation
 /// is the only thing an export is for.
 public enum SessionExport {
 
-    /// Constant-power panning: the two gains are a quarter-circle apart, so a
-    /// voice keeps its loudness as it moves rather than dipping through the
-    /// middle the way a straight-line pan does.
+    /// Where a voice's two channel gains sit, **measured off
+    /// `AVAudioPlayerNode` rather than assumed** — `gfrender --measure-pan`
+    /// prints the table this came from, and prints it again if anyone doubts
+    /// it.
     ///
-    /// It lives here rather than in either consumer because both the player
-    /// and the export have to use the *same* law or an exported session is
-    /// mixed differently from the one that was listened to. `AVAudioMixerNode`
-    /// pans this way too, which is what keeps the two agreeing.
+    ///     pan 0.00   L 1.0000  R 1.0000   power 2.0
+    ///     pan 0.50   L 0.3827  R 0.9239   power 1.0
+    ///     pan 0.90   L 0.0785  R 0.9969   power 1.0
+    ///     pan 1.00   L 0.0000  R 1.0000   power 1.0
     ///
-    /// Centre is unity in both ears, which is what a centred session has always
-    /// been mixed at and therefore what every existing recording was balanced
-    /// against. Holding power constant then puts a hard-panned voice at √2 in
-    /// the ear it moved to: the same loudness, because the same signal in both
-    /// ears is heard as louder than in one.
+    /// So dead centre is unity in both ears, and *any* pan at all engages
+    /// constant power normalised to the sides — a 3 dB step at zero rather
+    /// than a smooth curve through it. That discontinuity is odd, and it is
+    /// Apple's, and matching it is the entire point: an export mixed by a
+    /// tidier law would be balanced differently from the session it came from.
     ///
-    /// **The player's half of this is not yet measured.** `SessionPlayer` moves
-    /// the voice with `AVAudioPlayerNode.pan`, whose law is Apple's, and Apple
-    /// documents constant power without saying where it puts unity — sides, or
-    /// centre. If it is the sides, a panned export is up to 3 dB louder than
-    /// the session it came from. That cannot be settled by reading: it wants a
-    /// build and a measurement, and this machine has no Xcode to make one.
+    /// Keeping the step also keeps every existing recording intact. Nothing on
+    /// disk carries a pan, every piece therefore reads 0, and unity in both
+    /// ears is exactly how those sessions are mixed today.
     ///
-    /// Two things keep that from being urgent. No manifest on disk carries a
-    /// pan, so nothing changes until a session is assembled again. And a
-    /// *centred* session — every session there is today — comes out at unity
-    /// either way, which is why the export was verified against a real one
-    /// before this was added.
+    /// A first draft of this scaled by √2 to make the curve continuous through
+    /// the centre. It was psychoacoustically defensible and simply not what
+    /// the player does: it put a panned export 3 dB above its session and
+    /// pushed a real one from 0.388 peak to 0.906.
     public static func panGains(_ pan: Double) -> (left: Float, right: Float) {
         let p = max(-1, min(1, pan))
+        if p == 0 { return (1, 1) }
         let angle = (p + 1) * .pi / 4          // 0 at hard left, π/2 at hard right
-        // Scaled so centre is unity rather than 0.707: a centred voice must
-        // come out at exactly the level the calibration asks for, since that
-        // is the level every existing session was balanced at.
-        let scale = 2.0.squareRoot()
-        return (Float(cos(angle) * scale), Float(sin(angle) * scale))
+        return (Float(cos(angle)), Float(sin(angle)))
     }
 
     /// What the mixdown came to, so a caller can say it rather than assume it.

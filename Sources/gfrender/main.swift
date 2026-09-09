@@ -1,3 +1,4 @@
+import AVFoundation
 import Foundation
 import GatewayCore
 import GatewayTTS
@@ -13,6 +14,7 @@ func parseArgs() -> (positional: [String], flags: [String: String]) {
         if a == "--probe" { flags["probe"] = "1" }
         else if a == "--measure-pace" { flags["measure-pace"] = "1" }
         else if a == "--per-sentence" { flags["per-sentence"] = "1" }
+        else if a == "--measure-pan" { flags["measure-pan"] = "1" }
         else if a.hasPrefix("--"), let v = it.next() { flags[String(a.dropFirst(2))] = v }
         else { pos.append(a) }
     }
@@ -264,6 +266,102 @@ if let renderPath = flags["export-session"] {
             print(String(format: "  bed runs on for %.1fs after the last word",
                          mixdown.summary.bedOnlyTail))
         }
+        exit(0)
+    } catch {
+        FileHandle.standardError.write(Data("gfrender: \(error.localizedDescription)\n".utf8))
+        exit(1)
+    }
+}
+
+// What `AVAudioPlayerNode.pan` actually does, measured rather than assumed.
+//
+//     gfrender --measure-pan
+//
+// `SessionExport` has to mix with the same law the player pans with, or an
+// exported session is balanced differently from the one that was listened to.
+// Apple documents constant power without saying where it puts unity — at the
+// sides or in the middle — and the difference is 3 dB. So: render a known tone
+// through the real node offline and read the gains off the output.
+if flags["measure-pan"] != nil {
+    do {
+        let sr = 24000.0
+        let mono = AVAudioFormat(standardFormatWithSampleRate: sr, channels: 1)!
+        let stereo = AVAudioFormat(standardFormatWithSampleRate: sr, channels: 2)!
+        let frames = AVAudioFrameCount(sr)          // one second
+
+        // A tone, not a constant: a DC level tells you nothing after any
+        // filtering and cannot be measured as a level.
+        let input = AVAudioPCMBuffer(pcmFormat: mono, frameCapacity: frames)!
+        input.frameLength = frames
+        for i in 0 ..< Int(frames) {
+            input.floatChannelData![0][i] = Float(sin(2 * Double.pi * 440 * Double(i) / sr)) * 0.5
+        }
+
+        print("  case              left     right    power")
+        var centrePower = 0.0
+        // `volume` is the control: if it moves the output and `pan` does not,
+        // the property path works and panning specifically is inert.
+        for (label, pan, volume, onMixer) in [
+            ("pan 0.00", 0.0, Float(1), false),
+            ("pan 0.90", 0.9, Float(1), false),
+            ("pan 1.00", 1.0, Float(1), false),
+            ("volume 0.50", 0.0, Float(0.5), false),
+            ("pan 0.90 on mixer", 0.9, Float(1), true),
+            ("pan 0.00 after start", 0.0, Float(1), false),
+            ("pan 0.50 after start", 0.5, Float(1), false),
+            ("pan 0.90 after start", 0.9, Float(1), false),
+            ("pan 1.00 after start", 1.0, Float(1), false),
+        ] {
+            let engine = AVAudioEngine()
+            let player = AVAudioPlayerNode()
+            engine.attach(player)
+            engine.connect(player, to: engine.mainMixerNode, format: mono)
+            try engine.enableManualRenderingMode(.offline, format: stereo,
+                                                 maximumFrameCount: 4096)
+            let afterStart = label.hasSuffix("after start")
+            if afterStart {
+                // Set once the graph is running, which is when the real player
+                // sets it — from its ticker, mid-session.
+            } else if onMixer {
+                // The other place a pan can live: on the mixer's input bus
+                // rather than on the player node.
+                engine.mainMixerNode.pan = Float(pan)
+            } else {
+                player.pan = Float(pan)
+            }
+            player.volume = volume
+            player.scheduleBuffer(input, at: nil, options: [], completionHandler: nil)
+            try engine.start()
+            player.play()
+            if afterStart { player.pan = Float(pan) }
+
+            let out = AVAudioPCMBuffer(pcmFormat: engine.manualRenderingFormat,
+                                       frameCapacity: 4096)!
+            var l = 0.0, r = 0.0, n = 0
+            while engine.manualRenderingSampleTime < AVAudioFramePosition(frames) {
+                let want = min(AVAudioFrameCount(4096),
+                               AVAudioFrameCount(AVAudioFramePosition(frames)
+                                                 - engine.manualRenderingSampleTime))
+                if try engine.renderOffline(want, to: out) == .success {
+                    for i in 0 ..< Int(out.frameLength) {
+                        let a = Double(out.floatChannelData![0][i])
+                        let b = Double(out.floatChannelData![1][i])
+                        l += a * a; r += b * b; n += 1
+                    }
+                } else { break }
+            }
+            engine.stop()
+            guard n > 0 else { continue }
+            // Against the 0.5 tone that went in, so these read as gains.
+            let gl = (l / Double(n)).squareRoot() / (0.5 / 2.0.squareRoot())
+            let gr = (r / Double(n)).squareRoot() / (0.5 / 2.0.squareRoot())
+            let power = gl * gl + gr * gr
+            if centrePower == 0 { centrePower = power }
+            print(String(format: "  %-18@ %6.4f   %6.4f   %7.4f",
+                         label as NSString, gl, gr, power))
+        }
+        print("  (gain 1.0 in both ears at centre means unity-centre, like SessionExport;")
+        print("   0.707 means Apple normalises to the sides and the export is 3 dB hot)")
         exit(0)
     } catch {
         FileHandle.standardError.write(Data("gfrender: \(error.localizedDescription)\n".utf8))
