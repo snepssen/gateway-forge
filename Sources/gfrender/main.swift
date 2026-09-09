@@ -249,7 +249,8 @@ if let renderPath = flags["export-session"] {
         let seconds = max(manifest?.seconds ?? 0,
                           Double(narration.count) / AudioIO.sampleRate)
         let mixdown = SessionExport.mix(narration: narration, plan: plan,
-                                        seconds: seconds, profile: profile)
+                                        seconds: seconds, profile: profile,
+                                        pans: manifest?.panSpans ?? [])
         try AudioIO.writeWavStereo(left: mixdown.left, right: mixdown.right, to: out,
                                    sampleRate: Int(AudioIO.sampleRate))
 

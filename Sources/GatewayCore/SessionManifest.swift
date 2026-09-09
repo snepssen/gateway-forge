@@ -68,12 +68,22 @@ public struct SessionManifest: Codable, Sendable {
         /// cannot prove anything about its own audio.
         public var stamp: String?
 
+        /// Where this piece's voice sits between the ears, from the `@pan` the
+        /// session was authored with. **Nil means a manifest written before
+        /// panning was carried**, which is every manifest assembled up to now.
+        ///
+        /// Nil is read as centred rather than as the template's `@pan`, and
+        /// that is the whole migration: a session already on disk keeps
+        /// sounding exactly as it does today, and only what is assembled from
+        /// here on picks up the pan its template has been asking for.
+        public var pan: Double?
+
         public init(segment: String, file: String, seed: UInt64,
                     startSeconds: Double? = nil, seconds: Double? = nil,
-                    stamp: String? = nil) {
+                    stamp: String? = nil, pan: Double? = nil) {
             self.segment = segment; self.file = file; self.seed = seed
             self.startSeconds = startSeconds; self.seconds = seconds
-            self.stamp = stamp
+            self.stamp = stamp; self.pan = pan
         }
 
         public init(from decoder: Decoder) throws {
@@ -84,6 +94,7 @@ public struct SessionManifest: Codable, Sendable {
             startSeconds = try c.decodeIfPresent(Double.self, forKey: .startSeconds)
             seconds = try c.decodeIfPresent(Double.self, forKey: .seconds)
             stamp = try c.decodeIfPresent(String.self, forKey: .stamp)
+            pan = try c.decodeIfPresent(Double.self, forKey: .pan)
         }
 
         /// Nil unless both ends are known -- a piece with a start but no
@@ -239,6 +250,27 @@ public struct SessionManifest: Codable, Sendable {
             plan.warble = Warble(startSeconds: cue.startSeconds, duration: cue.seconds)
         }
         return plan
+    }
+
+    /// Where the voice sits across the finished track, one span per piece that
+    /// asks to be anywhere but the middle.
+    ///
+    /// Pieces with no recorded pan contribute nothing, so a manifest written
+    /// before panning was carried yields no spans at all and plays centred —
+    /// exactly as it does today.
+    public var panSpans: [(start: Double, seconds: Double, pan: Double)] {
+        segments.compactMap { entry in
+            guard let start = entry.startSeconds, let seconds = entry.seconds,
+                  let pan = entry.pan, pan != 0, seconds > 0 else { return nil }
+            return (start, seconds, pan)
+        }
+    }
+
+    /// Where the voice sits at a moment. 0 — centred — wherever nothing says
+    /// otherwise, including every manifest written before panning was carried.
+    public func pan(at t: Double) -> Double {
+        guard let i = index(at: t) else { return 0 }
+        return segments[i].pan ?? 0
     }
 
     /// Index of the piece sounding at a moment, for a list that highlights it.

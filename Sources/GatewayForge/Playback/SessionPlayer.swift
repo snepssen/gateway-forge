@@ -802,6 +802,33 @@ final class SessionPlayer: ObservableObject {
         let offset = Double(seekFrame) / f.processingFormat.sampleRate
         let elapsed = Double(played.sampleTime) / played.sampleRate
         time = min(duration, max(0, offset + elapsed))
+        followPan()
+    }
+
+    /// Move the voice where the session says it sits.
+    ///
+    /// `@pan` and `pan` have been in the script language, and in every template
+    /// the scaffold writes, while nothing between the parser and the speakers
+    /// read them. Headphone Orientation asks the listener to confirm they hear
+    /// the voice on their right — and with the narration centred that told
+    /// anyone wearing their headphones correctly to turn them around. A
+    /// reversed pair inverts the binaural differential the application rests
+    /// on, so the check is worth having and worth being true.
+    ///
+    /// Followed from the ticker rather than scheduled: pan changes only at
+    /// piece boundaries, eighty milliseconds is far below noticing, and one
+    /// value that follows the clock cannot drift out of step with it.
+    ///
+    /// `SessionExport` mixes with the same envelope through
+    /// `SessionExport.panGains`, so an exported session is panned exactly as
+    /// the one that was listened to.
+    private var appliedPan: Double = .nan
+    private func followPan() {
+        let want = track?.manifest?.pan(at: time) ?? 0
+        guard want != appliedPan else { return }
+        appliedPan = want
+        player.pan = Float(max(-1, min(1, want)))
+        ceremonyPlayer.pan = player.pan
     }
 
     /// mm:ss, the way a transport reads.

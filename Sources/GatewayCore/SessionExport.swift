@@ -18,6 +18,43 @@ import Foundation
 /// is the only thing an export is for.
 public enum SessionExport {
 
+    /// Constant-power panning: the two gains are a quarter-circle apart, so a
+    /// voice keeps its loudness as it moves rather than dipping through the
+    /// middle the way a straight-line pan does.
+    ///
+    /// It lives here rather than in either consumer because both the player
+    /// and the export have to use the *same* law or an exported session is
+    /// mixed differently from the one that was listened to. `AVAudioMixerNode`
+    /// pans this way too, which is what keeps the two agreeing.
+    ///
+    /// Centre is unity in both ears, which is what a centred session has always
+    /// been mixed at and therefore what every existing recording was balanced
+    /// against. Holding power constant then puts a hard-panned voice at √2 in
+    /// the ear it moved to: the same loudness, because the same signal in both
+    /// ears is heard as louder than in one.
+    ///
+    /// **The player's half of this is not yet measured.** `SessionPlayer` moves
+    /// the voice with `AVAudioPlayerNode.pan`, whose law is Apple's, and Apple
+    /// documents constant power without saying where it puts unity — sides, or
+    /// centre. If it is the sides, a panned export is up to 3 dB louder than
+    /// the session it came from. That cannot be settled by reading: it wants a
+    /// build and a measurement, and this machine has no Xcode to make one.
+    ///
+    /// Two things keep that from being urgent. No manifest on disk carries a
+    /// pan, so nothing changes until a session is assembled again. And a
+    /// *centred* session — every session there is today — comes out at unity
+    /// either way, which is why the export was verified against a real one
+    /// before this was added.
+    public static func panGains(_ pan: Double) -> (left: Float, right: Float) {
+        let p = max(-1, min(1, pan))
+        let angle = (p + 1) * .pi / 4          // 0 at hard left, π/2 at hard right
+        // Scaled so centre is unity rather than 0.707: a centred voice must
+        // come out at exactly the level the calibration asks for, since that
+        // is the level every existing session was balanced at.
+        let scale = 2.0.squareRoot()
+        return (Float(cos(angle) * scale), Float(sin(angle) * scale))
+    }
+
     /// What the mixdown came to, so a caller can say it rather than assume it.
     public struct Summary: Sendable, Equatable {
         public var frames: Int
@@ -57,10 +94,14 @@ public enum SessionExport {
     ///   - profile: the listener's saved calibration. Baked in on purpose —
     ///     it is what they hear, and it is headphone-specific, so an export is
     ///     personal rather than a master.
+    ///   - pans: where the voice sits over time, one span per assembled piece,
+    ///     from the manifest. Empty leaves it centred, which is what every
+    ///     manifest written before panning was carried asks for.
     public static func mix(narration: [Float],
                            plan: BedPlan?,
                            seconds: Double,
                            profile: AudioProfile,
+                           pans: [(start: Double, seconds: Double, pan: Double)] = [],
                            sampleRate: Double = AudioIO.sampleRate) -> Mixdown {
         let p = profile.clamped
         let narrationFrames = narration.count
@@ -103,13 +144,24 @@ public enum SessionExport {
             }
         }
 
-        // The voice sits in the middle, at the level the player gives it.
+        // The voice, at the level the player gives it, where the session says
+        // it sits. Centred unless a span says otherwise — see `pans`.
         let speech = Float(p.speech)
         if speech > 0 {
-            for i in 0 ..< min(narrationFrames, frames) {
+            let voiced = min(narrationFrames, frames)
+            var gains = [(left: Float, right: Float)](
+                repeating: panGains(0), count: voiced)
+            for span in pans where span.seconds > 0 {
+                let from = max(0, Int((span.start * sampleRate).rounded()))
+                let to = min(voiced, Int(((span.start + span.seconds) * sampleRate).rounded()))
+                guard from < to else { continue }
+                let g = panGains(span.pan)
+                for i in from ..< to { gains[i] = g }
+            }
+            for i in 0 ..< voiced {
                 let v = narration[i] * speech
-                left[i] += v
-                right[i] += v
+                left[i] += v * gains[i].left
+                right[i] += v * gains[i].right
             }
         }
 
