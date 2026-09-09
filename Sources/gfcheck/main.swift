@@ -7619,22 +7619,28 @@ do {
     // Headphone Orientation asks the listener to confirm they hear the voice
     // on the right, and a centred narration told anyone wearing their
     // headphones correctly to turn them around.
+    // The law is pinned to what `AVAudioPlayerNode` actually does, measured
+    // with `gfrender --measure-pan`. An export mixed by a tidier law would be
+    // balanced differently from the session it came from.
     let centre = SessionExport.panGains(0)
-    c.expect(abs(centre.left - centre.right) < 1e-6, "centre is even between the ears")
-    c.expect(abs(Double(centre.left) - 1) < 1e-6,
-             "a centred voice is at unity, so nothing already balanced changes level")
-    let hardRight = SessionExport.panGains(1)
-    c.expect(hardRight.left < 1e-6 && abs(Double(hardRight.right) - 2.0.squareRoot()) < 1e-6,
-             "hard right leaves nothing in the left ear")
-    let hardLeft = SessionExport.panGains(-1)
-    c.expect(hardLeft.right < 1e-6, "hard left leaves nothing in the right ear")
-    // Constant power: the two gains square to the same total wherever the
-    // voice sits, which is what stops it dipping as it crosses the middle.
-    for p in [-1.0, -0.9, -0.5, 0, 0.25, 0.9, 1.0] {
-        let g = SessionExport.panGains(p)
+    c.expect(abs(Double(centre.left) - 1) < 1e-6 && abs(Double(centre.right) - 1) < 1e-6,
+             "dead centre is unity in both ears, which is how every existing session is mixed")
+    for (pan, wantL, wantR) in [(0.5, 0.3827, 0.9239), (0.9, 0.0785, 0.9969), (1.0, 0.0, 1.0)] {
+        let g = SessionExport.panGains(pan)
+        c.expect(abs(Double(g.left) - wantL) < 1e-3 && abs(Double(g.right) - wantR) < 1e-3,
+                 "pan \(pan) matches the measured player: \(g.left)/\(g.right), "
+                 + "want \(wantL)/\(wantR)")
         let power = Double(g.left * g.left + g.right * g.right)
-        c.expect(abs(power - 2) < 1e-6, "pan \(p) holds its power (\(power))")
+        c.expect(abs(power - 1) < 1e-3, "pan \(pan) holds constant power at the sides (\(power))")
     }
+    let hardLeft = SessionExport.panGains(-1)
+    c.expect(hardLeft.right < 1e-6 && abs(Double(hardLeft.left) - 1) < 1e-6,
+             "hard left leaves nothing in the right ear")
+    // The step at zero is deliberate and belongs to Apple, so it is recorded
+    // here rather than smoothed away by some later tidy-up.
+    let justOff = SessionExport.panGains(0.001)
+    c.expect(Double(justOff.left * justOff.left + justOff.right * justOff.right) < 1.01,
+             "any pan at all engages the sides law — the 3 dB step at zero is the player's own")
     c.equal(SessionExport.panGains(4).right, SessionExport.panGains(1).right,
             "a pan beyond the ears is clamped rather than amplified")
 

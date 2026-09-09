@@ -75,7 +75,11 @@ final class SessionExporter: ObservableObject {
                                        sampleRate: Int(AudioIO.sampleRate))
 
             let megabytes = Double(mixdown.summary.frames * 4) / 1_048_576
-            var message = "Exported \(SessionPlayer.timecode(mixdown.summary.seconds))"
+            // Formatted here rather than through `SessionPlayer.timecode`,
+            // which belongs to the main actor and this does not.
+            let total = Int(mixdown.summary.seconds.rounded())
+            let stamp = String(format: "%d:%02d", total / 60, total % 60)
+            var message = "Exported \(stamp)"
                 + " of stereo audio, \(String(format: "%.0f", megabytes)) MB,"
                 + " with the bed mixed in at your saved levels."
             if plan == nil {
