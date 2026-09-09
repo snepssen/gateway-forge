@@ -48,6 +48,18 @@ public struct ScriptDoc: Sendable {
     public var voice = "default"
     public var ending = "return"          // return | stay
     public var seed: UInt64?
+    /// Where the guide's voice sits between the ears, -1 left to +1 right.
+    /// `@pan right` is 0.9, which the scaffold writes into every new session
+    /// and 65 templates carry.
+    ///
+    /// **This was parsed and then dropped for a long time.** Nothing between
+    /// the parser and the speakers read it: not the assembler, not the
+    /// manifest, not the player. The cost was not silence but a lie — Headphone
+    /// Orientation asks the listener to confirm they hear the voice on the
+    /// right, and while the narration was centred that instruction told anyone
+    /// wearing their headphones correctly to turn them around. A reversed pair
+    /// inverts the binaural differential this whole application rests on, so
+    /// the check is worth having and worth being true.
     public var pan: Double = 0
     public var beatOverride: Double?
     public var carrierOverride: Double?

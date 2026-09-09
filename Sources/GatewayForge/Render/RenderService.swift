@@ -994,6 +994,12 @@ final class RenderService: ObservableObject {
             let sr = Double(RenderPlan.sampleRate)
             var session: [Float] = []
             var silenceRun = 0.0
+            // Where the voice sits, tracked down the tape the way `silenceRun`
+            // is. `@pan` sets the session's default and a `pan` step moves it
+            // from that point on; both have been parsed and thrown away until
+            // now, which is why Headphone Orientation has been asking listeners
+            // to confirm something that was not true.
+            var pan = spec.doc.pan
             var manifest: [SessionManifest.Entry] = []
             var cues: [SessionManifest.Cue] = []
             var media: [SessionManifest.MediaCue] = []
@@ -1030,7 +1036,8 @@ final class RenderService: ObservableObject {
                 manifest.append(SessionManifest.Entry(
                     segment: lead.segment, file: item.outputName, seed: item.seed,
                     startSeconds: start, seconds: Double(piece.count) / sr,
-                    stamp: RenderPlan.stamp(of: item.outputName, in: takeDir)))
+                    stamp: RenderPlan.stamp(of: item.outputName, in: takeDir),
+                    pan: pan))
                 session += piece
             }
 
@@ -1103,7 +1110,8 @@ final class RenderService: ObservableObject {
                     manifest.append(SessionManifest.Entry(
                         segment: r.step.text, file: item.outputName, seed: item.seed,
                         startSeconds: startSeconds, seconds: pieceSeconds,
-                        stamp: RenderPlan.stamp(of: item.outputName, in: takeDir)))
+                        stamp: RenderPlan.stamp(of: item.outputName, in: takeDir),
+                        pan: pan))
                     session += piece
                 case .pause, .hold, .media:
                     let seconds = r.step.kind == .media ? r.step.seconds
@@ -1117,6 +1125,14 @@ final class RenderService: ObservableObject {
                     cues.append(SessionManifest.Cue(
                         seconds: Double(session.count) / sr,
                         kind: r.step.kind.rawValue, args: r.step.args))
+                case .pan:
+                    // Moves the voice from here on. Recorded per piece rather
+                    // than as a cue, because it belongs to the narration and
+                    // the narration is what carries it.
+                    // `spec.doc`, not `doc`: a nested `if let doc` shadows it
+                    // inside this loop, and the session's own default is what
+                    // a bare `pan` should fall back to.
+                    pan = r.step.args.first ?? spec.doc.pan
                 default: break
                 }
             }

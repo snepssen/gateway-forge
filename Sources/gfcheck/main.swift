@@ -7610,6 +7610,78 @@ do {
             "the export is named from the level, the template and the date")
     c.equal(SessionExport.suggestedFilename(manifest: nil, directoryName: "some-render"),
             "some-render.wav", "a manifest-less render still exports under its own name")
+
+    // ------------------------------------------------------------- panning
+    //
+    // `@pan` has been in the language, and in every template the scaffold
+    // writes, for a long time — and nothing between the parser and the
+    // speakers read it. The cost was not silence but a false instruction:
+    // Headphone Orientation asks the listener to confirm they hear the voice
+    // on the right, and a centred narration told anyone wearing their
+    // headphones correctly to turn them around.
+    let centre = SessionExport.panGains(0)
+    c.expect(abs(centre.left - centre.right) < 1e-6, "centre is even between the ears")
+    c.expect(abs(Double(centre.left) - 1) < 1e-6,
+             "a centred voice is at unity, so nothing already balanced changes level")
+    let hardRight = SessionExport.panGains(1)
+    c.expect(hardRight.left < 1e-6 && abs(Double(hardRight.right) - 2.0.squareRoot()) < 1e-6,
+             "hard right leaves nothing in the left ear")
+    let hardLeft = SessionExport.panGains(-1)
+    c.expect(hardLeft.right < 1e-6, "hard left leaves nothing in the right ear")
+    // Constant power: the two gains square to the same total wherever the
+    // voice sits, which is what stops it dipping as it crosses the middle.
+    for p in [-1.0, -0.9, -0.5, 0, 0.25, 0.9, 1.0] {
+        let g = SessionExport.panGains(p)
+        let power = Double(g.left * g.left + g.right * g.right)
+        c.expect(abs(power - 2) < 1e-6, "pan \(p) holds its power (\(power))")
+    }
+    c.equal(SessionExport.panGains(4).right, SessionExport.panGains(1).right,
+            "a pan beyond the ears is clamped rather than amplified")
+
+    // The export has to actually move the voice, and only where it is told to.
+    let panProfile = { var a = AudioProfile(); a.speech = 1; a.master = 0; return a }()
+    let spoken = [Float](repeating: 0.5, count: Int(4 * sr))
+    let panned = SessionExport.mix(narration: spoken, plan: nil, seconds: 4,
+                                   profile: panProfile,
+                                   pans: [(start: 1, seconds: 2, pan: 0.9)])
+    let atStart = abs(panned.left[Int(0.5 * sr)]) - abs(panned.right[Int(0.5 * sr)])
+    let atPan = abs(panned.left[Int(2.0 * sr)]) - abs(panned.right[Int(2.0 * sr)])
+    let afterPan = abs(panned.left[Int(3.5 * sr)]) - abs(panned.right[Int(3.5 * sr)])
+    c.expect(abs(atStart) < 1e-6, "before the span the voice is centred")
+    c.expect(atPan < -0.1, "inside the span the voice is louder in the right ear")
+    c.expect(abs(afterPan) < 1e-6, "after the span it returns to centre")
+
+    // A manifest from before panning was carried has no spans, so an existing
+    // session on disk keeps sounding exactly as it does today.
+    let old = SessionManifest(
+        template: "old", verbosity: 3, voice: "v", seconds: 10, narrationOnly: true,
+        segments: [SessionManifest.Entry(segment: "a", file: "a.wav", seed: 1,
+                                         startSeconds: 0, seconds: 10)])
+    c.expect(old.panSpans.isEmpty,
+             "a manifest written before panning yields no spans, so it plays centred")
+
+    // **The words have to stay true.** Any session that uses Headphone
+    // Orientation is telling the listener the voice is on their right, so it
+    // had better be panned there.
+    // Templates, not segments: `use orientation` is a session-level decision.
+    var orientationUsers = 0
+    let templateDir = root.appending(path: "library/templates")
+    for u in (try? FileManager.default.contentsOfDirectory(at: templateDir,
+                                                           includingPropertiesForKeys: nil)) ?? []
+    where u.pathExtension == "gws" {
+        guard let text = try? String(contentsOf: u, encoding: .utf8),
+              let doc = try? ScriptParser.parse(text) else { continue }
+        guard doc.steps.contains(where: { $0.kind == .use && $0.text == "orientation" })
+        else { continue }
+        orientationUsers += 1
+        c.expect(doc.pan > 0.5,
+                 "\(u.lastPathComponent) uses Headphone Orientation, so its voice must be "
+                 + "panned right (@pan is \(doc.pan))")
+    }
+    c.expect(orientationUsers > 0,
+             "sessions use Headphone Orientation, and every one of them pans right "
+             + "(\(orientationUsers) checked)")
+
 } catch { c.expect(false, "session export checks threw: \(error)") }
 
 c.finish()
