@@ -7751,24 +7751,61 @@ do {
     // **The words have to stay true.** Any session that uses Headphone
     // Orientation is telling the listener the voice is on their right, so it
     // had better be panned there.
-    // Templates, not segments: `use orientation` is a session-level decision.
-    var orientationUsers = 0
+    // **The pan belongs to the segment that makes the claim.** Headphone
+    // Orientation tells the listener the voice is in their right ear, so that
+    // segment carries `@pan right` and it applies to that segment alone.
+    //
+    // It was a session-level attribute first — on 65 templates and written
+    // into every generated session — and the first time it reached the audio
+    // the result was every word of every session stuck in one ear from the
+    // announcement onward. A check is not a setting.
+    do {
+        let orientation = try ScriptParser.parse(
+            try String(contentsOf: root.appending(path: "library/segments/orientation.gws"),
+                       encoding: .utf8))
+        c.expect(orientation.panIsDeclared && orientation.pan > 0.5,
+                 "Headphone Orientation pans the voice right, so its words are true "
+                 + "(@pan is \(orientation.pan), declared \(orientation.panIsDeclared))")
+    }
+
+    // And nothing pans a whole session. A template-wide pan is the bug above.
+    var panningTemplates: [String] = []
     let templateDir = root.appending(path: "library/templates")
     for u in (try? FileManager.default.contentsOfDirectory(at: templateDir,
                                                            includingPropertiesForKeys: nil)) ?? []
     where u.pathExtension == "gws" {
         guard let text = try? String(contentsOf: u, encoding: .utf8),
               let doc = try? ScriptParser.parse(text) else { continue }
-        guard doc.steps.contains(where: { $0.kind == .use && $0.text == "orientation" })
-        else { continue }
-        orientationUsers += 1
-        c.expect(doc.pan > 0.5,
-                 "\(u.lastPathComponent) uses Headphone Orientation, so its voice must be "
-                 + "panned right (@pan is \(doc.pan))")
+        if doc.panIsDeclared { panningTemplates.append(u.lastPathComponent) }
     }
-    c.expect(orientationUsers > 0,
-             "sessions use Headphone Orientation, and every one of them pans right "
-             + "(\(orientationUsers) checked)")
+    c.expect(panningTemplates.isEmpty,
+             "no session pans its whole narration — a check is not a setting "
+             + "(\(panningTemplates.joined(separator: ", ")))")
+
+    // **Every caller of the mixdown passes the pan envelope.** One did not:
+    // `mix` grew a `pans:` argument, `gfrender` was updated and the
+    // application's own Export as WAV was not, so it wrote the voice centred
+    // for a session the listener had just heard panned. Nothing failed — the
+    // file was fine, it was simply not the session.
+    for file in ["Sources/GatewayForge/Playback/SessionExporter.swift",
+                 "Sources/gfrender/main.swift"] {
+        let source = try String(contentsOf: root.appending(path: file), encoding: .utf8)
+        guard let at = source.range(of: "SessionExport.mix(") else {
+            c.expect(false, "\(file) mixes a session down"); continue
+        }
+        // The call, up to its closing line — long enough to hold the argument
+        // list and short enough not to swallow the next function.
+        let call = source[at.lowerBound...].prefix(500)
+        c.expect(call.contains("pans:"),
+                 "\(file) passes the pan envelope to the mixdown")
+    }
+
+    // The generators must not reintroduce it either.
+    for file in ["Sources/GatewayCore/Scaffold.swift", "Sources/GatewayCore/TemplateEdit.swift"] {
+        let source = try String(contentsOf: root.appending(path: file), encoding: .utf8)
+        c.expect(!source.contains("@pan"),
+                 "\(file) does not write a session-wide pan into new sessions")
+    }
 
 } catch { c.expect(false, "session export checks threw: \(error)") }
 

@@ -196,7 +196,6 @@ public enum TemplateEdit {
         @level    \(level)
         @voice    \(voice)
         @ending   \(ending)
-        @pan      right
         @verbosity \(verbosity)
 
         """

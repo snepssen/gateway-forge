@@ -6,7 +6,6 @@
 @title    Color Breathing
 @level    F10
 @ending   return
-@pan      right
 @seed     20003
 @verbosity 3
 

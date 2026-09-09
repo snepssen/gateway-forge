@@ -8,7 +8,6 @@
 @title    Inner Earth
 @level    F10
 @ending   return
-@pan      right
 @seed     20040
 @verbosity 3
 

@@ -68,8 +68,15 @@ final class SessionExporter: ObservableObject {
             // signal, and measuring the export off the speech would cut it.
             let seconds = max(track.manifest?.seconds ?? 0,
                               Double(narration.count) / AudioIO.sampleRate)
+            // **The pan envelope, which this used to leave out.** `mix` grew
+            // a `pans:` argument when panning reached the audio, `gfrender`
+            // was updated and this was not — so Export as WAV wrote a
+            // perfectly good mixdown with the voice centred, of a session the
+            // listener had just heard panned. An export that differs from the
+            // session it came from is the one thing an export must not be.
             let mixdown = SessionExport.mix(narration: narration, plan: plan,
-                                            seconds: seconds, profile: profile)
+                                            seconds: seconds, profile: profile,
+                                            pans: track.manifest?.panSpans ?? [])
             try AudioIO.writeWavStereo(left: mixdown.left, right: mixdown.right,
                                        to: destination,
                                        sampleRate: Int(AudioIO.sampleRate))

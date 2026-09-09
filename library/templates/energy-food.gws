@@ -6,7 +6,6 @@
 @title    Energy Food
 @level    F10
 @ending   return
-@pan      right
 @seed     20010
 @verbosity 3
 

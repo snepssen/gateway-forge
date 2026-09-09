@@ -61,6 +61,13 @@ public struct ScriptDoc: Sendable {
     /// inverts the binaural differential this whole application rests on, so
     /// the check is worth having and worth being true.
     public var pan: Double = 0
+    /// Whether `@pan` was written in this file at all.
+    ///
+    /// `pan` alone cannot say: a segment that never mentions panning and one
+    /// that asks for dead centre both read 0, and those mean different things
+    /// inside a session that is panning. Needed so a segment's own pan can
+    /// apply to that segment and nothing else.
+    public var panIsDeclared = false
     public var beatOverride: Double?
     public var carrierOverride: Double?
     /// Segment id when this file is a segment rather than a whole session.
@@ -215,7 +222,9 @@ public enum ScriptParser {
                 case "seed":     doc.seed = UInt64(val)
                 case "beat":     doc.beatOverride = try num(val)
                 case "carrier":  doc.carrierOverride = try num(val)
-                case "pan":      doc.pan = try parsePan(val)
+                case "pan":
+                    doc.pan = try parsePan(val)
+                    doc.panIsDeclared = true
                 case "segment":  doc.segment = val
                 case "verbosity":
                     guard let v = Int(val), (1...3).contains(v)

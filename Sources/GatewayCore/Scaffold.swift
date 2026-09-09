@@ -302,7 +302,6 @@ extension Library {
         @level    F10
         @voice    M1
         @ending   return
-        @pan      right
         @seed     \(1000 + n)
         @verbosity 3
 
