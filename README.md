@@ -3,7 +3,7 @@
 **[The page →](https://snepssen.github.io/gateway-forge/)** · the structure, the measurements, and how to build it.
 
 A guided-meditation assembly system and journal built around the Monroe
-Institute's Gateway framework, for macOS with a companion iOS app.
+Institute's Gateway framework, for macOS, Windows and Linux.
 
 The Institute published what its tapes are supposed to do. Practicing them
 produces a second account — the listener's own — and the two do not always
@@ -62,7 +62,9 @@ check means the app was not rebuilt. It drives plain `swift build`, not
 `xcodebuild` — the engine's ONNX Runtime ships a prebuilt XCFramework and
 needs no Metal shader compilation step.
 
-The iOS companion is a separate Xcode project:
+The iOS companion is **suspended** — set aside rather than removed, while the
+phone side is not being worked on. To take a session to a phone, open it in the
+app and choose Export as WAV. The client is still a separate Xcode project:
 
 ```bash
 open GatewayCompanion.xcodeproj
