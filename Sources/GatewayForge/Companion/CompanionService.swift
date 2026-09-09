@@ -7,6 +7,27 @@ import GatewaySyncTransport
 
 @MainActor
 final class CompanionService: ObservableObject {
+
+    /// **The companion is suspended.** Not removed — the iOS client, the
+    /// transport, the router and their checks are all still here, and the
+    /// intention is to come back to them.
+    ///
+    /// What replaced it for now is Export as WAV on a session: a listener who
+    /// wants a session on a phone mixes one down and moves it across
+    /// themselves. That covers the reason the companion existed while it is
+    /// not being worked on.
+    ///
+    /// One flag rather than a handful of edits, for the reason `Engine` states
+    /// what engine the app has in exactly one place: a feature that is off in
+    /// some paths and on in others is worse than either. While this is true
+    /// nothing listens on the network, no pairing can be started, and the
+    /// panel says so instead of offering a QR code that leads nowhere.
+    ///
+    /// **A listener's saved preference is left alone.** Suspending is not the
+    /// same as them turning it off, and `companionAccessEnabled` is theirs; it
+    /// is read and honoured again the moment this is false.
+    static let isSuspended = true
+
     @Published private(set) var enabled: Bool
     @Published private(set) var state: SyncHTTPServerState = .stopped
     @Published private(set) var offer: SyncPairingOffer?
@@ -30,12 +51,17 @@ final class CompanionService: ObservableObject {
     }
 
     func startIfEnabled() async {
+        guard !Self.isSuspended else { return }
         guard enabled else { return }
         await prepare()
         startServer()
     }
 
     func setEnabled(_ value: Bool) async {
+        // Refuse to switch on while suspended, and do not touch what they
+        // saved: this is the application standing down, not the listener
+        // changing their mind.
+        guard !Self.isSuspended else { return }
         enabled = value
         UserDefaults.standard.set(value, forKey: defaultsKey)
         if value {
@@ -54,6 +80,7 @@ final class CompanionService: ObservableObject {
     }
 
     func beginPairing() async {
+        guard !Self.isSuspended else { return }
         if !enabled { await setEnabled(true) }
         await prepare()
         do {
@@ -96,6 +123,10 @@ final class CompanionService: ObservableObject {
     /// A request is removed from the handoff file only after RenderService has
     /// accepted it, so a restart or a busy Continuous journey cannot lose it.
     func consumeGenerationRequests(renderer: RenderService, library: Library?) {
+        // Nothing can reach the queue while the companion is suspended, but a
+        // request left in it before then must not quietly start a render now.
+        // It stays on disk and is picked up when the companion returns.
+        guard !Self.isSuspended else { return }
         guard let library else { return }
         do {
             for request in try MobileGenerationQueue.pending(root: AppPaths.root) {
@@ -241,6 +272,31 @@ struct CompanionAccessPanel: View {
     @EnvironmentObject private var companion: CompanionService
 
     var body: some View {
+        if CompanionService.isSuspended {
+            // Said, not hidden. A feature that vanishes looks like one that
+            // broke, and this one is coming back — so the panel stays where it
+            // was and explains itself, including what to do instead.
+            VStack(alignment: .leading, spacing: 6) {
+                HStack(spacing: 8) {
+                    StatusDot(status: .unavailable)
+                    Text("Companion access").font(.headline).foregroundStyle(Monokai.fg)
+                    Chip(text: "suspended", color: Monokai.comment)
+                    Spacer(minLength: 0)
+                }
+                Text("""
+                     Nothing is listening on the network and no device can pair.                      The iOS client is still in the repository and this is not a                      removal — it is set aside while the phone side is not being                      worked on.
+
+                     To take a session to a phone meanwhile: open the session and                      choose Export as WAV. It mixes the bed in at your listening                      levels and writes one stereo file you can move across                      yourself.
+                     """)
+                    .font(.callout).foregroundStyle(Monokai.comment)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        } else {
+            live
+        }
+    }
+
+    private var live: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
                 VStack(alignment: .leading, spacing: 3) {

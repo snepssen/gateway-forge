@@ -247,7 +247,7 @@ footer{padding:44px 0 70px;color:var(--muted);font-size:14px}
 <div class="wrap">
 
 <header id="top">
-  <span class="badge"><span class="dot"></span>macOS · source-available · companion iOS app</span>
+  <span class="badge"><span class="dot"></span>macOS, Windows and Linux · source-available</span>
   <h1>Gateway&nbsp;Forge</h1>
   <p class="subhead">A guided-meditation assembly system and journal built around the Monroe Institute's Gateway framework — the Institute's own map kept beside what was actually found, never merged into one answer.</p>
   <div class="headmeta">
@@ -415,14 +415,25 @@ cd gateway-forge && ./build.sh</code></pre>
   <div class="note"><b>Read the script before you run it</b> — it's short: checks, then <code>swift build</code>, then it assembles and ad-hoc signs the <code>.app</code>. No installer, no elevated permissions, nothing leaves the machine.</div>
 
   <h3 style="margin-top:44px">The companion</h3>
-  <p><code>GatewayCompanion.xcodeproj</code> is the iOS 17 client — build and run it from Xcode on a device or simulator. It talks to the desktop over the LAN only: pairing is Keychain-secured, the listener's library and journal never touch a server outside the house.</p>
+  <p><b>The companion is suspended.</b> Nothing listens on the network and no
+  device can pair — one flag in <code>CompanionService</code> says so, and a
+  check holds every path to it, because a feature that is off in some places
+  and on in others is worse than either. It is set aside rather than removed:
+  <code>GatewayCompanion.xcodeproj</code>, the LAN transport and their suites
+  are all still in the repository, and the phone side will be picked up again.</p>
+  <p>To take a session to a phone meanwhile, open it and choose <b>Export as
+  WAV</b>. An assembled <code>session.wav</code> is the narration alone — the
+  bed is generated live underneath it while you listen — so the export is a
+  mixdown rather than a copy: the same bed engine, over the plan the session
+  was assembled with, at your own listening levels, written as one stereo
+  file.</p>
 
   <div class="tablewrap">
     <table>
       <thead><tr><th>component</th><th>platform</th><th>status</th></tr></thead>
       <tbody>
         <tr><td>Desktop app</td><td>macOS 14+, Apple Silicon</td><td><span class="pill found">Installed daily driver</span></td></tr>
-        <tr><td>iOS companion</td><td>iOS 17+</td><td><span class="pill found">Builds and syncs over LAN</span></td></tr>
+        <tr><td>iOS companion</td><td>iOS 17+</td><td><span class="pill prov">Suspended — the code is still here</span></td></tr>
         <tr><td>Windows / Linux</td><td>TypeScript core + Electron shell</td><td><span class="pill found">Released, checked, unsigned</span></td></tr>
       </tbody>
     </table>

@@ -2589,6 +2589,49 @@ do {
 }
 
 // ----------------------------------------------------- companion sync boundary
+// ------------------------------------------------------- companion suspended
+//
+// The companion is set aside, not removed: the client, the transport, the
+// router and the suite below all stay, and this asserts that "suspended"
+// means the same thing everywhere rather than in some paths and not others.
+// Reading the source is the only way to check a UI decision from here, and a
+// half-suspended feature — no panel but a live listener — is exactly the
+// failure worth catching.
+c.suite("companion suspended")
+do {
+    let service = try String(
+        contentsOf: root.appending(path: "Sources/GatewayForge/Companion/CompanionService.swift"),
+        encoding: .utf8)
+    let suspended = service.contains("static let isSuspended = true")
+    c.expect(suspended || service.contains("static let isSuspended = false"),
+             "the companion states in one place whether it is suspended")
+    if suspended {
+        for guarded in ["func startIfEnabled", "func setEnabled", "func beginPairing",
+                        "func consumeGenerationRequests"] {
+            guard let at = service.range(of: guarded) else {
+                c.expect(false, "\(guarded) exists to be guarded"); continue
+            }
+            let body = service[at.lowerBound...].prefix(600)
+            c.expect(body.contains("Self.isSuspended"),
+                     "\(guarded) stands down while the companion is suspended")
+        }
+        c.expect(service.contains("if CompanionService.isSuspended {"),
+                 "the panel says the companion is suspended rather than vanishing")
+        // Suspending is the application standing down, not the listener
+        // changing their mind: their saved preference must survive it.
+        if let at = service.range(of: "func setEnabled") {
+            let body = service[at.lowerBound...].prefix(400)
+            let guardAt = body.range(of: "Self.isSuspended")
+            let writeAt = body.range(of: "UserDefaults.standard.set")
+            c.expect(guardAt != nil && writeAt != nil
+                     && guardAt!.lowerBound < writeAt!.lowerBound,
+                     "a suspended companion never rewrites the listener's saved preference")
+        }
+        c.note("the companion is suspended — its sync suite below still runs, "
+               + "because the code it checks is set aside rather than removed")
+    }
+} catch { c.expect(false, "companion suspension checks threw: \(error)") }
+
 c.suite("companion sync boundary")
 do {
     let fm = FileManager.default
