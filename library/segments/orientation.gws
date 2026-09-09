@@ -3,6 +3,7 @@
 @levels    F10
 @duration  ~20s
 @protected right ear
+@pan       right
 
 say Now, you should be hearing my voice in your right ear. If you're not, turn your headphones around so that you are.
 pause 6

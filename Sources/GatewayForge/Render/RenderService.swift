@@ -999,6 +999,15 @@ final class RenderService: ObservableObject {
             // from that point on; both have been parsed and thrown away until
             // now, which is why Headphone Orientation has been asking listeners
             // to confirm something that was not true.
+            // Where the voice sits. A `pan` step moves it from that point on;
+            // a segment that declares its own `@pan` takes it for its own
+            // pieces only and hands the voice back afterwards.
+            //
+            // **That scoping is the whole point.** Headphone Orientation asks
+            // the listener to confirm they hear the voice on their right; it
+            // is a check, not a setting, and applying it to the rest of the
+            // session leaves every word after it stuck in one ear. Which is
+            // exactly what happened the first time this reached the audio.
             var pan = spec.doc.pan
             var manifest: [SessionManifest.Entry] = []
             var cues: [SessionManifest.Cue] = []
@@ -1028,8 +1037,8 @@ final class RenderService: ObservableObject {
                 if silenceRun >= RenderPlan.longHoldSeconds { RenderPlan.fadeIn(&piece) }
                 silenceRun = 0
                 let start = Double(session.count) / sr
-                if let body = try? ScriptParser.parse(source),
-                   let last = body.steps.last, last.kind == .hold {
+                let leadDoc = try? ScriptParser.parse(source)
+                if let body = leadDoc, let last = body.steps.last, last.kind == .hold {
                     silenceRun = RenderPlan.scaled(seconds: last.seconds,
                                                    by: spec.pauseScale)
                 }
@@ -1037,7 +1046,7 @@ final class RenderService: ObservableObject {
                     segment: lead.segment, file: item.outputName, seed: item.seed,
                     startSeconds: start, seconds: Double(piece.count) / sr,
                     stamp: RenderPlan.stamp(of: item.outputName, in: takeDir),
-                    pan: pan))
+                    pan: leadDoc?.panIsDeclared == true ? leadDoc!.pan : pan))
                 session += piece
             }
 
@@ -1062,7 +1071,13 @@ final class RenderService: ObservableObject {
                     silenceRun = 0
                     let startSeconds = Double(session.count) / sr
                     let pieceSeconds = Double(piece.count) / sr
-                    if let doc = try? ScriptParser.parse(fsrc) {
+                    let segmentDoc = try? ScriptParser.parse(fsrc)
+                    // The segment's own pan, if it asks for one, for its own
+                    // pieces; otherwise wherever the session currently sits.
+                    // Deliberately not written back to `pan` — a segment's pan
+                    // ends with the segment.
+                    let piecePan = segmentDoc?.panIsDeclared == true ? segmentDoc!.pan : pan
+                    if let doc = segmentDoc {
                         // Track trailing silence inside the piece for the fade rule.
                         if let last = doc.steps.last, last.kind == .hold {
                             silenceRun = RenderPlan.scaled(seconds: last.seconds,
@@ -1111,7 +1126,7 @@ final class RenderService: ObservableObject {
                         segment: r.step.text, file: item.outputName, seed: item.seed,
                         startSeconds: startSeconds, seconds: pieceSeconds,
                         stamp: RenderPlan.stamp(of: item.outputName, in: takeDir),
-                        pan: pan))
+                        pan: piecePan))
                     session += piece
                 case .pause, .hold, .media:
                     let seconds = r.step.kind == .media ? r.step.seconds

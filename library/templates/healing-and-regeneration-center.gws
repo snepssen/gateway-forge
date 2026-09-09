@@ -8,7 +8,6 @@
 @title    Healing and Regeneration Center
 @level    F10
 @ending   return
-@pan      right
 @seed     20037
 @verbosity 3
 

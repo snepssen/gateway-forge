@@ -6,7 +6,6 @@
 @title    Energy Bar Tool
 @level    F10
 @ending   return
-@pan      right
 @seed     20004
 @verbosity 3
 

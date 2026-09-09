@@ -6,7 +6,6 @@
 @title    Living Body Map
 @level    F10
 @ending   return
-@pan      right
 @seed     20005
 @verbosity 3
 
