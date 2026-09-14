@@ -109,7 +109,21 @@ function header(channels: number, frames: number, rate: number): Buffer {
   return b;
 }
 
-const toPCM = (v: number): number => Math.trunc(Math.max(-1, Math.min(1, v)) * 32767);
+/**
+ * A sample as the 16-bit integer a wav carries.
+ *
+ * **The scaling happens in single precision**, because Swift's `AudioIO` does:
+ * its samples are `Float`, so `s * 32767` is a `Float` multiply that rounds to
+ * nearest before `Int16(...)` truncates. JavaScript would do the same multiply
+ * in double and truncate a slightly different number — for 14 samples in every
+ * 48 000 of a plain sine, one integer lower.
+ *
+ * Inaudible, and still worth matching: it is the difference between the two
+ * builds producing the same tape and merely producing tapes that sound alike,
+ * and only the first can be checked.
+ */
+const toPCM = (v: number): number =>
+  Math.trunc(Math.fround(Math.max(-1, Math.min(1, v)) * 32767));
 
 export function writeWav(samples: Float32Array, path: string, rate = sampleRate): void {
   const body = Buffer.alloc(samples.length * 2);

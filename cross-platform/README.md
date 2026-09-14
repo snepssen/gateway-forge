@@ -133,6 +133,26 @@ possible because every source of state is deterministic, the noise included: the
 RNG is the same xorshift32 from the same seed, and it has to stay that way or
 the two stop being comparable even while they still sound the same.
 
+`assembly-fixture.json` is the strongest of these, because neither side reads
+the other's audio and neither reads a library. Both builds make the same three
+takes from the same arithmetic, walk the same five steps, and are compared on a
+digest of the narration and on the written manifest — at two different pause
+scales. Regenerate it with `swift run gfcorpus assembly-fixture`.
+
+That comparison only became possible when the assembly walk moved out of
+`RenderService` and into `GatewayCore/SessionAssembly.swift`. While it lived in
+the app target no command-line tool could call it, so no check on either side
+could reach it — and two faults shipped through that gap: `@pan` applied to a
+whole session rather than the segment that declared it, and a resonant tuning
+that never sounded. Both are now checked, on both sides.
+
+Matching byte for byte cost one real fix. Swift's samples are `Float`, so
+`s * 32767` is a single-precision multiply that rounds before `Int16(...)`
+truncates; JavaScript did that multiply in double. Fourteen samples in every
+48,000 of a plain sine came out one integer apart — inaudible, and still the
+difference between the two builds producing *the same tape* and merely
+producing tapes that sound alike. `toPCM` now rounds to single precision first.
+
 `bed-build-fixture.json` is the other half: what `BedPlan.build` makes of a
 tape that climbs, sets surf twice, states a bed outright and then climbs again.
 It runs against the library's **real** levels, including the six that carry a
