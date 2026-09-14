@@ -23,6 +23,8 @@
         <span class="glyph" aria-hidden="true">⌂</span>Home</button></li>
       <li><button class="dest" data-dest="focus">
         <span class="glyph" aria-hidden="true">⬡</span>Focus</button></li>
+      <li><button class="dest" data-dest="sessions">
+        <span class="glyph" aria-hidden="true">▷</span>Sessions</button></li>
       <li><button class="dest" data-dest="studio">
         <span class="glyph" aria-hidden="true">≡</span>Studio</button></li>
     </ul>
@@ -94,6 +96,75 @@
         <h3>Found</h3>
         <p class="eyebrow">The listener's own account</p>
         <p id="levelNotes"></p>
+      </section>
+    </div>
+
+    <div class="pane" id="paneSessions" hidden>
+      <h1>Sessions</h1>
+      <p class="sub">Tapes that have been assembled, ready to listen to.</p>
+      <ul class="destlist" id="sessionList"></ul>
+      <p class="muted" id="sessionsEmpty" hidden></p>
+    </div>
+
+    <!--
+      Now Playing. The narration is a file and the bed is not: it is generated
+      here, on the session's own timeline, which is why the bed can be turned
+      off without re-rendering a word and why the level and the piece below
+      are read from the manifest rather than guessed from the clock.
+    -->
+    <div class="pane" id="paneNow" hidden>
+      <button class="back" id="nowBack" type="button">← Sessions</button>
+      <h1 id="nowTitle"></h1>
+      <p class="chips">
+        <span class="chip" id="nowLevel" hidden></span>
+        <span class="chip" id="nowSegment" hidden></span>
+      </p>
+
+      <section class="card">
+        <div class="transport">
+          <button class="cue-button" id="nowBack15" type="button">← 15s</button>
+          <button class="listen-button" id="nowPlay" type="button">Play</button>
+          <button class="cue-button" id="nowFwd30" type="button">30s →</button>
+          <span class="listen-time mono" id="nowElapsed">0:00</span>
+          <input class="scrub" id="nowScrub" type="range" min="0" max="1" step="0.0005"
+                 value="0" aria-label="Session position">
+          <span class="listen-time mono" id="nowTotal">0:00</span>
+        </div>
+        <p class="listen-played" id="nowMedia" hidden></p>
+        <p class="listen-played" id="nowCeremony" hidden>Settling back — the room
+          comes up before the voice does.</p>
+        <p class="listen-error" id="nowError" hidden></p>
+      </section>
+
+      <section class="card">
+        <button class="cue-button" id="nowBed" type="button">Live bed on</button>
+        <p class="muted" id="nowBedNote"></p>
+      </section>
+
+      <!-- The arrival choice. A journey reaching its end is not a decision. -->
+      <section class="card" id="nowArrival" hidden>
+        <h3>What would you like to do?</h3>
+        <p class="muted">Stay keeps the bed here and says nothing further.
+          Return plays the separately held ending and wake-up signal.</p>
+        <button class="cue-button" id="nowStay" type="button">Stay here</button>
+        <button class="cue-button" id="nowReturn" type="button">Return to waking</button>
+      </section>
+      <section class="card" id="nowStaying" hidden>
+        <h3>Staying here</h3>
+        <p class="muted">The bed holds this station. Nothing further will be said.</p>
+      </section>
+      <section class="card" id="nowReturning" hidden>
+        <h3>Returning</h3>
+        <p class="muted">The spoken return finishes before the wake-up signal begins.</p>
+      </section>
+      <section class="card" id="nowReturned" hidden>
+        <h3>Back</h3>
+        <p class="muted">Fully awake, fully alert.</p>
+      </section>
+
+      <section class="card">
+        <h3>Timeline</h3>
+        <ul class="timeline" id="nowTimeline"></ul>
       </section>
     </div>
 

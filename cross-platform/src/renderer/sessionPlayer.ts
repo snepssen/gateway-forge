@@ -16,9 +16,9 @@
 import type { AudioProfile } from "../core/audioProfile.js";
 import { defaultAudioProfile, clampedAudioProfile } from "../core/audioProfile.js";
 import type { BedPlan } from "../core/bedPlan.js";
-import { panGains } from "../core/sessionExport.js";
+import { panGains } from "../core/panLaw.js";
 import { entryAt, indexAt, panAt, type SessionManifest } from "../core/sessionManifest.js";
-import { forResume } from "../core/resumePlan.js";
+import { forResume } from "../core/resumeTiming.js";
 import { BedPlayer } from "./bed.js";
 
 /** What the main process hands over for one tape. */

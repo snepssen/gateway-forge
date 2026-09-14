@@ -16,6 +16,7 @@ import { tmpdir } from "os";
 import { writeWav, sampleRate } from "../core/audioIO.js";
 import { saveTimeline, silenceSamples, type TakeTimeline } from "../core/renderPlan.js";
 import { parse } from "../core/scriptDoc.js";
+import { encodeManifest, loadManifest, panAt } from "../core/sessionManifest.js";
 import { assemble, type ResolvedStep } from "../main/assemble.js";
 
 let pass = 0, fail = 0;
@@ -62,7 +63,7 @@ try {
     { kind: "use", text: "humming", seconds: 0, args: [], file: "humming.gws", source: humming },
   ];
   const built = assemble({
-    doc, steps, leadIns: [], takeDir: dir, pauseScale: 1,
+    doc, template: "a-tape", steps, leadIns: [], takeDir: dir, pauseScale: 1,
     voice: "v", verbosity: 3, returnSeconds: 45,
   });
   const m = built.manifest;
@@ -107,7 +108,7 @@ try {
   // A tape that stays gets none, and stops at the last word.
   const staying = assemble({
     doc: parse("@title Stay\n@level F10\n@ending stay\n"),
-    steps: [steps[1]!], leadIns: [], takeDir: dir, pauseScale: 1,
+    template: "stay", steps: [steps[1]!], leadIns: [], takeDir: dir, pauseScale: 1,
     voice: "v", verbosity: 3, returnSeconds: 45,
   });
   check(staying.manifest.media.length === 0,
@@ -115,7 +116,7 @@ try {
 
   // The pause scale stretches authored silence and nothing else.
   const slower = assemble({
-    doc, steps, leadIns: [], takeDir: dir, pauseScale: 1.5,
+    doc, template: "a-tape", steps, leadIns: [], takeDir: dir, pauseScale: 1.5,
     voice: "v", verbosity: 3, returnSeconds: 45,
   });
   check(slower.manifest.seconds > m.seconds, "a slower pace makes a longer tape");
@@ -124,6 +125,36 @@ try {
     `but a generated sound keeps its own length (${slowTuning?.seconds}s)`);
 
   check(m.cues.some(c => c.kind === "surf"), "session-level texture reaches the manifest");
+  check(m.template === "a-tape",
+    `the manifest names its template by file, not by title (${m.template})`);
+  check(m.startLevel === "F10", "and records the level it started from");
+
+  // ------------------------------------------------------------ the round trip
+  //
+  // **What the assembler knows is not what the player gets.** The player reads
+  // the file, so anything the encoder drops is gone however right the assembly
+  // was. `pan` was dropped exactly this way: every tape assembled here wrote
+  // `pan` absent, decoded back as centred, and played the orientation segment
+  // in both ears while the in-memory assembly said 0.9. Caught by metering the
+  // running app, not by a test — hence this one.
+  {
+    const reread = loadManifest(encodeManifest(m));
+    check(reread !== undefined, "a written manifest reads back");
+    const a = m.segments, b = reread?.segments ?? [];
+    check(b.length === a.length, "with all its pieces");
+    const lost = a.filter((e, i) => (e.pan ?? 0) !== (b[i]?.pan ?? 0)).map(e => e.segment);
+    check(lost.length === 0,
+      `and every piece's pan survives the write${lost.length ? `: ${lost.join(", ")} lost it` : ""}`);
+    const moved = a.filter((e, i) =>
+      !near(e.startSeconds ?? -1, b[i]?.startSeconds ?? -2) ||
+      !near(e.seconds ?? -1, b[i]?.seconds ?? -2)).map(e => e.segment);
+    check(moved.length === 0,
+      `and every piece is still where it was${moved.length ? `: ${moved.join(", ")}` : ""}`);
+    check(reread?.media.length === m.media.length && reread?.cues.length === m.cues.length,
+      "and the cues and generated sounds come back too");
+    check(panAt(reread!, second!.startSeconds! + 1) === 0.9,
+      "so the player, reading the file, puts the voice where the script asked");
+  }
 } finally {
   rmSync(dir, { recursive: true, force: true });
 }

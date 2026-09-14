@@ -11,6 +11,8 @@
 import { BedPlayer, type BedState, timecode } from "./bed.js";
 import { $ } from "./dom.js";
 import { ListeningPane } from "./listening.js";
+import { SessionsPane, type SessionRow } from "./sessions.js";
+import type { SessionManifest } from "../core/sessionManifest.js";
 import type { BedPlan } from "../core/bedPlan.js";
 import type { AudioProfile } from "../core/audioProfile.js";
 
@@ -52,6 +54,15 @@ type SpeechReply =
   | { ok: true; samples: ArrayBuffer; sampleRate: number; voice: string; text: string }
   | { ok: false; error: string };
 
+type SessionsReply =
+  | { ok: true; sessions: SessionRow[] }
+  | { ok: false; error: string };
+
+type OpenReply =
+  | { ok: true; key: string; manifest: SessionManifest; plan?: BedPlan; sampleRate: number;
+      narration: ArrayBuffer; settling?: ArrayBuffer; exit?: ArrayBuffer }
+  | { ok: false; error: string };
+
 type ListeningReply =
   | { ok: true; profile: AudioProfile; bed: BedPlan;
       levels: { name: string; field: keyof AudioProfile; tint: string; why: string }[] }
@@ -66,11 +77,14 @@ declare global {
       saveListening(profile: AudioProfile): Promise<{ ok: boolean; error?: string }>;
       speakCalibration(): Promise<SpeechReply>;
       speechEngine(): Promise<{ ok: boolean; name?: string; voices?: string[]; voice?: string; error?: string }>;
+      sessions(): Promise<SessionsReply>;
+      openSession(key: string): Promise<OpenReply>;
     };
   }
 }
 
-const panes = ["paneHome", "paneLevel", "paneStudio", "paneListening", "paneError"] as const;
+const panes = ["paneHome", "paneLevel", "paneSessions", "paneNow",
+               "paneStudio", "paneListening", "paneError"] as const;
 function show(which: (typeof panes)[number]): void {
   for (const p of panes) $(p).hidden = p !== which;
 }
@@ -199,6 +213,7 @@ const bed = new BedPlayer({
 });
 
 const listening = new ListeningPane(bed);
+const sessions = new SessionsPane();
 
 function renderBedState(state: BedState): void {
   const sounding = state === "playing" || state === "starting";
@@ -317,6 +332,9 @@ function leaveCurrentPane(): void {
   armed = undefined;
   $("listen").hidden = true;
   if (!$("paneListening").hidden) listening.close();
+  // A session still running behind a pane nobody can see is exactly how the
+  // Mac ended up with a bed that outlived its screen and no way to stop it.
+  if (!$("paneNow").hidden) sessions.close();
 }
 
 function openListening(): void {
@@ -355,6 +373,15 @@ function renderStudio(): void {
   }
 }
 
+function openSessions(): void {
+  leaveCurrentPane();
+  $("inspectorTitle").textContent = "Sessions";
+  $("inspectorBody").textContent =
+    "Assembled tapes. The narration is a file; the bed is generated as you listen.";
+  show("paneSessions");
+  void sessions.openList();
+}
+
 function openStudio(): void {
   leaveCurrentPane();
   $("inspectorTitle").textContent = "Studio";
@@ -376,7 +403,10 @@ function wireDestinations(): void {
         other.classList.remove("is-selected");
       }
       el.classList.add("is-selected");
-      if (el.dataset.dest === "studio") openStudio(); else openHome();
+      const dest = el.dataset.dest;
+      if (dest === "studio") openStudio();
+      else if (dest === "sessions") openSessions();
+      else openHome();
     });
   }
 
@@ -384,6 +414,23 @@ function wireDestinations(): void {
   $("mixTuning").addEventListener("click", () => listening.cue("tuning"));
   $("mixReturn").addEventListener("click", () => listening.cue("return"));
   $("mixSpeak").addEventListener("click", () => { void listening.speak(); });
+
+  $("nowBack").addEventListener("click", () => { sessions.back(); show("paneSessions"); });
+  $("nowPlay").addEventListener("click", () => sessions.toggle());
+  $("nowBack15").addEventListener("click", () => sessions.skip(-15));
+  $("nowFwd30").addEventListener("click", () => sessions.skip(30));
+  $("nowBed").addEventListener("click", () => sessions.toggleBed());
+  $("nowStay").addEventListener("click", () => sessions.stay());
+  $("nowReturn").addEventListener("click", () => sessions.returnToWaking());
+
+  // The playhead keeps running under a drag; the scrubber shows where the
+  // drag is until it is let go, which is what `scrubbing` is for.
+  const scrub = $<HTMLInputElement>("nowScrub");
+  scrub.addEventListener("input", () => sessions.setScrub(Number(scrub.value)));
+  scrub.addEventListener("change", () => {
+    sessions.setScrub(undefined);
+    sessions.seekFraction(Number(scrub.value));
+  });
 }
 
 async function start(): Promise<void> {
@@ -408,7 +455,7 @@ async function start(): Promise<void> {
   renderBedState("stopped");
   // A bed still ramping when the window goes is a bed that outlives its
   // window by six tenths of a second, which on Linux is an audible ghost.
-  window.addEventListener("pagehide", () => bed.stop());
+  window.addEventListener("pagehide", () => { bed.stop(); sessions.close(); });
   show("paneHome");
 }
 

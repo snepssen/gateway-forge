@@ -24,7 +24,8 @@ import {
   speechEdgeQuietSeconds, stampOf, writeStamp, type RenderItem,
 } from "../core/renderPlan.js";
 import { parse, type ScriptDoc } from "../core/scriptDoc.js";
-import type { SessionManifest, Entry, Cue, MediaCue } from "../core/sessionManifest.js";
+import type { SessionManifest, Entry, Cue, MediaCue, SessionExit, SessionPurpose }
+  from "../core/sessionManifest.js";
 import { scaledSeconds } from "../core/sessionPlan.js";
 import type { PiperSpeechEngine } from "./speech.js";
 
@@ -114,6 +115,11 @@ export interface ResolvedStep {
 
 export interface AssemblyInput {
   doc: ScriptDoc;
+  /** The template's own name — its filename without the extension, or a
+   *  recipe's `template`. **Not the title**: `Library.displayName` and the
+   *  freshness check both look the template up by this, and a title with
+   *  spaces and an em dash in it is not a file anyone can find. */
+  template: string;
   steps: ResolvedStep[];
   /** Lead-ins — sitting-up tasks and the filled announcement — assembled first
    *  in the exact reviewed order, before any template step. */
@@ -125,6 +131,12 @@ export interface AssemblyInput {
   /** `Warble.defaultDuration`, passed in so the bed's own constant stays the
    *  single definition of how long a return runs. */
   returnSeconds: number;
+  /** Where this session is going, when a recipe sends it somewhere other than
+   *  the template's own level. The template's level is recorded as the start
+   *  either way, so a journey says where it began and where it arrived. */
+  destination?: string;
+  purpose?: SessionPurpose;
+  exit?: SessionExit;
 }
 
 export interface Assembly {
@@ -265,14 +277,21 @@ export function assemble(input: AssemblyInput): Assembly {
   let offset = 0;
   for (const part of parts) { samples.set(part, offset); offset += part.length; }
 
+  // Where the tape ends up is the destination when a recipe names one, and the
+  // template's own level otherwise — and the template's level is the start
+  // either way.
+  const level = input.destination === undefined || input.destination === ""
+    ? input.doc.level : input.destination;
+
   return {
     samples,
     manifest: {
-      template: input.doc.title, verbosity: input.verbosity, voice: input.voice,
+      template: input.template, verbosity: input.verbosity, voice: input.voice,
       seconds: frames / ioRate, narrationOnly: true,
-      ...(input.doc.level === "" ? {} : { level: input.doc.level }),
-      ...(input.doc.from === undefined ? {} : { startLevel: input.doc.from }),
-      ending: input.doc.ending, purpose: "standard",
+      ...(level === "" ? {} : { level }),
+      ...(input.doc.level === "" ? {} : { startLevel: input.doc.level }),
+      ending: input.doc.ending, purpose: input.purpose ?? "standard",
+      ...(input.exit === undefined ? {} : { exit: input.exit }),
       segments, cues, media,
     } as SessionManifest,
   };

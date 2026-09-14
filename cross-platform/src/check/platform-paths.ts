@@ -5,7 +5,8 @@
  */
 import { basename, dirname, join, posix, win32 } from "path";
 import {
-  existsSync, mkdirSync, readdirSync, rmSync, statSync, symlinkSync, writeFileSync,
+  existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, symlinkSync,
+  writeFileSync,
 } from "fs";
 import { tmpdir } from "os";
 import {
@@ -157,6 +158,49 @@ if (process.platform !== "win32") {
     });
   }
   check(invalid.length === 0, `distributable paths are Windows-safe${invalid.length ? `: ${invalid.join(", ")}` : ""}`);
+}
+
+/**
+ * **Nothing the page loads may reach Node.**
+ *
+ * The renderer has no Node in it — `contextIsolation` on, `nodeIntegration`
+ * off — so a core module that imports `fs` or `crypto` is not a slow path or
+ * a warning. The browser refuses to resolve the specifier, the whole module
+ * graph fails, and the window comes up drawn but completely inert: every
+ * field blank, every button dead, and nothing in the main process's log,
+ * because nothing in the main process went wrong.
+ *
+ * Found exactly that way, twice. It is invisible to the compiler — the
+ * imports are real and the types check — so it is checked here, statically,
+ * by walking what the page actually imports.
+ */
+{
+  const banned = ["fs", "path", "crypto", "os", "child_process", "electron", "url",
+                  "node:fs", "node:path", "node:crypto", "node:os"];
+  const leaks: string[] = [];
+  const seen = new Set<string>();
+  const walk = (file: string): void => {
+    if (seen.has(file) || !existsSync(file)) return;
+    seen.add(file);
+    const source = readFileSync(file, "utf8");
+    for (const m of source.matchAll(/(?:^|\n)\s*import\s+(?:type\s+)?[^;]*?from\s+"([^"]+)"/g)) {
+      const spec = m[1]!;
+      // A type-only import is erased, so it cannot leak.
+      if (/import\s+type\s/.test(m[0])) continue;
+      if (!spec.startsWith(".")) {
+        if (banned.includes(spec)) leaks.push(`${basename(file)} imports ${spec}`);
+        continue;
+      }
+      walk(join(dirname(file), spec.replace(/\.js$/, ".ts")));
+    }
+  };
+  for (const entry of ["app.ts", "sessionPlayer.ts", "sessions.ts", "bedWorklet.ts",
+                       "bed.ts", "listening.ts"]) {
+    walk(join("src", "renderer", entry));
+  }
+  check(seen.size > 12, `the page's imports were actually walked (${seen.size} modules)`);
+  check(leaks.length === 0,
+    `nothing the page loads reaches Node${leaks.length ? `: ${leaks.join("; ")}` : ""}`);
 }
 
 console.log(`${pass} passed, ${fail} failed`);
