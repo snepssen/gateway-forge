@@ -31,7 +31,11 @@ import { mix, panGains, suggestedFilename } from "../core/sessionExport.js";
 import { bedPlan, decodeManifest, panAt, panSpans } from "../core/sessionManifest.js";
 import { parse } from "../core/scriptDoc.js";
 import { tuningForm } from "../core/bedPlan.js";
-import { readdirSync } from "fs";
+import { mkdtempSync as mkTmp, readdirSync, rmSync as rmTree } from "fs";
+import { loadMono24k, loadStereo, metadata, writeWav, writeWavStereo,
+         sampleRate as ioRate } from "../core/audioIO.js";
+import { saveTimeline, scaledTake, loadTimeline, silenceSamples, scaled,
+         type TakeTimeline } from "../core/renderPlan.js";
 import { auditionPlan, makeTuning, makeWarble, type BedPlan } from "../core/bedPlan.js";
 import { bedPlanFor, library, libraryRoot, listeningModel } from "../main/model.js";
 import { resolvedSignal } from "../core/level.js";
@@ -484,6 +488,92 @@ for (const level of lib.levels) {
   });
   check(bedPlan(bare, levels, [])?.tuning === undefined,
     "and a tape that places nothing generates nothing");
+}
+
+// ------------------------------------------------------------- wav in and out
+//
+// The two conversions are deliberately asymmetric because Swift's are: writing
+// multiplies by 32767 and clamps, reading divides by 32768, which is what
+// `AVAudioFile` does with a 16-bit file. One constant for both would be tidier
+// and would put every sample about 3e-5 from what the macOS build reads.
+{
+  const tmp = mkTmp(join(tmpdir(), "gf-audio-io-"));
+  try {
+    const mono = new Float32Array(2400);
+    for (let i = 0; i < mono.length; i++) mono[i] = Math.sin(2 * Math.PI * 440 * i / ioRate) * 0.5;
+    const monoPath = join(tmp, "m.wav");
+    writeWav(mono, monoPath);
+
+    const meta = metadata(monoPath);
+    check(meta.channels === 1 && meta.sampleRate === ioRate,
+      `a written wav declares itself mono at ${ioRate} (${meta.channels}ch ${meta.sampleRate})`);
+    check(Math.abs(meta.seconds - mono.length / ioRate) < 1e-9,
+      `and its own length (${meta.seconds.toFixed(4)}s)`);
+
+    const back = loadMono24k(monoPath);
+    check(back.length === mono.length, `every frame comes back (${back.length})`);
+    // 32767 out, 32768 back: one step of loss, and never more.
+    let worst = 0;
+    for (let i = 0; i < mono.length; i++) worst = Math.max(worst, Math.abs(back[i]! - mono[i]!));
+    check(worst < 1.6 / 32767,
+      `a round trip loses less than one 16-bit step (${worst.toExponential(2)})`);
+
+    // Full scale must not wrap. `Int16(1.0 * 32767)` is the largest value
+    // there is; a naive multiply by 32768 would overflow to silence.
+    const hot = new Float32Array([1, -1, 1.5, -1.5]);
+    writeWav(hot, join(tmp, "hot.wav"));
+    const hotBack = loadMono24k(join(tmp, "hot.wav"));
+    check(hotBack.every(v => Math.abs(v) > 0.99 && Math.abs(v) <= 1),
+      `full scale clamps rather than wrapping (${Array.from(hotBack).map(v => v.toFixed(3)).join(", ")})`);
+
+    // Stereo stays stereo, and a mono file read as stereo is the same signal
+    // in both ears rather than silence on the right.
+    const right = mono.map(v => v * 0.5);
+    writeWavStereo(mono, right, join(tmp, "s.wav"));
+    const st = loadStereo(join(tmp, "s.wav"));
+    check(st.left.length === mono.length && st.right.length === mono.length,
+      "a stereo file comes back in two channels");
+    check(Math.abs(st.right[100]! / st.left[100]! - 0.5) < 0.01,
+      "with the channels the right way round");
+    check(metadata(join(tmp, "s.wav")).channels === 2, "and declares two channels");
+    const asStereo = loadStereo(monoPath);
+    check(asStereo.left[100] === asStereo.right[100],
+      "a mono file read as stereo is the same signal in both ears");
+
+    // A take resized by the pause scale: speech untouched, silence stretched.
+    const speechFrames = 24000, silenceFrames = 24000;
+    const take = new Float32Array(speechFrames + silenceFrames).fill(0.25);
+    take.fill(0, speechFrames);
+    const timeline: TakeTimeline = { version: 1, sampleRate: ioRate, entries: [
+      { kind: "speech", startFrame: 0, frameCount: speechFrames },
+      { kind: "silence", startFrame: speechFrames, frameCount: silenceFrames },
+    ] };
+    const longer = scaledTake(take, timeline, 1.5);
+    check(longer !== undefined, "a take with a matching timeline resizes");
+    check(longer!.samples.length === speechFrames + silenceSamples(scaled(1, 1.5)),
+      `only the silence stretches (${longer!.samples.length} frames)`);
+    check(longer!.timeline[0]!.frameCount === speechFrames,
+      "the speech keeps every frame it had");
+    // A generated sound has a length of its own and must not follow the slider.
+    const withMedia: TakeTimeline = { version: 1, sampleRate: ioRate, entries: [
+      { kind: "media", startFrame: 0, frameCount: speechFrames, role: "resonantTuning" },
+    ] };
+    check(scaledTake(take, withMedia, 1.5)!.samples.length === speechFrames,
+      "media is copied through at its own length, not scaled");
+    // A timeline that does not describe this audio is a repair, not a resize.
+    const wrong: TakeTimeline = { version: 1, sampleRate: ioRate, entries: [
+      { kind: "speech", startFrame: 0, frameCount: take.length + 10 },
+    ] };
+    check(scaledTake(take, wrong, 1) === undefined,
+      "a timeline that overruns its audio resizes nothing");
+
+    saveTimeline(timeline, "t.take1.wav", tmp);
+    const reloaded = loadTimeline("t.take1.wav", tmp);
+    check(reloaded?.entries.length === 2 && reloaded?.sampleRate === ioRate,
+      "a written timeline reads back");
+  } finally {
+    rmTree(tmp, { recursive: true, force: true });
+  }
 }
 
 console.log(`${pass} passed, ${fail} failed`);

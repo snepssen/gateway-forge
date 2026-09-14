@@ -7,7 +7,7 @@
  * (stamps on disk, `isCurrent`) is not ported yet.
  */
 import { createHash } from "crypto";
-import { existsSync, readFileSync } from "fs";
+import { existsSync, readFileSync, writeFileSync } from "fs";
 import { basename, join } from "path";
 import { parse as parseScript, type ScriptDoc } from "./scriptDoc.js";
 
@@ -292,6 +292,65 @@ export function timelineMedia(t: TakeTimeline): MediaMarker[] {
       startSeconds: e.startFrame / t.sampleRate,
       seconds: e.frameCount / t.sampleRate,
     }));
+}
+
+/** Written beside the take, so the next assembly can resize its silences
+ *  without re-rendering a word. Sorted keys and two-space indentation, the way
+ *  `JSONEncoder` writes it, so a Swift-written and a TypeScript-written
+ *  timeline are the same file. */
+export function saveTimeline(timeline: TakeTimeline, outputName: string, dir: string): void {
+  const sorted = {
+    entries: timeline.entries.map(e => ({
+      frameCount: e.frameCount,
+      kind: e.kind,
+      ...(e.role === undefined ? {} : { role: e.role }),
+      startFrame: e.startFrame,
+    })),
+    sampleRate: timeline.sampleRate,
+    version: timeline.version,
+  };
+  writeFileSync(join(dir, timelineName(outputName)), JSON.stringify(sorted, null, 2), "utf8");
+}
+
+/**
+ * One rendered take with its authored silences resized.
+ *
+ * Speech and media are copied through untouched — a generated sound has a
+ * length of its own and a spoken line cannot be stretched — and only silence
+ * follows the listener's pause scale.
+ *
+ * Nil rather than a guess when the timeline does not describe this audio: a
+ * take and a sidecar that disagree is a repair, not a resize.
+ */
+export function scaledTake(samples: Float32Array, timeline: TakeTimeline,
+                           pauseScale: number): CollapsedTake | undefined {
+  if (timeline.sampleRate !== sampleRate) return undefined;
+  for (const e of timeline.entries) {
+    if (e.startFrame < 0 || e.frameCount < 0 || e.startFrame + e.frameCount > samples.length) {
+      return undefined;
+    }
+  }
+  const parts: Float32Array[] = [];
+  const entries: TimelineEntry[] = [];
+  let written = 0;
+  for (const entry of timeline.entries) {
+    const start = written;
+    if (entry.kind === "silence") {
+      const seconds = entry.frameCount / timeline.sampleRate;
+      parts.push(new Float32Array(silenceSamples(scaled(seconds, pauseScale))));
+    } else {
+      parts.push(samples.subarray(entry.startFrame, entry.startFrame + entry.frameCount));
+    }
+    written += parts[parts.length - 1]!.length;
+    entries.push({ kind: entry.kind, startFrame: start, frameCount: written - start,
+                   ...(entry.role === undefined ? {} : { role: entry.role }) });
+  }
+  const out = new Float32Array(written);
+  let at = 0;
+  for (const part of parts) { out.set(part, at); at += part.length; }
+  // `CollapsedTake.timeline` is the entry list here, where Swift's is a whole
+  // `TakeTimeline`. Same contents; the wrapper is added when it is written.
+  return { samples: out, timeline: entries };
 }
 
 export function loadTimeline(outputName: string, dir: string): TakeTimeline | undefined {
