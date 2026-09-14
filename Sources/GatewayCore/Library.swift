@@ -503,6 +503,15 @@ extension Library {
         /// The verbosity actually served. Lower than requested means fallback:
         /// nothing sparser was authored yet.
         public var served: Int?
+
+        /// Public so a check can build a template's expansion by hand and hand
+        /// it to `SessionAssembly` — the assembly walk is only testable if the
+        /// thing it walks can be constructed outside this module.
+        public init(step: Step, segment: SegmentRef? = nil,
+                    file: URL? = nil, served: Int? = nil) {
+            self.step = step; self.segment = segment
+            self.file = file; self.served = served
+        }
     }
 
     /// Expand a template at a density. The per-use override (`use x v1`) beats

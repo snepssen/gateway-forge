@@ -10,8 +10,10 @@
  * down from it, so a piece's recorded start and length have to be where that
  * piece really landed, not an estimate of where it should have.
  */
-import { mkdtempSync, rmSync } from "fs";
-import { join } from "path";
+import { createHash } from "crypto";
+import { existsSync, mkdtempSync, readFileSync, rmSync } from "fs";
+import { dirname, join } from "path";
+import { fileURLToPath } from "url";
 import { tmpdir } from "os";
 import { writeWav, sampleRate } from "../core/audioIO.js";
 import { saveTimeline, silenceSamples, type TakeTimeline } from "../core/renderPlan.js";
@@ -25,43 +27,82 @@ const near = (a: number, b: number, eps = 1e-6) => Math.abs(a - b) <= eps;
 
 console.log("assembly");
 
+/** The checkout, from this file's own location — `out/check/`. */
+const repoRoot = (): string =>
+  join(dirname(fileURLToPath(import.meta.url)), "..", "..", "..");
+
+/** A take: speech, then a silence, then optionally a generated sound. Built
+ *  from the same arithmetic `gfcorpus assembly-fixture` uses, so neither side
+ *  reads the other's audio. */
+const makeTake = (name: string, speechSeconds: number, silenceSeconds: number,
+                  mediaSeconds: number, into: string): void => {
+  const speech = Math.round(speechSeconds * sampleRate);
+  const silence = silenceSamples(silenceSeconds);
+  const mediaFrames = silenceSamples(mediaSeconds);
+  const samples = new Float32Array(speech + silence + mediaFrames);
+  for (let i = 0; i < speech; i++) samples[i] = Math.sin(i / 20) * 0.3;
+  writeWav(samples, join(into, name));
+  const entries: TakeTimeline["entries"] = [
+    { kind: "speech", startFrame: 0, frameCount: speech },
+    { kind: "silence", startFrame: speech, frameCount: silence },
+  ];
+  if (mediaFrames > 0) {
+    entries.push({ kind: "media", startFrame: speech + silence,
+                   frameCount: mediaFrames, role: "resonantTuning" });
+  }
+  saveTimeline({ version: 1, sampleRate, entries }, name, into);
+};
+
+/** The narration as the 16-bit samples a wav would carry, digested — so the
+ *  comparison does not turn on either language's float formatting. */
+const digest = (samples: Float32Array): string => {
+  const bytes = Buffer.alloc(samples.length * 2);
+  for (let i = 0; i < samples.length; i++) {
+    const clamped = Math.max(-1, Math.min(1, samples[i]!));
+    bytes.writeInt16LE(Math.trunc(clamped * 32767) | 0, i * 2);
+  }
+  return createHash("sha256").update(bytes).digest("hex");
+};
+
+/** Every place two decoded manifests disagree, named by path. */
+const differences = (a: unknown, b: unknown, path: string): string[] => {
+  if (typeof a === "number" && typeof b === "number") {
+    return Math.abs(a - b) <= 1e-9 ? [] : [`${path}: ${a} vs ${b}`];
+  }
+  if (Array.isArray(a) && Array.isArray(b)) {
+    if (a.length !== b.length) return [`${path}: ${a.length} vs ${b.length} items`];
+    return a.flatMap((v, i) => differences(v, b[i], `${path}[${i}]`));
+  }
+  if (a !== null && b !== null && typeof a === "object" && typeof b === "object") {
+    const keys = new Set([...Object.keys(a), ...Object.keys(b)]);
+    return [...keys].flatMap(k => differences(
+      (a as Record<string, unknown>)[k], (b as Record<string, unknown>)[k],
+      path === "" ? k : `${path}.${k}`));
+  }
+  return a === b ? [] : [`${path}: ${JSON.stringify(a)} vs ${JSON.stringify(b)}`];
+};
+
+const plain = "@segment plain\nsay one two three\npause 2\n";
+const panned = "@segment panned\n@pan right\nsay four five\npause 2\n";
+const humming = "@segment humming\nsay six\nmedia resonantTuning 3\n";
+const steps: ResolvedStep[] = [
+  { kind: "surf", text: "", seconds: 0, args: [0.55] },
+  { kind: "use", text: "plain", seconds: 0, args: [], file: "plain.gws", source: plain },
+  { kind: "use", text: "panned", seconds: 0, args: [], file: "panned.gws", source: panned },
+  { kind: "pause", text: "", seconds: 4, args: [] },
+  { kind: "use", text: "humming", seconds: 0, args: [], file: "humming.gws", source: humming },
+];
+
 const dir = mkdtempSync(join(tmpdir(), "gf-assemble-"));
 try {
-  // A take is speech, then a silence, then optionally a generated sound.
   const make = (name: string, speechSeconds: number, silenceSeconds: number,
-                mediaSeconds = 0): void => {
-    const speech = Math.round(speechSeconds * sampleRate);
-    const silence = silenceSamples(silenceSeconds);
-    const mediaFrames = silenceSamples(mediaSeconds);
-    const samples = new Float32Array(speech + silence + mediaFrames);
-    for (let i = 0; i < speech; i++) samples[i] = Math.sin(i / 20) * 0.3;
-    writeWav(samples, join(dir, name));
-    const entries: TakeTimeline["entries"] = [
-      { kind: "speech", startFrame: 0, frameCount: speech },
-      { kind: "silence", startFrame: speech, frameCount: silence },
-    ];
-    if (mediaFrames > 0) {
-      entries.push({ kind: "media", startFrame: speech + silence,
-                     frameCount: mediaFrames, role: "resonantTuning" });
-    }
-    saveTimeline({ version: 1, sampleRate, entries }, name, dir);
-  };
-
-  const plain = "@segment plain\nsay one two three\npause 2\n";
-  const panned = "@segment panned\n@pan right\nsay four five\npause 2\n";
-  const humming = "@segment humming\nsay six\nmedia resonantTuning 3\n";
+                mediaSeconds = 0): void => makeTake(name, speechSeconds, silenceSeconds,
+                                                    mediaSeconds, dir);
   make("plain.take1.wav", 2, 2);
   make("panned.take1.wav", 1, 2);
   make("humming.take1.wav", 1, 0, 3);
 
   const doc = parse("@title A Tape\n@level F10\n@ending return\n@verbosity 3\n");
-  const steps: ResolvedStep[] = [
-    { kind: "surf", text: "", seconds: 0, args: [0.55] },
-    { kind: "use", text: "plain", seconds: 0, args: [], file: "plain.gws", source: plain },
-    { kind: "use", text: "panned", seconds: 0, args: [], file: "panned.gws", source: panned },
-    { kind: "pause", text: "", seconds: 4, args: [] },
-    { kind: "use", text: "humming", seconds: 0, args: [], file: "humming.gws", source: humming },
-  ];
   const built = assemble({
     doc, template: "a-tape", steps, leadIns: [], takeDir: dir, pauseScale: 1,
     voice: "v", verbosity: 3, returnSeconds: 45,
@@ -157,6 +198,65 @@ try {
   }
 } finally {
   rmSync(dir, { recursive: true, force: true });
+}
+
+// ------------------------------------------------------ the other assembler
+//
+// **The same tape, built by both walks.** `gfcorpus assembly-fixture` runs
+// Swift's `SessionAssembly` over takes it builds from the same arithmetic this
+// file builds them from — so neither side is reading the other's audio, and
+// neither is reading a library. Two builds that agree on the digest agree
+// sample for sample, which is the claim comparing manifests cannot make.
+//
+// This was impossible until the walk left `RenderService`: inside the app
+// target nothing could call it, which is how a session-wide `@pan` and a
+// resonant tuning that never sounded both reached a listener.
+{
+  const fixturePath = join(repoRoot(), "library", "reference", "assembly-fixture.json");
+  if (!existsSync(fixturePath)) {
+    console.log("  note: no assembly fixture in this tree — cross-language comparison"
+              + " stands down (run `gfcorpus assembly-fixture` on a checkout with Swift)");
+  } else {
+    const fixture = JSON.parse(readFileSync(fixturePath, "utf8")) as {
+      takes: { name: string; sha256: string }[];
+      builds: { pauseScale: number; frames: number; samplesSHA256: string;
+                manifest: Record<string, never> }[];
+    };
+    check(fixture.builds.length > 0, "the fixture carries at least one build");
+    const dir2 = mkdtempSync(join(tmpdir(), "gf-xlang-"));
+    try {
+      makeTake("plain.take1.wav", 2, 2, 0, dir2);
+      makeTake("panned.take1.wav", 1, 2, 0, dir2);
+      makeTake("humming.take1.wav", 1, 0, 3, dir2);
+      // Before comparing tapes, check the two builds are starting from the
+      // same audio at all. If these disagree, comparing what was made of them
+      // says nothing about the walk.
+      const wrongTakes = (fixture.takes ?? []).filter(t =>
+        createHash("sha256").update(readFileSync(join(dir2, t.name))).digest("hex")
+          !== t.sha256).map(t => t.name);
+      check(wrongTakes.length === 0,
+        `both builds write the same take files${wrongTakes.length ? `: ${wrongTakes.join(", ")} differ` : ""}`);
+      for (const want of fixture.builds) {
+        const mine = assemble({
+          doc: parse("@title A Tape\n@level F10\n@ending return\n@verbosity 3\n"),
+          template: "a-tape", steps, leadIns: [], takeDir: dir2,
+          pauseScale: want.pauseScale, voice: "v", verbosity: 3, returnSeconds: 45,
+        });
+        const at = `at pace ${want.pauseScale}`;
+        check(mine.samples.length === want.frames,
+          `${at} both assemblers lay down the same number of samples ` +
+          `(${mine.samples.length} vs ${want.frames})`);
+        check(digest(mine.samples) === want.samplesSHA256,
+          `${at} and the same samples, byte for byte`);
+        const got = JSON.parse(encodeManifest(mine.manifest)) as Record<string, unknown>;
+        const diffs = differences(got, want.manifest as Record<string, unknown>, "");
+        check(diffs.length === 0,
+          `${at} and write the same manifest${diffs.length ? `: ${diffs.slice(0, 4).join("; ")}` : ""}`);
+      }
+    } finally {
+      rmSync(dir2, { recursive: true, force: true });
+    }
+  }
 }
 
 console.log(`  ${pass} passed, ${fail} failed`);

@@ -1,3 +1,4 @@
+import CryptoKit
 import Foundation
 import AVFoundation
 import Accelerate
@@ -177,7 +178,7 @@ func spread(_ values: [Double]) -> (low: Double, mid: Double, high: Double, rang
 // MARK: - main
 
 let arguments = CommandLine.arguments
-let commands = ["screen", "match", "compare", "segment", "audition", "bed-fixture", "script-fixture", "render-fixture", "library-fixture", "manifest-fixture", "compose-fixture", "activity-fixture", "recipe-fixture", "storage-fixture", "deletion-fixture", "bootstrap-fixture", "scaffold-fixture", "policy-fixture", "path-fixture", "continuous-fixture", "transit-fixture", "session-fixture", "voice-fixture", "small-fixture", "graph-fixture", "queue-fixture", "authoring-fixture", "template-fixture", "journal-fixture", "compose-eval-fixture", "model-fixture"]
+let commands = ["screen", "match", "compare", "segment", "audition", "bed-fixture", "script-fixture", "render-fixture", "library-fixture", "manifest-fixture", "compose-fixture", "activity-fixture", "recipe-fixture", "storage-fixture", "deletion-fixture", "bootstrap-fixture", "scaffold-fixture", "policy-fixture", "path-fixture", "continuous-fixture", "transit-fixture", "session-fixture", "voice-fixture", "small-fixture", "graph-fixture", "queue-fixture", "authoring-fixture", "template-fixture", "journal-fixture", "compose-eval-fixture", "model-fixture", "assembly-fixture"]
 guard arguments.count >= 2, commands.contains(arguments[1]),
       arguments.count >= 3 || arguments[1] == "audition"
                             || arguments[1] == "bed-fixture"
@@ -196,6 +197,7 @@ guard arguments.count >= 2, commands.contains(arguments[1]),
                             || arguments[1] == "path-fixture"
                             || arguments[1] == "continuous-fixture"
                             || arguments[1] == "transit-fixture"
+                            || arguments[1] == "assembly-fixture"
                             || arguments[1] == "session-fixture"
                             || arguments[1] == "voice-fixture"
                             || arguments[1] == "small-fixture"
@@ -2465,6 +2467,121 @@ if subcommand == "voice-fixture" {
 // Four small files that all sit on `Library.resolve` -- the spine that carries
 // a `use` row to a file at a density -- so they are measured together, over
 // every real template and every assembled session on disk.
+if subcommand == "assembly-fixture" {
+    // **The two assemblers, on the same tape.**
+    //
+    // Neither side reads a library here. Both build the same three takes from
+    // the same arithmetic, walk the same five steps, and should produce the
+    // same samples and the same manifest — so this fixture is not "what the
+    // Mac happened to do on the author's machine", it is a tape either build
+    // can construct from nothing and check itself against.
+    //
+    // This was impossible until the walk left `RenderService`. While it lived
+    // in the app target no command-line tool could reach it, which is why two
+    // faults shipped: a session-wide `@pan`, and a resonant tuning that never
+    // sounded.
+    let cwd = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
+    let out = cwd.appending(path: "library/reference/assembly-fixture.json")
+    let dir = FileManager.default.temporaryDirectory
+        .appending(path: "gf-assembly-fixture-\(UUID().uuidString)")
+    try FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
+    defer { try? FileManager.default.removeItem(at: dir) }
+
+    let sr = Double(RenderPlan.sampleRate)
+    func make(_ name: String, speech: Double, silence: Double, media: Double = 0) throws {
+        let speechFrames = Int(speech * sr)
+        let silenceFrames = RenderPlan.silenceSamples(seconds: silence)
+        let mediaFrames = RenderPlan.silenceSamples(seconds: media)
+        var samples = [Float](repeating: 0, count: speechFrames + silenceFrames + mediaFrames)
+        for i in 0 ..< speechFrames { samples[i] = Float(sin(Double(i) / 20) * 0.3) }
+        try AudioIO.writeWav(samples, to: dir.appending(path: name))
+        var entries: [RenderPlan.TimelineEntry] = [
+            .init(kind: .speech, startFrame: 0, frameCount: speechFrames),
+            .init(kind: .silence, startFrame: speechFrames, frameCount: silenceFrames),
+        ]
+        if mediaFrames > 0 {
+            entries.append(.init(kind: .media, startFrame: speechFrames + silenceFrames,
+                                 frameCount: mediaFrames, role: "resonantTuning"))
+        }
+        try RenderPlan.saveTimeline(
+            RenderPlan.TakeTimeline(sampleRate: RenderPlan.sampleRate, entries: entries),
+            outputName: name, in: dir)
+    }
+    func write(_ name: String, _ body: String) throws -> URL {
+        let url = dir.appending(path: name)
+        try body.write(to: url, atomically: true, encoding: .utf8)
+        return url
+    }
+    let plainFile = try write("plain.gws", "@segment plain\nsay one two three\npause 2\n")
+    let pannedFile = try write("panned.gws", "@segment panned\n@pan right\nsay four five\npause 2\n")
+    let hummingFile = try write("humming.gws", "@segment humming\nsay six\nmedia resonantTuning 3\n")
+    try make("plain.take1.wav", speech: 2, silence: 2)
+    try make("panned.take1.wav", speech: 1, silence: 2)
+    try make("humming.take1.wav", speech: 1, silence: 0, media: 3)
+
+    func step(_ kind: Step.Kind, _ text: String = "", seconds: Double = 0,
+              args: [Double] = []) -> Step {
+        Step(kind: kind, text: text, seconds: seconds, args: args)
+    }
+    let doc = try ScriptParser.parse("@title A Tape\n@level F10\n@ending return\n@verbosity 3\n")
+    let rows: [Library.ResolvedStep] = [
+        .init(step: step(.surf, args: [0.55]), file: nil),
+        .init(step: step(.use, "plain"), file: plainFile),
+        .init(step: step(.use, "panned"), file: pannedFile),
+        .init(step: step(.pause, seconds: 4), file: nil),
+        .init(step: step(.use, "humming"), file: hummingFile),
+    ]
+
+    struct Built: Encodable {
+        var pauseScale: Double
+        var frames: Int
+        /// The narration itself, as a digest. Two builds that agree here agree
+        /// sample for sample — which is the claim a manifest comparison on its
+        /// own cannot make.
+        var samplesSHA256: String
+        var manifest: SessionManifest
+    }
+    var builds: [Built] = []
+    for scale in [1.0, 1.5] {
+        let built = try SessionAssembly.assemble(.init(
+            doc: doc, template: "a-tape", rows: rows, takeDir: dir,
+            pauseScale: scale, voice: "v", verbosity: 3))
+        // Digested as the 16-bit samples a wav would carry, so the comparison
+        // does not turn on either language's float formatting.
+        var bytes = Data(capacity: built.samples.count * 2)
+        for v in built.samples {
+            let clamped = max(-1, min(1, v))
+            let i = Int16(truncatingIfNeeded: Int(clamped * 32767))
+            bytes.append(UInt8(truncatingIfNeeded: Int(i) & 0xFF))
+            bytes.append(UInt8(truncatingIfNeeded: (Int(i) >> 8) & 0xFF))
+        }
+        builds.append(Built(pauseScale: scale, frames: built.samples.count,
+                            samplesSHA256: SHA256.hash(data: bytes)
+                                .map { String(format: "%02x", $0) }.joined(),
+                            manifest: built.manifest))
+    }
+
+    /// The takes themselves, digested. If these disagree the two builds are not
+    /// even starting from the same audio, and comparing their tapes says
+    /// nothing — so the comparison can say which half is wrong.
+    struct Take: Encodable { var name: String; var sha256: String }
+    let takes: [Take] = try ["plain.take1.wav", "panned.take1.wav", "humming.take1.wav"]
+        .map { name in
+            let data = try Data(contentsOf: dir.appending(path: name))
+            return Take(name: name,
+                        sha256: SHA256.hash(data: data)
+                            .map { String(format: "%02x", $0) }.joined())
+        }
+
+    struct Fixture: Encodable { var schemaVersion: Int; var takes: [Take]; var builds: [Built] }
+    let encoder = JSONEncoder()
+    encoder.outputFormatting = [.prettyPrinted, .sortedKeys, .withoutEscapingSlashes]
+    try encoder.encode(Fixture(schemaVersion: 1, takes: takes, builds: builds)).write(to: out)
+    print("wrote \(out.lastPathComponent): \(builds.count) builds, "
+          + "\(builds[0].manifest.segments.count) pieces")
+    exit(0)
+}
+
 if subcommand == "session-fixture" {
     let cwd = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
     let out = cwd.appending(path: "library/reference/session-fixture.json")

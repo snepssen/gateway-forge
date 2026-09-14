@@ -7895,4 +7895,164 @@ do {
 
 } catch { c.expect(false, "session export checks threw: \(error)") }
 
+// ---------------------------------------------------------------- assembly
+
+c.suite("assembly")
+do {
+    // Takes built here rather than read from a library, so this runs on a
+    // checkout with no rendered audio — which is every checkout, since
+    // `segments-rendered/` is not committed.
+    let dir = FileManager.default.temporaryDirectory
+        .appending(path: "gf-assembly-\(UUID().uuidString)")
+    try FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
+    defer { try? FileManager.default.removeItem(at: dir) }
+
+    let sr = Double(RenderPlan.sampleRate)
+    /// A take is speech, then a silence, then optionally a generated sound.
+    func make(_ name: String, speech: Double, silence: Double, media: Double = 0) throws {
+        let speechFrames = Int(speech * sr)
+        let silenceFrames = RenderPlan.silenceSamples(seconds: silence)
+        let mediaFrames = RenderPlan.silenceSamples(seconds: media)
+        var samples = [Float](repeating: 0, count: speechFrames + silenceFrames + mediaFrames)
+        for i in 0 ..< speechFrames { samples[i] = Float(sin(Double(i) / 20) * 0.3) }
+        try AudioIO.writeWav(samples, to: dir.appending(path: name))
+        var entries: [RenderPlan.TimelineEntry] = [
+            .init(kind: .speech, startFrame: 0, frameCount: speechFrames),
+            .init(kind: .silence, startFrame: speechFrames, frameCount: silenceFrames),
+        ]
+        if mediaFrames > 0 {
+            entries.append(.init(kind: .media, startFrame: speechFrames + silenceFrames,
+                                 frameCount: mediaFrames, role: "resonantTuning"))
+        }
+        try RenderPlan.saveTimeline(RenderPlan.TakeTimeline(sampleRate: RenderPlan.sampleRate,
+                                                           entries: entries),
+                                    outputName: name, in: dir)
+    }
+
+    // The scripts, written where the walk will read them.
+    func write(_ name: String, _ body: String) throws -> URL {
+        let url = dir.appending(path: name)
+        try body.write(to: url, atomically: true, encoding: .utf8)
+        return url
+    }
+    let plainFile = try write("plain.gws", "@segment plain\nsay one two three\npause 2\n")
+    let pannedFile = try write("panned.gws", "@segment panned\n@pan right\nsay four five\npause 2\n")
+    let hummingFile = try write("humming.gws", "@segment humming\nsay six\nmedia resonantTuning 3\n")
+    try make("plain.take1.wav", speech: 2, silence: 2)
+    try make("panned.take1.wav", speech: 1, silence: 2)
+    try make("humming.take1.wav", speech: 1, silence: 0, media: 3)
+
+    func step(_ kind: Step.Kind, _ text: String = "", seconds: Double = 0,
+              args: [Double] = []) -> Step {
+        Step(kind: kind, text: text, seconds: seconds, args: args)
+    }
+    let doc = try ScriptParser.parse("@title A Tape\n@level F10\n@ending return\n@verbosity 3\n")
+    let rows: [Library.ResolvedStep] = [
+        .init(step: step(.surf, args: [0.55]), segment: nil, file: nil),
+        .init(step: step(.use, "plain"), segment: nil, file: plainFile),
+        .init(step: step(.use, "panned"), segment: nil, file: pannedFile),
+        .init(step: step(.pause, seconds: 4), segment: nil, file: nil),
+        .init(step: step(.use, "humming"), segment: nil, file: hummingFile),
+    ]
+    let input = SessionAssembly.Input(
+        doc: doc, template: "a-tape", rows: rows, takeDir: dir,
+        pauseScale: 1, voice: "v", verbosity: 3)
+    let built = try SessionAssembly.assemble(input)
+    let m = built.manifest
+
+    c.equal(m.segments.map(\.segment).joined(separator: ","), "plain,panned,humming",
+            "the pieces are laid down in the template's order")
+    c.equal(m.template, "a-tape", "the manifest names its template by file, not by title")
+    c.equal(m.startLevel, "F10", "and records the level it started from")
+
+    // **Every recorded position is where the audio really is.** The player
+    // reads these and an export mixes down from them, so a piece's start plus
+    // its length must be the next piece's start, less the authored silence.
+    let entries = m.segments
+    c.expect(entries.count == 3, "every piece reached the manifest")
+    if entries.count == 3 {
+        let first = entries[0], second = entries[1], third = entries[2]
+        c.expect(abs((first.startSeconds ?? -1)) < 1e-9, "the first piece starts at zero")
+        c.expect(abs((second.startSeconds ?? -1)
+                     - ((first.startSeconds ?? 0) + (first.seconds ?? 0))) < 1e-9,
+                 "a piece begins exactly where the one before it ended")
+        c.expect(abs((third.startSeconds ?? -1)
+                     - ((second.startSeconds ?? 0) + (second.seconds ?? 0) + 4)) < 1e-9,
+                 "and after an authored pause, exactly that much later")
+        c.expect(abs(m.seconds - Double(built.samples.count) / sr) < 1e-9,
+                 "the tape's stated length is its real length")
+
+        // A segment's pan is its own, and ends with it. This is the fault that
+        // reached a listener: every word after Headphone Orientation in one ear.
+        c.equal(first.pan ?? 0, 0, "a segment that says nothing about panning is centred")
+        c.equal(second.pan ?? 0, 0.9, "a segment that asks to be panned is")
+        c.equal(third.pan ?? 0, 0,
+                "and the piece after it is centred again, not left in one ear")
+    }
+
+    // The generated sounds are placed where they actually fall. A `media` step
+    // never sounded at all until it was allowed to exist.
+    let tuning = m.media.first { $0.role == .resonantTuning }
+    c.expect(tuning != nil, "a media step in a take becomes a cue on the tape")
+    c.expect(tuning.map { abs($0.seconds - 3) < 1e-9 } ?? false, "for its own length")
+    if let tuning, entries.count == 3 {
+        let third = entries[2]
+        c.expect(tuning.startSeconds > (third.startSeconds ?? 0)
+                 && tuning.startSeconds < (third.startSeconds ?? 0) + (third.seconds ?? 0),
+                 "inside the piece that placed it")
+    }
+
+    let ret = m.media.first { $0.role == .returnSignal }
+    c.expect(ret.map { abs($0.seconds - Warble.defaultDuration) < 1e-9 } ?? false,
+             "a returning tape gets its wake-up signal")
+    c.expect(ret.map { abs($0.startSeconds + $0.seconds - m.seconds) < 1e-9 } ?? false,
+             "which runs to the very end, with narration silence under it")
+
+    // A tape that stays gets none, and stops at the last word.
+    var staying = input
+    staying.doc = try ScriptParser.parse("@title Stay\n@level F10\n@ending stay\n")
+    staying.rows = [rows[1]]
+    c.expect(try SessionAssembly.assemble(staying).manifest.media.isEmpty,
+             "a tape that means to leave you there has no return signal")
+
+    // The pace dial stretches authored silence and nothing else.
+    var slower = input
+    slower.pauseScale = 1.5
+    let slowed = try SessionAssembly.assemble(slower)
+    c.expect(slowed.manifest.seconds > m.seconds, "a slower pace makes a longer tape")
+    c.expect(slowed.manifest.media.first { $0.role == .resonantTuning }
+                .map { abs($0.seconds - 3) < 1e-9 } ?? false,
+             "but a generated sound keeps its own length")
+
+    c.expect(m.cues.contains { $0.kind == "surf" },
+             "session-level texture reaches the manifest")
+
+    // **What the assembler knows is not what the player gets.** The player
+    // reads the file, so anything lost on the way out is lost however right
+    // the walk was — which is exactly how the TypeScript port silently
+    // dropped every pan it had correctly worked out.
+    let file = dir.appending(path: "manifest.json")
+    try SessionManifestIO.save(m, to: file)
+    let reread = SessionManifestIO.load(file)
+    c.expect(reread != nil, "a written manifest reads back")
+    if let reread {
+        c.equal(reread.segments.count, m.segments.count, "with all its pieces")
+        let lostPan = zip(m.segments, reread.segments)
+            .filter { ($0.pan ?? 0) != ($1.pan ?? 0) }.map(\.0.segment)
+        c.expect(lostPan.isEmpty,
+                 "and every piece's pan survives the write\(lostPan.isEmpty ? "" : ": \(lostPan)")")
+        let moved = zip(m.segments, reread.segments).filter {
+            abs(($0.startSeconds ?? -1) - ($1.startSeconds ?? -2)) > 1e-9
+                || abs(($0.seconds ?? -1) - ($1.seconds ?? -2)) > 1e-9
+        }.map(\.0.segment)
+        c.expect(moved.isEmpty, "and every piece is still where it was")
+        c.equal(reread.media.count, m.media.count, "and the generated sounds come back too")
+        if m.segments.count == 3, let start = m.segments[1].startSeconds {
+            c.equal(reread.pan(at: start + 1), 0.9,
+                    "so the player, reading the file, puts the voice where the script asked")
+        }
+    }
+
+} catch { c.expect(false, "assembly checks threw: \(error)") }
+
 c.finish()

@@ -991,201 +991,36 @@ final class RenderService: ObservableObject {
             }
 
             activity = .compiling(spec.name)
-            let sr = Double(RenderPlan.sampleRate)
-            var session: [Float] = []
-            var silenceRun = 0.0
-            // Where the voice sits, tracked down the tape the way `silenceRun`
-            // is. `@pan` sets the session's default and a `pan` step moves it
-            // from that point on; both have been parsed and thrown away until
-            // now, which is why Headphone Orientation has been asking listeners
-            // to confirm something that was not true.
-            // Where the voice sits. A `pan` step moves it from that point on;
-            // a segment that declares its own `@pan` takes it for its own
-            // pieces only and hands the voice back afterwards.
-            //
-            // **That scoping is the whole point.** Headphone Orientation asks
-            // the listener to confirm they hear the voice on their right; it
-            // is a check, not a setting, and applying it to the rest of the
-            // session leaves every word after it stuck in one ear. Which is
-            // exactly what happened the first time this reached the audio.
-            var pan = spec.doc.pan
-            var manifest: [SessionManifest.Entry] = []
-            var cues: [SessionManifest.Cue] = []
-            var media: [SessionManifest.MediaCue] = []
 
-            // Sitting-up tasks and the filled session announcement are recipe
-            // inputs, not template mutations. They are ordinary stamped takes,
-            // assembled first in the exact reviewed order.
-            for lead in spec.leadIns {
+            // The walk itself lives in `GatewayCore` now, where `gfcheck` can
+            // reach it. It used to be inlined here, in the app target, where
+            // nothing could — and two faults reached listeners through that
+            // gap: `@pan` applied to a whole session instead of the segment
+            // that declared it, and the resonant tuning never sounding.
+            let leadIns: [SessionAssembly.LeadIn] = try spec.leadIns.map { lead in
                 guard let item = needed.first(where: { $0.outputName == lead.outputName }) else {
                     throw NSError(domain: "compile", code: 8, userInfo: [
                         NSLocalizedDescriptionKey: "missing lead-in source for \(lead.segment)"
                     ])
                 }
-                let source = try String(contentsOf: item.gwsFile, encoding: .utf8)
-                let original = try AudioIO.loadMono24k(takeDir.appending(path: item.outputName))
-                guard let timeline = RenderPlan.loadTimeline(outputName: item.outputName,
-                                                             in: takeDir),
-                      let adjusted = RenderPlan.scaledTake(
-                        original, timeline: timeline, pauseScale: spec.pauseScale) else {
-                    throw NSError(domain: "compile", code: 9, userInfo: [
-                        NSLocalizedDescriptionKey:
-                            "\(item.outputName) has no valid editable timeline"
-                    ])
-                }
-                var piece = adjusted.samples
-                if silenceRun >= RenderPlan.longHoldSeconds { RenderPlan.fadeIn(&piece) }
-                silenceRun = 0
-                let start = Double(session.count) / sr
-                let leadDoc = try? ScriptParser.parse(source)
-                if let body = leadDoc, let last = body.steps.last, last.kind == .hold {
-                    silenceRun = RenderPlan.scaled(seconds: last.seconds,
-                                                   by: spec.pauseScale)
-                }
-                manifest.append(SessionManifest.Entry(
-                    segment: lead.segment, file: item.outputName, seed: item.seed,
-                    startSeconds: start, seconds: Double(piece.count) / sr,
-                    stamp: RenderPlan.stamp(of: item.outputName, in: takeDir),
-                    pan: leadDoc?.panIsDeclared == true ? leadDoc!.pan : pan))
-                session += piece
+                return SessionAssembly.LeadIn(segment: lead.segment,
+                                              outputName: item.outputName,
+                                              seed: item.seed, gwsFile: item.gwsFile)
             }
-
-            for r in rows {
-                switch r.step.kind {
-                case .use:
-                    guard let f = r.file else { continue }
-                    let fsrc = try String(contentsOf: f, encoding: .utf8)
-                    guard let item = RenderPlan.items(gwsFile: f, source: fsrc).first else { continue }
-                    let original = try AudioIO.loadMono24k(takeDir.appending(path: item.outputName))
-                    guard let timeline = RenderPlan.loadTimeline(outputName: item.outputName,
-                                                                 in: takeDir),
-                          let adjusted = RenderPlan.scaledTake(
-                            original, timeline: timeline, pauseScale: spec.pauseScale) else {
-                        throw NSError(domain: "compile", code: 7, userInfo: [
-                            NSLocalizedDescriptionKey:
-                                "\(item.outputName) has no valid editable timeline"
-                        ])
-                    }
-                    var piece = adjusted.samples
-                    if silenceRun >= RenderPlan.longHoldSeconds { RenderPlan.fadeIn(&piece) }
-                    silenceRun = 0
-                    let startSeconds = Double(session.count) / sr
-                    let pieceSeconds = Double(piece.count) / sr
-                    let segmentDoc = try? ScriptParser.parse(fsrc)
-                    // The segment's own pan, if it asks for one, for its own
-                    // pieces; otherwise wherever the session currently sits.
-                    // Deliberately not written back to `pan` — a segment's pan
-                    // ends with the segment.
-                    let piecePan = segmentDoc?.panIsDeclared == true ? segmentDoc!.pan : pan
-                    if let doc = segmentDoc {
-                        // Track trailing silence inside the piece for the fade rule.
-                        if let last = doc.steps.last, last.kind == .hold {
-                            silenceRun = RenderPlan.scaled(seconds: last.seconds,
-                                                          by: spec.pauseScale)
-                        }
-                        // A `level` cue lives *inside* a climb segment, marking
-                        // where the ramp belongs relative to the count. Its
-                        // position is placed by the fraction of the body that
-                        // precedes it: the estimate and the render disagree on
-                        // absolute length, but a climb is a minute long and
-                        // they agree closely on proportion.
-                        let total = max(SessionPlan.scaledSeconds(doc, spec.pauseScale), 0.001)
-                        var walked = 0.0
-                        for st in doc.steps {
-                            switch st.kind {
-                            case .level:
-                                cues.append(SessionManifest.Cue(
-                                    seconds: startSeconds + (walked / total) * pieceSeconds,
-                                    kind: "level", text: st.text))
-                            case .pause, .hold:
-                                walked += RenderPlan.scaled(seconds: st.seconds,
-                                                           by: spec.pauseScale)
-                            case .media: walked += st.seconds
-                            case .say:
-                                walked += Double(st.text.split(separator: " ").count)
-                                    / RenderPlan.wordsPerSecond
-                            default: break
-                            }
-                        }
-                    }
-                    for marker in adjusted.media {
-                            guard let role = AudioAssetRole(rawValue: marker.role) else {
-                                throw NSError(domain: "compile", code: 6, userInfo: [
-                                    NSLocalizedDescriptionKey:
-                                        "unknown media role \(marker.role) in \(item.outputName)"
-                                ])
-                            }
-                            media.append(SessionManifest.MediaCue(
-                                role: role, asset: "", file: "",
-                                startSeconds: startSeconds + marker.startSeconds,
-                                seconds: marker.seconds, fit: .once))
-                    }
-                    // Timed as it is laid down: the player's timeline needs
-                    // where each piece actually landed, not an estimate.
-                    manifest.append(SessionManifest.Entry(
-                        segment: r.step.text, file: item.outputName, seed: item.seed,
-                        startSeconds: startSeconds, seconds: pieceSeconds,
-                        stamp: RenderPlan.stamp(of: item.outputName, in: takeDir),
-                        pan: piecePan))
-                    session += piece
-                case .pause, .hold, .media:
-                    let seconds = r.step.kind == .media ? r.step.seconds
-                        : RenderPlan.scaled(seconds: r.step.seconds, by: spec.pauseScale)
-                    session += [Float](repeating: 0,
-                                       count: RenderPlan.silenceSamples(seconds: seconds))
-                    silenceRun += seconds
-                case .surf, .bed:
-                    // Session-level texture, from the template -- the only place
-                    // these are allowed to live, so the bed stays continuous.
-                    cues.append(SessionManifest.Cue(
-                        seconds: Double(session.count) / sr,
-                        kind: r.step.kind.rawValue, args: r.step.args))
-                case .pan:
-                    // Moves the voice from here on. Recorded per piece rather
-                    // than as a cue, because it belongs to the narration and
-                    // the narration is what carries it.
-                    // `spec.doc`, not `doc`: a nested `if let doc` shadows it
-                    // inside this loop, and the session's own default is what
-                    // a bare `pan` should fall back to.
-                    pan = r.step.args.first ?? spec.doc.pan
-                default: break
-                }
-            }
-
-            if doc.ending == "return" {
-                // The return signal is an epilogue, not a backing track for the
-                // spoken countdown. Keep the narration WAV alive with silence so
-                // the transport and the live bed reach the end together.
-                //
-                // Its length used to come from the recording's own duration.
-                // With nothing to measure, it comes from `Warble` itself, which
-                // is where the shape of the signal already lives.
-                let window = SessionMedia.appendTrailingWindow(
-                    to: &session, seconds: Warble.defaultDuration,
-                    sampleRate: RenderPlan.sampleRate)
-                media.append(SessionManifest.MediaCue(
-                    role: .returnSignal, asset: "", file: "",
-                    startSeconds: window.startSeconds,
-                    seconds: window.seconds, fit: .once))
-            }
+            let built = try SessionAssembly.assemble(.init(
+                doc: doc, template: spec.name, rows: rows, leadIns: leadIns,
+                takeDir: takeDir, pauseScale: spec.pauseScale, voice: spec.voice,
+                verbosity: spec.verbosity, destination: spec.destination,
+                purpose: spec.purpose, exit: spec.exit))
 
             // The render folder lives under the tape's destination level.
             let df = DateFormatter(); df.dateFormat = "yyyy-MM-dd"
             let dirName = spec.isRecipe ? spec.id : "\(df.string(from: Date()))-\(spec.name)"
             let renderDir = root.appending(path: "focus/\(level)/renders/\(dirName)")
             try FileManager.default.createDirectory(at: renderDir, withIntermediateDirectories: true)
-            try AudioIO.writeWav(session, to: renderDir.appending(path: "session.wav"))
-            try SessionManifestIO.save(
-                SessionManifest(template: spec.name, verbosity: spec.verbosity, voice: spec.voice,
-                                seconds: Double(session.count) / sr,
-                                // The wav is narration; the bed rides live on
-                                // top of it at playback rather than being baked
-                                // in, so it stays tunable without re-rendering.
-                                narrationOnly: true, level: level,
-                                startLevel: doc.level, ending: doc.ending,
-                                purpose: spec.purpose,
-                                exit: spec.exit, segments: manifest, cues: cues, media: media),
-                to: renderDir.appending(path: "manifest.json"))
+            try AudioIO.writeWav(built.samples, to: renderDir.appending(path: "session.wav"))
+            try SessionManifestIO.save(built.manifest,
+                                       to: renderDir.appending(path: "manifest.json"))
             activity = .idle
             landed += 1
             // The library has a track it did not have a moment ago. Saying so

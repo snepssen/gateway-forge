@@ -1,0 +1,171 @@
+{
+  "builds" : [
+    {
+      "frames" : 1440000,
+      "manifest" : {
+        "cues" : [
+          {
+            "args" : [
+              0.55
+            ],
+            "kind" : "surf",
+            "seconds" : 0,
+            "text" : ""
+          }
+        ],
+        "ending" : "return",
+        "level" : "F10",
+        "media" : [
+          {
+            "asset" : "",
+            "crossfadeSeconds" : 0,
+            "edgeFadeSeconds" : 1,
+            "file" : "",
+            "fit" : "once",
+            "gain" : 1,
+            "role" : "resonantTuning",
+            "seconds" : 3,
+            "startSeconds" : 12
+          },
+          {
+            "asset" : "",
+            "crossfadeSeconds" : 0,
+            "edgeFadeSeconds" : 1,
+            "file" : "",
+            "fit" : "once",
+            "gain" : 1,
+            "role" : "returnSignal",
+            "seconds" : 45,
+            "startSeconds" : 15
+          }
+        ],
+        "narrationOnly" : true,
+        "purpose" : "standard",
+        "seconds" : 60,
+        "segments" : [
+          {
+            "file" : "plain.take1.wav",
+            "pan" : 0,
+            "seconds" : 4,
+            "seed" : 210724363289,
+            "segment" : "plain",
+            "startSeconds" : 0
+          },
+          {
+            "file" : "panned.take1.wav",
+            "pan" : 0.9,
+            "seconds" : 3,
+            "seed" : 6953891415835,
+            "segment" : "panned",
+            "startSeconds" : 4
+          },
+          {
+            "file" : "humming.take1.wav",
+            "pan" : 0,
+            "seconds" : 4,
+            "seed" : 229468866469594,
+            "segment" : "humming",
+            "startSeconds" : 11
+          }
+        ],
+        "startLevel" : "F10",
+        "template" : "a-tape",
+        "verbosity" : 3,
+        "voice" : "v"
+      },
+      "pauseScale" : 1,
+      "samplesSHA256" : "6d666015f0132952c409f63bde4925e4403665f3364f1b01a0ec4573d9454034"
+    },
+    {
+      "frames" : 1536000,
+      "manifest" : {
+        "cues" : [
+          {
+            "args" : [
+              0.55
+            ],
+            "kind" : "surf",
+            "seconds" : 0,
+            "text" : ""
+          }
+        ],
+        "ending" : "return",
+        "level" : "F10",
+        "media" : [
+          {
+            "asset" : "",
+            "crossfadeSeconds" : 0,
+            "edgeFadeSeconds" : 1,
+            "file" : "",
+            "fit" : "once",
+            "gain" : 1,
+            "role" : "resonantTuning",
+            "seconds" : 3,
+            "startSeconds" : 16
+          },
+          {
+            "asset" : "",
+            "crossfadeSeconds" : 0,
+            "edgeFadeSeconds" : 1,
+            "file" : "",
+            "fit" : "once",
+            "gain" : 1,
+            "role" : "returnSignal",
+            "seconds" : 45,
+            "startSeconds" : 19
+          }
+        ],
+        "narrationOnly" : true,
+        "purpose" : "standard",
+        "seconds" : 64,
+        "segments" : [
+          {
+            "file" : "plain.take1.wav",
+            "pan" : 0,
+            "seconds" : 5,
+            "seed" : 210724363289,
+            "segment" : "plain",
+            "startSeconds" : 0
+          },
+          {
+            "file" : "panned.take1.wav",
+            "pan" : 0.9,
+            "seconds" : 4,
+            "seed" : 6953891415835,
+            "segment" : "panned",
+            "startSeconds" : 5
+          },
+          {
+            "file" : "humming.take1.wav",
+            "pan" : 0,
+            "seconds" : 4,
+            "seed" : 229468866469594,
+            "segment" : "humming",
+            "startSeconds" : 15
+          }
+        ],
+        "startLevel" : "F10",
+        "template" : "a-tape",
+        "verbosity" : 3,
+        "voice" : "v"
+      },
+      "pauseScale" : 1.5,
+      "samplesSHA256" : "b0e75ca493a5d0a30456fd1b2d8d29259d0a25016453916223ab23dcda92b99d"
+    }
+  ],
+  "schemaVersion" : 1,
+  "takes" : [
+    {
+      "name" : "plain.take1.wav",
+      "sha256" : "9b9a463b38eb34cf2c54e22cbfb81e4b9af8790ca0d99dc49481eb3babc32fc2"
+    },
+    {
+      "name" : "panned.take1.wav",
+      "sha256" : "b2b9d16d7cde46ac20e323282c69c9901613495ee801758cc7631368ba76debf"
+    },
+    {
+      "name" : "humming.take1.wav",
+      "sha256" : "276029554450c11fa835f754828253bf86e25584b0bcff6e05b60c2ffb40121d"
+    }
+  ]
+}
