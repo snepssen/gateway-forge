@@ -28,7 +28,10 @@ import { calibrationGuidanceOrder } from "../core/calibration.js";
 import { audioProfilePath, encodeAudioProfile, loadAudioProfile, saveAudioProfile } from "../core/audioProfileStore.js";
 import { BedEngine } from "../core/bedEngine.js";
 import { mix, panGains, suggestedFilename } from "../core/sessionExport.js";
-import { decodeManifest, panAt, panSpans } from "../core/sessionManifest.js";
+import { bedPlan, decodeManifest, panAt, panSpans } from "../core/sessionManifest.js";
+import { parse } from "../core/scriptDoc.js";
+import { tuningForm } from "../core/bedPlan.js";
+import { readdirSync } from "fs";
 import { auditionPlan, makeTuning, makeWarble, type BedPlan } from "../core/bedPlan.js";
 import { bedPlanFor, library, libraryRoot, listeningModel } from "../main/model.js";
 import { resolvedSignal } from "../core/level.js";
@@ -423,6 +426,64 @@ for (const level of lib.levels) {
     "the export is named from the level, the template and the date");
   check(suggestedFilename(undefined, "some-render") === "some-render.wav",
     "a manifest-less render still exports under its own name");
+}
+
+// ------------------------------------------------- the sounds the bed makes
+//
+// **A generated sound has to be placed by something.** The return signal is
+// placed by `ending == "return"`; the resonant tuning only by a `media
+// resonantTuning` step in a segment. No segment had one, so `plan.tuning` was
+// never set and the hum never sounded in any session — while every check,
+// here and on the Swift side, stayed green. Nothing fails: the narration plays
+// and the humming window is exactly as silent in the session file either way.
+//
+// This build ships that library, so it has standing to assert its content and
+// not merely that both platforms agree about it. Two ports agreeing about a
+// sound neither one makes is worth nothing.
+{
+  const segmentsDir = join(process.cwd(), "..", "library", "segments");
+  const files = (() => { try { return readdirSync(segmentsDir); } catch { return []; } })()
+    .filter(n => n.endsWith(".gws"));
+  check(files.length > 0, `the bundled library has segments to read (${files.length})`);
+
+  const placers: string[] = [];
+  for (const name of files) {
+    let doc;
+    try { doc = parse(readFileSync(join(segmentsDir, name), "utf8")); } catch { continue; }
+    if (doc.steps.some(s => s.kind === "media" && s.text === "resonantTuning")) placers.push(name);
+  }
+  check(placers.length > 0,
+    "some segment places the resonant tuning, or the bed never generates it");
+  for (const name of files.filter(n => n.startsWith("tuning-hum"))) {
+    const doc = parse(readFileSync(join(segmentsDir, name), "utf8"));
+    const cue = doc.steps.find(s => s.kind === "media" && s.text === "resonantTuning");
+    check(cue !== undefined,
+      `${name} places the resonant tuning it asks the listener to make`);
+    check((cue?.seconds ?? 0) > 10, `${name}: long enough to tune against (${cue?.seconds ?? 0}s)`);
+  }
+
+  // And a placement reaches the bed — the half a segment cannot prove alone.
+  const levels = JSON.parse(readFileSync(
+    join(process.cwd(), "..", "library", "levels.json"), "utf8")) as Parameters<typeof bedPlan>[1];
+  const placed = decodeManifest({
+    template: "t", verbosity: 3, voice: "v", seconds: 300, narrationOnly: true,
+    level: "F10", startLevel: "F10", ending: "stay", segments: [],
+    cues: [{ seconds: 0, kind: "level", text: "F10", args: [] }],
+    media: [{ role: "resonantTuning", startSeconds: 100, seconds: 60, fit: "once" }],
+  });
+  const withTuning = bedPlan(placed, levels, []);
+  check(withTuning?.tuning !== undefined, "a resonant-tuning cue becomes a tuning the bed generates");
+  check(withTuning?.tuning?.startSeconds === 100 && withTuning?.tuning?.duration === 60,
+    "placed and held where the cue says");
+  check(withTuning?.tuning?.form === tuningForm("F10"), "in the form this level tunes on");
+
+  const bare = decodeManifest({
+    template: "t", verbosity: 3, voice: "v", seconds: 300, narrationOnly: true,
+    level: "F10", startLevel: "F10", ending: "stay", segments: [],
+    cues: [{ seconds: 0, kind: "level", text: "F10", args: [] }],
+  });
+  check(bedPlan(bare, levels, [])?.tuning === undefined,
+    "and a tape that places nothing generates nothing");
 }
 
 console.log(`${pass} passed, ${fail} failed`);
