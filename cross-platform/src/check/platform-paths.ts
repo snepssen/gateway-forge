@@ -5,10 +5,11 @@
  */
 import { basename, dirname, join, posix, win32 } from "path";
 import {
-  existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, symlinkSync,
-  writeFileSync,
+  cpSync, existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync,
+  statSync, symlinkSync, writeFileSync,
 } from "fs";
 import { tmpdir } from "os";
+import { writeWav, sampleRate } from "../core/audioIO.js";
 import {
   fromPortableRelative, isPortableFilenameComponent, isSafePortableRelativePath,
   portableBasename, toPortableRelative,
@@ -201,6 +202,59 @@ if (process.platform !== "win32") {
   check(seen.size > 12, `the page's imports were actually walked (${seen.size} modules)`);
   check(leaks.length === 0,
     `nothing the page loads reaches Node${leaks.length ? `: ${leaks.join("; ")}` : ""}`);
+}
+
+/**
+ * **The page names a session; it never names a path.**
+ *
+ * `sessions:open` is the one channel that takes a value from the renderer and
+ * goes to disk with it, so it is the one place a compromised or simply buggy
+ * page could try to read something that is not a tape. The rule that makes it
+ * safe is not sanitisation — it is that the key must exactly equal the
+ * basename of a directory the main process discovered itself. Nothing derived
+ * from the key is ever joined to a path.
+ *
+ * Checked with a real render present, so that a legitimate key opening proves
+ * the refusals below are refusals rather than an empty library saying no to
+ * everything.
+ */
+{
+  const root = mkdtempSync(join(tmpdir(), "gf-keyguard-"));
+  try {
+    cpSync(join(process.cwd(), "..", "fixtures", "synthetic-library"), root, { recursive: true });
+    const key = "2026-09-14-000000-a-tape-abcd1234";
+    const renderDir = join(root, "focus", "F10", "renders", key);
+    mkdirSync(renderDir, { recursive: true });
+    writeFileSync(join(renderDir, "manifest.json"), JSON.stringify({
+      template: "a-tape", verbosity: 3, voice: "v", seconds: 1, narrationOnly: true,
+      level: "F10", purpose: "standard", segments: [], cues: [], media: [],
+    }));
+    writeWav(new Float32Array(sampleRate), join(renderDir, "session.wav"));
+
+    process.env["GF_APPLICATION_SUPPORT_ROOT"] = root;
+    const sessions = await import("../main/sessions.js");
+
+    const listed = sessions.assembledSessions().map(s => s.key);
+    check(listed.includes(key), `the page is offered the tape that is there (${listed.length})`);
+    let opened = false;
+    try { sessions.openSession(key); opened = true; } catch { opened = false; }
+    check(opened, "and a key it was offered opens — so the refusals below mean something");
+
+    // Everything a page could invent instead.
+    const hostile: unknown[] = [
+      "../../../../etc/passwd", "..%2f..%2fetc%2fpasswd", "/etc/passwd",
+      `${key}/../../../../etc/passwd`, `${key}\\..\\..\\windows`,
+      ".", "..", "", " ", null, undefined, 42, {}, ["x"],
+    ];
+    const leaked = hostile.filter(bad => {
+      try { sessions.openSession(bad); return true; } catch { return false; }
+    }).map(bad => JSON.stringify(bad));
+    check(leaked.length === 0,
+      `and nothing else does${leaked.length ? `: ${leaked.join(", ")} opened` : ""}`);
+  } finally {
+    delete process.env["GF_APPLICATION_SUPPORT_ROOT"];
+    rmSync(root, { recursive: true, force: true });
+  }
 }
 
 console.log(`${pass} passed, ${fail} failed`);
