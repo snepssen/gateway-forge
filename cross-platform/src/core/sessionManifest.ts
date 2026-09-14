@@ -383,6 +383,12 @@ const encodeEntry = (e: Entry): Record<string, unknown> => ({
   ...(e.startSeconds !== undefined ? { startSeconds: e.startSeconds } : {}),
   ...(e.seconds !== undefined ? { seconds: e.seconds } : {}),
   ...(e.stamp !== undefined ? { stamp: e.stamp } : {}),
+  // Swift's synthesized `Encodable` writes every stored property, and `pan`
+  // is one. Leaving it out here silently centred the voice on every tape this
+  // build assembled: the assembly held the right value, the file it wrote did
+  // not, and the player read the file. Measured in the running app before it
+  // was believed — the panned segment came out at a 1.00 channel ratio.
+  ...(e.pan !== undefined ? { pan: e.pan } : {}),
 });
 
 const encodeCue = (c: Cue): Record<string, unknown> => ({
