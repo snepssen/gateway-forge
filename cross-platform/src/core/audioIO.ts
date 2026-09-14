@@ -129,3 +129,52 @@ export function writeWavStereo(left: Float32Array, right: Float32Array,
   }
   writeFileSync(path, Buffer.concat([header(2, n, rate), body]));
 }
+
+/**
+ * Measuring rendered audio, so a broken render can be *found* rather than
+ * listened for. Ported from `AudioProbe` in `AudioIO.swift`.
+ */
+export interface RenderQuality {
+  seconds: number;
+  peak: number;
+  clippedSamples: number;
+  nonFiniteSamples: number;
+  leadingQuietSeconds: number;
+  trailingQuietSeconds: number;
+}
+
+/** **A small, mechanical contract.** It does not claim the speech sounds good;
+ *  it rejects the file-level defects that can be proven without pretending an
+ *  acoustic metric has ears. */
+export function isSafe(q: RenderQuality, edgeQuiet: number): boolean {
+  return q.seconds > 0 && q.clippedSamples === 0 && q.nonFiniteSamples === 0
+    && q.leadingQuietSeconds >= edgeQuiet * 0.95
+    && q.trailingQuietSeconds >= edgeQuiet * 0.95;
+}
+
+/** Peak, clipping and the two file edges of a rendered speech unit.
+ *  `preparedSpeechPart` guarantees the edge quiet; this reads it back, so a
+ *  later refactor cannot silently remove the guarantee. */
+export function renderQuality(samples: Float32Array, rate = sampleRate,
+                              quietThreshold = 0.005): RenderQuality {
+  let peak = 0, clipped = 0, nonFinite = 0;
+  for (const sample of samples) {
+    if (!Number.isFinite(sample)) { nonFinite++; continue; }
+    const magnitude = Math.abs(sample);
+    if (magnitude > peak) peak = magnitude;
+    if (magnitude >= 0.999) clipped++;
+  }
+  let leading = 0;
+  while (leading < samples.length && Number.isFinite(samples[leading]!)
+         && Math.abs(samples[leading]!) < quietThreshold) leading++;
+  let trailing = 0;
+  while (trailing < samples.length
+         && Number.isFinite(samples[samples.length - 1 - trailing]!)
+         && Math.abs(samples[samples.length - 1 - trailing]!) < quietThreshold) trailing++;
+  return {
+    seconds: samples.length / rate,
+    peak, clippedSamples: clipped, nonFiniteSamples: nonFinite,
+    leadingQuietSeconds: leading / rate,
+    trailingQuietSeconds: trailing / rate,
+  };
+}

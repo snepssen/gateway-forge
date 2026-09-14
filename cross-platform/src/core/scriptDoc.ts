@@ -31,6 +31,11 @@ export interface ScriptDoc {
   ending: string;
   seed?: bigint | undefined;
   pan: number;
+  /** Whether `@pan` was written in this file at all. `pan` alone cannot say:
+   *  a segment that never mentions panning and one asking for dead centre both
+   *  read 0, and inside a session that is panning those mean different things.
+   *  Needed so a segment's own pan applies to that segment and nothing else. */
+  panIsDeclared: boolean;
   beatOverride?: number;
   carrierOverride?: number;
   segment?: string;
@@ -55,7 +60,8 @@ export interface ScriptDoc {
 export function emptyDoc(): ScriptDoc {
   return {
     title: "untitled", level: "F10", voice: "default", ending: "return",
-    pan: 0, levels: [], provisional: false, duration: "", protectedTerms: [],
+    pan: 0, panIsDeclared: false,
+    levels: [], provisional: false, duration: "", protectedTerms: [],
     fixed: false, continuousExit: false, continuousExitDefault: false,
     upright: false, needs: [], steps: [],
   };
@@ -141,7 +147,7 @@ export function parse(source: string, seedOverride?: bigint): ScriptDoc {
         case "seed": doc.seed = /^\d+$/.test(val) ? BigInt(val) : undefined; break;
         case "beat": doc.beatOverride = num(val); break;
         case "carrier": doc.carrierOverride = num(val); break;
-        case "pan": doc.pan = parsePan(val); break;
+        case "pan": doc.pan = parsePan(val); doc.panIsDeclared = true; break;
         case "segment": doc.segment = val; break;
         case "verbosity": {
           const v = /^\d+$/.test(val) ? Number(val) : NaN;
