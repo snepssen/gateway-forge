@@ -1,95 +1,95 @@
 {
   "editFixture" : {
     "note" : "real template",
-    "source" : "# Source-grounded recipe: Wave III — Freedom, CD1-2.\n# The tape's preparatory process is expanded through the existing reusable\n# components; its authored exercise remains one segment rather than being\n# paraphrased here. No generic briefing, Clear Skies or extra hold is added.\n\n@title    Remote Viewing\n@level    F10\n@ending   return\n@pan      right\n@seed     20007\n@verbosity 3\n\n# Awake preparation — must happen before the listener lies down.\nuse remote-viewing-intent\n\nsurf 0.55\nuse orientation\n\nsurf 0.30\nuse conversion-box\n\nsurf 0.18\nuse tuning-hum\nuse balloon\nuse affirmation\n\nsurf 0.0\nuse relax-10\nuse remote-viewing\nuse return-one\n",
+    "source" : "# Source-grounded recipe: Wave III — Freedom, CD1-2.\n# The tape's preparatory process is expanded through the existing reusable\n# components; its authored exercise remains one segment rather than being\n# paraphrased here. No generic briefing, Clear Skies or extra hold is added.\n\n@title    Remote Viewing\n@level    F10\n@ending   return\n@seed     20007\n@verbosity 3\n\n# Awake preparation — must happen before the listener lies down.\nuse remote-viewing-intent\n\nsurf 0.55\nuse orientation\n\nsurf 0.30\nuse conversion-box\n\nsurf 0.18\nuse tuning-hum\nuse balloon\nuse affirmation\n\nsurf 0.0\nuse relax-10\nuse remote-viewing\nuse return-one\n",
     "steps" : [
       {
         "kind" : "use",
-        "line" : 13,
+        "line" : 12,
         "ordinal" : 0,
         "segmentID" : "remote-viewing-intent",
         "text" : "use remote-viewing-intent"
       },
       {
         "kind" : "surf",
-        "line" : 15,
+        "line" : 14,
         "ordinal" : 1,
         "segmentID" : "",
         "text" : "surf 0.55"
       },
       {
         "kind" : "use",
-        "line" : 16,
+        "line" : 15,
         "ordinal" : 2,
         "segmentID" : "orientation",
         "text" : "use orientation"
       },
       {
         "kind" : "surf",
-        "line" : 18,
+        "line" : 17,
         "ordinal" : 3,
         "segmentID" : "",
         "text" : "surf 0.30"
       },
       {
         "kind" : "use",
-        "line" : 19,
+        "line" : 18,
         "ordinal" : 4,
         "segmentID" : "conversion-box",
         "text" : "use conversion-box"
       },
       {
         "kind" : "surf",
-        "line" : 21,
+        "line" : 20,
         "ordinal" : 5,
         "segmentID" : "",
         "text" : "surf 0.18"
       },
       {
         "kind" : "use",
-        "line" : 22,
+        "line" : 21,
         "ordinal" : 6,
         "segmentID" : "tuning-hum",
         "text" : "use tuning-hum"
       },
       {
         "kind" : "use",
-        "line" : 23,
+        "line" : 22,
         "ordinal" : 7,
         "segmentID" : "balloon",
         "text" : "use balloon"
       },
       {
         "kind" : "use",
-        "line" : 24,
+        "line" : 23,
         "ordinal" : 8,
         "segmentID" : "affirmation",
         "text" : "use affirmation"
       },
       {
         "kind" : "surf",
-        "line" : 26,
+        "line" : 25,
         "ordinal" : 9,
         "segmentID" : "",
         "text" : "surf 0.0"
       },
       {
         "kind" : "use",
-        "line" : 27,
+        "line" : 26,
         "ordinal" : 10,
         "segmentID" : "relax-10",
         "text" : "use relax-10"
       },
       {
         "kind" : "use",
-        "line" : 28,
+        "line" : 27,
         "ordinal" : 11,
         "segmentID" : "remote-viewing",
         "text" : "use remote-viewing"
       },
       {
         "kind" : "use",
-        "line" : 29,
+        "line" : 28,
         "ordinal" : 12,
         "segmentID" : "return-one",
         "text" : "use return-one"
@@ -1021,19 +1021,19 @@
   },
   "newTemplateCases" : [
     {
-      "result" : "# Built in Gateway Forge. A template is a recipe: `use <segment>` steps in\n# order, interleaved with the session-level surf and bed cues that segments\n# are forbidden to carry. Edit it here or in the app -- it is the same file.\n\n@title    A Fresh One\n@level    F10\n@voice    default\n@ending   return\n@pan      right\n@verbosity 3\n\nsurf 0.55\nuse opening\nuse comfort\nuse orientation\nuse ocean\n\nsurf 0.30\nuse conversion-box\nuse affirmation\n\nsurf 0.18\nuse tuning-hum\nuse balloon\n\nsurf 0.0\nuse relax-10\n",
+      "result" : "# Built in Gateway Forge. A template is a recipe: `use <segment>` steps in\n# order, interleaved with the session-level surf and bed cues that segments\n# are forbidden to carry. Edit it here or in the app -- it is the same file.\n\n@title    A Fresh One\n@level    F10\n@voice    default\n@ending   return\n@verbosity 3\n\nsurf 0.55\nuse opening\nuse comfort\nuse orientation\nuse ocean\n\nsurf 0.30\nuse conversion-box\nuse affirmation\n\nsurf 0.18\nuse tuning-hum\nuse balloon\n\nsurf 0.0\nuse relax-10\n",
       "title" : "A Fresh One"
     },
     {
-      "result" : "# Built in Gateway Forge. A template is a recipe: `use <segment>` steps in\n# order, interleaved with the session-level surf and bed cues that segments\n# are forbidden to carry. Edit it here or in the app -- it is the same file.\n\n@title    No Induction\n@level    F10\n@voice    default\n@ending   return\n@pan      right\n@verbosity 3\n\n",
+      "result" : "# Built in Gateway Forge. A template is a recipe: `use <segment>` steps in\n# order, interleaved with the session-level surf and bed cues that segments\n# are forbidden to carry. Edit it here or in the app -- it is the same file.\n\n@title    No Induction\n@level    F10\n@voice    default\n@ending   return\n@verbosity 3\n\n",
       "title" : "No Induction"
     },
     {
-      "result" : "# Built in Gateway Forge. A template is a recipe: `use <segment>` steps in\n# order, interleaved with the session-level surf and bed cues that segments\n# are forbidden to carry. Edit it here or in the app -- it is the same file.\n\n@title    With Seed And Body\n@level    F10\n@voice    default\n@ending   return\n@pan      right\n@verbosity 3\n@seed     42\n\nsurf 0.55\nuse opening\nuse comfort\nuse orientation\nuse ocean\n\nsurf 0.30\nuse conversion-box\nuse affirmation\n\nsurf 0.18\nuse tuning-hum\nuse balloon\n\nsurf 0.0\nuse relax-10\n\nuse free-flow-10\n",
+      "result" : "# Built in Gateway Forge. A template is a recipe: `use <segment>` steps in\n# order, interleaved with the session-level surf and bed cues that segments\n# are forbidden to carry. Edit it here or in the app -- it is the same file.\n\n@title    With Seed And Body\n@level    F10\n@voice    default\n@ending   return\n@verbosity 3\n@seed     42\n\nsurf 0.55\nuse opening\nuse comfort\nuse orientation\nuse ocean\n\nsurf 0.30\nuse conversion-box\nuse affirmation\n\nsurf 0.18\nuse tuning-hum\nuse balloon\n\nsurf 0.0\nuse relax-10\n\nuse free-flow-10\n",
       "title" : "With Seed And Body"
     },
     {
-      "result" : "# Built in Gateway Forge. A template is a recipe: `use <segment>` steps in\n# order, interleaved with the session-level surf and bed cues that segments\n# are forbidden to carry. Edit it here or in the app -- it is the same file.\n\n@title    Custom Everything\n@level    F21\n@voice    snepssen\n@ending   stay\n@pan      right\n@verbosity 1\n\nsurf 0.55\nuse opening\nuse comfort\nuse orientation\nuse ocean\n\nsurf 0.30\nuse conversion-box\nuse affirmation\n\nsurf 0.18\nuse tuning-hum\nuse balloon\n\nsurf 0.0\nuse relax-10\n",
+      "result" : "# Built in Gateway Forge. A template is a recipe: `use <segment>` steps in\n# order, interleaved with the session-level surf and bed cues that segments\n# are forbidden to carry. Edit it here or in the app -- it is the same file.\n\n@title    Custom Everything\n@level    F21\n@voice    snepssen\n@ending   stay\n@verbosity 1\n\nsurf 0.55\nuse opening\nuse comfort\nuse orientation\nuse ocean\n\nsurf 0.30\nuse conversion-box\nuse affirmation\n\nsurf 0.18\nuse tuning-hum\nuse balloon\n\nsurf 0.0\nuse relax-10\n",
       "title" : "Custom Everything"
     }
   ],
@@ -1049,7 +1049,7 @@
           "file" : "library/segments/remote-viewing-intent.gws",
           "index" : 0,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "upright",
           "needs" : [
             "paper",
@@ -1081,7 +1081,7 @@
           "file" : "library/segments/orientation.gws",
           "index" : 2,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1096,7 +1096,7 @@
           "file" : "library/segments/conversion-box.gws",
           "index" : 3,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1126,7 +1126,7 @@
           "file" : "library/segments/balloon.gws",
           "index" : 5,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1141,7 +1141,7 @@
           "file" : "library/segments/affirmation.gws",
           "index" : 6,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1156,7 +1156,7 @@
           "file" : "library/segments/relax-10.gws",
           "index" : 7,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1172,7 +1172,7 @@
           "file" : "library/segments/remote-viewing.gws",
           "index" : 8,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1187,7 +1187,7 @@
           "file" : "library/segments/return-one.gws",
           "index" : 9,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1200,8 +1200,16 @@
         }
       ],
       "missingRenders" : [
+        "upright.remote-viewing-intent.0",
         "announcement.announcement.1",
-        "segment.tuning-hum.4"
+        "segment.orientation.2",
+        "segment.conversion-box.3",
+        "segment.tuning-hum.4",
+        "segment.balloon.5",
+        "segment.affirmation.6",
+        "segment.relax-10.7",
+        "segment.remote-viewing.8",
+        "segment.return-one.9"
       ],
       "name" : "real template, v3, real destination",
       "needsComposing" : [
@@ -1226,7 +1234,7 @@
           "file" : "library/segments/remote-viewing-intent.gws",
           "index" : 0,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "upright",
           "needs" : [
             "paper",
@@ -1258,7 +1266,7 @@
           "file" : "library/segments/orientation.gws",
           "index" : 2,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1273,7 +1281,7 @@
           "file" : "library/segments/conversion-box.gws",
           "index" : 3,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1303,7 +1311,7 @@
           "file" : "library/segments/balloon.gws",
           "index" : 5,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1318,7 +1326,7 @@
           "file" : "library/segments/affirmation.gws",
           "index" : 6,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1333,7 +1341,7 @@
           "file" : "library/segments/relax-10.count-only.gws",
           "index" : 7,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1349,7 +1357,7 @@
           "file" : "library/segments/remote-viewing.gws",
           "index" : 8,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1364,7 +1372,7 @@
           "file" : "library/segments/return-one.gws",
           "index" : 9,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1377,8 +1385,16 @@
         }
       ],
       "missingRenders" : [
+        "upright.remote-viewing-intent.0",
         "announcement.announcement.1",
-        "segment.tuning-hum.4"
+        "segment.orientation.2",
+        "segment.conversion-box.3",
+        "segment.tuning-hum.4",
+        "segment.balloon.5",
+        "segment.affirmation.6",
+        "segment.relax-10.7",
+        "segment.remote-viewing.8",
+        "segment.return-one.9"
       ],
       "name" : "real template, v1",
       "needsComposing" : [
@@ -1396,14 +1412,14 @@
     {
       "destination" : "F21",
       "destinationKey" : "F21",
-      "estimatedSeconds" : 672.6438258386866,
+      "estimatedSeconds" : 702.6438258386866,
       "isReady" : false,
       "items" : [
         {
           "file" : "library/segments/remote-viewing-intent.gws",
           "index" : 0,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "upright",
           "needs" : [
             "paper",
@@ -1435,7 +1451,7 @@
           "file" : "library/segments/orientation.gws",
           "index" : 2,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1450,7 +1466,7 @@
           "file" : "library/segments/conversion-box.gws",
           "index" : 3,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1472,7 +1488,7 @@
           ],
           "outputName" : "tuning-hum.chest.take1.wav",
           "requested" : 2,
-          "seconds" : 62.83904354032834,
+          "seconds" : 92.83904354032833,
           "segmentID" : "tuning-hum",
           "title" : "The Tuning Hum"
         },
@@ -1480,7 +1496,7 @@
           "file" : "library/segments/balloon.gws",
           "index" : 5,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1495,7 +1511,7 @@
           "file" : "library/segments/affirmation.gws",
           "index" : 6,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1510,7 +1526,7 @@
           "file" : "library/segments/relax-10.count-only.gws",
           "index" : 7,
           "isFallback" : true,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1526,7 +1542,7 @@
           "file" : "library/segments/remote-viewing.gws",
           "index" : 8,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1541,7 +1557,7 @@
           "file" : "library/segments/return-one.gws",
           "index" : 9,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1554,8 +1570,16 @@
         }
       ],
       "missingRenders" : [
+        "upright.remote-viewing-intent.0",
         "announcement.announcement.1",
-        "segment.tuning-hum.4"
+        "segment.orientation.2",
+        "segment.conversion-box.3",
+        "segment.tuning-hum.4",
+        "segment.balloon.5",
+        "segment.affirmation.6",
+        "segment.relax-10.7",
+        "segment.remote-viewing.8",
+        "segment.return-one.9"
       ],
       "name" : "real template, v2, pause scale 0.5",
       "needsComposing" : [
@@ -1573,14 +1597,14 @@
     {
       "destination" : "F21",
       "destinationKey" : "F21",
-      "estimatedSeconds" : 1608.1299072091363,
+      "estimatedSeconds" : 1578.1299072091363,
       "isReady" : false,
       "items" : [
         {
           "file" : "library/segments/remote-viewing-intent.gws",
           "index" : 0,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "upright",
           "needs" : [
             "paper",
@@ -1612,7 +1636,7 @@
           "file" : "library/segments/orientation.gws",
           "index" : 2,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1627,7 +1651,7 @@
           "file" : "library/segments/conversion-box.gws",
           "index" : 3,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1649,7 +1673,7 @@
           ],
           "outputName" : "tuning-hum.chest.take1.wav",
           "requested" : 3,
-          "seconds" : 137.83904354032833,
+          "seconds" : 107.83904354032833,
           "segmentID" : "tuning-hum",
           "title" : "The Tuning Hum"
         },
@@ -1657,7 +1681,7 @@
           "file" : "library/segments/balloon.gws",
           "index" : 5,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1672,7 +1696,7 @@
           "file" : "library/segments/affirmation.gws",
           "index" : 6,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1687,7 +1711,7 @@
           "file" : "library/segments/relax-10.gws",
           "index" : 7,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1703,7 +1727,7 @@
           "file" : "library/segments/remote-viewing.gws",
           "index" : 8,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1718,7 +1742,7 @@
           "file" : "library/segments/return-one.gws",
           "index" : 9,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1731,8 +1755,16 @@
         }
       ],
       "missingRenders" : [
+        "upright.remote-viewing-intent.0",
         "announcement.announcement.1",
-        "segment.tuning-hum.4"
+        "segment.orientation.2",
+        "segment.conversion-box.3",
+        "segment.tuning-hum.4",
+        "segment.balloon.5",
+        "segment.affirmation.6",
+        "segment.relax-10.7",
+        "segment.remote-viewing.8",
+        "segment.return-one.9"
       ],
       "name" : "real template, pause scale 2.0",
       "needsComposing" : [
@@ -1756,7 +1788,7 @@
           "file" : "library/segments/remote-viewing-intent.gws",
           "index" : 0,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "upright",
           "needs" : [
             "paper",
@@ -1772,7 +1804,7 @@
           "file" : "library/segments/orientation.gws",
           "index" : 1,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1787,7 +1819,7 @@
           "file" : "library/segments/conversion-box.gws",
           "index" : 2,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1817,7 +1849,7 @@
           "file" : "library/segments/balloon.gws",
           "index" : 4,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1832,7 +1864,7 @@
           "file" : "library/segments/affirmation.gws",
           "index" : 5,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1847,7 +1879,7 @@
           "file" : "library/segments/relax-10.gws",
           "index" : 6,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1863,7 +1895,7 @@
           "file" : "library/segments/remote-viewing.gws",
           "index" : 7,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1878,7 +1910,7 @@
           "file" : "library/segments/return-one.gws",
           "index" : 8,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1891,7 +1923,15 @@
         }
       ],
       "missingRenders" : [
-        "segment.tuning-hum.3"
+        "upright.remote-viewing-intent.0",
+        "segment.orientation.1",
+        "segment.conversion-box.2",
+        "segment.tuning-hum.3",
+        "segment.balloon.4",
+        "segment.affirmation.5",
+        "segment.relax-10.6",
+        "segment.remote-viewing.7",
+        "segment.return-one.8"
       ],
       "name" : "no destination at all",
       "needsComposing" : [
@@ -1916,7 +1956,7 @@
           "file" : "library/segments/remote-viewing-intent.gws",
           "index" : 0,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "upright",
           "needs" : [
             "paper",
@@ -1932,7 +1972,7 @@
           "file" : "library/segments/orientation.gws",
           "index" : 1,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1947,7 +1987,7 @@
           "file" : "library/segments/conversion-box.gws",
           "index" : 2,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1977,7 +2017,7 @@
           "file" : "library/segments/balloon.gws",
           "index" : 4,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -1992,7 +2032,7 @@
           "file" : "library/segments/affirmation.gws",
           "index" : 5,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -2007,7 +2047,7 @@
           "file" : "library/segments/relax-10.gws",
           "index" : 6,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -2023,7 +2063,7 @@
           "file" : "library/segments/remote-viewing.gws",
           "index" : 7,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -2038,7 +2078,7 @@
           "file" : "library/segments/return-one.gws",
           "index" : 8,
           "isFallback" : false,
-          "isRendered" : true,
+          "isRendered" : false,
           "kind" : "segment",
           "needs" : [
 
@@ -2051,7 +2091,15 @@
         }
       ],
       "missingRenders" : [
-        "segment.tuning-hum.3"
+        "upright.remote-viewing-intent.0",
+        "segment.orientation.1",
+        "segment.conversion-box.2",
+        "segment.tuning-hum.3",
+        "segment.balloon.4",
+        "segment.affirmation.5",
+        "segment.relax-10.6",
+        "segment.remote-viewing.7",
+        "segment.return-one.8"
       ],
       "name" : "destination nothing describes",
       "needsComposing" : [
