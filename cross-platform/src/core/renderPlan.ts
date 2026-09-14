@@ -371,6 +371,14 @@ export function loadTimeline(outputName: string, dir: string): TakeTimeline | un
 }
 
 /** The stamp a take currently carries on disk, or undefined if it has none. */
+/** Write the stamp beside a take: what engine and what source it came from.
+ *  A take that cannot prove where it came from is one nothing downstream can
+ *  trust. */
+export function writeStamp(outputName: string, source: string, dir: string,
+                           renderKey: string): void {
+  writeFileSync(join(dir, stampName(outputName)), stampValue(renderKey, source), "utf8");
+}
+
 export function stampOf(outputName: string, dir: string): string | undefined {
   try {
     return readFileSync(join(dir, stampName(outputName)), "utf8").trim();
