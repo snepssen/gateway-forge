@@ -1,4 +1,4 @@
-// The whole bridge. Six channels, no Node in the renderer, nothing ambient.
+// The whole bridge. Eight channels, no Node in the renderer, nothing ambient.
 // Three read — the shell model, the bed plan behind one level, the listening
 // calibration — and one writes: `saveListening` takes eight numbers and puts
 // them in `memory/audio.json`. Nothing here takes a path or a filename from
@@ -16,4 +16,6 @@ contextBridge.exposeInMainWorld("gateway", {
   saveListening: profile => ipcRenderer.invoke("listening:save", profile),
   speakCalibration: () => ipcRenderer.invoke("speech:calibration"),
   speechEngine: () => ipcRenderer.invoke("speech:engine"),
+  sessions: () => ipcRenderer.invoke("sessions:list"),
+  openSession: key => ipcRenderer.invoke("sessions:open", key),
 });

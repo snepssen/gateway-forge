@@ -18,6 +18,7 @@ import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 import { bedPlanFor, bootstrap, engineStatus, libraryRoot, listeningModel, saveListening,
          shellModel, speakCalibrationLine } from "./model.js";
+import { assembledSessions, openSession } from "./sessions.js";
 import { setInstalledRoot } from "./paths.js";
 import { guardOutboundSockets } from "./netguard.js";
 
@@ -104,6 +105,34 @@ ipcMain.handle("speech:calibration", async () => {
 ipcMain.handle("speech:engine", () => {
   try {
     return { ok: true, ...engineStatus() };
+  } catch (error) {
+    return { ok: false, error: error instanceof Error ? error.message : String(error) };
+  }
+});
+
+ipcMain.handle("sessions:list", () => {
+  try {
+    return { ok: true, sessions: assembledSessions() };
+  } catch (error) {
+    return { ok: false, error: error instanceof Error ? error.message : String(error) };
+  }
+});
+
+// A whole tape's narration, as samples. The page plays it through the same
+// graph the bed runs in, so the Narration slider balances the voice against
+// the room rather than against nothing — and one context means one clock,
+// which an hour-long session needs and two contexts could not give.
+//
+// `Float32Array` crosses the bridge as its underlying buffer, which
+// structured-clone copies rather than shares.
+ipcMain.handle("sessions:open", (_event, key: unknown) => {
+  try {
+    const s = openSession(key);
+    return {
+      ok: true, key: s.key, manifest: s.manifest, plan: s.plan,
+      sampleRate: s.sampleRate, narration: s.narration.buffer,
+      settling: s.settling?.buffer, exit: s.exit?.buffer,
+    };
   } catch (error) {
     return { ok: false, error: error instanceof Error ? error.message : String(error) };
   }

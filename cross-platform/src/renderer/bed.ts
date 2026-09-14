@@ -24,6 +24,12 @@ export interface BedListener {
 export class BedPlayer {
   private context?: AudioContext;
   private node?: AudioWorkletNode;
+  /** A context supplied from outside, when the bed is one voice in a larger
+   *  graph. A session plays narration and the bed together, and two contexts
+   *  would be two clocks: near enough at the start and visibly apart an hour
+   *  in. When this is set the player borrows the context rather than making
+   *  one, and never suspends it — it does not own it. */
+  private borrowed: AudioContext | undefined;
   private state: BedState = "stopped";
   /** Guards against a second click while `addModule` is still in flight.
    *  Written as an explicit union rather than `?:` because it is cleared back
@@ -32,6 +38,21 @@ export class BedPlayer {
   private starting: Promise<void> | undefined;
 
   constructor(private readonly listener: BedListener) {}
+
+  /** Run inside somebody else's graph. Call before the first `play`. */
+  useContext(context: AudioContext): void {
+    this.borrowed = context;
+    this.context = context;
+  }
+
+  /** The worklet node, once built, so a host graph can route it. Connected to
+   *  the context's destination by default; a host that wants it elsewhere
+   *  disconnects and reconnects. */
+  get output(): AudioWorkletNode | undefined { return this.node; }
+
+  /** Put the bed where the transport is. A session's bed rides the narration
+   *  clock rather than its own, so a seek moves both. */
+  seek(seconds: number): void { this.send({ kind: "seek", seconds }); }
 
   get isSounding(): boolean { return this.state === "playing" || this.state === "starting"; }
 
@@ -47,7 +68,7 @@ export class BedPlayer {
    *  device opened by a page nobody asked to make noise is rude. */
   private async ensureGraph(init: BedInit): Promise<void> {
     if (this.node) return;
-    const context = new AudioContext();
+    const context = this.borrowed ?? new AudioContext();
     // `bedWorklet.js` sits beside this file in `out/renderer`, and the
     // worklet resolves its own imports from there — which is how it reaches
     // `../core/bedEngine.js` rather than carrying a copy of it.
@@ -72,8 +93,9 @@ export class BedPlayer {
         break;
       case "silent":
         // Only now is it safe to suspend: the ramp has finished, so there is
-        // no edge left to click on.
-        void this.context?.suspend();
+        // no edge left to click on. A borrowed context is left running — it
+        // belongs to a graph that may still have narration in it.
+        if (this.borrowed === undefined) void this.context?.suspend();
         this.setState("stopped");
         break;
       case "notStereo":
@@ -112,6 +134,16 @@ export class BedPlayer {
     if (this.state === "stopped" || this.state === "stopping") return;
     this.setState("stopping");
     this.send({ kind: "stop" });
+  }
+
+  /** Bring a bed that is already built back up to the calibrated master,
+   *  without rebuilding its plan or moving its clock. A session uses this
+   *  every time the transport starts: the plan and the position are already
+   *  right, only the gain was down. */
+  resumeGain(): void {
+    if (!this.node) return;
+    this.send({ kind: "play" });
+    this.setState("playing");
   }
 
   /** Move the part levels under a sounding bed. */
