@@ -199,7 +199,6 @@ export function newTemplate(o: {
     + `@level    ${level}\n`
     + `@voice    ${voice}\n`
     + `@ending   ${ending}\n`
-    + "@pan      right\n"
     + `@verbosity ${verbosity}\n`;
   if (o.seed !== undefined) out += `@seed     ${o.seed}\n`;
   out += "\n";

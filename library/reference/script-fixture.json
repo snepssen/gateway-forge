@@ -31462,10 +31462,10 @@
             "args" : [
 
             ],
-            "kind" : "hold",
+            "kind" : "media",
             "option" : "",
             "seconds" : 60,
-            "text" : ""
+            "text" : "resonantTuning"
           },
           {
             "args" : [
@@ -31579,10 +31579,10 @@
             "args" : [
 
             ],
-            "kind" : "hold",
+            "kind" : "media",
             "option" : "",
             "seconds" : 60,
-            "text" : ""
+            "text" : "resonantTuning"
           },
           {
             "args" : [
@@ -31686,10 +31686,10 @@
             "args" : [
 
             ],
-            "kind" : "hold",
+            "kind" : "media",
             "option" : "",
             "seconds" : 60,
-            "text" : ""
+            "text" : "resonantTuning"
           },
           {
             "args" : [

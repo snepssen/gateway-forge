@@ -14646,7 +14646,8 @@
           "text" : "This is your instrument, and you're tuning it."
         },
         {
-          "kind" : "silence",
+          "kind" : "media",
+          "role" : "resonantTuning",
           "seconds" : 60
         },
         {
@@ -14662,9 +14663,9 @@
       "seeds" : [
         "14868124120210188150"
       ],
-      "sourceDigest" : "0157dafd878a397b13703d92be3d60e0aae48fd5b34ad7612dcd63536b4301fa",
+      "sourceDigest" : "9442e2b2bda610952f649a74f0c0205a8ca8221d5c298d7ce72f79aa09e56d83",
       "speechCount" : 4,
-      "stampValue" : "piper|v1|source0157dafd878a397b13703d92be3d60e0aae48fd5b34ad7612dcd63536b4301fa|join7",
+      "stampValue" : "piper|v1|source9442e2b2bda610952f649a74f0c0205a8ca8221d5c298d7ce72f79aa09e56d83|join7",
       "takes" : 1
     },
     {
@@ -14698,7 +14699,8 @@
           "text" : "At this volume, you'll feel it more than hear it. In your skull. Your jaw. The space behind your eyes."
         },
         {
-          "kind" : "silence",
+          "kind" : "media",
+          "role" : "resonantTuning",
           "seconds" : 60
         },
         {
@@ -14714,9 +14716,9 @@
       "seeds" : [
         "14868124120210558536"
       ],
-      "sourceDigest" : "2a7d72df849f28a97620ce570457f77418670225dbfd641ba1305e9827907c75",
+      "sourceDigest" : "d3416fdf915d7e25064878d5ca8e8052e3bc0509ad6380d6630011650427e876",
       "speechCount" : 4,
-      "stampValue" : "piper|v1|source2a7d72df849f28a97620ce570457f77418670225dbfd641ba1305e9827907c75|join7",
+      "stampValue" : "piper|v1|sourced3416fdf915d7e25064878d5ca8e8052e3bc0509ad6380d6630011650427e876|join7",
       "takes" : 1
     },
     {
@@ -14750,7 +14752,8 @@
           "text" : "Feel where it changes as it moves. That shift is the instrument retuning itself to where you are now."
         },
         {
-          "kind" : "silence",
+          "kind" : "media",
+          "role" : "resonantTuning",
           "seconds" : 60
         },
         {
@@ -14766,9 +14769,9 @@
       "seeds" : [
         "11032750051153630929"
       ],
-      "sourceDigest" : "eac308c3282aec794d88965c9c810dd7c37dd9e27c3b0ba47cb402102cac4d94",
+      "sourceDigest" : "6ec15efc14109036c1d13abebc919b81ca9b76a0ed285098a12668a57a7019f4",
       "speechCount" : 4,
-      "stampValue" : "piper|v1|sourceeac308c3282aec794d88965c9c810dd7c37dd9e27c3b0ba47cb402102cac4d94|join7",
+      "stampValue" : "piper|v1|source6ec15efc14109036c1d13abebc919b81ca9b76a0ed285098a12668a57a7019f4|join7",
       "takes" : 1
     },
     {

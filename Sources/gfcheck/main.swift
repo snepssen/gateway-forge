@@ -504,9 +504,25 @@ if let d = docs["ocean.gws"] {
     c.equal(d.steps.filter { $0.kind == .say }.count, 5, "ocean carries its five framing lines")
 }
 if let d = docs["tuning-hum.chest.gws"] {
-    c.equal(d.steps.filter { $0.kind == .hold }.count, 1, "the humming window is a hold")
-    c.expect(!d.steps.contains { $0.kind == .media },
-             "no media step -- the bed is generated live, not played from a recording")
+    // **This asserted the opposite, and that is why the hum never sounded.**
+    // It required a bare `hold` and forbade a `media` step, on the grounds
+    // that "the bed is generated live, not played from a recording" — true of
+    // the sound, and wrong about the step. A media cue stopped meaning "find a
+    // recording" and became a *placement*: where the generated sound goes and
+    // how long it runs. `SessionManifest.bedPlan` and the assembler both say
+    // so in as many words.
+    //
+    // Forbidding the step removed the only thing that places the resonant
+    // tuning, so `plan.tuning` was never set and the bed generated nothing —
+    // in every session, while this check stayed green. The narration was
+    // unaffected, which is what made it invisible: the sixty-second window is
+    // exactly as silent in the narration file either way.
+    let cue = d.steps.first { $0.kind == .media }
+    c.equal(cue?.text, AudioAssetRole.resonantTuning.rawValue,
+            "the humming window places the resonant tuning")
+    c.expect((cue?.seconds ?? 0) >= 60, "and holds it long enough to tune against")
+    c.equal(d.steps.filter { $0.kind == .hold }.count, 0,
+            "and is not also a bare hold, which would lay the silence down twice")
 }
 if let d = docs["balloon.gws"] {
     c.expect(d.steps.contains { $0.kind == .hold }, "balloon holds while the field forms")
@@ -2597,6 +2613,76 @@ do {
 // Reading the source is the only way to check a UI decision from here, and a
 // half-suspended feature — no panel but a live listener — is exactly the
 // failure worth catching.
+// ------------------------------------------------------ the generated sounds
+//
+// **Both sounds the bed generates have to be *placed* by something.** The
+// return signal has a code path — `ending == "return"` puts a warble at the
+// end. The resonant tuning does not: it is placed by a `media resonantTuning`
+// step in the segment that asks for it, and when the tuning-hum segments were
+// rewritten that step was lost. Nothing failed. The narration played, the
+// sixty-second hold stayed exactly as silent as a narration file should be,
+// and the hum simply never sounded — in every session, for as long as the
+// rewrite had been in.
+c.suite("generated sounds are placed")
+do {
+    let segmentsDir = root.appending(path: "library/segments")
+    let files = (try? FileManager.default.contentsOfDirectory(at: segmentsDir,
+                                                              includingPropertiesForKeys: nil)) ?? []
+    var placers: [String] = []
+    for u in files where u.pathExtension == "gws" {
+        guard let text = try? String(contentsOf: u, encoding: .utf8),
+              let doc = try? ScriptParser.parse(text) else { continue }
+        if doc.steps.contains(where: { $0.kind == .media
+                                       && $0.text == AudioAssetRole.resonantTuning.rawValue }) {
+            placers.append(u.lastPathComponent)
+        }
+    }
+    c.expect(!placers.isEmpty,
+             "some segment places the resonant tuning, or the bed never generates it")
+
+    // Every variant of the segment that talks about humming must place it.
+    // They are level-scoped and the tuning's own form is chosen per level, so
+    // one variant forgetting leaves those levels silent and nowhere else.
+    for u in files where u.lastPathComponent.hasPrefix("tuning-hum") {
+        guard let text = try? String(contentsOf: u, encoding: .utf8),
+              let doc = try? ScriptParser.parse(text) else { continue }
+        let cue = doc.steps.first { $0.kind == .media
+                                    && $0.text == AudioAssetRole.resonantTuning.rawValue }
+        c.expect(cue != nil,
+                 "\(u.lastPathComponent) places the resonant tuning it is asking the listener to make")
+        c.expect((cue?.seconds ?? 0) > 10,
+                 "\(u.lastPathComponent): the tuning runs long enough to tune against "
+                 + "(\(cue?.seconds ?? 0)s)")
+    }
+
+    // And a placement actually reaches the bed. This is the half a segment
+    // cannot prove on its own.
+    let levels = try JSONDecoder().decode(
+        [Level].self, from: Data(contentsOf: root.appending(path: "library/levels.json")))
+    let manifest = SessionManifest(
+        template: "t", verbosity: 3, voice: "v", seconds: 300, narrationOnly: true,
+        level: "F10", startLevel: "F10", ending: "stay",
+        segments: [],
+        cues: [SessionManifest.Cue(seconds: 0, kind: "level", text: "F10", args: [])],
+        media: [SessionManifest.MediaCue(role: .resonantTuning, asset: "", file: "",
+                                         startSeconds: 100, seconds: 60, fit: .once)])
+    let plan = manifest.bedPlan(levels: levels)
+    c.expect(plan?.tuning != nil, "a resonant-tuning cue becomes a tuning the bed generates")
+    c.equal(plan?.tuning?.startSeconds, 100, "placed where the cue says")
+    c.equal(plan?.tuning?.duration, 60, "for as long as the cue says")
+    c.equal(plan?.tuning?.form, Tuning.form(forLevel: "F10"),
+            "in the form this level tunes on")
+
+    // Without the cue there is no tuning — which is exactly the state the
+    // library was in, and why this suite exists.
+    let bare = SessionManifest(
+        template: "t", verbosity: 3, voice: "v", seconds: 300, narrationOnly: true,
+        level: "F10", startLevel: "F10", ending: "stay", segments: [],
+        cues: [SessionManifest.Cue(seconds: 0, kind: "level", text: "F10", args: [])])
+    c.expect(bare.bedPlan(levels: levels)?.tuning == nil,
+             "and a tape that places nothing generates nothing")
+} catch { c.expect(false, "generated-sound placement checks threw: \(error)") }
+
 // ------------------------------------------------------- bundled voice layout
 //
 // **SwiftPM decides where inside its resource bundle a resource lands, and it
