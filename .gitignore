@@ -41,3 +41,7 @@ voices/*/*.onnx.json
 # Built packages. Reproducible from the tag by `.github/workflows/release.yml`,
 # and 450 MB of Electron and model weights that no repository should carry.
 /cross-platform/dist/
+
+# Bytecode from docs/build.py importing docs/page.py.
+__pycache__/
+*.pyc
