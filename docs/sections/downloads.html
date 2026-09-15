@@ -1,0 +1,117 @@
+  <p class="lede">Ad-hoc signed builds, straight from this repository's own release tag — the same <code>./build.sh</code> and CI packaging anyone can run themselves, just already run.</p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>macOS</h3>
+      <div class="meta">Apple Silicon · 82 MiB · v5.2.0</div>
+      <p>Gatekeeper will refuse an unsigned download by default — right-click the <code>.app</code> and choose Open once, or clear the quarantine flag from Terminal, either of which says you mean to run it.</p>
+      <!-- v5.2.0's macOS zip is unversioned: it was the first built by CI and
+           the job did not name it. Later releases carry the version like the
+           other three, so this link moves with them. -->
+      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/Gateway.Forge-5.2.0.macOS.zip">Download .app →</a></div>
+    </div>
+    <div class="card">
+      <h3>Windows</h3>
+      <div class="meta">x86-64 · 185 MiB installer · v5.2.0</div>
+      <p>Unsigned, so SmartScreen will warn that the publisher is unknown — a code-signing certificate costs money this project does not spend. Choose <b>More info</b>, then <b>Run anyway</b>, if you trust where you got it.</p>
+      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/Gateway.Forge.Setup.5.2.0.exe">Download installer →</a></div>
+      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/Gateway.Forge-5.2.0-win.zip">Or the portable .zip →</a></div>
+    </div>
+    <div class="card">
+      <h3>Linux</h3>
+      <div class="meta">x86-64 · 371 MiB AppImage · v5.2.0</div>
+      <p>The AppImage needs no install — <code>chmod +x</code> it and run. The tarball is the same build, if you would rather place it yourself.</p>
+      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/Gateway.Forge-5.2.0.AppImage">Download AppImage →</a></div>
+      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/gateway-forge-cross-platform-5.2.0.tar.gz">Or the .tar.gz →</a></div>
+    </div>
+  </div>
+  <div class="note"><code>xattr -cr "Gateway Forge.app"</code> is the Terminal route on macOS, run once after unzipping. Every archive's SHA-256 is published as <a href="https://github.com/snepssen/gateway-forge/releases/latest"><code>SHA256SUMS</code> on the release page</a> — check it against what you downloaded before you clear any quarantine flag, since that is the point at which verifying still means something.</div>
+
+  <h3 class="handoff">Or let a script do it</h3>
+  <p>One line, if you would rather not click through the warnings by hand. Each reads the asset names from the release rather than guessing them, verifies the SHA-256 against <code>SHA256SUMS</code> and stops on a mismatch, and clears the quarantine flag (macOS) or the downloaded-file block (Windows) — saying so as it goes. Neither asks for elevated permissions, and neither writes outside the paths it prints.</p>
+  <div class="install">
+    <div class="cmd">
+      <div class="cmdhead">
+        <span class="os">macOS · Linux</span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+      <pre><code>curl -fsSL https://raw.githubusercontent.com/snepssen/gateway-forge/main/install.sh | sh</code></pre>
+    </div>
+    <div class="cmd">
+      <div class="cmdhead">
+        <span class="os">Windows · PowerShell</span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+      <pre><code>irm https://raw.githubusercontent.com/snepssen/gateway-forge/main/install.ps1 | iex</code></pre>
+    </div>
+  </div>
+  <div class="note"><b>Read it before you run it.</b> Piping a remote script into a shell is exactly the thing worth being suspicious of, and both are short enough to skim first — drop the <code>| sh</code> (or the <code>| iex</code>) and it prints instead of running.</div>
+
+  <h3 class="handoff">Or build it yourself</h3>
+  <div class="install">
+    <div class="cmd">
+      <div class="cmdhead">
+        <span class="os">macOS · Xcode required</span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+      <pre><code>git clone https://github.com/snepssen/gateway-forge.git
+cd gateway-forge && ./build.sh</code></pre>
+    </div>
+  </div>
+
+  <div class="note"><b>Read the script before you run it</b> — it's short: checks, then <code>swift build</code>, then it assembles and ad-hoc signs the <code>.app</code>. No installer, no elevated permissions, nothing leaves the machine.</div>
+
+  <h3 style="margin-top:44px">The companion</h3>
+  <p><b>The companion is suspended.</b> Nothing listens on the network and no
+  device can pair — one flag in <code>CompanionService</code> says so, and a
+  check holds every path to it, because a feature that is off in some places
+  and on in others is worse than either. It is set aside rather than removed:
+  <code>GatewayCompanion.xcodeproj</code>, the LAN transport and their suites
+  are all still in the repository, and the phone side will be picked up again.</p>
+  <p>To take a session to a phone meanwhile, open it and choose <b>Export as
+  WAV</b>. An assembled <code>session.wav</code> is the narration alone — the
+  bed is generated live underneath it while you listen — so the export is a
+  mixdown rather than a copy: the same bed engine, over the plan the session
+  was assembled with, at your own listening levels, written as one stereo
+  file.</p>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>component</th><th>platform</th><th>status</th></tr></thead>
+      <tbody>
+        <tr><td>Desktop app</td><td>macOS 14+, Apple Silicon</td><td><span class="pill found">Installed daily driver</span></td></tr>
+        <tr><td>iOS companion</td><td>iOS 17+</td><td><span class="pill prov">Suspended — the code is still here</span></td></tr>
+        <tr><td>Windows / Linux</td><td>TypeScript core + Electron shell</td><td><span class="pill found">Released, checked, unsigned</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note"><b>Windows and Linux are packaged now.</b>
+  <code>cross-platform/</code> is 59 core modules, 31 check suites and a packaging gate, and a shell
+  drawn on top of them: the climb rail, a level page, a listening calibration,
+  the bed sounding live through the same <code>BedEngine</code> the Mac plays,
+  and the same fine-tuned voice speaking through the same Piper model. Both are
+  <em>imported</em> rather than copied, so the parity suites that hold them to
+  the Swift original are checking the code that actually runs — on real Ubuntu
+  and Windows runners, every push, speech engine and model included.
+  <br><br>
+  A build carries an immutable copy of the authored library and installs it to
+  a writable root on first launch; the application never edits its own bundle.
+  What it must <em>not</em> carry is checked as carefully as what it must: a
+  package containing a listener's <code>notes.md</code>, a journal, saved
+  calibration, or the author's private voice is refused outright, and that
+  check is verified by planting those files into a real build and watching it
+  fail.
+  <br><br>
+  The phonemizer is why the voice took a vendored WebAssembly build rather than
+  an <code>npm install</code>. The published package carries espeak-ng 1.52.0;
+  this voice was trained with the espeak-ng its trainer pins, 229 commits
+  later, which inserts a linking palatal glide before a following vowel —
+  <span class="mono">bˈɑːdiʲ ɐslˈiːp</span>. 147 of the voice's 538 training
+  clips contain it. Measured over 817 calls it was the <em>only</em> difference
+  between the two, so the gap was one espeak version and the answer was to be
+  that version. All 817 now match the macOS engine byte for byte.
+  <br><br>
+  Nothing is signed, nothing auto-updates, and neither format can be built on
+  the author's Mac — electron-builder ships an x86_64 <code>mksquashfs</code>
+  and <code>wine64</code> for macOS hosts — so each platform builds on its own
+  runner and the results are attached to a release.</div>

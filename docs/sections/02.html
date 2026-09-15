@@ -1,0 +1,13 @@
+  <p>The bundled voice is a Piper/VITS model fine-tuned on real speech, and its training clips were trimmed tight — so the model learned to stop mid-breath. A short line like <em>"Build the pattern."</em> ended at rms 0.0061 with the mic still open, against roughly 0.0007 for a clean stop. The fix isn't a fade — fading a real recording eats the same consonant it's meant to protect — it's giving the model two extra frames of silence to decay into before the cut.</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>padding</th><th>mean tail rms</th><th>worst case</th><th>runs above threshold</th></tr></thead>
+      <tbody>
+        <tr><td>none</td><td class="mono">0.00180</td><td class="mono">0.00605</td><td class="mono">14%</td></tr>
+        <tr><td>+1 frame</td><td class="mono">0.00075</td><td class="mono">0.00246</td><td class="mono">0%</td></tr>
+        <tr><td><b>+2 frames</b></td><td class="mono"><b>0.00039</b></td><td class="mono"><b>0.00079</b></td><td class="mono"><b>0%</b></td></tr>
+        <tr><td>+3 frames</td><td class="mono">0.00112</td><td class="mono">0.00336</td><td class="mono">0%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:22px">Three frames is worse than two — past a point the model has room to voice into the extra silence rather than settle into it. It's a measured optimum, not a rounder-sounding guess, over seven real lines and five draws each.</p>
