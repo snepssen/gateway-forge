@@ -3,229 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="A guided-meditation assembly system and journal for the Monroe Institute's Gateway framework — the tape's own maps kept beside what was actually found, never merged.">
 <title>Gateway Forge</title>
+<meta name="description" content="A guided-meditation assembly system and journal for the Monroe Institute's Gateway framework — the tape's own maps kept beside what was actually found, never merged.">
+<meta property="og:title" content="Gateway Forge">
+<meta property="og:description" content="A guided-meditation assembly system and journal for the Monroe Institute's Gateway framework — the tape's own maps kept beside what was actually found, never merged.">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Libre+Franklin:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
-<style>
-/* Dark-first, close to the app's own Monokai instrument panel -- purple for
-   what is selected/live, green for verified, orange for what is still
-   provisional, cyan for information. Not a docs-template palette; it is the
-   app's own state language, carried onto the page that describes it. */
-:root{
-  --ground:#131410; --surface:#1B1C16; --raise:#232419; --line:#31321F;
-  --ink:#F1EFE3; --muted:#8D8A72;
-  --signal:#AE81FF;             /* active / selected / the climb */
-  --verified:#A6E22E;           /* found, measured, checks passing */
-  --published:#66D9EF;          /* the Institute's own account */
-  --provisional:#FD971F;        /* still becoming */
-  --shadow:0 1px 0 rgba(255,255,255,.03);
-  --measure:64ch;
-}
-@media (prefers-color-scheme: light){
-  :root:not([data-theme="dark"]){
-    --ground:#F6F4E9; --surface:#EDEBDC; --raise:#E4E1CE; --line:#D6D2BA;
-    --ink:#17180F; --muted:#6B6850;
-    --signal:#6C3FCE; --verified:#3F6B0E; --published:#0A6E82; --provisional:#95530A;
-    --shadow:0 1px 0 rgba(0,0,0,.03);
-  }
-}
-:root[data-theme="light"]{
-  --ground:#F6F4E9; --surface:#EDEBDC; --raise:#E4E1CE; --line:#D6D2BA;
-  --ink:#17180F; --muted:#6B6850;
-  --signal:#6C3FCE; --verified:#3F6B0E; --published:#0A6E82; --provisional:#95530A;
-  --shadow:0 1px 0 rgba(0,0,0,.03);
-}
-
-*{box-sizing:border-box}
-body{
-  margin:0; background:var(--ground); color:var(--ink);
-  font:400 17px/1.64 "Libre Franklin",system-ui,sans-serif;
-  -webkit-font-smoothing:antialiased;
-}
-.wrap{max-width:1160px;margin:0 auto;padding:0 28px}
-h1,h2,.ui{font-family:Fraunces,Georgia,serif}
-h3{font-family:"Libre Franklin",system-ui,sans-serif}
-.mono,code{font-family:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
-a{color:var(--signal);text-decoration-thickness:1px;text-underline-offset:3px}
-a:focus-visible,button:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
-p{margin:0 0 1.05em;max-width:var(--measure)}
-.lede{font-size:20px;color:var(--ink)}
-.eyebrow{
-  font-family:"Libre Franklin",sans-serif;font-size:11px;font-weight:700;
-  letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 14px;
-}
-
-/* ---------------------------------------------------------------- masthead */
-header{padding:78px 0 0;border-bottom:1px solid var(--line)}
-.badge{
-  display:inline-flex;align-items:center;gap:8px;font-family:"Libre Franklin",sans-serif;
-  font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--muted);border:1px solid var(--line);border-radius:2px;padding:5px 10px;
-}
-.dot{width:6px;height:6px;border-radius:50%;background:var(--verified)}
-h1{
-  font-weight:600;font-style:italic;font-size:clamp(50px,8.6vw,98px);line-height:.98;
-  letter-spacing:-.02em;margin:26px 0 0;text-wrap:balance;
-}
-.subhead{margin:24px 0 0;font-size:21px;line-height:1.55;max-width:56ch}
-.headmeta{
-  display:flex;flex-wrap:wrap;gap:10px 26px;margin:34px 0 0;padding:18px 0 42px;
-  border-top:1px solid var(--line);
-}
-.headmeta span{font-size:13px;color:var(--muted);font-family:"Libre Franklin",sans-serif}
-.headmeta b{color:var(--ink);font-weight:600}
-
-/* ------------------------------------------------------------ section jump */
-.jump{position:sticky; top:0; z-index:20; background:var(--ground); border-bottom:1px solid var(--line)}
-@supports (backdrop-filter:blur(10px)){
-  .jump{background:color-mix(in srgb, var(--ground) 84%, transparent); backdrop-filter:blur(10px)}
-}
-.jump .wrap{display:flex; align-items:center; justify-content:space-between; gap:20px; height:46px}
-.jump ul{display:flex; gap:26px; margin:0; padding:0; list-style:none}
-.jump a{
-  font-family:"Libre Franklin",sans-serif; font-size:11px; font-weight:700;
-  letter-spacing:.16em; text-transform:uppercase; text-decoration:none;
-  color:var(--muted); white-space:nowrap;
-}
-.jump .mark{color:var(--ink); letter-spacing:.06em; font-family:Fraunces,serif; font-style:italic; font-weight:600}
-.jump a:hover{color:var(--signal)}
-section[id],header[id]{scroll-margin-top:58px}
-@media (max-width:520px){
-  .jump .mark{display:none}
-  .jump .wrap{justify-content:center}
-  .jump ul{gap:18px}
-}
-
-section{padding:64px 0;border-bottom:1px solid var(--line)}
-section:last-of-type{border-bottom:0}
-h2{font-size:clamp(27px,3.8vw,38px);font-weight:600;font-style:italic;letter-spacing:-.01em;margin:0 0 8px;text-wrap:balance}
-h3{font-size:19px;font-weight:600;letter-spacing:-.005em;margin:0 0 6px}
-
-/* --------------------------------------------------------------- readouts */
-.readout{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin:26px 0 0}
-.readout.two{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.readout.three{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
-.cell{background:var(--surface);padding:20px 22px}
-.cell .n{
-  font-family:"JetBrains Mono",monospace;font-size:29px;font-weight:500;
-  color:var(--signal);letter-spacing:-.02em;font-variant-numeric:tabular-nums;
-}
-.cell .n small{font-size:15px;color:var(--muted);margin-left:3px;font-weight:400}
-.cell .l{font-size:14px;color:var(--muted);margin-top:5px;line-height:1.4}
-.cell .l b{color:var(--ink);font-weight:500}
-
-/* ------------------------------------------------------------------ table */
-.tablewrap{overflow-x:auto;margin:26px 0 0}
-table{border-collapse:collapse;width:100%;min-width:480px;font-size:15px}
-th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
-th{font-family:"Libre Franklin",sans-serif;font-size:11px;font-weight:700;
-   letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
-td.mono{font-variant-numeric:tabular-nums;font-family:"JetBrains Mono",monospace;font-size:14px}
-.pill{
-  display:inline-block;font-family:"Libre Franklin",sans-serif;font-size:11px;
-  font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 8px;
-  border:1px solid currentColor;border-radius:2px;white-space:nowrap;
-}
-.pill.pub{color:var(--published)} .pill.found{color:var(--verified)} .pill.prov{color:var(--provisional)}
-
-/* ------------------------------------------------------------------- ladder */
-/* The climb, standing in for a screenshot: F1 to F49, trunk and spurs. This is
-   the app's own structure, not Monroe's text -- safe to show, and more honest
-   than a screenshot of a library that a public checkout does not ship with. */
-.ladder-wrap{margin:30px 0 0;border:1px solid var(--line);background:var(--surface);padding:26px 22px;overflow-x:auto}
-.ladder{display:flex;align-items:flex-end;gap:3px;min-width:640px}
-.rung{display:flex;flex-direction:column;align-items:center;gap:8px;flex:1}
-.rung .stem{width:2px;background:var(--line)}
-.rung.trunk .stem{background:var(--signal)}
-.rung .k{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted)}
-.rung.trunk .k{color:var(--ink)}
-.spur{position:relative}
-.spur::before{
-  content:"";position:absolute;left:-3px;top:-14px;width:10px;height:1px;background:var(--line);
-}
-.cap{font-size:14px;color:var(--muted);margin:16px 2px 0;max-width:70ch}
-
-/* ------------------------------------------------------------------ plates */
-/* The screenshots are 2× assets — 2280px wide for a column that is at most
-   1104 — so the width has to come from the container, never from the file.
-   `width:100%` on the image is what makes that true; without it the page
-   lays out at the image's intrinsic size and everything else overflows with
-   it. `height:auto` keeps the aspect ratio while it scales. */
-img{max-width:100%}
-.shot{
-  margin:30px 0 0;border:1px solid var(--line);background:var(--surface);
-  padding:10px;border-radius:3px;
-}
-.shot img{display:block;width:100%;height:auto;border-radius:1px}
-
-/* -------------------------------------------------------------------- grid */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:1px;
-  background:var(--line);border:1px solid var(--line);margin:28px 0 0}
-.card{background:var(--surface);padding:24px 22px;display:flex;flex-direction:column;gap:9px}
-.card h3{margin:0}
-.card p{font-size:15px;margin:0;color:var(--muted)}
-.card .meta{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--muted)}
-.card .get{margin-top:auto;padding-top:14px;font-weight:600;font-size:14px}
-.note{
-  border-left:2px solid var(--signal);padding:2px 0 2px 18px;margin:26px 0 0;
-  font-size:16px;color:var(--muted);max-width:var(--measure);
-}
-.note b{color:var(--ink);font-weight:500}
-
-/* ------------------------------------------------------------------ steps */
-ol.steps{counter-reset:s;list-style:none;padding:0;margin:24px 0 0;max-width:var(--measure)}
-ol.steps li{counter-increment:s;position:relative;padding:0 0 20px 46px}
-ol.steps li::before{
-  content:counter(s);position:absolute;left:0;top:1px;width:28px;height:28px;
-  display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;
-  font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--signal);
-}
-ol.steps b{font-weight:600}
-pre{
-  background:var(--ground);border:1px solid var(--line);padding:14px 16px;margin:14px 0 0;
-  overflow-x:auto;font-family:"JetBrains Mono",monospace;font-size:13px;line-height:1.6;
-}
-
-/* -------------------------------------------------------------- installer */
-h3.handoff{
-  margin:40px 0 14px;font-size:13px;font-weight:700;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--muted);
-}
-.install{display:grid;grid-template-columns:minmax(0,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:26px 0 0}
-.cmd{background:var(--surface);padding:16px 18px 18px;min-width:0}
-.cmdhead{display:flex;align-items:center;justify-content:space-between;gap:14px}
-.os{font-family:"Libre Franklin",sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-.cmd pre{margin:10px 0 0;background:var(--ground);min-width:0}
-.copy{
-  font-family:"Libre Franklin",sans-serif;font-size:11px;font-weight:700;
-  letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
-  background:transparent;border:1px solid var(--line);border-radius:2px;
-  padding:5px 11px;cursor:pointer;white-space:nowrap;
-}
-.copy:hover{color:var(--signal);border-color:var(--signal)}
-.copy[data-state="done"]{color:var(--verified);border-color:var(--verified)}
-
-/* ---------------------------------------------------------------- contact */
-.contact{display:flex;flex-wrap:wrap;gap:14px;margin:26px 0 0}
-.contact a{
-  display:inline-flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);
-  border:1px solid var(--line);background:var(--surface);padding:12px 18px;
-  font-family:"Libre Franklin",sans-serif;font-weight:600;font-size:15px;
-}
-.contact a:hover{border-color:var(--signal);color:var(--signal)}
-footer{padding:44px 0 70px;color:var(--muted);font-size:14px}
-
-@media (max-width:720px){
-  header{padding-top:52px}
-  section{padding:48px 0}
-  body{font-size:16px}
-}
-@media (prefers-reduced-motion:no-preference){
-  .card,.contact a{transition:border-color .16s ease,color .16s ease}
-}
-</style>
+<link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="ecosystem.css">
 </head>
 <body data-project="gateway-forge">
@@ -246,7 +32,6 @@ footer{padding:44px 0 70px;color:var(--muted);font-size:14px}
 </nav>
 
 <div class="wrap">
-
 <header id="top">
   <span class="badge"><span class="dot"></span>macOS, Windows and Linux · source-available</span>
   <h1>Gateway&nbsp;Forge</h1>
@@ -258,6 +43,7 @@ footer{padding:44px 0 70px;color:var(--muted);font-size:14px}
     <span>Bed generated live, never sampled</span>
   </div>
 </header>
+</div>
 
 <nav class="jump" aria-label="Jump to a section">
   <div class="wrap">
@@ -270,6 +56,8 @@ footer{padding:44px 0 70px;color:var(--muted);font-size:14px}
     </ul>
   </div>
 </nav>
+
+<div class="wrap">
 
 <section>
   <p class="eyebrow">Why it exists</p>
@@ -520,7 +308,7 @@ cd gateway-forge && ./build.sh</code></pre>
     <p class="ecosystem-more__intro">Move between guided-meditation authoring, measured speech, lyric video, delivery validation, and the small field tools that support all of them.</p>
   </div>
   <div class="ecosystem-grid">
-    <a class="ecosystem-card" data-project="gateway-forge" href="https://snepssen.github.io/gateway-forge/">
+    <a class="ecosystem-card" data-project="gateway-forge" href="https://snepssen.github.io/gateway-forge/" aria-current="page">
       <div class="ecosystem-card__index"><span>01 / JOURNEYS</span><span>macOS · Windows · Linux</span></div>
       <div class="ecosystem-card__glyph" aria-hidden="true">F10 ── F27</div>
       <h3>Gateway Forge</h3>
@@ -582,71 +370,7 @@ cd gateway-forge && ./build.sh</code></pre>
 
 </div>
 
-<script>
-document.querySelectorAll(".copy").forEach(function (button) {
-  var code = button.closest(".cmd").querySelector("code");
-  var timer;
-  function flash(label, state) {
-    clearTimeout(timer);
-    button.textContent = label;
-    if (state) { button.dataset.state = state; } else { delete button.dataset.state; }
-    timer = setTimeout(function () {
-      button.textContent = "Copy";
-      delete button.dataset.state;
-    }, 1800);
-  }
-  function selectInstead() {
-    var range = document.createRange();
-    range.selectNodeContents(code);
-    var sel = window.getSelection();
-    sel.removeAllRanges();
-    sel.addRange(range);
-    flash("Selected", null);
-  }
-  button.addEventListener("click", function () {
-    var text = code.textContent.trim();
-    if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(text).then(function () {
-        flash("Copied", "done");
-      }, selectInstead);
-    } else {
-      selectInstead();
-    }
-  });
-});
-
-/* The climb ladder. Trunk: F1, F3, F10, F12, F15, F21, F23, F25, F27, then the
-   spurs off it, then F27's own continuation to F34/F35/F42/F49. Heights are
-   ordinal position, not a claim about anything the levels measure. */
-(function () {
-  var trunk = ["F1","F3","F10","F12","F15","F21","F23","F25","F27"];
-  var spurs = {"F10":"F11","F15":"F18","F21":"F22","F23":"F24"};
-  var tail = ["F34","F35","F42","F49"];
-  var order = [];
-  trunk.forEach(function (k) {
-    order.push({ k: k, trunk: true });
-    if (spurs[k]) order.push({ k: spurs[k], trunk: false });
-  });
-  tail.forEach(function (k) { order.push({ k: k, trunk: true }); });
-
-  var el = document.getElementById("ladderSvg");
-  var max = order.length;
-  order.forEach(function (rung, i) {
-    var wrap = document.createElement("div");
-    wrap.className = "rung" + (rung.trunk ? " trunk" : " spur");
-    var h = 26 + Math.round((i / max) * 130);
-    var stem = document.createElement("div");
-    stem.className = "stem";
-    stem.style.height = h + "px";
-    var label = document.createElement("div");
-    label.className = "k";
-    label.textContent = rung.k;
-    wrap.appendChild(stem);
-    wrap.appendChild(label);
-    el.appendChild(wrap);
-  });
-})();
-</script>
+<script src="site.js"></script>
 <script src="ecosystem.js"></script>
 </body>
 </html>

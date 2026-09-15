@@ -1,0 +1,9 @@
+  <p>Native Swift and SwiftUI throughout, no web engine and no bundled interpreter — the build fails outright on any Python file anywhere in the tree, on purpose. Speech runs through the same Piper/VITS-over-ONNX engine <a href="https://github.com/snepssen/voice-forge">Voice Forge</a> was built to expose, here bundled as a single fixed voice fine-tuned on the author's own speech.</p>
+  <div class="readout three">
+    <div class="cell"><div class="n">3,812</div><div class="l">checks currently passing</div></div>
+    <div class="cell"><div class="n">49</div><div class="l">Focus levels, F1 to F49, every one reachable</div></div>
+    <div class="cell"><div class="n">3</div><div class="l">measured beat signals carrying all fifty source tapes</div></div>
+  </div>
+  <p style="margin-top:26px">A checkout of this public copy has its corpus-dependent suites — the ones that read the original tape transcripts or the Institute's manuals — stand down by name instead of either failing on files that were never meant to ship here, or quietly reporting health they never actually looked for. <span class="mono" style="font-size:14px">note [source tapes] no tape transcripts in this tree — corpus suites stand down (this is the expected state of a build made for distribution)</span> is what that looks like in practice.</p>
+  <h3 style="margin-top:34px">A ledger the app keeps, not the Institute's recordings</h3>
+  <p>The three retained resonant-tuning cues and the wake-up signal that used to come from sampled Monroe tape recordings are now synthesised: the bed generates its own tuning and its own return signal, live, at the measured frequencies above. Nothing sampled from the original tapes ships in this build.</p>
