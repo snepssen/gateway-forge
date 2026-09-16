@@ -15,7 +15,7 @@ PAGE = {
         "name": "Gateway&nbsp;Forge",
         "title": "Gateway Forge",
         "badge": "macOS, Windows and Linux · source-available",
-        "fonts": "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Libre+Franklin:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
+        "fonts": "fonts.css",
         "description": "A guided-meditation assembly system and journal for the Monroe Institute's Gateway framework — the tape's own maps kept beside what was actually found, never merged.",
         "og_description": None,
         "subhead": "A guided-meditation assembly system and journal built around the Monroe Institute's Gateway framework — the Institute's own map kept beside what was actually found, never merged into one answer.",
