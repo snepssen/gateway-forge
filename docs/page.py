@@ -18,6 +18,7 @@ PAGE = {
         "fonts": "fonts.css",
         "description": "A guided-meditation assembly system and journal for the Monroe Institute's Gateway framework — the tape's own maps kept beside what was actually found, never merged.",
         "og_description": None,
+        "contact_note": 'No analytics, no crash reporter, no way for a failure to reach me on its own. If you build it and something breaks, the version and platform are worth including.',
         "subhead": "A guided-meditation assembly system and journal built around the Monroe Institute's Gateway framework — the Institute's own map kept beside what was actually found, never merged into one answer.",
         "stats": [
             "<b>49</b> Focus levels, F1 through F49",
@@ -75,13 +76,6 @@ PAGE = {
         "body": "changelog.html",
     },
     {"grid": True},
-    {
-        "id": "contact",
-        "jump": "Contact",
-        "eyebrow": "Get in touch",
-        "heading": "If something looks wrong, say so",
-        "body": "contact.html",
-    },
     ],
     "footer": [
         "Gateway Forge · a guided-meditation assembly system for the Gateway framework ·\n  built with Swift, SwiftUI, Piper/VITS and a local Ollama model.",
