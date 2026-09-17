@@ -68,6 +68,10 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: linux
+          # The publish job downloads this minutes later and attaches it to the
+          # release, which is the copy that lasts. At the default ninety days
+          # these duplicates filled the account's whole Actions storage.
+          retention-days: 1
           path: |
             cross-platform/dist/*.tar.gz
             cross-platform/dist/*.AppImage
@@ -102,6 +106,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: windows
+          retention-days: 1
           path: |
             cross-platform/dist/*.zip
             cross-platform/dist/*.exe
@@ -133,6 +138,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: macos
+          retention-days: 1
           path: Gateway.Forge-*-macOS.zip
           if-no-files-found: error
 
