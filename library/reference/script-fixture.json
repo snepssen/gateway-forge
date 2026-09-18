@@ -28072,7 +28072,7 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "As I count from one to ten, you will relax each part of your body. By the time we reach ten, your body will be completely relaxed, and your mind will remain alert and aware."
+            "text" : "As I count to ten, you will relax each part of your body. By the time we reach ten, your body will be completely relaxed, and your mind will remain alert and aware."
           },
           {
             "args" : [
@@ -31555,7 +31555,7 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "This time, let the hum drop back down, quiet. Quieter than you'd expect. Quiet enough that you'd barely be heard, but loud enough that you can't miss it."
+            "text" : "This time, let the hum drop back down in volume. Quieter than you'd expect. Quiet enough that you'd barely be heard, but loud enough that you can't miss it."
           },
           {
             "args" : [

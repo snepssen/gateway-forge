@@ -12963,7 +12963,7 @@
       "takes" : 1
     },
     {
-      "estimateSeconds" : 420.91006423982867,
+      "estimateSeconds" : 420.1962883654532,
       "name" : "library/segments/relax-10.gws",
       "outputNames" : [
         "relax-10.take1.wav"
@@ -12981,7 +12981,7 @@
         {
           "index" : 2,
           "kind" : "speech",
-          "text" : "As I count from one to ten, you will relax each part of your body. By the time we reach ten, your body will be completely relaxed, and your mind will remain alert and aware."
+          "text" : "As I count to ten, you will relax each part of your body. By the time we reach ten, your body will be completely relaxed, and your mind will remain alert and aware."
         },
         {
           "kind" : "silence",
@@ -13225,9 +13225,9 @@
       "seeds" : [
         "7572878061538959"
       ],
-      "sourceDigest" : "227e7df7f97a5b9e566e5682ca521d09465442dedeb04d7fc03c7d46f8ebb68c",
+      "sourceDigest" : "86639b2138e1d770061f475ce2ded4dfa9572d2c03ace7d3a8754dd034c35688",
       "speechCount" : 28,
-      "stampValue" : "piper|v1|source227e7df7f97a5b9e566e5682ca521d09465442dedeb04d7fc03c7d46f8ebb68c|join7",
+      "stampValue" : "piper|v1|source86639b2138e1d770061f475ce2ded4dfa9572d2c03ace7d3a8754dd034c35688|join7",
       "takes" : 1
     },
     {
@@ -14669,7 +14669,7 @@
       "takes" : 1
     },
     {
-      "estimateSeconds" : 98.91149179157745,
+      "estimateSeconds" : 99.26837972876515,
       "name" : "library/segments/tuning-hum.crown.gws",
       "outputNames" : [
         "tuning-hum.crown.take1.wav"
@@ -14687,7 +14687,7 @@
         {
           "index" : 2,
           "kind" : "speech",
-          "text" : "This time, let the hum drop back down, quiet. Quieter than you'd expect. Quiet enough that you'd barely be heard, but loud enough that you can't miss it."
+          "text" : "This time, let the hum drop back down in volume. Quieter than you'd expect. Quiet enough that you'd barely be heard, but loud enough that you can't miss it."
         },
         {
           "kind" : "silence",
@@ -14716,9 +14716,9 @@
       "seeds" : [
         "14868124120210558536"
       ],
-      "sourceDigest" : "d3416fdf915d7e25064878d5ca8e8052e3bc0509ad6380d6630011650427e876",
+      "sourceDigest" : "375aa52de937e6892d8141dbd2f84b51686d9ecb1e5154a1668e4eefdbbe0e81",
       "speechCount" : 4,
-      "stampValue" : "piper|v1|sourced3416fdf915d7e25064878d5ca8e8052e3bc0509ad6380d6630011650427e876|join7",
+      "stampValue" : "piper|v1|source375aa52de937e6892d8141dbd2f84b51686d9ecb1e5154a1668e4eefdbbe0e81|join7",
       "takes" : 1
     },
     {

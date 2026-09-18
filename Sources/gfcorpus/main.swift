@@ -2782,6 +2782,41 @@ if subcommand == "session-fixture" {
         var freshness: [FreshOut]
         var madeFreshness: [MadeFresh]
     }
+    // **An absence local to this machine must not overwrite a recorded fact.**
+    //
+    // `freshness` is measured from real rendered sessions, and render
+    // directories are gitignored -- so on a checkout that has none, this block
+    // regenerates as empty and silently deletes what a tree with audio
+    // recorded. Observed: forty-four sessions to none, in a run whose only
+    // intent was to pick up an edited segment, and the loss is invisible in
+    // the summary line because "0 sessions" reads like a fact rather than a
+    // deletion.
+    //
+    // The same rule the installed library already keeps: what this run cannot
+    // observe, it does not get to erase. Refusing costs one clear message; the
+    // alternative is a fixture that has quietly stopped checking anything.
+    if freshOut.isEmpty, let existing = try? Data(contentsOf: out) {
+        // Counted rather than decoded: `FreshOut` is write-only, and how many
+        // records are about to be lost is the only thing this needs to know.
+        let object = try? JSONSerialization.jsonObject(with: existing) as? [String: Any]
+        let had = ((object?["freshness"]) as? [Any])?.count ?? 0
+        if had > 0 {
+            FileHandle.standardError.write(Data("""
+                gfcorpus session-fixture: refusing to write.
+
+                This tree has no rendered sessions, so `freshness` would be
+                written empty -- discarding the \(had) record(s) already in
+                \(out.lastPathComponent). Render directories are gitignored,
+                so their absence here is a fact about this checkout, not about
+                the library.
+
+                Run this where the audio is, or leave the fixture alone.
+
+                """.utf8))
+            exit(1)
+        }
+    }
+
     let encoder = JSONEncoder()
     encoder.outputFormatting = [.prettyPrinted, .sortedKeys, .withoutEscapingSlashes]
     try encoder.encode(Fixture(

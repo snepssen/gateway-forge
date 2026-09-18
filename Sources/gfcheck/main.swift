@@ -4556,7 +4556,18 @@ do {
             // bundle Python build tooling of their own. It's gitignored and
             // never ships in the app; the principle this check protects is
             // about what Gateway Forge depends on, not what npm vendors.
-            if name == ".build" || name == ".dd" || name == ".git" || name == "node_modules" {
+            // `docs/` is the project's *website*, not the project. Its page is
+            // generated from a catalogue by a builder shared byte-identically
+            // with the owner's other repositories -- rewriting it here in Swift
+            // would fork it from its siblings, and the drift between
+            // hand-retyped chrome is the whole reason it was generated in the
+            // first place. It ships nowhere: `build.sh` and `Package.swift`
+            // never mention it, no Swift source reads it, the `.app`'s
+            // Resources are icon/library/focus/voice, and electron-builder
+            // carries only `out`, `vendor/espeakng` and `package.json`. The
+            // three assertions below hold it to that.
+            if name == ".build" || name == ".dd" || name == ".git"
+                || name == "node_modules" || name == "docs" {
                 walker.skipDescendants(); continue
             }
             if url.pathExtension == "py" || name == "requirements.txt"
@@ -4590,6 +4601,30 @@ do {
     c.expect(shellsOut.isEmpty,
              "nothing in Sources reaches for an interpreter"
              + (shellsOut.isEmpty ? "" : " (\(shellsOut[0]))"))
+
+    // **The website's builder is allowed to exist; it is not allowed to
+    // matter.** Skipping `docs/` above would be a hole rather than a scope if
+    // nothing checked that the exemption stays inert, and the rule this suite
+    // protects is precisely that a tool admitted as "just a tool" becomes
+    // something the application needs. So the boundary is asserted, not
+    // assumed: the build must not invoke it, the package must not declare it,
+    // and the shipped resources must not carry it.
+    let buildScript = (try? String(contentsOf: root.appending(path: "build.sh"),
+                                   encoding: .utf8)) ?? ""
+    c.expect(!buildScript.contains(py) && !buildScript.contains("docs/"),
+             "build.sh neither invokes an interpreter nor reads the website")
+
+    let manifest = (try? String(contentsOf: root.appending(path: "Package.swift"),
+                                encoding: .utf8)) ?? ""
+    c.expect(!manifest.contains("docs"),
+             "Package.swift declares no target, resource or plugin under docs/")
+
+    // electron-builder's own file list, for the other two platforms.
+    let packageJSON = (try? String(
+        contentsOf: root.appending(path: "cross-platform/package.json"),
+        encoding: .utf8)) ?? ""
+    c.expect(!packageJSON.contains("docs"),
+             "the Windows/Linux package declares nothing under docs/")
 }
 
 // -------------------------------------------------------- engine invariants

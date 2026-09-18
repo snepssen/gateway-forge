@@ -5,7 +5,7 @@
 
 say Breathe with the waves once more.
 pause 4
-say This time, let the hum drop back down, quiet. Quieter than you'd expect. Quiet enough that you'd barely be heard, but loud enough that you can't miss it.
+say This time, let the hum drop back down in volume. Quieter than you'd expect. Quiet enough that you'd barely be heard, but loud enough that you can't miss it.
 pause 5
 say At this volume, you'll feel it more than hear it. In your skull. Your jaw. The space behind your eyes.
 media resonantTuning 60

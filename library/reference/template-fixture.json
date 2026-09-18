@@ -1042,7 +1042,7 @@
     {
       "destination" : "F21",
       "destinationKey" : "F21",
-      "estimatedSeconds" : 1280.2712348322627,
+      "estimatedSeconds" : 1279.557458957887,
       "isReady" : false,
       "items" : [
         {
@@ -1163,7 +1163,7 @@
           ],
           "outputName" : "relax-10.take1.wav",
           "requested" : 3,
-          "seconds" : 420.91006423982867,
+          "seconds" : 420.1962883654532,
           "segmentID" : "relax-10",
           "served" : 3,
           "title" : "Ten-Point Relaxation"
@@ -1597,7 +1597,7 @@
     {
       "destination" : "F21",
       "destinationKey" : "F21",
-      "estimatedSeconds" : 1580.2712348322627,
+      "estimatedSeconds" : 1579.5574589578873,
       "isReady" : false,
       "items" : [
         {
@@ -1718,7 +1718,7 @@
           ],
           "outputName" : "relax-10.take1.wav",
           "requested" : 3,
-          "seconds" : 518.4100642398287,
+          "seconds" : 517.6962883654533,
           "segmentID" : "relax-10",
           "served" : 3,
           "title" : "Ten-Point Relaxation"
@@ -1781,7 +1781,7 @@
     },
     {
       "destination" : "F10",
-      "estimatedSeconds" : 1223.9321912919343,
+      "estimatedSeconds" : 1223.2184154175588,
       "isReady" : false,
       "items" : [
         {
@@ -1886,7 +1886,7 @@
           ],
           "outputName" : "relax-10.take1.wav",
           "requested" : 3,
-          "seconds" : 420.91006423982867,
+          "seconds" : 420.1962883654532,
           "segmentID" : "relax-10",
           "served" : 3,
           "title" : "Ten-Point Relaxation"
@@ -1949,7 +1949,7 @@
     {
       "destination" : "F10",
       "destinationKey" : "NOWHERE",
-      "estimatedSeconds" : 1223.9321912919343,
+      "estimatedSeconds" : 1223.2184154175588,
       "isReady" : false,
       "items" : [
         {
@@ -2054,7 +2054,7 @@
           ],
           "outputName" : "relax-10.take1.wav",
           "requested" : 3,
-          "seconds" : 420.91006423982867,
+          "seconds" : 420.1962883654532,
           "segmentID" : "relax-10",
           "served" : 3,
           "title" : "Ten-Point Relaxation"
