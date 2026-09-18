@@ -782,7 +782,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 420.1962883654532,
+      "estimatedSeconds" : 420.91006423982867,
       "isContinuation" : false,
       "isReady" : true,
       "missing" : [
@@ -800,7 +800,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         }
@@ -897,7 +897,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 550.1570306923626,
+      "estimatedSeconds" : 550.870806566738,
       "isContinuation" : false,
       "isReady" : true,
       "missing" : [
@@ -916,7 +916,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -1031,7 +1031,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 495.1677373304782,
+      "estimatedSeconds" : 495.88151320485366,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -1050,7 +1050,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -1199,7 +1199,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 610.7822983583155,
+      "estimatedSeconds" : 611.496074232691,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -1220,7 +1220,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -1423,7 +1423,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 726.3968593861529,
+      "estimatedSeconds" : 727.1106352605283,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -1446,7 +1446,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -1633,7 +1633,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 594.0578158458244,
+      "estimatedSeconds" : 594.7715917201999,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -1654,7 +1654,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -1855,7 +1855,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 709.6723768736617,
+      "estimatedSeconds" : 710.3861527480373,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -1878,7 +1878,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -2133,7 +2133,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 825.2869379014991,
+      "estimatedSeconds" : 826.0007137758746,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -2158,7 +2158,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -2399,7 +2399,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 734.3754461099215,
+      "estimatedSeconds" : 735.089221984297,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -2421,7 +2421,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -2676,7 +2676,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 849.9900071377589,
+      "estimatedSeconds" : 850.7037830121343,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -2700,7 +2700,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -3009,7 +3009,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 965.6045681655962,
+      "estimatedSeconds" : 966.3183440399716,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -3035,7 +3035,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -3296,7 +3296,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 659.5417558886509,
+      "estimatedSeconds" : 660.2555317630264,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -3319,7 +3319,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -3574,7 +3574,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 805.4917915774446,
+      "estimatedSeconds" : 806.2055674518201,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -3598,7 +3598,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -3873,7 +3873,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 706.8172733761597,
+      "estimatedSeconds" : 707.5310492505353,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -3898,7 +3898,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -4207,7 +4207,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 807.0007137758741,
+      "estimatedSeconds" : 807.7144896502498,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -4233,7 +4233,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -4562,7 +4562,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 771.6545324768022,
+      "estimatedSeconds" : 772.3683083511777,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -4589,7 +4589,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -4952,7 +4952,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 811.1456102783725,
+      "estimatedSeconds" : 811.859386152748,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -4981,7 +4981,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -5398,7 +5398,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 944.678800856531,
+      "estimatedSeconds" : 945.3925767309065,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -5429,7 +5429,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -5900,7 +5900,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 1060.2933618843683,
+      "estimatedSeconds" : 1061.0071377587437,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -5933,7 +5933,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -6458,7 +6458,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 1175.9079229122055,
+      "estimatedSeconds" : 1176.621698786581,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -6493,7 +6493,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -7174,7 +7174,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 1291.5224839400428,
+      "estimatedSeconds" : 1292.2362598144182,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -7211,7 +7211,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -7844,7 +7844,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 1407.13704496788,
+      "estimatedSeconds" : 1407.8508208422554,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -7883,7 +7883,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -8570,7 +8570,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 1522.7516059957172,
+      "estimatedSeconds" : 1523.4653818700926,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -8611,7 +8611,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -9352,7 +9352,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 1638.3661670235545,
+      "estimatedSeconds" : 1639.0799428979299,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -9395,7 +9395,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -9986,7 +9986,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 1175.4696645253389,
+      "estimatedSeconds" : 1176.1834403997145,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -10018,7 +10018,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -10543,7 +10543,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 1356.4125624553888,
+      "estimatedSeconds" : 1357.1263383297644,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -10576,7 +10576,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -11155,7 +11155,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 1472.027123483226,
+      "estimatedSeconds" : 1472.7408993576016,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -11190,7 +11190,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -11823,7 +11823,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 1587.6416845110632,
+      "estimatedSeconds" : 1588.3554603854388,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -11860,7 +11860,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -12547,7 +12547,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 1703.2562455389004,
+      "estimatedSeconds" : 1703.970021413276,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -12586,7 +12586,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -13327,7 +13327,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 1818.8708065667377,
+      "estimatedSeconds" : 1819.5845824411133,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -13368,7 +13368,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -14163,7 +14163,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 1934.4853675945749,
+      "estimatedSeconds" : 1935.1991434689505,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -14206,7 +14206,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -15055,7 +15055,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 2050.099928622412,
+      "estimatedSeconds" : 2050.8137044967875,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -15100,7 +15100,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -15799,7 +15799,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 1528.7972876516772,
+      "estimatedSeconds" : 1529.5110635260528,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -15833,7 +15833,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -16466,7 +16466,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 1644.4118486795144,
+      "estimatedSeconds" : 1645.12562455389,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -16502,7 +16502,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -17189,7 +17189,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 1760.0264097073516,
+      "estimatedSeconds" : 1760.7401855817272,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -17227,7 +17227,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -17968,7 +17968,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 1875.6409707351888,
+      "estimatedSeconds" : 1876.3547466095645,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -18008,7 +18008,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -18803,7 +18803,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 1991.255531763026,
+      "estimatedSeconds" : 1991.9693076374017,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -18845,7 +18845,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -19694,7 +19694,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 2106.870092790863,
+      "estimatedSeconds" : 2107.5838686652387,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -19738,7 +19738,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -20641,7 +20641,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 2222.4846538187003,
+      "estimatedSeconds" : 2223.198429693076,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -20687,7 +20687,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -21440,7 +21440,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 1704.0371163454672,
+      "estimatedSeconds" : 1704.7508922198429,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -21475,7 +21475,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -21964,7 +21964,7 @@
       "verbosity" : 2
     },
     {
-      "estimatedSeconds" : 659.5417558886509,
+      "estimatedSeconds" : 660.2555317630264,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -21987,7 +21987,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -24242,7 +24242,7 @@
       "verbosity" : 1
     },
     {
-      "estimatedSeconds" : 495.1677373304782,
+      "estimatedSeconds" : 495.88151320485366,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -24261,7 +24261,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -24351,7 +24351,7 @@
       "verbosity" : 1
     },
     {
-      "estimatedSeconds" : 659.5417558886509,
+      "estimatedSeconds" : 660.2555317630264,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -24374,7 +24374,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -24552,7 +24552,7 @@
       "verbosity" : 1
     },
     {
-      "estimatedSeconds" : 944.678800856531,
+      "estimatedSeconds" : 945.3925767309065,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -24583,7 +24583,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -24759,7 +24759,7 @@
       "verbosity" : 1
     },
     {
-      "estimatedSeconds" : 420.1962883654532,
+      "estimatedSeconds" : 420.91006423982867,
       "isContinuation" : false,
       "isReady" : true,
       "missing" : [
@@ -24777,7 +24777,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         }
@@ -24824,7 +24824,7 @@
       "verbosity" : 1
     },
     {
-      "estimatedSeconds" : 495.1677373304782,
+      "estimatedSeconds" : 495.88151320485366,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -24843,7 +24843,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -24933,7 +24933,7 @@
       "verbosity" : 1
     },
     {
-      "estimatedSeconds" : 659.5417558886509,
+      "estimatedSeconds" : 660.2555317630264,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -24956,7 +24956,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -25134,7 +25134,7 @@
       "verbosity" : 1
     },
     {
-      "estimatedSeconds" : 944.678800856531,
+      "estimatedSeconds" : 945.3925767309065,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -25165,7 +25165,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -25341,7 +25341,7 @@
       "verbosity" : 1
     },
     {
-      "estimatedSeconds" : 420.1962883654532,
+      "estimatedSeconds" : 420.91006423982867,
       "isContinuation" : false,
       "isReady" : true,
       "missing" : [
@@ -25359,7 +25359,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         }
@@ -25490,7 +25490,7 @@
       "verbosity" : 0
     },
     {
-      "estimatedSeconds" : 659.5417558886509,
+      "estimatedSeconds" : 660.2555317630264,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -25513,7 +25513,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },
@@ -25582,7 +25582,7 @@
       "verbosity" : 4
     },
     {
-      "estimatedSeconds" : 659.5417558886509,
+      "estimatedSeconds" : 660.2555317630264,
       "isContinuation" : false,
       "isReady" : false,
       "missing" : [
@@ -25605,7 +25605,7 @@
           "isRendered" : true,
           "level" : "F10",
           "outputName" : "relax-10.take1.wav",
-          "seconds" : 420.1962883654532,
+          "seconds" : 420.91006423982867,
           "segmentID" : "relax-10",
           "title" : "Ten-Point Relaxation"
         },

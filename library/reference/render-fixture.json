@@ -12963,7 +12963,7 @@
       "takes" : 1
     },
     {
-      "estimateSeconds" : 420.1962883654532,
+      "estimateSeconds" : 420.91006423982867,
       "name" : "library/segments/relax-10.gws",
       "outputNames" : [
         "relax-10.take1.wav"
@@ -12981,7 +12981,7 @@
         {
           "index" : 2,
           "kind" : "speech",
-          "text" : "As I count to ten, you will relax each part of your body. By the time we reach ten, your body will be completely relaxed, and your mind will remain alert and aware."
+          "text" : "As I count from one to ten, you will relax each part of your body. By the time we reach ten, your body will be completely relaxed, and your mind will remain alert and aware."
         },
         {
           "kind" : "silence",
@@ -12999,7 +12999,7 @@
         {
           "index" : 4,
           "kind" : "speech",
-          "text" : "First, let your jaw go limp and relax. Let the muscles and nerves in your jaw go limp and relax."
+          "text" : "One. Let your jaw go limp and relax. Let the muscles and nerves in your jaw go limp and relax."
         },
         {
           "kind" : "silence",
@@ -13026,7 +13026,7 @@
         {
           "index" : 7,
           "kind" : "speech",
-          "text" : "Now the muscles in your forehead. The muscles in your forehead. Let the muscles in your forehead relax. Go limp."
+          "text" : "Two. The muscles in your forehead. The muscles in your forehead. Let the muscles in your forehead relax. Go limp."
         },
         {
           "kind" : "silence",
@@ -13053,7 +13053,7 @@
         {
           "index" : 10,
           "kind" : "speech",
-          "text" : "Now the muscles in your neck. Let the muscles in your neck relax. Relax."
+          "text" : "Three. The muscles in your neck. Let the muscles in your neck relax. Relax."
         },
         {
           "kind" : "silence",
@@ -13225,9 +13225,9 @@
       "seeds" : [
         "7572878061538959"
       ],
-      "sourceDigest" : "86639b2138e1d770061f475ce2ded4dfa9572d2c03ace7d3a8754dd034c35688",
+      "sourceDigest" : "a56951aa0df779c244877ed3da2cb756c571a51590fe269feb9417560a961a27",
       "speechCount" : 28,
-      "stampValue" : "piper|v1|source86639b2138e1d770061f475ce2ded4dfa9572d2c03ace7d3a8754dd034c35688|join7",
+      "stampValue" : "piper|v1|sourcea56951aa0df779c244877ed3da2cb756c571a51590fe269feb9417560a961a27|join7",
       "takes" : 1
     },
     {

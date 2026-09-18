@@ -1310,6 +1310,72 @@ if let src = Scaffold.climbSource(from: "F42", to: "F49"),
 // .gws survives the same parser as hand-written segments, and the guardrails
 // that keep an 8B model honest actually fire. The live path was verified
 // against gateway-composer on 2026-08-19: valid structured output first try.
+c.suite("fixtures carry only what the repository ships")
+do {
+    // **A fixture must not launder a gitignored source back into the tree.**
+    //
+    // `library/sources/` holds the Institute's recordings and is gitignored so
+    // they stay out of the repository. The compose fixture's "real" echo pairs
+    // were built by pairing each segment against a tape and embedding the
+    // tape's *entire text* -- about forty thousand characters across seven
+    // transcripts, in a file that is committed and, because `library/` is
+    // carried into the app as `GatewayLibrary`, shipped to every listener. The
+    // gitignore did its job and the fixture went around it.
+    //
+    // The detector never needed those words; it needs prose long enough to be
+    // messy and repetitive enough to overlap, which the library's own segments
+    // are. So the rule is the one that was actually broken: a real echo pair's
+    // source must be a body this repository already contains.
+    let reference = root.appending(path: "library/reference/compose-fixture.json")
+    let raw = (try? Data(contentsOf: reference)) ?? Data()
+    let parsed = (try? JSONSerialization.jsonObject(with: raw)) as? [String: Any]
+    let realPairs = (parsed?["realEchoCases"] as? [[String: Any]]) ?? []
+
+    func bodyText(_ url: URL) -> String {
+        guard let src = try? String(contentsOf: url, encoding: .utf8),
+              let doc = try? ScriptParser.parse(src) else { return "" }
+        return doc.steps.filter { $0.kind == .say }.map(\.text).joined(separator: " ")
+    }
+    let bodies = Set((try? Library.scan(root: root))?.segments.map { bodyText($0.url) } ?? [])
+
+    c.expect(realPairs.count > 10,
+             "the echo detector is exercised on real bodies (\(realPairs.count) pairs)")
+    let foreign = realPairs.compactMap { pair -> String? in
+        guard let source = pair["source"] as? String, !bodies.contains(source) else { return nil }
+        return (pair["name"] as? String) ?? "unnamed"
+    }
+    c.expect(foreign.isEmpty,
+             "every echo source is a segment this repository ships"
+             + (foreign.isEmpty ? "" : " (\(foreign.count) foreign: \(foreign.prefix(2).joined(separator: ", ")))"))
+
+    // A coarse second net. Not the rule above -- a smoke alarm for any fixture
+    // that starts carrying a wall of prose from somewhere unexamined. The
+    // longest legitimate field across every fixture is a composer prompt at
+    // roughly 1,700 characters; the transcripts ran to 8,983.
+    var oversize: [String] = []
+    for file in (try? FileManager.default.contentsOfDirectory(
+                    at: root.appending(path: "library/reference"),
+                    includingPropertiesForKeys: nil)) ?? []
+    where file.pathExtension == "json" {
+        guard let data = try? Data(contentsOf: file),
+              let object = try? JSONSerialization.jsonObject(with: data) else { continue }
+        var worst = 0
+        func walk(_ node: Any) {
+            switch node {
+            case let d as [String: Any]: d.values.forEach(walk)
+            case let a as [Any]: a.forEach(walk)
+            case let t as String: worst = max(worst, t.count)
+            default: break
+            }
+        }
+        walk(object)
+        if worst > 4000 { oversize.append("\(file.lastPathComponent): \(worst)") }
+    }
+    c.expect(oversize.isEmpty,
+             "no fixture carries a wall of prose"
+             + (oversize.isEmpty ? "" : " (\(oversize.joined(separator: ", ")))"))
+}
+
 c.suite("compose")
 do {
     let sample = #"{"title": "F34 — Briefing", "lines": [{"say": "You have arrived at Focus 34.", "pause": 6}, {"say": "Take a moment to notice the scope of this gathering.", "pause": 12}]}"#

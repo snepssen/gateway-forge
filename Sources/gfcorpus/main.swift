@@ -4919,25 +4919,42 @@ if subcommand == "compose-fixture" {
                                                               minWords: minWords)))
     }
 
-    // Then the real thing: every segment body against every tape transcript for
-    // the same level. This is what the detector actually runs on.
+    // Then the real thing: long, messy bodies with genuine overlap, rather than
+    // the short constructed pairs above.
+    //
+    // **These used to pair each segment against a tape transcript, and embedded
+    // the transcript's entire text in the fixture.** `library/sources/` is
+    // gitignored precisely so the Institute's recordings stay out of the
+    // repository -- and this copied them back in, into a file that is
+    // committed *and* shipped, since `library/` is carried into the app as
+    // `GatewayLibrary`. Roughly forty thousand characters of tape across seven
+    // sources. The detector never needed those words: what it needs is real
+    // prose long enough to be messy and repetitive enough to overlap, and the
+    // project's own segments are both.
+    //
+    // Pairing segments against each other also makes the case set reproducible
+    // anywhere. Built from `lib.sources` it silently produced nothing on a
+    // checkout without transcripts, and the suite stands down on an empty
+    // list -- so regenerating here would have quietly deleted the assertion.
     func bodyText(_ url: URL) -> String {
         guard let src = try? String(contentsOf: url, encoding: .utf8),
               let doc = try? ScriptParser.parse(src) else { return "" }
         return doc.steps.filter { $0.kind == .say }.map(\.text).joined(separator: " ")
     }
     var realCases: [EchoCase] = []
-    let tapes = lib.sources.filter { $0.kind == .transcript }
-    for seg in lib.segments.prefix(40) {
+    let ordered = lib.segments.sorted { $0.segmentID < $1.segmentID }
+    for seg in ordered.prefix(40) {
         let draft = bodyText(seg.url)
-        guard !draft.isEmpty else { continue }
-        guard let tape = tapes.first(where: { t in
-            !t.levels.isEmpty && !seg.levels.isEmpty && t.levels.contains(seg.levels[0])
+        guard !draft.isEmpty, let level = seg.levels.first else { continue }
+        // A different segment written for the same level: the two share the
+        // library's own vocabulary, which is where real echoes come from.
+        guard let other = ordered.first(where: {
+            $0.segmentID != seg.segmentID && $0.levels.contains(level)
         }) else { continue }
-        let source = (try? String(contentsOf: tape.url, encoding: .utf8)) ?? ""
+        let source = bodyText(other.url)
         guard !source.isEmpty else { continue }
         realCases.append(EchoCase(
-            name: "\(seg.segmentID) vs \(tape.url.lastPathComponent)",
+            name: "\(seg.segmentID) vs \(other.segmentID)",
             draft: draft, source: source, minWords: 3,
             hits: Compose.echoedPhrases(draft: draft, source: source)))
     }

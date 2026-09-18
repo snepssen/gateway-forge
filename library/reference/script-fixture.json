@@ -28072,7 +28072,7 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "As I count to ten, you will relax each part of your body. By the time we reach ten, your body will be completely relaxed, and your mind will remain alert and aware."
+            "text" : "As I count from one to ten, you will relax each part of your body. By the time we reach ten, your body will be completely relaxed, and your mind will remain alert and aware."
           },
           {
             "args" : [
@@ -28108,7 +28108,7 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "First, let your jaw go limp and relax. Let the muscles and nerves in your jaw go limp and relax."
+            "text" : "One. Let your jaw go limp and relax. Let the muscles and nerves in your jaw go limp and relax."
           },
           {
             "args" : [
@@ -28162,7 +28162,7 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "Now the muscles in your forehead. The muscles in your forehead. Let the muscles in your forehead relax. Go limp."
+            "text" : "Two. The muscles in your forehead. The muscles in your forehead. Let the muscles in your forehead relax. Go limp."
           },
           {
             "args" : [
@@ -28216,7 +28216,7 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "Now the muscles in your neck. Let the muscles in your neck relax. Relax."
+            "text" : "Three. The muscles in your neck. Let the muscles in your neck relax. Relax."
           },
           {
             "args" : [
