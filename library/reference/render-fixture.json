@@ -3866,7 +3866,7 @@
       "takes" : 1
     },
     {
-      "estimateSeconds" : 191.85795860099932,
+      "estimateSeconds" : 193.99928622412563,
       "name" : "library/segments/balloon.gws",
       "outputNames" : [
         "balloon.take1.wav"
@@ -3884,7 +3884,7 @@
         {
           "index" : 2,
           "kind" : "speech",
-          "text" : "From the top of your head, let a current begin. Down through your body, out through the soles of your feet, and back up again. A loop, always moving, always returning."
+          "text" : "From the top of your head, let a current begin. Out and down around your body, in through the soles of your feet, and up through you to the crown again. A loop, always moving, always returning."
         },
         {
           "kind" : "silence",
@@ -3993,9 +3993,9 @@
       "seeds" : [
         "229460333738636"
       ],
-      "sourceDigest" : "350f0befec30d3d1c73b82701374454240536b35279a251782c70666bc44bed6",
+      "sourceDigest" : "eb31a7e6d059d18025c0b8e272370e110702af265beecc9e2dcd3c8636829923",
       "speechCount" : 13,
-      "stampValue" : "piper|v1|source350f0befec30d3d1c73b82701374454240536b35279a251782c70666bc44bed6|join7",
+      "stampValue" : "piper|v1|sourceeb31a7e6d059d18025c0b8e272370e110702af265beecc9e2dcd3c8636829923|join7",
       "takes" : 1
     },
     {

@@ -1042,7 +1042,7 @@
     {
       "destination" : "F21",
       "destinationKey" : "F21",
-      "estimatedSeconds" : 1278.1299072091363,
+      "estimatedSeconds" : 1280.2712348322627,
       "isReady" : false,
       "items" : [
         {
@@ -1133,7 +1133,7 @@
           ],
           "outputName" : "balloon.take1.wav",
           "requested" : 3,
-          "seconds" : 191.85795860099932,
+          "seconds" : 193.99928622412563,
           "segmentID" : "balloon",
           "title" : "Projected Energy Bubble"
         },
@@ -1227,7 +1227,7 @@
     {
       "destination" : "F21",
       "destinationKey" : "F21",
-      "estimatedSeconds" : 927.0078515346181,
+      "estimatedSeconds" : 929.1491791577444,
       "isReady" : false,
       "items" : [
         {
@@ -1318,7 +1318,7 @@
           ],
           "outputName" : "balloon.take1.wav",
           "requested" : 1,
-          "seconds" : 191.85795860099932,
+          "seconds" : 193.99928622412563,
           "segmentID" : "balloon",
           "title" : "Projected Energy Bubble"
         },
@@ -1412,7 +1412,7 @@
     {
       "destination" : "F21",
       "destinationKey" : "F21",
-      "estimatedSeconds" : 702.6438258386866,
+      "estimatedSeconds" : 704.785153461813,
       "isReady" : false,
       "items" : [
         {
@@ -1503,7 +1503,7 @@
           ],
           "outputName" : "balloon.take1.wav",
           "requested" : 2,
-          "seconds" : 145.3579586009993,
+          "seconds" : 147.49928622412565,
           "segmentID" : "balloon",
           "title" : "Projected Energy Bubble"
         },
@@ -1597,7 +1597,7 @@
     {
       "destination" : "F21",
       "destinationKey" : "F21",
-      "estimatedSeconds" : 1578.1299072091363,
+      "estimatedSeconds" : 1580.2712348322627,
       "isReady" : false,
       "items" : [
         {
@@ -1688,7 +1688,7 @@
           ],
           "outputName" : "balloon.take1.wav",
           "requested" : 3,
-          "seconds" : 238.3579586009993,
+          "seconds" : 240.49928622412563,
           "segmentID" : "balloon",
           "title" : "Projected Energy Bubble"
         },
@@ -1781,7 +1781,7 @@
     },
     {
       "destination" : "F10",
-      "estimatedSeconds" : 1221.790863668808,
+      "estimatedSeconds" : 1223.9321912919343,
       "isReady" : false,
       "items" : [
         {
@@ -1856,7 +1856,7 @@
           ],
           "outputName" : "balloon.take1.wav",
           "requested" : 3,
-          "seconds" : 191.85795860099932,
+          "seconds" : 193.99928622412563,
           "segmentID" : "balloon",
           "title" : "Projected Energy Bubble"
         },
@@ -1949,7 +1949,7 @@
     {
       "destination" : "F10",
       "destinationKey" : "NOWHERE",
-      "estimatedSeconds" : 1221.790863668808,
+      "estimatedSeconds" : 1223.9321912919343,
       "isReady" : false,
       "items" : [
         {
@@ -2024,7 +2024,7 @@
           ],
           "outputName" : "balloon.take1.wav",
           "requested" : 3,
-          "seconds" : 191.85795860099932,
+          "seconds" : 193.99928622412563,
           "segmentID" : "balloon",
           "title" : "Projected Energy Bubble"
         },
