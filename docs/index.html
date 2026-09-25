@@ -231,26 +231,23 @@
   <div class="grid">
     <div class="card">
       <h3>macOS</h3>
-      <div class="meta">Apple Silicon · 82 MiB · v5.2.0</div>
+      <div class="meta">Apple Silicon · 82 MiB · v5.3.0</div>
       <p>Gatekeeper will refuse an unsigned download by default — right-click the <code>.app</code> and choose Open once, or clear the quarantine flag from Terminal, either of which says you mean to run it.</p>
-      <!-- v5.2.0's macOS zip is unversioned: it was the first built by CI and
-           the job did not name it. Later releases carry the version like the
-           other three, so this link moves with them. -->
-      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/Gateway.Forge-5.2.0.macOS.zip">Download .app →</a></div>
+      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/Gateway.Forge-5.3.0.macOS.zip">Download .app →</a></div>
     </div>
     <div class="card">
       <h3>Windows</h3>
-      <div class="meta">x86-64 · 185 MiB installer · v5.2.0</div>
+      <div class="meta">x86-64 · 185 MiB installer · v5.3.0</div>
       <p>Unsigned, so SmartScreen will warn that the publisher is unknown — a code-signing certificate costs money this project does not spend. Choose <b>More info</b>, then <b>Run anyway</b>, if you trust where you got it.</p>
-      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/Gateway.Forge.Setup.5.2.0.exe">Download installer →</a></div>
-      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/Gateway.Forge-5.2.0-win.zip">Or the portable .zip →</a></div>
+      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/Gateway.Forge.Setup.5.3.0.exe">Download installer →</a></div>
+      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/Gateway.Forge-5.3.0-win.zip">Or the portable .zip →</a></div>
     </div>
     <div class="card">
       <h3>Linux</h3>
-      <div class="meta">x86-64 · 371 MiB AppImage · v5.2.0</div>
+      <div class="meta">x86-64 · 371 MiB AppImage · v5.3.0</div>
       <p>The AppImage needs no install — <code>chmod +x</code> it and run. The tarball is the same build, if you would rather place it yourself.</p>
-      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/Gateway.Forge-5.2.0.AppImage">Download AppImage →</a></div>
-      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/gateway-forge-cross-platform-5.2.0.tar.gz">Or the .tar.gz →</a></div>
+      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/Gateway.Forge-5.3.0.AppImage">Download AppImage →</a></div>
+      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/gateway-forge-cross-platform-5.3.0.tar.gz">Or the .tar.gz →</a></div>
     </div>
   </div>
   <div class="note"><code>xattr -cr "Gateway Forge.app"</code> is the Terminal route on macOS, run once after unzipping. Every archive's SHA-256 is published as <a href="https://github.com/snepssen/gateway-forge/releases/latest"><code>SHA256SUMS</code> on the release page</a> — check it against what you downloaded before you clear any quarantine flag, since that is the point at which verifying still means something.</div>
@@ -363,7 +360,15 @@ cd gateway-forge && ./build.sh</code></pre>
   <p class="eyebrow">Changelog</p>
   <h2>What changed</h2>
 
-  <h3>v5.2.0 <span class="mono" style="font-size:14px;font-weight:400">· 9 September 2026</span></h3>
+  <h3>v5.3.0 <span class="mono" style="font-size:14px;font-weight:400">· 25 September 2026</span></h3>
+  <p><b>Windows and Linux assemble and play a session now.</b> Previously the cross-platform build could read the library and sound the bed but not make a tape. The assembler and the session transport are both ported: it renders what is missing, lays the takes down with the silences the script asks for, records where each piece actually landed, and plays the result with the bed generated live on top — one audio clock, the pan envelope, the arrival hold and the return. Both builds now produce the same tape from the same takes <em>byte for byte</em>, checked against a fixture neither side can fake.</p>
+  <p><b>The panning that shipped in v5.2.0 was wrong.</b> <code>@pan</code> applied to the whole session rather than the segment that declared it, so Headphone Orientation left every word after it in one ear — the opposite of the check it was added for. It is scoped to its own segment now, and exports carry it, which they did not before.</p>
+  <p><b>The resonant tuning never sounded.</b> Nothing placed it: the step that would have put the hum on the tape did not exist, and a check actively forbade writing one. Both are fixed, and the hum is where the script says it is.</p>
+  <p><b>The Projected Energy Bubble ran backwards.</b> Its creation described a current falling down the inside of the body and rising outside, while every line after it — the strands, the recreation, the dissolve — described the opposite. It is one circuit again: out of the crown, down around the body, in at the soles, up through you.</p>
+  <p><b>The ten-point relaxation counts to ten in both densities.</b> At full detail it opened at four, leaving the first three points unspoken, while the bare count spoke all ten. Someone who has stepped down to anchors alone was being taught a different shape of the same induction.</p>
+  <div class="note">A fixture was carrying tape transcripts into every build. <code>library/sources/</code> is not distributed, and it was not — but the compose layer's test data quoted those files wholesale, and <code>library/</code> ships inside the app. About forty thousand characters, in every release from the first. It is out of the package and out of this repository's history, and a check now refuses any fixture whose text is not something this repository already ships. Builds before v5.3.0 contain it; that is why the earlier downloads have been withdrawn rather than left up.</div>
+
+  <h3 class="handoff">v5.2.0 <span class="mono" style="font-size:14px;font-weight:400">· 9 September 2026</span></h3>
   <p><b>Export a session as a single stereo file.</b> An assembled <code>session.wav</code> is the narration alone — the bed is generated live underneath it while you listen — so copying that file to a phone would hand over a voice talking into silence. Export mixes it down instead: the same bed engine, over the plan the session was assembled with, at your own listening levels. Open a session and choose Export as WAV, or run <code>gfrender --export-session</code>.</p>
   <p><b>The voice is panned, at last.</b> <code>@pan</code> has been in the script language, and in every session the generator writes, while nothing between the parser and the speakers read it. Headphone Orientation has been asking listeners to confirm they hear the voice in their right ear — an instruction that was unfollowable, and that told anyone wearing their headphones correctly to turn them around. It reaches the audio now, and a check refuses any session that uses that segment without panning. Sessions already on disk are untouched and still play centred; only what is assembled from here on picks it up.</p>
   <p><b>The iOS companion is suspended.</b> Set aside rather than removed — the client, the LAN transport and their checks all remain, and the phone side will be picked up again. Nothing listens on the network and no device can pair meanwhile. Export as WAV covers the reason it existed.</p>
