@@ -1,5 +1,8 @@
 
-  <h3>v5.3.0 <span class="mono" style="font-size:14px;font-weight:400">· 25 September 2026</span></h3>
+  <h3>v5.3.1 <span class="mono" style="font-size:14px;font-weight:400">· 3 October 2026</span></h3>
+  <p><b>The default path answers clicks where its lessons are drawn.</b> On macOS, every row in the side rail took clicks two lines above where it appeared, so choosing a lesson opened the one below it. The rail drew its list a toolbar's height lower than it hit-tested it — a quirk of how newer macOS runs apps built for macOS 14 — and the list is now built so that both agree. Nothing else changes; the Windows and Linux builds are the same as v5.3.0's.</p>
+
+  <h3 class="handoff">v5.3.0 <span class="mono" style="font-size:14px;font-weight:400">· 25 September 2026</span></h3>
   <p><b>Windows and Linux assemble and play a session now.</b> Previously the cross-platform build could read the library and sound the bed but not make a tape. The assembler and the session transport are both ported: it renders what is missing, lays the takes down with the silences the script asks for, records where each piece actually landed, and plays the result with the bed generated live on top — one audio clock, the pan envelope, the arrival hold and the return. Both builds now produce the same tape from the same takes <em>byte for byte</em>, checked against a fixture neither side can fake.</p>
   <p><b>The panning that shipped in v5.2.0 was wrong.</b> <code>@pan</code> applied to the whole session rather than the segment that declared it, so Headphone Orientation left every word after it in one ear — the opposite of the check it was added for. It is scoped to its own segment now, and exports carry it, which they did not before.</p>
   <p><b>The resonant tuning never sounded.</b> Nothing placed it: the step that would have put the hum on the tape did not exist, and a check actively forbade writing one. Both are fixed, and the hum is where the script says it is.</p>
