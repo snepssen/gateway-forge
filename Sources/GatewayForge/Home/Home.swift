@@ -177,9 +177,17 @@ struct DefaultPathPane: View {
     @EnvironmentObject var store: LibraryStore
     @EnvironmentObject var activity: ActivityRecorder
 
+    // **A List, not a ScrollView.** The app links the macOS 14 SDK, so newer
+    // systems run it in their compatibility appearance, and there a SwiftUI
+    // ScrollView inside the inspector is inset for the toolbar twice when
+    // drawn but once when hit-tested: every row answered clicks a toolbar's
+    // height (52pt, two lines of this pane) above where it was drawn, so
+    // clicking a lesson opened the one below it. A List is backed by AppKit's
+    // own table and scroll view, which inset drawing and hit-testing alike.
+    // Reproduced and measured against the accessibility frames, both ways.
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 14) {
+        List {
+            Group {
                 Text("The default path").font(.title2).foregroundStyle(Monokai.fg)
                 if let path {
                     let left = path.remaining(completedTemplates: completed)
@@ -191,12 +199,11 @@ struct DefaultPathPane: View {
                         .fixedSize(horizontal: false, vertical: true)
 
                     ForEach(waves(of: left), id: \.0) { wave, lessons in
-                        VStack(alignment: .leading, spacing: 6) {
-                            Text("Wave \(roman(wave)) — \(lessons.first?.waveTitle ?? "")")
-                                .font(.caption).monospaced().foregroundStyle(Monokai.purple)
-                            ForEach(lessons, id: \.template) { lesson in
-                                row(lesson)
-                            }
+                        Text("Wave \(roman(wave)) — \(lessons.first?.waveTitle ?? "")")
+                            .font(.caption).monospaced().foregroundStyle(Monokai.purple)
+                            .padding(.top, 8)
+                        ForEach(lessons, id: \.template) { lesson in
+                            row(lesson)
                         }
                     }
                 } else {
@@ -205,8 +212,12 @@ struct DefaultPathPane: View {
                         .font(.callout).foregroundStyle(Monokai.orange)
                 }
             }
-            .padding(18)
+            .listRowInsets(EdgeInsets(top: 3, leading: 18, bottom: 3, trailing: 18))
+            .listRowSeparator(.hidden)
+            .listRowBackground(Color.clear)
         }
+        .listStyle(.plain)
+        .scrollContentBackground(.hidden)
         .background(Monokai.bg)
     }
 
