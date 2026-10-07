@@ -1,0 +1,907 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Session Report</title>
+<meta name="description" content="A Gateway session report form: record the date, Focus level, body state and your own account of a session, and save it as a typewritten PDF. Runs in your browser; nothing is sent anywhere.">
+<meta property="og:title" content="Session Report · Gateway Forge">
+<meta property="og:description" content="Record a Gateway session and save it as a typewritten PDF. Runs in your browser; nothing is sent anywhere.">
+<meta name="theme-color" content="#dcdcd6">
+<!--
+  Gateway Forge — session report form (GF Form 1).
+
+  Self-contained on purpose: no network, no library, no build step. Open the
+  file in any browser, fill it in, and "Generate report" writes a real PDF
+  (hand-assembled below with the PDF standard fonts, so nothing is embedded or
+  fetched) and offers it for saving.
+
+  Template text is bold sans in heavy rules; everything the listener writes is
+  typewriter Courier. That split holds on screen and in the PDF.
+
+  A draft is kept in this browser's local storage while typing, so a closed
+  tab does not lose a long account. It never leaves the machine.
+-->
+<style>
+  :root {
+    color-scheme: light;
+    --ink: #000;
+    --paper: #fff;
+    --desk: #dcdcd6;
+    --rule: #bdbdbd;
+    --muted: #555;
+    --heavy: 3px;
+    --med: 1.5px;
+    --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --type: Courier, "Courier New", monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--desk);
+    color: var(--ink);
+    font-family: var(--sans);
+    padding: 24px 16px 64px;
+  }
+
+  /* ---- shown until the script runs ---- */
+  .notice {
+    max-width: 840px;
+    margin: 0 auto 16px;
+    padding: 12px 14px;
+    background: var(--paper);
+    border: var(--heavy) solid var(--ink);
+    font: 14px/1.45 var(--sans);
+    color: var(--ink);
+  }
+  .notice strong { display: block; text-transform: uppercase; letter-spacing: .08em; font-size: 12px; margin-bottom: 4px; }
+
+  /* ---- toolbar (not part of the report) ---- */
+  .toolbar {
+    max-width: 840px;
+    margin: 0 auto 16px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .status {
+    flex: 1 1 260px;
+    min-height: 1.2em;
+    font: 13px/1.35 var(--sans);
+    color: #333;
+  }
+  .btn {
+    font: 700 13px/1 var(--sans);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 12px 18px;
+    border: var(--heavy) solid var(--ink);
+    background: var(--ink);
+    color: var(--paper);
+    cursor: pointer;
+  }
+  .btn:hover { background: #222; }
+  .btn.ghost { background: var(--paper); color: var(--ink); }
+  .btn.ghost:hover { background: #eee; }
+  .btn:focus-visible { outline: 3px solid #000; outline-offset: 3px; }
+
+  /* ---- the sheet ---- */
+  .sheet {
+    max-width: 840px;
+    margin: 0 auto;
+    background: var(--paper);
+    padding: 22px 34px 26px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.25), 0 8px 28px rgba(0,0,0,.12);
+  }
+  .banner {
+    text-align: center;
+    font: 700 13px/1 var(--type);
+    letter-spacing: .22em;
+    padding: 4px 0 14px;
+  }
+  .banner.bottom { padding: 14px 0 0; }
+
+  .masthead {
+    display: grid;
+    grid-template-columns: 1fr 230px;
+    border: var(--heavy) solid var(--ink);
+  }
+  .mast-left { padding: 12px 14px 12px; }
+  .kicker { font: 700 11px/1 var(--sans); letter-spacing: .2em; }
+  h1 {
+    margin: 8px 0 6px;
+    font: 800 34px/1 var(--sans);
+    letter-spacing: .02em;
+  }
+  .sub { font: 700 9.5px/1.3 var(--sans); letter-spacing: .12em; }
+  .mast-right { border-left: var(--med) solid var(--ink); display: grid; grid-template-rows: 1fr 1fr; }
+  .mcell { padding: 7px 10px; display: flex; flex-direction: column; gap: 5px; }
+  .mcell + .mcell { border-top: var(--med) solid var(--ink); }
+  .mcell .val { font: 15px/1.1 var(--type); }
+  .mcell .val.muted { color: var(--muted); font-size: 13px; }
+
+  section { margin-top: 16px; }
+  .bar {
+    background: var(--ink);
+    color: var(--paper);
+    font: 700 11px/1 var(--sans);
+    letter-spacing: .14em;
+    padding: 6px 9px;
+  }
+  .row {
+    display: grid;
+    border: var(--heavy) solid var(--ink);
+    border-top: 0;
+  }
+  .row.r3 { grid-template-columns: 190px 150px 1fr; }
+  .cell {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 7px 9px 9px;
+    min-width: 0;
+  }
+  .row > .cell + .cell { border-left: var(--med) solid var(--ink); }
+  .row + .row > .cell { border-top: 0; }
+  .row.stack + .row { border-top: var(--med) solid var(--ink); }
+  .lbl {
+    font: 700 10px/1.2 var(--sans);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+  .lbl .hint { font-weight: 400; letter-spacing: .06em; }
+
+  /* user input: typewriter, no chrome, on a ruled baseline */
+  input[type=text], input[type=date], input[type=time], select, textarea {
+    font: 17px/1.3 var(--type);
+    color: var(--ink);
+    background: transparent;
+    border: 0;
+    border-bottom: 1px dotted #777;
+    border-radius: 0;
+    padding: 3px 2px;
+    width: 100%;
+    min-width: 0;
+  }
+  input:focus, select:focus, textarea:focus { outline: none; background: #f3f3f3; }
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 22px;
+    background-image:
+      linear-gradient(45deg, transparent 50%, #000 50%),
+      linear-gradient(-45deg, transparent 50%, #000 50%);
+    background-position: calc(100% - 11px) 55%, calc(100% - 5px) 55%;
+    background-size: 6px 6px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+  select:focus { background-color: #f3f3f3; }
+  #levelOther[hidden] { display: none; }
+
+  /* body feeling */
+  .checks {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 10px 12px;
+    padding-top: 4px;
+  }
+  .check {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font: 700 12px/1.1 var(--sans);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    user-select: none;
+  }
+  input[type=checkbox] {
+    appearance: none;
+    -webkit-appearance: none;
+    flex: none;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    border: 2.5px solid var(--ink);
+    background: var(--paper);
+    cursor: pointer;
+  }
+  input[type=checkbox]:checked {
+    background:
+      linear-gradient(45deg, transparent calc(50% - 1.6px), #000 calc(50% - 1.6px), #000 calc(50% + 1.6px), transparent calc(50% + 1.6px)),
+      linear-gradient(-45deg, transparent calc(50% - 1.6px), #000 calc(50% - 1.6px), #000 calc(50% + 1.6px), transparent calc(50% + 1.6px)),
+      var(--paper);
+  }
+  input[type=checkbox]:focus-visible { outline: 2px solid #000; outline-offset: 2px; }
+  .other {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 14px;
+  }
+  .other input[type=text] { flex: 1; }
+
+  /* narrative: ruled like the printed sheet */
+  textarea.narr {
+    --lh: 28px;
+    display: block;
+    border: 0;
+    resize: vertical;
+    min-height: calc(var(--lh) * 16);
+    padding: 0 4px;
+    line-height: var(--lh);
+    font-size: 16px;
+    background-image: linear-gradient(transparent calc(var(--lh) - 1px), var(--rule) calc(var(--lh) - 1px));
+    background-size: 100% var(--lh);
+    background-attachment: local;
+    overflow: hidden;
+  }
+  textarea.narr:focus { background-color: #fafafa; }
+  .counter { font: 11px/1 var(--sans); color: var(--muted); text-align: right; letter-spacing: .06em; }
+
+  .endmark {
+    margin-top: 16px;
+    text-align: center;
+    font: 700 12px/1 var(--type);
+    letter-spacing: .2em;
+  }
+  .formno {
+    display: flex;
+    justify-content: space-between;
+    border-top: var(--heavy) solid var(--ink);
+    margin-top: 18px;
+    padding-top: 6px;
+    font: 700 9px/1 var(--sans);
+    letter-spacing: .12em;
+  }
+
+  .colophon {
+    max-width: 840px;
+    margin: 18px auto 0;
+    font: 13px/1.5 var(--sans);
+    color: #333;
+    text-align: center;
+  }
+  .colophon a { color: var(--ink); }
+
+  @media (max-width: 680px) {
+    .sheet { padding: 16px 14px 20px; }
+    h1 { font-size: 26px; }
+    .masthead { grid-template-columns: 1fr; }
+    .mast-right { border-left: 0; border-top: var(--med) solid var(--ink); }
+    .row.r3 { grid-template-columns: 1fr 1fr; }
+    .row.r3 > .cell:nth-child(3) { grid-column: 1 / -1; border-left: 0; border-top: var(--med) solid var(--ink); }
+    .checks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .banner { font-size: 11px; letter-spacing: .12em; }
+  }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .toolbar, .colophon { display: none; }
+    .sheet { box-shadow: none; max-width: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="notice" id="noscript" role="alert">
+  <strong>This viewer is not running the form.</strong>
+  You can read it here, but the Focus level list, the draft and
+  “Generate report” need a web browser. File previews (the Files app,
+  attachments in chat apps) show the page without running it. Open this file
+  in Safari, Chrome or Firefox, or use the hosted form, which works on a
+  phone or iPad too:
+  <a href="https://snepssen.github.io/gateway-forge/session-report.html">snepssen.github.io/gateway-forge/session-report.html</a>
+</div>
+
+<div class="toolbar">
+  <div class="status" id="status" role="status" aria-live="polite"></div>
+  <button class="btn ghost" id="clear" type="button">Clear form</button>
+  <button class="btn" id="generate" type="button">Generate report (PDF)</button>
+</div>
+
+<main class="sheet">
+  <div class="banner">PERSONAL // GATEWAY JOURNAL // SELF-REPORT</div>
+
+  <header class="masthead">
+    <div class="mast-left">
+      <div class="kicker">GATEWAY FORGE</div>
+      <h1>SESSION REPORT</h1>
+      <div class="sub">FOCUS LEVEL SESSION — PERSONAL EXPERIENCE RECORD</div>
+    </div>
+    <div class="mast-right">
+      <div class="mcell"><span class="lbl">Report no.</span><span class="val" id="reportNo">—</span></div>
+      <div class="mcell"><span class="lbl">Filed</span><span class="val muted">On generation</span></div>
+    </div>
+  </header>
+
+  <section>
+    <div class="bar">SECTION I — IDENTIFICATION</div>
+    <div class="row r3 stack">
+      <label class="cell"><span class="lbl">1. Date</span><input type="date" id="date"></label>
+      <label class="cell"><span class="lbl">2. Start time</span><input type="time" id="time"></label>
+      <div class="cell">
+        <label class="lbl" for="level">3. Focus level</label>
+        <!-- Written out rather than generated so the list survives viewers
+             that do not run scripts. Mirrors library/levels.json. -->
+        <select id="level">
+          <option value="">— select —</option>
+          <option value="F1">F1 — Waking Consciousness (C1)</option>
+          <option value="F3">F3 — Light Relaxation</option>
+          <option value="F10">F10 — Mind Awake, Body Asleep</option>
+          <option value="F11">F11 — The Access Channel</option>
+          <option value="F12">F12 — Expanded Awareness</option>
+          <option value="F15">F15 — No Time, No Space</option>
+          <option value="F18">F18 — The Heart Level</option>
+          <option value="F21">F21 — The Bridge State</option>
+          <option value="F22">F22 — Here and There</option>
+          <option value="F23">F23 — New Arrivals</option>
+          <option value="F24">F24 — Belief System Territories</option>
+          <option value="F25">F25 — Belief System Territories</option>
+          <option value="F26">F26 — The Void</option>
+          <option value="F27">F27 — The Park</option>
+          <option value="F34">F34 — The Gathering</option>
+          <option value="F35">F35 — The Gathering (upper)</option>
+          <option value="F42">F42 — I-There Cluster</option>
+          <option value="F49">F49 — Sea of I-There Clusters</option>
+          <option value="other">Other / not listed…</option>
+        </select>
+        <input type="text" id="levelOther" placeholder="Level or state, as you'd name it" aria-label="Focus level, other" hidden>
+      </div>
+    </div>
+    <div class="row">
+      <label class="cell"><span class="lbl">4. Session title</span>
+        <input type="text" id="title" placeholder="e.g. Advanced Focus 10, Continuous mode" autocomplete="off"></label>
+    </div>
+  </section>
+
+  <section>
+    <div class="bar">SECTION II — PHYSICAL STATE</div>
+    <div class="row">
+      <div class="cell">
+        <span class="lbl">5. Body feeling <span class="hint">— mark all that apply</span></span>
+        <div class="checks" id="feelings">
+          <label class="check"><input type="checkbox" value="Nothing"> Nothing</label>
+          <label class="check"><input type="checkbox" value="Fell asleep"> Fell asleep</label>
+          <label class="check"><input type="checkbox" value="Relaxed"> Relaxed</label>
+          <label class="check"><input type="checkbox" value="Energised"> Energised</label>
+          <label class="check"><input type="checkbox" value="Buzzing"> Buzzing</label>
+        </div>
+        <div class="other">
+          <label class="check" for="otherOn"><input type="checkbox" id="otherOn" value="Other"> Other:</label>
+          <input type="text" id="otherText" aria-label="Other body feeling" autocomplete="off">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="bar">SECTION III — COMMENTS / EXPERIENCE</div>
+    <div class="row">
+      <label class="cell">
+        <span class="lbl">6. Account of the experience <span class="hint">— in your own words</span></span>
+        <textarea class="narr" id="narrative" spellcheck="true"></textarea>
+        <span class="counter" id="counter">0 words</span>
+      </label>
+    </div>
+  </section>
+
+  <div class="endmark">*** END OF REPORT ***</div>
+  <div class="formno"><span>GF FORM 1 · SESSION REPORT</span><span id="formNo">—</span></div>
+  <div class="banner bottom">PERSONAL // GATEWAY JOURNAL // SELF-REPORT</div>
+</main>
+
+<p class="colophon">
+  This form runs entirely in your browser. Nothing you type is sent anywhere;
+  an unfinished draft is kept only in this browser until you clear it.
+  Part of <a href="./">Gateway Forge</a>.
+</p>
+
+<script>
+"use strict";
+
+/* ------------------------------------------------------------------ data */
+
+// The script is running, so the "not running" notice can go.
+document.getElementById("noscript").hidden = true;
+
+const DRAFT_KEY = "gf-session-report-draft-v1";
+const MONTHS = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
+const DAYS = ["SUN","MON","TUE","WED","THU","FRI","SAT"];
+
+const $ = id => document.getElementById(id);
+const el = {
+  date: $("date"), time: $("time"), level: $("level"), levelOther: $("levelOther"),
+  title: $("title"), otherOn: $("otherOn"), otherText: $("otherText"),
+  narrative: $("narrative"), status: $("status"), reportNo: $("reportNo"),
+  formNo: $("formNo"), counter: $("counter"),
+};
+const feelingBoxes = [...document.querySelectorAll("#feelings input")];
+
+/* ------------------------------------------------------------- form state */
+
+function pad(n) { return String(n).padStart(2, "0"); }
+
+function readForm() {
+  const levelKey = el.level.value;
+  let level = "";
+  if (levelKey === "other") level = el.levelOther.value.trim();
+  else if (levelKey) level = el.level.selectedOptions[0].text;
+  return {
+    date: el.date.value, time: el.time.value,
+    levelKey, levelOther: el.levelOther.value, level,
+    title: el.title.value.trim(),
+    feelings: feelingBoxes.filter(b => b.checked).map(b => b.value),
+    otherOn: el.otherOn.checked, otherText: el.otherText.value.trim(),
+    narrative: el.narrative.value,
+  };
+}
+
+function writeForm(d) {
+  el.date.value = d.date || ""; el.time.value = d.time || "";
+  el.level.value = d.levelKey || ""; el.levelOther.value = d.levelOther || "";
+  el.title.value = d.title || "";
+  for (const b of feelingBoxes) b.checked = (d.feelings || []).includes(b.value);
+  el.otherOn.checked = !!d.otherOn; el.otherText.value = d.otherText || "";
+  el.narrative.value = d.narrative || "";
+}
+
+function nowFields() {
+  const n = new Date();
+  return { date: `${n.getFullYear()}-${pad(n.getMonth() + 1)}-${pad(n.getDate())}`,
+           time: `${pad(n.getHours())}:${pad(n.getMinutes())}` };
+}
+
+function reportNumber(d) {
+  const f = nowFields();
+  const date = (d.date || f.date).replaceAll("-", "");
+  const time = (d.time || (d.date ? "0000" : f.time)).replace(":", "");
+  return `GF-${date}-${time}`;
+}
+
+function refresh() {
+  const d = readForm();
+  const no = reportNumber(d);
+  el.reportNo.textContent = no;
+  el.formNo.textContent = no;
+  el.levelOther.hidden = el.level.value !== "other";
+  const words = (d.narrative.match(/\S+/g) || []).length;
+  el.counter.textContent = `${words} word${words === 1 ? "" : "s"}`;
+  grow();
+}
+
+function grow() {
+  const t = el.narrative;
+  t.style.height = "auto";
+  t.style.height = t.scrollHeight + "px";
+}
+
+/* Nothing excludes every other mark, and any other mark clears Nothing. */
+function onFeeling(e) {
+  const box = e.target;
+  if (!box.checked) return;
+  if (box.value === "Nothing") {
+    for (const b of feelingBoxes) if (b !== box) b.checked = false;
+    el.otherOn.checked = false;
+  } else {
+    feelingBoxes.find(b => b.value === "Nothing").checked = false;
+  }
+}
+
+/* ------------------------------------------------------------------ draft */
+
+let draftTimer = 0;
+function saveDraft() {
+  clearTimeout(draftTimer);
+  draftTimer = setTimeout(() => {
+    try {
+      localStorage.setItem(DRAFT_KEY, JSON.stringify(readForm()));
+      const n = new Date();
+      say(`Draft kept in this browser · ${pad(n.getHours())}:${pad(n.getMinutes())}`);
+    } catch {
+      say("This browser is not keeping a draft for local files — generate the report before closing the tab.");
+    }
+  }, 400);
+}
+
+function loadDraft() {
+  try {
+    const raw = localStorage.getItem(DRAFT_KEY);
+    if (raw) { writeForm(JSON.parse(raw)); say("Restored your unfinished draft."); return true; }
+  } catch { /* storage unavailable: start fresh */ }
+  return false;
+}
+
+function say(msg) { el.status.textContent = msg; }
+
+/* ----------------------------------------------------------- text helpers */
+
+// WinAnsiEncoding for the PDF standard fonts: Latin-1 plus the 0x80–0x9F
+// punctuation block. Anything else cannot be drawn with these fonts and
+// becomes "?" rather than silently vanishing.
+const WIN = {
+  0x20AC: 0x80, 0x201A: 0x82, 0x0192: 0x83, 0x201E: 0x84, 0x2026: 0x85,
+  0x2020: 0x86, 0x2021: 0x87, 0x02C6: 0x88, 0x2030: 0x89, 0x0160: 0x8A,
+  0x2039: 0x8B, 0x0152: 0x8C, 0x017D: 0x8E, 0x2018: 0x91, 0x2019: 0x92,
+  0x201C: 0x93, 0x201D: 0x94, 0x2022: 0x95, 0x2013: 0x96, 0x2014: 0x97,
+  0x02DC: 0x98, 0x2122: 0x99, 0x0161: 0x9A, 0x203A: 0x9B, 0x0153: 0x9C,
+  0x017E: 0x9E, 0x0178: 0x9F,
+};
+function winAnsi(s) {
+  let out = "";
+  for (const ch of String(s).normalize("NFC")) {
+    const c = ch.codePointAt(0);
+    if (c === 0x0A) out += "\n";
+    else if (c === 0x09) out += "    ";
+    else if (c < 0x20 || c === 0x7F) out += " ";
+    // 0x80–0x9F are only ever bytes this function already produced (C1
+    // controls never come from typing), so encoding twice is harmless.
+    else if (c < 0x7F || (c >= 0x80 && c <= 0xFF)) out += String.fromCharCode(c);
+    else if (WIN[c]) out += String.fromCharCode(WIN[c]);
+    else if (c === 0x2010 || c === 0x2011 || c === 0x2212) out += "-";
+    else if (c === 0x200B || c === 0x200D || c === 0xFE0F) { /* invisible */ }
+    else out += "?";
+  }
+  return out;
+}
+
+// Greedy word wrap for a monospaced face; keeps blank lines, splits
+// over-long words.
+function wrap(text, max) {
+  const lines = [];
+  for (const para of text.replace(/\r\n?/g, "\n").split("\n")) {
+    if (!para.trim()) { lines.push(""); continue; }
+    let line = "";
+    for (let word of para.split(/ +/).filter(Boolean)) {
+      while (word.length > max) {
+        if (line) { lines.push(line); line = ""; }
+        lines.push(word.slice(0, max)); word = word.slice(max);
+      }
+      if (!line) line = word;
+      else if (line.length + 1 + word.length <= max) line += " " + word;
+      else { lines.push(line); line = word; }
+    }
+    lines.push(line);
+  }
+  while (lines.length && lines[lines.length - 1] === "") lines.pop();
+  return lines;
+}
+
+function longDate(iso) {
+  if (!iso) return "";
+  const [y, m, d] = iso.split("-").map(Number);
+  const dow = new Date(Date.UTC(y, m - 1, d)).getUTCDay();
+  return `${DAYS[dow]} ${pad(d)} ${MONTHS[m - 1]} ${y}`;
+}
+
+/* ------------------------------------------------------------ PDF writer */
+
+const PW = 595.28, PH = 841.89;         // A4, points
+const ML = 42, CW = PW - 2 * ML;        // margins, content width
+const LIMIT = PH - 64;                  // content must end above the footer
+const HEAVY = 2.2, MED = 1.1;
+const COURIER = 0.6;                    // Courier advance, em fraction
+
+const measureCtx = document.createElement("canvas").getContext("2d");
+function sansWidth(s, size, tc = 0) {
+  measureCtx.font = "bold 100px Helvetica, Arial, sans-serif";
+  return measureCtx.measureText(s).width / 100 * size + tc * s.length;
+}
+function monoWidth(s, size, tc = 0) { return s.length * (COURIER * size + tc); }
+function n2(v) { return (Math.round(v * 100) / 100).toString(); }
+function pdfStr(s) { return "(" + s.replace(/[\\()]/g, "\\$&") + ")"; }
+
+class Page {
+  constructor() { this.ops = ["0 J 0 j 0 G 0 g"]; }
+  rect(x, y, w, h, lw) { this.ops.push(`${lw} w ${n2(x)} ${n2(PH - y - h)} ${n2(w)} ${n2(h)} re S`); }
+  fill(x, y, w, h) { this.ops.push(`${n2(x)} ${n2(PH - y - h)} ${n2(w)} ${n2(h)} re f`); }
+  line(x1, y1, x2, y2, lw, gray = 0) {
+    this.ops.push(`${gray} G ${lw} w ${n2(x1)} ${n2(PH - y1)} m ${n2(x2)} ${n2(PH - y2)} l S 0 G`);
+  }
+  // font: F1 Courier, F2 Courier-Bold, F3 Helvetica-Bold, F4 Helvetica
+  text(x, y, s, font, size, { tc = 0, white = false } = {}) {
+    this.ops.push(`BT ${white ? "1" : "0"} g /${font} ${size} Tf ${tc} Tc ${n2(x)} ${n2(PH - y)} Td ${pdfStr(winAnsi(s))} Tj 0 g ET`);
+  }
+  box(x, y, size, checked) {
+    this.rect(x, y, size, size, 1.4);
+    if (checked) {
+      const i = 1.8;
+      this.line(x + i, y + i, x + size - i, y + size - i, 1.5);
+      this.line(x + size - i, y + i, x + i, y + size - i, 1.5);
+    }
+  }
+  get content() { return this.ops.join("\n"); }
+}
+
+function pdfDocument(pages, info) {
+  const objs = [];
+  const add = s => (objs.push(s), objs.length);
+  const catalog = add(""), tree = add("");
+  const faces = { F1: "Courier", F2: "Courier-Bold", F3: "Helvetica-Bold", F4: "Helvetica" };
+  const fontRes = Object.entries(faces).map(([k, base]) =>
+    `/${k} ${add(`<< /Type /Font /Subtype /Type1 /BaseFont /${base} /Encoding /WinAnsiEncoding >>`)} 0 R`).join(" ");
+  const kids = pages.map(p => {
+    const body = p.content;
+    const c = add(`<< /Length ${body.length} >>\nstream\n${body}\nendstream`);
+    return add(`<< /Type /Page /Parent ${tree} 0 R /MediaBox [0 0 ${PW} ${PH}] ` +
+               `/Resources << /Font << ${fontRes} >> >> /Contents ${c} 0 R >>`);
+  });
+  objs[catalog - 1] = `<< /Type /Catalog /Pages ${tree} 0 R >>`;
+  objs[tree - 1] = `<< /Type /Pages /Kids [${kids.map(k => k + " 0 R").join(" ")}] /Count ${kids.length} >>`;
+  const infoRef = add(`<< /Title ${pdfStr(winAnsi(info.title))} /Subject (Gateway session report) ` +
+                      `/Creator (Gateway Forge session report form) /CreationDate (${info.created}) >>`);
+
+  let out = "%PDF-1.4\n%\xE2\xE3\xCF\xD3\n";
+  const offsets = [];
+  objs.forEach((o, i) => { offsets.push(out.length); out += `${i + 1} 0 obj\n${o}\nendobj\n`; });
+  const xref = out.length;
+  out += `xref\n0 ${objs.length + 1}\n0000000000 65535 f \n`;
+  out += offsets.map(o => String(o).padStart(10, "0") + " 00000 n \n").join("");
+  out += `trailer\n<< /Size ${objs.length + 1} /Root ${catalog} 0 R /Info ${infoRef} 0 R >>\nstartxref\n${xref}\n%%EOF\n`;
+
+  // Every character above is a single byte (winAnsi guarantees it).
+  const bytes = new Uint8Array(out.length);
+  for (let i = 0; i < out.length; i++) bytes[i] = out.charCodeAt(i) & 0xFF;
+  return bytes;
+}
+
+/* ------------------------------------------------------------ the report */
+
+const NOT_RECORDED = "- NOT RECORDED -";
+const BANNER = "PERSONAL // GATEWAY JOURNAL // SELF-REPORT";
+
+function sectionBar(p, y, title) {
+  p.fill(ML, y, CW, 15);
+  p.text(ML + 7, y + 10.6, title, "F3", 8, { tc: 1.1, white: true });
+  return y + 15;
+}
+
+// A row of labelled cells; values are typewriter and wrap within the cell.
+function fieldRow(p, y, cells) {
+  const size = 12, lead = 15;
+  const laid = cells.map(c => {
+    const max = Math.floor((c.w - 14) / (COURIER * size));
+    const val = winAnsi(c.value || "");
+    return { ...c, lines: val ? wrap(val, max) : [] };
+  });
+  const h = Math.max(42, 30 + (Math.max(1, ...laid.map(c => c.lines.length)) - 1) * lead + 12);
+  let x = ML;
+  for (const c of laid) {
+    p.rect(x, y, c.w, h, MED);
+    p.text(x + 6, y + 10.5, c.label, "F3", 6.8, { tc: 0.9 });
+    if (c.lines.length) c.lines.forEach((l, i) => p.text(x + 7, y + 29 + i * lead, l, "F1", size));
+    else p.text(x + 7, y + 29, NOT_RECORDED, "F1", 9);
+    x += c.w;
+  }
+  p.rect(ML, y, CW, h, HEAVY);
+  return y + h;
+}
+
+function chrome(p, i, n, reportNo) {
+  const bw = monoWidth(BANNER, 9, 1.4);
+  p.text((PW - bw) / 2, 28, BANNER, "F2", 9, { tc: 1.4 });
+  p.line(ML, PH - 52, ML + CW, PH - 52, HEAVY);
+  p.text(ML, PH - 42, "GF FORM 1 · SESSION REPORT", "F3", 6.8, { tc: 0.9 });
+  const no = monoWidth(reportNo, 8);
+  p.text((PW - no) / 2, PH - 42, reportNo, "F1", 8);
+  const pg = `PAGE ${i} OF ${n}`;
+  p.text(ML + CW - sansWidth(pg, 6.8, 0.9), PH - 42, pg, "F3", 6.8, { tc: 0.9 });
+  p.text((PW - bw) / 2, PH - 22, BANNER, "F2", 9, { tc: 1.4 });
+}
+
+function buildReport(d) {
+  const filedAt = new Date();
+  const filed = `${longDate(nowFields().date).slice(4)} ${pad(filedAt.getHours())}:${pad(filedAt.getMinutes())}`;
+  const reportNo = reportNumber(d);
+  const pages = [];
+  let p = new Page(); pages.push(p);
+
+  /* masthead */
+  let y = 42;
+  const mh = 70, rw = 176, rx = ML + CW - rw;
+  p.rect(ML, y, CW, mh, HEAVY);
+  p.line(rx, y, rx, y + mh, MED);
+  p.line(rx, y + mh / 2, ML + CW, y + mh / 2, MED);
+  p.text(ML + 11, y + 17, "GATEWAY FORGE", "F3", 8, { tc: 1.6 });
+  p.text(ML + 10, y + 46, "SESSION REPORT", "F3", 25);
+  p.text(ML + 11, y + 61, "FOCUS LEVEL SESSION — PERSONAL EXPERIENCE RECORD", "F3", 6.6, { tc: 1 });
+  p.text(rx + 7, y + 11, "REPORT NO.", "F3", 6.6, { tc: 0.9 });
+  p.text(rx + 7, y + 27, reportNo, "F1", 11);
+  p.text(rx + 7, y + mh / 2 + 11, "FILED", "F3", 6.6, { tc: 0.9 });
+  p.text(rx + 7, y + mh / 2 + 27, filed, "F1", 10);
+  y += mh + 12;
+
+  /* I */
+  y = sectionBar(p, y, "SECTION I — IDENTIFICATION");
+  y = fieldRow(p, y, [
+    { label: "1. DATE", value: longDate(d.date), w: 150 },
+    { label: "2. START TIME", value: d.time, w: 100 },
+    { label: "3. FOCUS LEVEL", value: d.level, w: CW - 250 },
+  ]);
+  y = fieldRow(p, y, [{ label: "4. SESSION TITLE", value: d.title, w: CW }]);
+  y += 12;
+
+  /* II */
+  y = sectionBar(p, y, "SECTION II — PHYSICAL STATE");
+  const opts = ["Nothing", "Fell asleep", "Relaxed", "Energised", "Buzzing"];
+  const other = d.otherOn || !!d.otherText;
+  const otherMax = Math.floor((CW - 92) / (COURIER * 11));
+  const otherLines = d.otherText ? wrap(winAnsi(d.otherText), otherMax) : [""];
+  const bh = 50 + otherLines.length * 15 + 4;
+  p.text(ML + 6, y + 10.5, "5. BODY FEELING — MARK ALL THAT APPLY", "F3", 6.8, { tc: 0.9 });
+  const colW = (CW - 12) / opts.length;
+  opts.forEach((o, i) => {
+    const x = ML + 8 + i * colW;
+    p.box(x, y + 19, 10, d.feelings.includes(o));
+    p.text(x + 16, y + 27.5, o.toUpperCase(), "F3", 8, { tc: 0.7 });
+  });
+  const oy = y + 42;
+  p.box(ML + 8, oy, 10, other);
+  p.text(ML + 24, oy + 8.5, "OTHER:", "F3", 8, { tc: 0.7 });
+  otherLines.forEach((l, i) => {
+    const by = oy + 8.5 + i * 15;
+    p.text(ML + 84, by, l, "F1", 11);
+    p.line(ML + 82, by + 3, ML + CW - 8, by + 3, 0.5, 0.35);
+  });
+  p.rect(ML, y, CW, bh, HEAVY);
+  y += bh + 12;
+
+  /* III — flows across as many pages as the account needs */
+  const size = 10.5, lead = 15;
+  const max = Math.floor((CW - 18) / (COURIER * size));
+  let lines = wrap(winAnsi(d.narrative), max);
+  if (!lines.length) lines = [NOT_RECORDED];
+  const endRoom = 26;
+  let first = true;
+
+  for (;;) {
+    y = sectionBar(p, y, first ? "SECTION III — COMMENTS / EXPERIENCE"
+                               : "SECTION III — COMMENTS / EXPERIENCE (CONTINUED)");
+    const top = y, base0 = top + 27;
+    p.text(ML + 6, top + 10.5, first ? "6. ACCOUNT OF THE EXPERIENCE — IN THE REPORTER'S OWN WORDS"
+                                     : "6. ACCOUNT OF THE EXPERIENCE (CONTINUED)", "F3", 6.8, { tc: 0.9 });
+    const fitFull = Math.floor((LIMIT - 8 - base0) / lead) + 1;
+    const fitLast = Math.floor((LIMIT - 8 - endRoom - base0) / lead) + 1;
+    const last = lines.length <= fitLast;
+    const take = last ? lines.length : Math.min(fitFull, lines.length - 1);
+    const slots = last ? fitLast : fitFull;
+    const bottom = base0 + (slots - 1) * lead + 8;
+
+    for (let i = 0; i < slots; i++) p.line(ML + 8, base0 + i * lead + 3.2, ML + CW - 8, base0 + i * lead + 3.2, 0.4, 0.72);
+    lines.slice(0, take).forEach((l, i) => p.text(ML + 9, base0 + i * lead, l, "F1", size));
+    p.rect(ML, top, CW, bottom - top, HEAVY);
+    lines = lines.slice(take);
+
+    if (last) {
+      const end = "*** END OF REPORT ***";
+      p.text((PW - monoWidth(end, 9, 1.4)) / 2, bottom + 18, end, "F2", 9, { tc: 1.4 });
+      break;
+    }
+
+    /* continuation sheet */
+    p = new Page(); pages.push(p); first = false;
+    y = 42;
+    p.rect(ML, y, CW, 34, HEAVY);
+    p.line(rx, y, rx, y + 34, MED);
+    p.text(ML + 10, y + 22, "SESSION REPORT — CONTINUATION SHEET", "F3", 13);
+    p.text(rx + 7, y + 11, "REPORT NO.", "F3", 6.6, { tc: 0.9 });
+    p.text(rx + 7, y + 26, reportNo, "F1", 11);
+    y += 34 + 12;
+  }
+
+  pages.forEach((pg, i) => chrome(pg, i + 1, pages.length, reportNo));
+
+  const c = filedAt;
+  const created = `D:${c.getFullYear()}${pad(c.getMonth() + 1)}${pad(c.getDate())}${pad(c.getHours())}${pad(c.getMinutes())}${pad(c.getSeconds())}`;
+  const titleBits = [d.title || "Session report", d.date].filter(Boolean).join(" — ");
+  const bytes = pdfDocument(pages, { title: titleBits, created });
+
+  const slug = s => s.normalize("NFKD").replace(/[̀-ͯ]/g, "")
+    .replace(/[^A-Za-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 48);
+  const levelTag = d.levelKey && d.levelKey !== "other" ? d.levelKey : slug(d.level);
+  const name = ["Session-Report", d.date || nowFields().date, (d.time || "").replace(":", ""),
+                levelTag, slug(d.title)].filter(Boolean).join("_") + ".pdf";
+  return { bytes, name, pages: pages.length };
+}
+
+/* ------------------------------------------------------------------ save */
+
+// When this page is published on claude.ai, the frame blocks every download
+// the page starts itself; the host's downloads capability asks the viewer
+// instead (a save dialog in a browser, the share sheet in the iOS app).
+// Opened as a plain file, window.claude does not exist and this is null.
+const hostDownloads = window.claude && window.claude.use
+  ? window.claude.use("downloads").catch(() => null)
+  : Promise.resolve(null);
+
+async function offerSave(bytes, name) {
+  const blob = new Blob([bytes], { type: "application/pdf" });
+  const host = await hostDownloads;
+  if (host) {
+    try {
+      await host.save({ filename: name, data: blob });
+      return { how: "saved", name };
+    } catch (e) {
+      if (e && e.code === "declined") return { how: "cancelled" };
+      throw new Error(e && e.code === "rate_limited"
+        ? "a save prompt is already open — answer it, then try again."
+        : "this page is not allowed to offer files here.");
+    }
+  }
+  if (window.showSaveFilePicker) {
+    try {
+      const handle = await window.showSaveFilePicker({
+        suggestedName: name,
+        types: [{ description: "PDF document", accept: { "application/pdf": [".pdf"] } }],
+      });
+      const w = await handle.createWritable();
+      await w.write(blob); await w.close();
+      return { how: "saved", name: handle.name };
+    } catch (e) {
+      if (e && e.name === "AbortError") return { how: "cancelled" };
+      // Picker refused (e.g. not allowed for this page): use a download.
+    }
+  }
+  const url = URL.createObjectURL(blob);
+  const a = Object.assign(document.createElement("a"), { href: url, download: name });
+  document.body.append(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 30000);
+  return { how: "downloaded", name };
+}
+
+async function generate() {
+  const d = readForm();
+  try {
+    const { bytes, name, pages } = buildReport(d);
+    const r = await offerSave(bytes, name);
+    const size = `${pages} page${pages === 1 ? "" : "s"}`;
+    if (r.how === "saved") say(`Report saved as ${r.name} (${size}).`);
+    else if (r.how === "downloaded") say(`Report downloaded as ${r.name} (${size}). Check your Downloads folder if no save dialog appeared.`);
+    else say("Save cancelled — nothing was written.");
+  } catch (e) {
+    say(`Could not generate the report: ${e && e.message ? e.message : e}`);
+  }
+}
+
+/* ----------------------------------------------------------------- wiring */
+
+for (const b of feelingBoxes) b.addEventListener("change", onFeeling);
+el.otherOn.addEventListener("change", () => {
+  if (el.otherOn.checked) feelingBoxes.find(b => b.value === "Nothing").checked = false;
+});
+el.otherText.addEventListener("input", () => {
+  if (el.otherText.value.trim()) {
+    el.otherOn.checked = true;
+    feelingBoxes.find(b => b.value === "Nothing").checked = false;
+  }
+});
+el.level.addEventListener("change", () => { if (el.level.value === "other") el.levelOther.focus(); });
+document.querySelector(".sheet").addEventListener("input", () => { refresh(); saveDraft(); });
+document.querySelector(".sheet").addEventListener("change", () => { refresh(); saveDraft(); });
+window.addEventListener("resize", grow);
+
+$("generate").addEventListener("click", generate);
+// Two presses, in the page itself: hosted pages cannot show confirm().
+let clearArmed = 0;
+$("clear").addEventListener("click", () => {
+  const btn = $("clear");
+  if (!clearArmed) {
+    btn.textContent = "Press again to clear";
+    say("Pressing Clear form again erases every field and the kept draft.");
+    clearArmed = setTimeout(() => { clearArmed = 0; btn.textContent = "Clear form"; say(""); }, 4000);
+    return;
+  }
+  clearTimeout(clearArmed); clearArmed = 0;
+  btn.textContent = "Clear form";
+  try { localStorage.removeItem(DRAFT_KEY); } catch { /* nothing kept */ }
+  writeForm(nowFields());
+  refresh();
+  say("Form cleared.");
+});
+
+if (!loadDraft()) writeForm(nowFields());
+refresh();
+</script>
+</body>
+</html>

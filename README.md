@@ -2,6 +2,8 @@
 
 **[The page →](https://snepssen.github.io/gateway-forge/)** · the structure, the measurements, and how to build it.
 
+**[Session report form →](https://snepssen.github.io/gateway-forge/session-report.html)** · record a session and save it as a typewritten PDF, in any browser, phone or iPad included. Nothing you type leaves the browser.
+
 A guided-meditation assembly system and journal built around the Monroe
 Institute's Gateway framework, for macOS, Windows and Linux.
 

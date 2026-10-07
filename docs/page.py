@@ -28,6 +28,19 @@ PAGE = {
         ],
         "scripts": ["site.js"],
     },
+    # Directly under the masthead, so the form is one tap from the top of the
+    # page. It is a standalone page beside this one (docs/session-report.html)
+    # because people bookmark it and use it after sessions, often on a phone.
+    "header_blocks": [
+        {"kind": "raw", "html": """  <aside class="formcall" aria-labelledby="formcall-title">
+    <div class="formcall-text">
+      <p class="eyebrow">For listeners · GF Form 1</p>
+      <p class="formcall-title" id="formcall-title">Session report form</p>
+      <p>Write down a session while it is fresh: date, Focus level, how the body felt, and your own account. Save it as a typewritten PDF. It runs in your browser on a computer, phone or iPad, and nothing you type is sent anywhere.</p>
+    </div>
+    <a class="formcall-go" href="session-report.html">Open the form</a>
+  </aside>"""},
+    ],
     "sections": [
     {
         "eyebrow": "Why it exists",
