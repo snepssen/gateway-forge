@@ -134,7 +134,7 @@
     border: var(--heavy) solid var(--ink);
     border-top: 0;
   }
-  .row.r3 { grid-template-columns: 190px 150px 1fr; }
+  .row.r4 { grid-template-columns: 170px 112px 112px 1fr; }
   .cell {
     display: flex;
     flex-direction: column;
@@ -271,9 +271,9 @@
     h1 { font-size: 26px; }
     .masthead { grid-template-columns: 1fr; }
     .mast-right { border-left: 0; border-top: var(--med) solid var(--ink); }
-    .row.r3 { grid-template-columns: 1fr 1fr; }
-    .row.r3 > .cell:nth-child(3) { grid-column: 1 / -1; border-left: 0; border-top: var(--med) solid var(--ink); }
-    .checks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .row.r4 { grid-template-columns: 1fr 1fr; }
+    .row.r4 > .cell:nth-child(3) { border-left: 0; border-top: var(--med) solid var(--ink); }
+    .row.r4 > .cell:nth-child(4) { border-top: var(--med) solid var(--ink); }    .checks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .banner { font-size: 11px; letter-spacing: .12em; }
   }
   @media print {
@@ -318,11 +318,12 @@
 
   <section>
     <div class="bar">SECTION I — IDENTIFICATION</div>
-    <div class="row r3 stack">
+    <div class="row r4 stack">
       <label class="cell"><span class="lbl">1. Date</span><input type="date" id="date"></label>
-      <label class="cell"><span class="lbl">2. Start time</span><input type="time" id="time"></label>
+      <label class="cell"><span class="lbl">2. Start</span><input type="time" id="time"></label>
+      <label class="cell"><span class="lbl">3. End</span><input type="time" id="end"></label>
       <div class="cell">
-        <label class="lbl" for="level">3. Focus level</label>
+        <label class="lbl" for="level">4. Focus level</label>
         <!-- Written out rather than generated so the list survives viewers
              that do not run scripts. Mirrors library/levels.json. -->
         <select id="level">
@@ -351,7 +352,7 @@
       </div>
     </div>
     <div class="row">
-      <label class="cell"><span class="lbl">4. Session title</span>
+      <label class="cell"><span class="lbl">5. Session title</span>
         <input type="text" id="title" placeholder="e.g. Advanced Focus 10, Continuous mode" autocomplete="off"></label>
     </div>
   </section>
@@ -360,7 +361,7 @@
     <div class="bar">SECTION II — PHYSICAL STATE</div>
     <div class="row">
       <div class="cell">
-        <span class="lbl">5. Body feeling <span class="hint">— mark all that apply</span></span>
+        <span class="lbl">6. Body feeling <span class="hint">— mark all that apply</span></span>
         <div class="checks" id="feelings">
           <label class="check"><input type="checkbox" value="Nothing"> Nothing</label>
           <label class="check"><input type="checkbox" value="Fell asleep"> Fell asleep</label>
@@ -380,7 +381,7 @@
     <div class="bar">SECTION III — COMMENTS / EXPERIENCE</div>
     <div class="row">
       <label class="cell">
-        <span class="lbl">6. Account of the experience <span class="hint">— in your own words</span></span>
+        <span class="lbl">7. Account of the experience <span class="hint">— in your own words</span></span>
         <textarea class="narr" id="narrative" spellcheck="true"></textarea>
         <span class="counter" id="counter">0 words</span>
       </label>
@@ -401,121 +402,33 @@
 <script>
 "use strict";
 
-/* ------------------------------------------------------------------ data */
+// ==== session-report core: begin ====
+//
+// Everything between these markers is the report itself: text encoding,
+// layout and the PDF bytes. It touches no page, no clock and no browser API,
+// so the cross-platform checks can run it in Node, and the desktop app's
+// Swift port (GatewayCore/SessionReport.swift) is held to produce the same
+// bytes for the same report. Change one, change both; the parity check says
+// which way they drifted.
 
-// The script is running, so the "not running" notice can go.
-document.getElementById("noscript").hidden = true;
-
-const DRAFT_KEY = "gf-session-report-draft-v1";
 const MONTHS = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
 const DAYS = ["SUN","MON","TUE","WED","THU","FRI","SAT"];
-
-const $ = id => document.getElementById(id);
-const el = {
-  date: $("date"), time: $("time"), level: $("level"), levelOther: $("levelOther"),
-  title: $("title"), otherOn: $("otherOn"), otherText: $("otherText"),
-  narrative: $("narrative"), status: $("status"), reportNo: $("reportNo"),
-  formNo: $("formNo"), counter: $("counter"),
-};
-const feelingBoxes = [...document.querySelectorAll("#feelings input")];
-
-/* ------------------------------------------------------------- form state */
+const FEELINGS = ["Nothing", "Fell asleep", "Relaxed", "Energised", "Buzzing"];
 
 function pad(n) { return String(n).padStart(2, "0"); }
 
-function readForm() {
-  const levelKey = el.level.value;
-  let level = "";
-  if (levelKey === "other") level = el.levelOther.value.trim();
-  else if (levelKey) level = el.level.selectedOptions[0].text;
-  return {
-    date: el.date.value, time: el.time.value,
-    levelKey, levelOther: el.levelOther.value, level,
-    title: el.title.value.trim(),
-    feelings: feelingBoxes.filter(b => b.checked).map(b => b.value),
-    otherOn: el.otherOn.checked, otherText: el.otherText.value.trim(),
-    narrative: el.narrative.value,
-  };
+/* The day and minute of `now` in local time, in the form's own field shapes. */
+function dayFields(now) {
+  return { date: `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`,
+           time: `${pad(now.getHours())}:${pad(now.getMinutes())}` };
 }
 
-function writeForm(d) {
-  el.date.value = d.date || ""; el.time.value = d.time || "";
-  el.level.value = d.levelKey || ""; el.levelOther.value = d.levelOther || "";
-  el.title.value = d.title || "";
-  for (const b of feelingBoxes) b.checked = (d.feelings || []).includes(b.value);
-  el.otherOn.checked = !!d.otherOn; el.otherText.value = d.otherText || "";
-  el.narrative.value = d.narrative || "";
-}
-
-function nowFields() {
-  const n = new Date();
-  return { date: `${n.getFullYear()}-${pad(n.getMonth() + 1)}-${pad(n.getDate())}`,
-           time: `${pad(n.getHours())}:${pad(n.getMinutes())}` };
-}
-
-function reportNumber(d) {
-  const f = nowFields();
+function reportNumber(d, now) {
+  const f = dayFields(now);
   const date = (d.date || f.date).replaceAll("-", "");
   const time = (d.time || (d.date ? "0000" : f.time)).replace(":", "");
   return `GF-${date}-${time}`;
 }
-
-function refresh() {
-  const d = readForm();
-  const no = reportNumber(d);
-  el.reportNo.textContent = no;
-  el.formNo.textContent = no;
-  el.levelOther.hidden = el.level.value !== "other";
-  const words = (d.narrative.match(/\S+/g) || []).length;
-  el.counter.textContent = `${words} word${words === 1 ? "" : "s"}`;
-  grow();
-}
-
-function grow() {
-  const t = el.narrative;
-  t.style.height = "auto";
-  t.style.height = t.scrollHeight + "px";
-}
-
-/* Nothing excludes every other mark, and any other mark clears Nothing. */
-function onFeeling(e) {
-  const box = e.target;
-  if (!box.checked) return;
-  if (box.value === "Nothing") {
-    for (const b of feelingBoxes) if (b !== box) b.checked = false;
-    el.otherOn.checked = false;
-  } else {
-    feelingBoxes.find(b => b.value === "Nothing").checked = false;
-  }
-}
-
-/* ------------------------------------------------------------------ draft */
-
-let draftTimer = 0;
-function saveDraft() {
-  clearTimeout(draftTimer);
-  draftTimer = setTimeout(() => {
-    try {
-      localStorage.setItem(DRAFT_KEY, JSON.stringify(readForm()));
-      const n = new Date();
-      say(`Draft kept in this browser · ${pad(n.getHours())}:${pad(n.getMinutes())}`);
-    } catch {
-      say("This browser is not keeping a draft for local files — generate the report before closing the tab.");
-    }
-  }, 400);
-}
-
-function loadDraft() {
-  try {
-    const raw = localStorage.getItem(DRAFT_KEY);
-    if (raw) { writeForm(JSON.parse(raw)); say("Restored your unfinished draft."); return true; }
-  } catch { /* storage unavailable: start fresh */ }
-  return false;
-}
-
-function say(msg) { el.status.textContent = msg; }
-
-/* ----------------------------------------------------------- text helpers */
 
 // WinAnsiEncoding for the PDF standard fonts: Latin-1 plus the 0x80–0x9F
 // punctuation block. Anything else cannot be drawn with these fonts and
@@ -575,18 +488,25 @@ function longDate(iso) {
   return `${DAYS[dow]} ${pad(d)} ${MONTHS[m - 1]} ${y}`;
 }
 
-/* ------------------------------------------------------------ PDF writer */
-
 const PW = 595.28, PH = 841.89;         // A4, points
 const ML = 42, CW = PW - 2 * ML;        // margins, content width
 const LIMIT = PH - 64;                  // content must end above the footer
 const HEAVY = 2.2, MED = 1.1;
 const COURIER = 0.6;                    // Courier advance, em fraction
 
-const measureCtx = document.createElement("canvas").getContext("2d");
+// Helvetica-Bold advances (the standard PDF font metrics, per 1000 em) for
+// the only sans text that is measured: "PAGE n OF m", right-aligned. A table
+// rather than the browser's own measurement, so every browser and the
+// desktop app place it on the same point.
+const HELVETICA_BOLD = {
+  " ": 278, "A": 722, "E": 667, "F": 611, "G": 778, "O": 778, "P": 667,
+  "0": 556, "1": 556, "2": 556, "3": 556, "4": 556,
+  "5": 556, "6": 556, "7": 556, "8": 556, "9": 556,
+};
 function sansWidth(s, size, tc = 0) {
-  measureCtx.font = "bold 100px Helvetica, Arial, sans-serif";
-  return measureCtx.measureText(s).width / 100 * size + tc * s.length;
+  let w = 0;
+  for (const ch of s) w += HELVETICA_BOLD[ch] ?? 600;
+  return w / 1000 * size + tc * s.length;
 }
 function monoWidth(s, size, tc = 0) { return s.length * (COURIER * size + tc); }
 function n2(v) { return (Math.round(v * 100) / 100).toString(); }
@@ -646,8 +566,6 @@ function pdfDocument(pages, info) {
   return bytes;
 }
 
-/* ------------------------------------------------------------ the report */
-
 const NOT_RECORDED = "- NOT RECORDED -";
 const BANNER = "PERSONAL // GATEWAY JOURNAL // SELF-REPORT";
 
@@ -690,10 +608,12 @@ function chrome(p, i, n, reportNo) {
   p.text((PW - bw) / 2, PH - 22, BANNER, "F2", 9, { tc: 1.4 });
 }
 
-function buildReport(d) {
-  const filedAt = new Date();
-  const filed = `${longDate(nowFields().date).slice(4)} ${pad(filedAt.getHours())}:${pad(filedAt.getMinutes())}`;
-  const reportNo = reportNumber(d);
+/* One report's pages, footers included. `d` is the form's own shape:
+   { date: "YYYY-MM-DD", time: "HH:MM", end: "HH:MM", levelKey, level, title,
+     feelings: [...], otherOn, otherText, narrative }, every field optional. */
+function reportPages(d, now) {
+  const filed = `${longDate(dayFields(now).date).slice(4)} ${pad(now.getHours())}:${pad(now.getMinutes())}`;
+  const reportNo = reportNumber(d, now);
   const pages = [];
   let p = new Page(); pages.push(p);
 
@@ -715,25 +635,26 @@ function buildReport(d) {
   /* I */
   y = sectionBar(p, y, "SECTION I — IDENTIFICATION");
   y = fieldRow(p, y, [
-    { label: "1. DATE", value: longDate(d.date), w: 150 },
-    { label: "2. START TIME", value: d.time, w: 100 },
-    { label: "3. FOCUS LEVEL", value: d.level, w: CW - 250 },
+    { label: "1. DATE", value: longDate(d.date), w: 128 },
+    { label: "2. START", value: d.time, w: 70 },
+    { label: "3. END", value: d.end, w: 70 },
+    { label: "4. FOCUS LEVEL", value: d.level, w: CW - 268 },
   ]);
-  y = fieldRow(p, y, [{ label: "4. SESSION TITLE", value: d.title, w: CW }]);
+  y = fieldRow(p, y, [{ label: "5. SESSION TITLE", value: d.title, w: CW }]);
   y += 12;
 
   /* II */
   y = sectionBar(p, y, "SECTION II — PHYSICAL STATE");
-  const opts = ["Nothing", "Fell asleep", "Relaxed", "Energised", "Buzzing"];
-  const other = d.otherOn || !!d.otherText;
+  const feelings = d.feelings || [];
+  const other = !!d.otherOn || !!d.otherText;
   const otherMax = Math.floor((CW - 92) / (COURIER * 11));
   const otherLines = d.otherText ? wrap(winAnsi(d.otherText), otherMax) : [""];
   const bh = 50 + otherLines.length * 15 + 4;
-  p.text(ML + 6, y + 10.5, "5. BODY FEELING — MARK ALL THAT APPLY", "F3", 6.8, { tc: 0.9 });
-  const colW = (CW - 12) / opts.length;
-  opts.forEach((o, i) => {
+  p.text(ML + 6, y + 10.5, "6. BODY FEELING — MARK ALL THAT APPLY", "F3", 6.8, { tc: 0.9 });
+  const colW = (CW - 12) / FEELINGS.length;
+  FEELINGS.forEach((o, i) => {
     const x = ML + 8 + i * colW;
-    p.box(x, y + 19, 10, d.feelings.includes(o));
+    p.box(x, y + 19, 10, feelings.includes(o));
     p.text(x + 16, y + 27.5, o.toUpperCase(), "F3", 8, { tc: 0.7 });
   });
   const oy = y + 42;
@@ -750,7 +671,7 @@ function buildReport(d) {
   /* III — flows across as many pages as the account needs */
   const size = 10.5, lead = 15;
   const max = Math.floor((CW - 18) / (COURIER * size));
-  let lines = wrap(winAnsi(d.narrative), max);
+  let lines = wrap(winAnsi(d.narrative || ""), max);
   if (!lines.length) lines = [NOT_RECORDED];
   const endRoom = 26;
   let first = true;
@@ -759,8 +680,8 @@ function buildReport(d) {
     y = sectionBar(p, y, first ? "SECTION III — COMMENTS / EXPERIENCE"
                                : "SECTION III — COMMENTS / EXPERIENCE (CONTINUED)");
     const top = y, base0 = top + 27;
-    p.text(ML + 6, top + 10.5, first ? "6. ACCOUNT OF THE EXPERIENCE — IN THE REPORTER'S OWN WORDS"
-                                     : "6. ACCOUNT OF THE EXPERIENCE (CONTINUED)", "F3", 6.8, { tc: 0.9 });
+    p.text(ML + 6, top + 10.5, first ? "7. ACCOUNT OF THE EXPERIENCE — IN THE REPORTER'S OWN WORDS"
+                                     : "7. ACCOUNT OF THE EXPERIENCE (CONTINUED)", "F3", 6.8, { tc: 0.9 });
     const fitFull = Math.floor((LIMIT - 8 - base0) / lead) + 1;
     const fitLast = Math.floor((LIMIT - 8 - endRoom - base0) / lead) + 1;
     const last = lines.length <= fitLast;
@@ -791,19 +712,125 @@ function buildReport(d) {
   }
 
   pages.forEach((pg, i) => chrome(pg, i + 1, pages.length, reportNo));
+  return pages;
+}
 
-  const c = filedAt;
-  const created = `D:${c.getFullYear()}${pad(c.getMonth() + 1)}${pad(c.getDate())}${pad(c.getHours())}${pad(c.getMinutes())}${pad(c.getSeconds())}`;
-  const titleBits = [d.title || "Session report", d.date].filter(Boolean).join(" — ");
-  const bytes = pdfDocument(pages, { title: titleBits, created });
+function creationDate(c) {
+  return `D:${c.getFullYear()}${pad(c.getMonth() + 1)}${pad(c.getDate())}${pad(c.getHours())}${pad(c.getMinutes())}${pad(c.getSeconds())}`;
+}
 
-  const slug = s => s.normalize("NFKD").replace(/[̀-ͯ]/g, "")
+function reportFileName(d, now) {
+  const slug = s => (s || "").normalize("NFKD").replace(/[̀-ͯ]/g, "")
     .replace(/[^A-Za-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 48);
   const levelTag = d.levelKey && d.levelKey !== "other" ? d.levelKey : slug(d.level);
-  const name = ["Session-Report", d.date || nowFields().date, (d.time || "").replace(":", ""),
-                levelTag, slug(d.title)].filter(Boolean).join("_") + ".pdf";
-  return { bytes, name, pages: pages.length };
+  return ["Session-Report", d.date || dayFields(now).date, (d.time || "").replace(":", ""),
+          levelTag, slug(d.title)].filter(Boolean).join("_") + ".pdf";
 }
+
+/* One report as a finished PDF. */
+function buildReport(d, now) {
+  const pages = reportPages(d, now);
+  const title = [d.title || "Session report", d.date].filter(Boolean).join(" — ");
+  const bytes = pdfDocument(pages, { title, created: creationDate(now) });
+  return { bytes, name: reportFileName(d, now), pages: pages.length };
+}
+
+// ==== session-report core: end ====
+
+/* ------------------------------------------------------------------ page */
+
+// The script is running, so the "not running" notice can go.
+document.getElementById("noscript").hidden = true;
+
+const DRAFT_KEY = "gf-session-report-draft-v1";
+
+const $ = id => document.getElementById(id);
+const el = {
+  date: $("date"), time: $("time"), end: $("end"), level: $("level"), levelOther: $("levelOther"),
+  title: $("title"), otherOn: $("otherOn"), otherText: $("otherText"),
+  narrative: $("narrative"), status: $("status"), reportNo: $("reportNo"),
+  formNo: $("formNo"), counter: $("counter"),
+};
+const feelingBoxes = [...document.querySelectorAll("#feelings input")];
+
+function readForm() {
+  const levelKey = el.level.value;
+  let level = "";
+  if (levelKey === "other") level = el.levelOther.value.trim();
+  else if (levelKey) level = el.level.selectedOptions[0].text;
+  return {
+    date: el.date.value, time: el.time.value, end: el.end.value,
+    levelKey, levelOther: el.levelOther.value, level,
+    title: el.title.value.trim(),
+    feelings: feelingBoxes.filter(b => b.checked).map(b => b.value),
+    otherOn: el.otherOn.checked, otherText: el.otherText.value.trim(),
+    narrative: el.narrative.value,
+  };
+}
+
+function writeForm(d) {
+  el.date.value = d.date || ""; el.time.value = d.time || ""; el.end.value = d.end || "";
+  el.level.value = d.levelKey || ""; el.levelOther.value = d.levelOther || "";
+  el.title.value = d.title || "";
+  for (const b of feelingBoxes) b.checked = (d.feelings || []).includes(b.value);
+  el.otherOn.checked = !!d.otherOn; el.otherText.value = d.otherText || "";
+  el.narrative.value = d.narrative || "";
+}
+
+function refresh() {
+  const d = readForm();
+  const no = reportNumber(d, new Date());
+  el.reportNo.textContent = no;
+  el.formNo.textContent = no;
+  el.levelOther.hidden = el.level.value !== "other";
+  const words = (d.narrative.match(/\S+/g) || []).length;
+  el.counter.textContent = `${words} word${words === 1 ? "" : "s"}`;
+  grow();
+}
+
+function grow() {
+  const t = el.narrative;
+  t.style.height = "auto";
+  t.style.height = t.scrollHeight + "px";
+}
+
+/* Nothing excludes every other mark, and any other mark clears Nothing. */
+function onFeeling(e) {
+  const box = e.target;
+  if (!box.checked) return;
+  if (box.value === "Nothing") {
+    for (const b of feelingBoxes) if (b !== box) b.checked = false;
+    el.otherOn.checked = false;
+  } else {
+    feelingBoxes.find(b => b.value === "Nothing").checked = false;
+  }
+}
+
+/* ------------------------------------------------------------------ draft */
+
+let draftTimer = 0;
+function saveDraft() {
+  clearTimeout(draftTimer);
+  draftTimer = setTimeout(() => {
+    try {
+      localStorage.setItem(DRAFT_KEY, JSON.stringify(readForm()));
+      const n = new Date();
+      say(`Draft kept in this browser · ${pad(n.getHours())}:${pad(n.getMinutes())}`);
+    } catch {
+      say("This browser is not keeping a draft for local files — generate the report before closing the tab.");
+    }
+  }, 400);
+}
+
+function loadDraft() {
+  try {
+    const raw = localStorage.getItem(DRAFT_KEY);
+    if (raw) { writeForm(JSON.parse(raw)); say("Restored your unfinished draft."); return true; }
+  } catch { /* storage unavailable: start fresh */ }
+  return false;
+}
+
+function say(msg) { el.status.textContent = msg; }
 
 /* ------------------------------------------------------------------ save */
 
@@ -853,7 +880,7 @@ async function offerSave(bytes, name) {
 async function generate() {
   const d = readForm();
   try {
-    const { bytes, name, pages } = buildReport(d);
+    const { bytes, name, pages } = buildReport(d, new Date());
     const r = await offerSave(bytes, name);
     const size = `${pages} page${pages === 1 ? "" : "s"}`;
     if (r.how === "saved") say(`Report saved as ${r.name} (${size}).`);
@@ -895,12 +922,12 @@ $("clear").addEventListener("click", () => {
   clearTimeout(clearArmed); clearArmed = 0;
   btn.textContent = "Clear form";
   try { localStorage.removeItem(DRAFT_KEY); } catch { /* nothing kept */ }
-  writeForm(nowFields());
+  writeForm(dayFields(new Date()));
   refresh();
   say("Form cleared.");
 });
 
-if (!loadDraft()) writeForm(nowFields());
+if (!loadDraft()) writeForm(dayFields(new Date()));
 refresh();
 </script>
 </body>

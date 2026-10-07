@@ -1753,3 +1753,59 @@ a path that has not existed since the tools moved out, displayed in the Sources
 tab of every level it touches. It now records that the analysis is complete and
 that the bed is generated live. The `tools/*.py` mentions remaining in
 `docs/plan.md` are past-tense history and are correct as history.
+
+## The journal is its own place, not a property of sessions (2026-10-07)
+
+Session notes used to live at `focus/<level>/renders/<session>/notes.md`,
+inside the session's folder. That tied writing to audio: storage cleanup
+deleted a tape's audio but kept its folder for the note's sake, so every
+cleaned-up tape stayed listed with nothing to play, and clearing them was a
+delete per session followed by a delete per row in Recently Deleted. The
+owner: the journal "should have been decoupled from the sessions from the
+beginning".
+
+- **Journal** is a rail destination between Focus and Studio
+  (`Selection.journal(String?)`, `JournalPage`). Entries are still
+  `focus/<level>/entries/*.md`; they now carry GF Form 1's fields as optional
+  frontmatter (`title`, `started`, `ended`, `feelings`, `feeling-other`). The
+  player measures `listenStarted`/`listenEnded`, so an entry written at the
+  end of a session never asks for its times.
+- **Session notes move into the journal on launch**
+  (`JournalLog.adoptSessionNotes`): written as an entry naming the session,
+  read back, and only then removed from the session folder. Idempotent.
+  `Library.binding(track:)` remains only so practice counts read any note
+  not yet moved; the app no longer offers a session note for writing.
+- **Cleanup leaves nothing hollow** (`StorageAudit.tidy`, run on every
+  reload): a session folder holding only `manifest.json` goes; one with any
+  other file stays and is named. A folder without its manifest is never
+  touched -- assembly writes the audio before the manifest, so it may be mid-
+  build. `DeletionStore.pruneHollow` drops Recently Deleted rows with nothing
+  left in them, and `removeAll` backs the page's **Delete All**.
+- **Export is the web form's PDF, byte for byte.** `SessionReportPDF` is a
+  line-for-line port of the report core between the `session-report core`
+  markers in `docs/session-report.html`. `report-parity` runs that page's own
+  JavaScript in Node against `session-report-fixture.json`, which `gfcorpus
+  session-report-fixture` writes from Swift. Change either side and both
+  suites say which drifted. The one measured sans string ("PAGE n OF m")
+  uses a Helvetica-Bold width table, not the browser's measurement.
+- **Inspector panes that scroll or wrap text are Lists.** The first journal
+  summary was a stack with a wrapping paragraph; showing the inspector beside
+  it aborted with "more Update Constraints in Window passes than there are
+  views in the window". A check (`inspector panes are Lists`) enforces it.
+
+Two fixtures were patched rather than regenerated, because they were captured
+on a library with real renders and audio: `library-fixture.json` (two
+`@duration` values) and the storage fixture (untouched). `journal-fixture.json`
+must be generated with `TZ=Europe/London`, the zone its parity check pins.
+
+## Commands get room, and the Affirmation is said in phrases (2026-10-07)
+
+Inside one `say`, sentences are separate inference calls joined by ~160 ms of
+quiet, so "relax. Let go. Sleep." landed as one rushed breath. In `relax-10`
+every trailing command is now its own line with `pause 1.5`. The three
+Affirmation forms are split into repeatable phrases, each followed by a pause
+of roughly its own speaking time plus a second, because the listener says
+each phrase back; whole lines left them "a phrase and a half" behind. Wording
+is unchanged in all four files (checked word for word). The pause values are
+first values for audition, not measurements. The engine-wide sentence gap was
+deliberately not changed: it would make every take in the library stale.

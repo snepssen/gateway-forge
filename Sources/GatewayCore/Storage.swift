@@ -16,11 +16,12 @@ import Foundation
 /// assembled tape with a frozen recipe costs the minutes to rebuild it exactly;
 /// one without a recipe cannot be rebuilt identically, and says so.
 ///
-/// **Nothing here ever deletes a directory, and nothing ever deletes writing.**
-/// A render directory carries its own `notes.md`, so purging one wholesale
-/// would take the listener's notes about the tape with it. Purging removes
-/// files it has named, all of them audio, and leaves the folder, the manifest
-/// and every word standing.
+/// **Nothing here ever deletes writing.** Purging removes files it has named,
+/// all of them audio, and never a directory. Afterwards `tidy` removes a
+/// session folder only when nothing is left in it but the manifest the app
+/// wrote: session notes live in the journal now, not beside the audio, so an
+/// audio-less folder is a husk rather than a container for words. A folder
+/// still holding a `notes.md`, or any file the app did not write, stays.
 public enum StorageKind: String, CaseIterable, Sendable, Codable {
     case supersededTakes
     case currentTakes
@@ -253,6 +254,70 @@ public enum StorageAudit {
     /// Takes the report rather than re-deriving the list, so that what the
     /// listener was shown and what is removed cannot come apart between one
     /// and the other.
+    /// What `tidy` took away and what it left standing.
+    public struct Tidied: Equatable, Sendable {
+        /// Session folders removed because nothing was left in them but a
+        /// manifest. Relative to the root.
+        public var removedSessions: [String] = []
+        /// Session folders without audio that hold something else -- writing,
+        /// or a file this app did not put there -- and so were left alone.
+        public var keptSessions: [String] = []
+        /// Recently Deleted records whose files were already gone.
+        public var droppedRecords = 0
+        public init() {}
+    }
+
+    /// The files a session folder is allowed to be left holding and still
+    /// count as empty. Everything else -- above all a `notes.md` -- keeps the
+    /// folder.
+    public static let hollowSessionFiles: Set<String> = ["manifest.json", ".DS_Store"]
+
+    /// Finish what `purge` starts, so a cleanup leaves nothing hollow behind.
+    ///
+    /// `purge` removes named files and never a directory, which is right for
+    /// the files and left two kinds of husk. A tape whose audio was purged
+    /// stayed listed as a session with nothing to play; a Recently Deleted
+    /// item whose payload was purged stayed as a row offering "Remove
+    /// Record". The owner had to clear both by hand, one at a time. Session
+    /// notes now live in the journal (see `JournalLog.adoptSessionNotes`), so
+    /// a session folder without audio is genuinely empty and can go.
+    ///
+    /// Conservative on purpose: a folder goes only when every file left in it
+    /// is one this app writes and nothing else (`hollowSessionFiles`). A note
+    /// that was never moved, or a file the listener put there, keeps it, and
+    /// the result says so.
+    @discardableResult
+    public static func tidy(root: URL, renders: [URL],
+                            fileManager fm: FileManager = .default) -> Tidied {
+        var out = Tidied()
+        // Symlinks resolved on both sides, and before anything is removed:
+        // macOS shows the same temporary folder as /var and /private/var, and
+        // a path that no longer exists cannot be resolved at all.
+        let base = root.resolvingSymlinksInPath().standardizedFileURL.path + "/"
+        func relative(_ url: URL) -> String {
+            let p = url.resolvingSymlinksInPath().standardizedFileURL.path
+            return p.hasPrefix(base) ? String(p.dropFirst(base.count)) : p
+        }
+        for dir in renders.sorted(by: { $0.path < $1.path }) {
+            guard !fm.fileExists(atPath: dir.appending(path: "session.wav").path) else { continue }
+            let names = (try? fm.contentsOfDirectory(atPath: dir.path)) ?? []
+            // **The manifest has to be there.** Assembly creates the folder,
+            // writes the audio, and only then the manifest, so a folder with
+            // a manifest and no audio cannot be one still being built -- while
+            // a folder with nothing in it yet might be exactly that.
+            guard names.contains("manifest.json") else { continue }
+            let rel = relative(dir)
+            if names.allSatisfy({ hollowSessionFiles.contains($0) }) {
+                if (try? fm.removeItem(at: dir)) != nil { out.removedSessions.append(rel) }
+                else { out.keptSessions.append(rel) }
+            } else {
+                out.keptSessions.append(rel)
+            }
+        }
+        out.droppedRecords = (try? DeletionStore.pruneHollow(root: root, fileManager: fm)) ?? 0
+        return out
+    }
+
     @discardableResult
     public static func purge(_ report: StorageReport, kinds: Set<StorageKind>,
                              fileManager fm: FileManager = .default) -> Int64 {

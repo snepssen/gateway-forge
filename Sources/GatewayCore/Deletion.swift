@@ -311,6 +311,59 @@ public enum DeletionStore {
         try save(items, root: root)
     }
 
+    /// Everything in Recently Deleted, at once.
+    ///
+    /// The page offered only one row at a time, and after a round of
+    /// generating and deleting test sessions that was dozens of the same
+    /// confirmation. Same disposal as one row: `.trash` from the page, so
+    /// even "all of it" lands somewhere the Finder can still reach. Returns
+    /// how many records were removed.
+    @discardableResult
+    public static func removeAll(root: URL, disposal: DeletionDisposal,
+                                 fileManager fm: FileManager = .default) throws -> Int {
+        let items = try load(root: root)
+        guard !items.isEmpty else { return 0 }
+        var remaining: [DeletedItem] = []
+        var firstError: Error?
+        for item in items {
+            do { try discard(item, root: root, disposal: disposal, fileManager: fm) }
+            catch { remaining.append(item); firstError = firstError ?? error }
+        }
+        try save(remaining, root: root)
+        if let firstError { throw firstError }
+        return items.count
+    }
+
+    /// Drop records that describe nothing recoverable: a payload already gone,
+    /// or a payload folder with no file left anywhere inside it.
+    ///
+    /// The second case is what storage cleanup used to leave. It emptied the
+    /// thirty-day bin file by file, so a deleted session's folder survived
+    /// empty and its row went on offering "Restore" for a session with no
+    /// audio, manifest or anything else.
+    @discardableResult
+    public static func pruneHollow(root: URL, fileManager fm: FileManager = .default) throws -> Int {
+        let items = try load(root: root)
+        let hollow = items.filter { item in
+            let payload = payloadURL(for: item, root: root)
+            var isDirectory: ObjCBool = false
+            guard fm.fileExists(atPath: payload.path, isDirectory: &isDirectory) else { return true }
+            guard isDirectory.boolValue else { return false }
+            guard let walker = fm.enumerator(at: payload, includingPropertiesForKeys: nil) else { return true }
+            for case let url as URL in walker {
+                var dir: ObjCBool = false
+                if fm.fileExists(atPath: url.path, isDirectory: &dir), !dir.boolValue,
+                   url.lastPathComponent != ".DS_Store" { return false }
+            }
+            return true
+        }
+        guard !hollow.isEmpty else { return 0 }
+        for item in hollow { try? discard(item, root: root, disposal: .permanent, fileManager: fm) }
+        let gone = Set(hollow.map(\.id))
+        try save(items.filter { !gone.contains($0.id) }, root: root)
+        return hollow.count
+    }
+
     /// Removes every item past its 30 days and returns what it removed, so the
     /// caller can report a number it measured rather than announce a sweep.
     @discardableResult

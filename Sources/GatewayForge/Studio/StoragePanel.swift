@@ -10,8 +10,11 @@ import GatewayCore
 /// The only row described as free is the one that genuinely is: takes the queue
 /// has already superseded and will re-render regardless.
 ///
-/// Purging removes the files the report named and nothing else. It never
-/// removes a render directory, because each one carries its own `notes.md`.
+/// Purging removes the files the report named. The library reload that follows
+/// runs `StorageAudit.tidy`, which clears any session folder left holding only
+/// its manifest and any Recently Deleted row left with nothing in it, so a
+/// cleanup leaves no hollow sessions to delete by hand. Writing is never in
+/// those folders: session notes live in the journal.
 struct StoragePanel: View {
     @EnvironmentObject var store: LibraryStore
     @EnvironmentObject var renderer: RenderService

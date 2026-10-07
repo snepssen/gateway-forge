@@ -72,6 +72,48 @@
       "now" : 1777000000,
       "writtenContents" : "---\nlevel: F21\nwritten: 2026-04-24T03:06:40Z\n---\n\n\n",
       "writtenFile" : "2026-04-24-040640.md"
+    },
+    {
+      "body" : "With the report's fields.",
+      "ended" : 1776999940,
+      "entryBody" : "With the report's fields.",
+      "entryFeelingOther" : "Heavy hands",
+      "entryLevel" : "F10",
+      "entrySession" : "2026-10-07-093000-advanced-focus-10-0a1b2c3d",
+      "entryTitle" : "Advanced Focus 10",
+      "entryWrittenMillis" : 1777000000000,
+      "existingFiles" : [
+
+      ],
+      "feelingOther" : "  Heavy\n\nhands ",
+      "feelings" : [
+        "Relaxed",
+        "Buzzing"
+      ],
+      "id" : "2026-04-24-040640",
+      "level" : "f10",
+      "now" : 1777000000,
+      "session" : "2026-10-07-093000-advanced-focus-10-0a1b2c3d",
+      "started" : 1776997480,
+      "title" : "Advanced Focus 10",
+      "writtenContents" : "---\nended: 2026-04-24T03:05:40Z\nfeeling-other: Heavy hands\nfeelings: Relaxed, Buzzing\nlevel: F10\nsession: 2026-10-07-093000-advanced-focus-10-0a1b2c3d\nstarted: 2026-04-24T02:24:40Z\ntitle: Advanced Focus 10\nwritten: 2026-04-24T03:06:40Z\n---\n\nWith the report's fields.\n",
+      "writtenFile" : "2026-04-24-040640.md"
+    },
+    {
+      "body" : "Times only.",
+      "entryBody" : "Times only.",
+      "entryLevel" : "F12",
+      "entryWrittenMillis" : 1777000000000,
+      "existingFiles" : [
+
+      ],
+      "id" : "2026-04-24-040640",
+      "level" : "f12",
+      "now" : 1777000000,
+      "started" : 1776999100,
+      "title" : " ",
+      "writtenContents" : "---\nlevel: F12\nstarted: 2026-04-24T02:51:40Z\nwritten: 2026-04-24T03:06:40Z\n---\n\nTimes only.\n",
+      "writtenFile" : "2026-04-24-040640.md"
     }
   ],
   "note" : "The journal's write and delete operations, on scratch trees.",

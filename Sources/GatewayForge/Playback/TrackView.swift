@@ -154,7 +154,7 @@ struct TrackView: View {
             Button("Delete", role: .destructive, action: deleteSession)
             Button("Cancel", role: .cancel) {}
         } message: {
-            Text("Its audio, manifest and notes move together into Recently Deleted, where they can be restored for \(DeletionPolicy.retentionDays) days. The source template and rendered segments stay.")
+            Text("Its audio and manifest move into Recently Deleted, where they can be restored for \(DeletionPolicy.retentionDays) days. Journal entries written about it stay in the Journal, and the source template and rendered segments stay too.")
         }
         .alert("Could not delete this session",
                isPresented: Binding(get: { deleteError != nil },

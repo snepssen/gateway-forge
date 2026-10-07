@@ -214,7 +214,8 @@ private struct SessionNoteCapture: View {
     @EnvironmentObject var player: SessionPlayer
     @EnvironmentObject var store: LibraryStore
     @State private var text = ""
-    @State private var saved = false
+    @State private var feelings: [String] = []
+    @State private var saved: JournalEntry?
     @State private var error: String?
     @FocusState private var writing: Bool
     /// Whether the listener still has a decision in front of them.
@@ -233,11 +234,14 @@ private struct SessionNoteCapture: View {
                     Spacer()
                     Text(level).font(.caption).monospaced().foregroundStyle(Monokai.cyan)
                 }
-                if saved {
-                    Label("Saved to \(level).", systemImage: "checkmark.circle")
+                if let saved {
+                    Label("Saved to the journal under \(level).", systemImage: "checkmark.circle")
                         .font(.callout).foregroundStyle(Monokai.green)
-                    Button("Write another") { saved = false; text = "" }
-                        .font(.caption)
+                    HStack(spacing: 12) {
+                        Button("Write another") { self.saved = nil; text = ""; feelings = [] }
+                        Button("Open in Journal") { store.selection = .journal(JournalRef(saved).value) }
+                    }
+                    .font(.caption)
                 } else {
                     TextEditor(text: $text)
                         .font(.system(.callout))
@@ -260,6 +264,7 @@ private struct SessionNoteCapture: View {
                         // Escape that leaves. Focus is taken only once the
                         // ending is settled.
                         .onAppear { if !decisionPending { writing = true } }
+                    FeelingPicker(selection: $feelings, compact: true)
                     HStack {
                         Text("Say what you saw as plainly as you can. Nothing here is required.")
                             .font(.caption).foregroundStyle(Monokai.comment)
@@ -280,10 +285,18 @@ private struct SessionNoteCapture: View {
     private func save(_ level: String) {
         let body = text.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !body.isEmpty else { return }
+        let manifest = player.track?.manifest
+        let title = player.track.map {
+            SessionNaming.subject(template: manifest?.template ?? $0.name, level: manifest?.level)
+        }
         do {
-            try JournalLog.append(root: store.root, level: level,
-                                  session: player.track?.name, body: body)
-            saved = true
+            // The times are the player's, measured, not typed: when the tape
+            // first sounded and when its speech last stopped.
+            saved = try JournalLog.append(root: store.root, level: level,
+                                          session: player.track?.name, body: body,
+                                          title: title, started: player.listenStarted,
+                                          ended: player.listenEnded ?? Date(),
+                                          feelings: feelings)
             error = nil
         } catch {
             self.error = error.localizedDescription

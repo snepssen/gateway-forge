@@ -5,6 +5,14 @@
 @verbosity 3
 @duration ~9m
 
+# Commands are their own lines. Inside one `say`, sentences are rendered as
+# separate calls joined by about 160 ms of quiet, so "relax. Let go. Sleep."
+# arrived as one rushed breath. The owner, after a session: "the commands are
+# rushed ... said with 150ms breaks thanks to how the piper voice was trained
+# at barely no breath time." Each command now lands, and the listener has time
+# to do it before the next. The 1.5 s is a first value for audition, not a
+# measurement.
+
 say Now we move to the Focus 10 state. Mind awake. Body asleep.
 pause 4
 level F10
@@ -18,15 +26,27 @@ say Now your eyelids. Let the muscles and nerves in your eyelids relax, and go l
 pause 6
 say Now your lips. Let the muscles and nerves in your lips relax. Relax easily, and go limp.
 pause 6
-say Two. The muscles in your forehead. The muscles in your forehead. Let the muscles in your forehead relax. Go limp.
+say Two. The muscles in your forehead. The muscles in your forehead. Let the muscles in your forehead relax.
+pause 1.5
+say Go limp.
 pause 6
-say Now the muscles in your cheeks. Each cheek. Let them relax. Relax, and go limp. Relax.
+say Now the muscles in your cheeks. Each cheek. Let them relax.
+pause 1.5
+say Relax, and go limp.
+pause 1.5
+say Relax.
 pause 6
-say Now the muscles in your scalp. The muscles in your scalp, over the top of your head. Let them relax. Relax.
+say Now the muscles in your scalp. The muscles in your scalp, over the top of your head. Let them relax.
+pause 1.5
+say Relax.
 pause 6
-say Three. The muscles in your neck. Let the muscles in your neck relax. Relax.
+say Three. The muscles in your neck. Let the muscles in your neck relax.
+pause 1.5
+say Relax.
 pause 6
-say Now let the muscles in your eyes, the muscles that control your eyes. Let them relax. Relax.
+say Now let the muscles in your eyes, the muscles that control your eyes. Let them relax.
+pause 1.5
+say Relax.
 pause 8
 say Now let this relaxation of your head, of the muscles and nerves in your head, let it sink inward. Inward. Let it flow into your brain.
 pause 6
@@ -40,19 +60,47 @@ say Into your toes, into your feet, into your legs, into your hips. Into your lo
 pause 6
 say Let it flow into these parts as I guide you in the count to the ten state. I'm going to count now.
 pause 4
-say Four. Look with your closed eyes at your feet and your toes. Your brain tells the muscles and nerves in each foot and each toe to relax, let go, sleep.
+say Four. Look with your closed eyes at your feet and your toes. Your brain tells the muscles and nerves in each foot and each toe to relax.
+pause 1.5
+say Let go.
+pause 1.5
+say Sleep.
 pause 10
-say Five. Look with your closed eyes at your legs, at each leg, from your hip down to your foot. Your brain tells each leg to relax. Let go. Sleep.
+say Five. Look with your closed eyes at your legs, at each leg, from your hip down to your foot. Your brain tells each leg to relax.
+pause 1.5
+say Let go.
+pause 1.5
+say Sleep.
 pause 10
-say Six. Look with your closed eyes at your hips, at each hip. Your brain tells each hip, the muscles and nerves in each hip, to relax, let go. Sleep.
+say Six. Look with your closed eyes at your hips, at each hip. Your brain tells each hip, the muscles and nerves in each hip, to relax.
+pause 1.5
+say Let go.
+pause 1.5
+say Sleep.
 pause 10
-say Seven. Look with your closed eyes at your lower body. Your abdomen down to your hips, your kidneys, your liver, your stomach, your intestines, your genitals. Your brain tells all of these parts in your lower body to relax. Let go. Sleep.
+say Seven. Look with your closed eyes at your lower body. Your abdomen down to your hips, your kidneys, your liver, your stomach, your intestines, your genitals. Your brain tells all of these parts in your lower body to relax.
+pause 1.5
+say Let go.
+pause 1.5
+say Sleep.
 pause 10
-say Eight. Look with your closed eyes at your upper body. Your chest, your heart, your lungs, your diaphragm. Your brain tells these parts of your body to relax, let go, sleep.
+say Eight. Look with your closed eyes at your upper body. Your chest, your heart, your lungs, your diaphragm. Your brain tells these parts of your body to relax.
+pause 1.5
+say Let go.
+pause 1.5
+say Sleep.
 pause 10
-say Nine. Look with your closed eyes up and down your back. The muscles and nerves in your back. Your brain tells your back, up and down your back, the muscles and nerves in your back, to relax. Let go. Sleep.
+say Nine. Look with your closed eyes up and down your back. The muscles and nerves in your back. Your brain tells your back, up and down your back, the muscles and nerves in your back, to relax.
+pause 1.5
+say Let go.
+pause 1.5
+say Sleep.
 pause 10
-say Ten. Look with your closed eyes at your upper body. Your arms, your hands, your fingers, your shoulders. Your brain tells all of these parts to relax, let go, sleep.
+say Ten. Look with your closed eyes at your upper body. Your arms, your hands, your fingers, your shoulders. Your brain tells all of these parts to relax.
+pause 1.5
+say Let go.
+pause 1.5
+say Sleep.
 pause 8
 say Ten. Ten. Ten.
 pause 6

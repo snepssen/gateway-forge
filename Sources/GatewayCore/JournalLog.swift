@@ -37,11 +37,36 @@ public struct JournalEntry: Sendable, Equatable, Identifiable {
     /// the authoritative desktop wrote it locally.
     public var originDeviceID: String?
 
+    // The rest is GF Form 1's: what a session report records beyond the
+    // account itself. All optional, so every entry written before these
+    // existed still reads, and an entry written away from a tape has nothing
+    // to invent.
+
+    /// What the session was, as a listener names it: "Advanced Focus 10".
+    public var title: String?
+    /// When listening began and stopped, measured by the player.
+    public var started: Date?
+    public var ended: Date?
+    /// The body-feeling boxes ticked, from `SessionReport.feelingOptions`.
+    public var feelings: [String]
+    /// The "Other:" line, when there is one.
+    public var feelingOther: String?
+
     public init(id: String, level: String, session: String? = nil,
-                written: Date, body: String, originDeviceID: String? = nil) {
+                written: Date, body: String, originDeviceID: String? = nil,
+                title: String? = nil, started: Date? = nil, ended: Date? = nil,
+                feelings: [String] = [], feelingOther: String? = nil) {
         self.id = id; self.level = level.uppercased()
         self.session = session; self.written = written; self.body = body
         self.originDeviceID = originDeviceID
+        self.title = title; self.started = started; self.ended = ended
+        self.feelings = feelings; self.feelingOther = feelingOther
+    }
+
+    /// How long the session ran, when both ends were measured.
+    public var listenedSeconds: Double? {
+        guard let started, let ended, ended >= started else { return nil }
+        return ended.timeIntervalSince(started)
     }
 
     public var wordCount: Int {
@@ -90,7 +115,12 @@ public enum JournalLog {
                                 session: note.frontmatter["session"],
                                 written: written,
                                 body: note.body,
-                                originDeviceID: note.frontmatter["origin-device"])
+                                originDeviceID: note.frontmatter["origin-device"],
+                                title: Report.text(note.frontmatter[Report.title]),
+                                started: Report.date(note.frontmatter[Report.started]),
+                                ended: Report.date(note.frontmatter[Report.ended]),
+                                feelings: Report.list(note.frontmatter[Report.feelings]),
+                                feelingOther: Report.text(note.frontmatter[Report.feelingOther]))
         }.sorted { $0.written < $1.written }
     }
 
@@ -100,7 +130,10 @@ public enum JournalLog {
     /// collide and the directory reads as a history without opening anything.
     @discardableResult
     public static func append(root: URL, level: String, session: String? = nil,
-                              body: String, now: Date = Date()) throws -> JournalEntry {
+                              body: String, now: Date = Date(),
+                              title: String? = nil, started: Date? = nil, ended: Date? = nil,
+                              feelings: [String] = [], feelingOther: String? = nil,
+                              extraFrontmatter: [String: String] = [:]) throws -> JournalEntry {
         let key = level.uppercased()
         let dir = directory(root: root, level: key)
         try FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
@@ -113,11 +146,99 @@ public enum JournalLog {
             bump += 1
         }
         var note = Note(body: body)
+        for (k, v) in extraFrontmatter { note.frontmatter[k] = v }
         note.frontmatter["level"] = key
         note.frontmatter["written"] = ISO8601DateFormatter().string(from: now)
         if let session { note.frontmatter["session"] = session }
+        let entry = JournalEntry(id: id, level: key, session: session, written: now, body: body,
+                                 title: Report.clean(title), started: started, ended: ended,
+                                 feelings: feelings, feelingOther: Report.clean(feelingOther))
+        Report.stamp(entry, into: &note)
         try Data(note.serialised().utf8).write(to: url, options: .atomic)
-        return JournalEntry(id: id, level: key, session: session, written: now, body: body)
+        return entry
+    }
+
+    /// Every entry on disk, newest first, across every level that has any.
+    ///
+    /// The Journal page reads this. It scans `focus/*/entries` rather than
+    /// `levels.json`, because writing about a station does not wait for the
+    /// station to be documented.
+    public static func allEntries(root: URL, fileManager fm: FileManager = .default) -> [JournalEntry] {
+        let focus = root.appending(path: "focus")
+        let levels = ((try? fm.contentsOfDirectory(at: focus, includingPropertiesForKeys: nil)) ?? [])
+            .filter { fm.fileExists(atPath: $0.appending(path: "entries").path) }
+            .map(\.lastPathComponent)
+        return levels.flatMap { entries(root: root, level: $0, fileManager: fm) }
+            .sorted { ($0.started ?? $0.written, $0.id) > ($1.started ?? $1.written, $1.id) }
+    }
+
+    /// Write an edited entry back to its own file.
+    ///
+    /// The id and `written` never change: an entry is a visit, and editing
+    /// what it says does not move when it happened. Frontmatter the app does
+    /// not own -- `tags:`, anything typed by hand -- is kept. A changed level
+    /// moves the file to that level's directory, written before the old one
+    /// is removed, so a failure leaves two copies rather than none.
+    @discardableResult
+    public static func update(root: URL, entry: JournalEntry, previousLevel: String? = nil,
+                              fileManager fm: FileManager = .default) throws -> JournalEntry {
+        guard !entry.id.isEmpty, !entry.id.contains("/"), !entry.id.contains("..") else {
+            throw JournalEditError.invalidIdentity
+        }
+        let key = entry.level.uppercased()
+        let from = (previousLevel ?? key).uppercased()
+        let oldURL = directory(root: root, level: from).appending(path: "\(entry.id).md")
+        let newURL = directory(root: root, level: key).appending(path: "\(entry.id).md")
+        if from != key, fm.fileExists(atPath: newURL.path) { throw JournalEditError.occupied(newURL.path) }
+        var note = fm.fileExists(atPath: oldURL.path) ? NoteIO.load(from: oldURL) : Note()
+        note.body = entry.body
+        note.frontmatter["level"] = key
+        note.frontmatter["written"] = ISO8601DateFormatter().string(from: entry.written)
+        if let session = entry.session { note.frontmatter["session"] = session }
+        else { note.frontmatter.removeValue(forKey: "session") }
+        var clean = entry
+        clean.level = key
+        clean.title = Report.clean(entry.title)
+        clean.feelingOther = Report.clean(entry.feelingOther)
+        Report.stamp(clean, into: &note)
+        try fm.createDirectory(at: newURL.deletingLastPathComponent(), withIntermediateDirectories: true)
+        try Data(note.serialised().utf8).write(to: newURL, options: .atomic)
+        if from != key { try? fm.removeItem(at: oldURL) }
+        return clean
+    }
+
+    /// The report fields' frontmatter: their keys, and how they are written.
+    /// One line each, because frontmatter here is one line per key.
+    enum Report {
+        static let title = "title", started = "started", ended = "ended"
+        static let feelings = "feelings", feelingOther = "feeling-other"
+
+        static func clean(_ s: String?) -> String? {
+            guard let s else { return nil }
+            let line = s.split(whereSeparator: \.isNewline).joined(separator: " ")
+                .trimmingCharacters(in: .whitespaces)
+            return line.isEmpty ? nil : line
+        }
+        static func text(_ s: String?) -> String? { clean(s) }
+        static func date(_ s: String?) -> Date? { s.flatMap { ISO8601DateFormatter().date(from: $0) } }
+        static func list(_ s: String?) -> [String] {
+            (s ?? "").split(separator: ",").map { $0.trimmingCharacters(in: .whitespaces) }
+                .filter { !$0.isEmpty }
+        }
+
+        /// Write the report fields an entry has and remove the ones it no
+        /// longer has, leaving every other key alone.
+        static func stamp(_ e: JournalEntry, into note: inout Note) {
+            let iso = ISO8601DateFormatter()
+            func set(_ k: String, _ v: String?) {
+                if let v, !v.isEmpty { note.frontmatter[k] = v } else { note.frontmatter.removeValue(forKey: k) }
+            }
+            set(title, e.title)
+            set(started, e.started.map { iso.string(from: $0) })
+            set(ended, e.ended.map { iso.string(from: $0) })
+            set(feelings, e.feelings.isEmpty ? nil : e.feelings.joined(separator: ", "))
+            set(feelingOther, e.feelingOther)
+        }
     }
 
     public enum ImportOutcome: Equatable, Sendable {
@@ -196,12 +317,120 @@ public enum JournalLog {
         return (try? fileManager.removeItem(at: url)) != nil
     }
 
+    /// What happened to one session note when it was moved into the journal.
+    public struct Adoption: Equatable, Sendable {
+        public enum Outcome: Equatable, Sendable {
+            /// Written as a journal entry, and the session's copy removed.
+            case adopted(entryID: String)
+            /// Already in the journal from an earlier pass that could not
+            /// remove the session's copy; that copy is removed now.
+            case alreadyAdopted
+            /// The file held no writing. Removed.
+            case emptyRemoved
+            /// Could not be written or verified. The note stays where it is.
+            case kept(String)
+        }
+        /// `focus/<level>/renders/<session>/notes.md`, relative to the root.
+        public var source: String
+        public var outcome: Outcome
+    }
+
+    /// Move every note stored inside an assembled session into the journal.
+    ///
+    /// **Why notes left the session folder.** A session's note used to live
+    /// at `renders/<session>/notes.md`, which tied the listener's writing to
+    /// the audio's lifetime. Storage cleanup therefore deleted only a tape's
+    /// audio and left its folder standing, so the note would survive, and
+    /// every cleaned-up tape stayed listed with nothing to play. Clearing
+    /// those meant deleting each one, then deleting each one again from
+    /// Recently Deleted. The owner, on the result: the journal "should have
+    /// been decoupled from the sessions from the beginning".
+    ///
+    /// Each note with writing in it becomes an ordinary dated entry under its
+    /// level, linked back to the session by name. Frontmatter written by hand
+    /// (`tags:` and the like) comes with it; the keys the old binding stamped
+    /// do not. The session's copy is removed only after the entry has been
+    /// read back from disk with the same words, so a failure at any step
+    /// leaves the note where it was. Running this again finds nothing to do.
+    @discardableResult
+    public static func adoptSessionNotes(root: URL, now: Date = Date(),
+                                         fileManager fm: FileManager = .default) -> [Adoption] {
+        let focus = root.appending(path: "focus")
+        var out: [Adoption] = []
+        let levels = ((try? fm.contentsOfDirectory(at: focus, includingPropertiesForKeys: nil)) ?? [])
+            .sorted { $0.lastPathComponent < $1.lastPathComponent }
+        for levelDir in levels {
+            let renders = ((try? fm.contentsOfDirectory(
+                at: levelDir.appending(path: "renders"), includingPropertiesForKeys: nil)) ?? [])
+                .sorted { $0.lastPathComponent < $1.lastPathComponent }
+            for dir in renders {
+                let url = dir.appending(path: "notes.md")
+                guard fm.fileExists(atPath: url.path) else { continue }
+                let source = "focus/\(levelDir.lastPathComponent)/renders/\(dir.lastPathComponent)/notes.md"
+                out.append(Adoption(source: source,
+                                    outcome: adopt(url, level: levelDir.lastPathComponent,
+                                                   session: dir.lastPathComponent,
+                                                   root: root, now: now, fileManager: fm)))
+            }
+        }
+        return out
+    }
+
+    private static func adopt(_ url: URL, level: String, session: String, root: URL,
+                              now: Date, fileManager fm: FileManager) -> Adoption.Outcome {
+        let note = NoteIO.load(from: url)
+        let body = note.body.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !body.isEmpty else {
+            return (try? fm.removeItem(at: url)) != nil ? .emptyRemoved : .kept("could not remove an empty note")
+        }
+        let key = (note.frontmatter["focus"] ?? level).uppercased()
+        let same: (JournalEntry) -> Bool = {
+            $0.session == session && $0.body.trimmingCharacters(in: .whitespacesAndNewlines) == body
+        }
+        if entries(root: root, level: key, fileManager: fm).contains(where: same) {
+            return (try? fm.removeItem(at: url)) != nil
+                ? .alreadyAdopted : .kept("already in the journal, but the session copy could not be removed")
+        }
+        let manifest = SessionManifestIO.load(url.deletingLastPathComponent().appending(path: "manifest.json"))
+        let title = SessionNaming.subject(template: manifest?.template ?? session, level: manifest?.level)
+        let modified = (try? url.resourceValues(forKeys: [.contentModificationDateKey]))?.contentModificationDate
+        let written = note.frontmatter["updated"].flatMap { ISO8601DateFormatter().date(from: $0) }
+            ?? modified ?? now
+        var extra = note.frontmatter
+        for owned in ["kind", "focus", "track", "updated", "level", "written", "session"] {
+            extra.removeValue(forKey: owned)
+        }
+        do {
+            let entry = try append(root: root, level: key, session: session, body: body, now: written,
+                                   title: title.isEmpty ? nil : title, extraFrontmatter: extra)
+            guard entries(root: root, level: key, fileManager: fm).contains(where: {
+                $0.id == entry.id && same($0)
+            }) else { return .kept("the journal entry could not be read back") }
+            try fm.removeItem(at: url)
+            return .adopted(entryID: entry.id)
+        } catch {
+            return .kept(error.localizedDescription)
+        }
+    }
+
     /// How many visits a level has on record.
     ///
     /// Counts only entries that say something: an empty file is not an
     /// account of anywhere.
     public static func visitCount(root: URL, level: String) -> Int {
         entries(root: root, level: level).filter(\.isSubstantive).count
+    }
+}
+
+public enum JournalEditError: Error, LocalizedError, Equatable {
+    case invalidIdentity
+    case occupied(String)
+
+    public var errorDescription: String? {
+        switch self {
+        case .invalidIdentity: "This journal entry has no valid identity."
+        case .occupied(let path): "Another entry already has this name at \(path)."
+        }
     }
 }
 

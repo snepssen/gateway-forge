@@ -1,5 +1,6 @@
 import Foundation
 import Network
+import CryptoKit
 import GatewayCore
 import GatewaySync
 import GatewaySyncService
@@ -8155,5 +8156,307 @@ do {
     }
 
 } catch { c.expect(false, "assembly checks threw: \(error)") }
+
+// ------------------------------------------------------ inspector panes are Lists
+// Two faults have come from the same place. A ScrollView in the inspector
+// answered clicks a toolbar's height above where its rows were drawn
+// (`DefaultPathPane`'s comment has the measurement). And the first Journal
+// summary, a plain stack with a wrapping paragraph, kept the window from ever
+// settling: showing the inspector on the Journal aborted with "more Update
+// Constraints in Window passes than there are views in the window". A List is
+// AppKit's own table and avoids both. So any pane the inspector shows that
+// scrolls or wraps text has to be one.
+c.suite("inspector panes are Lists")
+run {
+    let inspector = (try? String(contentsOf: root.appending(path: "Sources/GatewayForge/Shell/WorkspaceInspector.swift"),
+                                 encoding: .utf8)) ?? ""
+    let panes = Set(inspector.split(whereSeparator: { !$0.isLetter && !$0.isNumber })
+        .map(String.init).filter { $0.hasSuffix("Pane") && $0.first?.isUppercase == true })
+    c.expect(panes.count >= 4, "the inspector names its panes (\(panes.sorted().joined(separator: ", ")))")
+    var offenders: [String] = []
+    for file in SourceTree.swiftFiles(under: "GatewayForge", root: root) {
+        let text = (try? String(contentsOf: file, encoding: .utf8)) ?? ""
+        for pane in panes {
+            guard let start = text.range(of: "struct \(pane): View") else { continue }
+            let rest = text[start.upperBound...]
+            let end = rest.range(of: "\nstruct ")?.lowerBound ?? rest.endIndex
+            let body = rest[..<end]
+            let hazardous = body.contains("ScrollView") || body.contains(".fixedSize(")
+            if hazardous && !body.contains("List {") { offenders.append(pane) }
+        }
+    }
+    c.expect(offenders.isEmpty,
+             "every inspector pane that scrolls or wraps text is a List"
+             + (offenders.isEmpty ? "" : " — not: \(offenders.sorted().joined(separator: ", "))"))
+}
+
+// -------------------------------------------------------------- session report
+// The journal's PDF export is GF Form 1, the web form's own report, to the
+// byte. `library/reference/session-report-fixture.json` holds what this
+// writer produced for a set of reports; the cross-platform suite runs the
+// page's JavaScript over the same inputs and requires the same bytes. This
+// side holds the Swift writer to the fixture, so neither can drift alone.
+c.suite("session report")
+run {
+    struct Fixture: Decodable {
+        struct Report: Decodable {
+            var date, time, end, levelKey, level, title: String
+            var feelings: [String]; var otherOn: Bool; var otherText: String; var narrative: String
+        }
+        struct Case: Decodable {
+            var name: String; var report: Report; var now: Double
+            var fileName: String; var pages: Int; var bytes: Int; var sha256: String
+        }
+        var timeZone: String; var cases: [Case]
+    }
+    let url = root.appending(path: "library/reference/session-report-fixture.json")
+    guard let data = try? Data(contentsOf: url),
+          let fx = try? JSONDecoder().decode(Fixture.self, from: data),
+          let zone = TimeZone(identifier: fx.timeZone) else {
+        c.expect(false, "the session report fixture is present and readable"); return
+    }
+    for k in fx.cases {
+        let r = SessionReport(date: k.report.date, start: k.report.time, end: k.report.end,
+                              levelKey: k.report.levelKey, level: k.report.level,
+                              title: k.report.title, feelings: k.report.feelings,
+                              otherOn: k.report.otherOn, otherText: k.report.otherText,
+                              narrative: k.report.narrative)
+        let now = Date(timeIntervalSince1970: k.now / 1000)
+        let pdf = SessionReportPDF.document(r, now: now, timeZone: zone)
+        let digest = SHA256.hash(data: pdf).map { String(format: "%02x", $0) }.joined()
+        c.expect(digest == k.sha256 && pdf.count == k.bytes,
+                 "\(k.name): the same bytes the web form writes (\(pdf.count) vs \(k.bytes))")
+        c.equal(SessionReportPDF.pageCount(r, now: now, timeZone: zone), k.pages, "\(k.name): pages")
+        c.equal(SessionReportPDF.fileName(r, now: now, timeZone: zone), k.fileName, "\(k.name): file name")
+    }
+
+    // The document is a real PDF: every cross-reference points at its object.
+    if let first = fx.cases.first {
+        let r = SessionReport(narrative: first.report.narrative)
+        let bytes = [UInt8](SessionReportPDF.document(r, now: Date(timeIntervalSince1970: first.now / 1000),
+                                                      timeZone: zone))
+        let text = String(decoding: bytes, as: UTF8.self)
+        c.expect(text.hasPrefix("%PDF-1.4") && text.hasSuffix("%%EOF\n"), "a PDF from first byte to last")
+        if let sx = text.range(of: "startxref\n", options: .backwards) {
+            let tail = text[sx.upperBound...].prefix { $0.isNumber }
+            let at = Int(tail) ?? -1
+            c.expect(at > 0 && at < bytes.count
+                     && Array(bytes[at..<min(at + 4, bytes.count)]) == Array("xref".utf8),
+                     "startxref points at the cross-reference table")
+            var bad: [Int] = []
+            var objectNumber = 1
+            for line in text[text.index(text.startIndex, offsetBy: at)...].split(separator: "\n")
+            where line.hasSuffix(" 00000 n ") {
+                let offset = Int(line.prefix(10)) ?? -1
+                let expected = Array("\(objectNumber) 0 obj".utf8)
+                if offset < 0 || offset + expected.count > bytes.count
+                    || Array(bytes[offset..<offset + expected.count]) != expected { bad.append(objectNumber) }
+                objectNumber += 1
+            }
+            c.expect(objectNumber > 5 && bad.isEmpty,
+                     "every object's offset is exact\(bad.isEmpty ? "" : ": \(bad)")")
+        } else { c.expect(false, "the PDF has a startxref") }
+    }
+
+    // Several reports in one file are each the pages they would be alone.
+    let a = SessionReport(date: "2026-10-07", narrative: (1...30).map { "Line \($0)" }.joined(separator: "\n"))
+    let b = SessionReport(date: "2026-10-08", narrative: "Short.")
+    let at = Date(timeIntervalSince1970: 1_791_361_205)
+    let bundle = String(decoding: SessionReportPDF.document([a, b], now: at), as: UTF8.self)
+    c.expect(bundle.contains("/Count \(SessionReportPDF.pageCount(a, now: at) + SessionReportPDF.pageCount(b, now: at))"),
+             "an export of two reports has both reports' pages")
+    c.expect(bundle.contains("(PAGE 2 OF 2)") && bundle.contains("(PAGE 1 OF 1)"),
+             "and each keeps its own page numbering")
+
+    // A journal entry, as a report.
+    var cal = Calendar(identifier: .gregorian)
+    cal.timeZone = TimeZone(identifier: "Europe/Oslo")!
+    let start = cal.date(from: DateComponents(year: 2026, month: 10, day: 7, hour: 9, minute: 30))!
+    let entry = JournalEntry(id: "2026-10-07-101500", level: "f10", session: "s", written: start.addingTimeInterval(2700),
+                             body: "Account.", title: "Advanced Focus 10", started: start,
+                             ended: start.addingTimeInterval(2520), feelings: ["Relaxed", "Invented"],
+                             feelingOther: "Heavy hands")
+    let report = SessionReport(entry: entry, levelName: "Mind Awake, Body Asleep",
+                               timeZone: TimeZone(identifier: "Europe/Oslo")!)
+    c.equal(report.date, "2026-10-07", "an entry's report is dated by when listening began")
+    c.equal([report.start, report.end], ["09:30", "10:12"], "with both measured times")
+    c.equal(report.level, "F10 — Mind Awake, Body Asleep", "the level cell reads as the form's list does")
+    c.equal(report.feelings, ["Relaxed"], "only the form's own boxes can be ticked")
+    c.expect(report.otherOn && report.otherText == "Heavy hands", "the other line comes through")
+    let untimed = SessionReport(entry: JournalEntry(id: "x", level: "F12", written: start, body: ""),
+                                levelName: nil, timeZone: TimeZone(identifier: "Europe/Oslo")!)
+    c.expect(untimed.date == "2026-10-07" && untimed.start.isEmpty && untimed.end.isEmpty,
+             "an entry with no measured times is dated by when it was written, its times not invented")
+}
+
+// ------------------------------------------------- journal entries carry the report
+c.suite("journal entries carry the report")
+run {
+    let fm = FileManager.default
+    let scratch = URL(fileURLWithPath: NSTemporaryDirectory()).appending(path: "gf-journal-report-\(UUID().uuidString)")
+    defer { try? fm.removeItem(at: scratch) }
+    let now = Date(timeIntervalSince1970: 1_791_361_205)
+    do {
+        let e = try JournalLog.append(root: scratch, level: "f10", session: "s1", body: "Found a door.", now: now,
+                                      title: " Advanced Focus 10\n", started: now.addingTimeInterval(-2520),
+                                      ended: now.addingTimeInterval(-60), feelings: ["Relaxed", "Buzzing"],
+                                      feelingOther: "Heavy\nhands")
+        c.equal(e.title, "Advanced Focus 10", "a title is one clean line")
+        c.equal(e.feelingOther, "Heavy hands", "so is the other line")
+        guard let back = JournalLog.entries(root: scratch, level: "F10").first else {
+            c.expect(false, "the entry reads back"); return
+        }
+        c.equal(back.title, "Advanced Focus 10", "the title reads back")
+        c.equal(back.feelings, ["Relaxed", "Buzzing"], "the ticked boxes read back, in order")
+        c.equal(back.listenedSeconds, 2460, "how long the session ran is measured, not stored")
+
+        // A hand-added tag survives an edit made in the app.
+        let file = JournalLog.directory(root: scratch, level: "F10").appending(path: "\(back.id).md")
+        var note = NoteIO.load(from: file)
+        note.frontmatter["tags"] = "door, threshold"
+        try Data(note.serialised().utf8).write(to: file)
+        var edited = back
+        edited.body = "Found a door, and went through."
+        edited.feelings = []
+        edited.title = nil
+        try JournalLog.update(root: scratch, entry: edited)
+        let after = NoteIO.load(from: file)
+        c.equal(after.frontmatter["tags"], "door, threshold", "an edit keeps frontmatter the app does not own")
+        c.expect(after.frontmatter["feelings"] == nil && after.frontmatter["title"] == nil,
+                 "and removes the report fields that were cleared")
+        c.equal(after.body, "Found a door, and went through.", "and writes the new account")
+        let reread = JournalLog.entries(root: scratch, level: "F10").first
+        c.equal(reread?.written, back.written, "editing never moves when the visit happened")
+
+        // Moving an entry to another level moves its file.
+        var moved = reread!
+        moved.level = "F12"
+        try JournalLog.update(root: scratch, entry: moved, previousLevel: "F10")
+        c.expect(JournalLog.entries(root: scratch, level: "F10").isEmpty
+                 && JournalLog.entries(root: scratch, level: "F12").first?.id == back.id,
+                 "a changed level moves the entry, keeping its id")
+
+        // The log reads newest session first, across levels.
+        try JournalLog.append(root: scratch, level: "F3", body: "Earlier.", now: now.addingTimeInterval(-86_400))
+        try JournalLog.append(root: scratch, level: "F21", body: "Later.", now: now.addingTimeInterval(86_400))
+        c.equal(JournalLog.allEntries(root: scratch).map(\.level), ["F21", "F12", "F3"],
+                "the journal lists every level's entries, newest first")
+    } catch { c.expect(false, "journal report checks threw: \(error)") }
+}
+
+// ------------------------------------------- session notes move into the journal
+// The owner's diagnosis of what went wrong: a session's notes lived inside the
+// session's folder, so cleanup kept every audio-less folder alive for the sake
+// of a note, and clearing them was two rounds of one-at-a-time deletion. Notes
+// now move out on launch; this pins how, on a scratch library.
+c.suite("session notes move into the journal")
+run {
+    let fm = FileManager.default
+    let scratch = URL(fileURLWithPath: NSTemporaryDirectory()).appending(path: "gf-adopt-\(UUID().uuidString)")
+    defer { try? fm.removeItem(at: scratch) }
+    let session = "2026-09-24-223258-advanced-focus-10-dbb1ef76"
+    let dir = scratch.appending(path: "focus/F10/renders/\(session)")
+    let emptyDir = scratch.appending(path: "focus/F12/renders/2026-09-24-223359-f12-visit-674c0a9d")
+    do {
+        try fm.createDirectory(at: dir, withIntermediateDirectories: true)
+        try fm.createDirectory(at: emptyDir, withIntermediateDirectories: true)
+        let manifest = SessionManifest(template: "advanced-focus-10", verbosity: 3, voice: "v", seconds: 1,
+                                       narrationOnly: false, level: "F10", segments: [])
+        try SessionManifestIO.save(manifest, to: dir.appending(path: "manifest.json"))
+        try Data("""
+            ---
+            focus: F10
+            kind: track
+            tags: first-week
+            track: \(session)
+            updated: 2026-09-25T07:00:00Z
+            ---
+
+            The shoulders kept tensing.
+            """.utf8).write(to: dir.appending(path: "notes.md"))
+        try Data("---\nkind: track\n---\n\n   \n".utf8).write(to: emptyDir.appending(path: "notes.md"))
+
+        let first = JournalLog.adoptSessionNotes(root: scratch)
+        c.equal(first.count, 2, "both session notes are found")
+        let adopted = first.first { $0.source.contains("F10") }
+        if case .adopted = adopted?.outcome {} else { c.expect(false, "a note with writing becomes an entry") }
+        c.expect(first.contains { $0.outcome == .emptyRemoved }, "an empty note is simply removed")
+        c.expect(!fm.fileExists(atPath: dir.appending(path: "notes.md").path)
+                 && !fm.fileExists(atPath: emptyDir.appending(path: "notes.md").path),
+                 "no note is left inside a session folder")
+        let entry = JournalLog.entries(root: scratch, level: "F10").first
+        c.equal(entry?.session, session, "the entry names its session")
+        c.equal(entry?.title, "Advanced Focus 10", "and is titled as the session is")
+        c.equal(entry?.body, "The shoulders kept tensing.", "with the words unchanged")
+        c.equal(entry?.written, ISO8601DateFormatter().date(from: "2026-09-25T07:00:00Z"),
+                "dated when the note was last written")
+        if let id = entry?.id {
+            let fmOut = NoteIO.load(from: JournalLog.directory(root: scratch, level: "F10")
+                .appending(path: "\(id).md")).frontmatter
+            c.equal(fmOut["tags"], "first-week", "hand-written frontmatter comes with it")
+            c.expect(fmOut["kind"] == nil && fmOut["track"] == nil, "the old binding's own keys do not")
+        }
+        c.expect(JournalLog.adoptSessionNotes(root: scratch).isEmpty, "running it again finds nothing to do")
+        c.equal(JournalLog.entries(root: scratch, level: "F10").count, 1, "and writes no second copy")
+
+        // A note already in the journal (a pass that could not remove the
+        // session copy) is removed, not duplicated.
+        try Data("The shoulders kept tensing.\n".utf8).write(to: dir.appending(path: "notes.md"))
+        c.equal(JournalLog.adoptSessionNotes(root: scratch).first?.outcome, .alreadyAdopted,
+                "a note already moved is recognised")
+        c.equal(JournalLog.entries(root: scratch, level: "F10").count, 1, "and is not written twice")
+
+        // With the note gone, the folder is the husk tidy exists to clear --
+        // but only once its audio has gone too.
+        try Data("RIFF".utf8).write(to: dir.appending(path: "session.wav"))
+        c.expect(StorageAudit.tidy(root: scratch, renders: [dir]).removedSessions.isEmpty,
+                 "a session with its audio is never tidied")
+        try fm.removeItem(at: dir.appending(path: "session.wav"))
+        c.equal(StorageAudit.tidy(root: scratch, renders: [dir]).removedSessions,
+                ["focus/F10/renders/\(session)"], "without its audio it goes")
+        c.expect(JournalLog.entries(root: scratch, level: "F10").first?.body == "The shoulders kept tensing.",
+                 "and the words about it are still in the journal")
+    } catch { c.expect(false, "session note checks threw: \(error)") }
+}
+
+// ---------------------------------------------------------------- tidy fixture
+// The Swift side of `tidy-parity`: the scratch library in the fixture, tidied
+// and emptied here, must come out as the fixture recorded.
+c.suite("cleanup leaves nothing hollow")
+run {
+    struct Fixture: Decodable {
+        struct File: Decodable { var path: String; var text: String }
+        var files: [File]; var emptyDirectories: [String]; var index: String
+        var removedSessions: [String]; var keptSessions: [String]; var droppedRecords: Int
+        var filesAfterTidy: [String]; var idsAfterTidy: [String]; var removeAllCount: Int
+    }
+    guard let data = try? Data(contentsOf: root.appending(path: "library/reference/tidy-fixture.json")),
+          let fx = try? JSONDecoder().decode(Fixture.self, from: data) else {
+        c.expect(false, "the tidy fixture is present and readable"); return
+    }
+    let fm = FileManager.default
+    let scratch = URL(fileURLWithPath: NSTemporaryDirectory()).appending(path: "gf-tidy-check-\(UUID().uuidString)")
+    defer { try? fm.removeItem(at: scratch) }
+    for f in fx.files {
+        let u = scratch.appending(path: f.path)
+        try? fm.createDirectory(at: u.deletingLastPathComponent(), withIntermediateDirectories: true)
+        try? Data(f.text.utf8).write(to: u)
+    }
+    for d in fx.emptyDirectories { try? fm.createDirectory(at: scratch.appending(path: d), withIntermediateDirectories: true) }
+    try? Data(fx.index.utf8).write(to: DeletionStore.indexURL(root: scratch))
+    let renders = ((try? fm.contentsOfDirectory(at: scratch.appending(path: "focus"), includingPropertiesForKeys: nil)) ?? [])
+        .flatMap { (try? fm.contentsOfDirectory(at: $0.appending(path: "renders"), includingPropertiesForKeys: nil)) ?? [] }
+    let t = StorageAudit.tidy(root: scratch, renders: renders)
+    c.equal(t.removedSessions, fx.removedSessions, "only sessions holding nothing but a manifest are removed")
+    c.equal(t.keptSessions, fx.keptSessions, "a session folder still holding a note is kept and named")
+    c.equal(t.droppedRecords, fx.droppedRecords, "records with nothing left in them are dropped")
+    c.expect(fm.fileExists(atPath: scratch.appending(path: "focus/F12/renders/building").path),
+             "a folder with no manifest yet is left alone: it may be mid-assembly")
+    c.equal(((try? DeletionStore.load(root: scratch)) ?? []).map(\.id), fx.idsAfterTidy,
+            "the restorable records stay")
+    c.equal((try? DeletionStore.removeAll(root: scratch, disposal: .permanent)) ?? -1, fx.removeAllCount,
+            "Delete All removes every record at once")
+    c.equal(((try? DeletionStore.load(root: scratch)) ?? []).count, 0, "and leaves Recently Deleted empty")
+}
 
 c.finish()

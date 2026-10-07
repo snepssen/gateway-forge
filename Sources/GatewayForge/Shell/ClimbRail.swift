@@ -51,6 +51,8 @@ struct ClimbRail: View {
             Label("Home", systemImage: "house").tag(Selection.home)
             Label("Focus", systemImage: "circle.hexagongrid")
                 .tag(Selection.focus)
+            Label("Journal", systemImage: "book.closed")
+                .tag(Selection.journal(nil))
             Label("Studio", systemImage: "slider.horizontal.3")
                 .tag(Selection.studio(.overview))
             Section(continuous.enabled ? "The Ladder" : "The Climb") {
@@ -103,7 +105,12 @@ struct ClimbRail: View {
     /// means choosing a destination. The selection still changes first so the
     /// route and bound journal remain truthful behind Now Playing.
     private var railSelection: Binding<Selection?> {
-        Binding(get: { store.selection }, set: { selection in
+        // An open entry still lights the Journal row, as an open level would
+        // light its own: the row is the place, not the page within it.
+        Binding(get: {
+            if case .journal = store.selection { return .journal(nil) }
+            return store.selection
+        }, set: { selection in
             store.selection = selection
             guard continuous.enabled,
                   case .level(let level) = selection,

@@ -18,6 +18,8 @@ struct Workspace: View {
                 SegmentView(id: id)
             case .focus:
                 FocusMenuView()
+            case .journal(let ref):
+                JournalPage(ref: ref)
             case .level(let key):
                 FocusLevelView(key: key)
             case .track(let path):

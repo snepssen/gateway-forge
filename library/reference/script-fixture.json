@@ -8291,7 +8291,7 @@
       "doc" : {
         "continuousExit" : false,
         "continuousExitDefault" : false,
-        "duration" : "~1m30s",
+        "duration" : "~2m30s",
         "ending" : "return",
         "family" : "affirmation",
         "fixed" : true,
@@ -8337,7 +8337,43 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "I am more than my physical body. Because I am more than physical matter, I can perceive that which is greater than the physical world."
+            "text" : "I am more than my physical body."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 3.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "Because I am more than physical matter,"
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 3.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "I can perceive that which is greater than the physical world."
           },
           {
             "args" : [
@@ -8355,7 +8391,151 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "Therefore, in these exercises, I deeply desire to expand, to experience, to know, to understand, to control, to use such greater energies and energy systems as may be beneficial and constructive to me, and to those who follow me."
+            "text" : "Therefore, in these exercises,"
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 2.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "I deeply desire to expand,"
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 3,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "to experience,"
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 2,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "to know,"
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 2,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "to understand,"
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 2,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "to control,"
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 2,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "to use such greater energies and energy systems"
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 3.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "as may be beneficial and constructive to me,"
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 3.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "and to those who follow me."
           },
           {
             "args" : [
@@ -8373,7 +8553,79 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "Also during these exercises, I deeply desire the help and cooperation, the assistance, the understanding, of those individuals whose wisdom, development, and experience are equal or greater than my own."
+            "text" : "Also during these exercises,"
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 2.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "I deeply desire the help and cooperation,"
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 3.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "the assistance, the understanding,"
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 2.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "of those individuals whose wisdom, development, and experience"
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 3.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "are equal or greater than my own."
           },
           {
             "args" : [
@@ -8391,7 +8643,43 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "I ask their guidance and protection from any influence or any source that might provide me with less than my stated desires."
+            "text" : "I ask their guidance and protection"
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 3,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "from any influence or any source"
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 3,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "that might provide me with less than my stated desires."
           },
           {
             "args" : [
@@ -8409,7 +8697,43 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "I now protect myself as may be needed from such influence, and reject any source that may restrain me from my stated desires."
+            "text" : "I now protect myself as may be needed from such influence,"
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "and reject any source"
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 2.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "that may restrain me from my stated desires."
           },
           {
             "args" : [
@@ -8435,7 +8759,7 @@
       "doc" : {
         "continuousExit" : false,
         "continuousExitDefault" : false,
-        "duration" : "~1m",
+        "duration" : "~1m30s",
         "ending" : "return",
         "family" : "affirmation",
         "fixed" : true,
@@ -8481,7 +8805,25 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "I am more than my physical body, because I am more than physical matter."
+            "text" : "I am more than my physical body,"
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 3.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "because I am more than physical matter."
           },
           {
             "args" : [
@@ -8499,7 +8841,79 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "I deeply desire to expand. To experience. To know. To understand. To control."
+            "text" : "I deeply desire to expand."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 3,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "To experience."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 2,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "To know."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 2,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "To understand."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 2,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "To control."
           },
           {
             "args" : [
@@ -8517,7 +8931,43 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "To use such greater energies and energy systems as may be beneficial and constructive to me, and to those near and close to me."
+            "text" : "To use such greater energies and energy systems"
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 3.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "as may be beneficial and constructive to me,"
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 3.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "and to those near and close to me."
           },
           {
             "args" : [
@@ -8535,7 +8985,61 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "I deeply desire the help and cooperation, the assistance, the understanding, of those individuals whose wisdom, development, and experience are equal or greater than my own."
+            "text" : "I deeply desire the help and cooperation,"
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 3.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "the assistance, the understanding,"
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 2.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "of those individuals whose wisdom, development, and experience"
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 3.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "are equal or greater than my own."
           },
           {
             "args" : [
@@ -8732,7 +9236,43 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "I am more than my physical body, because I am more than physical matter. I can perceive that which is greater than the physical world."
+            "text" : "I am more than my physical body,"
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 3.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "because I am more than physical matter."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 3.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "I can perceive that which is greater than the physical world."
           },
           {
             "args" : [
@@ -8750,7 +9290,79 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "I deeply desire to expand. To experience. To know. To understand. To control."
+            "text" : "I deeply desire to expand."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 3,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "To experience."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 2,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "To know."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 2,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "To understand."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 2,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "To control."
           },
           {
             "args" : [
@@ -8768,7 +9380,43 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "To use such greater energies and energy systems as may be beneficial and constructive to me, and to those near and close to me."
+            "text" : "To use such greater energies and energy systems"
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 3.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "as may be beneficial and constructive to me,"
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 3.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "and to those near and close to me."
           },
           {
             "args" : [
@@ -8786,7 +9434,61 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "I deeply desire the help and cooperation, the assistance, the understanding, of those individuals whose wisdom, development, and experience are equal or greater than my own."
+            "text" : "I deeply desire the help and cooperation,"
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 3.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "the assistance, the understanding,"
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 2.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "of those individuals whose wisdom, development, and experience"
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 3.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "are equal or greater than my own."
           },
           {
             "args" : [
@@ -28162,7 +28864,25 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "Two. The muscles in your forehead. The muscles in your forehead. Let the muscles in your forehead relax. Go limp."
+            "text" : "Two. The muscles in your forehead. The muscles in your forehead. Let the muscles in your forehead relax."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 1.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "Go limp."
           },
           {
             "args" : [
@@ -28180,7 +28900,43 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "Now the muscles in your cheeks. Each cheek. Let them relax. Relax, and go limp. Relax."
+            "text" : "Now the muscles in your cheeks. Each cheek. Let them relax."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 1.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "Relax, and go limp."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 1.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "Relax."
           },
           {
             "args" : [
@@ -28198,7 +28954,25 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "Now the muscles in your scalp. The muscles in your scalp, over the top of your head. Let them relax. Relax."
+            "text" : "Now the muscles in your scalp. The muscles in your scalp, over the top of your head. Let them relax."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 1.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "Relax."
           },
           {
             "args" : [
@@ -28216,7 +28990,25 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "Three. The muscles in your neck. Let the muscles in your neck relax. Relax."
+            "text" : "Three. The muscles in your neck. Let the muscles in your neck relax."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 1.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "Relax."
           },
           {
             "args" : [
@@ -28234,7 +29026,25 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "Now let the muscles in your eyes, the muscles that control your eyes. Let them relax. Relax."
+            "text" : "Now let the muscles in your eyes, the muscles that control your eyes. Let them relax."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 1.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "Relax."
           },
           {
             "args" : [
@@ -28360,7 +29170,43 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "Four. Look with your closed eyes at your feet and your toes. Your brain tells the muscles and nerves in each foot and each toe to relax, let go, sleep."
+            "text" : "Four. Look with your closed eyes at your feet and your toes. Your brain tells the muscles and nerves in each foot and each toe to relax."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 1.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "Let go."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 1.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "Sleep."
           },
           {
             "args" : [
@@ -28378,7 +29224,43 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "Five. Look with your closed eyes at your legs, at each leg, from your hip down to your foot. Your brain tells each leg to relax. Let go. Sleep."
+            "text" : "Five. Look with your closed eyes at your legs, at each leg, from your hip down to your foot. Your brain tells each leg to relax."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 1.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "Let go."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 1.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "Sleep."
           },
           {
             "args" : [
@@ -28396,7 +29278,43 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "Six. Look with your closed eyes at your hips, at each hip. Your brain tells each hip, the muscles and nerves in each hip, to relax, let go. Sleep."
+            "text" : "Six. Look with your closed eyes at your hips, at each hip. Your brain tells each hip, the muscles and nerves in each hip, to relax."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 1.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "Let go."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 1.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "Sleep."
           },
           {
             "args" : [
@@ -28414,7 +29332,43 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "Seven. Look with your closed eyes at your lower body. Your abdomen down to your hips, your kidneys, your liver, your stomach, your intestines, your genitals. Your brain tells all of these parts in your lower body to relax. Let go. Sleep."
+            "text" : "Seven. Look with your closed eyes at your lower body. Your abdomen down to your hips, your kidneys, your liver, your stomach, your intestines, your genitals. Your brain tells all of these parts in your lower body to relax."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 1.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "Let go."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 1.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "Sleep."
           },
           {
             "args" : [
@@ -28432,7 +29386,43 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "Eight. Look with your closed eyes at your upper body. Your chest, your heart, your lungs, your diaphragm. Your brain tells these parts of your body to relax, let go, sleep."
+            "text" : "Eight. Look with your closed eyes at your upper body. Your chest, your heart, your lungs, your diaphragm. Your brain tells these parts of your body to relax."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 1.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "Let go."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 1.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "Sleep."
           },
           {
             "args" : [
@@ -28450,7 +29440,43 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "Nine. Look with your closed eyes up and down your back. The muscles and nerves in your back. Your brain tells your back, up and down your back, the muscles and nerves in your back, to relax. Let go. Sleep."
+            "text" : "Nine. Look with your closed eyes up and down your back. The muscles and nerves in your back. Your brain tells your back, up and down your back, the muscles and nerves in your back, to relax."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 1.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "Let go."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 1.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "Sleep."
           },
           {
             "args" : [
@@ -28468,7 +29494,43 @@
             "kind" : "say",
             "option" : "",
             "seconds" : 0,
-            "text" : "Ten. Look with your closed eyes at your upper body. Your arms, your hands, your fingers, your shoulders. Your brain tells all of these parts to relax, let go, sleep."
+            "text" : "Ten. Look with your closed eyes at your upper body. Your arms, your hands, your fingers, your shoulders. Your brain tells all of these parts to relax."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 1.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "Let go."
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "pause",
+            "option" : "",
+            "seconds" : 1.5,
+            "text" : ""
+          },
+          {
+            "args" : [
+
+            ],
+            "kind" : "say",
+            "option" : "",
+            "seconds" : 0,
+            "text" : "Sleep."
           },
           {
             "args" : [

@@ -26,6 +26,8 @@ interface Fixture {
     level: string; session?: string; body: string; now: number; existingFiles: string[];
     id: string; writtenFile: string; writtenContents: string;
     entryLevel: string; entryBody: string; entrySession?: string; entryWrittenMillis: number;
+    title?: string; started?: number; ended?: number; feelings?: string[]; feelingOther?: string;
+    entryTitle?: string; entryFeelingOther?: string;
   }[];
   removeCases: { level: string; id: string; fileExisted: boolean; result: boolean; fileRemainsAfter: boolean }[];
   visitCountCases: { level: string; bodies: string[]; count: number }[];
@@ -56,6 +58,11 @@ for (const c of fx.appendCases) {
   const entry = appendEntry({
     root: scratch, level: c.level, ...(c.session !== undefined ? { session: c.session } : {}),
     body: c.body, now: nowMs,
+    ...(c.title !== undefined ? { title: c.title } : {}),
+    ...(c.started !== undefined ? { started: c.started * 1000 } : {}),
+    ...(c.ended !== undefined ? { ended: c.ended * 1000 } : {}),
+    ...(c.feelings !== undefined ? { feelings: c.feelings } : {}),
+    ...(c.feelingOther !== undefined ? { feelingOther: c.feelingOther } : {}),
     exists: p => existsSync(p), mkdir: p => mkdirSync(p, { recursive: true }),
     write: (p, text) => writeFileSync(p, text, "utf8"),
   });
@@ -65,12 +72,16 @@ for (const c of fx.appendCases) {
   eq(contents, c.writtenContents, `append ${c.level}/${c.body.slice(0, 20)} file contents`);
   eq([entry.level, entry.body, entry.session ?? null],
      [c.entryLevel, c.entryBody, c.entrySession ?? null], `append ${c.level} entry fields`);
+  eq([entry.title ?? null, entry.feelingOther ?? null],
+     [c.entryTitle ?? null, c.entryFeelingOther ?? null], `append ${c.level} report fields`);
   check(Math.abs(entry.written - c.entryWrittenMillis) < 1,
         `append ${c.level} entry.written: ${entry.written} vs ${c.entryWrittenMillis}`);
   rmSync(scratch, { recursive: true, force: true });
 }
 check(fx.appendCases.some(c => c.existingFiles.length > 0), "at least one collision case forces a bumped id");
 check(fx.appendCases.some(c => c.existingFiles.length > 1), "at least one case bumps twice");
+check(fx.appendCases.some(c => c.feelings !== undefined && c.started !== undefined),
+      "at least one case carries the session report's fields");
 
 for (const c of fx.removeCases) {
   const scratch = join(tmpdir(), `gf-journal-rm-ts-${process.pid}-${Math.random().toString(36).slice(2)}`);

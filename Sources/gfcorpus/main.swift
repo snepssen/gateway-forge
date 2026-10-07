@@ -178,7 +178,7 @@ func spread(_ values: [Double]) -> (low: Double, mid: Double, high: Double, rang
 // MARK: - main
 
 let arguments = CommandLine.arguments
-let commands = ["screen", "match", "compare", "segment", "audition", "bed-fixture", "script-fixture", "render-fixture", "library-fixture", "manifest-fixture", "compose-fixture", "activity-fixture", "recipe-fixture", "storage-fixture", "deletion-fixture", "bootstrap-fixture", "scaffold-fixture", "policy-fixture", "path-fixture", "continuous-fixture", "transit-fixture", "session-fixture", "voice-fixture", "small-fixture", "graph-fixture", "queue-fixture", "authoring-fixture", "template-fixture", "journal-fixture", "compose-eval-fixture", "model-fixture", "assembly-fixture"]
+let commands = ["screen", "match", "compare", "segment", "audition", "bed-fixture", "script-fixture", "render-fixture", "library-fixture", "manifest-fixture", "compose-fixture", "activity-fixture", "recipe-fixture", "storage-fixture", "deletion-fixture", "bootstrap-fixture", "scaffold-fixture", "policy-fixture", "path-fixture", "continuous-fixture", "transit-fixture", "session-fixture", "voice-fixture", "small-fixture", "graph-fixture", "queue-fixture", "authoring-fixture", "template-fixture", "journal-fixture", "compose-eval-fixture", "model-fixture", "assembly-fixture", "session-report-fixture", "tidy-fixture"]
 guard arguments.count >= 2, commands.contains(arguments[1]),
       arguments.count >= 3 || arguments[1] == "audition"
                             || arguments[1] == "bed-fixture"
@@ -198,6 +198,8 @@ guard arguments.count >= 2, commands.contains(arguments[1]),
                             || arguments[1] == "continuous-fixture"
                             || arguments[1] == "transit-fixture"
                             || arguments[1] == "assembly-fixture"
+                            || arguments[1] == "session-report-fixture"
+                            || arguments[1] == "tidy-fixture"
                             || arguments[1] == "session-fixture"
                             || arguments[1] == "voice-fixture"
                             || arguments[1] == "small-fixture"
@@ -767,14 +769,22 @@ if subcommand == "journal-fixture" {
         var id: String; var writtenFile: String; var writtenContents: String
         var entryLevel: String; var entryBody: String; var entrySession: String?
         var entryWrittenMillis: Double
+        // GF Form 1's fields, when the case carries them.
+        var title: String?; var started: Double?; var ended: Double?
+        var feelings: [String]?; var feelingOther: String?
+        var entryTitle: String?; var entryFeelingOther: String?
     }
     func appendCase(_ level: String, session: String?, body: String, now: Date,
-                    existingFiles: [String] = []) -> AppendCase {
+                    existingFiles: [String] = [],
+                    title: String? = nil, started: Date? = nil, ended: Date? = nil,
+                    feelings: [String] = [], feelingOther: String? = nil) -> AppendCase {
         let scratch = URL(fileURLWithPath: NSTemporaryDirectory()).appending(path: "gf-journal-\(UUID().uuidString)")
         let dir = JournalLog.directory(root: scratch, level: level)
         try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
         for f in existingFiles { try? Data().write(to: dir.appending(path: f)) }
-        let entry = try! JournalLog.append(root: scratch, level: level, session: session, body: body, now: now)
+        let entry = try! JournalLog.append(root: scratch, level: level, session: session, body: body, now: now,
+                                           title: title, started: started, ended: ended,
+                                           feelings: feelings, feelingOther: feelingOther)
         let writtenPath = dir.appending(path: "\(entry.id).md")
         let contents = (try? String(contentsOf: writtenPath, encoding: .utf8)) ?? "MISSING"
         try? FileManager.default.removeItem(at: scratch)
@@ -782,7 +792,11 @@ if subcommand == "journal-fixture" {
                           existingFiles: existingFiles, id: entry.id,
                           writtenFile: "\(entry.id).md", writtenContents: contents,
                           entryLevel: entry.level, entryBody: entry.body, entrySession: entry.session,
-                          entryWrittenMillis: now.timeIntervalSince1970 * 1000)
+                          entryWrittenMillis: now.timeIntervalSince1970 * 1000,
+                          title: title, started: started?.timeIntervalSince1970,
+                          ended: ended?.timeIntervalSince1970,
+                          feelings: feelings.isEmpty ? nil : feelings, feelingOther: feelingOther,
+                          entryTitle: entry.title, entryFeelingOther: entry.feelingOther)
     }
     let fixedDate = Date(timeIntervalSince1970: 1_777_000_000)  // a stable, arbitrary instant
     let stampFormatter: DateFormatter = {
@@ -797,6 +811,16 @@ if subcommand == "journal-fixture" {
         appendCase("f10", session: nil, body: "Collides twice over.", now: fixedDate,
                   existingFiles: [fixedStamp + ".md", fixedStamp + "-1.md"]),
         appendCase("f21", session: nil, body: "", now: fixedDate),
+        // The session report's fields. The "other" line arrives with a line
+        // break and stray spaces and is written as one clean line; an empty
+        // title is no title at all.
+        appendCase("f10", session: "2026-10-07-093000-advanced-focus-10-0a1b2c3d",
+                   body: "With the report's fields.", now: fixedDate,
+                   title: "Advanced Focus 10", started: fixedDate.addingTimeInterval(-2520),
+                   ended: fixedDate.addingTimeInterval(-60), feelings: ["Relaxed", "Buzzing"],
+                   feelingOther: "  Heavy\n\nhands "),
+        appendCase("f12", session: nil, body: "Times only.", now: fixedDate,
+                   title: " ", started: fixedDate.addingTimeInterval(-900)),
     ]
 
     struct RemoveCase: Encodable { var level: String; var id: String; var fileExisted: Bool; var result: Bool; var fileRemainsAfter: Bool }
@@ -852,6 +876,194 @@ if subcommand == "journal-fixture" {
         .write(to: out, options: .atomic)
     print("journal fixture: \(appendCases.count) appends, \(removeCases.count) removes, "
           + "\(visitCountCases.count) visit counts -> \(out.lastPathComponent)")
+    exit(0)
+}
+
+// MARK: - session report fixture
+//
+// The session report PDF, as the desktop app's journal export writes it.
+// `docs/session-report.html` writes the same document in the browser; the
+// cross-platform check runs that page's own report core in Node over these
+// inputs and must arrive at the same bytes. The inputs are chosen to reach
+// every branch that changes the bytes: every field empty, wrapping cells,
+// text the standard fonts cannot draw, and the account landing either side of
+// each page break (25/26 lines on the first page, 68/69 across two).
+if subcommand == "session-report-fixture" {
+    let out = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
+        .appending(path: "library/reference/session-report-fixture.json")
+    let zoneName = "Europe/Oslo"
+    let zone = TimeZone(identifier: zoneName)!
+    // 2026-10-07 10:20:05 in Oslo, summer time.
+    let now = Date(timeIntervalSince1970: 1_791_361_205)
+    let winter = Date(timeIntervalSince1970: 1_798_816_331)
+
+    struct ReportIn: Encodable {
+        var date, time, end, levelKey, level, title: String
+        var feelings: [String]; var otherOn: Bool; var otherText: String; var narrative: String
+        init(_ r: SessionReport) {
+            date = r.date; time = r.start; end = r.end; levelKey = r.levelKey; level = r.level
+            title = r.title; feelings = r.feelings; otherOn = r.otherOn
+            otherText = r.otherText; narrative = r.narrative
+        }
+    }
+    struct Case: Encodable {
+        var name: String; var report: ReportIn; var now: Double
+        var fileName: String; var pages: Int; var bytes: Int; var sha256: String
+    }
+    func lines(_ n: Int) -> String { (1...n).map { "Line \($0)" }.joined(separator: "\n") }
+    let account = """
+        Brief session, already very familiar with the full-body relaxation process and had little resistance going inward. As usual the shoulder tension kept coming back — so I kept repeating the relaxation commands targeted there.
+
+        The relaxation script will need to be updated: the commands are rushed. “Relax. Let go. Sleep” is said with 150 ms breaks.
+
+        Blåbær-coloured light at the edges, nothing identifiable… then a “click”, like a door closing. 🙂 Tab\there; a\r\nWindows line; café, naïve, Ærø, smørbrød.
+        """
+    let inputs: [(String, SessionReport, Date)] = [
+        ("full", SessionReport(date: "2026-10-07", start: "09:30", end: "10:12", levelKey: "F10",
+                               level: "F10 — Mind Awake, Body Asleep", title: "Advanced Focus 10",
+                               feelings: ["Relaxed", "Energised", "Buzzing"], otherOn: true,
+                               otherText: "Heavy hands, a tingling along the spine that came and went in waves",
+                               narrative: account), now),
+        ("empty", SessionReport(), now),
+        ("other level, long title", SessionReport(
+            date: "2026-01-04", start: "", end: "23:59", levelKey: "other",
+            level: "Somewhere between F21 and F22, not on any published map at all",
+            title: "Continuous journey to the edge of the Park and the long way back again, with a stop",
+            feelings: ["Nothing"], otherOn: false, otherText: "",
+            narrative: "Antidisestablishmentarianismsupercalifragilisticexpialidociousfloccinaucinihilipilification"
+                + String(repeating: "x", count: 90) + "\n\n\n   \n(parenthesis) and \\backslash\\"), winter),
+        ("25 lines", SessionReport(date: "2026-10-07", narrative: lines(25)), now),
+        ("26 lines", SessionReport(date: "2026-10-07", narrative: lines(26)), now),
+        ("68 lines", SessionReport(date: "2026-10-07", narrative: lines(68)), now),
+        ("69 lines", SessionReport(date: "2026-10-07", narrative: lines(69)), now),
+    ]
+    let cases = inputs.map { name, report, at -> Case in
+        let data = SessionReportPDF.document(report, now: at, timeZone: zone)
+        let digest = SHA256.hash(data: data).map { String(format: "%02x", $0) }.joined()
+        return Case(name: name, report: ReportIn(report), now: at.timeIntervalSince1970 * 1000,
+                    fileName: SessionReportPDF.fileName(report, now: at, timeZone: zone),
+                    pages: SessionReportPDF.pageCount(report, now: at, timeZone: zone),
+                    bytes: data.count, sha256: digest)
+    }
+    struct Fixture: Encodable { var note: String; var timeZone: String; var cases: [Case] }
+    let encoder = JSONEncoder()
+    encoder.outputFormatting = [.prettyPrinted, .sortedKeys, .withoutEscapingSlashes]
+    try encoder.encode(Fixture(
+        note: "Session report PDFs from SessionReportPDF; docs/session-report.html must produce the same bytes.",
+        timeZone: zoneName, cases: cases))
+        .write(to: out, options: .atomic)
+    print("session report fixture: \(cases.count) reports, "
+          + "\(cases.map(\.pages).reduce(0, +)) pages -> \(out.lastPathComponent)")
+    exit(0)
+}
+
+// MARK: - tidy fixture
+//
+// `StorageAudit.tidy`, `DeletionStore.pruneHollow` and `DeletionStore.removeAll`
+// on a scratch library built from a spec both implementations follow. Every
+// branch tidy decides is here: a session folder holding only its manifest
+// (goes), one with Finder's .DS_Store as well (goes), one with a note in it or
+// its audio still there (stays), one with no manifest yet (untouched -- it may
+// be mid-assembly), and Recently Deleted records whose payload is a file, an
+// empty folder tree, missing, or nothing but .DS_Store.
+if subcommand == "tidy-fixture" {
+    let out = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
+        .appending(path: "library/reference/tidy-fixture.json")
+    let fm = FileManager.default
+
+    struct FileSpec: Codable { var path: String; var text: String }
+    var files: [FileSpec] = [
+        FileSpec(path: "focus/F10/renders/hollow/manifest.json", text: "{}"),
+        FileSpec(path: "focus/F10/renders/hollow-ds/manifest.json", text: "{}"),
+        FileSpec(path: "focus/F10/renders/hollow-ds/.DS_Store", text: "x"),
+        FileSpec(path: "focus/F10/renders/with-notes/manifest.json", text: "{}"),
+        FileSpec(path: "focus/F10/renders/with-notes/notes.md", text: "Still mine.\n"),
+        FileSpec(path: "focus/F10/renders/with-audio/manifest.json", text: "{}"),
+        FileSpec(path: "focus/F10/renders/with-audio/session.wav", text: "RIFF"),
+        FileSpec(path: "focus/F12/renders/no-manifest/stray.txt", text: "?"),
+        FileSpec(path: "memory/deleted/kept-file/a.gws", text: "@segment a\n"),
+        FileSpec(path: "memory/deleted/ds-only/s1/.DS_Store", text: "x"),
+        FileSpec(path: "memory/deleted/nested-file/s2/inner/take.wav", text: "RIFF"),
+    ]
+    let emptyDirectories = [
+        "focus/F12/renders/building",
+        "memory/deleted/empty-tree/s3/inner/deeper",
+    ]
+    let deleted = Date(timeIntervalSince1970: 1_791_000_000)
+    let items = [
+        DeletedItem(id: "kept-file", kind: .segment, title: "A", originalPath: "library/segments/a.gws", deleted: deleted),
+        DeletedItem(id: "empty-tree", kind: .session, title: "S3", originalPath: "focus/F10/renders/s3", deleted: deleted),
+        DeletedItem(id: "missing", kind: .session, title: "Gone", originalPath: "focus/F10/renders/gone", deleted: deleted),
+        DeletedItem(id: "ds-only", kind: .session, title: "S1", originalPath: "focus/F10/renders/s1", deleted: deleted),
+        DeletedItem(id: "nested-file", kind: .session, title: "S2", originalPath: "focus/F10/renders/s2", deleted: deleted),
+    ]
+
+    func build() -> URL {
+        let root = URL(fileURLWithPath: NSTemporaryDirectory()).appending(path: "gf-tidy-\(UUID().uuidString)")
+        for f in files {
+            let url = root.appending(path: f.path)
+            try? fm.createDirectory(at: url.deletingLastPathComponent(), withIntermediateDirectories: true)
+            try? Data(f.text.utf8).write(to: url)
+        }
+        for d in emptyDirectories {
+            try? fm.createDirectory(at: root.appending(path: d), withIntermediateDirectories: true)
+        }
+        try? DeletionStore.save(items, root: root)
+        return root
+    }
+    func renders(_ root: URL) -> [URL] {
+        ((try? fm.contentsOfDirectory(at: root.appending(path: "focus"), includingPropertiesForKeys: nil)) ?? [])
+            .flatMap { (try? fm.contentsOfDirectory(at: $0.appending(path: "renders"),
+                                                   includingPropertiesForKeys: nil)) ?? [] }
+    }
+    func listing(_ root: URL) -> (files: [String], dirs: [String]) {
+        var files: [String] = [], dirs: [String] = []
+        let base = root.standardizedFileURL.path + "/"
+        if let walker = fm.enumerator(at: root, includingPropertiesForKeys: nil) {
+            for case let u as URL in walker {
+                let full = u.standardizedFileURL.path
+                let rel = full.hasPrefix(base) ? String(full.dropFirst(base.count)) : full
+                var isDir: ObjCBool = false
+                _ = fm.fileExists(atPath: u.path, isDirectory: &isDir)
+                if isDir.boolValue { dirs.append(rel) } else if rel != "memory/deleted/index.json" { files.append(rel) }
+            }
+        }
+        return (files.sorted(), dirs.sorted())
+    }
+
+    // Tidy.
+    let tidyRoot = build()
+    let indexText = (try? String(contentsOf: DeletionStore.indexURL(root: tidyRoot), encoding: .utf8)) ?? ""
+    let tidied = StorageAudit.tidy(root: tidyRoot, renders: renders(tidyRoot))
+    let afterTidy = listing(tidyRoot)
+    let idsAfterTidy = ((try? DeletionStore.load(root: tidyRoot)) ?? []).map(\.id)
+
+    // Then everything in the bin at once.
+    let removedCount = (try? DeletionStore.removeAll(root: tidyRoot, disposal: .permanent)) ?? -1
+    let afterRemoveAll = listing(tidyRoot)
+    let idsAfterRemoveAll = ((try? DeletionStore.load(root: tidyRoot)) ?? []).map(\.id)
+    try? fm.removeItem(at: tidyRoot)
+
+    struct Fixture: Encodable {
+        var note: String
+        var files: [FileSpec]; var emptyDirectories: [String]; var index: String
+        var removedSessions: [String]; var keptSessions: [String]; var droppedRecords: Int
+        var filesAfterTidy: [String]; var directoriesAfterTidy: [String]; var idsAfterTidy: [String]
+        var removeAllCount: Int; var filesAfterRemoveAll: [String]; var idsAfterRemoveAll: [String]
+    }
+    let encoder = JSONEncoder()
+    encoder.outputFormatting = [.prettyPrinted, .sortedKeys, .withoutEscapingSlashes]
+    try encoder.encode(Fixture(
+        note: "StorageAudit.tidy, then DeletionStore.removeAll, on a scratch library.",
+        files: files, emptyDirectories: emptyDirectories, index: indexText,
+        removedSessions: tidied.removedSessions, keptSessions: tidied.keptSessions,
+        droppedRecords: tidied.droppedRecords,
+        filesAfterTidy: afterTidy.files, directoriesAfterTidy: afterTidy.dirs, idsAfterTidy: idsAfterTidy,
+        removeAllCount: removedCount, filesAfterRemoveAll: afterRemoveAll.files,
+        idsAfterRemoveAll: idsAfterRemoveAll))
+        .write(to: out, options: .atomic)
+    print("tidy fixture: removed \(tidied.removedSessions.count), kept \(tidied.keptSessions.count), "
+          + "dropped \(tidied.droppedRecords) records -> \(out.lastPathComponent)")
     exit(0)
 }
 

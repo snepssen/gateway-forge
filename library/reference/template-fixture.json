@@ -1042,7 +1042,7 @@
     {
       "destination" : "F21",
       "destinationKey" : "F21",
-      "estimatedSeconds" : 1280.2712348322627,
+      "estimatedSeconds" : 1342.7712348322627,
       "isReady" : false,
       "items" : [
         {
@@ -1148,7 +1148,7 @@
           ],
           "outputName" : "affirmation.take1.wav",
           "requested" : 3,
-          "seconds" : 65.90435403283368,
+          "seconds" : 98.4043540328337,
           "segmentID" : "affirmation",
           "title" : "The Gateway Affirmation — settled form"
         },
@@ -1163,7 +1163,7 @@
           ],
           "outputName" : "relax-10.take1.wav",
           "requested" : 3,
-          "seconds" : 420.91006423982867,
+          "seconds" : 450.91006423982867,
           "segmentID" : "relax-10",
           "served" : 3,
           "title" : "Ten-Point Relaxation"
@@ -1227,7 +1227,7 @@
     {
       "destination" : "F21",
       "destinationKey" : "F21",
-      "estimatedSeconds" : 929.1491791577444,
+      "estimatedSeconds" : 961.6491791577444,
       "isReady" : false,
       "items" : [
         {
@@ -1333,7 +1333,7 @@
           ],
           "outputName" : "affirmation.take1.wav",
           "requested" : 1,
-          "seconds" : 65.90435403283368,
+          "seconds" : 98.4043540328337,
           "segmentID" : "affirmation",
           "title" : "The Gateway Affirmation — settled form"
         },
@@ -1412,7 +1412,7 @@
     {
       "destination" : "F21",
       "destinationKey" : "F21",
-      "estimatedSeconds" : 704.785153461813,
+      "estimatedSeconds" : 721.035153461813,
       "isReady" : false,
       "items" : [
         {
@@ -1518,7 +1518,7 @@
           ],
           "outputName" : "affirmation.take1.wav",
           "requested" : 2,
-          "seconds" : 49.90435403283369,
+          "seconds" : 66.15435403283371,
           "segmentID" : "affirmation",
           "title" : "The Gateway Affirmation — settled form"
         },
@@ -1597,7 +1597,7 @@
     {
       "destination" : "F21",
       "destinationKey" : "F21",
-      "estimatedSeconds" : 1580.2712348322627,
+      "estimatedSeconds" : 1674.0212348322627,
       "isReady" : false,
       "items" : [
         {
@@ -1703,7 +1703,7 @@
           ],
           "outputName" : "affirmation.take1.wav",
           "requested" : 3,
-          "seconds" : 81.9043540328337,
+          "seconds" : 130.65435403283368,
           "segmentID" : "affirmation",
           "title" : "The Gateway Affirmation — settled form"
         },
@@ -1718,7 +1718,7 @@
           ],
           "outputName" : "relax-10.take1.wav",
           "requested" : 3,
-          "seconds" : 518.4100642398287,
+          "seconds" : 563.4100642398288,
           "segmentID" : "relax-10",
           "served" : 3,
           "title" : "Ten-Point Relaxation"
@@ -1781,7 +1781,7 @@
     },
     {
       "destination" : "F10",
-      "estimatedSeconds" : 1223.9321912919343,
+      "estimatedSeconds" : 1286.4321912919345,
       "isReady" : false,
       "items" : [
         {
@@ -1871,7 +1871,7 @@
           ],
           "outputName" : "affirmation.take1.wav",
           "requested" : 3,
-          "seconds" : 65.90435403283368,
+          "seconds" : 98.4043540328337,
           "segmentID" : "affirmation",
           "title" : "The Gateway Affirmation — settled form"
         },
@@ -1886,7 +1886,7 @@
           ],
           "outputName" : "relax-10.take1.wav",
           "requested" : 3,
-          "seconds" : 420.91006423982867,
+          "seconds" : 450.91006423982867,
           "segmentID" : "relax-10",
           "served" : 3,
           "title" : "Ten-Point Relaxation"
@@ -1949,7 +1949,7 @@
     {
       "destination" : "F10",
       "destinationKey" : "NOWHERE",
-      "estimatedSeconds" : 1223.9321912919343,
+      "estimatedSeconds" : 1286.4321912919345,
       "isReady" : false,
       "items" : [
         {
@@ -2039,7 +2039,7 @@
           ],
           "outputName" : "affirmation.take1.wav",
           "requested" : 3,
-          "seconds" : 65.90435403283368,
+          "seconds" : 98.4043540328337,
           "segmentID" : "affirmation",
           "title" : "The Gateway Affirmation — settled form"
         },
@@ -2054,7 +2054,7 @@
           ],
           "outputName" : "relax-10.take1.wav",
           "requested" : 3,
-          "seconds" : 420.91006423982867,
+          "seconds" : 450.91006423982867,
           "segmentID" : "relax-10",
           "served" : 3,
           "title" : "Ten-Point Relaxation"

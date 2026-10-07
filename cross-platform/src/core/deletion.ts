@@ -15,7 +15,7 @@
  * explicitly today, keeps a net underneath it, because an explicit action is
  * the one that might be a mistake made a second ago.
  */
-import { existsSync, mkdirSync, readFileSync, realpathSync, renameSync, rmSync, writeFileSync } from "fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, realpathSync, renameSync, rmSync, statSync, writeFileSync } from "fs";
 import { join, dirname, resolve } from "path";
 import {
   fromPortableRelative, isPortableFilenameComponent, isSafePortableRelativePath,
@@ -295,6 +295,53 @@ export function remove(id: string, root: string, disposal: DeletionDisposal): vo
   if (index < 0) throw DeletionError.unknownItem(id);
   discard(items[index]!, root, disposal);
   save(items.filter((_, i) => i !== index), root);
+}
+
+/** Everything in Recently Deleted, at once; same disposal as one row. Items
+ *  that cannot be discarded stay listed and the first failure is thrown after
+ *  the rest have gone. Returns how many records there were. */
+export function removeAll(root: string, disposal: DeletionDisposal): number {
+  const items = load(root);
+  if (items.length === 0) return 0;
+  const remaining: DeletedItem[] = [];
+  let firstError: unknown;
+  for (const item of items) {
+    try { discard(item, root, disposal); }
+    catch (e) { remaining.push(item); firstError ??= e; }
+  }
+  save(remaining, root);
+  if (firstError !== undefined) throw firstError;
+  return items.length;
+}
+
+/** True when a payload holds no file anywhere inside it, `.DS_Store` aside. */
+function holdsNoFile(dir: string): boolean {
+  for (const name of readdirSync(dir)) {
+    const path = join(dir, name);
+    if (statSync(path).isDirectory()) { if (!holdsNoFile(path)) return false; }
+    else if (name !== ".DS_Store") return false;
+  }
+  return true;
+}
+
+/** Drop records that describe nothing recoverable: a payload already gone, or
+ *  a payload folder with no file left anywhere inside it -- what emptying the
+ *  thirty-day bin file by file used to leave behind. */
+export function pruneHollow(root: string): number {
+  const items = load(root);
+  const hollow = items.filter(item => {
+    const payload = payloadURL(item, root);
+    if (!existsSync(payload)) return true;
+    if (!statSync(payload).isDirectory()) return false;
+    return holdsNoFile(payload);
+  });
+  if (hollow.length === 0) return 0;
+  for (const item of hollow) {
+    try { discard(item, root, "permanent"); } catch { /* best effort, as Swift */ }
+  }
+  const gone = new Set(hollow.map(i => i.id));
+  save(items.filter(i => !gone.has(i.id)), root);
+  return hollow.length;
 }
 
 /** Removes every item past its 30 days and returns what it removed, so the

@@ -1,0 +1,162 @@
+{
+  "cases" : [
+    {
+      "bytes" : 6989,
+      "fileName" : "Session-Report_2026-10-07_0930_F10_Advanced-Focus-10.pdf",
+      "name" : "full",
+      "now" : 1791361205000,
+      "pages" : 1,
+      "report" : {
+        "date" : "2026-10-07",
+        "end" : "10:12",
+        "feelings" : [
+          "Relaxed",
+          "Energised",
+          "Buzzing"
+        ],
+        "level" : "F10 — Mind Awake, Body Asleep",
+        "levelKey" : "F10",
+        "narrative" : "Brief session, already very familiar with the full-body relaxation process and had little resistance going inward. As usual the shoulder tension kept coming back — so I kept repeating the relaxation commands targeted there.\n\nThe relaxation script will need to be updated: the commands are rushed. “Relax. Let go. Sleep” is said with 150 ms breaks.\n\nBlåbær-coloured light at the edges, nothing identifiable… then a “click”, like a door closing. 🙂 Tab\there; a\r\nWindows line; café, naïve, Ærø, smørbrød.",
+        "otherOn" : true,
+        "otherText" : "Heavy hands, a tingling along the spine that came and went in waves",
+        "time" : "09:30",
+        "title" : "Advanced Focus 10"
+      },
+      "sha256" : "4835d3c79aea84a004c14fe54a2bc524a34071600a935ed1055c65d03208243c"
+    },
+    {
+      "bytes" : 5561,
+      "fileName" : "Session-Report_2026-10-07.pdf",
+      "name" : "empty",
+      "now" : 1791361205000,
+      "pages" : 1,
+      "report" : {
+        "date" : "",
+        "end" : "",
+        "feelings" : [
+
+        ],
+        "level" : "",
+        "levelKey" : "",
+        "narrative" : "",
+        "otherOn" : false,
+        "otherText" : "",
+        "time" : "",
+        "title" : ""
+      },
+      "sha256" : "c8c8fad391c175e75f10509494baacbd96b0670a1227456b343a91a3db6524f9"
+    },
+    {
+      "bytes" : 6335,
+      "fileName" : "Session-Report_2026-01-04_Somewhere-between-F21-and-F22-not-on-any-publish_Continuous-journey-to-the-edge-of-the-Park-and-t.pdf",
+      "name" : "other level, long title",
+      "now" : 1798816331000,
+      "pages" : 1,
+      "report" : {
+        "date" : "2026-01-04",
+        "end" : "23:59",
+        "feelings" : [
+          "Nothing"
+        ],
+        "level" : "Somewhere between F21 and F22, not on any published map at all",
+        "levelKey" : "other",
+        "narrative" : "Antidisestablishmentarianismsupercalifragilisticexpialidociousfloccinaucinihilipilificationxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n\n\n   \n(parenthesis) and \\backslash\\",
+        "otherOn" : false,
+        "otherText" : "",
+        "time" : "",
+        "title" : "Continuous journey to the edge of the Park and the long way back again, with a stop"
+      },
+      "sha256" : "bb554e95d6a5436f74eed42e15b9e88ef56f48d4383cda971b399b8b33cd89f6"
+    },
+    {
+      "bytes" : 6924,
+      "fileName" : "Session-Report_2026-10-07.pdf",
+      "name" : "25 lines",
+      "now" : 1791361205000,
+      "pages" : 1,
+      "report" : {
+        "date" : "2026-10-07",
+        "end" : "",
+        "feelings" : [
+
+        ],
+        "level" : "",
+        "levelKey" : "",
+        "narrative" : "Line 1\nLine 2\nLine 3\nLine 4\nLine 5\nLine 6\nLine 7\nLine 8\nLine 9\nLine 10\nLine 11\nLine 12\nLine 13\nLine 14\nLine 15\nLine 16\nLine 17\nLine 18\nLine 19\nLine 20\nLine 21\nLine 22\nLine 23\nLine 24\nLine 25",
+        "otherOn" : false,
+        "otherText" : "",
+        "time" : "",
+        "title" : ""
+      },
+      "sha256" : "09c96c0db775c1754b4af28e36da8680cb0f6f46e4bf86233e19cf58f2d8a44b"
+    },
+    {
+      "bytes" : 10239,
+      "fileName" : "Session-Report_2026-10-07.pdf",
+      "name" : "26 lines",
+      "now" : 1791361205000,
+      "pages" : 2,
+      "report" : {
+        "date" : "2026-10-07",
+        "end" : "",
+        "feelings" : [
+
+        ],
+        "level" : "",
+        "levelKey" : "",
+        "narrative" : "Line 1\nLine 2\nLine 3\nLine 4\nLine 5\nLine 6\nLine 7\nLine 8\nLine 9\nLine 10\nLine 11\nLine 12\nLine 13\nLine 14\nLine 15\nLine 16\nLine 17\nLine 18\nLine 19\nLine 20\nLine 21\nLine 22\nLine 23\nLine 24\nLine 25\nLine 26",
+        "otherOn" : false,
+        "otherText" : "",
+        "time" : "",
+        "title" : ""
+      },
+      "sha256" : "c50232faaa6f54bb12c32a28ad7907165bd47d1d740cfc176a2bb7eab5518d67"
+    },
+    {
+      "bytes" : 12632,
+      "fileName" : "Session-Report_2026-10-07.pdf",
+      "name" : "68 lines",
+      "now" : 1791361205000,
+      "pages" : 2,
+      "report" : {
+        "date" : "2026-10-07",
+        "end" : "",
+        "feelings" : [
+
+        ],
+        "level" : "",
+        "levelKey" : "",
+        "narrative" : "Line 1\nLine 2\nLine 3\nLine 4\nLine 5\nLine 6\nLine 7\nLine 8\nLine 9\nLine 10\nLine 11\nLine 12\nLine 13\nLine 14\nLine 15\nLine 16\nLine 17\nLine 18\nLine 19\nLine 20\nLine 21\nLine 22\nLine 23\nLine 24\nLine 25\nLine 26\nLine 27\nLine 28\nLine 29\nLine 30\nLine 31\nLine 32\nLine 33\nLine 34\nLine 35\nLine 36\nLine 37\nLine 38\nLine 39\nLine 40\nLine 41\nLine 42\nLine 43\nLine 44\nLine 45\nLine 46\nLine 47\nLine 48\nLine 49\nLine 50\nLine 51\nLine 52\nLine 53\nLine 54\nLine 55\nLine 56\nLine 57\nLine 58\nLine 59\nLine 60\nLine 61\nLine 62\nLine 63\nLine 64\nLine 65\nLine 66\nLine 67\nLine 68",
+        "otherOn" : false,
+        "otherText" : "",
+        "time" : "",
+        "title" : ""
+      },
+      "sha256" : "7f5f715b614bb85a90bfdd9a17f9ad727f583fe7a83bc12ff007f3bf9e00e9bb"
+    },
+    {
+      "bytes" : 15947,
+      "fileName" : "Session-Report_2026-10-07.pdf",
+      "name" : "69 lines",
+      "now" : 1791361205000,
+      "pages" : 3,
+      "report" : {
+        "date" : "2026-10-07",
+        "end" : "",
+        "feelings" : [
+
+        ],
+        "level" : "",
+        "levelKey" : "",
+        "narrative" : "Line 1\nLine 2\nLine 3\nLine 4\nLine 5\nLine 6\nLine 7\nLine 8\nLine 9\nLine 10\nLine 11\nLine 12\nLine 13\nLine 14\nLine 15\nLine 16\nLine 17\nLine 18\nLine 19\nLine 20\nLine 21\nLine 22\nLine 23\nLine 24\nLine 25\nLine 26\nLine 27\nLine 28\nLine 29\nLine 30\nLine 31\nLine 32\nLine 33\nLine 34\nLine 35\nLine 36\nLine 37\nLine 38\nLine 39\nLine 40\nLine 41\nLine 42\nLine 43\nLine 44\nLine 45\nLine 46\nLine 47\nLine 48\nLine 49\nLine 50\nLine 51\nLine 52\nLine 53\nLine 54\nLine 55\nLine 56\nLine 57\nLine 58\nLine 59\nLine 60\nLine 61\nLine 62\nLine 63\nLine 64\nLine 65\nLine 66\nLine 67\nLine 68\nLine 69",
+        "otherOn" : false,
+        "otherText" : "",
+        "time" : "",
+        "title" : ""
+      },
+      "sha256" : "060b35b4ae5b11fb2c4d15dfbad09c2dff0621daccd8e561650c60d98c91810b"
+    }
+  ],
+  "note" : "Session report PDFs from SessionReportPDF; docs/session-report.html must produce the same bytes.",
+  "timeZone" : "Europe/Oslo"
+}

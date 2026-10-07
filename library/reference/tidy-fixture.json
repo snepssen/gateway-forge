@@ -1,0 +1,103 @@
+{
+  "directoriesAfterTidy" : [
+    "focus",
+    "focus/F10",
+    "focus/F10/renders",
+    "focus/F10/renders/with-audio",
+    "focus/F10/renders/with-notes",
+    "focus/F12",
+    "focus/F12/renders",
+    "focus/F12/renders/building",
+    "focus/F12/renders/no-manifest",
+    "memory",
+    "memory/deleted",
+    "memory/deleted/kept-file",
+    "memory/deleted/nested-file",
+    "memory/deleted/nested-file/s2",
+    "memory/deleted/nested-file/s2/inner"
+  ],
+  "droppedRecords" : 3,
+  "emptyDirectories" : [
+    "focus/F12/renders/building",
+    "memory/deleted/empty-tree/s3/inner/deeper"
+  ],
+  "files" : [
+    {
+      "path" : "focus/F10/renders/hollow/manifest.json",
+      "text" : "{}"
+    },
+    {
+      "path" : "focus/F10/renders/hollow-ds/manifest.json",
+      "text" : "{}"
+    },
+    {
+      "path" : "focus/F10/renders/hollow-ds/.DS_Store",
+      "text" : "x"
+    },
+    {
+      "path" : "focus/F10/renders/with-notes/manifest.json",
+      "text" : "{}"
+    },
+    {
+      "path" : "focus/F10/renders/with-notes/notes.md",
+      "text" : "Still mine.\n"
+    },
+    {
+      "path" : "focus/F10/renders/with-audio/manifest.json",
+      "text" : "{}"
+    },
+    {
+      "path" : "focus/F10/renders/with-audio/session.wav",
+      "text" : "RIFF"
+    },
+    {
+      "path" : "focus/F12/renders/no-manifest/stray.txt",
+      "text" : "?"
+    },
+    {
+      "path" : "memory/deleted/kept-file/a.gws",
+      "text" : "@segment a\n"
+    },
+    {
+      "path" : "memory/deleted/ds-only/s1/.DS_Store",
+      "text" : "x"
+    },
+    {
+      "path" : "memory/deleted/nested-file/s2/inner/take.wav",
+      "text" : "RIFF"
+    }
+  ],
+  "filesAfterRemoveAll" : [
+    "focus/F10/renders/with-audio/manifest.json",
+    "focus/F10/renders/with-audio/session.wav",
+    "focus/F10/renders/with-notes/manifest.json",
+    "focus/F10/renders/with-notes/notes.md",
+    "focus/F12/renders/no-manifest/stray.txt"
+  ],
+  "filesAfterTidy" : [
+    "focus/F10/renders/with-audio/manifest.json",
+    "focus/F10/renders/with-audio/session.wav",
+    "focus/F10/renders/with-notes/manifest.json",
+    "focus/F10/renders/with-notes/notes.md",
+    "focus/F12/renders/no-manifest/stray.txt",
+    "memory/deleted/kept-file/a.gws",
+    "memory/deleted/nested-file/s2/inner/take.wav"
+  ],
+  "idsAfterRemoveAll" : [
+
+  ],
+  "idsAfterTidy" : [
+    "kept-file",
+    "nested-file"
+  ],
+  "index" : "{\n  \"items\" : [\n    {\n      \"deleted\" : \"2026-10-03T04:00:00Z\",\n      \"id\" : \"kept-file\",\n      \"kind\" : \"segment\",\n      \"originalPath\" : \"library\\/segments\\/a.gws\",\n      \"title\" : \"A\"\n    },\n    {\n      \"deleted\" : \"2026-10-03T04:00:00Z\",\n      \"id\" : \"empty-tree\",\n      \"kind\" : \"session\",\n      \"originalPath\" : \"focus\\/F10\\/renders\\/s3\",\n      \"title\" : \"S3\"\n    },\n    {\n      \"deleted\" : \"2026-10-03T04:00:00Z\",\n      \"id\" : \"missing\",\n      \"kind\" : \"session\",\n      \"originalPath\" : \"focus\\/F10\\/renders\\/gone\",\n      \"title\" : \"Gone\"\n    },\n    {\n      \"deleted\" : \"2026-10-03T04:00:00Z\",\n      \"id\" : \"ds-only\",\n      \"kind\" : \"session\",\n      \"originalPath\" : \"focus\\/F10\\/renders\\/s1\",\n      \"title\" : \"S1\"\n    },\n    {\n      \"deleted\" : \"2026-10-03T04:00:00Z\",\n      \"id\" : \"nested-file\",\n      \"kind\" : \"session\",\n      \"originalPath\" : \"focus\\/F10\\/renders\\/s2\",\n      \"title\" : \"S2\"\n    }\n  ],\n  \"schemaVersion\" : 1\n}",
+  "keptSessions" : [
+    "focus/F10/renders/with-notes"
+  ],
+  "note" : "StorageAudit.tidy, then DeletionStore.removeAll, on a scratch library.",
+  "removeAllCount" : 2,
+  "removedSessions" : [
+    "focus/F10/renders/hollow",
+    "focus/F10/renders/hollow-ds"
+  ]
+}

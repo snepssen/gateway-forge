@@ -7,13 +7,15 @@
  * invites the listener to gamble, but a statement of what each pile *costs to
  * lose*.
  *
- * **Nothing here ever deletes a directory, and nothing ever deletes writing.**
- * A render directory carries its own `notes.md`, so purging one wholesale would
- * take the listener's notes with it. Purging removes files it has named, all of
- * them audio, and leaves the folder, the manifest and every word standing.
+ * **Nothing here ever deletes writing.** Purging removes files it has named,
+ * all of them audio, and never a directory. Afterwards `tidy` removes a session
+ * folder only when nothing is left in it but the manifest the app wrote: session
+ * notes live in the journal now, not beside the audio. A folder still holding a
+ * `notes.md`, or any file the app did not write, stays.
  */
-import { existsSync, readdirSync, readFileSync, statSync, unlinkSync } from "fs";
-import { join, basename, extname } from "path";
+import { existsSync, readdirSync, readFileSync, realpathSync, rmSync, statSync, unlinkSync } from "fs";
+import { join, basename, extname, resolve, sep } from "path";
+import { pruneHollow } from "./deletion.js";
 import { isCurrent, items } from "./renderPlan.js";
 import { decodeManifest } from "./sessionManifest.js";
 import type { Library } from "./library.js";
@@ -217,4 +219,45 @@ export function purge(report: StorageReport, kinds: Set<StorageKind>): number {
     }
   }
   return freed;
+}
+
+/** What `tidy` took away and what it left standing. Paths are relative to the
+ *  root, with `/` separators, as Swift reports them. */
+export interface Tidied { removedSessions: string[]; keptSessions: string[]; droppedRecords: number }
+
+/** The files a session folder may be left holding and still count as empty. */
+export const hollowSessionFiles = new Set(["manifest.json", ".DS_Store"]);
+
+/**
+ * Finish what `purge` starts, so a cleanup leaves nothing hollow behind: a
+ * session folder holding only its manifest goes, and so does a Recently
+ * Deleted record with nothing left in it. A folder without its manifest is
+ * left alone -- assembly writes the audio before the manifest, so an empty
+ * folder may be one still being built.
+ */
+export function tidy(root: string, renders: string[]): Tidied {
+  const out: Tidied = { removedSessions: [], keptSessions: [], droppedRecords: 0 };
+  // Symlinks resolved on both sides and before anything is removed, as Swift
+  // does: macOS shows one temporary folder as /var and /private/var.
+  const real = (p: string) => { try { return realpathSync(p); } catch { return resolve(p); } };
+  const base = real(root) + sep;
+  const relative = (p: string) => {
+    const full = real(p);
+    return (full.startsWith(base) ? full.slice(base.length) : full).split(sep).join("/");
+  };
+  for (const dir of [...renders].sort()) {
+    if (existsSync(join(dir, "session.wav"))) continue;
+    let names: string[];
+    try { names = readdirSync(dir); } catch { continue; }
+    if (!names.includes("manifest.json")) continue;
+    const rel = relative(dir);
+    if (names.every(n => hollowSessionFiles.has(n))) {
+      try { rmSync(dir, { recursive: true }); out.removedSessions.push(rel); }
+      catch { out.keptSessions.push(rel); }
+    } else {
+      out.keptSessions.push(rel);
+    }
+  }
+  try { out.droppedRecords = pruneHollow(root); } catch { out.droppedRecords = 0; }
+  return out;
 }

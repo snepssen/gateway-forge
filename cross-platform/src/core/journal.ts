@@ -23,6 +23,46 @@ export interface JournalEntry {
   written: number;
   body: string;
   originDeviceID?: string;
+  // GF Form 1's fields: what a session report records beyond the account.
+  // All optional, exactly as in Swift, so older entries read unchanged.
+  /** What the session was, as a listener names it. */
+  title?: string;
+  /** When listening began and stopped, milliseconds since the epoch. */
+  started?: number;
+  ended?: number;
+  /** The body-feeling boxes ticked. Empty when none were. */
+  feelings?: string[];
+  /** The "Other:" line. */
+  feelingOther?: string;
+}
+
+/**
+ * A single frontmatter line, as Swift's `JournalLog.Report.clean` makes it:
+ * every line break becomes one space (runs collapse, as Swift's split drops
+ * empty pieces), then the ends are trimmed; nothing left means no value.
+ */
+export function cleanReportField(s: string | undefined): string | undefined {
+  if (s === undefined) return undefined;
+  const line = s.split(/[\n\r\u000B\u000C\u0085\u2028\u2029]+/).filter(x => x !== "").join(" ")
+    .replace(/^[\p{Zs}\t]+|[\p{Zs}\t]+$/gu, "");
+  return line === "" ? undefined : line;
+}
+
+const isoSeconds = (ms: number): string => new Date(ms).toISOString().replace(/\.\d{3}Z$/, "Z");
+
+/** Write the report fields an entry has, leaving every other key alone. */
+function stampReport(frontmatter: Record<string, string>, e: {
+  title?: string | undefined; started?: number | undefined; ended?: number | undefined;
+  feelings?: string[] | undefined; feelingOther?: string | undefined;
+}): void {
+  const set = (k: string, v: string | undefined) => {
+    if (v !== undefined && v !== "") frontmatter[k] = v; else delete frontmatter[k];
+  };
+  set("title", e.title);
+  set("started", e.started !== undefined ? isoSeconds(e.started) : undefined);
+  set("ended", e.ended !== undefined ? isoSeconds(e.ended) : undefined);
+  set("feelings", e.feelings && e.feelings.length ? e.feelings.join(", ") : undefined);
+  set("feeling-other", e.feelingOther);
 }
 
 /**
@@ -86,12 +126,28 @@ export function journalEntries(root: string, level: string): JournalEntry[] {
       body: note.body,
       ...(note.frontmatter["origin-device"] !== undefined
         ? { originDeviceID: note.frontmatter["origin-device"] } : {}),
+      ...reportFields(note.frontmatter),
     });
   }
   // Swift's `sorted(by:)` is stable, so equal timestamps keep directory order.
   return out.map((e, i) => ({ e, i }))
     .sort((a, b) => (a.e.written - b.e.written) || (a.i - b.i))
     .map(({ e }) => e);
+}
+
+function reportFields(fm: Record<string, string>): Partial<JournalEntry> {
+  const out: Partial<JournalEntry> = {};
+  const title = cleanReportField(fm.title);
+  if (title !== undefined) out.title = title;
+  for (const key of ["started", "ended"] as const) {
+    const ms = fm[key] !== undefined ? Date.parse(fm[key]!) : NaN;
+    if (!Number.isNaN(ms)) out[key] = ms;
+  }
+  const feelings = (fm.feelings ?? "").split(",").map(f => f.trim()).filter(f => f !== "");
+  if (feelings.length) out.feelings = feelings;
+  const other = cleanReportField(fm["feeling-other"]);
+  if (other !== undefined) out.feelingOther = other;
+  return out;
 }
 
 // -------------------------------------------------------------------- writing
@@ -113,6 +169,7 @@ function formatStamp(ms: number): string {
  */
 export function appendEntry(o: {
   root: string; level: string; session?: string; body: string; now?: number;
+  title?: string; started?: number; ended?: number; feelings?: string[]; feelingOther?: string;
   exists: (path: string) => boolean;
   mkdir: (dir: string) => void;
   write: (path: string, contents: string) => void;
@@ -134,9 +191,19 @@ export function appendEntry(o: {
   const iso = new Date(now).toISOString().replace(/\.\d{3}Z$/, "Z");
   const frontmatter: Record<string, string> = { level: key, written: iso };
   if (o.session !== undefined) frontmatter.session = o.session;
+  const report = {
+    title: cleanReportField(o.title), started: o.started, ended: o.ended,
+    feelings: o.feelings ?? [], feelingOther: cleanReportField(o.feelingOther),
+  };
+  stampReport(frontmatter, report);
   o.write(path, serialiseNote({ frontmatter, body: o.body }));
   const entry: JournalEntry = { id, level: key, written: now, body: o.body };
   if (o.session !== undefined) entry.session = o.session;
+  if (report.title !== undefined) entry.title = report.title;
+  if (report.started !== undefined) entry.started = report.started;
+  if (report.ended !== undefined) entry.ended = report.ended;
+  if (report.feelings.length) entry.feelings = report.feelings;
+  if (report.feelingOther !== undefined) entry.feelingOther = report.feelingOther;
   return entry;
 }
 

@@ -129,6 +129,15 @@ enum Selection: Hashable {
     /// submenu, per the owner: it is where exploring happens and where a
     /// station earns its name, which is listener work, not maintenance.
     case focus
+    /// The journal: every entry, across every level, as one dated log.
+    /// `nil` is the list; a value is one entry, as a `JournalRef`.
+    ///
+    /// A root destination between Focus and Studio, per the owner: the
+    /// journal "should have been decoupled from the sessions from the
+    /// beginning, perhaps another menu entirely". Writing used to live in
+    /// whichever object was selected, which tied a session's notes to its
+    /// audio and made both tedious to clear away.
+    case journal(String?)
     case studio(StudioDestination)
     /// One Focus level -- documented or merely on the ladder.
     ///
@@ -149,6 +158,9 @@ final class LibraryStore: ObservableObject {
     /// must not blank the library, and the listener needs to know their
     /// thirty-day window is not being enforced.
     @Published var deletionError: String?
+    /// Session notes that could not be moved into the journal at the last
+    /// reload. Each stays where it was; the Journal page names them.
+    @Published private(set) var unmovedSessionNotes: [JournalLog.Adoption] = []
 
     @Published var selection: Selection? = .home {
         didSet {
@@ -237,6 +249,17 @@ final class LibraryStore: ObservableObject {
         do { try DeletionStore.expire(root: root) }
         catch { self.deletionError = String(describing: error) }
 
+        // Notes kept inside session folders move into the journal, then any
+        // session folder left holding nothing but its manifest is cleared.
+        // Both are idempotent and do nothing once the move has happened; see
+        // `JournalLog.adoptSessionNotes` and `StorageAudit.tidy`.
+        unmovedSessionNotes = JournalLog.adoptSessionNotes(root: root).filter {
+            if case .kept = $0.outcome { return true } else { return false }
+        }
+        if let before = try? Library.scan(root: root) {
+            StorageAudit.tidy(root: root, renders: before.focus.flatMap(\.renders))
+        }
+
         do {
             var scanned = try Library.scan(root: root)
             do {
@@ -271,6 +294,7 @@ final class LibraryStore: ObservableObject {
         case .home: return nil
         case .focus: return nil
         case .studio: return nil
+        case .journal: return nil
         // **A level has both a note and a log, and they are different things.**
         //
         // This was briefly removed on the reasoning that three notes are three
@@ -288,7 +312,10 @@ final class LibraryStore: ObservableObject {
         // of the three that let a station be named. Folding one into the other
         // would have had to invent dates for writing that never had them.
         case .level(let k): return lib.binding(level: k)
-        case .track(let p): return lib.binding(track: URL(fileURLWithPath: p))
+        // A session has no note of its own any more: what was written about
+        // it is a journal entry that names it, shown beside the session by
+        // `SessionEntriesPane`. See `JournalLog.adoptSessionNotes`.
+        case .track: return nil
         case .template(let p): return lib.binding(template: URL(fileURLWithPath: p))
         case .segment(let id): return lib.binding(segment: id)
         }

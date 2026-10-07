@@ -1493,7 +1493,7 @@
     {
       "continuousExit" : false,
       "continuousExitDefault" : false,
-      "duration" : "~1m30s",
+      "duration" : "~2m30s",
       "family" : "affirmation",
       "levels" : [
         "F10"
@@ -1512,7 +1512,7 @@
     {
       "continuousExit" : false,
       "continuousExitDefault" : false,
-      "duration" : "~1m",
+      "duration" : "~1m30s",
       "family" : "affirmation",
       "levels" : [
         "F10"

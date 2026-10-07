@@ -20,6 +20,10 @@ struct WorkspaceInspector: View {
                 JournalPane()
             case .studio:
                 StudioNavigationPane()
+            case .journal:
+                JournalSummaryPane()
+            case .track(let path):
+                SessionEntriesPane(path: path)
             default:
                 JournalPane()
             }
@@ -57,6 +61,8 @@ struct WorkspaceInspectorButton: View {
         case .home, nil: "the default path"
         case .studio(.overview): "notes"
         case .studio: "Studio navigation"
+        case .journal: "the journal summary"
+        case .track: "this session's journal entries"
         default: "notes"
         }
     }

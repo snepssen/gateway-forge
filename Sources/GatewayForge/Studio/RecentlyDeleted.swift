@@ -15,6 +15,7 @@ struct RecentlyDeletedStudioView: View {
     @State private var listings: [DeletedListing] = []
     @State private var failure: String?
     @State private var confirming: DeletedListing?
+    @State private var confirmingAll = false
 
     var body: some View {
         FeaturePage(StudioDestination.deleted.title,
@@ -41,6 +42,12 @@ struct RecentlyDeletedStudioView: View {
                          : "\(listings.count) item\(listings.count == 1 ? "" : "s")")
                         .font(.headline).foregroundStyle(Monokai.fg)
                     Spacer()
+                    // Everything at once. Clearing a round of test sessions
+                    // used to mean one confirmation per row.
+                    if listings.count > 1 {
+                        Button("Delete All…") { confirmingAll = true }
+                            .controlSize(.small)
+                    }
                     Button("Refresh") { refresh() }.controlSize(.small)
                 }
 
@@ -77,6 +84,23 @@ struct RecentlyDeletedStudioView: View {
         } message: {
             Text("It leaves Gateway Forge now and goes to the Finder Trash.")
         }
+        .confirmationDialog("Delete all \(listings.count) items now?",
+                            isPresented: $confirmingAll, titleVisibility: .visible) {
+            Button("Move All to Trash", role: .destructive) { removeAll() }
+            Button("Keep", role: .cancel) {}
+        } message: {
+            Text("Everything here leaves Gateway Forge now and goes to the Finder Trash. Journal entries are not affected; they are never kept here.")
+        }
+    }
+
+    private func removeAll() {
+        do {
+            try DeletionStore.removeAll(root: store.root, disposal: .trash)
+            failure = nil
+        } catch {
+            failure = "Some items could not be moved to the Trash and are still listed: \(error.localizedDescription)"
+        }
+        refresh()
     }
 
     /// Gray when the store is empty, orange while something is counting down:

@@ -49,6 +49,13 @@ final class SessionPlayer: ObservableObject {
     /// because by the time the record is written the transport may already
     /// have moved on.
     @Published private(set) var finished: Track?
+    /// When this tape first started sounding, and when its spoken part last
+    /// stopped. A journal entry written at the end of a session takes its
+    /// times from these, so the listener never has to type them. Wall-clock
+    /// instants, because that is what an entry records: when you sat down and
+    /// when you came back, pauses included.
+    private(set) var listenStarted: Date?
+    private(set) var listenEnded: Date?
     private var pausedAt: TimeInterval = 0
     private var pausedWhen: Date?
     private var ceremonyTask: Task<Void, Never>?
@@ -155,6 +162,8 @@ final class SessionPlayer: ObservableObject {
     func load(directory dir: URL, levels: [Level], signals: [SignalProfile] = []) {
         if track?.dir == dir { return }
         stop()
+        listenStarted = nil
+        listenEnded = nil
         preparedMedia = []
         returnCompletion?.cancel(); returnCompletion = nil
         error = nil
@@ -214,6 +223,7 @@ final class SessionPlayer: ObservableObject {
         if seekFrame >= f.length { seekFrame = 0; scheduled = false; time = 0 }
         do {
             try prepare(format: f.processingFormat)
+            if listenStarted == nil { listenStarted = Date() }
             if !scheduled { schedule(from: seekFrame) }
             if !mediaScheduled { scheduleMedia(from: time) }
             player.play()
@@ -713,6 +723,7 @@ final class SessionPlayer: ObservableObject {
         returnSignalPlayer.stop()
         returningToWaking = false
         returnCompleted = true
+        listenEnded = Date()
         isPlaying = false
         bed.targetGain = 0
     }
@@ -750,6 +761,7 @@ final class SessionPlayer: ObservableObject {
         // is precisely the kind of confident record that must not outlive the
         // thing it describes, so when the clock disagrees, nothing is written.
         finished = (playedThrough && duration > 0 && time >= duration / 2) ? track : nil
+        if playedThrough { listenEnded = Date() }
         player.stop()
         for (_, node) in mediaPlayers { node.stop() }
         stopTicker()

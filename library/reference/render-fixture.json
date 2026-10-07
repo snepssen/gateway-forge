@@ -3457,7 +3457,7 @@
       "takes" : 1
     },
     {
-      "estimateSeconds" : 94.10563882940755,
+      "estimateSeconds" : 147.10563882940755,
       "name" : "library/segments/affirmation-1977.gws",
       "outputNames" : [
         "affirmation-1977.take1.wav"
@@ -3475,43 +3475,205 @@
         {
           "index" : 2,
           "kind" : "speech",
-          "text" : "I am more than my physical body. Because I am more than physical matter, I can perceive that which is greater than the physical world."
+          "text" : "I am more than my physical body."
         },
         {
           "kind" : "silence",
-          "seconds" : 6
+          "seconds" : 3.5
         },
         {
           "index" : 3,
           "kind" : "speech",
-          "text" : "Therefore, in these exercises, I deeply desire to expand, to experience, to know, to understand, to control, to use such greater energies and energy systems as may be beneficial and constructive to me, and to those who follow me."
+          "text" : "Because I am more than physical matter,"
         },
         {
           "kind" : "silence",
-          "seconds" : 8
+          "seconds" : 3.5
         },
         {
           "index" : 4,
           "kind" : "speech",
-          "text" : "Also during these exercises, I deeply desire the help and cooperation, the assistance, the understanding, of those individuals whose wisdom, development, and experience are equal or greater than my own."
-        },
-        {
-          "kind" : "silence",
-          "seconds" : 8
-        },
-        {
-          "index" : 5,
-          "kind" : "speech",
-          "text" : "I ask their guidance and protection from any influence or any source that might provide me with less than my stated desires."
+          "text" : "I can perceive that which is greater than the physical world."
         },
         {
           "kind" : "silence",
           "seconds" : 6
         },
         {
+          "index" : 5,
+          "kind" : "speech",
+          "text" : "Therefore, in these exercises,"
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 2.5
+        },
+        {
           "index" : 6,
           "kind" : "speech",
-          "text" : "I now protect myself as may be needed from such influence, and reject any source that may restrain me from my stated desires."
+          "text" : "I deeply desire to expand,"
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 3
+        },
+        {
+          "index" : 7,
+          "kind" : "speech",
+          "text" : "to experience,"
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 2
+        },
+        {
+          "index" : 8,
+          "kind" : "speech",
+          "text" : "to know,"
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 2
+        },
+        {
+          "index" : 9,
+          "kind" : "speech",
+          "text" : "to understand,"
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 2
+        },
+        {
+          "index" : 10,
+          "kind" : "speech",
+          "text" : "to control,"
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 2
+        },
+        {
+          "index" : 11,
+          "kind" : "speech",
+          "text" : "to use such greater energies and energy systems"
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 3.5
+        },
+        {
+          "index" : 12,
+          "kind" : "speech",
+          "text" : "as may be beneficial and constructive to me,"
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 3.5
+        },
+        {
+          "index" : 13,
+          "kind" : "speech",
+          "text" : "and to those who follow me."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 8
+        },
+        {
+          "index" : 14,
+          "kind" : "speech",
+          "text" : "Also during these exercises,"
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 2.5
+        },
+        {
+          "index" : 15,
+          "kind" : "speech",
+          "text" : "I deeply desire the help and cooperation,"
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 3.5
+        },
+        {
+          "index" : 16,
+          "kind" : "speech",
+          "text" : "the assistance, the understanding,"
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 2.5
+        },
+        {
+          "index" : 17,
+          "kind" : "speech",
+          "text" : "of those individuals whose wisdom, development, and experience"
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 3.5
+        },
+        {
+          "index" : 18,
+          "kind" : "speech",
+          "text" : "are equal or greater than my own."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 8
+        },
+        {
+          "index" : 19,
+          "kind" : "speech",
+          "text" : "I ask their guidance and protection"
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 3
+        },
+        {
+          "index" : 20,
+          "kind" : "speech",
+          "text" : "from any influence or any source"
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 3
+        },
+        {
+          "index" : 21,
+          "kind" : "speech",
+          "text" : "that might provide me with less than my stated desires."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 6
+        },
+        {
+          "index" : 22,
+          "kind" : "speech",
+          "text" : "I now protect myself as may be needed from such influence,"
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 5
+        },
+        {
+          "index" : 23,
+          "kind" : "speech",
+          "text" : "and reject any source"
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 2.5
+        },
+        {
+          "index" : 24,
+          "kind" : "speech",
+          "text" : "that may restrain me from my stated desires."
         },
         {
           "kind" : "silence",
@@ -3521,13 +3683,13 @@
       "seeds" : [
         "6574363811197069370"
       ],
-      "sourceDigest" : "082f8997d99a1d5b876bf887426c2ada373ec9bf3d618b75d71ce2d901d46f81",
-      "speechCount" : 6,
-      "stampValue" : "piper|v1|source082f8997d99a1d5b876bf887426c2ada373ec9bf3d618b75d71ce2d901d46f81|join7",
+      "sourceDigest" : "7bc6ed3ef2281daa88207a27becdb1118284158dbfe366e859b5bec42c7ecec6",
+      "speechCount" : 24,
+      "stampValue" : "piper|v1|source7bc6ed3ef2281daa88207a27becdb1118284158dbfe366e859b5bec42c7ecec6|join7",
       "takes" : 1
     },
     {
-      "estimateSeconds" : 61.978586723768736,
+      "estimateSeconds" : 90.97858672376874,
       "name" : "library/segments/affirmation-direct.gws",
       "outputNames" : [
         "affirmation-direct.take1.wav"
@@ -3545,16 +3707,16 @@
         {
           "index" : 2,
           "kind" : "speech",
-          "text" : "I am more than my physical body, because I am more than physical matter."
+          "text" : "I am more than my physical body,"
         },
         {
           "kind" : "silence",
-          "seconds" : 6
+          "seconds" : 3.5
         },
         {
           "index" : 3,
           "kind" : "speech",
-          "text" : "I deeply desire to expand. To experience. To know. To understand. To control."
+          "text" : "because I am more than physical matter."
         },
         {
           "kind" : "silence",
@@ -3563,16 +3725,106 @@
         {
           "index" : 4,
           "kind" : "speech",
-          "text" : "To use such greater energies and energy systems as may be beneficial and constructive to me, and to those near and close to me."
+          "text" : "I deeply desire to expand."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 3
+        },
+        {
+          "index" : 5,
+          "kind" : "speech",
+          "text" : "To experience."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 2
+        },
+        {
+          "index" : 6,
+          "kind" : "speech",
+          "text" : "To know."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 2
+        },
+        {
+          "index" : 7,
+          "kind" : "speech",
+          "text" : "To understand."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 2
+        },
+        {
+          "index" : 8,
+          "kind" : "speech",
+          "text" : "To control."
         },
         {
           "kind" : "silence",
           "seconds" : 6
         },
         {
-          "index" : 5,
+          "index" : 9,
           "kind" : "speech",
-          "text" : "I deeply desire the help and cooperation, the assistance, the understanding, of those individuals whose wisdom, development, and experience are equal or greater than my own."
+          "text" : "To use such greater energies and energy systems"
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 3.5
+        },
+        {
+          "index" : 10,
+          "kind" : "speech",
+          "text" : "as may be beneficial and constructive to me,"
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 3.5
+        },
+        {
+          "index" : 11,
+          "kind" : "speech",
+          "text" : "and to those near and close to me."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 6
+        },
+        {
+          "index" : 12,
+          "kind" : "speech",
+          "text" : "I deeply desire the help and cooperation,"
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 3.5
+        },
+        {
+          "index" : 13,
+          "kind" : "speech",
+          "text" : "the assistance, the understanding,"
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 2.5
+        },
+        {
+          "index" : 14,
+          "kind" : "speech",
+          "text" : "of those individuals whose wisdom, development, and experience"
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 3.5
+        },
+        {
+          "index" : 15,
+          "kind" : "speech",
+          "text" : "are equal or greater than my own."
         },
         {
           "kind" : "silence",
@@ -3582,9 +3834,9 @@
       "seeds" : [
         "2145489796357519933"
       ],
-      "sourceDigest" : "af6176f3681366d397ce5c1b993864dbf0b024126d3e594cb6ce61b244c37fe5",
-      "speechCount" : 5,
-      "stampValue" : "piper|v1|sourceaf6176f3681366d397ce5c1b993864dbf0b024126d3e594cb6ce61b244c37fe5|join7",
+      "sourceDigest" : "40fd0e410cfb8a07d0426d345a3ee230bb17d8a26ef5904900e3687bf619590f",
+      "speechCount" : 15,
+      "stampValue" : "piper|v1|source40fd0e410cfb8a07d0426d345a3ee230bb17d8a26ef5904900e3687bf619590f|join7",
       "takes" : 1
     },
     {
@@ -3649,7 +3901,7 @@
       "takes" : 1
     },
     {
-      "estimateSeconds" : 65.90435403283368,
+      "estimateSeconds" : 98.4043540328337,
       "name" : "library/segments/affirmation.gws",
       "outputNames" : [
         "affirmation.take1.wav"
@@ -3667,25 +3919,25 @@
         {
           "index" : 2,
           "kind" : "speech",
-          "text" : "I am more than my physical body, because I am more than physical matter. I can perceive that which is greater than the physical world."
+          "text" : "I am more than my physical body,"
         },
         {
           "kind" : "silence",
-          "seconds" : 6
+          "seconds" : 3.5
         },
         {
           "index" : 3,
           "kind" : "speech",
-          "text" : "I deeply desire to expand. To experience. To know. To understand. To control."
+          "text" : "because I am more than physical matter."
         },
         {
           "kind" : "silence",
-          "seconds" : 6
+          "seconds" : 3.5
         },
         {
           "index" : 4,
           "kind" : "speech",
-          "text" : "To use such greater energies and energy systems as may be beneficial and constructive to me, and to those near and close to me."
+          "text" : "I can perceive that which is greater than the physical world."
         },
         {
           "kind" : "silence",
@@ -3694,7 +3946,106 @@
         {
           "index" : 5,
           "kind" : "speech",
-          "text" : "I deeply desire the help and cooperation, the assistance, the understanding, of those individuals whose wisdom, development, and experience are equal or greater than my own."
+          "text" : "I deeply desire to expand."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 3
+        },
+        {
+          "index" : 6,
+          "kind" : "speech",
+          "text" : "To experience."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 2
+        },
+        {
+          "index" : 7,
+          "kind" : "speech",
+          "text" : "To know."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 2
+        },
+        {
+          "index" : 8,
+          "kind" : "speech",
+          "text" : "To understand."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 2
+        },
+        {
+          "index" : 9,
+          "kind" : "speech",
+          "text" : "To control."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 6
+        },
+        {
+          "index" : 10,
+          "kind" : "speech",
+          "text" : "To use such greater energies and energy systems"
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 3.5
+        },
+        {
+          "index" : 11,
+          "kind" : "speech",
+          "text" : "as may be beneficial and constructive to me,"
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 3.5
+        },
+        {
+          "index" : 12,
+          "kind" : "speech",
+          "text" : "and to those near and close to me."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 6
+        },
+        {
+          "index" : 13,
+          "kind" : "speech",
+          "text" : "I deeply desire the help and cooperation,"
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 3.5
+        },
+        {
+          "index" : 14,
+          "kind" : "speech",
+          "text" : "the assistance, the understanding,"
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 2.5
+        },
+        {
+          "index" : 15,
+          "kind" : "speech",
+          "text" : "of those individuals whose wisdom, development, and experience"
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 3.5
+        },
+        {
+          "index" : 16,
+          "kind" : "speech",
+          "text" : "are equal or greater than my own."
         },
         {
           "kind" : "silence",
@@ -3704,9 +4055,9 @@
       "seeds" : [
         "13866103331637931029"
       ],
-      "sourceDigest" : "329afe0e80b1a45d349a03a2453b44da2bab342d0d845df74b6154a9fb5098ba",
-      "speechCount" : 5,
-      "stampValue" : "piper|v1|source329afe0e80b1a45d349a03a2453b44da2bab342d0d845df74b6154a9fb5098ba|join7",
+      "sourceDigest" : "d6489fa51f6757f8d25354511b9d33a95cc9c4bd25068e92d228ac74f56ac0c2",
+      "speechCount" : 16,
+      "stampValue" : "piper|v1|sourced6489fa51f6757f8d25354511b9d33a95cc9c4bd25068e92d228ac74f56ac0c2|join7",
       "takes" : 1
     },
     {
@@ -12963,7 +13314,7 @@
       "takes" : 1
     },
     {
-      "estimateSeconds" : 420.91006423982867,
+      "estimateSeconds" : 450.91006423982867,
       "name" : "library/segments/relax-10.gws",
       "outputNames" : [
         "relax-10.take1.wav"
@@ -13026,16 +13377,16 @@
         {
           "index" : 7,
           "kind" : "speech",
-          "text" : "Two. The muscles in your forehead. The muscles in your forehead. Let the muscles in your forehead relax. Go limp."
+          "text" : "Two. The muscles in your forehead. The muscles in your forehead. Let the muscles in your forehead relax."
         },
         {
           "kind" : "silence",
-          "seconds" : 6
+          "seconds" : 1.5
         },
         {
           "index" : 8,
           "kind" : "speech",
-          "text" : "Now the muscles in your cheeks. Each cheek. Let them relax. Relax, and go limp. Relax."
+          "text" : "Go limp."
         },
         {
           "kind" : "silence",
@@ -13044,61 +13395,61 @@
         {
           "index" : 9,
           "kind" : "speech",
-          "text" : "Now the muscles in your scalp. The muscles in your scalp, over the top of your head. Let them relax. Relax."
+          "text" : "Now the muscles in your cheeks. Each cheek. Let them relax."
         },
         {
           "kind" : "silence",
-          "seconds" : 6
+          "seconds" : 1.5
         },
         {
           "index" : 10,
           "kind" : "speech",
-          "text" : "Three. The muscles in your neck. Let the muscles in your neck relax. Relax."
+          "text" : "Relax, and go limp."
         },
         {
           "kind" : "silence",
-          "seconds" : 6
+          "seconds" : 1.5
         },
         {
           "index" : 11,
           "kind" : "speech",
-          "text" : "Now let the muscles in your eyes, the muscles that control your eyes. Let them relax. Relax."
-        },
-        {
-          "kind" : "silence",
-          "seconds" : 8
-        },
-        {
-          "index" : 12,
-          "kind" : "speech",
-          "text" : "Now let this relaxation of your head, of the muscles and nerves in your head, let it sink inward. Inward. Let it flow into your brain."
+          "text" : "Relax."
         },
         {
           "kind" : "silence",
           "seconds" : 6
         },
         {
-          "index" : 13,
+          "index" : 12,
           "kind" : "speech",
-          "text" : "Let this relaxation of your head flow into your brain. Let it sink easily and deeply into your brain."
+          "text" : "Now the muscles in your scalp. The muscles in your scalp, over the top of your head. Let them relax."
         },
         {
           "kind" : "silence",
-          "seconds" : 8
+          "seconds" : 1.5
+        },
+        {
+          "index" : 13,
+          "kind" : "speech",
+          "text" : "Relax."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 6
         },
         {
           "index" : 14,
           "kind" : "speech",
-          "text" : "Feel it sinking inward, easily and calmly, until your entire brain feels more and more relaxed. More and more relaxed, as you feel the relaxation of your head sink inward, inward into the nerves of your brain, so that your brain feels relaxed."
+          "text" : "Three. The muscles in your neck. Let the muscles in your neck relax."
         },
         {
           "kind" : "silence",
-          "seconds" : 10
+          "seconds" : 1.5
         },
         {
           "index" : 15,
           "kind" : "speech",
-          "text" : "Now that your brain feels and understands this relaxation, as I count to ten, let it flow from the brain. Let it flow from the brain into every part of your physical body."
+          "text" : "Relax."
         },
         {
           "kind" : "silence",
@@ -13107,43 +13458,43 @@
         {
           "index" : 16,
           "kind" : "speech",
-          "text" : "Into your toes, into your feet, into your legs, into your hips. Into your lower body, into your upper body, into your back, into your fingers, into your hands, into your arms, into your shoulders."
+          "text" : "Now let the muscles in your eyes, the muscles that control your eyes. Let them relax."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 1.5
+        },
+        {
+          "index" : 17,
+          "kind" : "speech",
+          "text" : "Relax."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 8
+        },
+        {
+          "index" : 18,
+          "kind" : "speech",
+          "text" : "Now let this relaxation of your head, of the muscles and nerves in your head, let it sink inward. Inward. Let it flow into your brain."
         },
         {
           "kind" : "silence",
           "seconds" : 6
         },
         {
-          "index" : 17,
-          "kind" : "speech",
-          "text" : "Let it flow into these parts as I guide you in the count to the ten state. I'm going to count now."
-        },
-        {
-          "kind" : "silence",
-          "seconds" : 4
-        },
-        {
-          "index" : 18,
-          "kind" : "speech",
-          "text" : "Four. Look with your closed eyes at your feet and your toes. Your brain tells the muscles and nerves in each foot and each toe to relax, let go, sleep."
-        },
-        {
-          "kind" : "silence",
-          "seconds" : 10
-        },
-        {
           "index" : 19,
           "kind" : "speech",
-          "text" : "Five. Look with your closed eyes at your legs, at each leg, from your hip down to your foot. Your brain tells each leg to relax. Let go. Sleep."
+          "text" : "Let this relaxation of your head flow into your brain. Let it sink easily and deeply into your brain."
         },
         {
           "kind" : "silence",
-          "seconds" : 10
+          "seconds" : 8
         },
         {
           "index" : 20,
           "kind" : "speech",
-          "text" : "Six. Look with your closed eyes at your hips, at each hip. Your brain tells each hip, the muscles and nerves in each hip, to relax, let go. Sleep."
+          "text" : "Feel it sinking inward, easily and calmly, until your entire brain feels more and more relaxed. More and more relaxed, as you feel the relaxation of your head sink inward, inward into the nerves of your brain, so that your brain feels relaxed."
         },
         {
           "kind" : "silence",
@@ -13152,41 +13503,221 @@
         {
           "index" : 21,
           "kind" : "speech",
-          "text" : "Seven. Look with your closed eyes at your lower body. Your abdomen down to your hips, your kidneys, your liver, your stomach, your intestines, your genitals. Your brain tells all of these parts in your lower body to relax. Let go. Sleep."
+          "text" : "Now that your brain feels and understands this relaxation, as I count to ten, let it flow from the brain. Let it flow from the brain into every part of your physical body."
         },
         {
           "kind" : "silence",
-          "seconds" : 10
+          "seconds" : 6
         },
         {
           "index" : 22,
           "kind" : "speech",
-          "text" : "Eight. Look with your closed eyes at your upper body. Your chest, your heart, your lungs, your diaphragm. Your brain tells these parts of your body to relax, let go, sleep."
+          "text" : "Into your toes, into your feet, into your legs, into your hips. Into your lower body, into your upper body, into your back, into your fingers, into your hands, into your arms, into your shoulders."
         },
         {
           "kind" : "silence",
-          "seconds" : 10
+          "seconds" : 6
         },
         {
           "index" : 23,
           "kind" : "speech",
-          "text" : "Nine. Look with your closed eyes up and down your back. The muscles and nerves in your back. Your brain tells your back, up and down your back, the muscles and nerves in your back, to relax. Let go. Sleep."
+          "text" : "Let it flow into these parts as I guide you in the count to the ten state. I'm going to count now."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 4
+        },
+        {
+          "index" : 24,
+          "kind" : "speech",
+          "text" : "Four. Look with your closed eyes at your feet and your toes. Your brain tells the muscles and nerves in each foot and each toe to relax."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 1.5
+        },
+        {
+          "index" : 25,
+          "kind" : "speech",
+          "text" : "Let go."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 1.5
+        },
+        {
+          "index" : 26,
+          "kind" : "speech",
+          "text" : "Sleep."
         },
         {
           "kind" : "silence",
           "seconds" : 10
         },
         {
-          "index" : 24,
+          "index" : 27,
           "kind" : "speech",
-          "text" : "Ten. Look with your closed eyes at your upper body. Your arms, your hands, your fingers, your shoulders. Your brain tells all of these parts to relax, let go, sleep."
+          "text" : "Five. Look with your closed eyes at your legs, at each leg, from your hip down to your foot. Your brain tells each leg to relax."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 1.5
+        },
+        {
+          "index" : 28,
+          "kind" : "speech",
+          "text" : "Let go."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 1.5
+        },
+        {
+          "index" : 29,
+          "kind" : "speech",
+          "text" : "Sleep."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 10
+        },
+        {
+          "index" : 30,
+          "kind" : "speech",
+          "text" : "Six. Look with your closed eyes at your hips, at each hip. Your brain tells each hip, the muscles and nerves in each hip, to relax."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 1.5
+        },
+        {
+          "index" : 31,
+          "kind" : "speech",
+          "text" : "Let go."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 1.5
+        },
+        {
+          "index" : 32,
+          "kind" : "speech",
+          "text" : "Sleep."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 10
+        },
+        {
+          "index" : 33,
+          "kind" : "speech",
+          "text" : "Seven. Look with your closed eyes at your lower body. Your abdomen down to your hips, your kidneys, your liver, your stomach, your intestines, your genitals. Your brain tells all of these parts in your lower body to relax."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 1.5
+        },
+        {
+          "index" : 34,
+          "kind" : "speech",
+          "text" : "Let go."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 1.5
+        },
+        {
+          "index" : 35,
+          "kind" : "speech",
+          "text" : "Sleep."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 10
+        },
+        {
+          "index" : 36,
+          "kind" : "speech",
+          "text" : "Eight. Look with your closed eyes at your upper body. Your chest, your heart, your lungs, your diaphragm. Your brain tells these parts of your body to relax."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 1.5
+        },
+        {
+          "index" : 37,
+          "kind" : "speech",
+          "text" : "Let go."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 1.5
+        },
+        {
+          "index" : 38,
+          "kind" : "speech",
+          "text" : "Sleep."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 10
+        },
+        {
+          "index" : 39,
+          "kind" : "speech",
+          "text" : "Nine. Look with your closed eyes up and down your back. The muscles and nerves in your back. Your brain tells your back, up and down your back, the muscles and nerves in your back, to relax."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 1.5
+        },
+        {
+          "index" : 40,
+          "kind" : "speech",
+          "text" : "Let go."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 1.5
+        },
+        {
+          "index" : 41,
+          "kind" : "speech",
+          "text" : "Sleep."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 10
+        },
+        {
+          "index" : 42,
+          "kind" : "speech",
+          "text" : "Ten. Look with your closed eyes at your upper body. Your arms, your hands, your fingers, your shoulders. Your brain tells all of these parts to relax."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 1.5
+        },
+        {
+          "index" : 43,
+          "kind" : "speech",
+          "text" : "Let go."
+        },
+        {
+          "kind" : "silence",
+          "seconds" : 1.5
+        },
+        {
+          "index" : 44,
+          "kind" : "speech",
+          "text" : "Sleep."
         },
         {
           "kind" : "silence",
           "seconds" : 8
         },
         {
-          "index" : 25,
+          "index" : 45,
           "kind" : "speech",
           "text" : "Ten. Ten. Ten."
         },
@@ -13195,7 +13726,7 @@
           "seconds" : 6
         },
         {
-          "index" : 26,
+          "index" : 46,
           "kind" : "speech",
           "text" : "Relax, and be calm and comfortable in Focus 10. The ten state, where your mind is bright and alert."
         },
@@ -13204,7 +13735,7 @@
           "seconds" : 5
         },
         {
-          "index" : 27,
+          "index" : 47,
           "kind" : "speech",
           "text" : "Your physical body is deeply, calmly, and comfortably asleep."
         },
@@ -13213,7 +13744,7 @@
           "seconds" : 5
         },
         {
-          "index" : 28,
+          "index" : 48,
           "kind" : "speech",
           "text" : "Mind awake. Body asleep."
         },
@@ -13225,9 +13756,9 @@
       "seeds" : [
         "7572878061538959"
       ],
-      "sourceDigest" : "a56951aa0df779c244877ed3da2cb756c571a51590fe269feb9417560a961a27",
-      "speechCount" : 28,
-      "stampValue" : "piper|v1|sourcea56951aa0df779c244877ed3da2cb756c571a51590fe269feb9417560a961a27|join7",
+      "sourceDigest" : "5c8be6a8b4206ed00236879bd1ea11c2c3cd9a205c223b2980efab7057cec092",
+      "speechCount" : 48,
+      "stampValue" : "piper|v1|source5c8be6a8b4206ed00236879bd1ea11c2c3cd9a205c223b2980efab7057cec092|join7",
       "takes" : 1
     },
     {
