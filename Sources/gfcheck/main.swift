@@ -8157,6 +8157,55 @@ do {
 
 } catch { c.expect(false, "assembly checks threw: \(error)") }
 
+// ------------------------------------------------------ the whole default path
+// Production's "Build Full Default Path" queues every lesson without a
+// session, and "Export All" numbers files in path order. What is built is
+// decided here, and the real library must give every lesson a template --
+// a lesson the button silently cannot build is the hour of clicking back.
+c.suite("the whole default path")
+run {
+    let t = { (name: String) in URL(fileURLWithPath: "/lib/templates/\(name).gws") }
+    func lesson(_ template: String, _ title: String) -> DefaultPath.Lesson {
+        DefaultPath.Lesson(wave: 1, waveTitle: "Discovery", disc: 1, track: 1,
+                           template: template, title: title, level: "F10")
+    }
+    let path = DefaultPath(lessons: [
+        lesson("f3-visit", "Focus 3"), lesson("advanced-focus-10", "Advanced Focus 10"),
+        lesson("advanced-focus-10", "Advanced Focus 10, again"), lesson("free-flow-10", "Free Flow 10"),
+        lesson("nowhere", "A lesson with no plan"),
+    ])
+    let built = URL(fileURLWithPath: "/lib/focus/F3/renders/2026-10-07-f3-visit")
+    let items = DefaultPathBuild.items(path: path,
+                                       templates: [t("f3-visit"), t("advanced-focus-10"), t("free-flow-10")],
+                                       assembled: ["f3-visit": built], queued: ["free-flow-10"])
+    c.equal(items.map(\.lesson.template), ["f3-visit", "advanced-focus-10", "free-flow-10", "nowhere"],
+            "one item per template, in path order")
+    c.equal(items.map(\.position), [1, 2, 3, 4], "numbered by place on the path")
+    c.equal(items[0].state, .assembled(built), "a lesson with a session is not built again")
+    c.equal(items[1].state, .toBuild(template: t("advanced-focus-10")), "a lesson without one is built")
+    c.equal(items[2].state, .queued, "a lesson already queued is not queued twice")
+    c.equal(items[3].state, .missingTemplate, "a lesson with no plan is named, not skipped silently")
+
+    let older = URL(fileURLWithPath: "/r/2026-09-24-223258-advanced-focus-10-aaaa")
+    let newer = URL(fileURLWithPath: "/r/2026-10-07-101500-advanced-focus-10-bbbb")
+    let newest = DefaultPathBuild.newestAssembled(renders: [newer, older]) { _ in
+        SessionManifest(template: "advanced-focus-10", verbosity: 3, voice: "v", seconds: 1,
+                        narrationOnly: false, segments: [])
+    }
+    c.equal(newest["advanced-focus-10"], newer, "export takes the newest session of each lesson")
+    c.equal(DefaultPathBuild.exportFilename(position: 7, suggested: "F10 Advanced Focus 10.wav"),
+            "07 F10 Advanced Focus 10.wav", "export files sort in path order")
+
+    if let lib = segLib {
+        let real = DefaultPathBuild.items(path: DefaultPath.derive(root: lib.root, library: lib),
+                                          templates: lib.templates, assembled: [:], queued: [])
+        let missing = real.filter { $0.state == .missingTemplate }.map(\.lesson.title)
+        c.expect(!real.isEmpty && missing.isEmpty,
+                 "every lesson on the real path has a session plan to build (\(real.count))"
+                 + (missing.isEmpty ? "" : " — none for: \(missing.joined(separator: ", "))"))
+    }
+}
+
 // ------------------------------------------------------ inspector panes are Lists
 // Two faults have come from the same place. A ScrollView in the inspector
 // answered clicks a toolbar's height above where its rows were drawn

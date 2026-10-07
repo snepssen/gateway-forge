@@ -7,6 +7,7 @@ struct ProductionStudioView: View {
         FeaturePage(StudioDestination.queues.title,
                     subtitle: StudioDestination.queues.subtitle) {
             StudioView().panel()
+            DefaultPathPanel().panel()
             QueueSettingsPanel().panel()
         }
     }

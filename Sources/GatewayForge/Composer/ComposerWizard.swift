@@ -83,21 +83,19 @@ struct ComposerWizard: View {
         .frame(width: 620, height: 640)
         .background(Monokai.bg)
         .onAppear {
-            let defaults = SessionDefaultsIO.load(root: AppPaths.root)
             // Seeded from what this listener has actually earned at this
             // level, not the flat global default -- a manual choice here
             // (below) still wins for this one session, the same as it always
-            // did; this only changes where the picker starts.
-            if let source = originalSource, let doc = try? ScriptParser.parse(source),
-               let ledger = try? ActivityStore.load(root: AppPaths.root) {
-                verbosity = ledger.effectiveVerbosity(for: doc.level)
-            } else {
-                verbosity = defaults.clampedVerbosity
-            }
-            pauseScale = defaults.clampedPauseScale
+            // did; this only changes where the picker starts. The default-path
+            // build uses the same rule, so a lesson built in bulk is the
+            // session this page would have started from.
+            let start = SessionPlanDefaults.settings(templateSource: originalSource,
+                                                     library: store.library,
+                                                     fallbackVoice: renderer.voice)
+            verbosity = start.verbosity
+            pauseScale = start.pauseScale
             guard voice.isEmpty else { return }
-            voice = defaults.resolvedVoice(in: store.library?.voices ?? [])
-                ?? renderer.voice
+            voice = start.voice
         }
         .onChange(of: composeContext) { old, new in
             guard old != nil, old != new else { return }
@@ -109,24 +107,9 @@ struct ComposerWizard: View {
     // MARK: plan
 
     private var plan: SessionPlan? {
-        guard let lib = store.library,
-              let src = sessionSource,
-              let doc = try? ScriptParser.parse(src) else { return nil }
-        let name = templateURL.deletingPathExtension().lastPathComponent
-        let dest = lib.sessionDestination(for: doc, verbosity: verbosity)
-        return SessionPlan.build(
-            template: doc, name: name, library: lib, verbosity: verbosity,
-            pauseScale: pauseScale, voice: voice, destination: dest,
-            stations: dest.flatMap { lib.climbPath(to: $0.key) }?
-                .compactMap { $0.levels.last } ?? [],
-            load: { ScriptDoc.load($0) },
-            isRendered: { output, file in
-                guard let source = try? String(contentsOf: file, encoding: .utf8) else { return false }
-                let dir = AppPaths.rendered.appending(path: voice)
-                let key = VoiceProfileIO.load(
-                    from: AppPaths.voice(voice).appending(path: "profile.json")).renderKey
-                return RenderPlan.isCurrent(output, source: source, in: dir, renderKey: key)
-            })
+        guard let lib = store.library, let src = sessionSource else { return nil }
+        return SessionPlanDefaults.plan(source: src, templateURL: templateURL, library: lib,
+                                        verbosity: verbosity, pauseScale: pauseScale, voice: voice)
     }
 
     private var originalSource: String? {

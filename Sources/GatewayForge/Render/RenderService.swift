@@ -224,85 +224,9 @@ final class RenderService: ObservableObject {
     func enqueue(plan: SessionPlan, template url: URL,
                  templateSource sourceOverride: String? = nil) -> Bool {
         do {
-            guard !plan.voice.isEmpty else {
-                throw NSError(domain: "queue", code: 1,
-                              userInfo: [NSLocalizedDescriptionKey: "choose a ready voice"])
-            }
-            guard worker == nil || voice == plan.voice else {
-                throw NSError(domain: "queue", code: 2, userInfo: [
-                    NSLocalizedDescriptionKey:
-                        "finish or stop the \(voice) narration run before switching to \(plan.voice)"
-                ])
-            }
-            let source = try sourceOverride
-                ?? String(contentsOf: url, encoding: .utf8)
-            guard let relative = SessionRecipe.relativePath(of: url, beneath: root) else {
-                throw SessionRecipeError.unsafeSourcePath
-            }
-            guard let library = try? Library.scan(root: root) else {
-                throw NSError(domain: "queue", code: 3,
-                              userInfo: [NSLocalizedDescriptionKey: "library unreadable"])
-            }
-            let recipeID = SessionRecipe.makeID(template: plan.template)
-            var leadIns: [SessionRecipe.LeadIn] = []
-            for item in plan.items where item.kind == .upright {
-                guard let file = item.file, let output = item.outputName,
-                      let path = SessionRecipe.relativePath(of: file, beneath: root) else { continue }
-                leadIns.append(.init(kind: .upright,
-                                     segment: item.segmentID ?? item.title,
-                                     title: item.title, sourceFile: path, outputName: output))
-            }
-            if let item = plan.items.first(where: { $0.kind == .announcement }),
-               let authoredFile = item.file,
-               let authoredSource = try? String(contentsOf: authoredFile, encoding: .utf8),
-               let destination = library.levels.first(where: { $0.key == plan.destination }) {
-                let stations = library.climbPath(to: plan.destination)?
-                    .compactMap { $0.levels.last } ?? []
-                let values = SessionAnnouncement.values(
-                    verbosity: plan.verbosity, destination: destination,
-                    stations: stations, seconds: plan.estimatedSeconds,
-                    levels: library.levels)
-                let filled = SessionAnnouncement.filledSource(authoredSource, values: values)
-                let parsed = try ScriptParser.parse(filled)
-                guard parsed.unfilledTokens.isEmpty else {
-                    throw NSError(domain: "queue", code: 4,
-                                  userInfo: [NSLocalizedDescriptionKey:
-                                    "session announcement still has unfilled tokens"])
-                }
-                let assetDir = SessionRecipeIO.directory(root: root)
-                    .appending(path: "assets/\(recipeID)")
-                try FileManager.default.createDirectory(at: assetDir,
-                                                        withIntermediateDirectories: true)
-                let generated = assetDir.appending(path: "\(recipeID)-announcement.gws")
-                try Data(filled.utf8).write(to: generated, options: .atomic)
-                guard let path = SessionRecipe.relativePath(of: generated, beneath: root),
-                      let render = RenderPlan.items(gwsFile: generated, source: filled).first else {
-                    throw SessionRecipeError.unsafeSourcePath
-                }
-                leadIns.append(.init(kind: .announcement,
-                                     segment: SessionAnnouncement.segmentID,
-                                     title: item.title, sourceFile: path,
-                                     outputName: render.outputName))
-            }
-            let recipe = SessionRecipe(
-                id: recipeID,
-                createdAt: ISO8601DateFormatter().string(from: Date()),
-                sourceTemplate: relative, template: plan.template,
-                templateSource: source, destination: plan.destination,
-                verbosity: plan.verbosity, pauseScale: plan.pauseScale,
-                voice: plan.voice, reviewed: true, leadIns: leadIns)
-            let recipeURL = try SessionRecipeIO.save(recipe, root: root)
-
-            // The narration queue is deliberately one voice at a time. Make
-            // the reviewed voice authoritative before inventory is measured.
-            setVoice(plan.voice)
-            var defaults = SessionDefaultsIO.load(root: root)
-            defaults.voice = plan.voice
-            defaults.verbosity = plan.verbosity
-            defaults.pauseScale = plan.pauseScale
-            try SessionDefaultsIO.save(defaults, root: root)
-
-            try enqueueAssembly(source: recipeURL, id: recipe.id, label: plan.template)
+            let recipe = try prepareRecipe(plan: plan, template: url,
+                                           templateSource: sourceOverride, library: nil)
+            try enqueueAssembly(source: recipe.url, id: recipe.id, label: plan.template)
             refreshQueues()
             running = true
             kick()
@@ -311,6 +235,124 @@ final class RenderService: ObservableObject {
             activity = .failed("queue session: \(error.localizedDescription)")
             return false
         }
+    }
+
+    /// Queue many reviewed sessions at once -- the whole default path.
+    ///
+    /// The same recipe as `enqueue(plan:template:)` writes for one session,
+    /// prepared against one library scan, with one queue refresh at the end.
+    /// Fifty separate calls would rescan the library and re-measure the
+    /// narration inventory fifty times on the main actor.
+    ///
+    /// A session that cannot be prepared is named and skipped; the rest are
+    /// still queued.
+    func enqueue(sessions: [(plan: SessionPlan, template: URL)]) -> (queued: Int, failures: [String]) {
+        guard !sessions.isEmpty else { return (0, []) }
+        let library = try? Library.scan(root: root)
+        var queued = 0
+        var failures: [String] = []
+        for session in sessions {
+            do {
+                let recipe = try prepareRecipe(plan: session.plan, template: session.template,
+                                               templateSource: nil, library: library)
+                try enqueueAssembly(source: recipe.url, id: recipe.id, label: session.plan.template)
+                queued += 1
+            } catch {
+                failures.append("\(session.plan.template): \(error.localizedDescription)")
+            }
+        }
+        if queued > 0 {
+            refreshQueues()
+            running = true
+            kick()
+        }
+        return (queued, failures)
+    }
+
+    /// Write one reviewed session's recipe: the frozen template source, its
+    /// lead-ins and the chosen density, pace and voice. Shared by the single
+    /// and the batch enqueue so they cannot write different recipes.
+    private func prepareRecipe(plan: SessionPlan, template url: URL,
+                               templateSource sourceOverride: String?,
+                               library scanned: Library?) throws -> (url: URL, id: String) {
+        guard !plan.voice.isEmpty else {
+            throw NSError(domain: "queue", code: 1,
+                          userInfo: [NSLocalizedDescriptionKey: "choose a ready voice"])
+        }
+        guard worker == nil || voice == plan.voice else {
+            throw NSError(domain: "queue", code: 2, userInfo: [
+                NSLocalizedDescriptionKey:
+                    "finish or stop the \(voice) narration run before switching to \(plan.voice)"
+            ])
+        }
+        let source = try sourceOverride
+            ?? String(contentsOf: url, encoding: .utf8)
+        guard let relative = SessionRecipe.relativePath(of: url, beneath: root) else {
+            throw SessionRecipeError.unsafeSourcePath
+        }
+        guard let library = scanned ?? (try? Library.scan(root: root)) else {
+            throw NSError(domain: "queue", code: 3,
+                          userInfo: [NSLocalizedDescriptionKey: "library unreadable"])
+        }
+        let recipeID = SessionRecipe.makeID(template: plan.template)
+        var leadIns: [SessionRecipe.LeadIn] = []
+        for item in plan.items where item.kind == .upright {
+            guard let file = item.file, let output = item.outputName,
+                  let path = SessionRecipe.relativePath(of: file, beneath: root) else { continue }
+            leadIns.append(.init(kind: .upright,
+                                 segment: item.segmentID ?? item.title,
+                                 title: item.title, sourceFile: path, outputName: output))
+        }
+        if let item = plan.items.first(where: { $0.kind == .announcement }),
+           let authoredFile = item.file,
+           let authoredSource = try? String(contentsOf: authoredFile, encoding: .utf8),
+           let destination = library.levels.first(where: { $0.key == plan.destination }) {
+            let stations = library.climbPath(to: plan.destination)?
+                .compactMap { $0.levels.last } ?? []
+            let values = SessionAnnouncement.values(
+                verbosity: plan.verbosity, destination: destination,
+                stations: stations, seconds: plan.estimatedSeconds,
+                levels: library.levels)
+            let filled = SessionAnnouncement.filledSource(authoredSource, values: values)
+            let parsed = try ScriptParser.parse(filled)
+            guard parsed.unfilledTokens.isEmpty else {
+                throw NSError(domain: "queue", code: 4,
+                              userInfo: [NSLocalizedDescriptionKey:
+                                "session announcement still has unfilled tokens"])
+            }
+            let assetDir = SessionRecipeIO.directory(root: root)
+                .appending(path: "assets/\(recipeID)")
+            try FileManager.default.createDirectory(at: assetDir,
+                                                    withIntermediateDirectories: true)
+            let generated = assetDir.appending(path: "\(recipeID)-announcement.gws")
+            try Data(filled.utf8).write(to: generated, options: .atomic)
+            guard let path = SessionRecipe.relativePath(of: generated, beneath: root),
+                  let render = RenderPlan.items(gwsFile: generated, source: filled).first else {
+                throw SessionRecipeError.unsafeSourcePath
+            }
+            leadIns.append(.init(kind: .announcement,
+                                 segment: SessionAnnouncement.segmentID,
+                                 title: item.title, sourceFile: path,
+                                 outputName: render.outputName))
+        }
+        let recipe = SessionRecipe(
+            id: recipeID,
+            createdAt: ISO8601DateFormatter().string(from: Date()),
+            sourceTemplate: relative, template: plan.template,
+            templateSource: source, destination: plan.destination,
+            verbosity: plan.verbosity, pauseScale: plan.pauseScale,
+            voice: plan.voice, reviewed: true, leadIns: leadIns)
+        let recipeURL = try SessionRecipeIO.save(recipe, root: root)
+
+        // The narration queue is deliberately one voice at a time. Make
+        // the reviewed voice authoritative before inventory is measured.
+        setVoice(plan.voice)
+        var defaults = SessionDefaultsIO.load(root: root)
+        defaults.voice = plan.voice
+        defaults.verbosity = plan.verbosity
+        defaults.pauseScale = plan.pauseScale
+        try SessionDefaultsIO.save(defaults, root: root)
+        return (recipeURL, recipe.id)
     }
 
     /// Queue a tape for assembly. It will not move until narration is done and

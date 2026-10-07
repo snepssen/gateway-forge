@@ -32,9 +32,18 @@ public struct DefaultPath: Sendable, Equatable {
         public var title: String
         /// The Focus level the session arrives at, for grouping and display.
         public var level: String
+
+        public init(wave: Int, waveTitle: String, disc: Int, track: Int,
+                    template: String, title: String, level: String) {
+            self.wave = wave; self.waveTitle = waveTitle; self.disc = disc
+            self.track = track; self.template = template; self.title = title
+            self.level = level
+        }
     }
 
     public var lessons: [Lesson]
+
+    public init(lessons: [Lesson]) { self.lessons = lessons }
 
     /// Tracks whose slug is not the template's own name.
     ///
