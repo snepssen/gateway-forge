@@ -46,7 +46,6 @@ swift run gfcheck       # deterministic checks only (3734 currently passing)
 swift run gfeval        # opt-in live Ollama behaviour evaluation
 swift run gfscaffold    # pre-populate bare climbs and briefings (idempotent)
 npm --prefix cross-platform run check  # complete TypeScript parity suite
-./tools/rebuild-espeak.sh /path/to/espeak-ng  # refresh pinned arm64/macOS 14 archives
 cp -R "Gateway Forge.app" /Applications/     # install
 ```
 
@@ -56,11 +55,22 @@ Windows and Linux CI run the hermetic subset documented in
 `cross-platform/README.md`; private renders, recipes and journal state remain
 deliberately untracked and are checked only by the local complete suite.
 
-The two static eSpeak archives are pinned build artifacts. `build.sh` inspects
-every archive member and refuses an architecture other than arm64 or a minimum
-macOS version other than 14.0. Rebuild them only through
-`tools/rebuild-espeak.sh`; it requires the exact upstream revision and preserves
-the feature flags used by the Piper phonemizer.
+**The speech mechanism comes from voice-core** (owner's decision,
+2026-10-14): espeak-ng at the same pinned revision (724808c) as an
+XCFramework, its data, the phonemizer, the voice config and the inference call
+are the `VoiceCore` package (github.com/snepssen/voice-core), shared with Voice
+Forge and the Interpreter, whose copies had drifted into three builds and three
+phonemizers. The two static archives and `tools/rebuild-espeak.sh` are gone;
+voice-core's `scripts/build-espeak.sh` is the one build. This app's decisions
+stay in `GatewayTTS`: the `I-There`/`REBAL` respellings (passed to voice-core
+as an option), no em-dash spacing, the dropped final stop, two trailing pads,
+one call per sentence. `gfrender --phonemes-file` over the library's 310 lines
+gave identical phonemes and ids before and after the move.
+`Sources/GatewayTTS/Resources/espeak-ng-data` stays for the Windows and Linux
+build, which packages that folder; `build.sh` fails if it differs from
+voice-core's by a byte. A voice-core release reaches this app through its
+`scripts/release.sh`, which runs `gfcheck` and commits the bump only if it
+passes.
 
 **`build.sh` drives `swift build`, not xcodebuild.** v3 needed xcodebuild
 because SwiftPM on the command line cannot compile mlx-swift's Metal shaders:

@@ -53,24 +53,17 @@ assert_arm64() {
   esac
 }
 
-# Static archives carry deployment metadata on every object, not on the `.a`
-# container. A newer SDK default once stamped these as macOS 26.5 even though
-# Package.swift promises macOS 14. Catch that before the linker emits a wall of
-# warnings (and, more importantly, before an app is shipped with false minimum
-# system requirements hidden inside it).
-assert_archive_target() {
-  local archive="$1" targets
-  assert_arm64 "$archive"
-  targets="$(otool -l "$archive" | awk '$1 == "minos" { print $2 }' | sort -u)"
-  if [ "$targets" != "14.0" ]; then
-    echo "wrong macOS deployment target in $archive: ${targets:-missing} (expected 14.0)" >&2
-    echo "rebuild with: ./tools/rebuild-espeak.sh /path/to/espeak-ng" >&2
-    exit 1
-  fi
-}
-
-assert_archive_target "$ROOT/Sources/CEspeakNG/lib/libespeak-ng.a"
-assert_archive_target "$ROOT/Sources/CEspeakNG/lib/libucd.a"
+# espeak-ng comes from voice-core as an XCFramework of the same pinned
+# revision (724808c), its data in voice-core's resource bundle. The Windows and
+# Linux build still packages Sources/GatewayTTS/Resources/espeak-ng-data, so
+# that copy must stay byte-identical to voice-core's, or the platforms stop
+# sounding alike in some of the commonest words in English.
+[ -d "$ROOT/.build/checkouts/voice-core" ] || swift package resolve >/dev/null
+CORE_DATA="$ROOT/.build/checkouts/voice-core/Sources/VoiceCore/Resources/espeak-ng-data"
+diff -rq "$CORE_DATA" "$ROOT/Sources/GatewayTTS/Resources/espeak-ng-data" >/dev/null || {
+  echo "error: Sources/GatewayTTS/Resources/espeak-ng-data differs from voice-core's" >&2
+  diff -rq "$CORE_DATA" "$ROOT/Sources/GatewayTTS/Resources/espeak-ng-data" 2>&1 | head -5 >&2
+  exit 1; }
 
 echo "cross-platform checks…"
 npm --prefix "$ROOT/cross-platform" run check
@@ -163,7 +156,7 @@ while IFS= read -r b; do
 done < <(find "$PRODUCTS" -maxdepth 1 -name '*.bundle')
 
 # The bundled voice model itself: GatewayTTS declares it as target resources
-# (Sources/GatewayTTS/Resources/{onnx,onnx.json,espeak-ng-data}), which SwiftPM
+# (Sources/GatewayTTS/Resources/{onnx,onnx.json}), which SwiftPM
 # copies beside the product as its own resource bundle -- picked up by the
 # generic loop above under the auto-generated bundle name, not copied here by
 # path. `Engine.resourceDirectory()` looks in Contents/Resources/GatewayVoice
@@ -227,8 +220,9 @@ while IFS= read -r name; do
   done
   voice_count=$((voice_count + 1))
 done < <(echo "$APP_VOICES")
-[ -n "$(find "$VOICE_BUNDLE" -type d -name espeak-ng-data 2>/dev/null | head -1)" ] || {
-  echo "error: espeak-ng-data did not land in the app" >&2; exit 1; }
+CORE_BUNDLE="$(find "$APP/Contents/Resources" -maxdepth 1 -iname '*VoiceCore*.bundle' | head -1)"
+[ -n "$CORE_BUNDLE" ] && [ -n "$(find "$CORE_BUNDLE" -name phontab -size +0c 2>/dev/null | head -1)" ] || {
+  echo "error: voice-core's espeak-ng-data did not land in the app" >&2; exit 1; }
 echo "voices packaged: $(echo "$APP_VOICES" | tr '\n' ' ')($voice_count)$([ "$pruned" -gt 0 ] && echo ", $pruned pruned")"
 
 DEV_ROOT_ENTRY=""

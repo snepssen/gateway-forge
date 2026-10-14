@@ -1,6 +1,6 @@
 /*
  * The espeak-ng surface Gateway Forge's phonemizer actually uses — the same
- * three calls `Sources/GatewayTTS/EspeakPhonemizer.swift` makes, and nothing
+ * three calls voice-core's `EspeakPhonemizer` makes, and nothing
  * else.
  *
  * It exists because the published `piper-phonemize` npm package bundles an

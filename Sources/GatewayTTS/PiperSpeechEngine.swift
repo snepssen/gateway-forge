@@ -1,23 +1,14 @@
 import AVFoundation
 import Foundation
 import GatewayCore
-import OnnxRuntimeBindings
+import VoiceCore
 
-/// The bundled voice's config.json -- the exact fields
-/// `piper.voice.PiperVoice` reads, decoded the same way.
-private struct PiperVoiceConfig: Decodable {
-    struct Audio: Decodable { var sample_rate: Int }
-    struct Espeak: Decodable { var voice: String }
-    struct Inference: Decodable {
-        var noise_scale: Double
-        var length_scale: Double
-        var noise_w: Double
-    }
-    var audio: Audio
-    var espeak: Espeak
-    var inference: Inference
-    var phoneme_id_map: [String: [Int]]
-}
+// The mechanism comes from voice-core (2026-10-14): espeak-ng and its data,
+// the phonemizer, the voice's config and the inference call, shared with
+// Voice Forge and the Interpreter. Every decision below stays this app's:
+// the respellings, no em-dash spacing, the dropped final stop, the two
+// trailing pads, one call per sentence, the 24 kHz resample.
+
 
 /// One flattened phoneme string, mapped to phoneme ids the same way
 /// `piper.phoneme_ids.phonemes_to_ids` does: BOS, then PAD interspersed
@@ -31,7 +22,12 @@ private struct PiperVoiceConfig: Decodable {
 /// weight for this voice specifically: it was trained without
 /// `--data.vowel_clusters`, so phonemize_espeak.py's cluster-merging step
 /// never ran and those entries are simply never looked up -- confirmed
-/// against the exported config.json rather than assumed.
+/// against the exported config.json rather than assumed. That is the layout
+/// voice-core's `PiperModel.ids` builds; this app adds its two trailing pads.
+private func phonemesToIds(_ phonemized: String, model: PiperModel) -> [Int] {
+    model.ids(phonemized, trailingPads: trailingPadPhonemes)
+}
+
 /// Extra PAD phonemes appended before EOS, so the decoder has frames left in
 /// which to finish its final breath instead of being severed mid-decay.
 ///
@@ -103,21 +99,6 @@ private let trailingPadPhonemes = 2
 /// one line and showed no effect at all over eight lines x six draws.
 private let dropFinalFullStop = true
 
-private func phonemesToIds(_ phonemized: String, map: [String: [Int]]) -> [Int] {
-    var ids: [Int] = []
-    ids += map["^"] ?? []  // BOS
-    ids += map["_"] ?? []  // PAD
-    for scalar in phonemized.unicodeScalars {
-        let key = String(scalar)
-        guard let id = map[key] else { continue }
-        ids += id
-        ids += map["_"] ?? []
-    }
-    // Room for the final decay, on top of the PAD the loop already left.
-    for _ in 0 ..< trailingPadPhonemes { ids += map["_"] ?? [] }
-    ids += map["$"] ?? []  // EOS
-    return ids
-}
 
 /// The chosen engine behind the seam.
 ///
@@ -126,14 +107,40 @@ private func phonemesToIds(_ phonemized: String, map: [String: [Int]]) -> [Int] 
 /// runs per chunk. Unlike Qwen3's reference-audio cloning, this voice is
 /// fixed: there is nothing to condition on per call beyond the text itself.
 public final class PiperSpeechEngine: SpeechEngine, @unchecked Sendable {
-    private let session: ORTSession
+    private let model: PiperModel
     private let phonemizer: EspeakPhonemizer
-    private let config: PiperVoiceConfig
-    // ORTEnv is a third-party ObjC type with no Sendable annotation, but ORT's
-    // own contract is "one environment, created once, used from anywhere" --
-    // exactly the shared-immutable-after-init state `nonisolated(unsafe)` is
-    // for; it is never mutated after this initializer runs.
-    private nonisolated(unsafe) static let env: ORTEnv? = try? ORTEnv(loggingLevel: .warning)
+    private var config: PiperModel.Config { model.config }
+
+    /// Respellings handed to espeak in place of the authored word.
+    ///
+    /// **The authored text is never touched.** A Gateway instrument name is
+    /// `@protected` terminology — it must survive verbatim in the `.gws`, the
+    /// journal and the UI — so a pronunciation problem is fixed here, at the
+    /// one point where text becomes sound, and nowhere else.
+    ///
+    /// `I-There`: espeak reads the hyphenated compound as `aɪðˈɛɹ`, which
+    /// keeps the diphthong but leaves it **unstressed and glued to the
+    /// following word**, so it lands as "i-THERE" — reported by the owner as
+    /// "a shortest i instead of I". `Eye-There` phonemizes to `ˈaɪðˈɛɹ`,
+    /// stressing the pronoun as the term intends, and was chosen over
+    /// `I There` (`aɪ ðˈɛɹ`, separated but still unstressed) and `I—There`
+    /// (same problem) by comparing what espeak actually returns rather than
+    /// by guessing at a respelling.
+    ///
+    /// `REBAL`: espeak reads it as `ɹᵻbˈæl` — "rebel", reduced first vowel and
+    /// stress on the second syllable. The owner's correction, 2026-08-26:
+    /// Monroe says **REE-ball**, and *"TTS since V1 through all major versions"*
+    /// has got this wrong — so it long predates this engine and is worth
+    /// keeping fixed here. `Reeball` gives `ɹˈiːbɔːl`, the same `ɹˈiː` espeak
+    /// puts in `recall`, stressed on the first syllable. Authored text keeps
+    /// the acronym; only espeak sees the respelling.
+    ///
+    /// Applied longest-key-first so no substitution can eat a prefix of
+    /// another. Add a term only with the phonemes to justify it.
+    static let pronunciations: [(String, String)] = [
+        ("I-There", "Eye-There"),
+        ("REBAL", "Reeball")
+    ]
 
     /// - Parameter voice: which public or locally installed voice to speak in.
     ///   The model is named after the voice -- see `Engine.modelFileName(for:)`.
@@ -142,9 +149,6 @@ public final class PiperSpeechEngine: SpeechEngine, @unchecked Sendable {
     ///   voice's takes with another's model would produce audio that claims to
     ///   be something it is not.
     public init(voice: String, localVoiceDirectory: URL? = nil) throws {
-        guard let env = Self.env else {
-            throw SpeechEngineError.notPorted("onnxruntime environment failed to initialize")
-        }
         let stem = "en_US-\(voice)-medium"
         let localModel = localVoiceDirectory?.appending(path: stem + ".onnx")
         let localConfig = localVoiceDirectory?.appending(path: stem + ".onnx.json")
@@ -157,15 +161,16 @@ public final class PiperSpeechEngine: SpeechEngine, @unchecked Sendable {
             : Bundle.module.url(forResource: stem + ".onnx", withExtension: "json")
         guard let modelURL, FileManager.default.fileExists(atPath: modelURL.path),
               let configURL, FileManager.default.fileExists(atPath: configURL.path),
-              let dataDir = Bundle.module.url(forResource: "espeak-ng-data", withExtension: nil) else {
+              let dataDir = EspeakData.directory else {
             throw SpeechEngineError.notPorted(
                 "no complete public or local model for the voice \"\(voice)\" — "
                 + "expected \(stem).onnx and its config")
         }
-        let configData = try Data(contentsOf: configURL)
-        config = try JSONDecoder().decode(PiperVoiceConfig.self, from: configData)
-        session = try ORTSession(env: env, modelPath: modelURL.path, sessionOptions: nil)
-        phonemizer = try EspeakPhonemizer(dataDirectory: dataDir, voice: config.espeak.voice)
+        model = try PiperModel(model: modelURL, config: configURL)
+        // This voice was never given em dashes with spaces round them, so it
+        // is not given them now.
+        phonemizer = try EspeakPhonemizer(dataDirectory: dataDir, voice: model.config.espeak.voice,
+                                          respellings: Self.pronunciations, spacesEmDashes: false)
     }
 
     /// `maxNewTokens` is accepted for protocol conformance and ignored --
@@ -233,7 +238,7 @@ public final class PiperSpeechEngine: SpeechEngine, @unchecked Sendable {
         return try calls.map { sentence in
             let phonemes = try phonemizer.phonemize(sentence, dropFinalStop: dropFinalFullStop)
             return SpokenForm(sentence: sentence, phonemes: phonemes,
-                              ids: phonemesToIds(phonemes, map: config.phoneme_id_map))
+                              ids: phonemesToIds(phonemes, model: model))
         }
     }
 
@@ -251,37 +256,11 @@ public final class PiperSpeechEngine: SpeechEngine, @unchecked Sendable {
     /// One sentence, one inference call.
     private func renderOne(_ text: String) throws -> [Float] {
         let phonemized = try phonemizer.phonemize(text, dropFinalStop: dropFinalFullStop)
-        let ids = phonemesToIds(phonemized, map: config.phoneme_id_map)
+        let ids = phonemesToIds(phonemized, model: model)
         guard !ids.isEmpty else { return [] }
-
-        let inputData = NSMutableData(bytes: ids.map { Int64($0) }, length: ids.count * 8)
-        let inputTensor = try ORTValue(tensorData: inputData,
-                                       elementType: .int64,
-                                       shape: [1, NSNumber(value: ids.count)])
-
-        var lengthValue = Int64(ids.count)
-        let lengthData = NSMutableData(bytes: &lengthValue, length: 8)
-        let lengthTensor = try ORTValue(tensorData: lengthData, elementType: .int64, shape: [1])
-
-        var scales: [Float] = [Float(config.inference.noise_scale),
-                                Float(config.inference.length_scale),
-                                Float(config.inference.noise_w)]
-        let scalesData = NSMutableData(bytes: &scales, length: 12)
-        let scalesTensor = try ORTValue(tensorData: scalesData, elementType: .float, shape: [3])
-
-        let outputs = try session.run(
-            withInputs: ["input": inputTensor, "input_lengths": lengthTensor, "scales": scalesTensor],
-            outputNames: ["output"], runOptions: nil)
-        guard let outputTensor = outputs["output"],
-              let outputData = try outputTensor.tensorData() as Data?
-        else {
-            throw SpeechEngineError.notPorted("piper produced no output tensor")
-        }
-
-        let sampleCount = outputData.count / MemoryLayout<Float>.size
-        let samples22k = outputData.withUnsafeBytes { raw -> [Float] in
-            Array(raw.bindMemory(to: Float.self).prefix(sampleCount))
-        }
+        let samples22k = try model.infer(ids, noiseScale: config.inference.noise_scale,
+                                         lengthScale: config.inference.length_scale,
+                                         noiseW: config.inference.noise_w).samples
 
         // Resample to 24 kHz so nothing downstream of `Generation` has to
         // change: AudioIO.sampleRate, RenderPlan.sampleRate, the 80 ms

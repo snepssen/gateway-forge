@@ -1,7 +1,7 @@
 /**
  * Text to phonemes, through the *same* espeak-ng the Mac build uses.
  *
- * A direct port of `Sources/GatewayTTS/EspeakPhonemizer.swift`: the clause
+ * A direct port of voice-core's `EspeakPhonemizer` as this app configures it (its respellings, no em-dash spacing): the clause
  * terminator constants and their masking are copied from there exactly, not
  * re-derived, since getting the bit arithmetic subtly wrong would silently
  * misplace sentence and clause boundaries rather than fail loudly.

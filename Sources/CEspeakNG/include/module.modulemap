@@ -1,6 +1,0 @@
-module CEspeakNG {
-    header "espeak-ng/speak_lib.h"
-    header "espeak-ng/espeak_ng.h"
-    header "espeak-ng/encoding.h"
-    export *
-}
