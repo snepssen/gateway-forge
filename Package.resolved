@@ -1,5 +1,5 @@
 {
-  "originHash" : "de01c9b49675d6e1037c98239d6e324dc6309c473c07bc84d69ccfdfdba13990",
+  "originHash" : "babc84cceb6f6b8ab5ad7f9c2e06af39711fe9cb0889009fd9cc0cc62d6d54c8",
   "pins" : [
     {
       "identity" : "onnxruntime-swift-package-manager",
@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/snepssen/voice-core",
       "state" : {
-        "revision" : "fdca84e8f742a9136523d2ffc9416478ed51bac5",
-        "version" : "1.0.1"
+        "revision" : "5efcae0236dc66e74f62956bed166911838953a1",
+        "version" : "1.0.2"
       }
     }
   ],
