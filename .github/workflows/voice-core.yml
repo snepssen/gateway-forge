@@ -1,0 +1,24 @@
+name: voice-core
+
+# The speech mechanism comes from github.com/snepssen/voice-core. Once a day,
+# or on demand from the Actions tab, this moves to its newest release, runs
+# gfcheck and requires Sources/GatewayTTS/Resources/espeak-ng-data (which the
+# Windows and Linux build packages) to equal voice-core's, and pushes the new
+# Package.resolved only if both pass. A run started by hand always checks.
+on:
+  schedule:
+    - cron: "17 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    uses: snepssen/voice-core/.github/workflows/update-voice-core.yml@main
+    with:
+      checks: >-
+        swift run -q gfcheck &&
+        diff -rq .build/checkouts/voice-core/Sources/VoiceCore/Resources/espeak-ng-data
+        Sources/GatewayTTS/Resources/espeak-ng-data
+      always-check: ${{ github.event_name == 'workflow_dispatch' }}
