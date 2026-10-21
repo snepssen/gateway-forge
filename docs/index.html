@@ -243,23 +243,23 @@
   <div class="grid">
     <div class="card">
       <h3>macOS</h3>
-      <div class="meta">Apple Silicon · 82 MiB · v5.3.1</div>
+      <div class="meta">Apple Silicon · 82 MiB · v5.4.0</div>
       <p>Gatekeeper will refuse an unsigned download by default — right-click the <code>.app</code> and choose Open once, or clear the quarantine flag from Terminal, either of which says you mean to run it.</p>
-      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/Gateway.Forge-5.3.1-macOS.zip">Download .app →</a></div>
+      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/Gateway.Forge-5.4.0-macOS.zip">Download .app →</a></div>
     </div>
     <div class="card">
       <h3>Windows</h3>
-      <div class="meta">x86-64 · 185 MiB installer · v5.3.1</div>
+      <div class="meta">x86-64 · 185 MiB installer · v5.4.0</div>
       <p>Unsigned, so SmartScreen will warn that the publisher is unknown — a code-signing certificate costs money this project does not spend. Choose <b>More info</b>, then <b>Run anyway</b>, if you trust where you got it.</p>
-      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/Gateway.Forge.Setup.5.3.1.exe">Download installer →</a></div>
-      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/Gateway.Forge-5.3.1-win.zip">Or the portable .zip →</a></div>
+      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/Gateway.Forge.Setup.5.4.0.exe">Download installer →</a></div>
+      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/Gateway.Forge-5.4.0-win.zip">Or the portable .zip →</a></div>
     </div>
     <div class="card">
       <h3>Linux</h3>
-      <div class="meta">x86-64 · 371 MiB AppImage · v5.3.1</div>
+      <div class="meta">x86-64 · 371 MiB AppImage · v5.4.0</div>
       <p>The AppImage needs no install — <code>chmod +x</code> it and run. The tarball is the same build, if you would rather place it yourself.</p>
-      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/Gateway.Forge-5.3.1.AppImage">Download AppImage →</a></div>
-      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/gateway-forge-cross-platform-5.3.1.tar.gz">Or the .tar.gz →</a></div>
+      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/Gateway.Forge-5.4.0.AppImage">Download AppImage →</a></div>
+      <div class="get"><a href="https://github.com/snepssen/gateway-forge/releases/latest/download/gateway-forge-cross-platform-5.4.0.tar.gz">Or the .tar.gz →</a></div>
     </div>
   </div>
   <div class="note"><code>xattr -cr "Gateway Forge.app"</code> is the Terminal route on macOS, run once after unzipping. Every archive's SHA-256 is published as <a href="https://github.com/snepssen/gateway-forge/releases/latest"><code>SHA256SUMS</code> on the release page</a> — check it against what you downloaded before you clear any quarantine flag, since that is the point at which verifying still means something.</div>
@@ -372,7 +372,13 @@ cd gateway-forge && ./build.sh</code></pre>
   <p class="eyebrow">Changelog</p>
   <h2>What changed</h2>
 
-  <h3>v5.3.1 <span class="mono" style="font-size:14px;font-weight:400">· 3 October 2026</span></h3>
+  <h3>v5.4.0 <span class="mono" style="font-size:14px;font-weight:400">· 21 October 2026</span></h3>
+  <p><b>Rendering no longer quits the app on macOS.</b> In v5.3.1, pressing Render closed Gateway Forge on every Mac except the one that built it. The release was compiled on a build server whose Swift looks for the voice in a different place inside the app than the one the voice is installed in, and gives up by stopping the program. The readiness check looked in the right place and said the voice was ready, so nothing warned before the crash. The voice is now found by the same lookup the readiness check uses, and the build refuses any code that reaches for it the other way.</p>
+  <p><b>The journal has its own place.</b> Journal sits in the side rail between Focus and Studio: every entry across every level as one dated log, carrying the session report's fields — start and end times measured by the player, session title, how the body felt, and your own account. One entry or all of them export as PDF, the same report the <a href="session-report.html">session report form</a> on this site writes. Notes that used to live inside a session's folder move into the journal on first launch, and clearing out old sessions no longer leaves empty rows behind.</p>
+  <p><b>The whole default path builds and exports from one place.</b> Studio ▸ Production can queue every lesson on the default path that has no session yet, then export every assembled lesson to one folder with the bed mixed in, numbered in path order so a phone lists them as the tapes teach them.</p>
+  <p><b>Commands get room.</b> In the ten-point relaxation each command is its own line with a pause after it, and the three Affirmations are said in phrases with time to repeat each one. The wording is unchanged. Narration made before this update renders again.</p>
+  <p><b>The speech engine is shared.</b> espeak-ng, the phonemizer and the voice's inference now come from voice-core, the package Voice Forge and Interpreter also use. Across all 310 library lines it gives the same phonemes as before.</p>
+  <h3 class="handoff">v5.3.1 <span class="mono" style="font-size:14px;font-weight:400">· 3 October 2026</span></h3>
   <p><b>The default path answers clicks where its lessons are drawn.</b> On macOS, every row in the side rail took clicks two lines above where it appeared, so choosing a lesson opened the one below it. The rail drew its list a toolbar's height lower than it hit-tested it — a quirk of how newer macOS runs apps built for macOS 14 — and the list is now built so that both agree. Nothing else changes; the Windows and Linux builds are the same as v5.3.0's.</p>
 
   <h3 class="handoff">v5.3.0 <span class="mono" style="font-size:14px;font-weight:400">· 25 September 2026</span></h3>
