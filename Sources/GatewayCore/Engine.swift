@@ -118,6 +118,46 @@ public enum Engine {
         return nil
     }
 
+    /// espeak-ng's data folder, or nil if it cannot be found.
+    ///
+    /// Since the voice-core move (2026-10-14) the data ships in voice-core's
+    /// own resource bundle (`*VoiceCore*.bundle`), not GatewayTTS's; the
+    /// source-tree copy in `Sources/GatewayTTS/Resources` remains for the
+    /// Windows and Linux build and is byte-identical (build.sh enforces it).
+    /// So: the voice's own resource directory first -- the source tree in
+    /// development -- then voice-core's bundle beside the app's resources.
+    ///
+    /// **The engine reads this, never `Bundle.module`.** SwiftPM generates
+    /// `Bundle.module` per toolchain and has changed what it searches: the
+    /// toolchain here looks in `Bundle.main.resourceURL`, the CI runner's
+    /// looked only at the `.app` root and an absolute `/Users/runner/...`
+    /// build path, and ends in `fatalError` when both miss. 5.3.1 shipped
+    /// that way: the probe below said ready, and the first render killed the
+    /// app on every machine but the one that built it. One lookup, shared by
+    /// the probe and the engine, means they cannot disagree again.
+    public static func phonemizerDataDirectory(fileManager: FileManager = .default) -> URL? {
+        let isDirectory = { (url: URL) -> Bool in
+            var flag: ObjCBool = false
+            return fileManager.fileExists(atPath: url.path, isDirectory: &flag) && flag.boolValue
+        }
+        if let dir = resourceDirectory(fileManager: fileManager) {
+            let data = dir.appending(path: phonemizerDataDirectoryName)
+            if isDirectory(data) { return data }
+        }
+        for root in [Bundle.main.resourceURL, Bundle.main.bundleURL].compactMap({ $0 }) {
+            guard let entries = try? fileManager.contentsOfDirectory(
+                at: root, includingPropertiesForKeys: nil) else { continue }
+            for bundle in entries where bundle.pathExtension == "bundle"
+                && bundle.lastPathComponent.contains("VoiceCore") {
+                for candidate in [bundle, bundle.appending(path: "Contents/Resources")] {
+                    let data = candidate.appending(path: phonemizerDataDirectoryName)
+                    if isDirectory(data) { return data }
+                }
+            }
+        }
+        return nil
+    }
+
     /// Every file the voice needs to actually speak. A resource directory
     /// missing any of these is a broken build, not an installed model.
     public static func missingResourceParts(voice: String? = nil,
@@ -145,7 +185,7 @@ public enum Engine {
                 missing.append("the voice config for \(v)")
             }
         }
-        if !fileManager.fileExists(atPath: dir.appending(path: phonemizerDataDirectoryName).path) {
+        if phonemizerDataDirectory(fileManager: fileManager) == nil {
             missing.append("the phonemizer data")
         }
         return missing

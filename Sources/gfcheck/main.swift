@@ -4602,6 +4602,33 @@ do {
     try? fm.removeItem(at: tmp)
 }
 
+// ------------------------------------------------------- no Bundle.module
+// SwiftPM generates `Bundle.module` per toolchain, and the generated search
+// has changed: this machine's looks in `Bundle.main.resourceURL`, the CI
+// runner's looked only at the `.app` root and its own absolute build path,
+// then `fatalError`. 5.3.1 was built there, its probe said the voice was
+// ready, and pressing Render killed the app on every machine but the
+// runner. A local build cannot reproduce it, so this is a source rule:
+// resources are found through `Engine`, which the probe shares.
+c.suite("no Bundle.module")
+do {
+    let fm = FileManager.default
+    let needle = "Bundle" + ".module."   // assembled so this file never matches
+    var uses: [String] = []
+    if let walker = fm.enumerator(at: root.appending(path: "Sources"),
+                                  includingPropertiesForKeys: nil) {
+        for case let url as URL in walker where url.pathExtension == "swift" {
+            guard let src = try? String(contentsOf: url, encoding: .utf8) else { continue }
+            if src.contains(needle) { uses.append(url.lastPathComponent) }
+        }
+    }
+    c.expect(uses.isEmpty,
+             "no source reaches resources through SwiftPM's generated accessor"
+             + (uses.isEmpty ? "" : " (\(uses.joined(separator: ", ")))"))
+    c.expect(Engine.phonemizerDataDirectory() != nil,
+             "the engine and its probe find espeak-ng's data through one lookup")
+}
+
 // --------------------------------------------------------------- no python
 // The project is Python-free, and this is the check rather than the promise.
 //

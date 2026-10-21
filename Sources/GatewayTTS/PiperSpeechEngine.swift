@@ -155,13 +155,17 @@ public final class PiperSpeechEngine: SpeechEngine, @unchecked Sendable {
         let hasLocalPart = [localModel, localConfig].compactMap { $0 }.contains {
             FileManager.default.fileExists(atPath: $0.path)
         }
+        // Found through `Engine`, never `Bundle.module`: SwiftPM's generated
+        // accessor differs by toolchain and ends in `fatalError` -- the
+        // 5.3.1 release crashed here. See `Engine.phonemizerDataDirectory`.
+        let bundled = Engine.resourceDirectory()
         let modelURL = hasLocalPart ? localModel
-            : Bundle.module.url(forResource: stem, withExtension: "onnx")
+            : bundled?.appending(path: Engine.modelFileName(for: voice))
         let configURL = hasLocalPart ? localConfig
-            : Bundle.module.url(forResource: stem + ".onnx", withExtension: "json")
+            : bundled?.appending(path: Engine.configFileName(for: voice))
         guard let modelURL, FileManager.default.fileExists(atPath: modelURL.path),
               let configURL, FileManager.default.fileExists(atPath: configURL.path),
-              let dataDir = EspeakData.directory else {
+              let dataDir = Engine.phonemizerDataDirectory() else {
             throw SpeechEngineError.notPorted(
                 "no complete public or local model for the voice \"\(voice)\" — "
                 + "expected \(stem).onnx and its config")
