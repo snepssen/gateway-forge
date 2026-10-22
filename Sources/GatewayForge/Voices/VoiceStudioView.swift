@@ -3,8 +3,7 @@ import GatewayCore
 
 /// The installed voices: what they are, and which one the queue renders with.
 ///
-/// `snepssen-suno` ships publicly. The owner's Røde-trained alternative can be
-/// installed locally beside its profile without becoming part of a release.
+/// `snepssen-suno` ships publicly.
 ///
 /// **One page, still.** This was a list that linked to a
 /// detail page (`VoiceView`) with a status pane (`VoiceProfilePane`) beneath
@@ -77,12 +76,8 @@ struct VoiceStudioView: View {
             .stroke(selected ? Monokai.green.opacity(0.55) : .clear))
     }
 
-    /// Where a voice came from, in one line, because the names alone do not
-    /// say and the difference is the whole reason both are here.
+    /// Where a voice came from, in one line. The name alone does not say.
     private func provenance(_ name: String) -> String {
-        if name.hasSuffix("-rode") {
-            return "Your own reading — one take, cut so clips carry sentence seams."
-        }
         if name.hasSuffix("-suno") {
             return "The generated lineage, re-segmented and retrained after its corpus "
                  + "was found cut one sentence per clip."
@@ -94,16 +89,16 @@ struct VoiceStudioView: View {
     ///
     /// **Said here because this is where someone stands when they notice.**
     /// The voice is the most personal thing in the application -- it is what
-    /// talks you down -- and the pipeline that produced the Røde one is the
-    /// same pipeline that would produce anyone's: a reading script, a
-    /// microphone, and a fine-tune. Nothing about that is a runtime feature,
-    /// so this does not pretend to offer a button; it says the door exists.
+    /// talks you down -- and the pipeline that would produce anyone's is a
+    /// reading script, a microphone, and a fine-tune. Nothing about that is a
+    /// runtime feature, so this does not pretend to offer a button; it says
+    /// the door exists.
     private var ownVoiceSection: some View {
         VStack(alignment: .leading, spacing: 6) {
             Text("Your own voice").font(.headline).foregroundStyle(Monokai.fg)
-            Text("One of these was made from an hour of the owner reading a script. The "
-                 + "same script and the same fine-tune will make yours, and a session in "
-                 + "your own voice is a different experience of the same words.")
+            Text("The same script and the same fine-tune will make a voice from your own "
+                 + "reading, and a session in your own voice is a different experience of "
+                 + "the same words.")
                 .font(.callout).foregroundStyle(Monokai.comment)
                 .fixedSize(horizontal: false, vertical: true)
             Text("The script is `tools/voice-corpus-script.md`; recording it takes about "

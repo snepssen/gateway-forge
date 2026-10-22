@@ -8,17 +8,15 @@ Windows/Linux core and is never packaged in the application.
 **v5 begins from v4's complete Piper/ONNX baseline and diverges to become an
 installed application.** v4 did the engine swap: `Qwen3SpeechEngine` and all of
 MLX out, an ONNX-Runtime `PiperSpeechEngine` in, the voice bundled with the app
-rather than downloaded. It ended with two fine-tuned voices trained on the
-owner's own speech — `snepssen-suno` (trained on the deck, epoch 702) and
-`snepssen-rode` (trained here from the Røde corpus, epoch 1015) — and with the
+rather than downloaded. It ended with a fine-tuned voice trained on the
+owner's own speech — `snepssen-suno` (trained on the deck, epoch 702) — and with the
 library reworked around derived rather than authored sessions.
 
 What v5 is for: **the app stops being something you build and becomes something
 you have.** v4 was run from its own checkout, with `GFLibraryRoot` pointing the
 library at the source tree. v5 installs — release build, no development root,
 a persistent library under Application Support that survives every rebuild —
-ships `snepssen-suno` publicly. The Røde alternative remains a private local
-model for the owner rather than part of the distributable application.
+ships `snepssen-suno` publicly.
 
 **v4 is now frozen, under the same "do not edit" rule that already protects v2
 and v3.** Its final state: 3660 checks passing, at
@@ -115,9 +113,7 @@ overwritten: protected on the first run, clobbered on the second.
 
 `snepssen-suno` is the sole public voice and lives in
 `Sources/GatewayTTS/Resources` as `en_US-<name>-medium.onnx` plus a `.onnx.json`
-config. `snepssen-rode` is private: its model and config live beside the owner's
-local `voices/snepssen-rode/profile.json`, are ignored by git, and are preferred
-by the engine only when that voice is explicitly selected. `build.sh` derives
+config. `build.sh` derives
 the public set from the resource directory. It names no voice in any executable line,
 and a check enforces that: the gate used to test for a literal filename that
 had been deleted from source months earlier, and SwiftPM — which does not prune
@@ -208,13 +204,15 @@ It is not an aesthetic rule. Every Python dependency that ever entered this tree
 arrived as "just a tool" and then became something the app needed at run time.
 The app is one native executable.
 
-Analysis and authoring scripts live in **`../tools-python/`** — outside the
-project, beside the venv they need: beat analysis (`analyse-beat.py`,
-`beat-report.py`, `analyse-all-beats.sh`), tape indexing (`index-tapes.py`),
-briefing seeding (`seed-briefings.py`), signal capture (`save-signals.py`), and
-the three that produced the port's reference data (`qwen3-groundtruth.py`,
-`qwen3-pace.py`, `qwen3-tokenizer-truth.py`). They still run; they are simply
-not part of this project.
+Analysis and authoring scripts live in a sibling checkout of
+[tools-core](https://github.com/snepssen/tools-core) at **`../tools-core/`** —
+outside the project, beside the venv they need. Beat analysis and tape
+indexing are `audio-analysis/` (`analyse-beat.py`, `beat-report.py`,
+`analyse-all-beats.sh`, `index-tapes.py`). Briefing seeding and signal
+capture are `gateway-authoring/` (`seed-briefings.py`, `save-signals.py`).
+The three that produced the port's reference data are `tts-research/`
+(`qwen3-groundtruth.py`, `qwen3-pace.py`, `qwen3-tokenizer-truth.py`).
+They still run; they are simply not part of this project.
 
 **Do not benchmark against the reference implementation.** It did its job —
 every stage of the engine was diffed against it and the numbers are recorded
@@ -521,8 +519,8 @@ at-24 kHz assumption survives and nothing resamples.
 
 ### Ground truth — build this before inference code, not after
 
-`../tools-python/qwen3-groundtruth.py` (outside the project) recorded what
-every stage actually produced, into
+`../tools-core/tts-research/qwen3-groundtruth.py --gateway-root PATH` (outside
+the project) recorded what every stage actually produced, into
 `library/reference/qwen3-groundtruth/` (gitignored, ~7 MB). **398 tensors**,
 and it is **bit-identical run to run** (verified: 125 integer tensors equal,
 largest float difference 0.0), because the run is seeded.
@@ -629,7 +627,7 @@ mistake that matters here:
 ### Pace — re-measured against the engine that speaks
 
 `RenderPlan.wordsPerSecond` is **2.931**, measured 2026-08-20 by
-`../tools-python/qwen3-pace.py` over twelve real `say` bodies from twelve different
+`../tools-core/tts-research/qwen3-pace.py --gateway-root PATH` over twelve real `say` bodies from twelve different
 segments: 211 words, 72.0 s, pooled (not the mean of per-line rates). Per line
 it ranged 2.37–3.91 w/s, sd 0.47, so a single-segment estimate is ±20 %.
 
@@ -800,10 +798,13 @@ had the same defect.
 
 ## Measuring the tapes
 
-`../tools-python/analyse-beat.py <flac>` reports what a tape actually plays;
-`tools/analyse-all-beats.sh` runs the set (~30 s each) and
-`../tools-python/beat-report.py` groups the results per level against
-`levels.json`. These live outside the project — see "No Python" above.
+`../tools-core/audio-analysis/analyse-beat.py <file.flac> [--window 20] [--hop 10]`
+reports what a tape actually plays;
+`../tools-core/audio-analysis/analyse-all-beats.sh TAPE_ROOT [OUTPUT_DIR]` runs
+the set (~30 s each) and
+`../tools-core/audio-analysis/beat-report.py GATEWAY_ROOT BEAT_ANALYSIS_DIR`
+groups the results per level against `levels.json`. These live outside the
+project — see "No Python" above.
 
 **A Hemi-Sync signal is a stack, not a tone.** Intro to Focus 12 sounds 1.50 Hz
 (99.25/100.75), 0.50 Hz (50.00/50.50) and 4.0 Hz (198/202) simultaneously.
@@ -843,7 +844,8 @@ the same rule as published-versus-found.
 
 ## Provisional briefings — curiosity, not invention
 
-Eight levels have no Monroe source at all, so `../tools-python/seed-briefings.py` wrote
+Eight levels have no Monroe source at all, so
+`../tools-core/gateway-authoring/seed-briefings.py GATEWAY_ROOT [--dry-run]` wrote
 each a briefing that **names the level, places it between its neighbours, and
 invites noticing** — it never says what is there, because nobody has written
 that down. Marked `@provisional`, which keeps them on the worklist: a
@@ -929,7 +931,8 @@ user found one there. Keep all three visible.
 Experience tapes (30 h, Waves I–VIII), the 1989 Guidance Manual split by Wave,
 and the 1977 Intermediate Workbook (CIA FOIA release, OCR'd — its text is the
 least reliable, verify before quoting). Re-run `tools/transcribe-tapes.sh`
-(idempotent) and `../tools-python/index-tapes.py` after adding tapes;
+(idempotent) and `../tools-core/audio-analysis/index-tapes.py GATEWAY_ROOT [--dry-run]`
+after adding tapes;
 `tools/ocr-pdf.swift` handles scanned PDFs with system Vision, no deps.
 
 **Use Parakeet, not whisper.** `mw transcribe --model
@@ -1564,8 +1567,10 @@ The owner's *"They all sound the same. absolutely all of them"* is what
 falsified it — **24 identical outputs is a null result, not a finding.**
 
 **What it actually is: the model, not this port.** Run the Python reference
-implementation that produced this very model (`../tools-python/piper1-gpl`,
-its own venv) on the same line and it severs the tail identically — `Build the
+implementation that produced this very model
+([piper1-gpl](https://github.com/OHF-Voice/piper1-gpl/tree/cb59d2dcc74602a24d02d235092c62f9d4a19c84)
+at `cb59d2dcc74602a24d02d235092c62f9d4a19c84`, the revision that pins espeak-ng
+at 724808c) on the same line and it severs the tail identically — `Build the
 pattern.` ends at **rms 0.0061, peak 0.018, still sounding**, where a healthy
 utterance decays to ~0.0007. The voice was fine-tuned on a corpus whose clips
 were trimmed tight at the end, so it learned to stop on residual breath. Any
@@ -1597,8 +1602,10 @@ and it is the fastest triage signal if this recurs.
 "Generated speech edges are padded, never faded" already records, where the
 safety treatment ate the consonant it was protecting. And when a defect is
 reported on *every* sample, stop re-deriving theories and diff against the
-reference implementation: it is sitting in `../tools-python/`, it runs, and it
-answers "port bug or model artifact?" in one command.
+reference implementation: upstream piper1-gpl at
+`cb59d2dcc74602a24d02d235092c62f9d4a19c84`
+(https://github.com/OHF-Voice/piper1-gpl/tree/cb59d2dcc74602a24d02d235092c62f9d4a19c84).
+It runs, and it answers "port bug or model artifact?" in one command.
 
 ## Render one inference call per sentence (2026-08-26, v4/Piper)
 
@@ -1751,9 +1758,10 @@ whether there is anything to verify first.
 
 ## The beat measurement is finished (2026-08-23)
 
-The Python that measured all fifty tapes lives in `../tools-python/`, outside
-this project, and `gfcheck`'s **no python** suite fails the build on any `.py`
-in the tree. Measured 2026-08-23: zero Python files in the tree, zero in the
+The Python that measured all fifty tapes lives in
+`../tools-core/audio-analysis/`, outside this project — the same sibling
+checkout as `gateway-authoring/` and `tts-research/` — and `gfcheck`'s
+**no python** suite fails the build on any `.py` in the tree. Measured 2026-08-23: zero Python files in the tree, zero in the
 built `.app`.
 
 **No further measurement is expected.** The app generates the bed live at

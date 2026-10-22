@@ -4633,14 +4633,6 @@
       "hasProfile" : true,
       "hasReference" : false,
       "hasReferenceText" : false,
-      "name" : "snepssen-rode",
-      "notePath" : "voices/snepssen-rode/notes.md",
-      "path" : "voices/snepssen-rode"
-    },
-    {
-      "hasProfile" : true,
-      "hasReference" : false,
-      "hasReferenceText" : false,
       "name" : "snepssen-suno",
       "notePath" : "voices/snepssen-suno/notes.md",
       "path" : "voices/snepssen-suno"
