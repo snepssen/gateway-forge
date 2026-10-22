@@ -316,9 +316,8 @@
       "bytes" : 587476,
       "consequence" : "A minute to render again.",
       "costsNothing" : false,
-      "count" : 2,
+      "count" : 1,
       "files" : [
-        "voices/snepssen-rode/preview.wav",
         "voices/snepssen-suno/preview.wav"
       ],
       "kind" : "voicePreviews",
@@ -571,5 +570,5 @@
       "text" : "{\"engine\":\"piper\",\"modelVersion\":\"1\"}"
     }
   ],
-  "voice" : "snepssen-rode"
+  "voice" : "snepssen-suno"
 }

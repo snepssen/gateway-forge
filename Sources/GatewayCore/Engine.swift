@@ -5,16 +5,16 @@ import Foundation
 /// This lives in GatewayCore, not GatewayTTS, on purpose: `gfcheck` must be
 /// able to assert what the UI will say without linking the synthesiser.
 public enum Engine {
-    /// A fine-tuned Piper/VITS voice, trained outside this repo (in
-    /// `../tools-python/piper1-gpl`) on ~42 minutes of the project owner's
-    /// own recordings, warm-started from a pretrained checkpoint. Fixed, not
+    /// A fine-tuned Piper/VITS voice, trained outside this repo with upstream
+    /// piper1-gpl (https://github.com/OHF-Voice/piper1-gpl/tree/cb59d2dcc74602a24d02d235092c62f9d4a19c84,
+    /// commit `cb59d2dcc74602a24d02d235092c62f9d4a19c84`, the revision that
+    /// pins espeak-ng at 724808c) on ~42 minutes of the project owner's own
+    /// recordings, warm-started from a pretrained checkpoint. Fixed, not
     /// runtime-cloneable the way Qwen3's ICL reference-conditioning was.
     public static let name = "piper-snepssen"
 
     /// `snepssen-suno` is the public voice and the only model in the release
-    /// bundle. `snepssen-rode`, trained from the owner's own recording, stays
-    /// in the owner's local `voices/` folder and is loaded only when that
-    /// private model is present and explicitly selected.
+    /// bundle.
     ///
     /// A voice's model is named after it rather than declared in its profile.
     /// One convention, checked by gfcheck, beats a field that can disagree

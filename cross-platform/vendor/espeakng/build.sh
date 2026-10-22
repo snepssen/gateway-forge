@@ -2,8 +2,9 @@
 # Rebuild espeak.wasm.
 #
 # WHY THIS EXISTS. The published `piper-phonemize` npm package bundles
-# espeak-ng 1.52.0. This voice was trained with the espeak-ng that
-# `tools-python/piper1-gpl` pins — commit 724808c5, 229 commits later — which
+# espeak-ng 1.52.0. This voice was trained with the espeak-ng pin that
+# matches voice-core's `scripts/build-espeak.sh` (COMMIT=724808c) — commit
+# 724808c5, 229 commits later — which
 # inserts a linking palatal glide (U+02B2) after a close front vowel before
 # another vowel: `bˈɑːdiʲ ɐslˈiːp`, not `bˈɑːdi ɐslˈiːp`. 147 of the voice's
 # 538 training clips carry it and it changes 26% of the library's real lines.
@@ -17,8 +18,8 @@
 # the library speaks — `npm run speech` is what proves it.
 #
 # Requires emscripten (`brew install emscripten`) and a checkout of espeak-ng
-# at that commit. `piper1-gpl` leaves one under its `_skbuild` tree; otherwise
-# clone it and `git checkout 724808c5`.
+# at that commit. The pin matches voice-core's `scripts/build-espeak.sh`
+# (COMMIT=724808c); clone espeak-ng and `git checkout 724808c5`.
 set -euo pipefail
 cd "$(dirname "$0")"
 

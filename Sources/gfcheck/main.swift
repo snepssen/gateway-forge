@@ -71,9 +71,8 @@ do {
     let voices = Engine.bundledVoices()
     c.equal(voices, ["snepssen-suno"],
             "the public source bundle carries Suno and no private voice")
-    c.expect(package.contains("Resources/en_US-snepssen-suno-medium.onnx")
-             && !package.contains("Resources/en_US-snepssen-rode-medium.onnx"),
-             "Package.swift declares Suno publicly and cannot package the private Røde model")
+    c.expect(package.contains("Resources/en_US-snepssen-suno-medium.onnx"),
+             "Package.swift declares the public Suno voice")
     for v in voices {
         c.expect(Engine.missingResourceParts(voice: v).isEmpty,
                  "\(v) has every part it needs to speak "
@@ -4635,8 +4634,8 @@ do {
 // It is not an aesthetic rule: the app is a single native executable, and every
 // Python dependency that ever entered this tree arrived as "just a tool" and
 // then became something the app needed at runtime. Analysis and authoring
-// scripts live in `../tools-python/`, outside the project, next to the venv
-// they need.
+// scripts live in `../tools-core/` (`audio-analysis/`, `gateway-authoring/`,
+// `tts-research/`), outside the project, next to the venv they need.
 c.suite("no python")
 do {
     let fm = FileManager.default
@@ -7071,7 +7070,7 @@ do {
 c.suite("storage")
 if let lib = segLib {
     let report = StorageAudit.measure(root: root, library: lib,
-                                      renderKey: "piper-snepssen|1", voice: "snepssen-rode")
+                                      renderKey: "piper-snepssen|1", voice: "snepssen-suno")
     let named = report.groups.flatMap(\.files)
     // A fresh checkout has no rendered audio at all -- every render directory
     // is gitignored, on purpose, the same as the practice ledger is -- so an

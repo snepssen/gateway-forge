@@ -66,14 +66,13 @@ const strays = walk(resources).filter(f =>
   /(^|[\\/])(audio|session|stations)\.json$/.test(f) || /[\\/]journal[\\/]/.test(f));
 check(strays.length === 0,
   "no personal state anywhere in the tree" + (strays.length ? `\n       found: ${strays.join(", ")}` : ""));
-check(!existsSync(join(resources, "GatewayVoice", "en_US-snepssen-rode-medium.onnx")),
-  "the owner's private voice is not in the package");
-
 // ------------------------------------------------------------------- the voice
 const voice = join(resources, "GatewayVoice");
 const models = existsSync(voice)
   ? readdirSync(voice).filter(n => n.startsWith("en_US-") && n.endsWith("-medium.onnx")) : [];
 check(models.length >= 1, `a voice model is bundled (${models.join(", ") || "none"})`);
+check(models.length === 1 && models[0] === "en_US-snepssen-suno-medium.onnx",
+  `only the public voice is packaged (${models.join(", ") || "none"})`);
 for (const m of models) {
   check(existsSync(join(voice, `${m}.json`)), `${m} has its config beside it`);
   check(statSync(join(voice, m)).size > 10_000_000, `${m} is a whole model, not a stub`);
