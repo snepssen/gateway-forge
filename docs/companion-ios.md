@@ -23,7 +23,7 @@ That is intentional: those identify the listener, not the project.
 2. Open `GatewayCompanion.xcodeproj` in Xcode.
 3. Select the **Gateway Companion** target, open **Signing & Capabilities**, and
    choose your Team. If Xcode says the identifier is unavailable, replace
-   `local.gatewayforge.companion` with a unique reverse-DNS identifier.
+   `com.snepssen.gatewayforge.companion` with a unique reverse-DNS identifier.
 4. Select the connected iPhone as the run destination and press Run.
 5. On the phone, allow Camera and Local Network access. Both permissions are
    used only for QR pairing and discovery of the paired desktop.

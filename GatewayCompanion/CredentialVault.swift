@@ -28,7 +28,9 @@ enum CompanionCredentialError: Error, LocalizedError {
 }
 
 final class CompanionCredentialVault: @unchecked Sendable {
-    private let service = "local.gatewayforge.companion"
+    /// The bundle ID. Under `local.gatewayforge.companion` this was another
+    /// app, whose Keychain this one cannot read: its phone pairs once more.
+    private let service = "com.snepssen.gatewayforge.companion"
     private let account = "paired-desktop"
 
     func load() throws -> CompanionCredential? {
