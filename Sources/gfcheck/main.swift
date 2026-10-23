@@ -8577,6 +8577,12 @@ do {
     c.expect(electron.contains("\"appId\": \"\(new)\""), "the Electron build shares the bundle ID")
     c.expect(electron.contains("\"guid\": \"984c649c-d32e-5da5-a2cb-53b40f32d0c7\""),
              "the Windows installer keeps the GUID local.gatewayforge.app gave it, so it upgrades in place")
+    let phone = "com.snepssen.gatewayforge.companion"
+    let project = (try? String(contentsOf: root.appending(path: "GatewayCompanion.xcodeproj/project.pbxproj"), encoding: .utf8)) ?? ""
+    let ids = project.components(separatedBy: "PRODUCT_BUNDLE_IDENTIFIER = ").dropFirst().map { $0.prefix { $0 != ";" } }
+    c.expect(!ids.isEmpty && ids.allSatisfy { $0 == phone }, "the iOS companion's every configuration is \(phone)")
+    let phoneVault = (try? String(contentsOf: root.appending(path: "GatewayCompanion/CredentialVault.swift"), encoding: .utf8)) ?? ""
+    c.expect(phoneVault.contains("private let service = \"\(phone)\""), "and its Keychain service is its bundle ID")
 }
 
 c.suite("the companion pairing survives the Keychain rename")

@@ -1852,8 +1852,11 @@ on its own:
   (`984c649c-d32e-5da5-a2cb-53b40f32d0c7`), so the Windows installer upgrades
   in place rather than installing a second copy.
 
-**The iOS companion keeps `local.gatewayforge.companion`** for now. On iOS a
-Keychain item belongs to the app's bundle ID, so a new ID is a new app and
-the phone's pairing cannot follow it; that change waits for a decision.
-gfcheck's **bundle identity** and **companion pairing** suites cover the
-rest, the second against throwaway Keychain service names.
+**The iOS companion is `com.snepssen.gatewayforge.companion`**, and its
+Keychain service the same, chosen knowing it costs one re-pairing (owner's
+decision, 2026-10-23). On iOS a Keychain item belongs to the app's bundle ID,
+so the new ID is a new app that cannot read the old pairing: install it, pair
+again from the desktop's System page, and **Revoke** the old phone's entry
+there. Delete the old app from the phone. gfcheck's **bundle identity** and
+**companion pairing** suites cover the rest, the second against throwaway
+Keychain service names.
