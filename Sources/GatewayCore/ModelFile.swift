@@ -1,5 +1,9 @@
 import Foundation
+#if canImport(CryptoKit)
 import CryptoKit
+#else
+import Crypto
+#endif
 
 /// A pinned file in a manifest: path, exact byte count, and its SHA-256.
 /// Generic across whatever gets downloaded and verified this way -- not

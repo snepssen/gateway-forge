@@ -1,7 +1,12 @@
 import Foundation
+#if canImport(AVFoundation)
 import AVFoundation
+#endif
 
-/// Wav in and out, via AVFoundation -- no extra dependencies. Everything
+/// Wav in and out, via AVFoundation -- no extra dependencies. Where there is
+/// no AVFoundation (Linux, Windows) the readers take WAV only, through
+/// `readWAV` and `resample`, which are plain Swift and always compiled so
+/// gfcheck can hold them to AVFoundation's answers on every Mac run. Everything
 /// internal to the pipeline is mono float32 at **24 kHz**, which survived the
 /// engine change: Qwen3-TTS-12Hz outputs 24 kHz too (the 12 Hz names the codec
 /// frame rate, not the audio), so nothing here resamples.
@@ -25,6 +30,7 @@ public enum AudioIO {
         }
     }
 
+#if canImport(AVFoundation)
     /// Reads the container rather than trusting a catalog entry or filename.
     public static func metadata(_ url: URL) throws -> FileMetadata {
         let file = try AVAudioFile(forReading: url)
@@ -79,6 +85,33 @@ public enum AudioIO {
         guard let ch = outBuf.floatChannelData else { throw err("no channel data") }
         return Array(UnsafeBufferPointer(start: ch[0], count: Int(outBuf.frameLength)))
     }
+#else
+    /// Reads the container rather than trusting a catalog entry or filename.
+    public static func metadata(_ url: URL) throws -> FileMetadata {
+        let wav = try readWAV(url)
+        return FileMetadata(seconds: Double(wav.channels.first?.count ?? 0) / wav.sampleRate,
+                            sampleRate: wav.sampleRate, channels: wav.channels.count)
+    }
+
+    public static func loadStereo(_ url: URL) throws -> StereoAudio {
+        let wav = try readWAV(url)
+        guard let left = wav.channels.first, !left.isEmpty else { throw err("audio is not readable as float PCM") }
+        return StereoAudio(sampleRate: wav.sampleRate, left: left,
+                           right: wav.channels.count > 1 ? wav.channels[1] : left)
+    }
+
+    /// Any readable WAV -> mono float32 at 24 kHz. Channels are averaged.
+    public static func loadMono24k(_ url: URL) throws -> [Float] {
+        let wav = try readWAV(url)
+        guard let first = wav.channels.first else { throw err("no channel data") }
+        var mono = first
+        if wav.channels.count > 1 {
+            let scale = 1 / Float(wav.channels.count)
+            for i in mono.indices { mono[i] = wav.channels.reduce(0) { $0 + $1[i] } * scale }
+        }
+        return resample(mono, from: wav.sampleRate, to: sampleRate)
+    }
+#endif
 
     /// Mono float32 -> 16-bit PCM wav.
     public static func writeWav(_ samples: [Float], to url: URL,
@@ -124,6 +157,94 @@ public enum AudioIO {
         }
         pcm.withUnsafeBytes { data.append(contentsOf: $0) }
         try data.write(to: url, options: .atomic)
+    }
+
+    /// A WAV file's samples as float, one array per channel. PCM at 8, 16, 24
+    /// and 32 bits, float at 32 and 64, plain or WAVE_FORMAT_EXTENSIBLE.
+    public static func readWAV(_ url: URL) throws -> (sampleRate: Double, channels: [[Float]]) {
+        let data = try Data(contentsOf: url)
+        func u32(_ at: Int) -> UInt32 { data[data.startIndex + at ..< data.startIndex + at + 4].withUnsafeBytes { $0.loadUnaligned(as: UInt32.self).littleEndian } }
+        func u16(_ at: Int) -> UInt16 { data[data.startIndex + at ..< data.startIndex + at + 2].withUnsafeBytes { $0.loadUnaligned(as: UInt16.self).littleEndian } }
+        func tag(_ at: Int) -> String { String(decoding: data[data.startIndex + at ..< data.startIndex + at + 4], as: UTF8.self) }
+        guard data.count >= 12, tag(0) == "RIFF", tag(8) == "WAVE" else { throw err("not a WAV file: \(url.lastPathComponent)") }
+        var format = 0, channels = 0, rate = 0.0, bits = 0
+        var body: Range<Int>?
+        var at = 12
+        while at + 8 <= data.count {
+            let size = Int(u32(at + 4))
+            let start = at + 8, end = Swift.min(data.count, start + size)
+            switch tag(at) {
+            case "fmt " where size >= 16:
+                format = Int(u16(start)); channels = Int(u16(start + 2))
+                rate = Double(u32(start + 4)); bits = Int(u16(start + 14))
+                if format == 0xFFFE, size >= 26 { format = Int(u16(start + 24)) }  // the sub-format's first two bytes
+            case "data":
+                body = start..<end
+            default: break
+            }
+            at = start + size + (size & 1)
+        }
+        guard let body, channels > 0, rate > 0, [1, 3].contains(format) else {
+            throw err("unsupported WAV (format \(format), \(channels) channels): \(url.lastPathComponent)")
+        }
+        let width = bits / 8
+        guard (format == 1 && [1, 2, 3, 4].contains(width)) || (format == 3 && [4, 8].contains(width)) else {
+            throw err("unsupported WAV sample size \(bits) bits: \(url.lastPathComponent)")
+        }
+        let frames = body.count / (width * channels)
+        var out = [[Float]](repeating: [Float](repeating: 0, count: frames), count: channels)
+        data.withUnsafeBytes { raw in
+            let base = raw.baseAddress!.advanced(by: body.lowerBound)
+            for frame in 0..<frames {
+                for ch in 0..<channels {
+                    let p = base.advanced(by: (frame * channels + ch) * width)
+                    let value: Float
+                    switch (format, width) {
+                    case (1, 1): value = (Float(p.load(as: UInt8.self)) - 128) / 128
+                    case (1, 2): value = Float(Int16(littleEndian: p.loadUnaligned(as: Int16.self))) / 32_768
+                    case (1, 3):
+                        let b = p.assumingMemoryBound(to: UInt8.self)
+                        let v = Int32(bitPattern: UInt32(b[0]) << 8 | UInt32(b[1]) << 16 | UInt32(b[2]) << 24) >> 8
+                        value = Float(v) / 8_388_608
+                    case (1, 4): value = Float(Int32(littleEndian: p.loadUnaligned(as: Int32.self))) / 2_147_483_648
+                    case (3, 4): value = Float(bitPattern: UInt32(littleEndian: p.loadUnaligned(as: UInt32.self)))
+                    default: value = Float(Double(bitPattern: UInt64(littleEndian: p.loadUnaligned(as: UInt64.self))))
+                    }
+                    out[ch][frame] = value
+                }
+            }
+        }
+        return (rate, out)
+    }
+
+    /// Windowed-sinc resampling in plain Swift, for platforms without
+    /// AVFoundation. The low-pass sits at the lower of the two Nyquist
+    /// frequencies, so downsampling cannot alias. voice-forge's
+    /// `Export.bandLimitedResample` is the same filter.
+    public static func resample(_ samples: [Float], from: Double, to: Double) -> [Float] {
+        guard from != to, !samples.isEmpty else { return samples }
+        let ratio = to / from
+        let cutoff = Swift.min(1, ratio)
+        let crossings = 32.0
+        let reach = crossings / cutoff
+        let count = Int((Double(samples.count) * to / from).rounded(.up))
+        var out = [Float](repeating: 0, count: count)
+        for n in 0..<count {
+            let centre = Double(n) / ratio
+            let first = Swift.max(0, Int((centre - reach).rounded(.up)))
+            let last = Swift.min(samples.count - 1, Int((centre + reach).rounded(.down)))
+            guard first <= last else { continue }
+            var sum = 0.0
+            for k in first...last {
+                let x = (centre - Double(k)) * cutoff
+                let sinc = x == 0 ? 1 : sin(.pi * x) / (.pi * x)
+                let w = 0.5 + 0.5 * (x / crossings)
+                let window = 0.42 - 0.5 * cos(2 * .pi * w) + 0.08 * cos(4 * .pi * w)
+                sum += Double(samples[k]) * sinc * window
+            }
+            out[n] = Float(sum * cutoff)
+        }
+        return out
     }
 
     private static func err(_ m: String) -> NSError {

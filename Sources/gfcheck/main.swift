@@ -1,10 +1,16 @@
 import Foundation
-import Network
+#if canImport(CryptoKit)
 import CryptoKit
+#else
+import Crypto
+#endif
 import GatewayCore
 import GatewaySync
+#if canImport(Network)
+import Network
 import GatewaySyncService
 import GatewaySyncTransport
+#endif
 
 let c = Check()
 
@@ -2823,6 +2829,7 @@ do {
     }
 } catch { c.expect(false, "companion suspension checks threw: \(error)") }
 
+#if canImport(Network)
 c.suite("companion sync boundary")
 do {
     let fm = FileManager.default
@@ -3422,6 +3429,10 @@ do {
              && !iosSource.contains("options: [.allowAirPlay, .allowBluetoothA2DP]"),
              "the output-only iOS audio category relies on implicit A2DP instead of invalid options")
 } catch { c.expect(false, "companion sync boundary checks threw: \(error)") }
+#else
+c.suite("companion sync boundary")
+c.note("skipped: the sync transport is Apple Network, and this platform has none")
+#endif
 
 // ----------------------------------------------- local model evaluation
 // Live generation is deliberately not part of gfcheck: it is slow, depends on
@@ -8585,6 +8596,7 @@ do {
     c.expect(phoneVault.contains("private let service = \"\(phone)\""), "and its Keychain service is its bundle ID")
 }
 
+#if canImport(Network)
 c.suite("the companion pairing survives the Keychain rename")
 do {
     // Throwaway service names: this never reads or writes the real pairing.
@@ -8610,5 +8622,45 @@ do {
         c.note("Keychain unavailable here, pairing migration not exercised: \(error)")
     }
 }
+#endif
+
+c.suite("portable audio reading")
+do {
+    // What Linux and Windows read audio with. Held to AVFoundation's answers
+    // on every Mac run, so a WAV means the same thing on either.
+    let fm = FileManager.default
+    let dir = fm.temporaryDirectory.appending(path: "gf-wav-\(UUID().uuidString)")
+    try fm.createDirectory(at: dir, withIntermediateDirectories: true)
+    defer { try? fm.removeItem(at: dir) }
+    let tone = (0..<48_000).map { Float(0.25 * sin(2 * Double.pi * 440 * Double($0) / 48_000)) }
+    let ramp = (0..<48_000).map { Float($0 % 4_800) / 4_800 - 0.5 }
+    let stereo = dir.appending(path: "stereo.wav")
+    try AudioIO.writeWavStereo(left: tone, right: ramp, to: stereo, sampleRate: 48_000)
+    let wav = try AudioIO.readWAV(stereo)
+    c.equal(wav.sampleRate, 48_000, "the rate comes from the header")
+    c.equal(wav.channels.count, 2, "and the channel count")
+    c.equal(wav.channels[0].count, 48_000, "and every frame is read")
+    let worst = zip(wav.channels[0], tone).map { abs($0 - $1) }.max() ?? 1
+    // writeWav truncates and scales by 32767, the reader divides by 32768.
+    c.expect(worst <= 2.0 / 32_768, "16-bit samples come back within the writer's two steps")
+    let mono = dir.appending(path: "mono.wav")
+    try AudioIO.writeWav(tone, to: mono, sampleRate: 48_000)
+    let portable = AudioIO.resample(try AudioIO.readWAV(mono).channels[0], from: 48_000, to: AudioIO.sampleRate)
+    c.equal(portable.count, 24_000, "48 kHz becomes 24 kHz at exactly half the length")
+    func rms(_ x: [Float]) -> Double { (x.dropFirst(200).dropLast(200).reduce(0) { $0 + Double($1 * $1) } / Double(Swift.max(1, x.count - 400))).squareRoot() }
+    c.expect(abs(20 * log10(rms(portable) / rms(tone))) < 0.05, "and a 440 Hz tone keeps its level")
+    #if canImport(AVFoundation)
+    let viaAV = try AudioIO.loadStereo(stereo)
+    c.expect(viaAV.left == wav.channels[0] && viaAV.right == wav.channels[1],
+             "the portable reader gives AVFoundation's samples, exactly")
+    let meta = try AudioIO.metadata(stereo)
+    c.expect(meta.sampleRate == wav.sampleRate && meta.channels == wav.channels.count
+             && abs(meta.seconds - Double(wav.channels[0].count) / wav.sampleRate) < 1e-9,
+             "and its length, rate and channels")
+    let converted = try AudioIO.loadMono24k(mono)
+    c.expect(abs(converted.count - portable.count) <= 64, "the same length as AVFoundation's converter, within 64 samples")
+    c.expect(abs(20 * log10(rms(portable) / rms(converted))) < 0.05, "and the same level")
+    #endif
+} catch { c.expect(false, "portable audio reading checks threw: \(error)") }
 
 c.finish()

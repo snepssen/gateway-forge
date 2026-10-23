@@ -40,6 +40,10 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/snepssen/voice-core", from: "1.0.1"),
+        // CryptoKit on Apple platforms; the same API from swift-crypto
+        // elsewhere, so GatewayCore and gfcheck build on Linux. The version
+        // companion-forge uses.
+        .package(url: "https://github.com/apple/swift-crypto.git", exact: "4.5.2"),
     ],
     targets: [
         // Language-neutral companion DTOs and validation. This target must
@@ -52,7 +56,10 @@ let package = Package(
         // useful to the Mac host and a future iOS companion, but it is not a
         // requirement imposed on Android, Windows or Linux clients.
         .target(name: "GatewaySyncTransport", dependencies: ["GatewaySync"]),
-        .target(name: "GatewayCore", dependencies: ["GatewaySync"]),
+        .target(name: "GatewayCore", dependencies: [
+            "GatewaySync",
+            .product(name: "Crypto", package: "swift-crypto", condition: .when(platforms: [.linux])),
+        ]),
         // The authoritative desktop adapter: pairing registry, Keychain vault,
         // endpoint routing and safe projection onto GatewayCore.
         .target(name: "GatewaySyncService", dependencies: [
@@ -80,8 +87,14 @@ let package = Package(
             "GatewayCore", "GatewayTTS", "GatewaySync", "GatewaySyncTransport",
             "GatewaySyncService",
         ]),
+        // The sync transport is Apple Network and the vault is the Keychain,
+        // so elsewhere gfcheck runs without their suites (the companion is
+        // suspended, and its transport is Apple's by design).
         .executableTarget(name: "gfcheck", dependencies: [
-            "GatewayCore", "GatewaySync", "GatewaySyncTransport", "GatewaySyncService",
+            "GatewayCore", "GatewaySync",
+            .target(name: "GatewaySyncTransport", condition: .when(platforms: [.macOS, .iOS])),
+            .target(name: "GatewaySyncService", condition: .when(platforms: [.macOS, .iOS])),
+            .product(name: "Crypto", package: "swift-crypto", condition: .when(platforms: [.linux])),
         ]),
         .executableTarget(name: "gfscaffold", dependencies: ["GatewayCore"]),
         .executableTarget(name: "gfeval", dependencies: ["GatewayCore"]),
