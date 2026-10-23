@@ -80,14 +80,48 @@ public enum SyncSecrets {
 }
 
 public final class SyncCredentialVault: @unchecked Sendable {
+    /// The Keychain service, named with the Mac bundle ID.
+    public static let service = "com.snepssen.gatewayforge.sync"
+    /// Where the identity lived before. `load()` moves it across once.
+    public static let previousService = "local.gatewayforge.sync"
+
     private let service: String
+    private let previousService: String?
     private let account = "desktop-sync-identity"
 
-    public init(service: String = "local.gatewayforge.sync") {
+    public init(service: String = SyncCredentialVault.service,
+                previousService: String? = SyncCredentialVault.previousService) {
         self.service = service
+        self.previousService = previousService
     }
 
+    /// The desktop's identity and its paired devices. One under the previous
+    /// service name is copied to the current one, read back, and only then
+    /// deleted: a new identity here would unpair every phone without a word.
     public func load() throws -> SyncDesktopIdentity {
+        if let data = try read(service) { return try Self.decode(data) }
+        if let previousService, let data = try read(previousService) {
+            let identity = try Self.decode(data)
+            try save(identity)
+            guard let copied = try read(service), try Self.decode(copied) == identity else {
+                throw SyncCredentialError.corruptVault
+            }
+            try delete(previousService)
+            return identity
+        }
+        let identity = SyncDesktopIdentity()
+        try save(identity)
+        return identity
+    }
+
+    private static func decode(_ data: Data) throws -> SyncDesktopIdentity {
+        guard let value = try? JSONDecoder().decode(SyncDesktopIdentity.self, from: data),
+              value.schemaVersion == 1 else { throw SyncCredentialError.corruptVault }
+        return value
+    }
+
+    /// The stored record, or nil when there is none under `service`.
+    private func read(_ service: String) throws -> Data? {
         let query: [CFString: Any] = [
             kSecClass: kSecClassGenericPassword,
             kSecAttrService: service,
@@ -97,16 +131,29 @@ public final class SyncCredentialVault: @unchecked Sendable {
         ]
         var result: CFTypeRef?
         let status = SecItemCopyMatching(query as CFDictionary, &result)
-        if status == errSecItemNotFound {
-            let identity = SyncDesktopIdentity()
-            try save(identity)
-            return identity
-        }
+        if status == errSecItemNotFound { return nil }
         guard status == errSecSuccess else { throw SyncCredentialError.keychainFailure(status) }
-        guard let data = result as? Data,
-              let value = try? JSONDecoder().decode(SyncDesktopIdentity.self, from: data),
-              value.schemaVersion == 1 else { throw SyncCredentialError.corruptVault }
-        return value
+        guard let data = result as? Data else { throw SyncCredentialError.corruptVault }
+        return data
+    }
+
+    private func delete(_ service: String) throws {
+        let match: [CFString: Any] = [
+            kSecClass: kSecClassGenericPassword,
+            kSecAttrService: service,
+            kSecAttrAccount: account,
+        ]
+        let status = SecItemDelete(match as CFDictionary)
+        guard status == errSecSuccess || status == errSecItemNotFound else {
+            throw SyncCredentialError.keychainFailure(status)
+        }
+    }
+
+    /// Removes the record under the current service. For checks that use a
+    /// throwaway service name; the app never calls it.
+    public func removeAll() throws {
+        try delete(service)
+        if let previousService { try delete(previousService) }
     }
 
     public func save(_ identity: SyncDesktopIdentity) throws {

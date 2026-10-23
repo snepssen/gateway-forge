@@ -8534,4 +8534,75 @@ run {
     c.equal(((try? DeletionStore.load(root: scratch)) ?? []).count, 0, "and leaves Recently Deleted empty")
 }
 
+c.suite("bundle identity moves to com.snepssen")
+do {
+    let fm = FileManager.default
+    let home = URL(fileURLWithPath: NSTemporaryDirectory()).appending(path: "gf-bundle-check-\(UUID().uuidString)")
+    defer { try? fm.removeItem(at: home) }
+    func write(_ path: String, _ text: String) {
+        let url = home.appending(path: path)
+        try? fm.createDirectory(at: url.deletingLastPathComponent(), withIntermediateDirectories: true)
+        try? Data(text.utf8).write(to: url)
+    }
+    func read(_ path: String) -> String? {
+        (try? Data(contentsOf: home.appending(path: path))).map { String(decoding: $0, as: UTF8.self) }
+    }
+    let old = BundleMigration.previousBundleID, new = BundleMigration.bundleID
+    c.equal(old, "local.gatewayforge.app", "the identity being moved off is the one build.sh wrote")
+    c.equal(new, "com.snepssen.gatewayforge", "the identity being moved to")
+    write("Library/Preferences/\(old).plist", "gf.starter.dismissed=1")
+    write("Library/Saved Application State/\(old).savedState/windows.plist", "frame")
+    write("Library/Application Support/Gateway Forge/library/levels.json", "the library")
+    c.equal(BundleMigration.migrateMacLibrary(home: home), [.moved, .moved],
+            "preferences and the saved window move")
+    c.expect(read("Library/Preferences/\(new).plist") == "gf.starter.dismissed=1"
+             && read("Library/Preferences/\(old).plist") == nil,
+             "preferences arrive intact and the old file is gone")
+    c.expect(read("Library/Saved Application State/\(new).savedState/windows.plist") == "frame",
+             "the saved window arrives intact")
+    c.equal(read("Library/Application Support/Gateway Forge/library/levels.json"), "the library",
+            "Application Support is not named with the bundle ID and is not touched")
+    c.equal(BundleMigration.migrateMacLibrary(home: home), [.absent, .absent],
+            "a second launch finds nothing to move")
+    write("Library/Preferences/\(old).plist", "an older copy")
+    c.equal(BundleMigration.migrateMacLibrary(home: home).first, .leftInPlace,
+            "a preferences file already under the new ID is never replaced")
+    c.equal(read("Library/Preferences/\(new).plist"), "gf.starter.dismissed=1", "and keeps its contents")
+
+    let root = URL(fileURLWithPath: fm.currentDirectoryPath)
+    let build = (try? String(contentsOf: root.appending(path: "build.sh"), encoding: .utf8)) ?? ""
+    c.expect(build.contains("<string>\(new)</string>") && !build.contains(old),
+             "build.sh writes the new bundle ID and not the old one")
+    let electron = (try? String(contentsOf: root.appending(path: "cross-platform/package.json"), encoding: .utf8)) ?? ""
+    c.expect(electron.contains("\"appId\": \"\(new)\""), "the Electron build shares the bundle ID")
+    c.expect(electron.contains("\"guid\": \"984c649c-d32e-5da5-a2cb-53b40f32d0c7\""),
+             "the Windows installer keeps the GUID local.gatewayforge.app gave it, so it upgrades in place")
+}
+
+c.suite("the companion pairing survives the Keychain rename")
+do {
+    // Throwaway service names: this never reads or writes the real pairing.
+    let run = UUID().uuidString.lowercased()
+    let current = "com.snepssen.gatewayforge.gfcheck.\(run)", previous = "local.gatewayforge.gfcheck.\(run)"
+    let oldVault = SyncCredentialVault(service: previous, previousService: nil)
+    let vault = SyncCredentialVault(service: current, previousService: previous)
+    defer { try? vault.removeAll() }
+    c.equal(SyncCredentialVault.service, "com.snepssen.gatewayforge.sync", "the app's Keychain service")
+    c.equal(SyncCredentialVault.previousService, "local.gatewayforge.sync", "and the one it moves off")
+    let device = SyncPairedDevice(clientID: "phone", displayName: "Phone", bearerToken: "token",
+                                  tlsIdentity: Data([1]), tlsSecret: Data([2]), pairedAt: Date(timeIntervalSince1970: 1_800_000_000))
+    let paired = SyncDesktopIdentity(serverID: "desktop-check", devices: [device])
+    do {
+        try oldVault.save(paired)
+        c.equal(try vault.load(), paired, "the identity under the old service is the one loaded")
+        c.equal(try SyncCredentialVault(service: current, previousService: nil).load(), paired,
+                "and it is now under the new service")
+        let reopened = try SyncCredentialVault(service: previous, previousService: nil).load()
+        c.expect(reopened != paired, "and gone from the old one (reading it there finds nothing and starts afresh)")
+        c.equal(try vault.load(), paired, "a second load is unchanged")
+    } catch {
+        c.note("Keychain unavailable here, pairing migration not exercised: \(error)")
+    }
+}
+
 c.finish()
