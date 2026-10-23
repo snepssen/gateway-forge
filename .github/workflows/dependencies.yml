@@ -1,4 +1,4 @@
-name: voice-core
+name: dependencies
 
 # The speech mechanism comes from github.com/snepssen/voice-core. Once a day,
 # or on demand from the Actions tab, this moves to its newest release, runs
@@ -15,8 +15,9 @@ permissions:
 
 jobs:
   update:
-    uses: snepssen/voice-core/.github/workflows/update-voice-core.yml@main
+    uses: snepssen/site-core/.github/workflows/update-dependency.yml@main
     with:
+      packages: voice-core
       checks: >-
         swift run -q gfcheck &&
         diff -rq .build/checkouts/voice-core/Sources/VoiceCore/Resources/espeak-ng-data
