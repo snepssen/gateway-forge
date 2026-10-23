@@ -8663,4 +8663,29 @@ do {
     #endif
 } catch { c.expect(false, "portable audio reading checks threw: \(error)") }
 
+#if os(Linux)
+c.suite("the Linux Trash")
+do {
+    // "Delete permanently" goes to the system Trash, as on the Mac: here the
+    // freedesktop.org one, so the desktop's own Trash can put it back.
+    let fm = FileManager.default
+    let scratch = fm.temporaryDirectory.appending(path: "gf-trash-\(UUID().uuidString)")
+    defer { try? fm.removeItem(at: scratch) }
+    let data = scratch.appending(path: "share"), item = scratch.appending(path: "session one")
+    try fm.createDirectory(at: item, withIntermediateDirectories: true)
+    try Data("audio".utf8).write(to: item.appending(path: "session.wav"))
+    try DeletionStore.moveToTrash(item, fileManager: fm, dataHome: data)
+    c.expect(!fm.fileExists(atPath: item.path), "the item leaves where it was")
+    c.equal(try? String(contentsOf: data.appending(path: "Trash/files/session one/session.wav"), encoding: .utf8),
+            "audio", "and arrives in Trash/files whole")
+    let info = (try? String(contentsOf: data.appending(path: "Trash/info/session one.trashinfo"), encoding: .utf8)) ?? ""
+    c.expect(info.hasPrefix("[Trash Info]\n") && info.contains("Path=\(item.standardizedFileURL.path.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!)")
+             && info.contains("DeletionDate="), "with a .trashinfo saying where it came from")
+    try fm.createDirectory(at: item, withIntermediateDirectories: true)
+    try DeletionStore.moveToTrash(item, fileManager: fm, dataHome: data)
+    c.expect(fm.fileExists(atPath: data.appending(path: "Trash/files/session one.2").path),
+             "a second item of the same name is kept beside the first, not over it")
+} catch { c.expect(false, "Linux Trash checks threw: \(error)") }
+#endif
+
 c.finish()

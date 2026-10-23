@@ -389,11 +389,41 @@ public enum DeletionStore {
         let payload = payloadURL(for: item, root: root)
         if fm.fileExists(atPath: payload.path) {
             switch disposal {
-            case .trash: try fm.trashItem(at: payload, resultingItemURL: nil)
+            case .trash: try moveToTrash(payload, fileManager: fm)
             case .permanent: try fm.removeItem(at: payload)
             }
         }
         try? fm.removeItem(at: payload.deletingLastPathComponent())
+    }
+
+    /// The system Trash. Linux has no `FileManager.trashItem`, so it follows
+    /// the freedesktop.org Trash specification GNOME, KDE and Cinnamon share:
+    /// the item goes to `$XDG_DATA_HOME/Trash/files` with a `.trashinfo`
+    /// saying where it came from, so the desktop's own Trash can restore it.
+    public static func moveToTrash(_ url: URL, fileManager fm: FileManager,
+                            dataHome: URL? = nil, now: Date = Date()) throws {
+        #if os(macOS) || os(iOS) || os(Windows)
+        try fm.trashItem(at: url, resultingItemURL: nil)
+        #else
+        let home = dataHome ?? ProcessInfo.processInfo.environment["XDG_DATA_HOME"].map { URL(fileURLWithPath: $0) }
+            ?? fm.homeDirectoryForCurrentUser.appending(path: ".local/share")
+        let files = home.appending(path: "Trash/files"), info = home.appending(path: "Trash/info")
+        try fm.createDirectory(at: files, withIntermediateDirectories: true)
+        try fm.createDirectory(at: info, withIntermediateDirectories: true)
+        let stem = url.deletingPathExtension().lastPathComponent, ext = url.pathExtension
+        var name = url.lastPathComponent, n = 1
+        while fm.fileExists(atPath: files.appending(path: name).path)
+                || fm.fileExists(atPath: info.appending(path: name + ".trashinfo").path) {
+            n += 1
+            name = ext.isEmpty ? "\(stem).\(n)" : "\(stem).\(n).\(ext)"
+        }
+        let stamp = ISO8601DateFormatter.string(from: now, timeZone: .current,
+                                                formatOptions: [.withFullDate, .withTime, .withColonSeparatorInTime, .withDashSeparatorInDate])
+        let original = url.standardizedFileURL.path.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? url.path
+        try Data("[Trash Info]\nPath=\(original)\nDeletionDate=\(stamp)\n".utf8)
+            .write(to: info.appending(path: name + ".trashinfo"))
+        try fm.moveItem(at: url, to: files.appending(path: name))
+        #endif
     }
 
     /// `standardizedFileURL` on both sides: macOS exposes the same temporary
