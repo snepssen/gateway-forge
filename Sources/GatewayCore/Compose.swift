@@ -1,4 +1,7 @@
 import Foundation
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
 
 /// One proposed narration line: what is said, then how long the silence after
 /// it lasts.
