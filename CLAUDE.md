@@ -1853,10 +1853,17 @@ on its own:
   in place rather than installing a second copy.
 
 **The iOS companion is `com.snepssen.gatewayforge.companion`**, and its
-Keychain service the same, chosen knowing it costs one re-pairing (owner's
-decision, 2026-10-23). On iOS a Keychain item belongs to the app's bundle ID,
-so the new ID is a new app that cannot read the old pairing: install it, pair
-again from the desktop's System page, and **Revoke** the old phone's entry
-there. Delete the old app from the phone. gfcheck's **bundle identity** and
+Keychain service the same (owner's decision, 2026-10-23). On iOS a Keychain
+item belongs to the app's bundle ID, so a phone that ran the old ID would
+pair once more. None does: the companion has been suspended since 2026-09-09
+(`CompanionService.isSuspended`), so nothing is paired and no install carries
+the old ID.
+
+**Both pairing moves wait for the companion to come back.** While it is
+suspended `prepare()` never runs, so `SyncCredentialVault.load()` is not
+called and the desktop's record stays under `local.gatewayforge.sync`; the
+first load after un-suspending moves it. A phone paired before the
+suspension pairs again with the new app, and the desktop's **Revoke** clears
+its old entry. gfcheck's **bundle identity** and
 **companion pairing** suites cover the rest, the second against throwaway
 Keychain service names.
