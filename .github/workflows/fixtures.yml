@@ -1,0 +1,29 @@
+# The fixtures in library/reference/ hold the TypeScript core to what the Swift
+# core answers. This regenerates them from the Swift in this commit and fails
+# if any differs (scripts/check-fixtures.sh), so the two cannot drift apart
+# through a commit that changes one side only. On Linux it is informational:
+# the same Swift built there should give the same bytes.
+name: fixtures
+
+on:
+  push:
+    paths: ["Sources/**", "library/**", "scripts/check-fixtures.sh", ".github/workflows/fixtures.yml"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  regenerate:
+    name: regenerate (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    continue-on-error: ${{ matrix.os != 'macos-latest' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - run: swift --version
+      - run: scripts/check-fixtures.sh
