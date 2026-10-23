@@ -1,0 +1,26 @@
+# The fixtures in library/reference/ hold the TypeScript core to what the Swift
+# core answers. This regenerates them from the Swift in this commit and fails
+# if any differs (scripts/check-fixtures.sh), so the two cannot drift apart
+# through a commit that changes one side only. macOS only for now: gfcorpus
+# also holds audio-analysis commands (Match.swift's AVFoundation, Spectrum's
+# Accelerate), so it does not build on Linux until the fixture writers are
+# split from them; then a Linux leg would show whether Swift there gives the
+# same bytes.
+name: fixtures
+
+on:
+  push:
+    paths: ["Sources/**", "library/**", "scripts/check-fixtures.sh", ".github/workflows/fixtures.yml"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  regenerate:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: swift --version
+      - run: scripts/check-fixtures.sh

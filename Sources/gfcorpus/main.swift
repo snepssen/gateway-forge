@@ -4311,7 +4311,12 @@ if subcommand == "deletion-fixture" {
         }
         var errorText: String?
         do { try body(scratch, base.addingTimeInterval(nowOffsetDays * day)) }
-        catch let e as DeletionError { errorText = "\(e)" }
+        // The scratch folder's path is random; write it as <root> so the
+        // fixture is the same on every run (the parity check reads the kind).
+        catch let e as DeletionError {
+            errorText = "\(e)".replacingOccurrences(of: scratch.standardizedFileURL.path, with: "<root>")
+                .replacingOccurrences(of: scratch.path, with: "<root>")
+        }
         catch { errorText = "other" }
 
         var survivors: [String] = []
