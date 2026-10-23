@@ -1,5 +1,9 @@
 import Foundation
+#if canImport(CryptoKit)
 import CryptoKit
+#else
+import Crypto
+#endif
 
 /// The pure arithmetic of pre-rendering: what needs rendering, what each file
 /// is called, how lines split, where silence goes. No audio here -- the app
