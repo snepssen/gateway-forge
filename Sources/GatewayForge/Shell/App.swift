@@ -1,7 +1,16 @@
 import SwiftUI
 import GatewayCore
 
+/// Moves preferences and the saved window off the old bundle ID before
+/// SwiftUI or AppKit open either of them.
 @main
+enum GatewayForgeMain {
+    static func main() {
+        BundleMigration.migrateMacLibrary()
+        GatewayForgeApp.main()
+    }
+}
+
 struct GatewayForgeApp: App {
     @StateObject private var store = LibraryStore()
     @StateObject private var monitor = ConnectorMonitor()

@@ -1827,3 +1827,33 @@ each phrase back; whole lines left them "a phrase and a half" behind. Wording
 is unchanged in all four files (checked word for word). The pause values are
 first values for audition, not measurements. The engine-wide sentence gap was
 deliberately not changed: it would make every take in the library stale.
+
+## Bundle identity is com.snepssen.gatewayforge (2026-10-23)
+
+The Mac app's bundle ID was `local.gatewayforge.app`; it is now
+`com.snepssen.gatewayforge`, as Companion and the Interpreter are
+`com.snepssen.*`. Three things were named with the old one, and each moves
+on its own:
+
+- **Preferences and the saved window.** `BundleMigration.migrateMacLibrary()`
+  runs from `GatewayForgeMain` before SwiftUI opens either, copying each to
+  the new name, reading it back, and only then deleting the old. A file
+  already under the new name is never replaced. companion-forge's migration,
+  ported. Application Support (`Gateway Forge`) is not named with the
+  bundle ID and does not move.
+- **The companion pairing.** `SyncCredentialVault` reads
+  `com.snepssen.gatewayforge.sync`; finding nothing there, it copies the
+  record from `local.gatewayforge.sync`, reads it back, then deletes the old
+  one. `load()` used to make a fresh identity whenever the service was
+  empty, so a bare rename would have unpaired every phone without a word.
+  macOS may ask once whether the new app may read the old item.
+- **The Electron build.** `appId` follows, and `nsis.guid` pins the GUID
+  electron-builder derived from the old ID
+  (`984c649c-d32e-5da5-a2cb-53b40f32d0c7`), so the Windows installer upgrades
+  in place rather than installing a second copy.
+
+**The iOS companion keeps `local.gatewayforge.companion`** for now. On iOS a
+Keychain item belongs to the app's bundle ID, so a new ID is a new app and
+the phone's pairing cannot follow it; that change waits for a decision.
+gfcheck's **bundle identity** and **companion pairing** suites cover the
+rest, the second against throwaway Keychain service names.

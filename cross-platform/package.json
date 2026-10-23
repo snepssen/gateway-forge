@@ -25,7 +25,7 @@
     "typescript": "^5.6.0"
   },
   "build": {
-    "appId": "local.gatewayforge.app",
+    "appId": "com.snepssen.gatewayforge",
     "productName": "Gateway Forge",
     "directories": {
       "output": "dist"
@@ -93,6 +93,9 @@
           ]
         }
       ]
+    },
+    "nsis": {
+      "guid": "984c649c-d32e-5da5-a2cb-53b40f32d0c7"
     },
     "mac": {
       "icon": "build/icon.icns",

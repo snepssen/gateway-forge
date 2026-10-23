@@ -236,7 +236,7 @@ cat > "$APP/Contents/Info.plist" <<PLIST
 <plist version="1.0">
 <dict>
   <key>CFBundleExecutable</key><string>GatewayForge</string>
-  <key>CFBundleIdentifier</key><string>local.gatewayforge.app</string>
+  <key>CFBundleIdentifier</key><string>com.snepssen.gatewayforge</string>
   <key>CFBundleName</key><string>Gateway Forge</string>
   <key>CFBundleIconFile</key><string>AppIcon</string>
   <key>CFBundlePackageType</key><string>APPL</string>
