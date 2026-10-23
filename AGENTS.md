@@ -1,4 +1,4 @@
-# Gateway Forge v3 — read `CLAUDE.md`
+# Gateway Forge — read `CLAUDE.md`
 
 **This file is a pointer. `CLAUDE.md` in this same directory is the working
 context, and it is the only one.** Read it before doing anything here.
