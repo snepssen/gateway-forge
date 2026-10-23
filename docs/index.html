@@ -169,7 +169,7 @@
     <div class="ecosystem-rail__jumps" role="navigation" aria-label="On this page">
       <a href="#screenshots">Screenshots</a>
       <a href="#downloads">Downloads</a>
-      <a href="#changelog">Changelog</a>
+      <a href="#in-depth">How it works</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="ecosystem-rail__more" hidden>
@@ -203,7 +203,7 @@
 
 <div class="wrap">
 <header id="top" class="mast">
-  <span class="badge"><span class="dot"></span>macOS, Windows and Linux · source-available</span>
+  <span class="badge"><span class="dot"></span>macOS · GPL-3.0</span>
   <h1>Gateway&nbsp;Forge</h1>
   <p class="subhead">A guided-meditation assembly system and journal built around the Monroe Institute's Gateway framework — the Institute's own map kept beside what was actually found, never merged into one answer.</p>
   <div class="headmeta">
@@ -232,24 +232,6 @@
   <div class="note"><b>Nothing here is asserted that could be measured.</b> Where something hasn't been tested, the checks say so by name rather than passing quietly over it.</div>
 </section>
 
-<section>
-  <p class="eyebrow">Measured</p>
-  <h2>A cut-off breath, measured back to a clean one</h2>
-  <p>The bundled voice is a Piper/VITS model fine-tuned on real speech, and its training clips were trimmed tight — so the model learned to stop mid-breath. A short line like <em>"Build the pattern."</em> ended at rms 0.0061 with the mic still open, against roughly 0.0007 for a clean stop. The fix isn't a fade — fading a real recording eats the same consonant it's meant to protect — it's giving the model two extra frames of silence to decay into before the cut.</p>
-  <div class="tablewrap">
-    <table>
-      <thead><tr><th>padding</th><th>mean tail rms</th><th>worst case</th><th>runs above threshold</th></tr></thead>
-      <tbody>
-        <tr><td>none</td><td class="mono">0.00180</td><td class="mono">0.00605</td><td class="mono">14%</td></tr>
-        <tr><td>+1 frame</td><td class="mono">0.00075</td><td class="mono">0.00246</td><td class="mono">0%</td></tr>
-        <tr><td><b>+2 frames</b></td><td class="mono"><b>0.00039</b></td><td class="mono"><b>0.00079</b></td><td class="mono"><b>0%</b></td></tr>
-        <tr><td>+3 frames</td><td class="mono">0.00112</td><td class="mono">0.00336</td><td class="mono">0%</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p style="margin-top:22px">Three frames is worse than two — past a point the model has room to voice into the extra silence rather than settle into it. It's a measured optimum, not a rounder-sounding guess, over seven real lines and five draws each.</p>
-</section>
-
 <section id="screenshots">
   <p class="eyebrow">The app</p>
   <h2>Every level is reachable, and the floor is F1</h2>
@@ -267,42 +249,6 @@
   </div>
   <p class="cap"><span style="color:var(--signal)">■</span> the trunk — the F27 tape's own seven climbs, F1 through F27 — with spurs branching where the tapes detour: F11 off F10, F18 off F15, F22 off F21, F24 off F23, then F27 continuing to F34, F35, F42, F49.</p>
   <div class="note">The relationship is enforced, not just drawn: a check derives the return path by reversing the climb, so adding a level and forgetting its way back fails the build rather than shipping quietly broken.</div>
-</section>
-
-<section>
-  <p class="eyebrow">Measured, from the source material</p>
-  <h2>What the tapes actually play</h2>
-  <p>FFT analysis across all fifty original tapes, keeping only genuine offset pairs (a real binaural signal, not two centred peaks) and weighting by how long each one holds. The whole programme collapses to three signals:</p>
-  <div class="tablewrap">
-    <table>
-      <thead><tr><th>signal</th><th>beat</th><th>carrier</th><th>where</th></tr></thead>
-      <tbody>
-        <tr><td class="mono">A</td><td class="mono">4.0 Hz</td><td class="mono">~99–100 Hz</td><td>Wave I · Focus 10</td></tr>
-        <tr><td class="mono">B</td><td class="mono">1.50 Hz</td><td class="mono">~99.2 Hz</td><td>Waves II–VI · Focus 12, and parts of 15 &amp; 21</td></tr>
-        <tr><td class="mono">C</td><td class="mono">0.37 Hz</td><td class="mono">~48.8 Hz</td><td>Waves VI–VIII · Focus 21 upward, all of Focus 27</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p style="margin-top:22px">The app never plays a looped recording of these — it regenerates the pair live from the measurement, so the differential can move continuously through a session's transitions instead of cutting at a seam. Transitions sweep rather than glide: the differential widens before it narrows, matching how a transition was actually described rather than a straight linear fade.</p>
-</section>
-
-<section>
-  <p class="eyebrow">Three decisions worth naming</p>
-  <h2>What this app won't do</h2>
-  <div class="grid">
-    <div class="card">
-      <h3><span class="pill pub">Published</span> <span class="pill found">Found</span> — never merged</h3>
-      <p>The Institute's own description and the listener's own account are stored separately and shown together. A level page can disagree with itself on purpose — that's the data, not a bug to reconcile.</p>
-    </div>
-    <div class="card">
-      <h3>A local model that curates, not invents</h3>
-      <p>Session drafting runs on a local Ollama model against the app's own documented material — it proposes an include/omit decision per real segment, never new narration, and nothing reaches the library unreviewed.</p>
-    </div>
-    <div class="card">
-      <h3>Offer, never prescribe</h3>
-      <p>Guidance invites noticing rather than asserting what you'll feel. A placeholder briefing for an unmapped level says so and names the level as unmapped, rather than inventing scenery to fill the gap.</p>
-    </div>
-  </div>
 </section>
 
 <section id="downloads">
@@ -424,9 +370,66 @@ cd gateway-forge && ./build.sh</code></pre>
   runner and the results are attached to a release.</div>
 </section>
 
-<section>
-  <p class="eyebrow">How it's built</p>
-  <h2>One executable, no cloud, checked by name</h2>
+<section id="in-depth" class="folds">
+  <p class="eyebrow">In depth</p>
+  <h2>How it works</h2>
+  <details class="fold" id="breath">
+    <summary><span class="fold__title">A cut-off breath, measured back to a clean one</span><span class="fold__teaser">The bundled voice learned to stop mid-breath; two extra frames of silence fixed it, measured rather than faded.</span></summary>
+    <div class="fold__body">
+  <p>The bundled voice is a Piper/VITS model fine-tuned on real speech, and its training clips were trimmed tight — so the model learned to stop mid-breath. A short line like <em>"Build the pattern."</em> ended at rms 0.0061 with the mic still open, against roughly 0.0007 for a clean stop. The fix isn't a fade — fading a real recording eats the same consonant it's meant to protect — it's giving the model two extra frames of silence to decay into before the cut.</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>padding</th><th>mean tail rms</th><th>worst case</th><th>runs above threshold</th></tr></thead>
+      <tbody>
+        <tr><td>none</td><td class="mono">0.00180</td><td class="mono">0.00605</td><td class="mono">14%</td></tr>
+        <tr><td>+1 frame</td><td class="mono">0.00075</td><td class="mono">0.00246</td><td class="mono">0%</td></tr>
+        <tr><td><b>+2 frames</b></td><td class="mono"><b>0.00039</b></td><td class="mono"><b>0.00079</b></td><td class="mono"><b>0%</b></td></tr>
+        <tr><td>+3 frames</td><td class="mono">0.00112</td><td class="mono">0.00336</td><td class="mono">0%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:22px">Three frames is worse than two — past a point the model has room to voice into the extra silence rather than settle into it. It's a measured optimum, not a rounder-sounding guess, over seven real lines and five draws each.</p>
+    </div>
+  </details>
+  <details class="fold" id="tapes">
+    <summary><span class="fold__title">What the tapes actually play</span><span class="fold__teaser">FFT across all fifty tapes: the programme comes down to three binaural signals, and the app regenerates them live.</span></summary>
+    <div class="fold__body">
+  <p>FFT analysis across all fifty original tapes, keeping only genuine offset pairs (a real binaural signal, not two centred peaks) and weighting by how long each one holds. The whole programme collapses to three signals:</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>signal</th><th>beat</th><th>carrier</th><th>where</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">A</td><td class="mono">4.0 Hz</td><td class="mono">~99–100 Hz</td><td>Wave I · Focus 10</td></tr>
+        <tr><td class="mono">B</td><td class="mono">1.50 Hz</td><td class="mono">~99.2 Hz</td><td>Waves II–VI · Focus 12, and parts of 15 &amp; 21</td></tr>
+        <tr><td class="mono">C</td><td class="mono">0.37 Hz</td><td class="mono">~48.8 Hz</td><td>Waves VI–VIII · Focus 21 upward, all of Focus 27</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:22px">The app never plays a looped recording of these — it regenerates the pair live from the measurement, so the differential can move continuously through a session's transitions instead of cutting at a seam. Transitions sweep rather than glide: the differential widens before it narrows, matching how a transition was actually described rather than a straight linear fade.</p>
+    </div>
+  </details>
+  <details class="fold" id="wont">
+    <summary><span class="fold__title">What this app won't do</span><span class="fold__teaser">Published and found are never merged, the local model curates rather than invents, and nothing is unreviewed.</span></summary>
+    <div class="fold__body">
+  <div class="grid">
+    <div class="card">
+      <h3><span class="pill pub">Published</span> <span class="pill found">Found</span> — never merged</h3>
+      <p>The Institute's own description and the listener's own account are stored separately and shown together. A level page can disagree with itself on purpose — that's the data, not a bug to reconcile.</p>
+    </div>
+    <div class="card">
+      <h3>A local model that curates, not invents</h3>
+      <p>Session drafting runs on a local Ollama model against the app's own documented material — it proposes an include/omit decision per real segment, never new narration, and nothing reaches the library unreviewed.</p>
+    </div>
+    <div class="card">
+      <h3>Offer, never prescribe</h3>
+      <p>Guidance invites noticing rather than asserting what you'll feel. A placeholder briefing for an unmapped level says so and names the level as unmapped, rather than inventing scenery to fill the gap.</p>
+    </div>
+  </div>
+    </div>
+  </details>
+  <details class="fold" id="built">
+    <summary><span class="fold__title">One executable, no cloud, checked by name</span><span class="fold__teaser">Native Swift, no web engine, no Python anywhere in the tree, and a few thousand checks that say so.</span></summary>
+    <div class="fold__body">
   <p>Native Swift and SwiftUI throughout, no web engine and no bundled interpreter — the build fails outright on any Python file anywhere in the tree, on purpose. Speech runs through the same Piper/VITS-over-ONNX engine <a href="https://github.com/snepssen/voice-forge">Voice Forge</a> was built to expose, here bundled as a single fixed voice fine-tuned on the author's own speech.</p>
   <div class="readout three">
     <div class="cell"><div class="n">3,812</div><div class="l">checks currently passing</div></div>
@@ -436,11 +439,11 @@ cd gateway-forge && ./build.sh</code></pre>
   <p style="margin-top:26px">A checkout of this public copy has its corpus-dependent suites — the ones that read the original tape transcripts or the Institute's manuals — stand down by name instead of either failing on files that were never meant to ship here, or quietly reporting health they never actually looked for. <span class="mono" style="font-size:14px">note [source tapes] no tape transcripts in this tree — corpus suites stand down (this is the expected state of a build made for distribution)</span> is what that looks like in practice.</p>
   <h3 style="margin-top:34px">A ledger the app keeps, not the Institute's recordings</h3>
   <p>The three retained resonant-tuning cues and the wake-up signal that used to come from sampled Monroe tape recordings are now synthesised: the bed generates its own tuning and its own return signal, live, at the measured frequencies above. Nothing sampled from the original tapes ships in this build.</p>
-</section>
-
-<section id="changelog">
-  <p class="eyebrow">Changelog</p>
-  <h2>What changed</h2>
+    </div>
+  </details>
+  <details class="fold" id="changelog">
+    <summary><span class="fold__title">What changed</span><span class="fold__teaser">Every release, newest first, with what broke and how it was found.</span></summary>
+    <div class="fold__body">
 
   <h3>v5.4.0 <span class="mono" style="font-size:14px;font-weight:400">· 21 October 2026</span></h3>
   <p><b>Rendering no longer quits the app on macOS.</b> In v5.3.1, pressing Render closed Gateway Forge on every Mac except the one that built it. The release was compiled on a build server whose Swift looks for the voice in a different place inside the app than the one the voice is installed in, and gives up by stopping the program. The readiness check looked in the right place and said the voice was ready, so nothing warned before the crash. The voice is now found by the same lookup the readiness check uses, and the build refuses any code that reaches for it the other way.</p>
@@ -476,6 +479,8 @@ cd gateway-forge && ./build.sh</code></pre>
   <h3 class="handoff">v5.0.0</h3>
   <p>First public release. macOS only — the native SwiftUI app, the authored library, the live-generated bed, and the ledger that keeps a listener's own practice on their own machine.</p>
   <div class="note">Every release, with its full notes and checksums, is on the <a href="https://github.com/snepssen/gateway-forge/releases">releases page</a>.</div>
+    </div>
+  </details>
 </section>
 
 <section class="ecosystem-more" aria-labelledby="ecosystem-heading">
@@ -488,56 +493,56 @@ cd gateway-forge && ./build.sh</code></pre>
   </div>
   <div class="ecosystem-grid">
     <a class="ecosystem-card" data-project="gateway-forge" style="--card-accent: var(--eco-gateway)" href="https://snepssen.github.io/gateway-forge/" aria-current="page">
-      <div class="ecosystem-card__index"><span>01 / JOURNEYS</span><span>macOS · Windows · Linux</span></div>
+      <div class="ecosystem-card__index"><span>01 / JOURNEYS</span><span>macOS</span></div>
       <div class="ecosystem-card__glyph" aria-hidden="true">F10 ── F27</div>
       <h3>Gateway Forge</h3>
       <p>Assemble guided sessions and keep published maps beside what was actually found.</p>
       <span class="ecosystem-card__go">Explore Gateway Forge →</span>
     </a>
     <a class="ecosystem-card" data-project="voice-forge" style="--card-accent: var(--eco-voice)" href="https://snepssen.github.io/voice-forge/">
-      <div class="ecosystem-card__index"><span>02 / SPEECH</span><span>macOS · Windows · Linux</span></div>
+      <div class="ecosystem-card__index"><span>02 / SPEECH</span><span>macOS · Linux · untested: Windows</span></div>
       <div class="ecosystem-card__glyph" aria-hidden="true">⌁ / həˈləʊ /</div>
       <h3>Voice Forge</h3>
       <p>A transparent Piper workbench for timing, pronunciation, and honest audio export.</p>
       <span class="ecosystem-card__go">Explore Voice Forge →</span>
     </a>
     <a class="ecosystem-card" data-project="protoke" style="--card-accent: var(--eco-protoke)" href="https://snepssen.github.io/protoke/">
-      <div class="ecosystem-card__index"><span>03 / VIDEO</span><span>macOS · Windows · Linux</span></div>
+      <div class="ecosystem-card__index"><span>03 / VIDEO</span><span>macOS · tested on Linux, Windows</span></div>
       <div class="ecosystem-card__glyph" aria-hidden="true">◤ w ◥</div>
       <h3>Protoke</h3>
       <p>Karaoke and narration video with a vector visor face that mouths every word.</p>
       <span class="ecosystem-card__go">Explore Protoke →</span>
     </a>
     <a class="ecosystem-card" data-project="media-preflight" style="--card-accent: var(--eco-preflight)" href="https://snepssen.github.io/media-preflight/">
-      <div class="ecosystem-card__index"><span>04 / DELIVERY</span><span>macOS · Windows · Linux</span></div>
+      <div class="ecosystem-card__index"><span>04 / DELIVERY</span><span>macOS · tested on Linux, Windows</span></div>
       <div class="ecosystem-card__glyph" aria-hidden="true">✓ ≤ -3 dB</div>
       <h3>Media Preflight</h3>
       <p>Check a finished file against where it is going, and correct it without touching the original.</p>
       <span class="ecosystem-card__go">Explore Media Preflight →</span>
     </a>
     <a class="ecosystem-card" data-project="siphon" style="--card-accent: var(--eco-siphon)" href="https://snepssen.github.io/siphon/">
-      <div class="ecosystem-card__index"><span>05 / INTAKE</span><span>macOS · Windows · Linux</span></div>
+      <div class="ecosystem-card__index"><span>05 / INTAKE</span><span>macOS · tested on Linux · untested: Windows</span></div>
       <div class="ecosystem-card__glyph" aria-hidden="true">webm ⟶ mp3</div>
       <h3>siphon</h3>
       <p>Fetch from a link or convert what you already have, without re-encoding what it does not have to.</p>
       <span class="ecosystem-card__go">Explore siphon →</span>
     </a>
     <a class="ecosystem-card" data-project="auto-sort" style="--card-accent: var(--eco-autosort)" href="https://snepssen.github.io/auto-sort/">
-      <div class="ecosystem-card__index"><span>06 / FILING</span><span>macOS · Windows · Linux</span></div>
+      <div class="ecosystem-card__index"><span>06 / FILING</span><span>macOS · Linux · tested on Windows</span></div>
       <div class="ecosystem-card__glyph" aria-hidden="true">↓ Downloads → ∅</div>
       <h3>auto-sort</h3>
       <p>Empty the Downloads funnel into structure the folder taught it, and undo any of it.</p>
       <span class="ecosystem-card__go">Explore auto-sort →</span>
     </a>
     <a class="ecosystem-card" data-project="interpreter-forge" style="--card-accent: var(--eco-interpreter)" href="https://snepssen.github.io/interpreter-forge/">
-      <div class="ecosystem-card__index"><span>07 / INTERPRETING</span><span>macOS · iPhone</span></div>
+      <div class="ecosystem-card__index"><span>07 / INTERPRETING</span><span>macOS · iPhone · iPad · untested: Android</span></div>
       <div class="ecosystem-card__glyph" aria-hidden="true">halb elf → 10:30</div>
       <h3>Interpreter</h3>
       <p>Hear the table in English a few seconds behind, cut at the end of each thought, on your own phone.</p>
       <span class="ecosystem-card__go">Explore Interpreter →</span>
     </a>
     <a class="ecosystem-card" data-project="companion-forge" style="--card-accent: var(--eco-companion)" href="https://snepssen.github.io/companion-forge/">
-      <div class="ecosystem-card__index"><span>08 / COMPANION</span><span>Mac · iPhone · iPad</span></div>
+      <div class="ecosystem-card__index"><span>08 / COMPANION</span><span>macOS · iPhone · iPad</span></div>
       <div class="ecosystem-card__glyph" aria-hidden="true">mic → visor</div>
       <h3>companion-forge</h3>
       <p>A local voice companion for Mac, iPhone and iPad, with a protogen LED-visor face.</p>
@@ -558,7 +563,7 @@ cd gateway-forge && ./build.sh</code></pre>
       <span class="ecosystem-card__go">Open the repository →</span>
     </a>
     <a class="ecosystem-card" data-project="voice-core" style="--card-accent: var(--eco-voicecore)" href="https://github.com/snepssen/voice-core">
-      <div class="ecosystem-card__index"><span>11 / ENGINE</span><span>Swift · macOS · iOS</span></div>
+      <div class="ecosystem-card__index"><span>11 / ENGINE</span><span>Swift · macOS · iOS · tested on Linux</span></div>
       <div class="ecosystem-card__glyph" aria-hidden="true">text → /ipa/ → ids</div>
       <h3>voice-core</h3>
       <p>The speech engine the apps share: espeak-ng, the phonemizer and Piper inference, from one source.</p>

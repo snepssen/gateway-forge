@@ -14,7 +14,7 @@ PAGE = {
         "slug": "gateway-forge",
         "name": "Gateway&nbsp;Forge",
         "title": "Gateway Forge",
-        "badge": "macOS, Windows and Linux · source-available",
+        "license": "GPL-3.0",
         "fonts": "fonts.css",
         "description": "A guided-meditation assembly system and journal for the Monroe Institute's Gateway framework — the tape's own maps kept beside what was actually found, never merged.",
         "og_description": None,
@@ -50,6 +50,9 @@ PAGE = {
     {
         "eyebrow": "Measured",
         "heading": "A cut-off breath, measured back to a clean one",
+        "id": "breath",
+        "fold": True,
+        "teaser": 'The bundled voice learned to stop mid-breath; two extra frames of silence fixed it, measured rather than faded.',
         "body": "02.html",
     },
     {
@@ -62,11 +65,17 @@ PAGE = {
     {
         "eyebrow": "Measured, from the source material",
         "heading": "What the tapes actually play",
+        "id": "tapes",
+        "fold": True,
+        "teaser": 'FFT across all fifty tapes: the programme comes down to three binaural signals, and the app regenerates them live.',
         "body": "04.html",
     },
     {
         "eyebrow": "Three decisions worth naming",
         "heading": "What this app won't do",
+        "id": "wont",
+        "fold": True,
+        "teaser": 'Published and found are never merged, the local model curates rather than invents, and nothing is unreviewed.',
         "body": "05.html",
     },
     {
@@ -79,6 +88,9 @@ PAGE = {
     {
         "eyebrow": "How it's built",
         "heading": "One executable, no cloud, checked by name",
+        "id": "built",
+        "fold": True,
+        "teaser": 'Native Swift, no web engine, no Python anywhere in the tree, and a few thousand checks that say so.',
         "body": "07.html",
     },
     {
@@ -86,8 +98,11 @@ PAGE = {
         "jump": "Changelog",
         "eyebrow": "Changelog",
         "heading": "What changed",
+        "fold": True,
+        "teaser": 'Every release, newest first, with what broke and how it was found.',
         "body": "changelog.html",
     },
+    {"folds": True},
     {"grid": True},
     ],
     "footer": [
