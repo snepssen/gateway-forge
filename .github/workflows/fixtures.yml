@@ -1,11 +1,10 @@
 # The fixtures in library/reference/ hold the TypeScript core to what the Swift
 # core answers. This regenerates them from the Swift in this commit and fails
 # if any differs (scripts/check-fixtures.sh), so the two cannot drift apart
-# through a commit that changes one side only. macOS only for now: gfcorpus
-# also holds audio-analysis commands (Match.swift's AVFoundation, Spectrum's
-# Accelerate), so it does not build on Linux until the fixture writers are
-# split from them; then a Linux leg would show whether Swift there gives the
-# same bytes.
+# through a commit that changes one side only. On Linux too: gfcorpus's
+# fixture writers are GatewayCore and Foundation alone (its audio commands
+# are the Mac's), so the Linux leg answers whether Swift there writes the same
+# bytes. Those fixtures are the spec a native Linux shell is held to.
 name: fixtures
 
 on:
@@ -19,7 +18,11 @@ permissions:
 
 jobs:
   regenerate:
-    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
       - run: swift --version

@@ -1,7 +1,16 @@
+#if canImport(CryptoKit)
 import CryptoKit
+#else
+import Crypto
+#endif
 import Foundation
+// The audio commands (screen, match, compare, segment) read and write through
+// AVFoundation and Accelerate, so they are macOS only. The fixture writers are
+// GatewayCore and Foundation alone, and build wherever GatewayCore does.
+#if canImport(AVFoundation)
 import AVFoundation
 import Accelerate
+#endif
 import GatewayCore
 
 /// Screening generated narration before any of it becomes a training corpus.
@@ -44,6 +53,7 @@ enum GFCorpus {
     static let speechGate = 0.08
 }
 
+#if canImport(AVFoundation)
 /// What one file is, measured.
 struct Screening {
     var name: String
@@ -150,6 +160,7 @@ func measure(_ url: URL) throws -> Screening {
                      floorDB: floorDB, quietPercent: quiet, clipped: clipped,
                      wordsPerMinute: nil, speechDB: speechDB, alphaDB: alphaDB)
 }
+#endif
 
 /// Words per block, read from the reading script so the rate can be compared
 /// against what the block was actually asked to say.
@@ -6137,6 +6148,11 @@ if subcommand == "audition" {
     exit(0)
 }
 
+// Everything below reads audio files.
+#if !canImport(AVFoundation)
+FileHandle.standardError.write(Data("gfcorpus \(subcommand) reads audio through AVFoundation, so it runs on macOS only\n".utf8))
+exit(2)
+#else
 guard let first = positional.first else {
     FileHandle.standardError.write(Data("gfcorpus: no folder given\n".utf8))
     exit(2)
@@ -6294,3 +6310,4 @@ if detail {
                      s.floorDB, s.quietPercent, s.clipped, rate, level, alpha))
     }
 }
+#endif

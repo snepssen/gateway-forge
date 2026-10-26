@@ -1,3 +1,4 @@
+#if canImport(AVFoundation)
 import Foundation
 import AVFoundation
 import Accelerate
@@ -370,3 +371,4 @@ func runMatch(folder: URL, out: URL?, requestedAlpha: Double?,
     if out != nil { print("\nwrote \(wrote) file(s) to \(out!.path)") }
     return 0
 }
+#endif

@@ -1,3 +1,4 @@
+#if canImport(AVFoundation)
 import Foundation
 import Accelerate
 
@@ -331,3 +332,4 @@ extension Spectrum {
         return curveDB.map { $0 - mean }
     }
 }
+#endif
