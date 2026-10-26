@@ -98,7 +98,12 @@ let package = Package(
         ]),
         .executableTarget(name: "gfscaffold", dependencies: ["GatewayCore"]),
         .executableTarget(name: "gfeval", dependencies: ["GatewayCore"]),
-        .executableTarget(name: "gfcorpus", dependencies: ["GatewayCore"]),
+        // Its fixture writers build on Linux too (fixtures.yml); its audio
+        // commands are AVFoundation and stay on the Mac.
+        .executableTarget(name: "gfcorpus", dependencies: [
+            "GatewayCore",
+            .product(name: "Crypto", package: "swift-crypto", condition: .when(platforms: [.linux])),
+        ]),
         .executableTarget(name: "gfrender", dependencies: ["GatewayCore", "GatewayTTS"]),
     ]
 )

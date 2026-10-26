@@ -1,3 +1,4 @@
+#if canImport(AVFoundation)
 import Foundation
 
 /// Two folders of the same blocks, measured against each other.
@@ -78,3 +79,4 @@ func runCompare(before: URL, after: URL) -> Int32 {
     }
     return 0
 }
+#endif

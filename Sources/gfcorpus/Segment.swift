@@ -1,3 +1,4 @@
+#if canImport(AVFoundation)
 import Foundation
 import Accelerate
 
@@ -402,3 +403,4 @@ func runSegment(corpus: URL, transcripts: URL, scriptPath: String?, out: URL, pa
     print("wrote \(manifestURL.path)")
     return 0
 }
+#endif
