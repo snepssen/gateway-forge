@@ -83,7 +83,7 @@ check(existsSync(join(voice, "espeak-ng-data", "phontab")), "espeak's data is bu
 // A native module cannot be loaded from inside an asar, and neither can the
 // wasm emscripten locates beside its own glue. Both must be unpacked.
 const unpacked = join(resources, "app.asar.unpacked");
-check(existsSync(join(unpacked, "vendor", "espeakng", "espeak.wasm")),
+check(existsSync(join(unpacked, "vendor", "voice-core", "espeak.wasm")),
       "the vendored phonemizer is unpacked, not sealed in the asar");
 const ortRoot = join(unpacked, "node_modules", "onnxruntime-node", "bin", "napi-v6");
 const platforms = existsSync(ortRoot) ? readdirSync(ortRoot) : [];

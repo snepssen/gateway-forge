@@ -10,7 +10,7 @@
 import * as ort from "onnxruntime-node";
 import { existsSync, readFileSync, readdirSync } from "fs";
 import { join } from "path";
-import { EspeakPhonemizer } from "./espeak.js";
+import { openPhonemizer, type EspeakPhonemizer } from "./espeak.js";
 import { voiceResources } from "./paths.js";
 import { makeResampler, type Resampler } from "./resample.js";
 import { joinSpeechParts, sampleRate as outputSampleRate, sentences } from "../core/renderPlan.js";
@@ -126,7 +126,7 @@ export class PiperSpeechEngine {
     }
     const config = JSON.parse(readFileSync(configPath, "utf8")) as PiperVoiceConfig;
     const session = await ort.InferenceSession.create(modelPath);
-    const phonemizer = await EspeakPhonemizer.open(resources, config.espeak.voice);
+    const phonemizer = await openPhonemizer(resources, config.espeak.voice);
     return new PiperSpeechEngine(name, session, config, phonemizer,
                                  makeResampler(config.audio.sample_rate, outputSampleRate));
   }
@@ -144,7 +144,7 @@ export class PiperSpeechEngine {
     const list = sentences(text);
     const calls = list.length > 1 ? list : [list[0] ?? text];
     return calls.map(sentence => {
-      const phonemes = this.phonemizer.phonemize(sentence, dropFinalFullStop);
+      const phonemes = this.phonemizer.phonemize(sentence, { dropFinalStop: dropFinalFullStop });
       return { sentence, phonemes, ids: phonemesToIds(phonemes, this.config.phoneme_id_map) };
     });
   }
@@ -175,7 +175,7 @@ export class PiperSpeechEngine {
 
   /** One sentence, one inference call. */
   async renderOne(text: string): Promise<Float32Array> {
-    const phonemized = this.phonemizer.phonemize(text, dropFinalFullStop);
+    const phonemized = this.phonemizer.phonemize(text, { dropFinalStop: dropFinalFullStop });
     const ids = phonemesToIds(phonemized, this.config.phoneme_id_map);
     if (ids.length === 0) return new Float32Array(0);
 

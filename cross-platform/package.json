@@ -32,11 +32,11 @@
     },
     "files": [
       "out/**/*",
-      "vendor/espeakng/**",
+      "vendor/voice-core/**",
       "package.json"
     ],
     "asarUnpack": [
-      "vendor/espeakng/**",
+      "vendor/voice-core/**",
       "node_modules/onnxruntime-node/bin/**"
     ],
     "extraResources": [
