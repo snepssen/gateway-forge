@@ -4668,7 +4668,7 @@ do {
             // first place. It ships nowhere: `build.sh` and `Package.swift`
             // never mention it, no Swift source reads it, the `.app`'s
             // Resources are icon/library/focus/voice, and electron-builder
-            // carries only `out`, `vendor/espeakng` and `package.json`. The
+            // carries only `out`, `vendor/voice-core` and `package.json`. The
             // three assertions below hold it to that.
             if name == ".build" || name == ".dd" || name == ".git"
                 || name == "node_modules" || name == "docs" {

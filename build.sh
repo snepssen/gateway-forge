@@ -64,6 +64,9 @@ diff -rq "$CORE_DATA" "$ROOT/Sources/GatewayTTS/Resources/espeak-ng-data" >/dev/
   echo "error: Sources/GatewayTTS/Resources/espeak-ng-data differs from voice-core's" >&2
   diff -rq "$CORE_DATA" "$ROOT/Sources/GatewayTTS/Resources/espeak-ng-data" 2>&1 | head -5 >&2
   exit 1; }
+# The same holds for the phonemizer that build runs: voice-core's js/, copied
+# into cross-platform/vendor/voice-core.
+"$ROOT/scripts/sync-voice-core-js.sh" --check
 
 echo "cross-platform checks…"
 npm --prefix "$ROOT/cross-platform" run check

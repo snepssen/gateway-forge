@@ -21,7 +21,7 @@
 import { readFileSync } from "fs";
 import { join } from "path";
 import { PiperSpeechEngine, bundledVoices, phonemesToIds, resourcesDirectory } from "../main/speech.js";
-import { EspeakPhonemizer } from "../main/espeak.js";
+import { openPhonemizer } from "../main/espeak.js";
 import { makeResampler } from "../main/resample.js";
 import { sampleRate } from "../core/renderPlan.js";
 
@@ -46,9 +46,9 @@ check(engine.modelSampleRate === fx.modelSampleRate,
 check(sampleRate === fx.outputSampleRate,
   `this build's audio is ${fx.outputSampleRate} Hz, so the engine resamples (${sampleRate})`);
 
-const phonemizer = await EspeakPhonemizer.open(resourcesDirectory(), "en-us");
+const phonemizer = await openPhonemizer(resourcesDirectory(), "en-us");
 // The version this actually linked, said out loud rather than assumed: the
-// whole reason `vendor/espeakng` exists is that the published npm phonemizer
+// whole reason `vendor/voice-core` is vendored is that the published npm phonemizer
 // is an older espeak than the voice was trained with.
 console.log(`  espeak-ng linked: ${phonemizer.version}`);
 

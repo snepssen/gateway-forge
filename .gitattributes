@@ -5,7 +5,7 @@ cross-platform/** text eol=lf
 # would "normalise" its line endings into corruption. Git said so as a warning
 # on the very first `git add`; it is an error waiting to happen on a Windows
 # checkout, where the damage would show up as a phonemizer that will not load.
-cross-platform/vendor/espeakng/*.wasm binary
+cross-platform/vendor/voice-core/*.wasm binary
 
 # Same problem, different binaries: the app icons electron-builder reads for
 # the win/linux/mac targets. These sat uncommitted on disk since the icon was

@@ -8,7 +8,7 @@
  *
  * **This was done with per-platform `files` globs first, and that was wrong.**
  * electron-builder merges a platform `files` list with the top-level one as a
- * *second file set*, so everything matched by both — `vendor/espeakng/**`,
+ * *second file set*, so everything matched by both — `vendor/voice-core/**`,
  * which is also in `asarUnpack` — got two copy tasks racing to hardlink the
  * same destination. It failed with EEXIST on the Linux runner and succeeded on
  * Windows and on macOS, which is exactly what a race looks like and exactly

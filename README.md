@@ -87,6 +87,15 @@ bundled here as a single fixed voice fine-tuned on the author's own speech.
 `gfcheck` is the harness: a plain executable that asserts and exits non-zero,
 runs on any toolchain. `swift run gfcheck` from the package root.
 
+**The Windows and Linux build in [`cross-platform/`](cross-platform)
+(TypeScript, Electron) takes fixes and parity work only.** No new feature lands
+there: each one is written once, in Swift. It is held to the Swift core by the
+fixtures in `library/reference/`, which `gfcorpus` writes and
+`scripts/check-fixtures.sh` keeps current, and it phonemizes with voice-core's
+espeak-ng 724808c, as the Mac does. A native window over `GatewayCore`, which
+builds on Linux, is to replace it, the way Voice Forge's GTK window is
+replacing its Electron build first.
+
 ## The wider workshop
 
 - [Gateway Forge](https://snepssen.github.io/gateway-forge/) — this project.
