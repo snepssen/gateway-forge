@@ -1,10 +1,10 @@
 {
-  "originHash" : "df8521ce0bf3f48d1e90bc217f38026269a1a1382c3a299c72a542e85273a585",
+  "originHash" : "9b21a6effbe317c4fc5800eeb823e47edf7c2f0415f71d84090e5afd126138a5",
   "pins" : [
     {
       "identity" : "onnxruntime-swift-package-manager",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/microsoft/onnxruntime-swift-package-manager",
+      "location" : "https://github.com/snepssen/onnxruntime-swift-package-manager",
       "state" : {
         "revision" : "b7fb7f7dea8a2469e6335d95a61b8f36d0dc83b2",
         "version" : "1.24.2"
@@ -33,8 +33,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/snepssen/voice-core",
       "state" : {
-        "revision" : "0582eb8a2b1bf340df1bc16fd632c525e0b34360",
-        "version" : "1.2.0"
+        "revision" : "bd6146643bc42bf1e568261a9aafc4157fc6c500",
+        "version" : "1.2.1"
       }
     }
   ],
