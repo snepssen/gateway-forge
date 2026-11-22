@@ -1,0 +1,38 @@
+name: voice-core copies
+
+# Sources/GatewayTTS/Resources/espeak-ng-data and cross-platform/vendor/voice-core
+# are copies of voice-core's, at the version Package.resolved pins, and the
+# Windows and Linux build packages them. dependencies.yml checks them only on
+# the day voice-core moves; this checks every change to a copy or to the pin,
+# so a copy edited by hand, or left behind, fails here rather than days later.
+on:
+  push:
+    paths:
+      - "Package.resolved"
+      - "Sources/GatewayTTS/Resources/espeak-ng-data/**"
+      - "cross-platform/vendor/voice-core/**"
+      - "scripts/sync-voice-core-js.sh"
+      - ".github/workflows/voice-core-copies.yml"
+  pull_request:
+    paths:
+      - "Package.resolved"
+      - "Sources/GatewayTTS/Resources/espeak-ng-data/**"
+      - "cross-platform/vendor/voice-core/**"
+      - "scripts/sync-voice-core-js.sh"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  match:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: swift package resolve
+      - name: espeak-ng data equals voice-core's
+        run: >-
+          diff -rq .build/checkouts/voice-core/Sources/VoiceCore/Resources/espeak-ng-data
+          Sources/GatewayTTS/Resources/espeak-ng-data
+      - name: the phonemizer equals voice-core's
+        run: scripts/sync-voice-core-js.sh --check

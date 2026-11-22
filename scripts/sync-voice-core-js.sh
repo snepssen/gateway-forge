@@ -9,7 +9,9 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 CHECK=false; [ "${1:-}" = "--check" ] && CHECK=true
-[ -d .build/checkouts/voice-core ] || swift package resolve >/dev/null
+# Always resolve: a checkout left in .build by an older Package.resolved would
+# otherwise be compared against, and pass or fail on the wrong version.
+swift package resolve >/dev/null
 FROM=.build/checkouts/voice-core/js
 TO=cross-platform/vendor/voice-core
 FILES=(espeak.cjs espeak.wasm phonemizer.mjs phonemizer.d.mts)

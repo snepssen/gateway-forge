@@ -58,7 +58,7 @@ assert_arm64() {
 # Linux build still packages Sources/GatewayTTS/Resources/espeak-ng-data, so
 # that copy must stay byte-identical to voice-core's, or the platforms stop
 # sounding alike in some of the commonest words in English.
-[ -d "$ROOT/.build/checkouts/voice-core" ] || swift package resolve >/dev/null
+(cd "$ROOT" && swift package resolve >/dev/null)  # the pinned voice-core, not a stale checkout
 CORE_DATA="$ROOT/.build/checkouts/voice-core/Sources/VoiceCore/Resources/espeak-ng-data"
 diff -rq "$CORE_DATA" "$ROOT/Sources/GatewayTTS/Resources/espeak-ng-data" >/dev/null || {
   echo "error: Sources/GatewayTTS/Resources/espeak-ng-data differs from voice-core's" >&2
